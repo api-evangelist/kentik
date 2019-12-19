@@ -1,0 +1,54 @@
+{
+    "name": "Kentik",
+    "description": "<p>As network and service operators and developers, we&rsquo;ve spent our entire professional lives designing and running large-scale networks and CDNs. With decades of experience, we know the shortcomings of available tools. What we always wanted &mdash; but never found &mdash; was an infrastructure visibility solution that&rsquo;s scalable, powerful, easy to use, and affordable. We started Kentik to create that solution.<\/p>",
+    "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/logos\/Kentik_Logo_380_340.jpg",
+    "tags": [
+        "api provider",
+        "api service provider",
+        "have api",
+        "networks"
+    ],
+    "created": "2019-12-19",
+    "modified": "2019-12-19",
+    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/kentik\/master\/apis.json",
+    "specificationVersion": "0.14",
+    "apis": [
+        {
+            "name": "Kentik",
+            "description": null,
+            "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/logos\/Kentik_Logo_380_340.jpg",
+            "humanURL": "https:\/\/www.kentik.com\/",
+            "baseURL": "",
+            "tags": [],
+            "properties": [
+                {
+                    "type": "x-openapi",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/kentik-openapi.json"
+                }
+            ]
+        }
+    ],
+    "include": [],
+    "x-common": [
+        {
+            "type": "Blog",
+            "url": "https:\/\/www.kentik.com\/blog\/"
+        },
+        {
+            "type": "Blog RSS",
+            "url": "https:\/\/www.kentik.com\/feed\/"
+        },
+        {
+            "type": "Twitter",
+            "url": "https:\/\/twitter.com\/kentikinc"
+        },
+        {
+            "type": "Github",
+            "url": "https:\/\/github.com\/kentik"
+        },
+        {
+            "type": "Website",
+            "url": "https:\/\/www.kentik.com\/"
+        }
+    ]
+}
