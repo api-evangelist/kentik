@@ -1,0 +1,69 @@
+generated: '2026-07-19'
+method: searched
+docs: https://kb.kentik.com/docs/apis-overview
+notes: >-
+  Kentik V6 APIs authenticate with two API-key headers on every request:
+  X-CH-Auth-Email (the user's Kentik email) and X-CH-Auth-API-Token (the user's
+  API token from their profile; rotate with the User API ResetApiToken op). No
+  OAuth2 / OIDC. Confirmed against the Kentik KB APIs overview.
+source: openapi/kentik-ai-advisor-openapi.json, openapi/kentik-alert-policy-openapi.json, openapi/kentik-alerting-openapi.json,
+  openapi/kentik-as-group-openapi.json, openapi/kentik-audit-openapi.json, openapi/kentik-bgp-monitoring-openapi.json,
+  openapi/kentik-capacity-plan-openapi.json, openapi/kentik-cloud-export-openapi.json, openapi/kentik-cost-openapi.json,
+  openapi/kentik-custom-dimension-openapi.json, openapi/kentik-device-openapi.json, openapi/kentik-flow-tag-openapi.json
+  ...
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: email
+  type: apiKey
+  in: header
+  parameter: X-CH-Auth-Email
+  sources:
+  - openapi/kentik-ai-advisor-openapi.json
+  - openapi/kentik-alert-policy-openapi.json
+  - openapi/kentik-alerting-openapi.json
+  - openapi/kentik-as-group-openapi.json
+  - openapi/kentik-audit-openapi.json
+  - openapi/kentik-bgp-monitoring-openapi.json
+  - openapi/kentik-capacity-plan-openapi.json
+  - openapi/kentik-cloud-export-openapi.json
+  - openapi/kentik-cost-openapi.json
+  - openapi/kentik-custom-dimension-openapi.json
+  - openapi/kentik-device-openapi.json
+  - openapi/kentik-flow-tag-openapi.json
+  - openapi/kentik-kmi-openapi.json
+  - openapi/kentik-label-openapi.json
+  - openapi/kentik-mitigation-openapi.json
+  - openapi/kentik-mkp-openapi.json
+  - openapi/kentik-notification-channel-openapi.json
+  - openapi/kentik-site-openapi.json
+  - openapi/kentik-synthetics-openapi.json
+  - openapi/kentik-user-openapi.json
+- name: token
+  type: apiKey
+  in: header
+  parameter: X-CH-Auth-API-Token
+  sources:
+  - openapi/kentik-ai-advisor-openapi.json
+  - openapi/kentik-alert-policy-openapi.json
+  - openapi/kentik-alerting-openapi.json
+  - openapi/kentik-as-group-openapi.json
+  - openapi/kentik-audit-openapi.json
+  - openapi/kentik-bgp-monitoring-openapi.json
+  - openapi/kentik-capacity-plan-openapi.json
+  - openapi/kentik-cloud-export-openapi.json
+  - openapi/kentik-cost-openapi.json
+  - openapi/kentik-custom-dimension-openapi.json
+  - openapi/kentik-device-openapi.json
+  - openapi/kentik-flow-tag-openapi.json
+  - openapi/kentik-kmi-openapi.json
+  - openapi/kentik-label-openapi.json
+  - openapi/kentik-mitigation-openapi.json
+  - openapi/kentik-mkp-openapi.json
+  - openapi/kentik-notification-channel-openapi.json
+  - openapi/kentik-site-openapi.json
+  - openapi/kentik-synthetics-openapi.json
+  - openapi/kentik-user-openapi.json
