@@ -1,0 +1,449 @@
+openapi: 3.0.0
+info:
+  title: AI Advisor AiAdvisorDataService PackageService API
+  description: '# Overview
+
+    Provides programmatic access to AI Advisor.'
+  version: v202511
+  contact:
+    name: Kentik API Engineering
+    url: https://github.com/kentik/api-schema-public
+security:
+- email: []
+  token: []
+tags:
+- name: PackageService
+paths:
+  /mkp/v202407/packages:
+    get:
+      summary: List MKP packages.
+      description: Returns a list of MKP packages.
+      operationId: PackageList
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v202407ListPackageResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+      tags:
+      - PackageService
+    post:
+      summary: Create a package template.
+      description: Create package from request. returns created package.
+      operationId: PackageCreate
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v202407CreatePackageResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/v202407CreatePackageRequest'
+        required: true
+      tags:
+      - PackageService
+  /mkp/v202407/packages/{id}:
+    get:
+      summary: Get information aboout a package.
+      description: Returns information about package specified with ID.
+      operationId: PackageGet
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v202407GetPackageResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - PackageService
+    delete:
+      summary: Delete a package.
+      description: Deletes the package specified with id.
+      operationId: PackageDelete
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v202407DeletePackageResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - PackageService
+    put:
+      summary: Update a package.
+      description: Update package attributes specified with id.
+      operationId: PackageUpdate
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v202407UpdatePackageResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+      parameters:
+      - name: id
+        description: Unique system assigned identifier of the package
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PackageServiceUpdatePackageBody'
+        required: true
+      tags:
+      - PackageService
+components:
+  schemas:
+    v202407Mitigation:
+      type: object
+      properties:
+        id:
+          type: string
+        status:
+          type: string
+        companyId:
+          type: string
+        pairingId:
+          type: string
+        thresholdId:
+          type: string
+        isMethodOverridable:
+          type: boolean
+        mitigationApplyType:
+          type: string
+        mitigationClearType:
+          type: string
+        mitigationApplyTimer:
+          type: integer
+          format: int64
+        mitigationClearTimer:
+          type: integer
+          format: int64
+        isPlatformOverridable:
+          type: boolean
+      title: Mitigation
+    v202407ListPackageResponse:
+      type: object
+      properties:
+        packages:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202407Package'
+        invalidCount:
+          type: integer
+          format: int64
+          description: The number of invalid packages, for troubleshooting. Should be zero.
+      title: ListPackageResponse
+    v202407Asset:
+      type: object
+      properties:
+        reports:
+          type: array
+          items:
+            $ref: '#/components/schemas/AssetReport'
+        defaultReport:
+          $ref: '#/components/schemas/AssetReport'
+      title: Asset
+    v202407CreatePackageRequest:
+      type: object
+      properties:
+        package:
+          $ref: '#/components/schemas/v202407Package'
+      title: CreatePackageRequest
+    v202407GetPackageResponse:
+      type: object
+      properties:
+        package:
+          $ref: '#/components/schemas/v202407Package'
+      title: GetPackageResponse
+    PackageServiceUpdatePackageBody:
+      type: object
+      properties:
+        package:
+          type: object
+          properties:
+            companyId:
+              type: string
+              description: Company id of the associated package
+              readOnly: true
+            name:
+              type: string
+              description: Name of package template
+              readOnly: true
+            description:
+              type: string
+              description: Description of package template
+              readOnly: true
+            icon:
+              type: string
+              description: Icon to display
+              readOnly: true
+            color:
+              type: string
+              description: Color of Icon
+              readOnly: true
+            alerts:
+              type: array
+              items:
+                $ref: '#/components/schemas/v202407Alert'
+              description: Alert thresholds and policies
+              readOnly: true
+            assets:
+              $ref: '#/components/schemas/v202407Asset'
+            isDefault:
+              type: boolean
+              description: Is default template
+              readOnly: true
+            tenants:
+              type: array
+              items:
+                $ref: '#/components/schemas/v202407TenantLink'
+              description: Tenant link information
+              readOnly: true
+          title: Package
+      title: UpdatePackageRequest
+    v202407UpdatePackageResponse:
+      type: object
+      properties:
+        package:
+          $ref: '#/components/schemas/v202407Package'
+      title: UpdatePackageResponse
+    v202407NotificationChannel:
+      type: object
+      properties:
+        id:
+          type: string
+      title: NotificationChannel
+    v202407Activate:
+      type: object
+      properties:
+        times:
+          type: integer
+          format: int64
+        operator:
+          type: string
+        timeWindowSeconds:
+          type: integer
+          format: int64
+        gracePeriodSeconds:
+          type: integer
+          format: int64
+      title: Activate
+    rpcStatus:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        details:
+          type: array
+          items:
+            $ref: '#/components/schemas/protobufAny'
+    v202407Package:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique system assigned identifier of the package
+          readOnly: true
+        companyId:
+          type: string
+          description: Company id of the associated package
+          readOnly: true
+        name:
+          type: string
+          description: Name of package template
+          readOnly: true
+        description:
+          type: string
+          description: Description of package template
+          readOnly: true
+        icon:
+          type: string
+          description: Icon to display
+          readOnly: true
+        color:
+          type: string
+          description: Color of Icon
+          readOnly: true
+        alerts:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202407Alert'
+          description: Alert thresholds and policies
+          readOnly: true
+        assets:
+          $ref: '#/components/schemas/v202407Asset'
+        isDefault:
+          type: boolean
+          description: Is default template
+          readOnly: true
+        tenants:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202407TenantLink'
+          description: Tenant link information
+          readOnly: true
+      title: Package
+    AssetReport:
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+    v202407DeletePackageResponse:
+      type: object
+      title: DeletePackageResponse
+    v202407TenantLink:
+      type: object
+      properties:
+        id:
+          type: string
+        pivotTemplateId:
+          type: string
+        pivotUserGroupId:
+          type: string
+      title: TenantLink
+    v202407CreatePackageResponse:
+      type: object
+      properties:
+        package:
+          $ref: '#/components/schemas/v202407Package'
+      title: CreatePackageResponse
+    v202407Alert:
+      type: object
+      properties:
+        saved:
+          type: boolean
+        policyId:
+          type: string
+        thresholds:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202407Threshold'
+        primaryMetric:
+          type: string
+        secondaryMetrics:
+          type: array
+          items:
+            type: string
+        isTemplate:
+          type: boolean
+        subpolicyId:
+          type: string
+      title: Alert
+    v202407Condition:
+      type: object
+      properties:
+        type:
+          type: string
+        value:
+          type: string
+        metric:
+          type: string
+        operator:
+          type: string
+        valueType:
+          type: string
+        valueSelect:
+          type: string
+      title: Condition
+    v202407Threshold:
+      type: object
+      properties:
+        id:
+          type: string
+        activate:
+          $ref: '#/components/schemas/v202407Activate'
+        severity:
+          type: string
+        conditions:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202407Condition'
+        mitigations:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202407Mitigation'
+        notificationChannels:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202407NotificationChannel'
+        thresholdAckRequired:
+          type: boolean
+        enableTenantNotifications:
+          type: boolean
+        receiveLandlordNotifications:
+          type: boolean
+      title: Threshold
+    protobufAny:
+      type: object
+      properties:
+        '@type':
+          type: string
+      additionalProperties: {}
+  securitySchemes:
+    email:
+      type: apiKey
+      name: X-CH-Auth-Email
+      in: header
+    token:
+      type: apiKey
+      name: X-CH-Auth-API-Token
+      in: header
+externalDocs:
+  description: General information about Kentik APIs
+  url: https://kb.kentik.com/v0/Ab09.htm#Ab09-APIs_Overview

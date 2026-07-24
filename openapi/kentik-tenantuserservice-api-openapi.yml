@@ -1,0 +1,260 @@
+openapi: 3.0.0
+info:
+  title: AI Advisor AiAdvisorDataService TenantUserService API
+  description: '# Overview
+
+    Provides programmatic access to AI Advisor.'
+  version: v202511
+  contact:
+    name: Kentik API Engineering
+    url: https://github.com/kentik/api-schema-public
+security:
+- email: []
+  token: []
+tags:
+- name: TenantUserService
+paths:
+  /mkp/v202407/tenants/{tenantId}/users:
+    get:
+      summary: List users for a tenant.
+      description: Returns a list of users associated with the specified tenant.
+      operationId: TenantUserList
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v202407ListTenantUserResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+      parameters:
+      - name: tenantId
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - TenantUserService
+    post:
+      summary: Add a user to a tenant.
+      description: Creates a user association with the specified tenant.
+      operationId: TenantUserCreate
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v202407CreateTenantUserResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+      parameters:
+      - name: tenantId
+        description: Unique identifier of the tenant the user belongs to
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TenantUserServiceCreateTenantUserBody'
+        required: true
+      tags:
+      - TenantUserService
+  /mkp/v202407/tenants/{tenantId}/users/{id}:
+    delete:
+      summary: Remove a user from a tenant.
+      description: Deletes the user association with the specified tenant.
+      operationId: TenantUserDelete
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v202407DeleteTenantUserResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+      parameters:
+      - name: tenantId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - TenantUserService
+    put:
+      summary: Update a tenant user.
+      description: Updates the user associated with the specified tenant and user ID.
+      operationId: TenantUserUpdate
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v202407UpdateTenantUserResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+      parameters:
+      - name: tenantId
+        description: Unique identifier of the tenant the user belongs to
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id
+        description: Unique system assigned identifier of the user
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TenantUserServiceUpdateTenantUserBody'
+        required: true
+      tags:
+      - TenantUserService
+components:
+  schemas:
+    v202407CreateTenantUserResponse:
+      type: object
+      properties:
+        user:
+          $ref: '#/components/schemas/v202407TenantUser'
+      title: CreateTenantUserResponse
+    TenantUserServiceUpdateTenantUserBody:
+      type: object
+      properties:
+        user:
+          type: object
+          properties:
+            userFullName:
+              type: string
+              description: Full name of the user
+            userEmail:
+              type: string
+              description: Email address of the user
+          title: TenantUser
+      title: UpdateTenantUserRequest
+      required:
+      - userFullName
+      - userEmail
+    v202407DeleteTenantUserResponse:
+      type: object
+      title: DeleteTenantUserResponse
+    rpcStatus:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        details:
+          type: array
+          items:
+            $ref: '#/components/schemas/protobufAny'
+    TenantUserServiceCreateTenantUserBody:
+      type: object
+      properties:
+        user:
+          type: object
+          properties:
+            id:
+              type: string
+              description: Unique system assigned identifier of the user
+              readOnly: true
+            userFullName:
+              type: string
+              description: Full name of the user
+            userEmail:
+              type: string
+              description: Email address of the user
+          title: TenantUser
+      title: CreateTenantUserRequest
+      required:
+      - userFullName
+      - userEmail
+    v202407ListTenantUserResponse:
+      type: object
+      properties:
+        users:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202407TenantUser'
+        invalidCount:
+          type: integer
+          format: int64
+      title: ListTenantUserResponse
+    v202407UpdateTenantUserResponse:
+      type: object
+      properties:
+        user:
+          $ref: '#/components/schemas/v202407TenantUser'
+      title: UpdateTenantUserResponse
+    protobufAny:
+      type: object
+      properties:
+        '@type':
+          type: string
+      additionalProperties: {}
+    v202407TenantUser:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique system assigned identifier of the user
+          readOnly: true
+        tenantId:
+          type: string
+          description: Unique identifier of the tenant the user belongs to
+        userFullName:
+          type: string
+          description: Full name of the user
+        userEmail:
+          type: string
+          description: Email address of the user
+      title: TenantUser
+      required:
+      - tenantId
+      - userFullName
+      - userEmail
+  securitySchemes:
+    email:
+      type: apiKey
+      name: X-CH-Auth-Email
+      in: header
+    token:
+      type: apiKey
+      name: X-CH-Auth-API-Token
+      in: header
+externalDocs:
+  description: General information about Kentik APIs
+  url: https://kb.kentik.com/v0/Ab09.htm#Ab09-APIs_Overview
