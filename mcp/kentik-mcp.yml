@@ -1,0 +1,34 @@
+generated: '2026-07-19'
+method: searched
+status: published
+source: https://kb.kentik.com/docs/apis-overview
+docs: https://kb.kentik.com/llms.txt
+server:
+  name: Kentik AI Advisor MCP Server
+  vendor: Kentik
+  hosted: true
+  transport: http
+  url: null
+  notes: >-
+    Kentik publishes a hosted AI Advisor MCP Server that lets agents (Claude
+    Desktop, Cursor, and other MCP clients) query Kentik network observability
+    data in natural language. The KB documents Getting Started, Configuration
+    Examples, Troubleshooting, an MCP Tools Reference, and an MCP Payload
+    Reference. The exact remote endpoint and per-tool JSON schema are provided
+    inside the Kentik portal / KB configuration pages and are not enumerated on
+    a public unauthenticated page; the underlying service is the AI Advisor API
+    (openapi/kentik-ai-advisor-openapi.json). Users must reference "Kentik" in a
+    prompt to route to these tools.
+capabilities:
+- Natural-language queries over Kentik network telemetry
+- Multi-turn conversations with retained context
+- Real-time reasoning visibility
+- Asynchronous processing for long-running analysis
+- Session management for conversation continuity
+backing_api:
+  service: AI Advisor
+  openapi: openapi/kentik-ai-advisor-openapi.json
+  operations:
+  - CreateChatSession
+  - UpdateChatSession
+  - GetChatSession

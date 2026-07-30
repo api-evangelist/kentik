@@ -1,0 +1,37 @@
+generated: '2026-07-19'
+method: searched
+type: Webhooks
+source: https://github.com/kentik/custom-notification-templates and openapi/kentik-notification-channel-openapi.json
+description: >-
+  Kentik does not publish an AsyncAPI document, but it delivers outbound events
+  through Notification Channels attached to alert policies. A webhook (custom
+  webhook) is one of the supported channel types, so alert / mitigation events
+  can be pushed to an external HTTPS endpoint with a customizable JSON payload.
+event_surface: webhooks
+delivery:
+  mechanism: notification-channel
+  channel_types:
+  - webhook (custom HTTP callback)
+  - email
+  - slack
+  - pagerduty
+  - opsgenie
+  - microsoft-teams
+  - servicenow
+  - syslog
+  payload_templates: https://github.com/kentik/custom-notification-templates
+  notes: >-
+    Custom Webhook notification templates let you shape the JSON body Kentik POSTs
+    to your endpoint. Channels are created/managed via the Notification Channel
+    API (ListNotificationChannels, SearchNotificationChannels,
+    GetNotificationChannel) and bound to Alert Policies.
+triggers:
+- alert policy state changes (flow, BGP, NMS, synthetics)
+- DDoS detection and mitigation events
+- capacity-plan threshold breaches
+backing_apis:
+  notification_channels: openapi/kentik-notification-channel-openapi.json
+  alert_policies: openapi/kentik-alert-policy-openapi.json
+  alerting: openapi/kentik-alerting-openapi.json
+spec_type: none
+asyncapi_published: false

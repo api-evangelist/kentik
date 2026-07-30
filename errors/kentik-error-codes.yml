@@ -1,0 +1,77 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/*.json (default responses reference rpcStatus / google.rpc.Status)
+format: google.rpc.Status
+envelope:
+  schema: rpcStatus
+  fields:
+  - code (int, gRPC status code)
+  - message (string)
+  - details (array of google.protobuf.Any)
+note: Kentik V6 is gRPC-first; every operation declares a 'default' error response of type rpcStatus. gRPC status codes map to HTTP via gRPC-gateway. The catalog below is the canonical gRPC code set the
+  API returns.
+errors:
+- grpc_code: 1
+  status: CANCELLED
+  http_status: 499
+  meaning: Client cancelled the request
+- grpc_code: 2
+  status: UNKNOWN
+  http_status: 500
+  meaning: Unknown server error
+- grpc_code: 3
+  status: INVALID_ARGUMENT
+  http_status: 400
+  meaning: Request field invalid regardless of state
+- grpc_code: 4
+  status: DEADLINE_EXCEEDED
+  http_status: 504
+  meaning: Deadline expired before completion
+- grpc_code: 5
+  status: NOT_FOUND
+  http_status: 404
+  meaning: Requested resource not found
+- grpc_code: 6
+  status: ALREADY_EXISTS
+  http_status: 409
+  meaning: Resource already exists
+- grpc_code: 7
+  status: PERMISSION_DENIED
+  http_status: 403
+  meaning: Caller lacks permission for the operation
+- grpc_code: 8
+  status: RESOURCE_EXHAUSTED
+  http_status: 429
+  meaning: Quota or rate limit exhausted
+- grpc_code: 9
+  status: FAILED_PRECONDITION
+  http_status: 400
+  meaning: System not in a state required for the operation
+- grpc_code: 10
+  status: ABORTED
+  http_status: 409
+  meaning: Operation aborted (concurrency conflict)
+- grpc_code: 11
+  status: OUT_OF_RANGE
+  http_status: 400
+  meaning: Operation attempted past the valid range
+- grpc_code: 12
+  status: UNIMPLEMENTED
+  http_status: 501
+  meaning: Operation not implemented/supported
+- grpc_code: 13
+  status: INTERNAL
+  http_status: 500
+  meaning: Internal server error
+- grpc_code: 14
+  status: UNAVAILABLE
+  http_status: 503
+  meaning: Service currently unavailable; retry with backoff
+- grpc_code: 15
+  status: DATA_LOSS
+  http_status: 500
+  meaning: Unrecoverable data loss or corruption
+- grpc_code: 16
+  status: UNAUTHENTICATED
+  http_status: 401
+  meaning: Missing or invalid credentials (X-CH-Auth-* headers)

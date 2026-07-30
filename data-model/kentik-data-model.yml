@@ -1,0 +1,191 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/*.json schema $ref + id-reference fields
+note: Entity graph derived from the Kentik V6 service schemas and their id-reference fields. Relationships are inferred from foreign-key-style fields (site_id, policyId, agentIds, dimensionId).
+entities:
+- name: Device
+  service: device
+  openapi: openapi/kentik-device-openapi.json
+  key_fields:
+  - id
+  - device_name
+  - site_id
+  - labels
+  - plan_id
+- name: Site
+  service: site
+  openapi: openapi/kentik-site-openapi.json
+  key_fields:
+  - id
+  - title
+  - address
+- name: Label
+  service: label
+  openapi: openapi/kentik-label-openapi.json
+  key_fields:
+  - id
+  - name
+  - color
+- name: User
+  service: user
+  openapi: openapi/kentik-user-openapi.json
+  key_fields:
+  - id
+  - email
+  - role
+- name: AlertPolicy
+  service: alert-policy
+  openapi: openapi/kentik-alert-policy-openapi.json
+  key_fields:
+  - id
+  - policyType
+  - notificationChannels
+- name: Alert
+  service: alerting
+  openapi: openapi/kentik-alerting-openapi.json
+  key_fields:
+  - id
+  - policyId
+- name: Mitigation
+  service: mitigation
+  openapi: openapi/kentik-mitigation-openapi.json
+  key_fields:
+  - id
+  - policyId
+  - platformId
+  - methodId
+- name: NotificationChannel
+  service: notification-channel
+  openapi: openapi/kentik-notification-channel-openapi.json
+  key_fields:
+  - id
+  - type
+- name: CloudExport
+  service: cloud-export
+  openapi: openapi/kentik-cloud-export-openapi.json
+  key_fields:
+  - id
+  - cloud_provider
+- name: SyntheticTest
+  service: synthetics
+  openapi: openapi/kentik-synthetics-openapi.json
+  key_fields:
+  - id
+  - agentIds
+  - type
+- name: SyntheticAgent
+  service: synthetics
+  openapi: openapi/kentik-synthetics-openapi.json
+  key_fields:
+  - id
+  - siteId
+- name: CapacityPlan
+  service: capacity-plan
+  openapi: openapi/kentik-capacity-plan-openapi.json
+  key_fields:
+  - id
+  - deviceIds
+- name: BGPMonitor
+  service: bgp-monitoring
+  openapi: openapi/kentik-bgp-monitoring-openapi.json
+  key_fields:
+  - id
+  - target
+- name: CustomDimension
+  service: custom-dimension
+  openapi: openapi/kentik-custom-dimension-openapi.json
+  key_fields:
+  - id
+  - name
+  - populators
+- name: Populator
+  service: custom-dimension
+  openapi: openapi/kentik-custom-dimension-openapi.json
+  key_fields:
+  - id
+  - dimensionId
+- name: FlowTag
+  service: flow-tag
+  openapi: openapi/kentik-flow-tag-openapi.json
+  key_fields:
+  - id
+  - flag
+- name: ASGroup
+  service: as-group
+  openapi: openapi/kentik-as-group-openapi.json
+  key_fields:
+  - id
+  - name
+- name: MKPTenant
+  service: mkp
+  openapi: openapi/kentik-mkp-openapi.json
+  key_fields:
+  - id
+  - packageId
+- name: MKPPackage
+  service: mkp
+  openapi: openapi/kentik-mkp-openapi.json
+  key_fields:
+  - id
+- name: CostProvider
+  service: cost
+  openapi: openapi/kentik-cost-openapi.json
+  key_fields:
+  - id
+- name: AuditEvent
+  service: audit
+  openapi: openapi/kentik-audit-openapi.json
+  key_fields:
+  - id
+  - userId
+- name: ChatSession
+  service: ai-advisor
+  openapi: openapi/kentik-ai-advisor-openapi.json
+  key_fields:
+  - id
+  - messages
+relationships:
+- from: Device
+  type: belongs_to
+  to: Site
+  via: site_id
+- from: Device
+  type: has_many
+  to: Label
+  via: labels
+- from: SyntheticAgent
+  type: belongs_to
+  to: Site
+  via: siteId
+- from: SyntheticTest
+  type: has_many
+  to: SyntheticAgent
+  via: agentIds
+- from: AlertPolicy
+  type: has_many
+  to: NotificationChannel
+  via: notificationChannels
+- from: Alert
+  type: belongs_to
+  to: AlertPolicy
+  via: policyId
+- from: Mitigation
+  type: belongs_to
+  to: AlertPolicy
+  via: policyId
+- from: CapacityPlan
+  type: has_many
+  to: Device
+  via: deviceIds
+- from: Populator
+  type: belongs_to
+  to: CustomDimension
+  via: dimensionId
+- from: MKPTenant
+  type: belongs_to
+  to: MKPPackage
+  via: packageId
+- from: AuditEvent
+  type: belongs_to
+  to: User
+  via: userId

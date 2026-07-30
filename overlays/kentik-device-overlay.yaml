@@ -1,0 +1,13 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Kentik Device API
+  version: 1.0.0
+extends: openapi/kentik-device-openapi.json
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provider: kentik
+    x-apievangelist-protocol: grpc+rest-transcoding
+    x-apievangelist-base-url: https://grpc.api.kentik.com
+    x-apievangelist-auth: 'apiKey: X-CH-Auth-Email + X-CH-Auth-API-Token'
+    x-apievangelist-error-model: google.rpc.Status (see errors/kentik-error-codes.yml)

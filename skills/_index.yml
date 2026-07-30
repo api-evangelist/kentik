@@ -1,0 +1,20 @@
+generated: '2026-07-19'
+method: generated
+source: openapi/*.json (operationIds verified against the Kentik V6 specs)
+skills:
+- file: kentik-register-device.md
+  name: Register a device and organize it with sites and labels
+  api: openapi/kentik-device-openapi.json
+  operations: [ListSites, CreateDevice, ListLabels, UpdateDeviceLabels, GetDevice]
+- file: kentik-create-synthetic-test.md
+  name: Create and monitor a synthetic test
+  api: openapi/kentik-synthetics-openapi.json
+  operations: [ListAgents, CreateTest, SetTestStatus, GetTest, GetResultsForTests]
+- file: kentik-triage-alerts-and-mitigate.md
+  name: Triage alerts and start a mitigation
+  api: openapi/kentik-alerting-openapi.json
+  operations: [List, Get, Ack, AddComment, AvailableActions, Act]
+- file: kentik-cloud-export-onboarding.md
+  name: Onboard a cloud flow-log export
+  api: openapi/kentik-cloud-export-openapi.json
+  operations: [ListCloudExports, CreateCloudExport, GetCloudExport, UpdateCloudExport]

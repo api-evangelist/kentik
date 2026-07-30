@@ -1,0 +1,50 @@
+generated: '2026-07-19'
+method: searched
+source: https://kb.kentik.com/docs/apis-overview
+versioning:
+  scheme: calendar-version-per-service
+  description: >-
+    The Kentik V6 API versions each service independently with a calendar tag in
+    the URL path (e.g. v202505, v202506, v202511). Some services are published as
+    alpha/beta calendar versions (e.g. v202411alpha1, v202504beta2). The prior V5
+    REST API used a fixed /api/v5 path.
+  current_major: v6
+  docs: https://kb.kentik.com/docs/v6-apis
+  api_tester: https://portal.kentik.com/v4/core/api-tester
+deprecation:
+  policy_url: https://kb.kentik.com/docs/deprecated-features
+  notes: >-
+    Kentik maintains a Deprecated Features page. The V5 REST API was deprecated
+    and discontinued as of January 2025 in favor of the V6 gRPC APIs. kproxy and
+    kprobe agents have been sunset in favor of the Universal Agent.
+  deprecated_apis:
+  - name: Kentik V5 REST API
+    status: discontinued
+    discontinued: '2025-01'
+    replacement: Kentik V6 gRPC/REST APIs
+status_page: https://status.kentik.com/
+sla:
+  notes: >-
+    status.kentik.com publishes operational status for 16 Production SaaS US
+    Cluster services (Web Portal, REST API, Flow Ingest, BGP, Alerting &
+    Mitigation, Cloud/AWS/Azure/GCP/OCI Ingest, Notifications, Query, NMS,
+    Synthetics). Formal uptime SLA is contractual.
+current_service_versions:
+  synthetics: v202309
+  cloud_export: v202506
+  alerting: v202505
+  device: v202504beta2
+  user: v202211
+  site: v202509
+  label: v202210
+  as_group: v202212
+  notification_channel: v202210
+  capacity_plan: v202212
+  bgp_monitoring: v202210
+  mkp: v202407
+  kmi: v202212
+  cost: v202308
+  custom_dimension: v202411alpha1
+  flow_tag: v202404alpha1
+  ai_advisor: v202511
+  audit: v202601

@@ -1,0 +1,55 @@
+generated: '2026-07-19'
+method: searched
+source: https://github.com/kentik and https://pypi.org/project/kentik-api/
+packages:
+- language: python
+  registry: pypi
+  name: kentik-api
+  version: 1.0.7
+  url: https://pypi.org/project/kentik-api/
+  repository: https://github.com/kentik/community_sdk_python
+  install: pip install kentik-api
+  official: true
+  notes: Official Kentik community Python SDK for the V5/V6 APIs.
+- language: python
+  registry: github
+  name: kentikapi-py
+  url: https://github.com/kentik/kentikapi-py
+  install: pip install git+https://github.com/kentik/kentikapi-py
+  official: true
+  notes: Python Kentik API client modules (earlier client).
+- language: go
+  registry: github
+  name: community_sdk_golang
+  url: https://github.com/kentik/community_sdk_golang
+  install: go get github.com/kentik/community_sdk_golang
+  official: true
+  notes: Official Kentik community Go SDK for the V5/V6 APIs.
+- language: go
+  registry: github
+  name: api-schema-public (gen/go)
+  url: https://github.com/kentik/api-schema-public
+  install: go get github.com/kentik/api-schema-public
+  official: true
+  notes: Pre-built Go gRPC stubs generated from the Kentik V6 protobuf schemas.
+- language: go
+  registry: github
+  name: gohippo
+  url: https://github.com/kentik/gohippo
+  install: go get github.com/kentik/gohippo
+  official: true
+  notes: Go library for managing Custom Dimensions / tagging (hippo) criteria.
+- language: rust
+  registry: github
+  name: kentik-api-rust
+  url: https://github.com/kentik/kentik-api-rust
+  install: cargo add --git https://github.com/kentik/kentik-api-rust
+  official: true
+  notes: Rust client for the Kentik API.
+- language: typescript
+  registry: github
+  name: kentik-grafana-app
+  url: https://github.com/kentik/kentik-grafana-app
+  install: grafana-cli plugins install kentik-app
+  official: true
+  notes: Official Kentik Grafana plugin (data source + dashboards).

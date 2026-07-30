@@ -1,0 +1,342 @@
+# Kentik Documentation
+
+> Knowledge base documentation for Kentik Documentation.
+
+## v1
+
+- [Using the KB](https://kb.kentik.com/docs/using-the-kb.md): Explore Kentik's new knowledge base with easy navigation, article views, and advanced search features to enhance your experience and find information quickly.
+- [About Kentik](https://kb.kentik.com/docs/about-kentik.md): Explore Kentik's powerful network observability platform, integrating flow analytics, NMS, and synthetic testing for real-time insights and alerts.
+- [Customer Care](https://kb.kentik.com/docs/customer-care.md): Learn about Kentik's Customer Care organization. Discover how our Product Support and Customer Success teams help you maximize the value of our services.
+- [How to Reset Your Password](https://kb.kentik.com/docs/how-to-reset-your-password.md): Update your Kentik account credentials easily with our step-by-step guide for password resets, whether you're logged in or locked out.
+- [How to Submit a Support Request](https://kb.kentik.com/docs/how-to-submit-a-support-request.md): Learn how to quickly submit a support request through the Kentik Portal. Follow our step-by-step guide to report technical issues, bugs, or account questions.
+- [Support Hours and Emergency Contact](https://kb.kentik.com/docs/support-hours-and-emergency-contact.md): Find Kentik's product support hours, emergency contact numbers, and support tiers. Learn how we prioritize issues and get the help you need, 24/7.
+- [How to Submit a Feature Request](https://kb.kentik.com/docs/how-to-submit-a-feature-request.md): Submit your feature requests easily through the Kentik Portal, track ideas, and view the product roadmap while ensuring browser security settings are configured.
+- [Kentik Portal](https://kb.kentik.com/docs/kentik-portal.md): Explore the Kentik v4 portal's features, including secure login options and the Observation Deck, for seamless network performance monitoring.
+- [Flow Overview](https://kb.kentik.com/docs/flow-overview.md): Learn about network device flow, protocols, and how Kentik enhances visibility with actionable insights for effective network management.
+- [Kentik AI Overview](https://kb.kentik.com/docs/kentik-ai-overview.md): Explore Kentik AI's advanced features for network observability, ensuring data privacy and security while enhancing user experience with AI-driven insights.
+- [Agents Overview](https://kb.kentik.com/docs/agents-overview.md): Explore Kentik's Universal Agent for streamlined monitoring, data collection, and enhanced security across Debian, Ubuntu, CentOS, and RHEL environments.
+- [BGP Overview](https://kb.kentik.com/docs/bgp-overview.md): Explore Kentik's BGP implementation, enabling traffic routing insights through AS Path attributes, flow correlation, and advanced analytics in the portal.
+- [SNMP and Streaming Telemetry](https://kb.kentik.com/docs/snmp-and-streaming-telemetry.md): Explore Kentik's SNMP and Streaming Telemetry integration in the Data Engine for enhanced network performance visibility and unified data insights.
+- [Classification Overview](https://kb.kentik.com/docs/classification-overview.md): Explore Kentik's interface classification process to optimize network traffic insights, prevent overcounting, and enhance connectivity type analysis.
+- [Security Overview](https://kb.kentik.com/docs/security-overview.md): Kentik ensures data security with AES-256 encryption, strict access controls, and regular audits, safeguarding your network information effectively.
+- [Resolution Overview](https://kb.kentik.com/docs/resolution-overview.md): Kentik's Full and Fast dataseries optimize query performance for various timespans, ensuring detailed insights without data loss. Explore efficient data management!
+- [Using Kentik Firehose](https://kb.kentik.com/docs/using-kentik-firehose.md): Explore Kentik Firehose and ktranslate for efficient flow data management, enabling seamless integration with analytics systems and enhanced business intelligence.
+- [Using VXLAN](https://kb.kentik.com/docs/using-vxlan.md): Explore how Kentik enhances visibility into VXLAN encapsulated packets, offering deep insights into virtual network traffic and data center observability.
+- [Using True Origin](https://kb.kentik.com/docs/using-true-origin.md): Explore how True Origin enhances ISP operations by providing insights into content delivery, network performance, and subscriber experience.
+- [Using MPLS](https://kb.kentik.com/docs/using-mpls.md): Explore Kentik's support for MPLS, enhancing routing efficiency and traffic visibility while addressing IP data challenges in your network.
+- [Using RPKI](https://kb.kentik.com/docs/using-rpki.md): Explore how RPKI enhances BGP route validation in Kentik, improving network reliability and preventing BGP prefix hijacks effectively.
+- [Using Interface Classification](https://kb.kentik.com/docs/using-interface-classification.md): Explore interface classification for efficient network management, enhancing traffic queries with connectivity types and network boundaries in Kentik.
+- [Using CDN Attribution](https://kb.kentik.com/docs/using-cdn-attribution.md): Learn how to configure CDN attribution in Kentik for accurate IP mapping and enhanced traffic insights using DNS servers and dynamic algorithms.
+- [Using Ultimate Exit](https://kb.kentik.com/docs/using-ultimate-exit.md): Gain end-to-end visibility of your network traffic with Kentik's Ultimate Exit features, optimizing costs and enhancing business intelligence analytics.
+- [Using Threat Feeds](https://kb.kentik.com/docs/using-threat-feeds.md): Uncover compromised hosts with Kentik's Threat Feeds, utilizing IP reputation data to enhance security and monitor botnet activities effectively.
+- [Estimating Flow Rate](https://kb.kentik.com/docs/estimating-flow-rate.md): Learn to measure baseline FPS on network devices and optimize flow-related costs with our guide before consulting Kentik support for tailored solutions.
+- [Getting Started](https://kb.kentik.com/docs/getting-started.md): Learn how to set up Kentik for your organization, manage settings, and complete essential onboarding tasks for effective network observability.
+- [Device Setup](https://kb.kentik.com/docs/device-setup.md): Set up your device in the Kentik portal with our step-by-step guide for new/trial customers, ensuring smooth flow data collection and management.
+- [NMS Setup](https://kb.kentik.com/docs/nms-setup.md): Set up NMS in the Kentik portal to monitor devices efficiently. Follow the NMS Setup Wizard for deployment, credentialing, and discovery.
+- [Migrate from Kproxy to Universal Agent](https://kb.kentik.com/docs/migrate-from-kproxy-to-universal-agent.md): Migrate from Kentik's legacy kproxy agent to the Universal Agent for enhanced NetFlow and SNMP telemetry collection from your network devices.
+- [Migration Scenarios](https://kb.kentik.com/docs/kproxy-migration-scenarios.md): Choose the right configuration path for flow collection and SNMP enrichment to enhance your observability with Kentik's Universal Agent.
+- [Transitioning from Legacy Kproxy](https://kb.kentik.com/docs/kproxy-migration-transitioning.md): Transition to the Universal Agent with minimal data loss by following our step-by-step guide for kproxy binary and Docker container setups.
+- [Configuration Procedures (UI)](https://kb.kentik.com/docs/kproxy-migration-configuration.md): Configure Flow and SNMP collection in the Kentik portal with our step-by-step guide for seamless data management and monitoring.
+- [FAQ](https://kb.kentik.com/docs/kproxy-migration-faq.md): Minimize downtime with the Universal Agent migration. Enjoy seamless data integrity, enhanced security, and future-proof capabilities for network telemetry.
+- [Troubleshooting](https://kb.kentik.com/docs/kproxy-migration-troubleshooting.md): Troubleshoot common issues when migrating from Kentik kproxy to Universal Agent. Learn how to resolve Agent Status 'Down' (Exit 10), fix missing interface names, and verify SNMP polling or firewall connectivity.
+- [Portal](https://kb.kentik.com/docs/portal.md): Navigate the Kentik Portal with ease. This guide covers UI basics, main navigation, and how to access network insights, dashboards, and settings today.
+- [Portal Overview](https://kb.kentik.com/docs/portal-overview.md): Explore the Kentik portal's features, including Network Explorer, settings, and modules for efficient network management and monitoring.
+- [Portal Sharing and Export](https://kb.kentik.com/docs/portal-sharing-and-export.md): Learn how to share and export data from the Kentik portal using various methods, including links, email, and subscriptions for effective collaboration.
+- [Featured](https://kb.kentik.com/docs/featured-overview.md): Explore Kentik's featured modules, including Observation Deck and AI Advisor, for insights into your network's traffic and performance.
+- [Alerting](https://kb.kentik.com/docs/alerting.md): Explore Kentik's Alerting systems that analyze network traffic, detect anomalies, and ensure optimal performance and availability.
+- [Alerting Page](https://kb.kentik.com/docs/alerting-page.md): Explore the Kentik Alerting page, featuring real-time alerts, severity levels, and detailed metrics for effective network monitoring and management.
+- [Alert Details](https://kb.kentik.com/docs/alert-details.md): Explore the Alert Details page in the Kentik portal to analyze network alerts, metrics, and visualizations for effective troubleshooting and resolution.
+- [Manage Alerts](https://kb.kentik.com/docs/manage-alerts.md): Manage alerts in the Kentik portal with ease. Learn to acknowledge, clear, comment, and silence notifications effectively.
+- [Alerting Trends](https://kb.kentik.com/docs/alerting-trends.md): Explore the Kentik Alerting Trends page to visualize alert trends, types, and severity, helping you prioritize issues effectively.
+- [Network Maps](https://kb.kentik.com/docs/network-maps.md)
+- [Kentik Map](https://kb.kentik.com/docs/kentik-map.md): Explore the Kentik Map module for real-time insights into your Hybrid IT network, including on-prem, cloud, and Internet traffic elements.
+- [Kentik Map Details](https://kb.kentik.com/docs/kentik-map-details.md): Explore the Kentik Map Details drawer for insights on site, device, and cloud entity traffic, enhancing your network management experience.
+- [Logical Map](https://kb.kentik.com/docs/logical-map.md): Explore Kentik's Logical Map feature to visualize network elements, links, and traffic, enhancing real-time network management and troubleshooting.
+- [Library](https://kb.kentik.com/docs/featured-library.md)
+- [Library](https://kb.kentik.com/docs/library.md): Explore the Kentik Library module for easy access to dashboards, saved views, and observation decks, enhancing your network traffic data management.
+- [Dashboards](https://kb.kentik.com/docs/dashboards.md): Explore Kentik dashboards for visualizing traffic, customizing panels, and managing user access. Learn about edit controls and dashboard modes.
+- [Dashboard Configuration](https://kb.kentik.com/docs/dashboard-configuration.md): Learn to create and edit dashboards in the Kentik portal, including settings, properties, and panel configurations for effective data visualization.
+- [Saved Views](https://kb.kentik.com/docs/saved-views.md): Learn about Saved Views in the Kentik Library, how to create, manage, and share them for effective traffic analysis and visualization.
+- [My Kentik Portal](https://kb.kentik.com/docs/featured-my-kentik-portal.md)
+- [My Kentik Portal](https://kb.kentik.com/docs/my-kentik-portal.md): Configure My Kentik Portal for effective tenancy management, enabling tailored access to network metrics and visualizations for your users.
+- [MKP Tenant Portal](https://kb.kentik.com/docs/mkp-tenant-portal.md): Explore the MKP tenant portal features, including user profiles, alerting, and notifications, tailored for each tenant's unique settings.
+- [Observation Deck](https://kb.kentik.com/docs/featured-observation-deck.md)
+- [Observation Deck](https://kb.kentik.com/docs/observation-deck.md): Explore the customizable Observation Deck in the Kentik portal for a high-level view of your network's traffic, performance, and costs tailored to your needs.
+- [Core](https://kb.kentik.com/docs/core-overview.md): Explore the Core section of the Kentik portal for insights on network operations, traffic flows, and powerful analytics tools for effective management.
+- [Network Explorer](https://kb.kentik.com/docs/network-explorer.md): Explore the Network Explorer page in the Kentik portal for insights on network traffic, UI elements, and detailed visualizations.
+- [Core Page Components](https://kb.kentik.com/docs/core-page-components.md): Explore Kentik's Core pages, featuring parameter controls, filters, and traffic graphs to analyze network data effectively and refine query results.
+- [Core Aggregate Pages](https://kb.kentik.com/docs/core-aggregate-pages.md): Explore Kentik's Network Explorer aggregate pages to analyze network traffic by applications, devices, and more for enhanced insights and reporting.
+- [Core Details Pages](https://kb.kentik.com/docs/core-details-pages.md): Explore the Devices page in Kentik's Infrastructure module for detailed traffic insights, device management, and network monitoring capabilities.
+- [Data Explorer](https://kb.kentik.com/docs/data-explorer.md): Explore Kentik's Data Explorer module for real-time traffic analysis, customizable queries, and powerful visualizations to enhance your network insights.
+- [Capacity Planning](https://kb.kentik.com/docs/capacity-planning.md): Explore the Capacity Planning workflow in the Kentik portal to automate network tasks and optimize interface utilization and runout projections.
+- [Kentik AI](https://kb.kentik.com/docs/kentik-ai-1.md)
+- [AI Advisor](https://kb.kentik.com/docs/ai-advisor.md): Explore Kentik's AI Advisor features for network troubleshooting, insights, and optimization, enhancing your operations with natural language interaction.
+- [AI Advisor MCP Server](https://kb.kentik.com/docs/ai-advisor-mcp-server.md): Integrate Kentik’s AI Advisor MCP Server for seamless network data queries, enabling natural language interactions and multi-turn conversations with AI agents.
+- [Getting Started](https://kb.kentik.com/docs/aia-mcp-getting-started.md): Set up the Kentik AI Advisor MCP Server, including the required endpoints, headers, and how to get your Kentik API Token.
+- [Configuration Examples](https://kb.kentik.com/docs/aia-mcp-configuration-examples.md)
+- [Troubleshooting](https://kb.kentik.com/docs/aia-mcp-troubleshooting.md): Troubleshoot Kentik’s AI Advisor MCP Server with tips on authentication failures, server visibility, and slow responses for optimal performance.
+- [MCP Tools Reference](https://kb.kentik.com/docs/aia-mcp-tools.md): Reference information about available tools for Kentik's AI Advisor MCP Server, useful for custom integrations.
+- [MCP Payload Reference](https://kb.kentik.com/docs/aia-mcp-payload.md): Developer reference for Kentik AI Advisor MCP Server payloads. Learn how to format JSON-RPC 2.0 requests, responses, and progress notifications.
+- [Cause Analysis](https://kb.kentik.com/docs/cause-analysis.md): Unlock insights with Kentik's Cause Analysis to detect traffic changes, analyze patterns, and enhance network performance effortlessly.
+- [Insights](https://kb.kentik.com/docs/insights.md): Explore the Insights feature in the Kentik portal, offering real-time traffic alerts and actionable insights for network operators.
+- [Insights Reference](https://kb.kentik.com/docs/insights-reference.md): Explore Kentik's Insights engine for traffic analysis, revealing key metrics and changes in ASN, sites, and more to enhance your network performance.
+- [Raw Flow](https://kb.kentik.com/docs/raw-flow.md)
+- [Raw Flow Explorer](https://kb.kentik.com/docs/raw-flow-explorer.md): Explore Kentik's Raw Flow Explorer to analyze flow data from the KDE backend, enhancing your network traffic insights with powerful query tools.
+- [Query Settings](https://kb.kentik.com/docs/query-settings-overview.md): Explore Kentik portal's query settings, including Data Explorer and dashboard panels, to optimize your data visualization and analysis.
+- [Chart Visualization Types](https://kb.kentik.com/docs/chart-visualization-types.md): Explore various visualization types in the Kentik portal to analyze traffic data effectively, from time-series charts to comparative and hierarchical visualizations.
+- [Data Source Settings](https://kb.kentik.com/docs/data-source-settings.md): Explore data sources settings for queries in Kentik's Data Explorer and dashboards, including device types and selection methods for network data.
+- [Dimension Settings](https://kb.kentik.com/docs/dimension-settings.md): Explore dimension settings for queries in Kentik's Data Explorer and dashboard panels, enhancing your data analysis with customizable group-by dimensions.
+- [Metrics Settings](https://kb.kentik.com/docs/metrics-settings.md): Explore metrics settings in Kentik's Data Explorer for customizing queries, including primary, secondary, and additional metrics for insightful data analysis.
+- [Filters Settings](https://kb.kentik.com/docs/filtering-settings.md): Explore filter settings in Kentik's Data Explorer and Metrics Explorer to optimize query results with ad hoc and saved filters for enhanced performance.
+- [Bracketing Settings](https://kb.kentik.com/docs/bracketing-settings.md): Learn about bracketing in Kentik's Data Explorer and dashboards, including value ranges, color coding, and visualization types for effective data analysis.
+- [Synthetics](https://kb.kentik.com/docs/synthetics-overview.md): Explore Kentik's Synthetics for proactive network performance testing, uncovering issues before they impact customer experience.
+- [Synthetics Dashboards](https://kb.kentik.com/docs/synthetics-dashboards.md)
+- [Synthetics Dashboard](https://kb.kentik.com/docs/synthetics-dashboard.md): Explore the Synthetics Dashboard in Kentik for insights on test status, incident logs, agent performance, and credit utilization for effective monitoring.
+- [BGP Route Viewer](https://kb.kentik.com/docs/bgp-route-viewer.md): Explore the BGP Route Viewer dashboard in Kentik, monitoring route announcements and withdrawals to enhance network performance and issue correlation.
+- [State of the Internet](https://kb.kentik.com/docs/state-of-the-internet.md): Explore Kentik's State of the Internet dashboard for real-time insights on SaaS applications, public clouds, and DNS services performance and health.
+- [Synthetics Tests](https://kb.kentik.com/docs/synthetics-tests.md): Manage your organization's Synthetics tests on Kentik’s Tests page, view results, and configure settings for optimal performance.
+- [Tests Page](https://kb.kentik.com/docs/tests-page.md): Explore Kentik's Tests page with features like credit utilization, test lists, and filtering options to optimize your organization's testing strategy.
+- [Add or Manage a Test](https://kb.kentik.com/docs/add-or-manage-a-test.md): Learn to create and manage Synthetics tests in Kentik, including adding, editing, and pausing tests while tracking credit consumption effectively.
+- [Test Credits](https://kb.kentik.com/docs/test-credits.md): Learn about Kentik's test credits for synthetic testing, how to manage your balance, and the impact of test consumption on your organization's credits.
+- [Test Preview](https://kb.kentik.com/docs/test-preview.md): Explore the Test Preview page in Kentik to check protocols and configurations without using credits, ensuring instant results and easy adjustments.
+- [Test Types Reference](https://kb.kentik.com/docs/test-types.md): Explore Kentik's Synthetics test types, including Routing, Network, and Application Tests, to enhance your network performance and security.
+- [Test Settings Reference](https://kb.kentik.com/docs/test-settings-reference.md): Configure Synthetics tests in the Kentik portal with detailed settings, tabs, and management controls to optimize your network monitoring.
+- [Transaction Test Scripts](https://kb.kentik.com/docs/transaction-test-scripts.md): Learn to create, validate, and interpret Kentik Transaction test scripts for monitoring complex user journeys with Puppeteer and Chrome Developer Tools.
+- [Test Results](https://kb.kentik.com/docs/test-results.md): Explore the Test Results page for in-depth insights on synthetic test health, performance metrics, and dynamic UI controls tailored for your testing needs.
+- [Subtest Results](https://kb.kentik.com/docs/subtest-results.md): Analyze individual subtest performance metrics with the Subtest Results page, featuring agent indicators, alert timelines, and detailed charts.
+- [BGP Monitor Results](https://kb.kentik.com/docs/bgp-monitor-results.md): Explore the BGP Monitor Results page for insights on BGP routing data, reachability, and AS path changes over time with interactive visualizations.
+- [Test Status Reference](https://kb.kentik.com/docs/test-status-reference.md): Explore Kentik test statuses: Healthy, Warning, Critical, and Pending. Learn how latency, jitter, and packet loss impact performance monitoring.
+- [Data Charts Reference Matrix](https://kb.kentik.com/docs/data-charts-reference-matrix.md): Discover which performance metrics and data charts are available for your Kentik Synthetics tests. Use our matrix to understand supported test configurations.
+- [Synthetics Agent](https://kb.kentik.com/docs/synthetics-agent.md): Explore Kentik's ksynth-agent for synthetic monitoring, enabling continuous performance testing across your network and the Internet.
+- [Agent Installation](https://kb.kentik.com/docs/agent-installation.md): Learn about ksynth-agent, Kentik's synthetic testing software, its installation, setup, and command line options for effective network monitoring.
+- [Agents Page](https://kb.kentik.com/docs/agents-page.md): Manage and monitor your Kentik Synthetics agents with ease. Deploy private agents, view statuses, and access detailed reports on performance.
+- [Network Monitoring](https://kb.kentik.com/docs/nms-overview.md): Explore Kentik's Network Monitoring System (NMS) for real-time insights on network availability, health, and performance metrics.
+- [NMS Dashboard](https://kb.kentik.com/docs/nms-dashboard.md): Explore the customizable NMS Dashboard in the Kentik portal for a metrics-based overview of your network's performance, traffic, and alerts.
+- [SSH Command Access for Kentik NMS](https://kb.kentik.com/docs/ssh-command-access-for-kentik-nms.md): Learn to configure Kentik NMS with AI Advisor for enhanced NetOps, enabling real-time device analysis and improved network intelligence.
+- [Command Access](https://kb.kentik.com/docs/ai-assisted-netops-command-access.md): Streamline device diagnostics with Command Access, enabling read-only show commands for quick insights without CLI syntax knowledge.
+- [Config Context](https://kb.kentik.com/docs/config-context.md): Optimize your network with Config Context: reduce MTTI/MTTR, automate config backups, and gain insights into device changes for seamless operations.
+- [Configuration Examples](https://kb.kentik.com/docs/configuration-examples.md): Configure read-only SSH for Cisco, Juniper, and Arista devices. Enable Kentik’s AI-Assisted NetOps for automated network insights and diagnostics.
+- [Troubleshooting](https://kb.kentik.com/docs/ssh-command-access-troubleshooting.md): Troubleshoot AI Advisor with NMS devices: learn about configuration history, command access issues, and alternative methods to track device changes.
+- [Metrics Explorer](https://kb.kentik.com/docs/metrics-explorer.md): Explore Metrics Explorer in the Kentik portal to visualize SNMP and Streaming Telemetry data, enhancing your network monitoring insights.
+- [Query Assistant](https://kb.kentik.com/docs/query-assistant.md): Explore Kentik's Query Assistant for natural language queries in network monitoring, enabling quick insights and refined results with ease.
+- [NMS Devices](https://kb.kentik.com/docs/nms-devices.md): Explore the Kentik NMS Devices page to manage and monitor your network devices, view metrics, and customize your device list efficiently.
+- [NMS Interfaces](https://kb.kentik.com/docs/nms-interfaces.md): Explore the NMS Interfaces page in Kentik's portal to manage and monitor device interfaces, traffic, and utilization effectively.
+- [SNMP Traps & Syslogs](https://kb.kentik.com/docs/snmp-traps-syslogs.md): Kentik's Network Monitoring System supports SNMP traps and syslog events for real-time alerts, enabling efficient troubleshooting and event correlation.
+- [NMS Supported Devices](https://kb.kentik.com/docs/nms-supported-devices-1.md): Explore the devices supported by Kentik NMS.
+- [How Does Kentik Determine Device Up/Down Status?](https://kb.kentik.com/docs/how-does-kentik-determine-device-up-down-status.md)
+- [Edge](https://kb.kentik.com/docs/edge-overview.md): Manage your network edge with Kentik. Optimize transit costs, find peering opportunities, and improve performance with deep traffic flow insights.
+- [Traffic Engineering](https://kb.kentik.com/docs/traffic-engineering.md): Explore Kentik's Traffic Engineering workflow to optimize BGP policies, manage traffic routing, and enhance network performance effectively.
+- [Connectivity Costs](https://kb.kentik.com/docs/connectivity-costs.md): Explore the Connectivity Costs module in Kentik to manage and analyze your network's cost impact, billing accuracy, and traffic trends effectively.
+- [Discover Peers](https://kb.kentik.com/docs/discover-peers.md): Explore Kentik's Discover Peers workflow to optimize network performance and identify cost-effective peering opportunities with key Autonomous Systems.
+- [Traffic Costs](https://kb.kentik.com/docs/traffic-costs.md): Optimize network spending with Kentik's Traffic Costs workflow, enabling cost estimation, analysis, and tracking for various traffic slices.
+- [Protect](https://kb.kentik.com/docs/protect-overview.md): Explore the Kentik portal's Protect section, featuring DDoS Defense, Alerting, and Threat Analysis to safeguard your network from security threats.
+- [DDoS Defense](https://kb.kentik.com/docs/ddos-defense.md): Automate DDoS detection and mitigation with Kentik's comprehensive defense solutions, featuring customizable policies and real-time attack insights.
+- [Mitigations](https://kb.kentik.com/docs/protect-mitigations.md)
+- [Mitigation Overview](https://kb.kentik.com/docs/mitigation-overview.md): Explore Kentik's advanced mitigation capabilities, including RTBH and Flowspec, to protect your network from DDoS attacks and ensure availability.
+- [Supported Mitigation Types](https://kb.kentik.com/docs/supported-mitigation-types.md): Explore Kentik's DDoS mitigation solutions, including RTBH, Flowspec, and Adaptive Flowspec, to protect your network from attacks effectively.
+- [Mitigations Page](https://kb.kentik.com/docs/mitigations-page.md): Manage current and past mitigations in the Kentik portal with features like filtering, exporting, and manual actions for effective alert policy management.
+- [Configuration Guides](https://kb.kentik.com/docs/configuration-guides.md)
+- [Configuring RTBH](https://kb.kentik.com/docs/configuring-rtbh.md): Learn to configure Remotely Triggered Black-Hole routing (RTBH) in Kentik to protect your network from DDoS attacks by dropping unwanted traffic.
+- [Configuring Flowspec](https://kb.kentik.com/docs/configuring-flowspec.md): Learn to configure BGP Flow Specification for traffic filtering in Kentik, enhancing your network's security with automated mitigation methods.
+- [Configuring Adaptive Flowspec](https://kb.kentik.com/docs/configuring-adaptive-flowspec.md): Learn to create and deploy Adaptive Flowspec mitigations in Kentik, adjusting BGP rules for real-time network protection against dynamic attacks.
+- [Configuring Third-Party Mitigations](https://kb.kentik.com/docs/configuring-third-party-mitigations.md): Integrate Kentik Protect with third-party mitigation providers like Cloudflare Magic Transit using API-driven workflows for seamless security management.
+- [Manual Mitigation](https://kb.kentik.com/docs/manual-mitigation.md): Learn about manual mitigation in Kentik, including how to start, stop, and configure settings for effective network protection.
+- [BGP Announcements](https://kb.kentik.com/docs/bgp-announcements.md): Monitor BGP announcements in the Kentik portal with filters for type, status, and devices, ensuring effective network traffic management.
+- [Botnet & Threat Analysis](https://kb.kentik.com/docs/botnet-threat-analysis.md): Explore Kentik's Botnet & Threat Analysis dashboard to identify compromised traffic using IP reputation data, enhancing your network security insights.
+- [RPKI Analysis](https://kb.kentik.com/docs/rpki-analysis.md): Analyze BGP route validity with Kentik's RPKI Analysis dashboard, enhancing routing security and identifying invalid traffic on your network.
+- [Service Provider](https://kb.kentik.com/docs/service-provider-overview.md): Explore the Kentik V4 portal's Service Provider section, featuring workflows like CDN Analytics and OTT Service Tracking for enhanced performance insights.
+- [OTT Service Tracking](https://kb.kentik.com/docs/ott-service-tracking.md): Explore the OTT Service Tracking workflow in Kentik, optimizing network performance and analyzing traffic across various OTT services and providers.
+- [Getting Started](https://kb.kentik.com/docs/ott-tracking-getting-started.md): Set up Kentik's OTT Service Tracking with DNS collection, customize thresholds, and enhance your network's OTT traffic identification.
+- [Navigating OTT Dashboards](https://kb.kentik.com/docs/navigating-ott-dashboards.md): Explore top-level dashboards and controls for analyzing your network's OTT traffic, including intelligent classification and detailed service insights.
+- [OTT Service Details & Analytics](https://kb.kentik.com/docs/ott-service-details-analytics.md): Analyze detailed traffic paths, subscribership, and capacity for OTT services with our comprehensive guide on service category and provider insights.
+- [Querying OTT Classification Data](https://kb.kentik.com/docs/querying-ott-classification-data.md): Kentik's OTT Classification Type enables granular traffic querying, aiding in auditing and custom reporting for precise network flow analysis.
+- [CDN Analytics](https://kb.kentik.com/docs/cdn-analytics.md): Explore Kentik's CDN Analytics for ISPs, gaining insights into CDN traffic, performance, and optimization strategies for enhanced network efficiency.
+- [Kentik Market Intelligence](https://kb.kentik.com/docs/kentik-market-intelligence.md): Explore Kentik Market Intelligence (KMI) for BGP-derived AS rankings, customer insights, and peering relationships to enhance your network strategy.
+- [Cloud](https://kb.kentik.com/docs/cloud-overview.md): Explore cloud monitoring in the Kentik portal, gaining visibility into AWS, Azure, GCP, and OCI resources with flow logs and performance insights.
+- [Kentik Cloud](https://kb.kentik.com/docs/kentik-cloud.md): Explore Kentik Cloud for customizable visualizations of your cloud traffic across AWS, Azure, GCP, and OCI, enhancing your cloud resource monitoring.
+- [Kentik Kube](https://kb.kentik.com/docs/kentik-kube.md): Explore Kentik Kube for detailed network traffic observability in Kubernetes, enabling quick detection and resolution of network issues.
+- [Cloud Traffic Overviews](https://kb.kentik.com/docs/cloud-traffic-overviews.md): Gain flow-based visibility into AWS, GCP, and Azure traffic with Kentik’s Cloud Traffic Overviews.
+- [Cloud Performance Monitor](https://kb.kentik.com/docs/cloud-performance-monitor.md): Visualize and manage connectivity in hybrid and multi-cloud environments with Kentik’s Cloud Performance Monitor for AWS and Azure services.
+- [Cloud Pathfinder](https://kb.kentik.com/docs/cloud-pathfinder.md): Troubleshoot cloud connection issues with Kentik's Cloud Pathfinder, analyzing AWS and Azure metadata to visualize communication paths and resolve problems.
+- [Main Settings](https://kb.kentik.com/docs/main-settings.md): Explore the essential settings for the Kentik portal, including organization, user settings, and alerting features for effective network management.
+- [Networking Devices](https://kb.kentik.com/docs/network-devices.md): Manage your devices in the Kentik portal, view device status, and configure routers or hosts for optimal flow data collection and SNMP polling.
+- [Device Settings](https://kb.kentik.com/docs/device-settings.md): Learn how to add and configure flow devices in Kentik, including essential settings for SNMP, BGP, and Streaming Telemetry for optimal performance.
+- [Device Status](https://kb.kentik.com/docs/device-status.md): Manage and troubleshoot device settings with the Kentik Device Status page. Identify issues and ensure optimal device configuration effortlessly.
+- [Public Clouds](https://kb.kentik.com/docs/public-clouds.md): Manage your public cloud resources in the Kentik portal, including cloud exports, metrics, and flow logs, with essential admin-level controls.
+- [Alert Policies](https://kb.kentik.com/docs/alert-policies.md): Manage your organization's alert policies effectively with Kentik's Alert Policies page, featuring templates, statistics, and detailed settings.
+- [Flow Policy Settings](https://kb.kentik.com/docs/flow-policy-settings.md): Explore Kentik's Flow policy types for alerting, including settings, conditions, and baselines to optimize your network monitoring and response.
+- [NMS Policy Settings](https://kb.kentik.com/docs/nms-policy-settings.md): Manage NMS Alert Policies in the Kentik portal with step-by-step guidance on settings, types, and notification channels for effective monitoring.
+- [Alert Policy Templates](https://kb.kentik.com/docs/alert-policy-templates.md): Explore Kentik's Alert Policy Templates for customizable traffic anomaly alerts, enabling effective manual or automated mitigation tailored to your needs.
+- [Alert Suppressions & Silences](https://kb.kentik.com/docs/alert-suppressions.md): Manage alerts effectively with Kentik's Alert Suppressions & Silences. Mute notifications or prevent alerts based on traffic patterns seamlessly.
+- [Auto-acknowledgements](https://kb.kentik.com/docs/auto-acknowledgements.md): Learn about Auto-acknowledgements in the Kentik portal, including how to manage alerts and set durations for automatic acknowledgment.
+- [Manage Mitigations](https://kb.kentik.com/docs/manage-mitigations.md): Explore the Manage Mitigations page in Kentik, your hub for configuring DDoS responses and traffic anomaly settings with intuitive UI and detailed guides.
+- [Mitigation Platforms](https://kb.kentik.com/docs/mitigation-platforms.md): Configure and manage mitigation platforms on Kentik with detailed settings for routing rules, thresholds, and third-party integrations.
+- [Mitigation Methods](https://kb.kentik.com/docs/mitigation-methods.md): Learn to configure Kentik's Mitigation Methods, including settings, actions, and automated triggers for effective network traffic management.
+- [RTBH Method Settings](https://kb.kentik.com/docs/rtbh-method-settings.md): Learn how to configure RTBH mitigation settings in Kentik, including community management, next-hop IPs, and local preferences for effective routing.
+- [Flowspec Method Settings](https://kb.kentik.com/docs/flowspec-method-settings.md): Learn how to configure Flowspec mitigation methods with Kentik, focusing on traffic matching, filtering actions, and essential component types.
+- [Adaptive Flowspec Method Settings](https://kb.kentik.com/docs/adaptive-flowspec-method-settings.md): Learn how to configure Adaptive Flowspec mitigation methods in Kentik, including traffic analysis, filtering actions, and failsafe settings for optimal performance.
+- [Third-Party Method Settings](https://kb.kentik.com/docs/third-party-method-settings.md): Learn how to configure mitigation methods for A10, Cloudflare, and Radware in Kentik, ensuring optimal performance and support for your third-party platforms.
+- [Notification Channels](https://kb.kentik.com/docs/notification-channel.md): Manage your Kentik notification channels effectively to receive alerts via email, Slack, and more, ensuring timely updates on network events.
+- [AS Groups](https://kb.kentik.com/docs/as-groups.md): Manage Autonomous Systems effectively with AS Groups in Kentik for streamlined traffic evaluation, filtering, and enhanced query results.
+- [Custom Applications](https://kb.kentik.com/docs/custom-applications.md): Manage Custom Applications in the Kentik portal by defining them based on protocol, port, IP address, and ASN for effective traffic attribution.
+- [Custom Dimensions](https://kb.kentik.com/docs/custom-dimensions.md): Explore Kentik's Custom Dimensions and populators for tailored data filtering and grouping, enhancing your data analysis capabilities.
+- [Custom Geos](https://kb.kentik.com/docs/custom-geos.md): Learn how to use Custom Geos in the Kentik portal to group countries for efficient traffic analysis and reporting. Manage your custom-defined regions easily.
+- [Flow Tags](https://kb.kentik.com/docs/flow-tags.md): Manage user-defined flow tags in Kentik to enhance data querying and streamline flow record analysis for better insights and historical traffic tracking.
+- [kproxy Agents](https://kb.kentik.com/docs/kproxy-agents.md): Manage your kproxy agents on the Kentik portal, enabling SNMP and Streaming Telemetry for secure data flow from network devices.
+- [Synthetics Agents](https://kb.kentik.com/docs/synthetics-agents.md): Learn how to deploy Kentik's ksynth-agent for synthetic testing. This guide covers Linux and Docker installation, agent registration, and activation.
+- [Universal Agents](https://kb.kentik.com/docs/universal-agents.md): Manage your network with Kentik's Universal Agent, collecting vital metrics on performance, health, and availability for seamless infrastructure monitoring.
+- [Interface Classification](https://kb.kentik.com/docs/interface-classification.md): Manage Interface Classification in the Kentik portal to optimize network performance and capture unclassified interfaces with ease.
+- [Labels](https://kb.kentik.com/docs/labels.md): Manage Labels in the Kentik portal to group devices, agents, and tests effectively, enhancing organization and access control for your network resources.
+- [Interfaces](https://kb.kentik.com/docs/interfaces.md): Manage and edit your device interfaces in the Kentik portal, utilizing SNMP polling or manual entry for optimal interface classification and reporting.
+- [Sites](https://kb.kentik.com/docs/sites.md): Manage your organization's sites in the Kentik portal, including adding, editing, and grouping sites for optimal network performance.
+- [Network Classification](https://kb.kentik.com/docs/network-classification.md): Explore Kentik's Network Classification page to optimize traffic directionality and enhance monitoring for internal and cloud-based networks.
+- [Saved Filters](https://kb.kentik.com/docs/saved-filters.md): Explore Kentik's saved filters, including company and preset options, to streamline your queries and enhance data analysis in the portal.
+- [Integrations](https://kb.kentik.com/docs/integrations.md): Explore the Kentik Integrations settings to connect external systems like SSO providers, DDoS mitigation platforms, notification channels, and Grafana.
+- [Grafana](https://kb.kentik.com/docs/grafana.md): Explore Kentik's Grafana integration to build custom dashboards, analyze network traffic, and gain insights with enhanced visibility and performance.
+- [Migrate to v2 Datasource](https://kb.kentik.com/docs/migrate-to-v2-data-source.md): Migrate from the deprecated Kentik Grafana App to the standalone Kentik Connect Datasource plugin.
+- [Dashboards & Querying](https://kb.kentik.com/docs/dashboards-querying.md)
+- [Troubleshooting](https://kb.kentik.com/docs/troubleshooting-grafana.md): Resolve common error codes, authentication failures, and Grafana 13+ routing issues when using the Kentik Connect Datasource plugin.
+- [PeeringDB](https://kb.kentik.com/docs/peeringdb.md): Explore Kentik's PeeringDB integration to optimize your network's interconnection, reduce transit costs, and enhance peering opportunities effectively.
+- [Org & User Settings](https://kb.kentik.com/docs/org-user-overview.md): Explore organization-wide and user-specific settings in the Kentik portal, including RBAC management, authentication, and user profile customization.
+- [Licenses](https://kb.kentik.com/docs/licenses.md): Explore the Licenses page in the Kentik portal to manage your service details, editions, plans, and account team support effectively.
+- [Users](https://kb.kentik.com/docs/users.md): Manage user settings in the Kentik portal with RBAC and user levels. Access the Users page to add, edit, or remove users efficiently.
+- [Kentik RBAC](https://kb.kentik.com/docs/kentik-rbac.md): Manage user permissions effectively with Kentik's Role-Based Access Control (RBAC) system, featuring custom roles and granular access management.
+- [Authentication & SSO](https://kb.kentik.com/docs/authentication-sso.md): Manage Authentication & SSO in the Kentik portal to enhance security, configure password policies, and streamline user access with single sign-on.
+- [Audit Log](https://kb.kentik.com/docs/audit-log.md): Explore the Kentik Audit Log to track changes in your environment, view user actions, and filter logs for better management. Admin access required.
+- [Access Control](https://kb.kentik.com/docs/access-control.md): Enhance your Kentik portal security with Access Control settings, allowing specific IPs access while denying all others for optimal protection.
+- [Credentials Vault](https://kb.kentik.com/docs/credentials-vault.md): Manage your credentials securely with Kentik's Credentials Vault, featuring double encryption and easy access for devices and HTTP tests.
+- [Kentik AI](https://kb.kentik.com/docs/kentik-ai.md): Manage Kentik AI settings in the Kentik portal, enabling features while ensuring data privacy and security for your organization.
+- [Public Shares](https://kb.kentik.com/docs/public-shares.md): Learn about Kentik's Public Shares feature, enabling secure sharing of data visualizations with non-users while managing access and privacy effectively.
+- [Subscriptions](https://kb.kentik.com/docs/subscriptions.md): Manage your Kentik subscriptions easily from the Subscriptions page, allowing you to share data via email on a recurring schedule with specified recipients.
+- [Custom DNS](https://kb.kentik.com/docs/custom-dns.md): Configure Custom DNS in Kentik for reverse DNS lookups, enabling hostname resolution for private IPs directly in your queries.
+- [User Profile](https://kb.kentik.com/docs/user-profile.md): Customize your Kentik User Profile page to manage settings, preferences, and authentication for a personalized portal experience tailored to your needs.
+- [Layout Preferences](https://kb.kentik.com/docs/layout-preferences.md): Customize your Kentik portal layout with user-specific preferences, adjusting details pane display and query sidebar location for optimal navigation.
+- [Platform](https://kb.kentik.com/docs/platform.md): Learn about the Kentik Platform, the engine powering our network observability. Explore the Kentik Data Engine, APIs, metrics, and configurations.
+- [Data Source Configuration](https://kb.kentik.com/docs/data-source-configuration.md)
+- [NMS Supported Devices](https://kb.kentik.com/docs/nms-supported-devices.md): Explore the devices supported by Kentik NMS.
+- [Deploy Universal Agents with Helm](https://kb.kentik.com/docs/deploy-agents-with-helm.md): Learn to deploy and manage Kentik's Universal Agent with Helm, covering StatefulSet and DaemonSet patterns for optimal telemetry and architecture.
+- [Install Multiple Agents on a Host](https://kb.kentik.com/docs/linux-install-multiple-agents-per-host.md): Learn to deploy multiple Kentik Universal Agents on a single Linux host, ensuring unique configurations and avoiding port conflicts for efficient management.
+- [Router Configuration](https://kb.kentik.com/docs/router-configuration.md): Configure routers and switches to collect and export data to Kentik, ensuring optimal flow records and BGP session stability for effective network monitoring.
+- [Device Configs Directory](https://kb.kentik.com/docs/device-configs-directory.md): Access Kentik’s Device Configs Directory for network snippets. Find recommended NetFlow, sFlow, and IPFIX settings for Cisco, Juniper, and Arista.
+- [Kentik Proxy Agent](https://kb.kentik.com/docs/kentik-proxy-agent.md): Securely encrypt and forward your network's flow data with Kentik's kproxy agent, ensuring efficient traffic management and compliance with license limits.
+- [BGP Proxy Agent](https://kb.kentik.com/docs/bgp-proxy-agent.md): Kentik's kbgp proxy agent secures BGP peering sessions, enabling private network devices to connect without public IPs while ensuring encrypted data flow.
+- [Kentik NMS Configuration](https://kb.kentik.com/docs/kentik-nms-configuration.md): Learn to configure Kentik's Universal Agent for NMS, enabling SNMP/ST capabilities and optimizing network monitoring with custom device profiles.
+- [Kentik Kubernetes Agents](https://kb.kentik.com/docs/kentik-kubernetes-agents.md): Explore Kentik Kube's Kubernetes observability with Kappa and agents for real-time traffic insights, performance monitoring, and network forensics.
+- [Cloud Provider Configuration](https://kb.kentik.com/docs/cloud-provider-configuration.md)
+- [Kentik for AWS](https://kb.kentik.com/docs/kentik-for-aws.md): Integrate Kentik with AWS to collect metadata, flow logs, and CloudWatch metrics for enhanced visibility and network performance analysis.
+- [Metadata Configuration](https://kb.kentik.com/docs/metadata-configuration-aws.md): Visualize your AWS infrastructure with Kentik's metadata collection, enabling network topology insights.
+- [Flow/Firewall Log Collection Configuration](https://kb.kentik.com/docs/flow-firewall-log-collection-configuration.md): Set up VPC flow logs to S3 for efficient traffic monitoring. Learn about bucket creation, IAM permissions, and log verification for optimal performance.
+- [Kentik Export Configuration](https://kb.kentik.com/docs/kentik-export-configuration-aws.md): Set up AWS Cloud Export in Kentik to collect flow logs, metadata, and metrics for enhanced telemetry analysis and monitoring of your AWS resources.
+- [AWS Endpoints List](https://kb.kentik.com/docs/aws-endpoints-list.md): View the complete list of AWS Metadata and Flow Log endpoints required for Kentik integration. This reference covers necessary permissions for EC2, Direct Connect, ELB, and Network Manager to ensure seamless cloud visibility.
+- [Kentik for Azure](https://kb.kentik.com/docs/kentik-for-azure.md): Integrate Kentik with Microsoft Azure by following our guide on flow log collection, configuration, and optimizing network performance.
+- [Azure Prerequisites & Roles](https://kb.kentik.com/docs/azure-prerequisites-roles.md): Prepare your Azure environment for Kentik integration by understanding roles, permissions, and setup steps for NSG Flow Exporter and custom app registration.
+- [Flow/Firewall Log Collection](https://kb.kentik.com/docs/flow-firewall-log-collection.md): Learn to set up Azure flow and firewall logs for effective network monitoring and analytics with Kentik, enhancing your Azure VNet security and visibility.
+- [Kentik Export Configuration](https://kb.kentik.com/docs/kentik-export-configuration-azure.md): Set up a Kentik cloud export for Azure to collect network telemetry, including flow logs and metrics, enhancing your observability and performance insights.
+- [Automated Configuration (PowerShell)](https://kb.kentik.com/docs/automated-configuration-powershell.md): Configure Azure log export using PowerShell with Kentik's script. Follow steps for VNet flow logs, storage setup, and network insights registration.
+- [Azure Endpoints List](https://kb.kentik.com/docs/azure-endpoints-list.md): Learn which Azure endpoints Kentik requires for metadata and metric collection. This guide lists all necessary entity types, including VNETs, Load Balancers, and ExpressRoute, to ensure a successful Kentik for Azure setup
+- [Kentik for GCP](https://kb.kentik.com/docs/kentik-for-gcp.md): Integrate Kentik with Google Cloud Platform to monitor network traffic, visualize resource utilization, and enhance security in a hybrid cloud setup.
+- [Kentik for OCI](https://kb.kentik.com/docs/kentik-for-oci.md): Integrate Kentik with Oracle Cloud Infrastructure to monitor network traffic, visualize resource utilization, and enhance security with flow logs.
+- [Metrics & Dimensions](https://kb.kentik.com/docs/metrics-dimensions.md): Explore Kentik's metrics and dimensions for network data analysis, enhancing your queries with precise measurements and filtering options.
+- [Metrics Reference](https://kb.kentik.com/docs/metrics-reference.md)
+- [General Metrics](https://kb.kentik.com/docs/general-metrics.md): Explore Kentik's general metrics, including host traffic and application decodes, to optimize your network queries and enhance performance insights.
+- [Non-Flow Metrics](https://kb.kentik.com/docs/non-flow-metrics.md): Explore non-flow metrics in Kentik queries to monitor CPU, Memory, and Interface utilization, enhancing network health insights beyond traditional flow records.
+- [Device-Specific Metrics](https://kb.kentik.com/docs/device-specific-metrics.md): Explore device-specific metrics in the Kentik Data Engine for enhanced network visibility, including Cisco ASA, Meraki, and Silver Peak insights.
+- [Dimensions Reference](https://kb.kentik.com/docs/dimensions-reference.md)
+- [General Dimensions](https://kb.kentik.com/docs/general-dimensions.md): Explore General Dimensions in Kentik for filtering device metrics, enhancing query performance, and understanding cloud and network traffic insights.
+- [Routing Dimensions](https://kb.kentik.com/docs/routing-dimensions.md): Explore Kentik's Data Explorer for IP & BGP routing insights, IPv6 Flow Label analysis, and advanced traffic monitoring techniques.
+- [Device Metrics Dimensions](https://kb.kentik.com/docs/device-metrics-dimensions.md): Explore SNMP and Streaming Telemetry dimensions in Kentik's data engine, enhancing device and interface insights for effective network management.
+- [Device-Specific Dimensions](https://kb.kentik.com/docs/device-specific-dimensions.md): Explore Kentik's unique device-specific dimensions for flow records, enhancing data analysis for various devices like Cisco ASA and Palo Alto Networks.
+- [Kentik Data Engine](https://kb.kentik.com/docs/kde-overview.md): Explore querying the Kentik Data Engine (KDE) for efficient access to current and historical flow data, optimizing your network insights.
+- [KDE Tables](https://kb.kentik.com/docs/kde-tables.md): Explore the Kentik Data Engine's tables, including Universal Data Records and the All Devices Table, for enhanced network visibility and analysis.
+- [Kentik APIs](https://kb.kentik.com/docs/apis-overview.md): Explore Kentik APIs for programmatic control, network data querying, and alerting with V5 and V6 versions for efficient management and operations.
+- [V6 APIs](https://kb.kentik.com/docs/v6-apis.md)
+- [AI Advisor API](https://kb.kentik.com/docs/ai-advisor-api.md): Access Kentik's AI Advisor REST API for network analysis. Create chat sessions, retrieve insights, and manage requests with ease.
+- [AS Group APIs](https://kb.kentik.com/docs/as-group-apis.md): Learn how to use Kentik's AS Group APIs to programmatically manage AS Groups, enabling traffic aggregation for advanced filtering and analysis.
+- [BGP Monitoring APIs](https://kb.kentik.com/docs/bgp-monitoring-apis.md): Get started with Kentik's BGP Monitoring APIs to manage BGP prefixes, monitor reachability, and retrieve routing data efficiently.
+- [Capacity Plan APIs](https://kb.kentik.com/docs/capacity-plan-apis.md): Access Kentik’s Capacity Plan APIs for read-only visibility into network data. Programmatically track interface health, utilization, and runout dates.
+- [Cloud Export APIs](https://kb.kentik.com/docs/cloud-export-apis.md): Learn how to utilize Kentik's Cloud Export APIs for managing network flow logs across various cloud providers with secure configurations and status tracking.
+- [Connectivity Cost APIs](https://kb.kentik.com/docs/connectivity-cost-apis.md): Explore Kentik’s Connectivity Cost APIs to programmatically manage and retrieve network cost data, helping you optimize spend and track expenses.
+- [Credentials Vault APIs](https://kb.kentik.com/docs/credentials-vault-apis.md): Learn how to use Kentik's Credentials Vault APIs to programmatically manage secure secrets, credential groups, and authentication for your network.
+- [Device APIs](https://kb.kentik.com/docs/device-apis.md): Use Kentik’s Device APIs to programmatically manage network device configurations, interfaces, and sites. Streamline your monitoring and automation.
+- [Flow Tag APIs](https://kb.kentik.com/docs/flow-tag-apis.md): Learn how to use the Flow Tag APIs for managing flow tags securely with Kentik data, including creation, updates, and evaluations.
+- [Interface APIs](https://kb.kentik.com/docs/interface-apis.md): Manage network interfaces programmatically with Kentik’s Interface APIs. Learn to list, create, update, and delete interfaces for seamless automation.
+- [KMI APIs](https://kb.kentik.com/docs/kmi-apis.md): Learn how to utilize KMI APIs for accessing rankings, markets, and AS relationships, enhancing your Kentik data analysis securely.
+- [Label APIs](https://kb.kentik.com/docs/label-apis.md): Learn how to use the Label API for managing labels in Kentik, including creating, updating, and applying labels to various objects securely.
+- [MKP APIs](https://kb.kentik.com/docs/mkp-apis.md): Manage My Kentik Portal with MKP APIs. Automate tenant provisioning, package templates, and user onboarding for multi-tenant network analytics.
+- [Network Classification APIs](https://kb.kentik.com/docs/network-classification-apis.md): Manage network classification programmatically with Kentik’s APIs. Automate settings for traffic directionality, network boundaries, and profiles.
+- [Notification Channel APIs](https://kb.kentik.com/docs/notification-channel-apis.md): Learn to use Kentik's Notification Channel APIs for managing alerts and notifications securely through the v4 Portal. Get started today!
+- [Pathfinder API](https://kb.kentik.com/docs/pathfinder-api.md): Get started with the Pathfinder API to monitor network paths in AWS and Azure, ensuring connectivity and quick issue resolution in your cloud environment.
+- [Site APIs](https://kb.kentik.com/docs/site-apis.md): Learn how to utilize Kentik's Site APIs for managing sites and site markets, ensuring secure access to your organization's data.
+- [Synthetics Monitoring APIs](https://kb.kentik.com/docs/synthetics-monitoring-apis.md): Get started with Kentik's Synthetics Monitoring APIs to access synthetic test results, configure tests, and utilize monitoring agents effectively.
+- [User APIs](https://kb.kentik.com/docs/user-apis.md): Learn how to use Kentik's User APIs for secure user management, permissions, and data filtering with REST and gRPC methods. Start optimizing today!
+- [V5 APIs (Deprecated)](https://kb.kentik.com/docs/v5-apis.md)
+- [Admin APIs](https://kb.kentik.com/docs/admin-apis.md): Manage your organization's Kentik settings programmatically with V5 Admin APIs, accessing user, device, site, and tag data efficiently.
+- [Network Assets APIs](https://kb.kentik.com/docs/network-assets-apis.md): Explore Kentik V5 Admin APIs for managing network assets, devices, and interfaces programmatically with detailed JSON responses and cURL integration.
+- [Site and Plan APIs](https://kb.kentik.com/docs/site-and-plan-apis.md): Manage your Kentik sites and plans programmatically with V5 Admin APIs. Access site info, create, update, and delete sites efficiently.
+- [User API](https://kb.kentik.com/docs/user-api.md): Manage user settings programmatically with Kentik's V5 Admin APIs. Access user info, create, update, or delete users efficiently.
+- [Customization APIs](https://kb.kentik.com/docs/customization-apis.md): Explore Kentik V5 Admin APIs for managing custom dimensions, tags, and filters programmatically, enhancing your organization's data management capabilities.
+- [Query API](https://kb.kentik.com/docs/query-api.md): Unlock insights with the Kentik V5 Query API, enabling programmatic access to network data for your devices through JSON and cURL methods.
+- [Alerting APIs](https://kb.kentik.com/docs/alerting-apis.md): Manage Kentik's alerting features programmatically with V5 APIs, including Manual Mitigation for effective IP/CIDR management.
+- [My Kentik API](https://kb.kentik.com/docs/my-kentik-api.md): Manage your My Kentik Portal programmatically with the My Kentik API. Access tenant settings, user management, and more for efficient operations.
+- [Product Updates](https://kb.kentik.com/docs/product-updates.md)
+- [Release Notes](https://kb.kentik.com/docs/release-notes.md)
+- [Release Notes 2026](https://kb.kentik.com/docs/release-notes-2026-1.md)
+- [Release Notes by DATE](https://kb.kentik.com/docs/release-notes-by-date.md)
+- [June 2026](https://kb.kentik.com/docs/june-2026.md)
+- [May 2026](https://kb.kentik.com/docs/may-2026.md)
+- [April 2026](https://kb.kentik.com/docs/april-2026.md)
+- [March 2026](https://kb.kentik.com/docs/march-2026.md)
+- [February 2026](https://kb.kentik.com/docs/february-2026.md)
+- [January 2026](https://kb.kentik.com/docs/january-2026.md)
+- [Release Notes by PRODUCT AREA](https://kb.kentik.com/docs/release-notes-by-area.md)
+- [June 2026 - AI / Insights](https://kb.kentik.com/docs/june-2026-ai-insights.md)
+- [May 2026 - AI / Insights](https://kb.kentik.com/docs/may-2026-ai-insights.md)
+- [April 2026 - AI / Insights](https://kb.kentik.com/docs/april-2026-ai-insights.md)
+- [March 2026 - AI / Insights](https://kb.kentik.com/docs/march-2026-ai-insights.md)
+- [February 2026 - AI / Insights](https://kb.kentik.com/docs/february-2026-ai-insights.md)
+- [January 2026 - AI / Insights](https://kb.kentik.com/docs/january-2026-ai-insights-1.md)
+- [June 2026 - Alerting](https://kb.kentik.com/docs/june-2026-alerting.md)
+- [May 2026 - Alerting](https://kb.kentik.com/docs/may-2026-alerting.md)
+- [April 2026 - Alerting](https://kb.kentik.com/docs/april-2026-alerting.md)
+- [March 2026 - Alerting](https://kb.kentik.com/docs/march-2026-alerting.md)
+- [February 2026 - Alerting](https://kb.kentik.com/docs/february-2026-alerting.md)
+- [January 2026 - Alerting](https://kb.kentik.com/docs/january-2026-alerting-1.md)
+- [June 2026 - Cloud](https://kb.kentik.com/docs/june-cloud.md)
+- [May 2026 - Cloud](https://kb.kentik.com/docs/may-2026-cloud.md)
+- [April 2026 - Cloud](https://kb.kentik.com/docs/april-2026-cloud.md)
+- [March 2026 - Cloud](https://kb.kentik.com/docs/march-2026-cloud.md)
+- [February 2026 - Cloud](https://kb.kentik.com/docs/february-2026-cloud.md)
+- [January 2026 - Cloud](https://kb.kentik.com/docs/january-2026-cloud-1.md)
+- [June 2026 - Network Monitoring System (NMS)](https://kb.kentik.com/docs/june-2026-network-monitoring-system-nms.md)
+- [May 2026 - Network Monitoring System (NMS)](https://kb.kentik.com/docs/may-2026-network-monitoring-system-nms.md)
+- [April 2026 - Network Monitoring System (NMS)](https://kb.kentik.com/docs/april-2026-network-monitoring-system-nms.md)
+- [March 2026 - Network Monitoring System (NMS)](https://kb.kentik.com/docs/march-2026-network-monitoring-system-nms.md)
+- [February 2026 - Network Monitoring System (NMS)](https://kb.kentik.com/docs/february-2026-network-monitoring-system-nms.md)
+- [January 2026 - Network Monitoring System (NMS)](https://kb.kentik.com/docs/january-2026-network-monitoring-system-nms-1.md)
+- [June 2026 - Platform](https://kb.kentik.com/docs/june-2026-platform.md)
+- [May 2026 - Platform](https://kb.kentik.com/docs/may-2026-platform.md)
+- [April 2026 - Platform](https://kb.kentik.com/docs/april-2026-platform.md)
+- [March 2026 - Platform](https://kb.kentik.com/docs/march-2026-platform.md)
+- [February 2026 - Platform](https://kb.kentik.com/docs/february-2026-platform.md)
+- [January 2026 - Platform](https://kb.kentik.com/docs/january-2026-platform-1.md)
+- [June 2026 - Synthetics](https://kb.kentik.com/docs/june-2026-synthetics.md)
+- [May 2026 - Synthetics](https://kb.kentik.com/docs/may-2026-synthetics.md)
+- [April 2026 - Synthetics](https://kb.kentik.com/docs/april-2026-synthetics.md)
+- [March 2026 - Synthetics](https://kb.kentik.com/docs/march-2026-synthetics.md)
+- [February 2026 - Synthetics](https://kb.kentik.com/docs/february-2026-synthetics.md)
+- [January 2026 - Synthetics](https://kb.kentik.com/docs/january-2026-synthetics-1.md)
+- [June 2026 - Traffic](https://kb.kentik.com/docs/june-2026-traffic.md)
+- [May 2026 - Traffic](https://kb.kentik.com/docs/may-2026-traffic.md)
+- [April 2026 - Traffic](https://kb.kentik.com/docs/april-2026-traffic.md)
+- [March 2026 - Traffic](https://kb.kentik.com/docs/march-2026-traffic.md)
+- [February 2026 - Traffic](https://kb.kentik.com/docs/february-2026-traffic.md)
+- [January 2026 - Traffic](https://kb.kentik.com/docs/january-2026-traffic-1.md)
+- [Release Notes 2025](https://kb.kentik.com/docs/release-notes-2025.md): Kentik's v4 portal updates enhance network monitoring with AI insights, improved alerting, and new tools for better performance and troubleshooting.
+- [Release Notes 2024](https://kb.kentik.com/docs/release-notes-2024.md): Explore Kentik's continuous deployment updates for the v4 portal, enhancing alerting, cloud metrics, and NMS policies for improved performance.
+- [Release Notes 2023](https://kb.kentik.com/docs/release-notes-2023.md): Explore Kentik's December 2023 updates, featuring enhanced alerting, cloud support, and improved performance for the Kentik v4 portal and platform.
+- [Release Notes 2022](https://kb.kentik.com/docs/release-notes-2022.md): Kentik's v4 portal updates enhance BGP monitoring, cloud features, and alerting capabilities, ensuring continuous improvement and refined performance insights.
+- [Release Notes 2021](https://kb.kentik.com/docs/release-notes-2021.md): Kentik's v4 portal updates enhance DDoS mitigation, BGP monitoring, and user experience with new functionalities and resolved issues for optimal performance.
+- [Release Notes 2020](https://kb.kentik.com/docs/release-notes-2020.md): Explore Kentik v4's continuous deployment updates, featuring enhanced Synthetics, Kproxy, and MyKentik Portal functionalities for improved network performance.
+- [Deprecated Features](https://kb.kentik.com/docs/deprecated-features.md)
+- [Sunsetting kproxy](https://kb.kentik.com/docs/sunsetting-kproxy.md): Kentik's kproxy software agent is being deprecated on May 1, 2027. Learn about the sunsetting process, impacts, and how to migrate to the Universal Agent.
+- [Sunsetting kprobe](https://kb.kentik.com/docs/sunsetting-kprobe.md): Kentik sunsets kprobe to enhance network observability with the Universal Agent, offering high-performance DNS insights and streamlined visibility.

@@ -1,0 +1,55 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/*.json (Kentik V6 gRPC-gateway specs) + https://kb.kentik.com/docs/apis-overview
+protocol:
+  primary: gRPC
+  transcoding: REST/JSON (gRPC-gateway)
+  base_url: https://grpc.api.kentik.com
+  eu_base_url: https://grpc.api.kentik.eu
+  legacy_rest: https://api.kentik.com (V5, discontinued Jan 2025)
+authentication:
+  style: api-key-headers
+  headers:
+  - X-CH-Auth-Email
+  - X-CH-Auth-API-Token
+  ref: authentication/kentik-authentication.yml
+  notes: >-
+    Every request carries the user email and a per-user API token in HTTP
+    headers. Tokens are managed in the user profile (ResetApiToken operation) and
+    stored/vaulted via the Credentials Vault.
+idempotency:
+  supported: false
+  notes: >-
+    The V6 gRPC APIs do not document an idempotency-key header. Creates are
+    conventional gRPC unary calls; safe retries rely on server-side uniqueness of
+    resource names rather than a client idempotency key.
+pagination:
+  style: mixed
+  notes: >-
+    Larger collection/list services expose pagination and sorting message types
+    (see kentik/alerting/types/.../pagination and sorting). Many CRUD list
+    endpoints return the full collection.
+versioning:
+  style: calendar-in-path
+  example: /synthetics/v202309/...
+  ref: lifecycle/kentik-lifecycle.yml
+error_envelope:
+  format: google.rpc.Status (gRPC) mapped to JSON by gRPC-gateway
+  fields:
+  - code (gRPC status code, int)
+  - message (string)
+  - details (array of google.protobuf.Any)
+  schema: rpcStatus
+  ref: errors/kentik-error-codes.yml
+rate_limit_signaling:
+  notes: >-
+    Kentik operates an internal API rate-limit service (api-ratelimit). Public
+    per-endpoint rate-limit headers are not documented in the OpenAPI; consult
+    the KB / support for account limits.
+tracing:
+  notes: gRPC metadata; no public request-id header documented in the specs.
+cross_links:
+  errors: errors/kentik-error-codes.yml
+  lifecycle: lifecycle/kentik-lifecycle.yml
+  authentication: authentication/kentik-authentication.yml
+  data_model: data-model/kentik-data-model.yml

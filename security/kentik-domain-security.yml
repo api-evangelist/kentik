@@ -1,0 +1,34 @@
+generated: '2026-07-19'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: portal.kentik.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Aug 25 05:23:23 2026 GMT
+  hsts: true
+  hsts_max_age: 31536000
+- host: kb.kentik.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Aug 28 12:25:19 2026 GMT
+  hsts: true
+  hsts_max_age: 31536000
+- host: grpc.api.kentik.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Aug 26 05:27:16 2026 GMT
+  hsts: null
+domains:
+- domain: kentik.com
+  dnssec: false
+  caa:
+  - 0 issuewild "amazon.com"
+  - 0 issuewild "digicert.com"
+  - 0 issuewild "letsencrypt.org"
+  - 0 iodef "mailto:abuse@kentik.com"
+  - 0 issue "amazon.com"
+  - 0 issue "digicert.com"
+  spf: true
+  dmarc: true
+  dmarc_policy: quarantine

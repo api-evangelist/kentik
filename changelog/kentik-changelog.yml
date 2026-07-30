@@ -1,0 +1,36 @@
+generated: '2026-07-19'
+method: searched
+source: https://kb.kentik.com/docs/release-notes
+scheme: calendar
+description: >-
+  Kentik publishes dated Release Notes in its knowledge base, organized by date
+  and by product area, with archives back to 2020. API services are themselves
+  calendar-versioned (v2025xx / v2026xx tags in the request path), so the current
+  version of each service doubles as its most recent dated release. The live
+  Release Notes page is the source of truth for the recent window.
+release_notes:
+  index: https://kb.kentik.com/docs/release-notes
+  by_year:
+  - year: 2026
+    url: https://kb.kentik.com/docs/release-notes
+  - year: 2025
+  - year: 2024
+  - year: 2023
+  - year: 2022
+  - year: 2021
+  - year: 2020
+recent_api_versions:
+- service: audit
+  version: v202601
+- service: ai_advisor
+  version: v202511
+- service: site
+  version: v202509
+- service: cloud_export
+  version: v202506
+- service: alerting
+  version: v202505
+- service: device
+  version: v202504beta2
+- service: flow_tag
+  version: v202404alpha1

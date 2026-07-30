@@ -1,0 +1,546 @@
+syntax = "proto3";
+
+package kentik.kmi.v202212;
+option go_package = "github.com/kentik/api-schema-public/gen/go/kentik/kmi/v202212;kmi";
+
+import "google/api/annotations.proto";
+import "google/api/client.proto";
+import "google/api/field_behavior.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+import "kentik/core/v202303/annotations.proto";
+
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
+  info: {
+    title: "Kentik Market Intelligence (KMI) API"
+    version: "v202212"
+    contact: {
+      name: "Kentik API Engineering"
+      url: "https://github.com/kentik/api-schema-public"
+    }
+    description: "# Overview\n"
+    "The Kentik Market Intelligence (KMI) API provides programmatic access to information related to KMI rankings, KMI markets, and the customers, providers, and peers "
+    "of individual Autonomous Systems (ASes). This information is derived from analysis of the global routing table, which enables us to classify the peering and transit "
+    "relationships between ASes and to identify the providers, peers, and customers of a given AS in any geography (market). KMI estimates the volume of IP space transited "
+    "by ASes in different geographies and produces rankings based on that volume, thereby enabling users to compare ASes in various markets."
+    "\n\n"
+    "# KMI Ranking Types\n\n"
+    "The following types of rankings are shown:\n"
+    "- **Customer Base**: Ranked by the size of the overall customer base, estimated by determining how much IP address space a given AS transits relative to other ASes:\n"
+    "    - Retail networks  provide services (e.g. originate content) or have end-users that are consumers of services (e.g. ISPs or \"eyeball\" networks).\n"
+    "    - Wholesale networks  connect retail networks to backbone networks.\n"
+    "    - Backbone networks carry high volumes of traffic between wholesale networks.\n"
+    "- **Customer Growth**: Ranked by the change in overall customer base (gain/loss of prefixes) over the last 20 days.\n"
+    "- **Peering**: Ranked by the amount of IP address space sent to the AS over a settlement-free peering session.\n\n"
+    "Both REST endpoint and gRPC RPCs are provided.\n\n"
+    "**_Note:_** More information about KMI can be found at [Kentik Market Intelligence](https://kb.kentik.com/v4/Ha04.htm).",
+  }
+  external_docs: {
+    url: "https://kb.kentik.com/v0/Ab09.htm#Ab09-APIs_Overview"
+    description: "General information about Kentik APIs"
+  }
+  schemes: HTTPS
+  consumes: "application/json"
+  produces: "application/json"
+  security_definitions: {
+    security: {
+      key: "email"
+      value: {
+        type: TYPE_API_KEY
+        in: IN_HEADER
+        name: "X-CH-Auth-Email"
+      }
+    }
+    security: {
+      key: "token"
+      value: {
+        type: TYPE_API_KEY
+        in: IN_HEADER
+        name: "X-CH-Auth-API-Token"
+      }
+    }
+  }
+  security: {
+    security_requirement: {
+      key: "email"
+      value: {}
+    }
+    security_requirement: {
+      key: "token"
+      value: {}
+    }
+  }
+};
+
+// {{.Name}}
+message Market {
+  string market_id = 1 [
+    (google.api.field_behavior) = OUTPUT_ONLY,
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Unique Geo Market identifier"
+    }
+  ];
+  string name = 2 [
+    (google.api.field_behavior) = OUTPUT_ONLY,
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Geo Market Name"
+    }
+  ];
+}
+
+// {{.Name}}
+message Ranking {
+  optional uint32 asn = 1 [
+    (google.api.field_behavior) = OUTPUT_ONLY,
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Autonomous System Number (ASN)"
+    }
+  ];
+  string name = 2 [
+    (google.api.field_behavior) = OUTPUT_ONLY,
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Name of the Autonomous System"
+    }
+  ];
+  optional uint32 rank = 3 [
+    (google.api.field_behavior) = OUTPUT_ONLY,
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Rank of the Autonomous System"
+    }
+  ];
+  optional uint32 rank_change = 4 [
+    (google.api.field_behavior) = OUTPUT_ONLY,
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Rank Change of the Autonomous System"
+    }
+  ];
+  optional uint32 score = 5 [
+    (google.api.field_behavior) = OUTPUT_ONLY,
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Score of the Autonomous System"
+    }
+  ];
+  optional uint32 score_change = 6 [
+    (google.api.field_behavior) = OUTPUT_ONLY,
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Score Change of the Autonomous System"
+    }
+  ];
+}
+
+// {{.Name}}
+message CustomerProvider {
+  optional uint32 asn = 1 [
+    (google.api.field_behavior) = OUTPUT_ONLY,
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Autonomous System Number (ASN)"
+    }
+  ];
+  string name = 2 [
+    (google.api.field_behavior) = OUTPUT_ONLY,
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Name of the Autonomous System"
+    }
+  ];
+  optional uint32 score = 3 [
+    (google.api.field_behavior) = OUTPUT_ONLY,
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Score of the Autonomous System"
+    }
+  ];
+  optional bool singlehomed_customer = 4 [
+    (google.api.field_behavior) = OUTPUT_ONLY,
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Singlehomed customer (only one upstream provider to the internet)"
+    }
+  ];
+  optional bool mutual_customer = 5 [
+    (google.api.field_behavior) = OUTPUT_ONLY,
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Mutual customer"
+    }
+  ];
+  optional bool mutual_provider = 6 [
+    (google.api.field_behavior) = OUTPUT_ONLY,
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Mutual provider"
+    }
+  ];
+}
+
+// {{.Name}}
+message Peer {
+  optional uint32 asn = 1 [
+    (google.api.field_behavior) = OUTPUT_ONLY,
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Autonomous System Number (ASN)"
+    }
+  ];
+  string name = 2 [
+    (google.api.field_behavior) = OUTPUT_ONLY,
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Name of the Autonomous System"
+    }
+  ];
+  optional uint32 pfx_count = 3 [
+    (google.api.field_behavior) = OUTPUT_ONLY,
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Prefix Count (number of distinct IP address blocks announced by AS)"
+    }
+  ];
+}
+
+// {{.Name}}
+message ASNDetails {
+  optional uint32 asn = 1 [
+    (google.api.field_behavior) = OUTPUT_ONLY,
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Autonomous System Number (ASN)"
+    }
+  ];
+  string name = 2 [
+    (google.api.field_behavior) = OUTPUT_ONLY,
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Name of the Autonomous System"
+    }
+  ];
+  string country_name = 3 [
+    (google.api.field_behavior) = OUTPUT_ONLY,
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Country Name of the Autonomous System"
+    }
+  ];
+  repeated CustomerProvider customers = 4 [
+    (google.api.field_behavior) = OUTPUT_ONLY,
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "List of Customers"
+    }
+  ];
+  repeated CustomerProvider providers = 5 [
+    (google.api.field_behavior) = OUTPUT_ONLY,
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "List of Providers"
+    }
+  ];
+  repeated Peer peers = 6 [
+    (google.api.field_behavior) = OUTPUT_ONLY,
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "List of Peers"
+    }
+  ];
+}
+
+// {{.Name}}
+message Insight {
+  optional uint32 asn = 1 [
+    (google.api.field_behavior) = OUTPUT_ONLY,
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Autonomous System Number (ASN)"
+    }
+  ];
+  string name = 2 [
+    (google.api.field_behavior) = OUTPUT_ONLY,
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Name of the Autonomous System"
+    }
+  ];
+  optional uint32 type = 3 [
+    (google.api.field_behavior) = OUTPUT_ONLY,
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Type of insight"
+    }
+  ];
+  string message = 4 [
+    (google.api.field_behavior) = OUTPUT_ONLY,
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Insight message text"
+    }
+  ];
+  string created_at = 5 [
+    (google.api.field_behavior) = OUTPUT_ONLY,
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Timestamp when insight was created"
+    }
+  ];
+}
+
+// KMI
+// -------------------------------------------------------
+
+// {{.Name}}
+message ListMarketsRequest {}
+
+// {{.Name}}
+message ListMarketsResponse {
+  repeated Market markets = 1 [
+    (google.api.field_behavior) = OUTPUT_ONLY,
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Markets"
+    }
+  ];
+}
+
+// {{.Name}}
+message GetRankingsRequest {
+  string market_id = 1 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Unique Geo Market identifier (as provided by the ListMarkets RPC)"
+    }
+  ];
+  string rank_type = 2 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Type of the requested ranking ('customer_base', 'customer_base_retail', 'customer_base_wholesome', 'customer_base_backbone', 'customer_growth', 'peering_base'). Defaults to 'customer_base'."
+      enum: ["customer_base", "customer_base_retail", "customer_base_wholesome", "customer_base_backbone", "customer_growth", "peering_base"]
+      default: "customer_base"
+    }
+  ];
+  string ip = 3 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "IP Address Family ('v4' or 'v6') of requested ranking. Defaults to 'v4'."
+      enum: ["v4", "v6"]
+      default: "v4"
+    }
+  ];
+  optional uint32 limit = 4 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Maximum number of entries returned. (Default: 600)."
+    }
+  ];
+}
+
+// {{.Name}}
+message GetRankingsResponse {
+  repeated Ranking rankings = 1 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "List of rankings"
+    }
+  ];
+  uint32 invalid_count = 2 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Number of invalid entries encountered while collecting data"
+    }
+  ];
+}
+
+// {{.Name}}
+message GetASNDetailsRequest {
+  string market_id = 1 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Unique Geo Market identifier (as provided by the ListMarkets RPC)"
+    }
+  ];
+  string asn = 2 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Autonomous System Number (ASN)"
+    }
+  ];
+  string ip = 3 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "IP Address Family ('v4' or 'v6'). Defaults to 'v4'."
+      enum: ["v4", "v6"]
+      default: "v4"
+    }
+  ];
+  string type = 4 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Type of the requested ASN ('all', 'customers', 'providers', 'peers'). Defaults to 'all'."
+      enum: ["all", "customers", "providers", "peers"]
+      default: "all"
+    }
+  ];
+  string mutual_provider = 5 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Filter by mutual provider ('all', 'only', 'exclude'). Defaults to 'all'."
+      enum: ["all", "only", "exclude"]
+      default: "all"
+    }
+  ];
+  string mutual_customer = 6 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Filter by mutual customer ('all', 'only', 'exclude'). Defaults to 'all'."
+      enum: ["all", "only", "exclude"]
+      default: "all"
+    }
+  ];
+  string singlehomed_customer = 7 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Filter by singlehomed customer ('all', 'only', 'exclude'). Defaults to 'all'."
+      enum: ["all", "only", "exclude"]
+      default: "all"
+    }
+  ];
+}
+
+// {{.Name}}
+message GetASNDetailsResponse {
+  ASNDetails asn_details = 1 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Metadata and list of customers, providers, and peers for an Autonomous System"
+    }
+  ];
+}
+
+// {{.Name}}
+message GetGlobalInsightsRequest {
+  optional uint32 limit = 1 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Maximum number of insights to return. Defaults to 100."
+    }
+  ];
+  optional string market_id = 2 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Geo Market identifier (e.g., 'planet$earth'). If omitted, defaults to global market."
+    }
+  ];
+  optional string ip = 3 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "IP Address Family ('v4' or 'v6'). Defaults to 'v4'."
+    }
+  ];
+  optional uint32 lookback = 4 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Lookback in days. Allowed values: 1, 7, 30. Defaults to 1."
+    }
+  ];
+  repeated string types = 5 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Insight types to include. Provide as repeated query params, e.g., types=market_entrance&types=market_exit. Allowed: market_entrance, market_exit, ranking_gain, ranking_loss, start_prefix_origination, stop_prefix_origination, increase_prefix_origination, decrease_prefix_origination, customer_gain, customer_loss, customer_routing_gain, customer_routing_loss, provider_gain, provider_loss, provider_routing_gain, provider_routing_loss."
+    }
+  ];
+  optional uint32 magnitude = 6 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Minimum magnitude (severity) threshold, integer 1–5. Defaults to 1."
+    }
+  ];
+}
+
+// {{.Name}}
+message GetGlobalInsightsResponse {
+  repeated Insight insights = 1 [
+    (google.api.field_behavior) = OUTPUT_ONLY,
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "List of global insights"
+    }
+  ];
+}
+
+// {{.Name}}
+message GetASNInsightsRequest {
+  string asn = 1 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Autonomous System Number (ASN)"
+    }
+  ];
+  optional uint32 limit = 2 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Maximum number of insights to return. Defaults to 100."
+    }
+  ];
+  optional string market_id = 3 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Geo Market identifier (e.g., 'planet$earth'). If omitted, defaults to global market."
+    }
+  ];
+  optional string ip = 4 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "IP Address Family ('v4' or 'v6'). Defaults to 'v4'."
+    }
+  ];
+  optional uint32 lookback = 5 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Lookback in days. Allowed values: 1, 7, 30. Defaults to 1."
+    }
+  ];
+  repeated string types = 6 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Insight types to include. Allowed: market_entrance, market_exit, ranking_gain, ranking_loss, start_prefix_origination, stop_prefix_origination, increase_prefix_origination, decrease_prefix_origination, customer_gain, customer_loss, customer_routing_gain, customer_routing_loss, provider_gain, provider_loss, provider_routing_gain, provider_routing_loss."
+    }
+  ];
+  optional uint32 magnitude = 7 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Minimum magnitude (severity) threshold, integer 1–5. Defaults to 1."
+    }
+  ];
+}
+
+// {{.Name}}
+message GetASNInsightsResponse {
+  repeated Insight insights = 1 [
+    (google.api.field_behavior) = OUTPUT_ONLY,
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "List of ASN-specific insights"
+    }
+  ];
+}
+
+// services and RPCs
+// -------------------------------------------------------
+
+service KmiService {
+  option (google.api.default_host) = "grpc.api.kentik.com";
+  option (kentik.core.v202303.visibility) = SERVICE_VISIBILITY_PUBLIC;
+  option (kentik.core.v202303.service_scope) = "admin.kmi";
+
+  // --- KMI ---
+
+  rpc ListMarkets(ListMarketsRequest) returns (ListMarketsResponse) {
+    option (kentik.core.v202303.method_scope) = "admin.kmi:read";
+    option (google.api.http) = {
+      get: "/kmi/v202212/markets"
+    };
+    option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+      operation_id: "ListMarkets"
+      summary: "List all geo markets for KMI."
+      description: "Returns list of geo markets for KMI."
+    };
+  }
+
+  rpc GetRankings(GetRankingsRequest) returns (GetRankingsResponse) {
+    option (kentik.core.v202303.method_scope) = "admin.kmi:read";
+    option (google.api.http) = {
+      post: "/kmi/v202212/market/{market_id}/rankings/{rank_type}/ip/{ip}"
+      body: "*"
+    };
+    option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+      operation_id: "GetRankings"
+      summary: "List KMI rankings by geo market and rank type."
+      description: "Returns list of KMI rankings."
+    };
+  }
+
+  rpc GetASNDetails(GetASNDetailsRequest) returns (GetASNDetailsResponse) {
+    option (kentik.core.v202303.method_scope) = "admin.kmi:read";
+    option (google.api.http) = {
+      post: "/kmi/v202212/market/{market_id}/network/{asn}/{type}"
+      body: "*"
+    };
+    option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+      operation_id: "GetASNDetails"
+      summary: "List metadata and list of customers, providers, and peers for an Autonomous System."
+      description: "Returns metadata and list of customers, providers, and peers for an Autonomous System."
+    };
+  }
+
+  rpc GetGlobalInsights(GetGlobalInsightsRequest) returns (GetGlobalInsightsResponse) {
+    option (kentik.core.v202303.method_scope) = "admin.kmi:read";
+    option (google.api.http) = {
+      get: "/kmi/v202212/insights"
+    };
+    option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+      operation_id: "GetGlobalInsights"
+      summary: "List global KMI insights."
+      description: "Returns list of global KMI insights."
+    };
+  }
+
+  rpc GetASNInsights(GetASNInsightsRequest) returns (GetASNInsightsResponse) {
+    option (kentik.core.v202303.method_scope) = "admin.kmi:read";
+    option (google.api.http) = {
+      get: "/kmi/v202212/insights/{asn}"
+    };
+    option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+      operation_id: "GetASNInsights"  
+      summary: "List ASN-specific KMI insights."
+      description: "Returns list of KMI insights for a specific Autonomous System."
+    };
+  }
+}

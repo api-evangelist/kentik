@@ -1,0 +1,35 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/*.json + grpc/*.proto + https://kb.kentik.com/docs/apis-overview
+standards:
+- id: grpc
+  conforms: true
+  evidence: V6 API is gRPC-first; service definitions published as protobuf in api-schema-public.
+- id: protobuf
+  conforms: true
+  evidence: grpc/*.proto proto3 service and message definitions.
+- id: openapi
+  conforms: true
+  evidence: OpenAPI v2 (swagger) and v3 documents generated per service and published in api-schema-public.
+- id: rest-json-transcoding
+  conforms: true
+  evidence: gRPC-gateway exposes REST/JSON transcoding of the gRPC services.
+- id: grpc-status-codes
+  conforms: true
+  evidence: Error responses use google.rpc.Status (rpcStatus) with canonical gRPC status codes.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Errors use google.rpc.Status, not application/problem+json.
+- id: oauth2
+  conforms: false
+  evidence: Authentication is api-key headers (X-CH-Auth-Email + X-CH-Auth-API-Token), no OAuth2 scheme.
+- id: openid-connect
+  conforms: false
+- id: calendar-versioning
+  conforms: true
+  evidence: Each service is versioned with a calendar tag in the request path (v2025xx / v2026xx).
+compliance_note: >-
+  Kentik operates a Trust Center at https://trust.kentik.com/ (SafeBase, JS-rendered).
+  Named certifications could not be verified from an unauthenticated fetch, so no
+  specific compliance certifications are asserted here and no Compliance pointer is
+  emitted. See security posture at https://www.kentik.com/security/.

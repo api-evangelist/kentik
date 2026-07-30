@@ -1,0 +1,32 @@
+generated: '2026-07-19'
+method: searched
+source: live probes of Kentik hosts
+note: >-
+  Probed the standard /.well-known/ discovery surface on api.kentik.com,
+  portal.kentik.com, grpc.api.kentik.com and www.kentik.com. The portal/api
+  hosts return HTTP 200 for every path but serve the SPA catch-all HTML
+  (Content-Type text/html) rather than a real discovery document, so no genuine
+  well-known artifacts were captured. grpc.api.kentik.com requires auth (401).
+  Recording the probe result honestly; no real documents saved.
+hosts:
+- host: https://api.kentik.com
+  documents:
+  - {path: /.well-known/security.txt, status: 200, real: false, note: SPA catch-all HTML}
+  - {path: /.well-known/openid-configuration, status: 200, real: false, note: SPA catch-all HTML}
+  - {path: /.well-known/oauth-authorization-server, status: 200, real: false, note: SPA catch-all HTML}
+  - {path: /.well-known/api-catalog, status: 200, real: false, note: SPA catch-all HTML}
+  - {path: /.well-known/ai-plugin.json, status: 200, real: false, note: SPA catch-all HTML}
+- host: https://portal.kentik.com
+  documents:
+  - {path: /.well-known/security.txt, status: 200, real: false, note: SPA catch-all HTML}
+  - {path: /.well-known/openid-configuration, status: 200, real: false, note: SPA catch-all HTML}
+  - {path: /.well-known/oauth-authorization-server, status: 200, real: false, note: SPA catch-all HTML}
+- host: https://grpc.api.kentik.com
+  documents:
+  - {path: /.well-known/security.txt, status: 401}
+  - {path: /.well-known/openid-configuration, status: 401}
+- host: https://www.kentik.com
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+real_documents_found: false

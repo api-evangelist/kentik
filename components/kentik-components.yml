@@ -1,0 +1,29 @@
+generated: '2026-07-19'
+method: searched
+source: https://kb.kentik.com/ and https://github.com/kentik
+description: >-
+  Kentik ships several embeddable / client-side surfaces distinct from the
+  server-side SDKs in packages/. These let teams surface Kentik data inside other
+  tools or share Kentik views externally.
+components:
+- family: grafana
+  name: Kentik Grafana Plugin
+  kind: grafana-app-plugin
+  url: https://github.com/kentik/kentik-grafana-app
+  docs: https://kb.kentik.com/docs/grafana
+  install: grafana-cli plugins install kentik-app
+  notes: Official Grafana app plugin embedding Kentik data sources and dashboards.
+- family: my-kentik-portal
+  name: My Kentik Portal (MKP)
+  kind: embedded-white-label-portal
+  docs: https://kb.kentik.com/docs/my-kentik-portal
+  notes: >-
+    Multi-tenant white-label portal that embeds Kentik analytics for a provider's
+    own customers (tenant portals). Managed via the MKP API (openapi/kentik-mkp-openapi.json).
+- family: portal-sharing
+  name: Public Shares / Portal Sharing & Export
+  kind: shareable-embeddable-views
+  docs: https://kb.kentik.com/docs/portal-sharing-and-export
+  notes: >-
+    Dashboards and saved views can be publicly shared and exported for embedding
+    outside the authenticated portal.
