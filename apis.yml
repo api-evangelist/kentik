@@ -1,22 +1,1336 @@
 aid: kentik
 name: Kentik
-description: Kentik is a company surfaced as a portfolio company of dcvc and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: Kentik is a network observability company whose SaaS platform (the Kentik Portal) unifies network flow records,
+  BGP routing, SNMP and streaming telemetry, synthetic tests, and cloud VPC/flow logs into one analytics engine for network
+  performance monitoring, capacity planning, DDoS detection and mitigation, cloud and container visibility, service-provider
+  peering and OTT analytics, and AI-driven network intelligence. The Kentik V6 API is a gRPC-first platform with REST/JSON
+  transcoding that exposes dozens of services — devices, sites, labels, users, alert policies, mitigations, synthetics, cloud
+  export, notification channels, capacity plans, and an AI Advisor MCP server — authenticated with X-CH-Auth-Email plus X-CH-Auth-API-Token
+  headers.
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://avatars.githubusercontent.com/u/11130373?v=4
 url: https://raw.githubusercontent.com/api-evangelist/kentik/refs/heads/main/apis.yml
+humanURL: https://www.kentik.com/
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - dcvc
-x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier: enriched
+x-tier-reason: enrichment-pipeline
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
 tags:
-- Company
-apis: []
+- Network Observability
+- Network Monitoring
+- Flow Analytics
+- BGP
+- Synthetics
+- DDoS
+- Cloud
+- Telemetry
+- NMS
+- gRPC
+- AIOps
+- Observability
+apis:
+- aid: kentik:kentik-aiadvisordataservice-api
+  name: Kentik AiAdvisorDataService API
+  description: The AiAdvisorDataService API from Kentik — 2 operation(s) for aiadvisordataservice.
+  humanURL: https://kb.kentik.com/docs/apis-overview
+  baseURL: https://grpc.api.kentik.com
+  tags:
+  - AiAdvisorDataService
+  properties:
+  - type: OpenAPI
+    url: openapi/kentik-aiadvisordataservice-api-openapi.yml
+  - type: Protobuf
+    url: grpc/kentik-synthetics.proto
+  - type: Protobuf
+    url: grpc/kentik-cloud-export.proto
+  - type: Protobuf
+    url: grpc/kentik-alerting.proto
+  - type: Protobuf
+    url: grpc/kentik-mitigation.proto
+  - type: Protobuf
+    url: grpc/kentik-alert-policy.proto
+  - type: Protobuf
+    url: grpc/kentik-device.proto
+  - type: Protobuf
+    url: grpc/kentik-user.proto
+  - type: Protobuf
+    url: grpc/kentik-site.proto
+  - type: Protobuf
+    url: grpc/kentik-label.proto
+  - type: Protobuf
+    url: grpc/kentik-as-group.proto
+  - type: Protobuf
+    url: grpc/kentik-notification-channel.proto
+  - type: Protobuf
+    url: grpc/kentik-capacity-plan.proto
+  - type: Protobuf
+    url: grpc/kentik-bgp-monitoring.proto
+  - type: Protobuf
+    url: grpc/kentik-mkp.proto
+  - type: Protobuf
+    url: grpc/kentik-kmi.proto
+  - type: Protobuf
+    url: grpc/kentik-cost.proto
+  - type: Protobuf
+    url: grpc/kentik-custom-dimension.proto
+  - type: Protobuf
+    url: grpc/kentik-flow-tag.proto
+  - type: Protobuf
+    url: grpc/kentik-ai-advisor.proto
+  - type: Protobuf
+    url: grpc/kentik-audit.proto
+- aid: kentik:kentik-alertservice-api
+  name: Kentik AlertService API
+  description: The AlertService API from Kentik — 7 operation(s) for alertservice.
+  humanURL: https://kb.kentik.com/docs/apis-overview
+  baseURL: https://grpc.api.kentik.com
+  tags:
+  - AlertService
+  properties:
+  - type: OpenAPI
+    url: openapi/kentik-alertservice-api-openapi.yml
+  - type: Protobuf
+    url: grpc/kentik-synthetics.proto
+  - type: Protobuf
+    url: grpc/kentik-cloud-export.proto
+  - type: Protobuf
+    url: grpc/kentik-alerting.proto
+  - type: Protobuf
+    url: grpc/kentik-mitigation.proto
+  - type: Protobuf
+    url: grpc/kentik-alert-policy.proto
+  - type: Protobuf
+    url: grpc/kentik-device.proto
+  - type: Protobuf
+    url: grpc/kentik-user.proto
+  - type: Protobuf
+    url: grpc/kentik-site.proto
+  - type: Protobuf
+    url: grpc/kentik-label.proto
+  - type: Protobuf
+    url: grpc/kentik-as-group.proto
+  - type: Protobuf
+    url: grpc/kentik-notification-channel.proto
+  - type: Protobuf
+    url: grpc/kentik-capacity-plan.proto
+  - type: Protobuf
+    url: grpc/kentik-bgp-monitoring.proto
+  - type: Protobuf
+    url: grpc/kentik-mkp.proto
+  - type: Protobuf
+    url: grpc/kentik-kmi.proto
+  - type: Protobuf
+    url: grpc/kentik-cost.proto
+  - type: Protobuf
+    url: grpc/kentik-custom-dimension.proto
+  - type: Protobuf
+    url: grpc/kentik-flow-tag.proto
+  - type: Protobuf
+    url: grpc/kentik-ai-advisor.proto
+  - type: Protobuf
+    url: grpc/kentik-audit.proto
+- aid: kentik:kentik-asgroupservice-api
+  name: Kentik ASGroupService API
+  description: The ASGroupService API from Kentik — 2 operation(s) for asgroupservice.
+  humanURL: https://kb.kentik.com/docs/apis-overview
+  baseURL: https://grpc.api.kentik.com
+  tags:
+  - ASGroupService
+  properties:
+  - type: OpenAPI
+    url: openapi/kentik-asgroupservice-api-openapi.yml
+  - type: Protobuf
+    url: grpc/kentik-synthetics.proto
+  - type: Protobuf
+    url: grpc/kentik-cloud-export.proto
+  - type: Protobuf
+    url: grpc/kentik-alerting.proto
+  - type: Protobuf
+    url: grpc/kentik-mitigation.proto
+  - type: Protobuf
+    url: grpc/kentik-alert-policy.proto
+  - type: Protobuf
+    url: grpc/kentik-device.proto
+  - type: Protobuf
+    url: grpc/kentik-user.proto
+  - type: Protobuf
+    url: grpc/kentik-site.proto
+  - type: Protobuf
+    url: grpc/kentik-label.proto
+  - type: Protobuf
+    url: grpc/kentik-as-group.proto
+  - type: Protobuf
+    url: grpc/kentik-notification-channel.proto
+  - type: Protobuf
+    url: grpc/kentik-capacity-plan.proto
+  - type: Protobuf
+    url: grpc/kentik-bgp-monitoring.proto
+  - type: Protobuf
+    url: grpc/kentik-mkp.proto
+  - type: Protobuf
+    url: grpc/kentik-kmi.proto
+  - type: Protobuf
+    url: grpc/kentik-cost.proto
+  - type: Protobuf
+    url: grpc/kentik-custom-dimension.proto
+  - type: Protobuf
+    url: grpc/kentik-flow-tag.proto
+  - type: Protobuf
+    url: grpc/kentik-ai-advisor.proto
+  - type: Protobuf
+    url: grpc/kentik-audit.proto
+- aid: kentik:kentik-auditservice-api
+  name: Kentik AuditService API
+  description: The AuditService API from Kentik — 3 operation(s) for auditservice.
+  humanURL: https://kb.kentik.com/docs/apis-overview
+  baseURL: https://grpc.api.kentik.com
+  tags:
+  - AuditService
+  properties:
+  - type: OpenAPI
+    url: openapi/kentik-auditservice-api-openapi.yml
+  - type: Protobuf
+    url: grpc/kentik-synthetics.proto
+  - type: Protobuf
+    url: grpc/kentik-cloud-export.proto
+  - type: Protobuf
+    url: grpc/kentik-alerting.proto
+  - type: Protobuf
+    url: grpc/kentik-mitigation.proto
+  - type: Protobuf
+    url: grpc/kentik-alert-policy.proto
+  - type: Protobuf
+    url: grpc/kentik-device.proto
+  - type: Protobuf
+    url: grpc/kentik-user.proto
+  - type: Protobuf
+    url: grpc/kentik-site.proto
+  - type: Protobuf
+    url: grpc/kentik-label.proto
+  - type: Protobuf
+    url: grpc/kentik-as-group.proto
+  - type: Protobuf
+    url: grpc/kentik-notification-channel.proto
+  - type: Protobuf
+    url: grpc/kentik-capacity-plan.proto
+  - type: Protobuf
+    url: grpc/kentik-bgp-monitoring.proto
+  - type: Protobuf
+    url: grpc/kentik-mkp.proto
+  - type: Protobuf
+    url: grpc/kentik-kmi.proto
+  - type: Protobuf
+    url: grpc/kentik-cost.proto
+  - type: Protobuf
+    url: grpc/kentik-custom-dimension.proto
+  - type: Protobuf
+    url: grpc/kentik-flow-tag.proto
+  - type: Protobuf
+    url: grpc/kentik-ai-advisor.proto
+  - type: Protobuf
+    url: grpc/kentik-audit.proto
+- aid: kentik:kentik-bgpmonitoringadminservice-api
+  name: Kentik BgpMonitoringAdminService API
+  description: >-
+    The BgpMonitoringAdminService API from Kentik — 3 operation(s) for bgpmonitoringadminservice.
+  humanURL: https://kb.kentik.com/docs/apis-overview
+  baseURL: https://grpc.api.kentik.com
+  tags:
+  - BgpMonitoringAdminService
+  properties:
+  - type: OpenAPI
+    url: openapi/kentik-bgpmonitoringadminservice-api-openapi.yml
+  - type: Protobuf
+    url: grpc/kentik-synthetics.proto
+  - type: Protobuf
+    url: grpc/kentik-cloud-export.proto
+  - type: Protobuf
+    url: grpc/kentik-alerting.proto
+  - type: Protobuf
+    url: grpc/kentik-mitigation.proto
+  - type: Protobuf
+    url: grpc/kentik-alert-policy.proto
+  - type: Protobuf
+    url: grpc/kentik-device.proto
+  - type: Protobuf
+    url: grpc/kentik-user.proto
+  - type: Protobuf
+    url: grpc/kentik-site.proto
+  - type: Protobuf
+    url: grpc/kentik-label.proto
+  - type: Protobuf
+    url: grpc/kentik-as-group.proto
+  - type: Protobuf
+    url: grpc/kentik-notification-channel.proto
+  - type: Protobuf
+    url: grpc/kentik-capacity-plan.proto
+  - type: Protobuf
+    url: grpc/kentik-bgp-monitoring.proto
+  - type: Protobuf
+    url: grpc/kentik-mkp.proto
+  - type: Protobuf
+    url: grpc/kentik-kmi.proto
+  - type: Protobuf
+    url: grpc/kentik-cost.proto
+  - type: Protobuf
+    url: grpc/kentik-custom-dimension.proto
+  - type: Protobuf
+    url: grpc/kentik-flow-tag.proto
+  - type: Protobuf
+    url: grpc/kentik-ai-advisor.proto
+  - type: Protobuf
+    url: grpc/kentik-audit.proto
+- aid: kentik:kentik-bgpmonitoringdataservice-api
+  name: Kentik BgpMonitoringDataService API
+  description: >-
+    The BgpMonitoringDataService API from Kentik — 2 operation(s) for bgpmonitoringdataservice.
+  humanURL: https://kb.kentik.com/docs/apis-overview
+  baseURL: https://grpc.api.kentik.com
+  tags:
+  - BgpMonitoringDataService
+  properties:
+  - type: OpenAPI
+    url: openapi/kentik-bgpmonitoringdataservice-api-openapi.yml
+  - type: Protobuf
+    url: grpc/kentik-synthetics.proto
+  - type: Protobuf
+    url: grpc/kentik-cloud-export.proto
+  - type: Protobuf
+    url: grpc/kentik-alerting.proto
+  - type: Protobuf
+    url: grpc/kentik-mitigation.proto
+  - type: Protobuf
+    url: grpc/kentik-alert-policy.proto
+  - type: Protobuf
+    url: grpc/kentik-device.proto
+  - type: Protobuf
+    url: grpc/kentik-user.proto
+  - type: Protobuf
+    url: grpc/kentik-site.proto
+  - type: Protobuf
+    url: grpc/kentik-label.proto
+  - type: Protobuf
+    url: grpc/kentik-as-group.proto
+  - type: Protobuf
+    url: grpc/kentik-notification-channel.proto
+  - type: Protobuf
+    url: grpc/kentik-capacity-plan.proto
+  - type: Protobuf
+    url: grpc/kentik-bgp-monitoring.proto
+  - type: Protobuf
+    url: grpc/kentik-mkp.proto
+  - type: Protobuf
+    url: grpc/kentik-kmi.proto
+  - type: Protobuf
+    url: grpc/kentik-cost.proto
+  - type: Protobuf
+    url: grpc/kentik-custom-dimension.proto
+  - type: Protobuf
+    url: grpc/kentik-flow-tag.proto
+  - type: Protobuf
+    url: grpc/kentik-ai-advisor.proto
+  - type: Protobuf
+    url: grpc/kentik-audit.proto
+- aid: kentik:kentik-capacityplanservice-api
+  name: Kentik CapacityPlanService API
+  description: The CapacityPlanService API from Kentik — 4 operation(s) for capacityplanservice.
+  humanURL: https://kb.kentik.com/docs/apis-overview
+  baseURL: https://grpc.api.kentik.com
+  tags:
+  - CapacityPlanService
+  properties:
+  - type: OpenAPI
+    url: openapi/kentik-capacityplanservice-api-openapi.yml
+  - type: Protobuf
+    url: grpc/kentik-synthetics.proto
+  - type: Protobuf
+    url: grpc/kentik-cloud-export.proto
+  - type: Protobuf
+    url: grpc/kentik-alerting.proto
+  - type: Protobuf
+    url: grpc/kentik-mitigation.proto
+  - type: Protobuf
+    url: grpc/kentik-alert-policy.proto
+  - type: Protobuf
+    url: grpc/kentik-device.proto
+  - type: Protobuf
+    url: grpc/kentik-user.proto
+  - type: Protobuf
+    url: grpc/kentik-site.proto
+  - type: Protobuf
+    url: grpc/kentik-label.proto
+  - type: Protobuf
+    url: grpc/kentik-as-group.proto
+  - type: Protobuf
+    url: grpc/kentik-notification-channel.proto
+  - type: Protobuf
+    url: grpc/kentik-capacity-plan.proto
+  - type: Protobuf
+    url: grpc/kentik-bgp-monitoring.proto
+  - type: Protobuf
+    url: grpc/kentik-mkp.proto
+  - type: Protobuf
+    url: grpc/kentik-kmi.proto
+  - type: Protobuf
+    url: grpc/kentik-cost.proto
+  - type: Protobuf
+    url: grpc/kentik-custom-dimension.proto
+  - type: Protobuf
+    url: grpc/kentik-flow-tag.proto
+  - type: Protobuf
+    url: grpc/kentik-ai-advisor.proto
+  - type: Protobuf
+    url: grpc/kentik-audit.proto
+- aid: kentik:kentik-cloudexportadminservice-api
+  name: Kentik CloudExportAdminService API
+  description: >-
+    The CloudExportAdminService API from Kentik — 2 operation(s) for cloudexportadminservice.
+  humanURL: https://kb.kentik.com/docs/apis-overview
+  baseURL: https://grpc.api.kentik.com
+  tags:
+  - CloudExportAdminService
+  properties:
+  - type: OpenAPI
+    url: openapi/kentik-cloudexportadminservice-api-openapi.yml
+  - type: Protobuf
+    url: grpc/kentik-synthetics.proto
+  - type: Protobuf
+    url: grpc/kentik-cloud-export.proto
+  - type: Protobuf
+    url: grpc/kentik-alerting.proto
+  - type: Protobuf
+    url: grpc/kentik-mitigation.proto
+  - type: Protobuf
+    url: grpc/kentik-alert-policy.proto
+  - type: Protobuf
+    url: grpc/kentik-device.proto
+  - type: Protobuf
+    url: grpc/kentik-user.proto
+  - type: Protobuf
+    url: grpc/kentik-site.proto
+  - type: Protobuf
+    url: grpc/kentik-label.proto
+  - type: Protobuf
+    url: grpc/kentik-as-group.proto
+  - type: Protobuf
+    url: grpc/kentik-notification-channel.proto
+  - type: Protobuf
+    url: grpc/kentik-capacity-plan.proto
+  - type: Protobuf
+    url: grpc/kentik-bgp-monitoring.proto
+  - type: Protobuf
+    url: grpc/kentik-mkp.proto
+  - type: Protobuf
+    url: grpc/kentik-kmi.proto
+  - type: Protobuf
+    url: grpc/kentik-cost.proto
+  - type: Protobuf
+    url: grpc/kentik-custom-dimension.proto
+  - type: Protobuf
+    url: grpc/kentik-flow-tag.proto
+  - type: Protobuf
+    url: grpc/kentik-ai-advisor.proto
+  - type: Protobuf
+    url: grpc/kentik-audit.proto
+- aid: kentik:kentik-costservice-api
+  name: Kentik CostService API
+  description: The CostService API from Kentik — 3 operation(s) for costservice.
+  humanURL: https://kb.kentik.com/docs/apis-overview
+  baseURL: https://grpc.api.kentik.com
+  tags:
+  - CostService
+  properties:
+  - type: OpenAPI
+    url: openapi/kentik-costservice-api-openapi.yml
+  - type: Protobuf
+    url: grpc/kentik-synthetics.proto
+  - type: Protobuf
+    url: grpc/kentik-cloud-export.proto
+  - type: Protobuf
+    url: grpc/kentik-alerting.proto
+  - type: Protobuf
+    url: grpc/kentik-mitigation.proto
+  - type: Protobuf
+    url: grpc/kentik-alert-policy.proto
+  - type: Protobuf
+    url: grpc/kentik-device.proto
+  - type: Protobuf
+    url: grpc/kentik-user.proto
+  - type: Protobuf
+    url: grpc/kentik-site.proto
+  - type: Protobuf
+    url: grpc/kentik-label.proto
+  - type: Protobuf
+    url: grpc/kentik-as-group.proto
+  - type: Protobuf
+    url: grpc/kentik-notification-channel.proto
+  - type: Protobuf
+    url: grpc/kentik-capacity-plan.proto
+  - type: Protobuf
+    url: grpc/kentik-bgp-monitoring.proto
+  - type: Protobuf
+    url: grpc/kentik-mkp.proto
+  - type: Protobuf
+    url: grpc/kentik-kmi.proto
+  - type: Protobuf
+    url: grpc/kentik-cost.proto
+  - type: Protobuf
+    url: grpc/kentik-custom-dimension.proto
+  - type: Protobuf
+    url: grpc/kentik-flow-tag.proto
+  - type: Protobuf
+    url: grpc/kentik-ai-advisor.proto
+  - type: Protobuf
+    url: grpc/kentik-audit.proto
+- aid: kentik:kentik-customdimensionservice-api
+  name: Kentik CustomDimensionService API
+  description: The CustomDimensionService API from Kentik — 6 operation(s) for customdimensionservice.
+  humanURL: https://kb.kentik.com/docs/apis-overview
+  baseURL: https://grpc.api.kentik.com
+  tags:
+  - CustomDimensionService
+  properties:
+  - type: OpenAPI
+    url: openapi/kentik-customdimensionservice-api-openapi.yml
+  - type: Protobuf
+    url: grpc/kentik-synthetics.proto
+  - type: Protobuf
+    url: grpc/kentik-cloud-export.proto
+  - type: Protobuf
+    url: grpc/kentik-alerting.proto
+  - type: Protobuf
+    url: grpc/kentik-mitigation.proto
+  - type: Protobuf
+    url: grpc/kentik-alert-policy.proto
+  - type: Protobuf
+    url: grpc/kentik-device.proto
+  - type: Protobuf
+    url: grpc/kentik-user.proto
+  - type: Protobuf
+    url: grpc/kentik-site.proto
+  - type: Protobuf
+    url: grpc/kentik-label.proto
+  - type: Protobuf
+    url: grpc/kentik-as-group.proto
+  - type: Protobuf
+    url: grpc/kentik-notification-channel.proto
+  - type: Protobuf
+    url: grpc/kentik-capacity-plan.proto
+  - type: Protobuf
+    url: grpc/kentik-bgp-monitoring.proto
+  - type: Protobuf
+    url: grpc/kentik-mkp.proto
+  - type: Protobuf
+    url: grpc/kentik-kmi.proto
+  - type: Protobuf
+    url: grpc/kentik-cost.proto
+  - type: Protobuf
+    url: grpc/kentik-custom-dimension.proto
+  - type: Protobuf
+    url: grpc/kentik-flow-tag.proto
+  - type: Protobuf
+    url: grpc/kentik-ai-advisor.proto
+  - type: Protobuf
+    url: grpc/kentik-audit.proto
+- aid: kentik:kentik-deviceservice-api
+  name: Kentik DeviceService API
+  description: The DeviceService API from Kentik — 7 operation(s) for deviceservice.
+  humanURL: https://kb.kentik.com/docs/apis-overview
+  baseURL: https://grpc.api.kentik.com
+  tags:
+  - DeviceService
+  properties:
+  - type: OpenAPI
+    url: openapi/kentik-deviceservice-api-openapi.yml
+  - type: Protobuf
+    url: grpc/kentik-synthetics.proto
+  - type: Protobuf
+    url: grpc/kentik-cloud-export.proto
+  - type: Protobuf
+    url: grpc/kentik-alerting.proto
+  - type: Protobuf
+    url: grpc/kentik-mitigation.proto
+  - type: Protobuf
+    url: grpc/kentik-alert-policy.proto
+  - type: Protobuf
+    url: grpc/kentik-device.proto
+  - type: Protobuf
+    url: grpc/kentik-user.proto
+  - type: Protobuf
+    url: grpc/kentik-site.proto
+  - type: Protobuf
+    url: grpc/kentik-label.proto
+  - type: Protobuf
+    url: grpc/kentik-as-group.proto
+  - type: Protobuf
+    url: grpc/kentik-notification-channel.proto
+  - type: Protobuf
+    url: grpc/kentik-capacity-plan.proto
+  - type: Protobuf
+    url: grpc/kentik-bgp-monitoring.proto
+  - type: Protobuf
+    url: grpc/kentik-mkp.proto
+  - type: Protobuf
+    url: grpc/kentik-kmi.proto
+  - type: Protobuf
+    url: grpc/kentik-cost.proto
+  - type: Protobuf
+    url: grpc/kentik-custom-dimension.proto
+  - type: Protobuf
+    url: grpc/kentik-flow-tag.proto
+  - type: Protobuf
+    url: grpc/kentik-ai-advisor.proto
+  - type: Protobuf
+    url: grpc/kentik-audit.proto
+- aid: kentik:kentik-flowtagservice-api
+  name: Kentik FlowTagService API
+  description: The FlowTagService API from Kentik — 2 operation(s) for flowtagservice.
+  humanURL: https://kb.kentik.com/docs/apis-overview
+  baseURL: https://grpc.api.kentik.com
+  tags:
+  - FlowTagService
+  properties:
+  - type: OpenAPI
+    url: openapi/kentik-flowtagservice-api-openapi.yml
+  - type: Protobuf
+    url: grpc/kentik-synthetics.proto
+  - type: Protobuf
+    url: grpc/kentik-cloud-export.proto
+  - type: Protobuf
+    url: grpc/kentik-alerting.proto
+  - type: Protobuf
+    url: grpc/kentik-mitigation.proto
+  - type: Protobuf
+    url: grpc/kentik-alert-policy.proto
+  - type: Protobuf
+    url: grpc/kentik-device.proto
+  - type: Protobuf
+    url: grpc/kentik-user.proto
+  - type: Protobuf
+    url: grpc/kentik-site.proto
+  - type: Protobuf
+    url: grpc/kentik-label.proto
+  - type: Protobuf
+    url: grpc/kentik-as-group.proto
+  - type: Protobuf
+    url: grpc/kentik-notification-channel.proto
+  - type: Protobuf
+    url: grpc/kentik-capacity-plan.proto
+  - type: Protobuf
+    url: grpc/kentik-bgp-monitoring.proto
+  - type: Protobuf
+    url: grpc/kentik-mkp.proto
+  - type: Protobuf
+    url: grpc/kentik-kmi.proto
+  - type: Protobuf
+    url: grpc/kentik-cost.proto
+  - type: Protobuf
+    url: grpc/kentik-custom-dimension.proto
+  - type: Protobuf
+    url: grpc/kentik-flow-tag.proto
+  - type: Protobuf
+    url: grpc/kentik-ai-advisor.proto
+  - type: Protobuf
+    url: grpc/kentik-audit.proto
+- aid: kentik:kentik-kmiservice-api
+  name: Kentik KmiService API
+  description: The KmiService API from Kentik — 5 operation(s) for kmiservice.
+  humanURL: https://kb.kentik.com/docs/apis-overview
+  baseURL: https://grpc.api.kentik.com
+  tags:
+  - KmiService
+  properties:
+  - type: OpenAPI
+    url: openapi/kentik-kmiservice-api-openapi.yml
+  - type: Protobuf
+    url: grpc/kentik-synthetics.proto
+  - type: Protobuf
+    url: grpc/kentik-cloud-export.proto
+  - type: Protobuf
+    url: grpc/kentik-alerting.proto
+  - type: Protobuf
+    url: grpc/kentik-mitigation.proto
+  - type: Protobuf
+    url: grpc/kentik-alert-policy.proto
+  - type: Protobuf
+    url: grpc/kentik-device.proto
+  - type: Protobuf
+    url: grpc/kentik-user.proto
+  - type: Protobuf
+    url: grpc/kentik-site.proto
+  - type: Protobuf
+    url: grpc/kentik-label.proto
+  - type: Protobuf
+    url: grpc/kentik-as-group.proto
+  - type: Protobuf
+    url: grpc/kentik-notification-channel.proto
+  - type: Protobuf
+    url: grpc/kentik-capacity-plan.proto
+  - type: Protobuf
+    url: grpc/kentik-bgp-monitoring.proto
+  - type: Protobuf
+    url: grpc/kentik-mkp.proto
+  - type: Protobuf
+    url: grpc/kentik-kmi.proto
+  - type: Protobuf
+    url: grpc/kentik-cost.proto
+  - type: Protobuf
+    url: grpc/kentik-custom-dimension.proto
+  - type: Protobuf
+    url: grpc/kentik-flow-tag.proto
+  - type: Protobuf
+    url: grpc/kentik-ai-advisor.proto
+  - type: Protobuf
+    url: grpc/kentik-audit.proto
+- aid: kentik:kentik-labelservice-api
+  name: Kentik LabelService API
+  description: The LabelService API from Kentik — 2 operation(s) for labelservice.
+  humanURL: https://kb.kentik.com/docs/apis-overview
+  baseURL: https://grpc.api.kentik.com
+  tags:
+  - LabelService
+  properties:
+  - type: OpenAPI
+    url: openapi/kentik-labelservice-api-openapi.yml
+  - type: Protobuf
+    url: grpc/kentik-synthetics.proto
+  - type: Protobuf
+    url: grpc/kentik-cloud-export.proto
+  - type: Protobuf
+    url: grpc/kentik-alerting.proto
+  - type: Protobuf
+    url: grpc/kentik-mitigation.proto
+  - type: Protobuf
+    url: grpc/kentik-alert-policy.proto
+  - type: Protobuf
+    url: grpc/kentik-device.proto
+  - type: Protobuf
+    url: grpc/kentik-user.proto
+  - type: Protobuf
+    url: grpc/kentik-site.proto
+  - type: Protobuf
+    url: grpc/kentik-label.proto
+  - type: Protobuf
+    url: grpc/kentik-as-group.proto
+  - type: Protobuf
+    url: grpc/kentik-notification-channel.proto
+  - type: Protobuf
+    url: grpc/kentik-capacity-plan.proto
+  - type: Protobuf
+    url: grpc/kentik-bgp-monitoring.proto
+  - type: Protobuf
+    url: grpc/kentik-mkp.proto
+  - type: Protobuf
+    url: grpc/kentik-kmi.proto
+  - type: Protobuf
+    url: grpc/kentik-cost.proto
+  - type: Protobuf
+    url: grpc/kentik-custom-dimension.proto
+  - type: Protobuf
+    url: grpc/kentik-flow-tag.proto
+  - type: Protobuf
+    url: grpc/kentik-ai-advisor.proto
+  - type: Protobuf
+    url: grpc/kentik-audit.proto
+- aid: kentik:kentik-mitigationsservice-api
+  name: Kentik MitigationsService API
+  description: The MitigationsService API from Kentik — 4 operation(s) for mitigationsservice.
+  humanURL: https://kb.kentik.com/docs/apis-overview
+  baseURL: https://grpc.api.kentik.com
+  tags:
+  - MitigationsService
+  properties:
+  - type: OpenAPI
+    url: openapi/kentik-mitigationsservice-api-openapi.yml
+  - type: Protobuf
+    url: grpc/kentik-synthetics.proto
+  - type: Protobuf
+    url: grpc/kentik-cloud-export.proto
+  - type: Protobuf
+    url: grpc/kentik-alerting.proto
+  - type: Protobuf
+    url: grpc/kentik-mitigation.proto
+  - type: Protobuf
+    url: grpc/kentik-alert-policy.proto
+  - type: Protobuf
+    url: grpc/kentik-device.proto
+  - type: Protobuf
+    url: grpc/kentik-user.proto
+  - type: Protobuf
+    url: grpc/kentik-site.proto
+  - type: Protobuf
+    url: grpc/kentik-label.proto
+  - type: Protobuf
+    url: grpc/kentik-as-group.proto
+  - type: Protobuf
+    url: grpc/kentik-notification-channel.proto
+  - type: Protobuf
+    url: grpc/kentik-capacity-plan.proto
+  - type: Protobuf
+    url: grpc/kentik-bgp-monitoring.proto
+  - type: Protobuf
+    url: grpc/kentik-mkp.proto
+  - type: Protobuf
+    url: grpc/kentik-kmi.proto
+  - type: Protobuf
+    url: grpc/kentik-cost.proto
+  - type: Protobuf
+    url: grpc/kentik-custom-dimension.proto
+  - type: Protobuf
+    url: grpc/kentik-flow-tag.proto
+  - type: Protobuf
+    url: grpc/kentik-ai-advisor.proto
+  - type: Protobuf
+    url: grpc/kentik-audit.proto
+- aid: kentik:kentik-notificationchannelservice-api
+  name: Kentik NotificationChannelService API
+  description: >-
+    The NotificationChannelService API from Kentik — 3 operation(s) for notificationchannelservice.
+  humanURL: https://kb.kentik.com/docs/apis-overview
+  baseURL: https://grpc.api.kentik.com
+  tags:
+  - NotificationChannelService
+  properties:
+  - type: OpenAPI
+    url: openapi/kentik-notificationchannelservice-api-openapi.yml
+  - type: Protobuf
+    url: grpc/kentik-synthetics.proto
+  - type: Protobuf
+    url: grpc/kentik-cloud-export.proto
+  - type: Protobuf
+    url: grpc/kentik-alerting.proto
+  - type: Protobuf
+    url: grpc/kentik-mitigation.proto
+  - type: Protobuf
+    url: grpc/kentik-alert-policy.proto
+  - type: Protobuf
+    url: grpc/kentik-device.proto
+  - type: Protobuf
+    url: grpc/kentik-user.proto
+  - type: Protobuf
+    url: grpc/kentik-site.proto
+  - type: Protobuf
+    url: grpc/kentik-label.proto
+  - type: Protobuf
+    url: grpc/kentik-as-group.proto
+  - type: Protobuf
+    url: grpc/kentik-notification-channel.proto
+  - type: Protobuf
+    url: grpc/kentik-capacity-plan.proto
+  - type: Protobuf
+    url: grpc/kentik-bgp-monitoring.proto
+  - type: Protobuf
+    url: grpc/kentik-mkp.proto
+  - type: Protobuf
+    url: grpc/kentik-kmi.proto
+  - type: Protobuf
+    url: grpc/kentik-cost.proto
+  - type: Protobuf
+    url: grpc/kentik-custom-dimension.proto
+  - type: Protobuf
+    url: grpc/kentik-flow-tag.proto
+  - type: Protobuf
+    url: grpc/kentik-ai-advisor.proto
+  - type: Protobuf
+    url: grpc/kentik-audit.proto
+- aid: kentik:kentik-packageservice-api
+  name: Kentik PackageService API
+  description: The PackageService API from Kentik — 2 operation(s) for packageservice.
+  humanURL: https://kb.kentik.com/docs/apis-overview
+  baseURL: https://grpc.api.kentik.com
+  tags:
+  - PackageService
+  properties:
+  - type: OpenAPI
+    url: openapi/kentik-packageservice-api-openapi.yml
+  - type: Protobuf
+    url: grpc/kentik-synthetics.proto
+  - type: Protobuf
+    url: grpc/kentik-cloud-export.proto
+  - type: Protobuf
+    url: grpc/kentik-alerting.proto
+  - type: Protobuf
+    url: grpc/kentik-mitigation.proto
+  - type: Protobuf
+    url: grpc/kentik-alert-policy.proto
+  - type: Protobuf
+    url: grpc/kentik-device.proto
+  - type: Protobuf
+    url: grpc/kentik-user.proto
+  - type: Protobuf
+    url: grpc/kentik-site.proto
+  - type: Protobuf
+    url: grpc/kentik-label.proto
+  - type: Protobuf
+    url: grpc/kentik-as-group.proto
+  - type: Protobuf
+    url: grpc/kentik-notification-channel.proto
+  - type: Protobuf
+    url: grpc/kentik-capacity-plan.proto
+  - type: Protobuf
+    url: grpc/kentik-bgp-monitoring.proto
+  - type: Protobuf
+    url: grpc/kentik-mkp.proto
+  - type: Protobuf
+    url: grpc/kentik-kmi.proto
+  - type: Protobuf
+    url: grpc/kentik-cost.proto
+  - type: Protobuf
+    url: grpc/kentik-custom-dimension.proto
+  - type: Protobuf
+    url: grpc/kentik-flow-tag.proto
+  - type: Protobuf
+    url: grpc/kentik-ai-advisor.proto
+  - type: Protobuf
+    url: grpc/kentik-audit.proto
+- aid: kentik:kentik-policyservice-api
+  name: Kentik PolicyService API
+  description: The PolicyService API from Kentik — 4 operation(s) for policyservice.
+  humanURL: https://kb.kentik.com/docs/apis-overview
+  baseURL: https://grpc.api.kentik.com
+  tags:
+  - PolicyService
+  properties:
+  - type: OpenAPI
+    url: openapi/kentik-policyservice-api-openapi.yml
+  - type: Protobuf
+    url: grpc/kentik-synthetics.proto
+  - type: Protobuf
+    url: grpc/kentik-cloud-export.proto
+  - type: Protobuf
+    url: grpc/kentik-alerting.proto
+  - type: Protobuf
+    url: grpc/kentik-mitigation.proto
+  - type: Protobuf
+    url: grpc/kentik-alert-policy.proto
+  - type: Protobuf
+    url: grpc/kentik-device.proto
+  - type: Protobuf
+    url: grpc/kentik-user.proto
+  - type: Protobuf
+    url: grpc/kentik-site.proto
+  - type: Protobuf
+    url: grpc/kentik-label.proto
+  - type: Protobuf
+    url: grpc/kentik-as-group.proto
+  - type: Protobuf
+    url: grpc/kentik-notification-channel.proto
+  - type: Protobuf
+    url: grpc/kentik-capacity-plan.proto
+  - type: Protobuf
+    url: grpc/kentik-bgp-monitoring.proto
+  - type: Protobuf
+    url: grpc/kentik-mkp.proto
+  - type: Protobuf
+    url: grpc/kentik-kmi.proto
+  - type: Protobuf
+    url: grpc/kentik-cost.proto
+  - type: Protobuf
+    url: grpc/kentik-custom-dimension.proto
+  - type: Protobuf
+    url: grpc/kentik-flow-tag.proto
+  - type: Protobuf
+    url: grpc/kentik-ai-advisor.proto
+  - type: Protobuf
+    url: grpc/kentik-audit.proto
+- aid: kentik:kentik-siteservice-api
+  name: Kentik SiteService API
+  description: The SiteService API from Kentik — 4 operation(s) for siteservice.
+  humanURL: https://kb.kentik.com/docs/apis-overview
+  baseURL: https://grpc.api.kentik.com
+  tags:
+  - SiteService
+  properties:
+  - type: OpenAPI
+    url: openapi/kentik-siteservice-api-openapi.yml
+  - type: Protobuf
+    url: grpc/kentik-synthetics.proto
+  - type: Protobuf
+    url: grpc/kentik-cloud-export.proto
+  - type: Protobuf
+    url: grpc/kentik-alerting.proto
+  - type: Protobuf
+    url: grpc/kentik-mitigation.proto
+  - type: Protobuf
+    url: grpc/kentik-alert-policy.proto
+  - type: Protobuf
+    url: grpc/kentik-device.proto
+  - type: Protobuf
+    url: grpc/kentik-user.proto
+  - type: Protobuf
+    url: grpc/kentik-site.proto
+  - type: Protobuf
+    url: grpc/kentik-label.proto
+  - type: Protobuf
+    url: grpc/kentik-as-group.proto
+  - type: Protobuf
+    url: grpc/kentik-notification-channel.proto
+  - type: Protobuf
+    url: grpc/kentik-capacity-plan.proto
+  - type: Protobuf
+    url: grpc/kentik-bgp-monitoring.proto
+  - type: Protobuf
+    url: grpc/kentik-mkp.proto
+  - type: Protobuf
+    url: grpc/kentik-kmi.proto
+  - type: Protobuf
+    url: grpc/kentik-cost.proto
+  - type: Protobuf
+    url: grpc/kentik-custom-dimension.proto
+  - type: Protobuf
+    url: grpc/kentik-flow-tag.proto
+  - type: Protobuf
+    url: grpc/kentik-ai-advisor.proto
+  - type: Protobuf
+    url: grpc/kentik-audit.proto
+- aid: kentik:kentik-syntheticsadminservice-api
+  name: Kentik SyntheticsAdminService API
+  description: The SyntheticsAdminService API from Kentik — 7 operation(s) for syntheticsadminservice.
+  humanURL: https://kb.kentik.com/docs/apis-overview
+  baseURL: https://grpc.api.kentik.com
+  tags:
+  - SyntheticsAdminService
+  properties:
+  - type: OpenAPI
+    url: openapi/kentik-syntheticsadminservice-api-openapi.yml
+  - type: Protobuf
+    url: grpc/kentik-synthetics.proto
+  - type: Protobuf
+    url: grpc/kentik-cloud-export.proto
+  - type: Protobuf
+    url: grpc/kentik-alerting.proto
+  - type: Protobuf
+    url: grpc/kentik-mitigation.proto
+  - type: Protobuf
+    url: grpc/kentik-alert-policy.proto
+  - type: Protobuf
+    url: grpc/kentik-device.proto
+  - type: Protobuf
+    url: grpc/kentik-user.proto
+  - type: Protobuf
+    url: grpc/kentik-site.proto
+  - type: Protobuf
+    url: grpc/kentik-label.proto
+  - type: Protobuf
+    url: grpc/kentik-as-group.proto
+  - type: Protobuf
+    url: grpc/kentik-notification-channel.proto
+  - type: Protobuf
+    url: grpc/kentik-capacity-plan.proto
+  - type: Protobuf
+    url: grpc/kentik-bgp-monitoring.proto
+  - type: Protobuf
+    url: grpc/kentik-mkp.proto
+  - type: Protobuf
+    url: grpc/kentik-kmi.proto
+  - type: Protobuf
+    url: grpc/kentik-cost.proto
+  - type: Protobuf
+    url: grpc/kentik-custom-dimension.proto
+  - type: Protobuf
+    url: grpc/kentik-flow-tag.proto
+  - type: Protobuf
+    url: grpc/kentik-ai-advisor.proto
+  - type: Protobuf
+    url: grpc/kentik-audit.proto
+- aid: kentik:kentik-syntheticsdataservice-api
+  name: Kentik SyntheticsDataService API
+  description: The SyntheticsDataService API from Kentik — 3 operation(s) for syntheticsdataservice.
+  humanURL: https://kb.kentik.com/docs/apis-overview
+  baseURL: https://grpc.api.kentik.com
+  tags:
+  - SyntheticsDataService
+  properties:
+  - type: OpenAPI
+    url: openapi/kentik-syntheticsdataservice-api-openapi.yml
+  - type: Protobuf
+    url: grpc/kentik-synthetics.proto
+  - type: Protobuf
+    url: grpc/kentik-cloud-export.proto
+  - type: Protobuf
+    url: grpc/kentik-alerting.proto
+  - type: Protobuf
+    url: grpc/kentik-mitigation.proto
+  - type: Protobuf
+    url: grpc/kentik-alert-policy.proto
+  - type: Protobuf
+    url: grpc/kentik-device.proto
+  - type: Protobuf
+    url: grpc/kentik-user.proto
+  - type: Protobuf
+    url: grpc/kentik-site.proto
+  - type: Protobuf
+    url: grpc/kentik-label.proto
+  - type: Protobuf
+    url: grpc/kentik-as-group.proto
+  - type: Protobuf
+    url: grpc/kentik-notification-channel.proto
+  - type: Protobuf
+    url: grpc/kentik-capacity-plan.proto
+  - type: Protobuf
+    url: grpc/kentik-bgp-monitoring.proto
+  - type: Protobuf
+    url: grpc/kentik-mkp.proto
+  - type: Protobuf
+    url: grpc/kentik-kmi.proto
+  - type: Protobuf
+    url: grpc/kentik-cost.proto
+  - type: Protobuf
+    url: grpc/kentik-custom-dimension.proto
+  - type: Protobuf
+    url: grpc/kentik-flow-tag.proto
+  - type: Protobuf
+    url: grpc/kentik-ai-advisor.proto
+  - type: Protobuf
+    url: grpc/kentik-audit.proto
+- aid: kentik:kentik-tenantservice-api
+  name: Kentik TenantService API
+  description: The TenantService API from Kentik — 2 operation(s) for tenantservice.
+  humanURL: https://kb.kentik.com/docs/apis-overview
+  baseURL: https://grpc.api.kentik.com
+  tags:
+  - TenantService
+  properties:
+  - type: OpenAPI
+    url: openapi/kentik-tenantservice-api-openapi.yml
+  - type: Protobuf
+    url: grpc/kentik-synthetics.proto
+  - type: Protobuf
+    url: grpc/kentik-cloud-export.proto
+  - type: Protobuf
+    url: grpc/kentik-alerting.proto
+  - type: Protobuf
+    url: grpc/kentik-mitigation.proto
+  - type: Protobuf
+    url: grpc/kentik-alert-policy.proto
+  - type: Protobuf
+    url: grpc/kentik-device.proto
+  - type: Protobuf
+    url: grpc/kentik-user.proto
+  - type: Protobuf
+    url: grpc/kentik-site.proto
+  - type: Protobuf
+    url: grpc/kentik-label.proto
+  - type: Protobuf
+    url: grpc/kentik-as-group.proto
+  - type: Protobuf
+    url: grpc/kentik-notification-channel.proto
+  - type: Protobuf
+    url: grpc/kentik-capacity-plan.proto
+  - type: Protobuf
+    url: grpc/kentik-bgp-monitoring.proto
+  - type: Protobuf
+    url: grpc/kentik-mkp.proto
+  - type: Protobuf
+    url: grpc/kentik-kmi.proto
+  - type: Protobuf
+    url: grpc/kentik-cost.proto
+  - type: Protobuf
+    url: grpc/kentik-custom-dimension.proto
+  - type: Protobuf
+    url: grpc/kentik-flow-tag.proto
+  - type: Protobuf
+    url: grpc/kentik-ai-advisor.proto
+  - type: Protobuf
+    url: grpc/kentik-audit.proto
+- aid: kentik:kentik-tenantuserservice-api
+  name: Kentik TenantUserService API
+  description: The TenantUserService API from Kentik — 2 operation(s) for tenantuserservice.
+  humanURL: https://kb.kentik.com/docs/apis-overview
+  baseURL: https://grpc.api.kentik.com
+  tags:
+  - TenantUserService
+  properties:
+  - type: OpenAPI
+    url: openapi/kentik-tenantuserservice-api-openapi.yml
+  - type: Protobuf
+    url: grpc/kentik-synthetics.proto
+  - type: Protobuf
+    url: grpc/kentik-cloud-export.proto
+  - type: Protobuf
+    url: grpc/kentik-alerting.proto
+  - type: Protobuf
+    url: grpc/kentik-mitigation.proto
+  - type: Protobuf
+    url: grpc/kentik-alert-policy.proto
+  - type: Protobuf
+    url: grpc/kentik-device.proto
+  - type: Protobuf
+    url: grpc/kentik-user.proto
+  - type: Protobuf
+    url: grpc/kentik-site.proto
+  - type: Protobuf
+    url: grpc/kentik-label.proto
+  - type: Protobuf
+    url: grpc/kentik-as-group.proto
+  - type: Protobuf
+    url: grpc/kentik-notification-channel.proto
+  - type: Protobuf
+    url: grpc/kentik-capacity-plan.proto
+  - type: Protobuf
+    url: grpc/kentik-bgp-monitoring.proto
+  - type: Protobuf
+    url: grpc/kentik-mkp.proto
+  - type: Protobuf
+    url: grpc/kentik-kmi.proto
+  - type: Protobuf
+    url: grpc/kentik-cost.proto
+  - type: Protobuf
+    url: grpc/kentik-custom-dimension.proto
+  - type: Protobuf
+    url: grpc/kentik-flow-tag.proto
+  - type: Protobuf
+    url: grpc/kentik-ai-advisor.proto
+  - type: Protobuf
+    url: grpc/kentik-audit.proto
+- aid: kentik:kentik-userservice-api
+  name: Kentik UserService API
+  description: The UserService API from Kentik — 4 operation(s) for userservice.
+  humanURL: https://kb.kentik.com/docs/apis-overview
+  baseURL: https://grpc.api.kentik.com
+  tags:
+  - UserService
+  properties:
+  - type: OpenAPI
+    url: openapi/kentik-userservice-api-openapi.yml
+  - type: Protobuf
+    url: grpc/kentik-synthetics.proto
+  - type: Protobuf
+    url: grpc/kentik-cloud-export.proto
+  - type: Protobuf
+    url: grpc/kentik-alerting.proto
+  - type: Protobuf
+    url: grpc/kentik-mitigation.proto
+  - type: Protobuf
+    url: grpc/kentik-alert-policy.proto
+  - type: Protobuf
+    url: grpc/kentik-device.proto
+  - type: Protobuf
+    url: grpc/kentik-user.proto
+  - type: Protobuf
+    url: grpc/kentik-site.proto
+  - type: Protobuf
+    url: grpc/kentik-label.proto
+  - type: Protobuf
+    url: grpc/kentik-as-group.proto
+  - type: Protobuf
+    url: grpc/kentik-notification-channel.proto
+  - type: Protobuf
+    url: grpc/kentik-capacity-plan.proto
+  - type: Protobuf
+    url: grpc/kentik-bgp-monitoring.proto
+  - type: Protobuf
+    url: grpc/kentik-mkp.proto
+  - type: Protobuf
+    url: grpc/kentik-kmi.proto
+  - type: Protobuf
+    url: grpc/kentik-cost.proto
+  - type: Protobuf
+    url: grpc/kentik-custom-dimension.proto
+  - type: Protobuf
+    url: grpc/kentik-flow-tag.proto
+  - type: Protobuf
+    url: grpc/kentik-ai-advisor.proto
+  - type: Protobuf
+    url: grpc/kentik-audit.proto
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+common:
+- type: Documentation
+  url: https://kb.kentik.com/docs/apis-overview
+- type: APIReference
+  url: https://kb.kentik.com/docs/v6-apis
+- type: DeveloperPortal
+  url: https://kb.kentik.com/
+- type: Portal
+  url: https://portal.kentik.com/
+- type: GettingStarted
+  url: https://kb.kentik.com/docs/getting-started
+- type: Support
+  url: https://kb.kentik.com/docs/how-to-submit-a-support-request
+- type: Blog
+  url: https://www.kentik.com/blog/
+- type: GitHubOrganization
+  url: https://github.com/kentik
+- type: Pricing
+  url: https://www.kentik.com/pricing/
+- type: SignUp
+  url: https://www.kentik.com/go/get-started/
+- type: Login
+  url: https://portal.kentik.com/login
+- type: TermsOfService
+  url: https://www.kentik.com/terms-of-use/
+- type: PrivacyPolicy
+  url: https://www.kentik.com/privacy-policy/
+- type: StatusPage
+  url: https://status.kentik.com/
+- type: Deprecation
+  url: https://kb.kentik.com/docs/deprecated-features
+- type: Sandbox
+  url: https://portal.kentik.com/v4/core/api-tester
+- type: TrustCenter
+  url: https://trust.kentik.com/
+- type: AgenticAccess
+  url: agentic-access/kentik-agentic-access.yml
+- type: Authentication
+  url: authentication/kentik-authentication.yml
+- type: LLMsTxt
+  url: llms/kentik-llms.txt
+- type: Packages
+  url: packages/kentik-packages.yml
+- type: SDKs
+  url: packages/kentik-packages.yml
+- type: MCPServer
+  url: mcp/kentik-mcp.yml
+- type: Lifecycle
+  url: lifecycle/kentik-lifecycle.yml
+- type: ChangeLog
+  url: changelog/kentik-changelog.yml
+- type: Conventions
+  url: conventions/kentik-conventions.yml
+- type: ErrorCatalog
+  url: errors/kentik-error-codes.yml
+- type: DataModel
+  url: data-model/kentik-data-model.yml
+- type: Conformance
+  url: conformance/kentik-conformance.yml
+- type: Components
+  url: components/kentik-components.yml
+- type: Webhooks
+  url: asyncapi/kentik-webhooks.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Overlay
+  url: overlays/kentik-synthetics-overlay.yaml
+- type: Overlay
+  url: overlays/kentik-device-overlay.yaml
+- type: Overlay
+  url: overlays/kentik-cloud-export-overlay.yaml
+- type: Overlay
+  url: overlays/kentik-alerting-overlay.yaml
+- type: DomainSecurity
+  url: security/kentik-domain-security.yml
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence
