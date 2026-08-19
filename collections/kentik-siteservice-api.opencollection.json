@@ -1,0 +1,200 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AI Advisor AiAdvisorDataService SiteService API",
+    "version": "v202511"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-CH-Auth-Email",
+      "value": "{{X-CH-Auth-Email}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "SiteService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all site markets.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/site/v202509/site_markets"
+          },
+          "docs": "Returns list of configured site markets."
+        },
+        {
+          "info": {
+            "name": "Configure a new site market.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/site/v202509/site_markets",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create configuration for a new site market. Returns the newly created configuration."
+        },
+        {
+          "info": {
+            "name": "Retrieve configuration of a site market.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/site/v202509/site_markets/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the requested site market"
+              }
+            ]
+          },
+          "docs": "Returns configuration of a site market specified by ID."
+        },
+        {
+          "info": {
+            "name": "Updates configuration of a site market.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/site/v202509/site_markets/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "System generated unique identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Replaces configuration of a site market with attributes in the request. Returns the updated configuration."
+        },
+        {
+          "info": {
+            "name": "Delete configuration of a site market.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/site/v202509/site_markets/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the site market to be deleted"
+              }
+            ]
+          },
+          "docs": "Deletes configuration of a site market with specific ID."
+        },
+        {
+          "info": {
+            "name": "List all sites.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/site/v202509/sites"
+          },
+          "docs": "Returns list of configured sites."
+        },
+        {
+          "info": {
+            "name": "Configure a new site.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/site/v202509/sites",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create configuration for a new site. Returns the newly created configuration."
+        },
+        {
+          "info": {
+            "name": "Retrieve configuration of a site.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/site/v202509/sites/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the requested site"
+              }
+            ]
+          },
+          "docs": "Returns configuration of a site specified by ID."
+        },
+        {
+          "info": {
+            "name": "Updates configuration of a site.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/site/v202509/sites/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "System generated unique identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Replaces configuration of a site with attributes in the request. Returns the updated configuration."
+        },
+        {
+          "info": {
+            "name": "Delete configuration of a site.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/site/v202509/sites/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the site to be deleted"
+              }
+            ]
+          },
+          "docs": "Deletes configuration of a site with specific ID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

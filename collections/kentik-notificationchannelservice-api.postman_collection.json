@@ -1,0 +1,489 @@
+{
+  "item": [
+    {
+      "id": "09396f0d-2408-410d-9935-3bbddd680bd5",
+      "name": "NotificationChannelService",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e0ce1bf4-d65e-44f9-9fd6-d8f164a1400b",
+          "name": "List available notification channels",
+          "request": {
+            "name": "List available notification channels",
+            "description": {
+              "content": "Returns list of all configured notification channels.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "notification_channel",
+                "v202210",
+                "notification_channels"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9fc2faf6-670e-4cec-9c03-6f48f1711f1e",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification_channel",
+                    "v202210",
+                    "notification_channels"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"notificationChannels\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"type\": \"CHANNEL_TYPE_UNSPECIFIED\",\n      \"enabled\": false,\n      \"cdate\": \"2004-10-29T13:52:48.846Z\",\n      \"edate\": \"2014-01-21T01:47:16.606Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"type\": \"CHANNEL_TYPE_UNSPECIFIED\",\n      \"enabled\": true,\n      \"cdate\": \"1994-02-28T18:13:40.091Z\",\n      \"edate\": \"1999-12-19T07:26:36.743Z\"\n    }\n  ],\n  \"invalidCount\": 5040\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d3a653cf-de5c-4a0f-aa0d-8846e625b8de",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification_channel",
+                    "v202210",
+                    "notification_channels"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 9214,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8a7ac4e0-0a5f-4937-8622-53dc97d99bfc",
+          "name": "Retrieve notification channels matching criteria.",
+          "request": {
+            "name": "Retrieve notification channels matching criteria.",
+            "description": {
+              "content": "Returns list of all notification channels matching request criteria. Match criteria are treated as a logical AND, i.e. all provided criteria must match in order for an entry to be included in the response.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "notification_channel",
+                "v202210",
+                "notification_channels",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"namePattern\": \"<string>\",\n  \"types\": [\n    \"CHANNEL_TYPE_UNSPECIFIED\",\n    \"CHANNEL_TYPE_UNSPECIFIED\"\n  ],\n  \"includeDisabled\": \"false\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "253fcdaa-5b83-4f89-8477-2f4770f543c1",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification_channel",
+                    "v202210",
+                    "notification_channels",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"namePattern\": \"<string>\",\n  \"types\": [\n    \"CHANNEL_TYPE_UNSPECIFIED\",\n    \"CHANNEL_TYPE_UNSPECIFIED\"\n  ],\n  \"includeDisabled\": \"false\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"notificationChannels\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"type\": \"CHANNEL_TYPE_UNSPECIFIED\",\n      \"enabled\": false,\n      \"cdate\": \"1989-08-12T10:35:43.523Z\",\n      \"edate\": \"1952-09-23T19:15:41.761Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"type\": \"CHANNEL_TYPE_UNSPECIFIED\",\n      \"enabled\": false,\n      \"cdate\": \"2020-02-05T15:53:42.119Z\",\n      \"edate\": \"2018-09-03T03:20:45.933Z\"\n    }\n  ],\n  \"invalidCount\": 7957\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9d636f2a-2835-43ad-a3c1-829d0f52bdf8",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification_channel",
+                    "v202210",
+                    "notification_channels",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"namePattern\": \"<string>\",\n  \"types\": [\n    \"CHANNEL_TYPE_UNSPECIFIED\",\n    \"CHANNEL_TYPE_UNSPECIFIED\"\n  ],\n  \"includeDisabled\": \"false\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4944,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "02390692-292f-460a-a9b9-5f6b13af1ca2",
+          "name": "Get information about a notification channel",
+          "request": {
+            "name": "Get information about a notification channel",
+            "description": {
+              "content": "Returns information about a notification channel with specific ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "notification_channel",
+                "v202210",
+                "notification_channels",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Request channel ID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "44b4cdf5-0ccd-4514-a6ba-ad7764c8042b",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification_channel",
+                    "v202210",
+                    "notification_channels",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Request channel ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"notificationChannel\": {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"type\": \"CHANNEL_TYPE_UNSPECIFIED\",\n    \"enabled\": false,\n    \"cdate\": \"1966-03-09T17:45:00.816Z\",\n    \"edate\": \"1954-06-30T20:07:04.871Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "849ab7e8-2dee-4f26-a027-301e05bac70b",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification_channel",
+                    "v202210",
+                    "notification_channels",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Request channel ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4944,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-CH-Auth-Email"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a90bc331-92c5-448e-bf57-d5e74a159cd2",
+    "name": "AI Advisor AiAdvisorDataService NotificationChannelService API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "# Overview\nProvides programmatic access to AI Advisor.\n\nContact Support:\n Name: Kentik API Engineering",
+      "type": "text/plain"
+    }
+  }
+}

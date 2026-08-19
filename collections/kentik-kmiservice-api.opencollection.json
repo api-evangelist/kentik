@@ -1,0 +1,211 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AI Advisor AiAdvisorDataService KmiService API",
+    "version": "v202511"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-CH-Auth-Email",
+      "value": "{{X-CH-Auth-Email}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "KmiService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List global KMI insights.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/kmi/v202212/insights",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of insights to return. Defaults to 100."
+              },
+              {
+                "name": "marketId",
+                "value": "",
+                "type": "query",
+                "description": "Geo Market identifier (e.g., 'planet$earth'). If omitted, defaults to global market."
+              },
+              {
+                "name": "ip",
+                "value": "",
+                "type": "query",
+                "description": "IP Address Family ('v4' or 'v6'). Defaults to 'v4'."
+              },
+              {
+                "name": "lookback",
+                "value": "",
+                "type": "query",
+                "description": "Lookback in days. Allowed values: 1, 7, 30. Defaults to 1."
+              },
+              {
+                "name": "types",
+                "value": "",
+                "type": "query",
+                "description": "Insight types to include. Provide as repeated query params, e.g., types=market_entrance&types=market_exit. Allowed: market_entrance, market_exit, ranking_gain, ranking_loss, start_prefix_origination, stop_prefix_origination, increase_prefix_origination, decrease_prefix_origination, customer_gain, customer_loss, customer_routing_gain, customer_routing_loss, provider_gain, provider_loss, provider_routing_gain, provider_routing_loss."
+              },
+              {
+                "name": "magnitude",
+                "value": "",
+                "type": "query",
+                "description": "Minimum magnitude (severity) threshold, integer 1–5. Defaults to 1."
+              }
+            ]
+          },
+          "docs": "Returns list of global KMI insights."
+        },
+        {
+          "info": {
+            "name": "List ASN-specific KMI insights.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/kmi/v202212/insights/:asn",
+            "params": [
+              {
+                "name": "asn",
+                "value": "",
+                "type": "path",
+                "description": "Autonomous System Number (ASN)"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of insights to return. Defaults to 100."
+              },
+              {
+                "name": "marketId",
+                "value": "",
+                "type": "query",
+                "description": "Geo Market identifier (e.g., 'planet$earth'). If omitted, defaults to global market."
+              },
+              {
+                "name": "ip",
+                "value": "",
+                "type": "query",
+                "description": "IP Address Family ('v4' or 'v6'). Defaults to 'v4'."
+              },
+              {
+                "name": "lookback",
+                "value": "",
+                "type": "query",
+                "description": "Lookback in days. Allowed values: 1, 7, 30. Defaults to 1."
+              },
+              {
+                "name": "types",
+                "value": "",
+                "type": "query",
+                "description": "Insight types to include. Allowed: market_entrance, market_exit, ranking_gain, ranking_loss, start_prefix_origination, stop_prefix_origination, increase_prefix_origination, decrease_prefix_origination, customer_gain, customer_loss, customer_routing_gain, customer_routing_loss, provider_gain, provider_loss, provider_routing_gain, provider_routing_loss."
+              },
+              {
+                "name": "magnitude",
+                "value": "",
+                "type": "query",
+                "description": "Minimum magnitude (severity) threshold, integer 1–5. Defaults to 1."
+              }
+            ]
+          },
+          "docs": "Returns list of KMI insights for a specific Autonomous System."
+        },
+        {
+          "info": {
+            "name": "List metadata and list of customers, providers, and peers for an Autonomous System.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/kmi/v202212/market/:marketId/network/:asn/:type",
+            "params": [
+              {
+                "name": "marketId",
+                "value": "",
+                "type": "path",
+                "description": "Unique Geo Market identifier (as provided by the ListMarkets RPC)"
+              },
+              {
+                "name": "asn",
+                "value": "",
+                "type": "path",
+                "description": "Autonomous System Number (ASN)"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "path",
+                "description": "Type of the requested ASN ('all', 'customers', 'providers', 'peers'). Defaults to 'all'."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Returns metadata and list of customers, providers, and peers for an Autonomous System."
+        },
+        {
+          "info": {
+            "name": "List KMI rankings by geo market and rank type.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/kmi/v202212/market/:marketId/rankings/:rankType/ip/:ip",
+            "params": [
+              {
+                "name": "marketId",
+                "value": "",
+                "type": "path",
+                "description": "Unique Geo Market identifier (as provided by the ListMarkets RPC)"
+              },
+              {
+                "name": "rankType",
+                "value": "",
+                "type": "path",
+                "description": "Type of the requested ranking ('customer_base', 'customer_base_retail', 'customer_base_wholesome', 'customer_base_backbone', 'customer_growth', 'peering_base'). Defaults to 'customer_base'."
+              },
+              {
+                "name": "ip",
+                "value": "",
+                "type": "path",
+                "description": "IP Address Family ('v4' or 'v6') of requested ranking. Defaults to 'v4'."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Returns list of KMI rankings."
+        },
+        {
+          "info": {
+            "name": "List all geo markets for KMI.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/kmi/v202212/markets"
+          },
+          "docs": "Returns list of geo markets for KMI."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

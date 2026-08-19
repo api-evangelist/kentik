@@ -1,0 +1,107 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AI Advisor AiAdvisorDataService AuditService API",
+    "version": "v202511"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-CH-Auth-Email",
+      "value": "{{X-CH-Auth-Email}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "AuditService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Audit Events.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/audit/v202601/events",
+            "params": [
+              {
+                "name": "startTime",
+                "value": "",
+                "type": "query",
+                "description": "Date time in UTC. Defaults to 30 days before end_time if not provided."
+              },
+              {
+                "name": "endTime",
+                "value": "",
+                "type": "query",
+                "description": "Date time in UTC. Defaults to current date/time if not provided."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a list of audit events."
+        },
+        {
+          "info": {
+            "name": "Get an Audit Event",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/audit/v202601/events/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "ctime",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Return a specific audit event."
+        },
+        {
+          "info": {
+            "name": "Get an Audit Event",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/audit/v202601/events/:id/:ctime",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "ctime",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Return a specific audit event."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

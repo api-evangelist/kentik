@@ -1,0 +1,71 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AI Advisor AiAdvisorDataService SyntheticsDataService API",
+    "version": "v202511"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-CH-Auth-Email",
+      "value": "{{X-CH-Auth-Email}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "SyntheticsDataService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get results for tests",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/synthetics/v202309/results",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Returns probe results for a set of tests for specified period of time."
+        },
+        {
+          "info": {
+            "name": "Get test results in CSV format",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/synthetics/v202309/results/csv",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Returns probe results for tests in CSV format."
+        },
+        {
+          "info": {
+            "name": "Get network trace data for a test",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/synthetics/v202309/trace",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get network trace data for a specific synthetic test. The test must have traceroute task configured."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

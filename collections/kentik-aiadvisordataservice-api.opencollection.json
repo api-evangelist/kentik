@@ -1,0 +1,75 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AI Advisor AiAdvisorDataService API",
+    "version": "v202511"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-CH-Auth-Email",
+      "value": "{{X-CH-Auth-Email}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "AiAdvisorDataService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create AI Advisor Chat Session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai_advisor/v202511/chat",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new AI Advisor Chat session with a prompt"
+        },
+        {
+          "info": {
+            "name": "Update AI Advisor Chat Session",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/ai_advisor/v202511/chat",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update AI Advisor Chat session with a prompt"
+        },
+        {
+          "info": {
+            "name": "Get AI Advisor Chat Session",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ai_advisor/v202511/chat/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier (UUID) for the chat session"
+              }
+            ]
+          },
+          "docs": "Retrieve the status and results of an AI Advisor chat session"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

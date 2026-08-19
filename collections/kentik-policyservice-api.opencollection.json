@@ -1,0 +1,124 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AI Advisor AiAdvisorDataService PolicyService API",
+    "version": "v202511"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-CH-Auth-Email",
+      "value": "{{X-CH-Auth-Email}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "PolicyService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Policies",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v202505/policies/list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Returns a list of alerting policies."
+        },
+        {
+          "info": {
+            "name": "Get Policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v202505/policies/:policyType/:id",
+            "params": [
+              {
+                "name": "policyType",
+                "value": "",
+                "type": "path",
+                "description": "The type of policy to get."
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the policy to get."
+              }
+            ]
+          },
+          "docs": "Returns an alerting policy."
+        },
+        {
+          "info": {
+            "name": "Disable Policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v202505/policies/:policyType/:id/disable",
+            "params": [
+              {
+                "name": "policyType",
+                "value": "",
+                "type": "path",
+                "description": "The type of policy to disable."
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the policy to disable."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Disables an alerting policy."
+        },
+        {
+          "info": {
+            "name": "Enable Policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v202505/policies/:policyType/:id/enable",
+            "params": [
+              {
+                "name": "policyType",
+                "value": "",
+                "type": "path",
+                "description": "The type of policy to enable."
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the policy to enable."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Enables an alerting policy."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,113 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AI Advisor AiAdvisorDataService ASGroupService API",
+    "version": "v202511"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-CH-Auth-Email",
+      "value": "{{X-CH-Auth-Email}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ASGroupService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all AS groups.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/as_group/v202212/as_group"
+          },
+          "docs": "Returns list of configured AS groups."
+        },
+        {
+          "info": {
+            "name": "Configure a new AS group.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/as_group/v202212/as_group",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create configuration for a new AS group. Returns the newly created configuration."
+        },
+        {
+          "info": {
+            "name": "Retrieve configuration of a AS group.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/as_group/v202212/as_group/:asGroup.id",
+            "params": [
+              {
+                "name": "asGroup.id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the requested AS group"
+              }
+            ]
+          },
+          "docs": "Returns configuration of a AS group specified by ID."
+        },
+        {
+          "info": {
+            "name": "Updates configuration of a AS group.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/as_group/v202212/as_group/:asGroup.id",
+            "params": [
+              {
+                "name": "asGroup.id",
+                "value": "",
+                "type": "path",
+                "description": "System generated unique identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Replaces configuration of a AS group with attributes in the request. Returns the updated configuration."
+        },
+        {
+          "info": {
+            "name": "Delete configuration of a AS group.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/as_group/v202212/as_group/:asGroup.id",
+            "params": [
+              {
+                "name": "asGroup.id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the AS group to be deleted"
+              }
+            ]
+          },
+          "docs": "Deletes configuration of a AS group with specific ID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

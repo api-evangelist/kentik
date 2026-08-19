@@ -1,0 +1,113 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AI Advisor AiAdvisorDataService CloudExportAdminService API",
+    "version": "v202511"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-CH-Auth-Email",
+      "value": "{{X-CH-Auth-Email}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "CloudExportAdminService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List cloud exports.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cloud_export/v202506/exports"
+          },
+          "docs": "Returns a list of all cloud exports in the account."
+        },
+        {
+          "info": {
+            "name": "Create Cloud Export.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/cloud_export/v202506/exports",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create new cloud export based on configuration in the request."
+        },
+        {
+          "info": {
+            "name": "Get cloud export configuration and status.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cloud_export/v202506/exports/:export.id",
+            "params": [
+              {
+                "name": "export.id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the cloud export to be retrieved."
+              }
+            ]
+          },
+          "docs": "Returns configuration and status of cloud export with specified ID."
+        },
+        {
+          "info": {
+            "name": "Update configuration of cloud export.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/cloud_export/v202506/exports/:export.id",
+            "params": [
+              {
+                "name": "export.id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the instance"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Replace complete configuration of a cloud export with data in the request."
+        },
+        {
+          "info": {
+            "name": "Delete a cloud export.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/cloud_export/v202506/exports/:export.id",
+            "params": [
+              {
+                "name": "export.id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the cloud export to be deleted."
+              }
+            ]
+          },
+          "docs": "Delete cloud export with specified ID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

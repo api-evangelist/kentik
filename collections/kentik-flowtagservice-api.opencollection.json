@@ -1,0 +1,143 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AI Advisor AiAdvisorDataService FlowTagService API",
+    "version": "v202511"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-CH-Auth-Email",
+      "value": "{{X-CH-Auth-Email}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "FlowTagService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search flow tag configuration.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/flow_tag/v202404alpha1/tag",
+            "params": [
+              {
+                "name": "search.limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of rows to fetch"
+              },
+              {
+                "name": "search.offset",
+                "value": "",
+                "type": "query",
+                "description": "The number rows to skip before returning"
+              },
+              {
+                "name": "search.lookupFields",
+                "value": "",
+                "type": "query",
+                "description": "List of lookup fields\n\n - LOOKUP_FIELD_UNSPECIFIED: Invalid value\n - LOOKUP_FIELD_VALUE: Lookup by name of tag"
+              },
+              {
+                "name": "search.lookupValues",
+                "value": "",
+                "type": "query",
+                "description": "List of lookup values"
+              },
+              {
+                "name": "search.fieldLimit",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of record to return for nested fields"
+              }
+            ]
+          },
+          "docs": "Returns configuration of flow tag with search parameters."
+        },
+        {
+          "info": {
+            "name": "Create flow tag configuration.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/flow_tag/v202404alpha1/tag",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a flow tag configuration."
+        },
+        {
+          "info": {
+            "name": "Get flow tag configuration.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/flow_tag/v202404alpha1/tag/:flowTag.id",
+            "params": [
+              {
+                "name": "flowTag.id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns configuration of flow tag with specified ID."
+        },
+        {
+          "info": {
+            "name": "Update flow tag configuration.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/flow_tag/v202404alpha1/tag/:flowTag.id",
+            "params": [
+              {
+                "name": "flowTag.id",
+                "value": "",
+                "type": "path",
+                "description": "Unique system assigned identifier of the flow tag"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a flow tag configuration."
+        },
+        {
+          "info": {
+            "name": "Delete flow tag configuration.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/flow_tag/v202404alpha1/tag/:flowTag.id",
+            "params": [
+              {
+                "name": "flowTag.id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a flow tag configuration with id."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

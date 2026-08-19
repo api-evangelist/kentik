@@ -1,0 +1,86 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AI Advisor AiAdvisorDataService CapacityPlanService API",
+    "version": "v202511"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-CH-Auth-Email",
+      "value": "{{X-CH-Auth-Email}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "CapacityPlanService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all capacity plans.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/capacity_plan/v202212/capacity_plan"
+          },
+          "docs": "Returns list of capacity plans."
+        },
+        {
+          "info": {
+            "name": "List all capacity summaries.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/capacity_plan/v202212/capacity_plan/summary"
+          },
+          "docs": "Returns list of capacity summaries."
+        },
+        {
+          "info": {
+            "name": "Retrieve capacity plan.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/capacity_plan/v202212/capacity_plan/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the requested capacity plan"
+              }
+            ]
+          },
+          "docs": "Returns capacity plan specified by ID."
+        },
+        {
+          "info": {
+            "name": "Retrieve capacity plan summary.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/capacity_plan/v202212/capacity_plan/:id/summary",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the requested capacity plan summary"
+              }
+            ]
+          },
+          "docs": "Returns capacity plan summary specified by ID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

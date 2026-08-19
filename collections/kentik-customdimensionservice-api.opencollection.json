@@ -1,0 +1,248 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AI Advisor AiAdvisorDataService CustomDimensionService API",
+    "version": "v202511"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-CH-Auth-Email",
+      "value": "{{X-CH-Auth-Email}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "CustomDimensionService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Custom Dimensions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/custom_dimensions/v202411alpha1"
+          },
+          "docs": "Returns an array of custom dimension objects that each contain information about an individual custom dimension."
+        },
+        {
+          "info": {
+            "name": "Custom Dimension Info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/custom_dimensions/v202411alpha1/:customDimensionId",
+            "params": [
+              {
+                "name": "customDimensionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns a custom dimension object containing information about an individual custom dimension."
+        },
+        {
+          "info": {
+            "name": "Update Custom Dimension",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/custom_dimensions/v202411alpha1/:customDimensionId",
+            "params": [
+              {
+                "name": "customDimensionId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates and returns a custom dimension object containing information about an individual custom dimension (see About Custom Dimensions). Populators are not sent back in the response body. To get them use 'Custom Dimension info' API instead."
+        },
+        {
+          "info": {
+            "name": "Delete Custom Dimension",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/custom_dimensions/v202411alpha1/:customDimensionId",
+            "params": [
+              {
+                "name": "customDimensionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deletes a custom dimension."
+        },
+        {
+          "info": {
+            "name": "Create Populator",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/custom_dimensions/v202411alpha1/:customDimensionId/populator",
+            "params": [
+              {
+                "name": "customDimensionId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates and returns a populator object containing information about an individual populator."
+        },
+        {
+          "info": {
+            "name": "Get Populator",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/custom_dimensions/v202411alpha1/:customDimensionId/populator/:populatorId",
+            "params": [
+              {
+                "name": "customDimensionId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "populatorId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "fieldLimit",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get Populator by Dimension and Populator ID."
+        },
+        {
+          "info": {
+            "name": "Update Populator",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/custom_dimensions/v202411alpha1/:customDimensionId/populator/:populatorId",
+            "params": [
+              {
+                "name": "customDimensionId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "populatorId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates and returns a populator object containing information about an individual populator."
+        },
+        {
+          "info": {
+            "name": "Delete Populator",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/custom_dimensions/v202411alpha1/:customDimensionId/populator/:populatorId",
+            "params": [
+              {
+                "name": "customDimensionId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "populatorId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deletes a populator."
+        },
+        {
+          "info": {
+            "name": "Get Populator Field",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/custom_dimensions/v202411alpha1/:customDimensionId/populator/:populatorId/field/:fieldName",
+            "params": [
+              {
+                "name": "customDimensionId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "populatorId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "fieldName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get Populator field by Dimension, Populator ID, and field name."
+        },
+        {
+          "info": {
+            "name": "Create Custom Dimension",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/customdimension",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates and returns a custom dimension object containing information about an individual custom dimension"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

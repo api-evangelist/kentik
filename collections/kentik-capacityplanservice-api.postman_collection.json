@@ -1,0 +1,617 @@
+{
+  "item": [
+    {
+      "id": "5f343656-62ef-46d3-b2fd-825ef9c655bd",
+      "name": "CapacityPlanService",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "55d52c0b-b89a-4102-9ceb-52e6870f521a",
+          "name": "List all capacity plans.",
+          "request": {
+            "name": "List all capacity plans.",
+            "description": {
+              "content": "Returns list of capacity plans.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "capacity_plan",
+                "v202212",
+                "capacity_plan"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ebb2c65c-e3ae-4f28-94ba-cc94628ce187",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capacity_plan",
+                    "v202212",
+                    "capacity_plan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"capacity\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"status\": \"string\",\n      \"interfaces\": [\n        {\n          \"deviceName\": \"string\",\n          \"intfName\": \"string\",\n          \"intfDescription\": \"string\",\n          \"intfCapacity\": \"string\",\n          \"networkBoundary\": \"string\",\n          \"connType\": \"string\",\n          \"provider\": \"string\",\n          \"utilStatus\": \"string\",\n          \"utilOutMbps\": \"string\",\n          \"utilOutPct\": \"string\",\n          \"utilInMbps\": \"string\",\n          \"utilInPct\": \"string\",\n          \"runoutStatus\": \"string\",\n          \"runoutInDate\": \"string\",\n          \"runoutInVariation\": \"string\",\n          \"runoutOutDate\": \"string\",\n          \"runoutOutVariation\": \"string\"\n        },\n        {\n          \"deviceName\": \"string\",\n          \"intfName\": \"string\",\n          \"intfDescription\": \"string\",\n          \"intfCapacity\": \"string\",\n          \"networkBoundary\": \"string\",\n          \"connType\": \"string\",\n          \"provider\": \"string\",\n          \"utilStatus\": \"string\",\n          \"utilOutMbps\": \"string\",\n          \"utilOutPct\": \"string\",\n          \"utilInMbps\": \"string\",\n          \"utilInPct\": \"string\",\n          \"runoutStatus\": \"string\",\n          \"runoutInDate\": \"string\",\n          \"runoutInVariation\": \"string\",\n          \"runoutOutDate\": \"string\",\n          \"runoutOutVariation\": \"string\"\n        }\n      ],\n      \"config\": {\n        \"runout\": {\n          \"strategy\": \"string\",\n          \"warnQty\": 9442,\n          \"critQty\": 1704\n        },\n        \"utilization\": {\n          \"aggregate\": \"string\",\n          \"warnPct\": 3317,\n          \"critPct\": 8733\n        }\n      },\n      \"summaryStatus\": {\n        \"runout\": {\n          \"status\": \"string\",\n          \"earliestDate\": \"string\"\n        },\n        \"utilization\": {\n          \"status\": \"string\",\n          \"highestPct\": 2839\n        }\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"status\": \"string\",\n      \"interfaces\": [\n        {\n          \"deviceName\": \"string\",\n          \"intfName\": \"string\",\n          \"intfDescription\": \"string\",\n          \"intfCapacity\": \"string\",\n          \"networkBoundary\": \"string\",\n          \"connType\": \"string\",\n          \"provider\": \"string\",\n          \"utilStatus\": \"string\",\n          \"utilOutMbps\": \"string\",\n          \"utilOutPct\": \"string\",\n          \"utilInMbps\": \"string\",\n          \"utilInPct\": \"string\",\n          \"runoutStatus\": \"string\",\n          \"runoutInDate\": \"string\",\n          \"runoutInVariation\": \"string\",\n          \"runoutOutDate\": \"string\",\n          \"runoutOutVariation\": \"string\"\n        },\n        {\n          \"deviceName\": \"string\",\n          \"intfName\": \"string\",\n          \"intfDescription\": \"string\",\n          \"intfCapacity\": \"string\",\n          \"networkBoundary\": \"string\",\n          \"connType\": \"string\",\n          \"provider\": \"string\",\n          \"utilStatus\": \"string\",\n          \"utilOutMbps\": \"string\",\n          \"utilOutPct\": \"string\",\n          \"utilInMbps\": \"string\",\n          \"utilInPct\": \"string\",\n          \"runoutStatus\": \"string\",\n          \"runoutInDate\": \"string\",\n          \"runoutInVariation\": \"string\",\n          \"runoutOutDate\": \"string\",\n          \"runoutOutVariation\": \"string\"\n        }\n      ],\n      \"config\": {\n        \"runout\": {\n          \"strategy\": \"string\",\n          \"warnQty\": 7479,\n          \"critQty\": 9642\n        },\n        \"utilization\": {\n          \"aggregate\": \"string\",\n          \"warnPct\": 4571,\n          \"critPct\": 3361\n        }\n      },\n      \"summaryStatus\": {\n        \"runout\": {\n          \"status\": \"string\",\n          \"earliestDate\": \"string\"\n        },\n        \"utilization\": {\n          \"status\": \"string\",\n          \"highestPct\": 4036\n        }\n      }\n    }\n  ],\n  \"invalidCount\": 431\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b0bf48b6-c7d2-4e33-ada2-d3945edd2686",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capacity_plan",
+                    "v202212",
+                    "capacity_plan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7634,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "381f9075-193e-4aca-ad0e-09359e717fe7",
+          "name": "List all capacity summaries.",
+          "request": {
+            "name": "List all capacity summaries.",
+            "description": {
+              "content": "Returns list of capacity summaries.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "capacity_plan",
+                "v202212",
+                "capacity_plan",
+                "summary"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8002b37b-93a0-4cae-bd8c-e3f5cc18467b",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capacity_plan",
+                    "v202212",
+                    "capacity_plan",
+                    "summary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"capacity\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"status\": \"string\",\n      \"interfaces\": {\n        \"totalCount\": 8850,\n        \"totalCapacityBps\": \"string\",\n        \"healthy\": {\n          \"bps\": \"string\",\n          \"count\": 4255\n        },\n        \"warning\": {\n          \"bps\": \"string\",\n          \"count\": 646\n        },\n        \"critical\": {\n          \"bps\": \"string\",\n          \"count\": 4628\n        }\n      },\n      \"config\": {\n        \"runout\": {\n          \"strategy\": \"string\",\n          \"warnQty\": 1756,\n          \"critQty\": 3039\n        },\n        \"utilization\": {\n          \"aggregate\": \"string\",\n          \"warnPct\": 7603,\n          \"critPct\": 8781\n        }\n      },\n      \"summaryStatus\": {\n        \"runout\": {\n          \"status\": \"string\",\n          \"earliestDate\": \"string\"\n        },\n        \"utilization\": {\n          \"status\": \"string\",\n          \"highestPct\": 9056\n        }\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"status\": \"string\",\n      \"interfaces\": {\n        \"totalCount\": 2791,\n        \"totalCapacityBps\": \"string\",\n        \"healthy\": {\n          \"bps\": \"string\",\n          \"count\": 8659\n        },\n        \"warning\": {\n          \"bps\": \"string\",\n          \"count\": 9899\n        },\n        \"critical\": {\n          \"bps\": \"string\",\n          \"count\": 4618\n        }\n      },\n      \"config\": {\n        \"runout\": {\n          \"strategy\": \"string\",\n          \"warnQty\": 4542,\n          \"critQty\": 666\n        },\n        \"utilization\": {\n          \"aggregate\": \"string\",\n          \"warnPct\": 433,\n          \"critPct\": 7943\n        }\n      },\n      \"summaryStatus\": {\n        \"runout\": {\n          \"status\": \"string\",\n          \"earliestDate\": \"string\"\n        },\n        \"utilization\": {\n          \"status\": \"string\",\n          \"highestPct\": 5776\n        }\n      }\n    }\n  ],\n  \"invalidCount\": 3637\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c3247911-c378-4eb7-83f0-2051508eb6bd",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capacity_plan",
+                    "v202212",
+                    "capacity_plan",
+                    "summary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5346,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b40f2139-ad08-4b24-ad32-0076423f7cbd",
+          "name": "Retrieve capacity plan.",
+          "request": {
+            "name": "Retrieve capacity plan.",
+            "description": {
+              "content": "Returns capacity plan specified by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "capacity_plan",
+                "v202212",
+                "capacity_plan",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) ID of the requested capacity plan"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "331d19a1-7edc-4b82-9636-5e2b80399543",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capacity_plan",
+                    "v202212",
+                    "capacity_plan",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) ID of the requested capacity plan"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"capacity\": {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"status\": \"string\",\n    \"interfaces\": [\n      {\n        \"deviceName\": \"string\",\n        \"intfName\": \"string\",\n        \"intfDescription\": \"string\",\n        \"intfCapacity\": \"string\",\n        \"networkBoundary\": \"string\",\n        \"connType\": \"string\",\n        \"provider\": \"string\",\n        \"utilStatus\": \"string\",\n        \"utilOutMbps\": \"string\",\n        \"utilOutPct\": \"string\",\n        \"utilInMbps\": \"string\",\n        \"utilInPct\": \"string\",\n        \"runoutStatus\": \"string\",\n        \"runoutInDate\": \"string\",\n        \"runoutInVariation\": \"string\",\n        \"runoutOutDate\": \"string\",\n        \"runoutOutVariation\": \"string\"\n      },\n      {\n        \"deviceName\": \"string\",\n        \"intfName\": \"string\",\n        \"intfDescription\": \"string\",\n        \"intfCapacity\": \"string\",\n        \"networkBoundary\": \"string\",\n        \"connType\": \"string\",\n        \"provider\": \"string\",\n        \"utilStatus\": \"string\",\n        \"utilOutMbps\": \"string\",\n        \"utilOutPct\": \"string\",\n        \"utilInMbps\": \"string\",\n        \"utilInPct\": \"string\",\n        \"runoutStatus\": \"string\",\n        \"runoutInDate\": \"string\",\n        \"runoutInVariation\": \"string\",\n        \"runoutOutDate\": \"string\",\n        \"runoutOutVariation\": \"string\"\n      }\n    ],\n    \"config\": {\n      \"runout\": {\n        \"strategy\": \"string\",\n        \"warnQty\": 1728,\n        \"critQty\": 1472\n      },\n      \"utilization\": {\n        \"aggregate\": \"string\",\n        \"warnPct\": 8088,\n        \"critPct\": 9240\n      }\n    },\n    \"summaryStatus\": {\n      \"runout\": {\n        \"status\": \"string\",\n        \"earliestDate\": \"string\"\n      },\n      \"utilization\": {\n        \"status\": \"string\",\n        \"highestPct\": 7083\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "64f84dbe-df17-4aa7-8532-92fa4d822a03",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capacity_plan",
+                    "v202212",
+                    "capacity_plan",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) ID of the requested capacity plan"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5346,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "535ceaca-92f2-48f6-9a59-34d6ca31b6d3",
+          "name": "Retrieve capacity plan summary.",
+          "request": {
+            "name": "Retrieve capacity plan summary.",
+            "description": {
+              "content": "Returns capacity plan summary specified by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "capacity_plan",
+                "v202212",
+                "capacity_plan",
+                ":id",
+                "summary"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) ID of the requested capacity plan summary"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5a4e57d7-ea2f-42cd-84f2-3f0bd031327d",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capacity_plan",
+                    "v202212",
+                    "capacity_plan",
+                    ":id",
+                    "summary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) ID of the requested capacity plan summary"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"capacity\": {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"status\": \"string\",\n    \"interfaces\": {\n      \"totalCount\": 7929,\n      \"totalCapacityBps\": \"string\",\n      \"healthy\": {\n        \"bps\": \"string\",\n        \"count\": 7592\n      },\n      \"warning\": {\n        \"bps\": \"string\",\n        \"count\": 8737\n      },\n      \"critical\": {\n        \"bps\": \"string\",\n        \"count\": 8618\n      }\n    },\n    \"config\": {\n      \"runout\": {\n        \"strategy\": \"string\",\n        \"warnQty\": 6385,\n        \"critQty\": 6821\n      },\n      \"utilization\": {\n        \"aggregate\": \"string\",\n        \"warnPct\": 1518,\n        \"critPct\": 7626\n      }\n    },\n    \"summaryStatus\": {\n      \"runout\": {\n        \"status\": \"string\",\n        \"earliestDate\": \"string\"\n      },\n      \"utilization\": {\n        \"status\": \"string\",\n        \"highestPct\": 8698\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5d2ea2ad-1d93-4dce-b306-dd7f7aa4bf8c",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capacity_plan",
+                    "v202212",
+                    "capacity_plan",
+                    ":id",
+                    "summary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) ID of the requested capacity plan summary"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5346,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-CH-Auth-Email"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "98446374-9739-47aa-827e-b7b61b003b5b",
+    "name": "AI Advisor AiAdvisorDataService CapacityPlanService API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "# Overview\nProvides programmatic access to AI Advisor.\n\nContact Support:\n Name: Kentik API Engineering",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,1705 @@
+{
+  "item": [
+    {
+      "id": "d4fc7109-b0a4-43eb-87e6-40b912f53f52",
+      "name": "DeviceService",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "eb9dc489-a561-4e86-86f4-496728c35595",
+          "name": "List all devices.",
+          "request": {
+            "name": "List all devices.",
+            "description": {
+              "content": "Returns list of configured devices. Use the 'view' parameter to control response detail: FULL (default), BASIC (id, name, status), or ID_ONLY (id only). See [About Devices](https://kb.kentik.com/v4/Cb01.htm).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "device",
+                "v202504beta2",
+                "device"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "query.noCustomColumns",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "view",
+                  "value": "DEVICE_VIEW_UNSPECIFIED",
+                  "description": "Controls the amount of detail returned for each device. Defaults to FULL.\n\n - DEVICE_VIEW_UNSPECIFIED: When unspecified, defaults to FULL for backward compatibility.\n - DEVICE_VIEW_FULL: Returns the full device configuration with all fields populated.\n - DEVICE_VIEW_BASIC: Returns only basic device information: id, device_name, device_status.\n - DEVICE_VIEW_ID_ONLY: Returns only device IDs."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2ee8480d-b07d-46b1-bd86-40753c329f9d",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "device",
+                    "v202504beta2",
+                    "device"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query.noCustomColumns",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "view",
+                      "value": "DEVICE_VIEW_UNSPECIFIED"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"devices\": [\n    {\n      \"id\": \"string\",\n      \"companyId\": \"string\",\n      \"deviceName\": \"string\",\n      \"deviceAlias\": \"string\",\n      \"deviceType\": \"string\",\n      \"deviceDescription\": \"string\",\n      \"site\": {\n        \"id\": \"string\",\n        \"siteName\": \"string\",\n        \"lat\": 5152.765065221013,\n        \"lon\": 1490.7107990609659,\n        \"companyId\": \"string\"\n      },\n      \"plan\": {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"active\": true,\n        \"bgp\": false,\n        \"companyId\": \"string\",\n        \"description\": \"string\",\n        \"deviceTypes\": [\n          \"string\",\n          \"string\"\n        ],\n        \"devices\": [\n          \"string\",\n          \"string\"\n        ],\n        \"fastRetention\": 1050,\n        \"fullRetention\": 7938,\n        \"maxBigdataFps\": 9315,\n        \"maxDevices\": 6200,\n        \"maxFps\": 9669,\n        \"cdate\": \"2006-04-03T18:21:51.086Z\",\n        \"edate\": \"1983-12-04T09:17:38.595Z\",\n        \"metadata\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        }\n      },\n      \"labels\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"edate\": \"1977-03-05T22:20:35.630Z\",\n          \"cdate\": \"1949-02-19T11:11:40.644Z\",\n          \"userId\": \"string\",\n          \"companyId\": \"string\",\n          \"color\": \"string\",\n          \"order\": \"string\",\n          \"pivotDeviceId\": \"string\",\n          \"pivotLabelId\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"edate\": \"2011-07-05T19:51:23.803Z\",\n          \"cdate\": \"1988-05-05T06:49:28.895Z\",\n          \"userId\": \"string\",\n          \"companyId\": \"string\",\n          \"color\": \"string\",\n          \"order\": \"string\",\n          \"pivotDeviceId\": \"string\",\n          \"pivotLabelId\": \"string\"\n        }\n      ],\n      \"allInterfaces\": [\n        {\n          \"interfaceDescription\": \"string\",\n          \"initialSnmpSpeed\": \"string\",\n          \"deviceId\": \"string\",\n          \"snmpSpeed\": \"string\",\n          \"snmpAlias\": \"string\",\n          \"snmpId\": \"string\",\n          \"connectivityType\": \"string\",\n          \"networkBoundary\": \"string\",\n          \"provider\": \"string\"\n        },\n        {\n          \"interfaceDescription\": \"string\",\n          \"initialSnmpSpeed\": \"string\",\n          \"deviceId\": \"string\",\n          \"snmpSpeed\": \"string\",\n          \"snmpAlias\": \"string\",\n          \"snmpId\": \"string\",\n          \"connectivityType\": \"string\",\n          \"networkBoundary\": \"string\",\n          \"provider\": \"string\"\n        }\n      ],\n      \"deviceFlowType\": \"string\",\n      \"deviceSampleRate\": \"string\",\n      \"sendingIps\": [\n        \"string\",\n        \"string\"\n      ],\n      \"deviceSnmpIp\": \"string\",\n      \"deviceSnmpCommunity\": \"string\",\n      \"minimizeSnmp\": false,\n      \"deviceBgpType\": \"string\",\n      \"deviceBgpNeighborIp\": \"string\",\n      \"deviceBgpNeighborIp6\": \"string\",\n      \"deviceBgpNeighborAsn\": \"string\",\n      \"deviceBgpFlowspec\": true,\n      \"deviceBgpPassword\": \"string\",\n      \"deviceBgpLabelUnicast\": true,\n      \"bgpLookupStrategy\": \"string\",\n      \"deviceStatus\": \"string\",\n      \"useBgpDeviceId\": \"string\",\n      \"customColumns\": \"string\",\n      \"customColumnData\": [\n        {\n          \"deviceId\": \"string\",\n          \"fieldId\": \"string\",\n          \"colName\": \"string\",\n          \"description\": \"string\",\n          \"colType\": \"string\",\n          \"deviceType\": \"string\"\n        },\n        {\n          \"deviceId\": \"string\",\n          \"fieldId\": \"string\",\n          \"colName\": \"string\",\n          \"description\": \"string\",\n          \"colType\": \"string\",\n          \"deviceType\": \"string\"\n        }\n      ],\n      \"deviceChfClientPort\": \"string\",\n      \"deviceChfClientProtocol\": \"string\",\n      \"deviceChfInterface\": \"string\",\n      \"deviceAgentType\": \"string\",\n      \"maxFlowRate\": 2938,\n      \"maxBigFlowRate\": 491,\n      \"deviceProxyBgp\": \"string\",\n      \"deviceProxyBgp6\": \"string\",\n      \"createdDate\": \"1959-05-23T15:12:25.727Z\",\n      \"updatedDate\": \"2018-06-16T15:36:06.363Z\",\n      \"deviceSnmpV3ConfEnabled\": false,\n      \"deviceSnmpV3Conf\": {\n        \"username\": \"string\",\n        \"authenticationProtocol\": \"string\",\n        \"authenticationPassphrase\": \"string\",\n        \"privacyProtocol\": \"string\",\n        \"privacyPassphrase\": \"string\"\n      },\n      \"cdnAttr\": \"string\",\n      \"bgpPeerIp4\": \"string\",\n      \"bgpPeerIp6\": \"string\",\n      \"deviceSubtype\": \"string\",\n      \"deviceVendorType\": \"string\",\n      \"deviceModelType\": \"string\",\n      \"cloudExportId\": \"string\",\n      \"deviceKproxy\": \"string\",\n      \"snmpEnabled\": \"string\",\n      \"snmpDisabledReason\": \"string\",\n      \"snmpDisabledReasonOther\": \"string\",\n      \"bgpDisabledReason\": \"string\",\n      \"bgpDisabledReasonOther\": \"string\",\n      \"deviceManufacturer\": \"string\",\n      \"deviceAlert\": \"string\",\n      \"role\": \"string\",\n      \"deviceGnmiV1Conf\": {\n        \"dialoutServer\": \"string\"\n      },\n      \"useAsnFromFlow\": false,\n      \"maxInterface\": 8380,\n      \"maxInterfaceCheck\": 1486,\n      \"nms\": {\n        \"agentId\": \"string\",\n        \"ipAddress\": \"string\",\n        \"snmp\": {\n          \"credentialName\": \"string\",\n          \"port\": 7869,\n          \"timeout\": \"string\"\n        },\n        \"st\": {\n          \"credentialName\": \"string\",\n          \"port\": 1911,\n          \"timeout\": \"string\",\n          \"secure\": false\n        }\n      },\n      \"deviceBgpCredentialName\": \"string\",\n      \"flowSnmpCredentialName\": \"string\",\n      \"monitoringTemplateId\": 6591,\n      \"osName\": \"string\",\n      \"osVersion\": \"string\",\n      \"serialNumber\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"companyId\": \"string\",\n      \"deviceName\": \"string\",\n      \"deviceAlias\": \"string\",\n      \"deviceType\": \"string\",\n      \"deviceDescription\": \"string\",\n      \"site\": {\n        \"id\": \"string\",\n        \"siteName\": \"string\",\n        \"lat\": 8294.888329537009,\n        \"lon\": 5824.983686407046,\n        \"companyId\": \"string\"\n      },\n      \"plan\": {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"active\": false,\n        \"bgp\": false,\n        \"companyId\": \"string\",\n        \"description\": \"string\",\n        \"deviceTypes\": [\n          \"string\",\n          \"string\"\n        ],\n        \"devices\": [\n          \"string\",\n          \"string\"\n        ],\n        \"fastRetention\": 2851,\n        \"fullRetention\": 981,\n        \"maxBigdataFps\": 4203,\n        \"maxDevices\": 2355,\n        \"maxFps\": 3006,\n        \"cdate\": \"1999-01-22T20:22:09.916Z\",\n        \"edate\": \"2022-06-05T16:31:39.662Z\",\n        \"metadata\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\",\n          \"key_2\": \"string\"\n        }\n      },\n      \"labels\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"edate\": \"1947-09-18T20:48:42.624Z\",\n          \"cdate\": \"2012-06-08T04:39:49.894Z\",\n          \"userId\": \"string\",\n          \"companyId\": \"string\",\n          \"color\": \"string\",\n          \"order\": \"string\",\n          \"pivotDeviceId\": \"string\",\n          \"pivotLabelId\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"edate\": \"2024-04-27T10:51:05.833Z\",\n          \"cdate\": \"1951-06-22T02:30:00.643Z\",\n          \"userId\": \"string\",\n          \"companyId\": \"string\",\n          \"color\": \"string\",\n          \"order\": \"string\",\n          \"pivotDeviceId\": \"string\",\n          \"pivotLabelId\": \"string\"\n        }\n      ],\n      \"allInterfaces\": [\n        {\n          \"interfaceDescription\": \"string\",\n          \"initialSnmpSpeed\": \"string\",\n          \"deviceId\": \"string\",\n          \"snmpSpeed\": \"string\",\n          \"snmpAlias\": \"string\",\n          \"snmpId\": \"string\",\n          \"connectivityType\": \"string\",\n          \"networkBoundary\": \"string\",\n          \"provider\": \"string\"\n        },\n        {\n          \"interfaceDescription\": \"string\",\n          \"initialSnmpSpeed\": \"string\",\n          \"deviceId\": \"string\",\n          \"snmpSpeed\": \"string\",\n          \"snmpAlias\": \"string\",\n          \"snmpId\": \"string\",\n          \"connectivityType\": \"string\",\n          \"networkBoundary\": \"string\",\n          \"provider\": \"string\"\n        }\n      ],\n      \"deviceFlowType\": \"string\",\n      \"deviceSampleRate\": \"string\",\n      \"sendingIps\": [\n        \"string\",\n        \"string\"\n      ],\n      \"deviceSnmpIp\": \"string\",\n      \"deviceSnmpCommunity\": \"string\",\n      \"minimizeSnmp\": true,\n      \"deviceBgpType\": \"string\",\n      \"deviceBgpNeighborIp\": \"string\",\n      \"deviceBgpNeighborIp6\": \"string\",\n      \"deviceBgpNeighborAsn\": \"string\",\n      \"deviceBgpFlowspec\": false,\n      \"deviceBgpPassword\": \"string\",\n      \"deviceBgpLabelUnicast\": true,\n      \"bgpLookupStrategy\": \"string\",\n      \"deviceStatus\": \"string\",\n      \"useBgpDeviceId\": \"string\",\n      \"customColumns\": \"string\",\n      \"customColumnData\": [\n        {\n          \"deviceId\": \"string\",\n          \"fieldId\": \"string\",\n          \"colName\": \"string\",\n          \"description\": \"string\",\n          \"colType\": \"string\",\n          \"deviceType\": \"string\"\n        },\n        {\n          \"deviceId\": \"string\",\n          \"fieldId\": \"string\",\n          \"colName\": \"string\",\n          \"description\": \"string\",\n          \"colType\": \"string\",\n          \"deviceType\": \"string\"\n        }\n      ],\n      \"deviceChfClientPort\": \"string\",\n      \"deviceChfClientProtocol\": \"string\",\n      \"deviceChfInterface\": \"string\",\n      \"deviceAgentType\": \"string\",\n      \"maxFlowRate\": 6314,\n      \"maxBigFlowRate\": 3915,\n      \"deviceProxyBgp\": \"string\",\n      \"deviceProxyBgp6\": \"string\",\n      \"createdDate\": \"1964-05-12T19:45:13.313Z\",\n      \"updatedDate\": \"1970-09-28T18:02:38.836Z\",\n      \"deviceSnmpV3ConfEnabled\": false,\n      \"deviceSnmpV3Conf\": {\n        \"username\": \"string\",\n        \"authenticationProtocol\": \"string\",\n        \"authenticationPassphrase\": \"string\",\n        \"privacyProtocol\": \"string\",\n        \"privacyPassphrase\": \"string\"\n      },\n      \"cdnAttr\": \"string\",\n      \"bgpPeerIp4\": \"string\",\n      \"bgpPeerIp6\": \"string\",\n      \"deviceSubtype\": \"string\",\n      \"deviceVendorType\": \"string\",\n      \"deviceModelType\": \"string\",\n      \"cloudExportId\": \"string\",\n      \"deviceKproxy\": \"string\",\n      \"snmpEnabled\": \"string\",\n      \"snmpDisabledReason\": \"string\",\n      \"snmpDisabledReasonOther\": \"string\",\n      \"bgpDisabledReason\": \"string\",\n      \"bgpDisabledReasonOther\": \"string\",\n      \"deviceManufacturer\": \"string\",\n      \"deviceAlert\": \"string\",\n      \"role\": \"string\",\n      \"deviceGnmiV1Conf\": {\n        \"dialoutServer\": \"string\"\n      },\n      \"useAsnFromFlow\": false,\n      \"maxInterface\": 416,\n      \"maxInterfaceCheck\": 643,\n      \"nms\": {\n        \"agentId\": \"string\",\n        \"ipAddress\": \"string\",\n        \"snmp\": {\n          \"credentialName\": \"string\",\n          \"port\": 3498,\n          \"timeout\": \"string\"\n        },\n        \"st\": {\n          \"credentialName\": \"string\",\n          \"port\": 9891,\n          \"timeout\": \"string\",\n          \"secure\": true\n        }\n      },\n      \"deviceBgpCredentialName\": \"string\",\n      \"flowSnmpCredentialName\": \"string\",\n      \"monitoringTemplateId\": 7940,\n      \"osName\": \"string\",\n      \"osVersion\": \"string\",\n      \"serialNumber\": \"string\"\n    }\n  ],\n  \"invalidCount\": 102\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "76ea66eb-5c79-4644-aeba-47304fb720c0",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "device",
+                    "v202504beta2",
+                    "device"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query.noCustomColumns",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "view",
+                      "value": "DEVICE_VIEW_UNSPECIFIED"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 8703,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5b12bb56-c074-4b1b-8783-826bfed956b3",
+          "name": "Configure a new device.",
+          "request": {
+            "name": "Configure a new device.",
+            "description": {
+              "content": "Create configuration for a new device. Returns the newly created configuration (see [About Devices](https://kb.kentik.com/v4/Cb01.htm)).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "device",
+                "v202504beta2",
+                "device"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"device\": {\n    \"id\": \"<string>\",\n    \"deviceName\": \"<string>\",\n    \"deviceSubtype\": \"<string>\",\n    \"cdnAttr\": \"<string>\",\n    \"deviceDescription\": \"<string>\",\n    \"sendingIps\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"deviceSampleRate\": \"<double>\",\n    \"planId\": \"<long>\",\n    \"siteId\": \"<long>\",\n    \"minimizeSnmp\": \"<boolean>\",\n    \"deviceSnmpIp\": \"<string>\",\n    \"deviceSnmpCommunity\": \"<string>\",\n    \"deviceSnmpV3Conf\": {\n      \"username\": \"<string>\",\n      \"authenticationProtocol\": \"<string>\",\n      \"authenticationPassphrase\": \"<string>\",\n      \"privacyProtocol\": \"<string>\",\n      \"privacyPassphrase\": \"<string>\"\n    },\n    \"deviceBgpType\": \"<string>\",\n    \"deviceBgpNeighborIp\": \"<string>\",\n    \"deviceBgpNeighborIp6\": \"<string>\",\n    \"deviceBgpNeighborAsn\": \"<string>\",\n    \"deviceBgpPassword\": \"<string>\",\n    \"useBgpDeviceId\": \"<string>\",\n    \"deviceBgpFlowspec\": \"<boolean>\",\n    \"nms\": {\n      \"agentId\": \"<string>\",\n      \"ipAddress\": \"<string>\",\n      \"snmp\": {\n        \"credentialName\": \"<string>\",\n        \"port\": \"<long>\",\n        \"timeout\": \"<string>\"\n      },\n      \"st\": {\n        \"credentialName\": \"<string>\",\n        \"port\": \"<long>\",\n        \"timeout\": \"<string>\",\n        \"secure\": \"<boolean>\"\n      }\n    },\n    \"deviceBgpCredentialName\": \"<string>\",\n    \"flowSnmpCredentialName\": \"<string>\",\n    \"monitoringTemplateId\": \"<long>\",\n    \"deviceAlert\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f6dbead2-6722-4b1d-adbd-4768ff0b8dfb",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "device",
+                    "v202504beta2",
+                    "device"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"device\": {\n    \"id\": \"<string>\",\n    \"deviceName\": \"<string>\",\n    \"deviceSubtype\": \"<string>\",\n    \"cdnAttr\": \"<string>\",\n    \"deviceDescription\": \"<string>\",\n    \"sendingIps\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"deviceSampleRate\": \"<double>\",\n    \"planId\": \"<long>\",\n    \"siteId\": \"<long>\",\n    \"minimizeSnmp\": \"<boolean>\",\n    \"deviceSnmpIp\": \"<string>\",\n    \"deviceSnmpCommunity\": \"<string>\",\n    \"deviceSnmpV3Conf\": {\n      \"username\": \"<string>\",\n      \"authenticationProtocol\": \"<string>\",\n      \"authenticationPassphrase\": \"<string>\",\n      \"privacyProtocol\": \"<string>\",\n      \"privacyPassphrase\": \"<string>\"\n    },\n    \"deviceBgpType\": \"<string>\",\n    \"deviceBgpNeighborIp\": \"<string>\",\n    \"deviceBgpNeighborIp6\": \"<string>\",\n    \"deviceBgpNeighborAsn\": \"<string>\",\n    \"deviceBgpPassword\": \"<string>\",\n    \"useBgpDeviceId\": \"<string>\",\n    \"deviceBgpFlowspec\": \"<boolean>\",\n    \"nms\": {\n      \"agentId\": \"<string>\",\n      \"ipAddress\": \"<string>\",\n      \"snmp\": {\n        \"credentialName\": \"<string>\",\n        \"port\": \"<long>\",\n        \"timeout\": \"<string>\"\n      },\n      \"st\": {\n        \"credentialName\": \"<string>\",\n        \"port\": \"<long>\",\n        \"timeout\": \"<string>\",\n        \"secure\": \"<boolean>\"\n      }\n    },\n    \"deviceBgpCredentialName\": \"<string>\",\n    \"flowSnmpCredentialName\": \"<string>\",\n    \"monitoringTemplateId\": \"<long>\",\n    \"deviceAlert\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"device\": {\n    \"id\": \"string\",\n    \"companyId\": \"string\",\n    \"deviceName\": \"string\",\n    \"deviceAlias\": \"string\",\n    \"deviceType\": \"string\",\n    \"deviceDescription\": \"string\",\n    \"site\": {\n      \"id\": \"string\",\n      \"siteName\": \"string\",\n      \"lat\": 2584.6659691828368,\n      \"lon\": 9827.174289262724,\n      \"companyId\": \"string\"\n    },\n    \"plan\": {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"active\": false,\n      \"bgp\": false,\n      \"companyId\": \"string\",\n      \"description\": \"string\",\n      \"deviceTypes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"devices\": [\n        \"string\",\n        \"string\"\n      ],\n      \"fastRetention\": 6491,\n      \"fullRetention\": 5296,\n      \"maxBigdataFps\": 5202,\n      \"maxDevices\": 4166,\n      \"maxFps\": 8312,\n      \"cdate\": \"1963-03-01T13:03:00.858Z\",\n      \"edate\": \"1973-08-10T12:31:20.344Z\",\n      \"metadata\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      }\n    },\n    \"labels\": [\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"edate\": \"1976-06-10T12:44:38.834Z\",\n        \"cdate\": \"2019-03-20T07:27:28.788Z\",\n        \"userId\": \"string\",\n        \"companyId\": \"string\",\n        \"color\": \"string\",\n        \"order\": \"string\",\n        \"pivotDeviceId\": \"string\",\n        \"pivotLabelId\": \"string\"\n      },\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"edate\": \"2003-12-01T01:54:27.405Z\",\n        \"cdate\": \"1985-10-06T21:57:49.772Z\",\n        \"userId\": \"string\",\n        \"companyId\": \"string\",\n        \"color\": \"string\",\n        \"order\": \"string\",\n        \"pivotDeviceId\": \"string\",\n        \"pivotLabelId\": \"string\"\n      }\n    ],\n    \"allInterfaces\": [\n      {\n        \"interfaceDescription\": \"string\",\n        \"initialSnmpSpeed\": \"string\",\n        \"deviceId\": \"string\",\n        \"snmpSpeed\": \"string\",\n        \"snmpAlias\": \"string\",\n        \"snmpId\": \"string\",\n        \"connectivityType\": \"string\",\n        \"networkBoundary\": \"string\",\n        \"provider\": \"string\"\n      },\n      {\n        \"interfaceDescription\": \"string\",\n        \"initialSnmpSpeed\": \"string\",\n        \"deviceId\": \"string\",\n        \"snmpSpeed\": \"string\",\n        \"snmpAlias\": \"string\",\n        \"snmpId\": \"string\",\n        \"connectivityType\": \"string\",\n        \"networkBoundary\": \"string\",\n        \"provider\": \"string\"\n      }\n    ],\n    \"deviceFlowType\": \"string\",\n    \"deviceSampleRate\": \"string\",\n    \"sendingIps\": [\n      \"string\",\n      \"string\"\n    ],\n    \"deviceSnmpIp\": \"string\",\n    \"deviceSnmpCommunity\": \"string\",\n    \"minimizeSnmp\": false,\n    \"deviceBgpType\": \"string\",\n    \"deviceBgpNeighborIp\": \"string\",\n    \"deviceBgpNeighborIp6\": \"string\",\n    \"deviceBgpNeighborAsn\": \"string\",\n    \"deviceBgpFlowspec\": false,\n    \"deviceBgpPassword\": \"string\",\n    \"deviceBgpLabelUnicast\": true,\n    \"bgpLookupStrategy\": \"string\",\n    \"deviceStatus\": \"string\",\n    \"useBgpDeviceId\": \"string\",\n    \"customColumns\": \"string\",\n    \"customColumnData\": [\n      {\n        \"deviceId\": \"string\",\n        \"fieldId\": \"string\",\n        \"colName\": \"string\",\n        \"description\": \"string\",\n        \"colType\": \"string\",\n        \"deviceType\": \"string\"\n      },\n      {\n        \"deviceId\": \"string\",\n        \"fieldId\": \"string\",\n        \"colName\": \"string\",\n        \"description\": \"string\",\n        \"colType\": \"string\",\n        \"deviceType\": \"string\"\n      }\n    ],\n    \"deviceChfClientPort\": \"string\",\n    \"deviceChfClientProtocol\": \"string\",\n    \"deviceChfInterface\": \"string\",\n    \"deviceAgentType\": \"string\",\n    \"maxFlowRate\": 8086,\n    \"maxBigFlowRate\": 6428,\n    \"deviceProxyBgp\": \"string\",\n    \"deviceProxyBgp6\": \"string\",\n    \"createdDate\": \"1967-05-12T18:20:50.296Z\",\n    \"updatedDate\": \"1994-03-01T04:49:54.031Z\",\n    \"deviceSnmpV3ConfEnabled\": false,\n    \"deviceSnmpV3Conf\": {\n      \"username\": \"<string>\",\n      \"authenticationProtocol\": \"<string>\",\n      \"authenticationPassphrase\": \"<string>\",\n      \"privacyProtocol\": \"<string>\",\n      \"privacyPassphrase\": \"<string>\"\n    },\n    \"cdnAttr\": \"string\",\n    \"bgpPeerIp4\": \"string\",\n    \"bgpPeerIp6\": \"string\",\n    \"deviceSubtype\": \"string\",\n    \"deviceVendorType\": \"string\",\n    \"deviceModelType\": \"string\",\n    \"cloudExportId\": \"string\",\n    \"deviceKproxy\": \"string\",\n    \"snmpEnabled\": \"string\",\n    \"snmpDisabledReason\": \"string\",\n    \"snmpDisabledReasonOther\": \"string\",\n    \"bgpDisabledReason\": \"string\",\n    \"bgpDisabledReasonOther\": \"string\",\n    \"deviceManufacturer\": \"string\",\n    \"deviceAlert\": \"string\",\n    \"role\": \"string\",\n    \"deviceGnmiV1Conf\": {\n      \"dialoutServer\": \"string\"\n    },\n    \"useAsnFromFlow\": true,\n    \"maxInterface\": 8687,\n    \"maxInterfaceCheck\": 7267,\n    \"nms\": {\n      \"agentId\": \"<string>\",\n      \"ipAddress\": \"<string>\",\n      \"snmp\": {\n        \"credentialName\": \"<string>\",\n        \"port\": \"<long>\",\n        \"timeout\": \"<string>\"\n      },\n      \"st\": {\n        \"credentialName\": \"<string>\",\n        \"port\": \"<long>\",\n        \"timeout\": \"<string>\",\n        \"secure\": \"<boolean>\"\n      }\n    },\n    \"deviceBgpCredentialName\": \"string\",\n    \"flowSnmpCredentialName\": \"string\",\n    \"monitoringTemplateId\": 6030,\n    \"osName\": \"string\",\n    \"osVersion\": \"string\",\n    \"serialNumber\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e7bec93f-5890-4083-9d20-ece3d7f99e6c",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "device",
+                    "v202504beta2",
+                    "device"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"device\": {\n    \"id\": \"<string>\",\n    \"deviceName\": \"<string>\",\n    \"deviceSubtype\": \"<string>\",\n    \"cdnAttr\": \"<string>\",\n    \"deviceDescription\": \"<string>\",\n    \"sendingIps\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"deviceSampleRate\": \"<double>\",\n    \"planId\": \"<long>\",\n    \"siteId\": \"<long>\",\n    \"minimizeSnmp\": \"<boolean>\",\n    \"deviceSnmpIp\": \"<string>\",\n    \"deviceSnmpCommunity\": \"<string>\",\n    \"deviceSnmpV3Conf\": {\n      \"username\": \"<string>\",\n      \"authenticationProtocol\": \"<string>\",\n      \"authenticationPassphrase\": \"<string>\",\n      \"privacyProtocol\": \"<string>\",\n      \"privacyPassphrase\": \"<string>\"\n    },\n    \"deviceBgpType\": \"<string>\",\n    \"deviceBgpNeighborIp\": \"<string>\",\n    \"deviceBgpNeighborIp6\": \"<string>\",\n    \"deviceBgpNeighborAsn\": \"<string>\",\n    \"deviceBgpPassword\": \"<string>\",\n    \"useBgpDeviceId\": \"<string>\",\n    \"deviceBgpFlowspec\": \"<boolean>\",\n    \"nms\": {\n      \"agentId\": \"<string>\",\n      \"ipAddress\": \"<string>\",\n      \"snmp\": {\n        \"credentialName\": \"<string>\",\n        \"port\": \"<long>\",\n        \"timeout\": \"<string>\"\n      },\n      \"st\": {\n        \"credentialName\": \"<string>\",\n        \"port\": \"<long>\",\n        \"timeout\": \"<string>\",\n        \"secure\": \"<boolean>\"\n      }\n    },\n    \"deviceBgpCredentialName\": \"<string>\",\n    \"flowSnmpCredentialName\": \"<string>\",\n    \"monitoringTemplateId\": \"<long>\",\n    \"deviceAlert\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4026,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b63e2e6d-8012-4bb9-b09a-4b6f69b553d6",
+          "name": "Configure multiple devices (max 100).",
+          "request": {
+            "name": "Configure multiple devices (max 100).",
+            "description": {
+              "content": "Create configuration for multiple devices. Returns the newly created configurations (see [About Devices](https://kb.kentik.com/v4/Cb01.htm)).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "device",
+                "v202504beta2",
+                "device",
+                "batch_create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"devices\": [\n    {\n      \"id\": \"<string>\",\n      \"deviceName\": \"<string>\",\n      \"deviceSubtype\": \"<string>\",\n      \"cdnAttr\": \"<string>\",\n      \"deviceDescription\": \"<string>\",\n      \"sendingIps\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"deviceSampleRate\": \"<double>\",\n      \"planId\": \"<long>\",\n      \"siteId\": \"<long>\",\n      \"minimizeSnmp\": \"<boolean>\",\n      \"deviceSnmpIp\": \"<string>\",\n      \"deviceSnmpCommunity\": \"<string>\",\n      \"deviceSnmpV3Conf\": {\n        \"username\": \"<string>\",\n        \"authenticationProtocol\": \"<string>\",\n        \"authenticationPassphrase\": \"<string>\",\n        \"privacyProtocol\": \"<string>\",\n        \"privacyPassphrase\": \"<string>\"\n      },\n      \"deviceBgpType\": \"<string>\",\n      \"deviceBgpNeighborIp\": \"<string>\",\n      \"deviceBgpNeighborIp6\": \"<string>\",\n      \"deviceBgpNeighborAsn\": \"<string>\",\n      \"deviceBgpPassword\": \"<string>\",\n      \"useBgpDeviceId\": \"<string>\",\n      \"deviceBgpFlowspec\": \"<boolean>\",\n      \"nms\": {\n        \"agentId\": \"<string>\",\n        \"ipAddress\": \"<string>\",\n        \"snmp\": {\n          \"credentialName\": \"<string>\",\n          \"port\": \"<long>\",\n          \"timeout\": \"<string>\"\n        },\n        \"st\": {\n          \"credentialName\": \"<string>\",\n          \"port\": \"<long>\",\n          \"timeout\": \"<string>\",\n          \"secure\": \"<boolean>\"\n        }\n      },\n      \"deviceBgpCredentialName\": \"<string>\",\n      \"flowSnmpCredentialName\": \"<string>\",\n      \"monitoringTemplateId\": \"<long>\",\n      \"deviceAlert\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"deviceName\": \"<string>\",\n      \"deviceSubtype\": \"<string>\",\n      \"cdnAttr\": \"<string>\",\n      \"deviceDescription\": \"<string>\",\n      \"sendingIps\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"deviceSampleRate\": \"<double>\",\n      \"planId\": \"<long>\",\n      \"siteId\": \"<long>\",\n      \"minimizeSnmp\": \"<boolean>\",\n      \"deviceSnmpIp\": \"<string>\",\n      \"deviceSnmpCommunity\": \"<string>\",\n      \"deviceSnmpV3Conf\": {\n        \"username\": \"<string>\",\n        \"authenticationProtocol\": \"<string>\",\n        \"authenticationPassphrase\": \"<string>\",\n        \"privacyProtocol\": \"<string>\",\n        \"privacyPassphrase\": \"<string>\"\n      },\n      \"deviceBgpType\": \"<string>\",\n      \"deviceBgpNeighborIp\": \"<string>\",\n      \"deviceBgpNeighborIp6\": \"<string>\",\n      \"deviceBgpNeighborAsn\": \"<string>\",\n      \"deviceBgpPassword\": \"<string>\",\n      \"useBgpDeviceId\": \"<string>\",\n      \"deviceBgpFlowspec\": \"<boolean>\",\n      \"nms\": {\n        \"agentId\": \"<string>\",\n        \"ipAddress\": \"<string>\",\n        \"snmp\": {\n          \"credentialName\": \"<string>\",\n          \"port\": \"<long>\",\n          \"timeout\": \"<string>\"\n        },\n        \"st\": {\n          \"credentialName\": \"<string>\",\n          \"port\": \"<long>\",\n          \"timeout\": \"<string>\",\n          \"secure\": \"<boolean>\"\n        }\n      },\n      \"deviceBgpCredentialName\": \"<string>\",\n      \"flowSnmpCredentialName\": \"<string>\",\n      \"monitoringTemplateId\": \"<long>\",\n      \"deviceAlert\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "924a7ccf-9aa6-4379-b88b-717943ba10fd",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "device",
+                    "v202504beta2",
+                    "device",
+                    "batch_create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"devices\": [\n    {\n      \"id\": \"<string>\",\n      \"deviceName\": \"<string>\",\n      \"deviceSubtype\": \"<string>\",\n      \"cdnAttr\": \"<string>\",\n      \"deviceDescription\": \"<string>\",\n      \"sendingIps\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"deviceSampleRate\": \"<double>\",\n      \"planId\": \"<long>\",\n      \"siteId\": \"<long>\",\n      \"minimizeSnmp\": \"<boolean>\",\n      \"deviceSnmpIp\": \"<string>\",\n      \"deviceSnmpCommunity\": \"<string>\",\n      \"deviceSnmpV3Conf\": {\n        \"username\": \"<string>\",\n        \"authenticationProtocol\": \"<string>\",\n        \"authenticationPassphrase\": \"<string>\",\n        \"privacyProtocol\": \"<string>\",\n        \"privacyPassphrase\": \"<string>\"\n      },\n      \"deviceBgpType\": \"<string>\",\n      \"deviceBgpNeighborIp\": \"<string>\",\n      \"deviceBgpNeighborIp6\": \"<string>\",\n      \"deviceBgpNeighborAsn\": \"<string>\",\n      \"deviceBgpPassword\": \"<string>\",\n      \"useBgpDeviceId\": \"<string>\",\n      \"deviceBgpFlowspec\": \"<boolean>\",\n      \"nms\": {\n        \"agentId\": \"<string>\",\n        \"ipAddress\": \"<string>\",\n        \"snmp\": {\n          \"credentialName\": \"<string>\",\n          \"port\": \"<long>\",\n          \"timeout\": \"<string>\"\n        },\n        \"st\": {\n          \"credentialName\": \"<string>\",\n          \"port\": \"<long>\",\n          \"timeout\": \"<string>\",\n          \"secure\": \"<boolean>\"\n        }\n      },\n      \"deviceBgpCredentialName\": \"<string>\",\n      \"flowSnmpCredentialName\": \"<string>\",\n      \"monitoringTemplateId\": \"<long>\",\n      \"deviceAlert\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"deviceName\": \"<string>\",\n      \"deviceSubtype\": \"<string>\",\n      \"cdnAttr\": \"<string>\",\n      \"deviceDescription\": \"<string>\",\n      \"sendingIps\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"deviceSampleRate\": \"<double>\",\n      \"planId\": \"<long>\",\n      \"siteId\": \"<long>\",\n      \"minimizeSnmp\": \"<boolean>\",\n      \"deviceSnmpIp\": \"<string>\",\n      \"deviceSnmpCommunity\": \"<string>\",\n      \"deviceSnmpV3Conf\": {\n        \"username\": \"<string>\",\n        \"authenticationProtocol\": \"<string>\",\n        \"authenticationPassphrase\": \"<string>\",\n        \"privacyProtocol\": \"<string>\",\n        \"privacyPassphrase\": \"<string>\"\n      },\n      \"deviceBgpType\": \"<string>\",\n      \"deviceBgpNeighborIp\": \"<string>\",\n      \"deviceBgpNeighborIp6\": \"<string>\",\n      \"deviceBgpNeighborAsn\": \"<string>\",\n      \"deviceBgpPassword\": \"<string>\",\n      \"useBgpDeviceId\": \"<string>\",\n      \"deviceBgpFlowspec\": \"<boolean>\",\n      \"nms\": {\n        \"agentId\": \"<string>\",\n        \"ipAddress\": \"<string>\",\n        \"snmp\": {\n          \"credentialName\": \"<string>\",\n          \"port\": \"<long>\",\n          \"timeout\": \"<string>\"\n        },\n        \"st\": {\n          \"credentialName\": \"<string>\",\n          \"port\": \"<long>\",\n          \"timeout\": \"<string>\",\n          \"secure\": \"<boolean>\"\n        }\n      },\n      \"deviceBgpCredentialName\": \"<string>\",\n      \"flowSnmpCredentialName\": \"<string>\",\n      \"monitoringTemplateId\": \"<long>\",\n      \"deviceAlert\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"devices\": [\n    {\n      \"id\": \"string\",\n      \"companyId\": \"string\",\n      \"deviceName\": \"string\",\n      \"deviceAlias\": \"string\",\n      \"deviceType\": \"string\",\n      \"deviceDescription\": \"string\",\n      \"site\": {\n        \"id\": \"string\",\n        \"siteName\": \"string\",\n        \"lat\": 1545.5464781151618,\n        \"lon\": 7572.813373458985,\n        \"companyId\": \"string\"\n      },\n      \"plan\": {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"active\": false,\n        \"bgp\": false,\n        \"companyId\": \"string\",\n        \"description\": \"string\",\n        \"deviceTypes\": [\n          \"string\",\n          \"string\"\n        ],\n        \"devices\": [\n          \"string\",\n          \"string\"\n        ],\n        \"fastRetention\": 4325,\n        \"fullRetention\": 1526,\n        \"maxBigdataFps\": 4472,\n        \"maxDevices\": 6605,\n        \"maxFps\": 2106,\n        \"cdate\": \"1992-04-25T03:58:09.147Z\",\n        \"edate\": \"2010-04-13T00:25:05.588Z\",\n        \"metadata\": {\n          \"key_0\": \"string\"\n        }\n      },\n      \"labels\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"edate\": \"2025-03-31T13:04:28.724Z\",\n          \"cdate\": \"1954-09-05T10:16:32.484Z\",\n          \"userId\": \"string\",\n          \"companyId\": \"string\",\n          \"color\": \"string\",\n          \"order\": \"string\",\n          \"pivotDeviceId\": \"string\",\n          \"pivotLabelId\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"edate\": \"1954-04-22T03:30:44.948Z\",\n          \"cdate\": \"1960-01-01T17:00:36.352Z\",\n          \"userId\": \"string\",\n          \"companyId\": \"string\",\n          \"color\": \"string\",\n          \"order\": \"string\",\n          \"pivotDeviceId\": \"string\",\n          \"pivotLabelId\": \"string\"\n        }\n      ],\n      \"allInterfaces\": [\n        {\n          \"interfaceDescription\": \"string\",\n          \"initialSnmpSpeed\": \"string\",\n          \"deviceId\": \"string\",\n          \"snmpSpeed\": \"string\",\n          \"snmpAlias\": \"string\",\n          \"snmpId\": \"string\",\n          \"connectivityType\": \"string\",\n          \"networkBoundary\": \"string\",\n          \"provider\": \"string\"\n        },\n        {\n          \"interfaceDescription\": \"string\",\n          \"initialSnmpSpeed\": \"string\",\n          \"deviceId\": \"string\",\n          \"snmpSpeed\": \"string\",\n          \"snmpAlias\": \"string\",\n          \"snmpId\": \"string\",\n          \"connectivityType\": \"string\",\n          \"networkBoundary\": \"string\",\n          \"provider\": \"string\"\n        }\n      ],\n      \"deviceFlowType\": \"string\",\n      \"deviceSampleRate\": \"string\",\n      \"sendingIps\": [\n        \"string\",\n        \"string\"\n      ],\n      \"deviceSnmpIp\": \"string\",\n      \"deviceSnmpCommunity\": \"string\",\n      \"minimizeSnmp\": false,\n      \"deviceBgpType\": \"string\",\n      \"deviceBgpNeighborIp\": \"string\",\n      \"deviceBgpNeighborIp6\": \"string\",\n      \"deviceBgpNeighborAsn\": \"string\",\n      \"deviceBgpFlowspec\": false,\n      \"deviceBgpPassword\": \"string\",\n      \"deviceBgpLabelUnicast\": true,\n      \"bgpLookupStrategy\": \"string\",\n      \"deviceStatus\": \"string\",\n      \"useBgpDeviceId\": \"string\",\n      \"customColumns\": \"string\",\n      \"customColumnData\": [\n        {\n          \"deviceId\": \"string\",\n          \"fieldId\": \"string\",\n          \"colName\": \"string\",\n          \"description\": \"string\",\n          \"colType\": \"string\",\n          \"deviceType\": \"string\"\n        },\n        {\n          \"deviceId\": \"string\",\n          \"fieldId\": \"string\",\n          \"colName\": \"string\",\n          \"description\": \"string\",\n          \"colType\": \"string\",\n          \"deviceType\": \"string\"\n        }\n      ],\n      \"deviceChfClientPort\": \"string\",\n      \"deviceChfClientProtocol\": \"string\",\n      \"deviceChfInterface\": \"string\",\n      \"deviceAgentType\": \"string\",\n      \"maxFlowRate\": 1919,\n      \"maxBigFlowRate\": 4206,\n      \"deviceProxyBgp\": \"string\",\n      \"deviceProxyBgp6\": \"string\",\n      \"createdDate\": \"2011-12-19T01:00:13.743Z\",\n      \"updatedDate\": \"2015-10-04T08:31:54.473Z\",\n      \"deviceSnmpV3ConfEnabled\": true,\n      \"deviceSnmpV3Conf\": {\n        \"username\": \"<string>\",\n        \"authenticationProtocol\": \"<string>\",\n        \"authenticationPassphrase\": \"<string>\",\n        \"privacyProtocol\": \"<string>\",\n        \"privacyPassphrase\": \"<string>\"\n      },\n      \"cdnAttr\": \"string\",\n      \"bgpPeerIp4\": \"string\",\n      \"bgpPeerIp6\": \"string\",\n      \"deviceSubtype\": \"string\",\n      \"deviceVendorType\": \"string\",\n      \"deviceModelType\": \"string\",\n      \"cloudExportId\": \"string\",\n      \"deviceKproxy\": \"string\",\n      \"snmpEnabled\": \"string\",\n      \"snmpDisabledReason\": \"string\",\n      \"snmpDisabledReasonOther\": \"string\",\n      \"bgpDisabledReason\": \"string\",\n      \"bgpDisabledReasonOther\": \"string\",\n      \"deviceManufacturer\": \"string\",\n      \"deviceAlert\": \"string\",\n      \"role\": \"string\",\n      \"deviceGnmiV1Conf\": {\n        \"dialoutServer\": \"string\"\n      },\n      \"useAsnFromFlow\": false,\n      \"maxInterface\": 9222,\n      \"maxInterfaceCheck\": 3977,\n      \"nms\": {\n        \"agentId\": \"<string>\",\n        \"ipAddress\": \"<string>\",\n        \"snmp\": {\n          \"credentialName\": \"<string>\",\n          \"port\": \"<long>\",\n          \"timeout\": \"<string>\"\n        },\n        \"st\": {\n          \"credentialName\": \"<string>\",\n          \"port\": \"<long>\",\n          \"timeout\": \"<string>\",\n          \"secure\": \"<boolean>\"\n        }\n      },\n      \"deviceBgpCredentialName\": \"string\",\n      \"flowSnmpCredentialName\": \"string\",\n      \"monitoringTemplateId\": 1775,\n      \"osName\": \"string\",\n      \"osVersion\": \"string\",\n      \"serialNumber\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"companyId\": \"string\",\n      \"deviceName\": \"string\",\n      \"deviceAlias\": \"string\",\n      \"deviceType\": \"string\",\n      \"deviceDescription\": \"string\",\n      \"site\": {\n        \"id\": \"string\",\n        \"siteName\": \"string\",\n        \"lat\": 6921.395146762323,\n        \"lon\": 751.7304906329814,\n        \"companyId\": \"string\"\n      },\n      \"plan\": {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"active\": false,\n        \"bgp\": false,\n        \"companyId\": \"string\",\n        \"description\": \"string\",\n        \"deviceTypes\": [\n          \"string\",\n          \"string\"\n        ],\n        \"devices\": [\n          \"string\",\n          \"string\"\n        ],\n        \"fastRetention\": 7778,\n        \"fullRetention\": 9531,\n        \"maxBigdataFps\": 8599,\n        \"maxDevices\": 4450,\n        \"maxFps\": 3109,\n        \"cdate\": \"1998-11-06T03:28:00.980Z\",\n        \"edate\": \"2019-09-26T08:01:54.845Z\",\n        \"metadata\": {\n          \"key_0\": \"string\"\n        }\n      },\n      \"labels\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"edate\": \"1952-06-27T21:11:24.050Z\",\n          \"cdate\": \"2023-08-10T23:54:44.469Z\",\n          \"userId\": \"string\",\n          \"companyId\": \"string\",\n          \"color\": \"string\",\n          \"order\": \"string\",\n          \"pivotDeviceId\": \"string\",\n          \"pivotLabelId\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"edate\": \"1997-10-25T04:20:21.312Z\",\n          \"cdate\": \"2024-02-21T10:20:10.069Z\",\n          \"userId\": \"string\",\n          \"companyId\": \"string\",\n          \"color\": \"string\",\n          \"order\": \"string\",\n          \"pivotDeviceId\": \"string\",\n          \"pivotLabelId\": \"string\"\n        }\n      ],\n      \"allInterfaces\": [\n        {\n          \"interfaceDescription\": \"string\",\n          \"initialSnmpSpeed\": \"string\",\n          \"deviceId\": \"string\",\n          \"snmpSpeed\": \"string\",\n          \"snmpAlias\": \"string\",\n          \"snmpId\": \"string\",\n          \"connectivityType\": \"string\",\n          \"networkBoundary\": \"string\",\n          \"provider\": \"string\"\n        },\n        {\n          \"interfaceDescription\": \"string\",\n          \"initialSnmpSpeed\": \"string\",\n          \"deviceId\": \"string\",\n          \"snmpSpeed\": \"string\",\n          \"snmpAlias\": \"string\",\n          \"snmpId\": \"string\",\n          \"connectivityType\": \"string\",\n          \"networkBoundary\": \"string\",\n          \"provider\": \"string\"\n        }\n      ],\n      \"deviceFlowType\": \"string\",\n      \"deviceSampleRate\": \"string\",\n      \"sendingIps\": [\n        \"string\",\n        \"string\"\n      ],\n      \"deviceSnmpIp\": \"string\",\n      \"deviceSnmpCommunity\": \"string\",\n      \"minimizeSnmp\": true,\n      \"deviceBgpType\": \"string\",\n      \"deviceBgpNeighborIp\": \"string\",\n      \"deviceBgpNeighborIp6\": \"string\",\n      \"deviceBgpNeighborAsn\": \"string\",\n      \"deviceBgpFlowspec\": true,\n      \"deviceBgpPassword\": \"string\",\n      \"deviceBgpLabelUnicast\": true,\n      \"bgpLookupStrategy\": \"string\",\n      \"deviceStatus\": \"string\",\n      \"useBgpDeviceId\": \"string\",\n      \"customColumns\": \"string\",\n      \"customColumnData\": [\n        {\n          \"deviceId\": \"string\",\n          \"fieldId\": \"string\",\n          \"colName\": \"string\",\n          \"description\": \"string\",\n          \"colType\": \"string\",\n          \"deviceType\": \"string\"\n        },\n        {\n          \"deviceId\": \"string\",\n          \"fieldId\": \"string\",\n          \"colName\": \"string\",\n          \"description\": \"string\",\n          \"colType\": \"string\",\n          \"deviceType\": \"string\"\n        }\n      ],\n      \"deviceChfClientPort\": \"string\",\n      \"deviceChfClientProtocol\": \"string\",\n      \"deviceChfInterface\": \"string\",\n      \"deviceAgentType\": \"string\",\n      \"maxFlowRate\": 5972,\n      \"maxBigFlowRate\": 4028,\n      \"deviceProxyBgp\": \"string\",\n      \"deviceProxyBgp6\": \"string\",\n      \"createdDate\": \"2002-10-10T13:18:43.093Z\",\n      \"updatedDate\": \"1987-04-27T07:19:09.361Z\",\n      \"deviceSnmpV3ConfEnabled\": false,\n      \"deviceSnmpV3Conf\": {\n        \"username\": \"<string>\",\n        \"authenticationProtocol\": \"<string>\",\n        \"authenticationPassphrase\": \"<string>\",\n        \"privacyProtocol\": \"<string>\",\n        \"privacyPassphrase\": \"<string>\"\n      },\n      \"cdnAttr\": \"string\",\n      \"bgpPeerIp4\": \"string\",\n      \"bgpPeerIp6\": \"string\",\n      \"deviceSubtype\": \"string\",\n      \"deviceVendorType\": \"string\",\n      \"deviceModelType\": \"string\",\n      \"cloudExportId\": \"string\",\n      \"deviceKproxy\": \"string\",\n      \"snmpEnabled\": \"string\",\n      \"snmpDisabledReason\": \"string\",\n      \"snmpDisabledReasonOther\": \"string\",\n      \"bgpDisabledReason\": \"string\",\n      \"bgpDisabledReasonOther\": \"string\",\n      \"deviceManufacturer\": \"string\",\n      \"deviceAlert\": \"string\",\n      \"role\": \"string\",\n      \"deviceGnmiV1Conf\": {\n        \"dialoutServer\": \"string\"\n      },\n      \"useAsnFromFlow\": true,\n      \"maxInterface\": 3955,\n      \"maxInterfaceCheck\": 7607,\n      \"nms\": {\n        \"agentId\": \"<string>\",\n        \"ipAddress\": \"<string>\",\n        \"snmp\": {\n          \"credentialName\": \"<string>\",\n          \"port\": \"<long>\",\n          \"timeout\": \"<string>\"\n        },\n        \"st\": {\n          \"credentialName\": \"<string>\",\n          \"port\": \"<long>\",\n          \"timeout\": \"<string>\",\n          \"secure\": \"<boolean>\"\n        }\n      },\n      \"deviceBgpCredentialName\": \"string\",\n      \"flowSnmpCredentialName\": \"string\",\n      \"monitoringTemplateId\": 7813,\n      \"osName\": \"string\",\n      \"osVersion\": \"string\",\n      \"serialNumber\": \"string\"\n    }\n  ],\n  \"failedDevices\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a75f349b-fb55-4f44-adea-37f77025312b",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "device",
+                    "v202504beta2",
+                    "device",
+                    "batch_create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"devices\": [\n    {\n      \"id\": \"<string>\",\n      \"deviceName\": \"<string>\",\n      \"deviceSubtype\": \"<string>\",\n      \"cdnAttr\": \"<string>\",\n      \"deviceDescription\": \"<string>\",\n      \"sendingIps\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"deviceSampleRate\": \"<double>\",\n      \"planId\": \"<long>\",\n      \"siteId\": \"<long>\",\n      \"minimizeSnmp\": \"<boolean>\",\n      \"deviceSnmpIp\": \"<string>\",\n      \"deviceSnmpCommunity\": \"<string>\",\n      \"deviceSnmpV3Conf\": {\n        \"username\": \"<string>\",\n        \"authenticationProtocol\": \"<string>\",\n        \"authenticationPassphrase\": \"<string>\",\n        \"privacyProtocol\": \"<string>\",\n        \"privacyPassphrase\": \"<string>\"\n      },\n      \"deviceBgpType\": \"<string>\",\n      \"deviceBgpNeighborIp\": \"<string>\",\n      \"deviceBgpNeighborIp6\": \"<string>\",\n      \"deviceBgpNeighborAsn\": \"<string>\",\n      \"deviceBgpPassword\": \"<string>\",\n      \"useBgpDeviceId\": \"<string>\",\n      \"deviceBgpFlowspec\": \"<boolean>\",\n      \"nms\": {\n        \"agentId\": \"<string>\",\n        \"ipAddress\": \"<string>\",\n        \"snmp\": {\n          \"credentialName\": \"<string>\",\n          \"port\": \"<long>\",\n          \"timeout\": \"<string>\"\n        },\n        \"st\": {\n          \"credentialName\": \"<string>\",\n          \"port\": \"<long>\",\n          \"timeout\": \"<string>\",\n          \"secure\": \"<boolean>\"\n        }\n      },\n      \"deviceBgpCredentialName\": \"<string>\",\n      \"flowSnmpCredentialName\": \"<string>\",\n      \"monitoringTemplateId\": \"<long>\",\n      \"deviceAlert\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"deviceName\": \"<string>\",\n      \"deviceSubtype\": \"<string>\",\n      \"cdnAttr\": \"<string>\",\n      \"deviceDescription\": \"<string>\",\n      \"sendingIps\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"deviceSampleRate\": \"<double>\",\n      \"planId\": \"<long>\",\n      \"siteId\": \"<long>\",\n      \"minimizeSnmp\": \"<boolean>\",\n      \"deviceSnmpIp\": \"<string>\",\n      \"deviceSnmpCommunity\": \"<string>\",\n      \"deviceSnmpV3Conf\": {\n        \"username\": \"<string>\",\n        \"authenticationProtocol\": \"<string>\",\n        \"authenticationPassphrase\": \"<string>\",\n        \"privacyProtocol\": \"<string>\",\n        \"privacyPassphrase\": \"<string>\"\n      },\n      \"deviceBgpType\": \"<string>\",\n      \"deviceBgpNeighborIp\": \"<string>\",\n      \"deviceBgpNeighborIp6\": \"<string>\",\n      \"deviceBgpNeighborAsn\": \"<string>\",\n      \"deviceBgpPassword\": \"<string>\",\n      \"useBgpDeviceId\": \"<string>\",\n      \"deviceBgpFlowspec\": \"<boolean>\",\n      \"nms\": {\n        \"agentId\": \"<string>\",\n        \"ipAddress\": \"<string>\",\n        \"snmp\": {\n          \"credentialName\": \"<string>\",\n          \"port\": \"<long>\",\n          \"timeout\": \"<string>\"\n        },\n        \"st\": {\n          \"credentialName\": \"<string>\",\n          \"port\": \"<long>\",\n          \"timeout\": \"<string>\",\n          \"secure\": \"<boolean>\"\n        }\n      },\n      \"deviceBgpCredentialName\": \"<string>\",\n      \"flowSnmpCredentialName\": \"<string>\",\n      \"monitoringTemplateId\": \"<long>\",\n      \"deviceAlert\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4026,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "da29133d-1de7-41cc-ba55-d7e3c60425c9",
+          "name": "Delete configuration of multiple devices.",
+          "request": {
+            "name": "Delete configuration of multiple devices.",
+            "description": {
+              "content": "Deletes configuration of multiple devices with specific IDs (see [About Devices](https://kb.kentik.com/v4/Cb01.htm)).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "device",
+                "v202504beta2",
+                "device",
+                "batch_delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ids\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f504e967-8336-4560-bdc2-0de4e14aba6f",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "device",
+                    "v202504beta2",
+                    "device",
+                    "batch_delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ids\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"failedDevices\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "71013e44-9977-45ba-b51f-499f7e8e6920",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "device",
+                    "v202504beta2",
+                    "device",
+                    "batch_delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ids\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4026,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "17c6ede8-d304-453c-a39d-5c332aeaf602",
+          "name": "Updates configuration of multiple devices (max 100).",
+          "request": {
+            "name": "Updates configuration of multiple devices (max 100).",
+            "description": {
+              "content": "Replaces configuration of multiple devices with attributes in the request. Returns the updated configurations (see [About Devices](https://kb.kentik.com/v4/Cb01.htm)).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "device",
+                "v202504beta2",
+                "device",
+                "batch_update"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"devices\": [\n    {\n      \"id\": \"<string>\",\n      \"deviceName\": \"<string>\",\n      \"deviceSubtype\": \"<string>\",\n      \"cdnAttr\": \"<string>\",\n      \"deviceDescription\": \"<string>\",\n      \"sendingIps\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"deviceSampleRate\": \"<double>\",\n      \"planId\": \"<long>\",\n      \"siteId\": \"<long>\",\n      \"minimizeSnmp\": \"<boolean>\",\n      \"deviceSnmpIp\": \"<string>\",\n      \"deviceSnmpCommunity\": \"<string>\",\n      \"deviceSnmpV3Conf\": {\n        \"username\": \"<string>\",\n        \"authenticationProtocol\": \"<string>\",\n        \"authenticationPassphrase\": \"<string>\",\n        \"privacyProtocol\": \"<string>\",\n        \"privacyPassphrase\": \"<string>\"\n      },\n      \"deviceBgpType\": \"<string>\",\n      \"deviceBgpNeighborIp\": \"<string>\",\n      \"deviceBgpNeighborIp6\": \"<string>\",\n      \"deviceBgpNeighborAsn\": \"<string>\",\n      \"deviceBgpPassword\": \"<string>\",\n      \"useBgpDeviceId\": \"<string>\",\n      \"deviceBgpFlowspec\": \"<boolean>\",\n      \"nms\": {\n        \"agentId\": \"<string>\",\n        \"ipAddress\": \"<string>\",\n        \"snmp\": {\n          \"credentialName\": \"<string>\",\n          \"port\": \"<long>\",\n          \"timeout\": \"<string>\"\n        },\n        \"st\": {\n          \"credentialName\": \"<string>\",\n          \"port\": \"<long>\",\n          \"timeout\": \"<string>\",\n          \"secure\": \"<boolean>\"\n        }\n      },\n      \"deviceBgpCredentialName\": \"<string>\",\n      \"flowSnmpCredentialName\": \"<string>\",\n      \"monitoringTemplateId\": \"<long>\",\n      \"deviceAlert\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"deviceName\": \"<string>\",\n      \"deviceSubtype\": \"<string>\",\n      \"cdnAttr\": \"<string>\",\n      \"deviceDescription\": \"<string>\",\n      \"sendingIps\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"deviceSampleRate\": \"<double>\",\n      \"planId\": \"<long>\",\n      \"siteId\": \"<long>\",\n      \"minimizeSnmp\": \"<boolean>\",\n      \"deviceSnmpIp\": \"<string>\",\n      \"deviceSnmpCommunity\": \"<string>\",\n      \"deviceSnmpV3Conf\": {\n        \"username\": \"<string>\",\n        \"authenticationProtocol\": \"<string>\",\n        \"authenticationPassphrase\": \"<string>\",\n        \"privacyProtocol\": \"<string>\",\n        \"privacyPassphrase\": \"<string>\"\n      },\n      \"deviceBgpType\": \"<string>\",\n      \"deviceBgpNeighborIp\": \"<string>\",\n      \"deviceBgpNeighborIp6\": \"<string>\",\n      \"deviceBgpNeighborAsn\": \"<string>\",\n      \"deviceBgpPassword\": \"<string>\",\n      \"useBgpDeviceId\": \"<string>\",\n      \"deviceBgpFlowspec\": \"<boolean>\",\n      \"nms\": {\n        \"agentId\": \"<string>\",\n        \"ipAddress\": \"<string>\",\n        \"snmp\": {\n          \"credentialName\": \"<string>\",\n          \"port\": \"<long>\",\n          \"timeout\": \"<string>\"\n        },\n        \"st\": {\n          \"credentialName\": \"<string>\",\n          \"port\": \"<long>\",\n          \"timeout\": \"<string>\",\n          \"secure\": \"<boolean>\"\n        }\n      },\n      \"deviceBgpCredentialName\": \"<string>\",\n      \"flowSnmpCredentialName\": \"<string>\",\n      \"monitoringTemplateId\": \"<long>\",\n      \"deviceAlert\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "802b0f25-99e4-40f0-bab2-bf4439a93644",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "device",
+                    "v202504beta2",
+                    "device",
+                    "batch_update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"devices\": [\n    {\n      \"id\": \"<string>\",\n      \"deviceName\": \"<string>\",\n      \"deviceSubtype\": \"<string>\",\n      \"cdnAttr\": \"<string>\",\n      \"deviceDescription\": \"<string>\",\n      \"sendingIps\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"deviceSampleRate\": \"<double>\",\n      \"planId\": \"<long>\",\n      \"siteId\": \"<long>\",\n      \"minimizeSnmp\": \"<boolean>\",\n      \"deviceSnmpIp\": \"<string>\",\n      \"deviceSnmpCommunity\": \"<string>\",\n      \"deviceSnmpV3Conf\": {\n        \"username\": \"<string>\",\n        \"authenticationProtocol\": \"<string>\",\n        \"authenticationPassphrase\": \"<string>\",\n        \"privacyProtocol\": \"<string>\",\n        \"privacyPassphrase\": \"<string>\"\n      },\n      \"deviceBgpType\": \"<string>\",\n      \"deviceBgpNeighborIp\": \"<string>\",\n      \"deviceBgpNeighborIp6\": \"<string>\",\n      \"deviceBgpNeighborAsn\": \"<string>\",\n      \"deviceBgpPassword\": \"<string>\",\n      \"useBgpDeviceId\": \"<string>\",\n      \"deviceBgpFlowspec\": \"<boolean>\",\n      \"nms\": {\n        \"agentId\": \"<string>\",\n        \"ipAddress\": \"<string>\",\n        \"snmp\": {\n          \"credentialName\": \"<string>\",\n          \"port\": \"<long>\",\n          \"timeout\": \"<string>\"\n        },\n        \"st\": {\n          \"credentialName\": \"<string>\",\n          \"port\": \"<long>\",\n          \"timeout\": \"<string>\",\n          \"secure\": \"<boolean>\"\n        }\n      },\n      \"deviceBgpCredentialName\": \"<string>\",\n      \"flowSnmpCredentialName\": \"<string>\",\n      \"monitoringTemplateId\": \"<long>\",\n      \"deviceAlert\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"deviceName\": \"<string>\",\n      \"deviceSubtype\": \"<string>\",\n      \"cdnAttr\": \"<string>\",\n      \"deviceDescription\": \"<string>\",\n      \"sendingIps\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"deviceSampleRate\": \"<double>\",\n      \"planId\": \"<long>\",\n      \"siteId\": \"<long>\",\n      \"minimizeSnmp\": \"<boolean>\",\n      \"deviceSnmpIp\": \"<string>\",\n      \"deviceSnmpCommunity\": \"<string>\",\n      \"deviceSnmpV3Conf\": {\n        \"username\": \"<string>\",\n        \"authenticationProtocol\": \"<string>\",\n        \"authenticationPassphrase\": \"<string>\",\n        \"privacyProtocol\": \"<string>\",\n        \"privacyPassphrase\": \"<string>\"\n      },\n      \"deviceBgpType\": \"<string>\",\n      \"deviceBgpNeighborIp\": \"<string>\",\n      \"deviceBgpNeighborIp6\": \"<string>\",\n      \"deviceBgpNeighborAsn\": \"<string>\",\n      \"deviceBgpPassword\": \"<string>\",\n      \"useBgpDeviceId\": \"<string>\",\n      \"deviceBgpFlowspec\": \"<boolean>\",\n      \"nms\": {\n        \"agentId\": \"<string>\",\n        \"ipAddress\": \"<string>\",\n        \"snmp\": {\n          \"credentialName\": \"<string>\",\n          \"port\": \"<long>\",\n          \"timeout\": \"<string>\"\n        },\n        \"st\": {\n          \"credentialName\": \"<string>\",\n          \"port\": \"<long>\",\n          \"timeout\": \"<string>\",\n          \"secure\": \"<boolean>\"\n        }\n      },\n      \"deviceBgpCredentialName\": \"<string>\",\n      \"flowSnmpCredentialName\": \"<string>\",\n      \"monitoringTemplateId\": \"<long>\",\n      \"deviceAlert\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"devices\": [\n    {\n      \"id\": \"string\",\n      \"companyId\": \"string\",\n      \"deviceName\": \"string\",\n      \"deviceAlias\": \"string\",\n      \"deviceType\": \"string\",\n      \"deviceDescription\": \"string\",\n      \"site\": {\n        \"id\": \"string\",\n        \"siteName\": \"string\",\n        \"lat\": 7698.177624005862,\n        \"lon\": 7310.079955820018,\n        \"companyId\": \"string\"\n      },\n      \"plan\": {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"active\": true,\n        \"bgp\": true,\n        \"companyId\": \"string\",\n        \"description\": \"string\",\n        \"deviceTypes\": [\n          \"string\",\n          \"string\"\n        ],\n        \"devices\": [\n          \"string\",\n          \"string\"\n        ],\n        \"fastRetention\": 2708,\n        \"fullRetention\": 7143,\n        \"maxBigdataFps\": 4705,\n        \"maxDevices\": 2002,\n        \"maxFps\": 1222,\n        \"cdate\": \"1961-11-21T13:00:45.372Z\",\n        \"edate\": \"2002-09-23T08:54:59.226Z\",\n        \"metadata\": {\n          \"key_0\": \"string\"\n        }\n      },\n      \"labels\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"edate\": \"1976-07-02T03:04:46.976Z\",\n          \"cdate\": \"1962-12-29T04:05:57.924Z\",\n          \"userId\": \"string\",\n          \"companyId\": \"string\",\n          \"color\": \"string\",\n          \"order\": \"string\",\n          \"pivotDeviceId\": \"string\",\n          \"pivotLabelId\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"edate\": \"1949-03-06T05:53:22.616Z\",\n          \"cdate\": \"1977-01-16T08:03:06.596Z\",\n          \"userId\": \"string\",\n          \"companyId\": \"string\",\n          \"color\": \"string\",\n          \"order\": \"string\",\n          \"pivotDeviceId\": \"string\",\n          \"pivotLabelId\": \"string\"\n        }\n      ],\n      \"allInterfaces\": [\n        {\n          \"interfaceDescription\": \"string\",\n          \"initialSnmpSpeed\": \"string\",\n          \"deviceId\": \"string\",\n          \"snmpSpeed\": \"string\",\n          \"snmpAlias\": \"string\",\n          \"snmpId\": \"string\",\n          \"connectivityType\": \"string\",\n          \"networkBoundary\": \"string\",\n          \"provider\": \"string\"\n        },\n        {\n          \"interfaceDescription\": \"string\",\n          \"initialSnmpSpeed\": \"string\",\n          \"deviceId\": \"string\",\n          \"snmpSpeed\": \"string\",\n          \"snmpAlias\": \"string\",\n          \"snmpId\": \"string\",\n          \"connectivityType\": \"string\",\n          \"networkBoundary\": \"string\",\n          \"provider\": \"string\"\n        }\n      ],\n      \"deviceFlowType\": \"string\",\n      \"deviceSampleRate\": \"string\",\n      \"sendingIps\": [\n        \"string\",\n        \"string\"\n      ],\n      \"deviceSnmpIp\": \"string\",\n      \"deviceSnmpCommunity\": \"string\",\n      \"minimizeSnmp\": false,\n      \"deviceBgpType\": \"string\",\n      \"deviceBgpNeighborIp\": \"string\",\n      \"deviceBgpNeighborIp6\": \"string\",\n      \"deviceBgpNeighborAsn\": \"string\",\n      \"deviceBgpFlowspec\": true,\n      \"deviceBgpPassword\": \"string\",\n      \"deviceBgpLabelUnicast\": false,\n      \"bgpLookupStrategy\": \"string\",\n      \"deviceStatus\": \"string\",\n      \"useBgpDeviceId\": \"string\",\n      \"customColumns\": \"string\",\n      \"customColumnData\": [\n        {\n          \"deviceId\": \"string\",\n          \"fieldId\": \"string\",\n          \"colName\": \"string\",\n          \"description\": \"string\",\n          \"colType\": \"string\",\n          \"deviceType\": \"string\"\n        },\n        {\n          \"deviceId\": \"string\",\n          \"fieldId\": \"string\",\n          \"colName\": \"string\",\n          \"description\": \"string\",\n          \"colType\": \"string\",\n          \"deviceType\": \"string\"\n        }\n      ],\n      \"deviceChfClientPort\": \"string\",\n      \"deviceChfClientProtocol\": \"string\",\n      \"deviceChfInterface\": \"string\",\n      \"deviceAgentType\": \"string\",\n      \"maxFlowRate\": 8107,\n      \"maxBigFlowRate\": 510,\n      \"deviceProxyBgp\": \"string\",\n      \"deviceProxyBgp6\": \"string\",\n      \"createdDate\": \"2015-06-02T19:03:12.890Z\",\n      \"updatedDate\": \"2022-10-31T18:42:51.969Z\",\n      \"deviceSnmpV3ConfEnabled\": false,\n      \"deviceSnmpV3Conf\": {\n        \"username\": \"<string>\",\n        \"authenticationProtocol\": \"<string>\",\n        \"authenticationPassphrase\": \"<string>\",\n        \"privacyProtocol\": \"<string>\",\n        \"privacyPassphrase\": \"<string>\"\n      },\n      \"cdnAttr\": \"string\",\n      \"bgpPeerIp4\": \"string\",\n      \"bgpPeerIp6\": \"string\",\n      \"deviceSubtype\": \"string\",\n      \"deviceVendorType\": \"string\",\n      \"deviceModelType\": \"string\",\n      \"cloudExportId\": \"string\",\n      \"deviceKproxy\": \"string\",\n      \"snmpEnabled\": \"string\",\n      \"snmpDisabledReason\": \"string\",\n      \"snmpDisabledReasonOther\": \"string\",\n      \"bgpDisabledReason\": \"string\",\n      \"bgpDisabledReasonOther\": \"string\",\n      \"deviceManufacturer\": \"string\",\n      \"deviceAlert\": \"string\",\n      \"role\": \"string\",\n      \"deviceGnmiV1Conf\": {\n        \"dialoutServer\": \"string\"\n      },\n      \"useAsnFromFlow\": false,\n      \"maxInterface\": 9596,\n      \"maxInterfaceCheck\": 5001,\n      \"nms\": {\n        \"agentId\": \"<string>\",\n        \"ipAddress\": \"<string>\",\n        \"snmp\": {\n          \"credentialName\": \"<string>\",\n          \"port\": \"<long>\",\n          \"timeout\": \"<string>\"\n        },\n        \"st\": {\n          \"credentialName\": \"<string>\",\n          \"port\": \"<long>\",\n          \"timeout\": \"<string>\",\n          \"secure\": \"<boolean>\"\n        }\n      },\n      \"deviceBgpCredentialName\": \"string\",\n      \"flowSnmpCredentialName\": \"string\",\n      \"monitoringTemplateId\": 3817,\n      \"osName\": \"string\",\n      \"osVersion\": \"string\",\n      \"serialNumber\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"companyId\": \"string\",\n      \"deviceName\": \"string\",\n      \"deviceAlias\": \"string\",\n      \"deviceType\": \"string\",\n      \"deviceDescription\": \"string\",\n      \"site\": {\n        \"id\": \"string\",\n        \"siteName\": \"string\",\n        \"lat\": 7850.300330557365,\n        \"lon\": 9872.901544926472,\n        \"companyId\": \"string\"\n      },\n      \"plan\": {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"active\": true,\n        \"bgp\": false,\n        \"companyId\": \"string\",\n        \"description\": \"string\",\n        \"deviceTypes\": [\n          \"string\",\n          \"string\"\n        ],\n        \"devices\": [\n          \"string\",\n          \"string\"\n        ],\n        \"fastRetention\": 6134,\n        \"fullRetention\": 1537,\n        \"maxBigdataFps\": 1968,\n        \"maxDevices\": 8772,\n        \"maxFps\": 3508,\n        \"cdate\": \"1993-10-11T12:25:11.818Z\",\n        \"edate\": \"1998-12-16T19:54:36.829Z\",\n        \"metadata\": {\n          \"key_0\": \"string\"\n        }\n      },\n      \"labels\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"edate\": \"1947-04-14T05:28:17.137Z\",\n          \"cdate\": \"2018-12-17T05:28:23.777Z\",\n          \"userId\": \"string\",\n          \"companyId\": \"string\",\n          \"color\": \"string\",\n          \"order\": \"string\",\n          \"pivotDeviceId\": \"string\",\n          \"pivotLabelId\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"edate\": \"1997-07-11T17:31:27.336Z\",\n          \"cdate\": \"2022-02-11T09:49:19.954Z\",\n          \"userId\": \"string\",\n          \"companyId\": \"string\",\n          \"color\": \"string\",\n          \"order\": \"string\",\n          \"pivotDeviceId\": \"string\",\n          \"pivotLabelId\": \"string\"\n        }\n      ],\n      \"allInterfaces\": [\n        {\n          \"interfaceDescription\": \"string\",\n          \"initialSnmpSpeed\": \"string\",\n          \"deviceId\": \"string\",\n          \"snmpSpeed\": \"string\",\n          \"snmpAlias\": \"string\",\n          \"snmpId\": \"string\",\n          \"connectivityType\": \"string\",\n          \"networkBoundary\": \"string\",\n          \"provider\": \"string\"\n        },\n        {\n          \"interfaceDescription\": \"string\",\n          \"initialSnmpSpeed\": \"string\",\n          \"deviceId\": \"string\",\n          \"snmpSpeed\": \"string\",\n          \"snmpAlias\": \"string\",\n          \"snmpId\": \"string\",\n          \"connectivityType\": \"string\",\n          \"networkBoundary\": \"string\",\n          \"provider\": \"string\"\n        }\n      ],\n      \"deviceFlowType\": \"string\",\n      \"deviceSampleRate\": \"string\",\n      \"sendingIps\": [\n        \"string\",\n        \"string\"\n      ],\n      \"deviceSnmpIp\": \"string\",\n      \"deviceSnmpCommunity\": \"string\",\n      \"minimizeSnmp\": false,\n      \"deviceBgpType\": \"string\",\n      \"deviceBgpNeighborIp\": \"string\",\n      \"deviceBgpNeighborIp6\": \"string\",\n      \"deviceBgpNeighborAsn\": \"string\",\n      \"deviceBgpFlowspec\": true,\n      \"deviceBgpPassword\": \"string\",\n      \"deviceBgpLabelUnicast\": true,\n      \"bgpLookupStrategy\": \"string\",\n      \"deviceStatus\": \"string\",\n      \"useBgpDeviceId\": \"string\",\n      \"customColumns\": \"string\",\n      \"customColumnData\": [\n        {\n          \"deviceId\": \"string\",\n          \"fieldId\": \"string\",\n          \"colName\": \"string\",\n          \"description\": \"string\",\n          \"colType\": \"string\",\n          \"deviceType\": \"string\"\n        },\n        {\n          \"deviceId\": \"string\",\n          \"fieldId\": \"string\",\n          \"colName\": \"string\",\n          \"description\": \"string\",\n          \"colType\": \"string\",\n          \"deviceType\": \"string\"\n        }\n      ],\n      \"deviceChfClientPort\": \"string\",\n      \"deviceChfClientProtocol\": \"string\",\n      \"deviceChfInterface\": \"string\",\n      \"deviceAgentType\": \"string\",\n      \"maxFlowRate\": 9007,\n      \"maxBigFlowRate\": 6807,\n      \"deviceProxyBgp\": \"string\",\n      \"deviceProxyBgp6\": \"string\",\n      \"createdDate\": \"1967-07-22T00:52:14.579Z\",\n      \"updatedDate\": \"1969-08-29T04:12:19.868Z\",\n      \"deviceSnmpV3ConfEnabled\": false,\n      \"deviceSnmpV3Conf\": {\n        \"username\": \"<string>\",\n        \"authenticationProtocol\": \"<string>\",\n        \"authenticationPassphrase\": \"<string>\",\n        \"privacyProtocol\": \"<string>\",\n        \"privacyPassphrase\": \"<string>\"\n      },\n      \"cdnAttr\": \"string\",\n      \"bgpPeerIp4\": \"string\",\n      \"bgpPeerIp6\": \"string\",\n      \"deviceSubtype\": \"string\",\n      \"deviceVendorType\": \"string\",\n      \"deviceModelType\": \"string\",\n      \"cloudExportId\": \"string\",\n      \"deviceKproxy\": \"string\",\n      \"snmpEnabled\": \"string\",\n      \"snmpDisabledReason\": \"string\",\n      \"snmpDisabledReasonOther\": \"string\",\n      \"bgpDisabledReason\": \"string\",\n      \"bgpDisabledReasonOther\": \"string\",\n      \"deviceManufacturer\": \"string\",\n      \"deviceAlert\": \"string\",\n      \"role\": \"string\",\n      \"deviceGnmiV1Conf\": {\n        \"dialoutServer\": \"string\"\n      },\n      \"useAsnFromFlow\": true,\n      \"maxInterface\": 7837,\n      \"maxInterfaceCheck\": 1071,\n      \"nms\": {\n        \"agentId\": \"<string>\",\n        \"ipAddress\": \"<string>\",\n        \"snmp\": {\n          \"credentialName\": \"<string>\",\n          \"port\": \"<long>\",\n          \"timeout\": \"<string>\"\n        },\n        \"st\": {\n          \"credentialName\": \"<string>\",\n          \"port\": \"<long>\",\n          \"timeout\": \"<string>\",\n          \"secure\": \"<boolean>\"\n        }\n      },\n      \"deviceBgpCredentialName\": \"string\",\n      \"flowSnmpCredentialName\": \"string\",\n      \"monitoringTemplateId\": 8823,\n      \"osName\": \"string\",\n      \"osVersion\": \"string\",\n      \"serialNumber\": \"string\"\n    }\n  ],\n  \"failedDevices\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "357c4241-4a37-4aae-b3a1-2879a69ebbf6",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "device",
+                    "v202504beta2",
+                    "device",
+                    "batch_update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"devices\": [\n    {\n      \"id\": \"<string>\",\n      \"deviceName\": \"<string>\",\n      \"deviceSubtype\": \"<string>\",\n      \"cdnAttr\": \"<string>\",\n      \"deviceDescription\": \"<string>\",\n      \"sendingIps\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"deviceSampleRate\": \"<double>\",\n      \"planId\": \"<long>\",\n      \"siteId\": \"<long>\",\n      \"minimizeSnmp\": \"<boolean>\",\n      \"deviceSnmpIp\": \"<string>\",\n      \"deviceSnmpCommunity\": \"<string>\",\n      \"deviceSnmpV3Conf\": {\n        \"username\": \"<string>\",\n        \"authenticationProtocol\": \"<string>\",\n        \"authenticationPassphrase\": \"<string>\",\n        \"privacyProtocol\": \"<string>\",\n        \"privacyPassphrase\": \"<string>\"\n      },\n      \"deviceBgpType\": \"<string>\",\n      \"deviceBgpNeighborIp\": \"<string>\",\n      \"deviceBgpNeighborIp6\": \"<string>\",\n      \"deviceBgpNeighborAsn\": \"<string>\",\n      \"deviceBgpPassword\": \"<string>\",\n      \"useBgpDeviceId\": \"<string>\",\n      \"deviceBgpFlowspec\": \"<boolean>\",\n      \"nms\": {\n        \"agentId\": \"<string>\",\n        \"ipAddress\": \"<string>\",\n        \"snmp\": {\n          \"credentialName\": \"<string>\",\n          \"port\": \"<long>\",\n          \"timeout\": \"<string>\"\n        },\n        \"st\": {\n          \"credentialName\": \"<string>\",\n          \"port\": \"<long>\",\n          \"timeout\": \"<string>\",\n          \"secure\": \"<boolean>\"\n        }\n      },\n      \"deviceBgpCredentialName\": \"<string>\",\n      \"flowSnmpCredentialName\": \"<string>\",\n      \"monitoringTemplateId\": \"<long>\",\n      \"deviceAlert\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"deviceName\": \"<string>\",\n      \"deviceSubtype\": \"<string>\",\n      \"cdnAttr\": \"<string>\",\n      \"deviceDescription\": \"<string>\",\n      \"sendingIps\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"deviceSampleRate\": \"<double>\",\n      \"planId\": \"<long>\",\n      \"siteId\": \"<long>\",\n      \"minimizeSnmp\": \"<boolean>\",\n      \"deviceSnmpIp\": \"<string>\",\n      \"deviceSnmpCommunity\": \"<string>\",\n      \"deviceSnmpV3Conf\": {\n        \"username\": \"<string>\",\n        \"authenticationProtocol\": \"<string>\",\n        \"authenticationPassphrase\": \"<string>\",\n        \"privacyProtocol\": \"<string>\",\n        \"privacyPassphrase\": \"<string>\"\n      },\n      \"deviceBgpType\": \"<string>\",\n      \"deviceBgpNeighborIp\": \"<string>\",\n      \"deviceBgpNeighborIp6\": \"<string>\",\n      \"deviceBgpNeighborAsn\": \"<string>\",\n      \"deviceBgpPassword\": \"<string>\",\n      \"useBgpDeviceId\": \"<string>\",\n      \"deviceBgpFlowspec\": \"<boolean>\",\n      \"nms\": {\n        \"agentId\": \"<string>\",\n        \"ipAddress\": \"<string>\",\n        \"snmp\": {\n          \"credentialName\": \"<string>\",\n          \"port\": \"<long>\",\n          \"timeout\": \"<string>\"\n        },\n        \"st\": {\n          \"credentialName\": \"<string>\",\n          \"port\": \"<long>\",\n          \"timeout\": \"<string>\",\n          \"secure\": \"<boolean>\"\n        }\n      },\n      \"deviceBgpCredentialName\": \"<string>\",\n      \"flowSnmpCredentialName\": \"<string>\",\n      \"monitoringTemplateId\": \"<long>\",\n      \"deviceAlert\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4026,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "075cc0ce-967d-46ab-8343-f93e76786e3a",
+          "name": "Retrieve configuration of a device by name.",
+          "request": {
+            "name": "Retrieve configuration of a device by name.",
+            "description": {
+              "content": "Returns configuration of a device specified by name (see [About Devices](https://kb.kentik.com/v4/Cb01.htm)).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "device",
+                "v202504beta2",
+                "device",
+                "name",
+                ":deviceName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "query.noCustomColumns",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "deviceName",
+                  "description": "(Required) Name of the requested device"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d4844db6-0406-48c8-a8db-964351250a42",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "device",
+                    "v202504beta2",
+                    "device",
+                    "name",
+                    ":deviceName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query.noCustomColumns",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deviceName",
+                      "description": "(Required) Name of the requested device"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"device\": {\n    \"id\": \"string\",\n    \"companyId\": \"string\",\n    \"deviceName\": \"string\",\n    \"deviceAlias\": \"string\",\n    \"deviceType\": \"string\",\n    \"deviceDescription\": \"string\",\n    \"site\": {\n      \"id\": \"string\",\n      \"siteName\": \"string\",\n      \"lat\": 5976.65280420098,\n      \"lon\": 9043.301223044242,\n      \"companyId\": \"string\"\n    },\n    \"plan\": {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"active\": true,\n      \"bgp\": false,\n      \"companyId\": \"string\",\n      \"description\": \"string\",\n      \"deviceTypes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"devices\": [\n        \"string\",\n        \"string\"\n      ],\n      \"fastRetention\": 9149,\n      \"fullRetention\": 6479,\n      \"maxBigdataFps\": 7121,\n      \"maxDevices\": 3539,\n      \"maxFps\": 4063,\n      \"cdate\": \"2009-10-31T08:23:12.920Z\",\n      \"edate\": \"1978-10-29T02:46:08.008Z\",\n      \"metadata\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      }\n    },\n    \"labels\": [\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"edate\": \"1962-08-06T11:22:50.754Z\",\n        \"cdate\": \"2007-01-19T04:45:53.238Z\",\n        \"userId\": \"string\",\n        \"companyId\": \"string\",\n        \"color\": \"string\",\n        \"order\": \"string\",\n        \"pivotDeviceId\": \"string\",\n        \"pivotLabelId\": \"string\"\n      },\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"edate\": \"1984-06-30T19:12:03.367Z\",\n        \"cdate\": \"2006-04-22T21:22:27.842Z\",\n        \"userId\": \"string\",\n        \"companyId\": \"string\",\n        \"color\": \"string\",\n        \"order\": \"string\",\n        \"pivotDeviceId\": \"string\",\n        \"pivotLabelId\": \"string\"\n      }\n    ],\n    \"allInterfaces\": [\n      {\n        \"interfaceDescription\": \"string\",\n        \"initialSnmpSpeed\": \"string\",\n        \"deviceId\": \"string\",\n        \"snmpSpeed\": \"string\",\n        \"snmpAlias\": \"string\",\n        \"snmpId\": \"string\",\n        \"connectivityType\": \"string\",\n        \"networkBoundary\": \"string\",\n        \"provider\": \"string\"\n      },\n      {\n        \"interfaceDescription\": \"string\",\n        \"initialSnmpSpeed\": \"string\",\n        \"deviceId\": \"string\",\n        \"snmpSpeed\": \"string\",\n        \"snmpAlias\": \"string\",\n        \"snmpId\": \"string\",\n        \"connectivityType\": \"string\",\n        \"networkBoundary\": \"string\",\n        \"provider\": \"string\"\n      }\n    ],\n    \"deviceFlowType\": \"string\",\n    \"deviceSampleRate\": \"string\",\n    \"sendingIps\": [\n      \"string\",\n      \"string\"\n    ],\n    \"deviceSnmpIp\": \"string\",\n    \"deviceSnmpCommunity\": \"string\",\n    \"minimizeSnmp\": true,\n    \"deviceBgpType\": \"string\",\n    \"deviceBgpNeighborIp\": \"string\",\n    \"deviceBgpNeighborIp6\": \"string\",\n    \"deviceBgpNeighborAsn\": \"string\",\n    \"deviceBgpFlowspec\": true,\n    \"deviceBgpPassword\": \"string\",\n    \"deviceBgpLabelUnicast\": false,\n    \"bgpLookupStrategy\": \"string\",\n    \"deviceStatus\": \"string\",\n    \"useBgpDeviceId\": \"string\",\n    \"customColumns\": \"string\",\n    \"customColumnData\": [\n      {\n        \"deviceId\": \"string\",\n        \"fieldId\": \"string\",\n        \"colName\": \"string\",\n        \"description\": \"string\",\n        \"colType\": \"string\",\n        \"deviceType\": \"string\"\n      },\n      {\n        \"deviceId\": \"string\",\n        \"fieldId\": \"string\",\n        \"colName\": \"string\",\n        \"description\": \"string\",\n        \"colType\": \"string\",\n        \"deviceType\": \"string\"\n      }\n    ],\n    \"deviceChfClientPort\": \"string\",\n    \"deviceChfClientProtocol\": \"string\",\n    \"deviceChfInterface\": \"string\",\n    \"deviceAgentType\": \"string\",\n    \"maxFlowRate\": 2168,\n    \"maxBigFlowRate\": 8715,\n    \"deviceProxyBgp\": \"string\",\n    \"deviceProxyBgp6\": \"string\",\n    \"createdDate\": \"1975-12-08T20:20:03.160Z\",\n    \"updatedDate\": \"2019-04-14T12:35:04.631Z\",\n    \"deviceSnmpV3ConfEnabled\": true,\n    \"deviceSnmpV3Conf\": {\n      \"username\": \"<string>\",\n      \"authenticationProtocol\": \"<string>\",\n      \"authenticationPassphrase\": \"<string>\",\n      \"privacyProtocol\": \"<string>\",\n      \"privacyPassphrase\": \"<string>\"\n    },\n    \"cdnAttr\": \"string\",\n    \"bgpPeerIp4\": \"string\",\n    \"bgpPeerIp6\": \"string\",\n    \"deviceSubtype\": \"string\",\n    \"deviceVendorType\": \"string\",\n    \"deviceModelType\": \"string\",\n    \"cloudExportId\": \"string\",\n    \"deviceKproxy\": \"string\",\n    \"snmpEnabled\": \"string\",\n    \"snmpDisabledReason\": \"string\",\n    \"snmpDisabledReasonOther\": \"string\",\n    \"bgpDisabledReason\": \"string\",\n    \"bgpDisabledReasonOther\": \"string\",\n    \"deviceManufacturer\": \"string\",\n    \"deviceAlert\": \"string\",\n    \"role\": \"string\",\n    \"deviceGnmiV1Conf\": {\n      \"dialoutServer\": \"string\"\n    },\n    \"useAsnFromFlow\": true,\n    \"maxInterface\": 9966,\n    \"maxInterfaceCheck\": 5657,\n    \"nms\": {\n      \"agentId\": \"<string>\",\n      \"ipAddress\": \"<string>\",\n      \"snmp\": {\n        \"credentialName\": \"<string>\",\n        \"port\": \"<long>\",\n        \"timeout\": \"<string>\"\n      },\n      \"st\": {\n        \"credentialName\": \"<string>\",\n        \"port\": \"<long>\",\n        \"timeout\": \"<string>\",\n        \"secure\": \"<boolean>\"\n      }\n    },\n    \"deviceBgpCredentialName\": \"string\",\n    \"flowSnmpCredentialName\": \"string\",\n    \"monitoringTemplateId\": 7027,\n    \"osName\": \"string\",\n    \"osVersion\": \"string\",\n    \"serialNumber\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ec8ac68b-94f5-400a-98bc-9564dcd11d76",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "device",
+                    "v202504beta2",
+                    "device",
+                    "name",
+                    ":deviceName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query.noCustomColumns",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deviceName",
+                      "description": "(Required) Name of the requested device"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4026,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "41a3ea08-e4ac-4ecc-843c-5ae1e9905eca",
+          "name": "Updates configuration of a device.",
+          "request": {
+            "name": "Updates configuration of a device.",
+            "description": {
+              "content": "Replaces configuration of a device with attributes in the request. Returns the updated configuration (see [About Devices](https://kb.kentik.com/v4/Cb01.htm)).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "device",
+                "v202504beta2",
+                "device",
+                ":device.id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "device.id",
+                  "description": "(Required) System generated unique identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"device\": {\n    \"deviceName\": \"<string>\",\n    \"deviceSubtype\": \"<string>\",\n    \"cdnAttr\": \"<string>\",\n    \"deviceDescription\": \"<string>\",\n    \"sendingIps\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"deviceSampleRate\": \"<double>\",\n    \"planId\": \"<long>\",\n    \"siteId\": \"<long>\",\n    \"minimizeSnmp\": \"<boolean>\",\n    \"deviceSnmpIp\": \"<string>\",\n    \"deviceSnmpCommunity\": \"<string>\",\n    \"deviceSnmpV3Conf\": {\n      \"username\": \"<string>\",\n      \"authenticationProtocol\": \"<string>\",\n      \"authenticationPassphrase\": \"<string>\",\n      \"privacyProtocol\": \"<string>\",\n      \"privacyPassphrase\": \"<string>\"\n    },\n    \"deviceBgpType\": \"<string>\",\n    \"deviceBgpNeighborIp\": \"<string>\",\n    \"deviceBgpNeighborIp6\": \"<string>\",\n    \"deviceBgpNeighborAsn\": \"<string>\",\n    \"deviceBgpPassword\": \"<string>\",\n    \"useBgpDeviceId\": \"<string>\",\n    \"deviceBgpFlowspec\": \"<boolean>\",\n    \"nms\": {\n      \"agentId\": \"<string>\",\n      \"ipAddress\": \"<string>\",\n      \"snmp\": {\n        \"credentialName\": \"<string>\",\n        \"port\": \"<long>\",\n        \"timeout\": \"<string>\"\n      },\n      \"st\": {\n        \"credentialName\": \"<string>\",\n        \"port\": \"<long>\",\n        \"timeout\": \"<string>\",\n        \"secure\": \"<boolean>\"\n      }\n    },\n    \"deviceBgpCredentialName\": \"<string>\",\n    \"flowSnmpCredentialName\": \"<string>\",\n    \"monitoringTemplateId\": \"<long>\",\n    \"deviceAlert\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "63332dc6-b445-454f-86b7-535347ccb632",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "device",
+                    "v202504beta2",
+                    "device",
+                    ":device.id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "device.id",
+                      "description": "(Required) System generated unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"device\": {\n    \"deviceName\": \"<string>\",\n    \"deviceSubtype\": \"<string>\",\n    \"cdnAttr\": \"<string>\",\n    \"deviceDescription\": \"<string>\",\n    \"sendingIps\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"deviceSampleRate\": \"<double>\",\n    \"planId\": \"<long>\",\n    \"siteId\": \"<long>\",\n    \"minimizeSnmp\": \"<boolean>\",\n    \"deviceSnmpIp\": \"<string>\",\n    \"deviceSnmpCommunity\": \"<string>\",\n    \"deviceSnmpV3Conf\": {\n      \"username\": \"<string>\",\n      \"authenticationProtocol\": \"<string>\",\n      \"authenticationPassphrase\": \"<string>\",\n      \"privacyProtocol\": \"<string>\",\n      \"privacyPassphrase\": \"<string>\"\n    },\n    \"deviceBgpType\": \"<string>\",\n    \"deviceBgpNeighborIp\": \"<string>\",\n    \"deviceBgpNeighborIp6\": \"<string>\",\n    \"deviceBgpNeighborAsn\": \"<string>\",\n    \"deviceBgpPassword\": \"<string>\",\n    \"useBgpDeviceId\": \"<string>\",\n    \"deviceBgpFlowspec\": \"<boolean>\",\n    \"nms\": {\n      \"agentId\": \"<string>\",\n      \"ipAddress\": \"<string>\",\n      \"snmp\": {\n        \"credentialName\": \"<string>\",\n        \"port\": \"<long>\",\n        \"timeout\": \"<string>\"\n      },\n      \"st\": {\n        \"credentialName\": \"<string>\",\n        \"port\": \"<long>\",\n        \"timeout\": \"<string>\",\n        \"secure\": \"<boolean>\"\n      }\n    },\n    \"deviceBgpCredentialName\": \"<string>\",\n    \"flowSnmpCredentialName\": \"<string>\",\n    \"monitoringTemplateId\": \"<long>\",\n    \"deviceAlert\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"device\": {\n    \"id\": \"string\",\n    \"companyId\": \"string\",\n    \"deviceName\": \"string\",\n    \"deviceAlias\": \"string\",\n    \"deviceType\": \"string\",\n    \"deviceDescription\": \"string\",\n    \"site\": {\n      \"id\": \"string\",\n      \"siteName\": \"string\",\n      \"lat\": 9482.084044768459,\n      \"lon\": 7116.251957822183,\n      \"companyId\": \"string\"\n    },\n    \"plan\": {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"active\": true,\n      \"bgp\": true,\n      \"companyId\": \"string\",\n      \"description\": \"string\",\n      \"deviceTypes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"devices\": [\n        \"string\",\n        \"string\"\n      ],\n      \"fastRetention\": 9525,\n      \"fullRetention\": 2009,\n      \"maxBigdataFps\": 340,\n      \"maxDevices\": 1655,\n      \"maxFps\": 8841,\n      \"cdate\": \"1978-01-01T10:23:16.190Z\",\n      \"edate\": \"1993-06-24T01:31:08.684Z\",\n      \"metadata\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      }\n    },\n    \"labels\": [\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"edate\": \"1947-07-17T15:02:04.837Z\",\n        \"cdate\": \"1990-08-02T03:00:18.155Z\",\n        \"userId\": \"string\",\n        \"companyId\": \"string\",\n        \"color\": \"string\",\n        \"order\": \"string\",\n        \"pivotDeviceId\": \"string\",\n        \"pivotLabelId\": \"string\"\n      },\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"edate\": \"1963-02-15T09:12:16.088Z\",\n        \"cdate\": \"1953-04-20T06:10:47.737Z\",\n        \"userId\": \"string\",\n        \"companyId\": \"string\",\n        \"color\": \"string\",\n        \"order\": \"string\",\n        \"pivotDeviceId\": \"string\",\n        \"pivotLabelId\": \"string\"\n      }\n    ],\n    \"allInterfaces\": [\n      {\n        \"interfaceDescription\": \"string\",\n        \"initialSnmpSpeed\": \"string\",\n        \"deviceId\": \"string\",\n        \"snmpSpeed\": \"string\",\n        \"snmpAlias\": \"string\",\n        \"snmpId\": \"string\",\n        \"connectivityType\": \"string\",\n        \"networkBoundary\": \"string\",\n        \"provider\": \"string\"\n      },\n      {\n        \"interfaceDescription\": \"string\",\n        \"initialSnmpSpeed\": \"string\",\n        \"deviceId\": \"string\",\n        \"snmpSpeed\": \"string\",\n        \"snmpAlias\": \"string\",\n        \"snmpId\": \"string\",\n        \"connectivityType\": \"string\",\n        \"networkBoundary\": \"string\",\n        \"provider\": \"string\"\n      }\n    ],\n    \"deviceFlowType\": \"string\",\n    \"deviceSampleRate\": \"string\",\n    \"sendingIps\": [\n      \"string\",\n      \"string\"\n    ],\n    \"deviceSnmpIp\": \"string\",\n    \"deviceSnmpCommunity\": \"string\",\n    \"minimizeSnmp\": true,\n    \"deviceBgpType\": \"string\",\n    \"deviceBgpNeighborIp\": \"string\",\n    \"deviceBgpNeighborIp6\": \"string\",\n    \"deviceBgpNeighborAsn\": \"string\",\n    \"deviceBgpFlowspec\": true,\n    \"deviceBgpPassword\": \"string\",\n    \"deviceBgpLabelUnicast\": true,\n    \"bgpLookupStrategy\": \"string\",\n    \"deviceStatus\": \"string\",\n    \"useBgpDeviceId\": \"string\",\n    \"customColumns\": \"string\",\n    \"customColumnData\": [\n      {\n        \"deviceId\": \"string\",\n        \"fieldId\": \"string\",\n        \"colName\": \"string\",\n        \"description\": \"string\",\n        \"colType\": \"string\",\n        \"deviceType\": \"string\"\n      },\n      {\n        \"deviceId\": \"string\",\n        \"fieldId\": \"string\",\n        \"colName\": \"string\",\n        \"description\": \"string\",\n        \"colType\": \"string\",\n        \"deviceType\": \"string\"\n      }\n    ],\n    \"deviceChfClientPort\": \"string\",\n    \"deviceChfClientProtocol\": \"string\",\n    \"deviceChfInterface\": \"string\",\n    \"deviceAgentType\": \"string\",\n    \"maxFlowRate\": 8324,\n    \"maxBigFlowRate\": 3448,\n    \"deviceProxyBgp\": \"string\",\n    \"deviceProxyBgp6\": \"string\",\n    \"createdDate\": \"1973-11-16T00:26:48.003Z\",\n    \"updatedDate\": \"1967-07-07T01:17:53.899Z\",\n    \"deviceSnmpV3ConfEnabled\": true,\n    \"deviceSnmpV3Conf\": {\n      \"username\": \"<string>\",\n      \"authenticationProtocol\": \"<string>\",\n      \"authenticationPassphrase\": \"<string>\",\n      \"privacyProtocol\": \"<string>\",\n      \"privacyPassphrase\": \"<string>\"\n    },\n    \"cdnAttr\": \"string\",\n    \"bgpPeerIp4\": \"string\",\n    \"bgpPeerIp6\": \"string\",\n    \"deviceSubtype\": \"string\",\n    \"deviceVendorType\": \"string\",\n    \"deviceModelType\": \"string\",\n    \"cloudExportId\": \"string\",\n    \"deviceKproxy\": \"string\",\n    \"snmpEnabled\": \"string\",\n    \"snmpDisabledReason\": \"string\",\n    \"snmpDisabledReasonOther\": \"string\",\n    \"bgpDisabledReason\": \"string\",\n    \"bgpDisabledReasonOther\": \"string\",\n    \"deviceManufacturer\": \"string\",\n    \"deviceAlert\": \"string\",\n    \"role\": \"string\",\n    \"deviceGnmiV1Conf\": {\n      \"dialoutServer\": \"string\"\n    },\n    \"useAsnFromFlow\": false,\n    \"maxInterface\": 3888,\n    \"maxInterfaceCheck\": 2123,\n    \"nms\": {\n      \"agentId\": \"<string>\",\n      \"ipAddress\": \"<string>\",\n      \"snmp\": {\n        \"credentialName\": \"<string>\",\n        \"port\": \"<long>\",\n        \"timeout\": \"<string>\"\n      },\n      \"st\": {\n        \"credentialName\": \"<string>\",\n        \"port\": \"<long>\",\n        \"timeout\": \"<string>\",\n        \"secure\": \"<boolean>\"\n      }\n    },\n    \"deviceBgpCredentialName\": \"string\",\n    \"flowSnmpCredentialName\": \"string\",\n    \"monitoringTemplateId\": 5446,\n    \"osName\": \"string\",\n    \"osVersion\": \"string\",\n    \"serialNumber\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7053c3e1-213b-4bcf-a1d0-63ccd66e36e2",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "device",
+                    "v202504beta2",
+                    "device",
+                    ":device.id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "device.id",
+                      "description": "(Required) System generated unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"device\": {\n    \"deviceName\": \"<string>\",\n    \"deviceSubtype\": \"<string>\",\n    \"cdnAttr\": \"<string>\",\n    \"deviceDescription\": \"<string>\",\n    \"sendingIps\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"deviceSampleRate\": \"<double>\",\n    \"planId\": \"<long>\",\n    \"siteId\": \"<long>\",\n    \"minimizeSnmp\": \"<boolean>\",\n    \"deviceSnmpIp\": \"<string>\",\n    \"deviceSnmpCommunity\": \"<string>\",\n    \"deviceSnmpV3Conf\": {\n      \"username\": \"<string>\",\n      \"authenticationProtocol\": \"<string>\",\n      \"authenticationPassphrase\": \"<string>\",\n      \"privacyProtocol\": \"<string>\",\n      \"privacyPassphrase\": \"<string>\"\n    },\n    \"deviceBgpType\": \"<string>\",\n    \"deviceBgpNeighborIp\": \"<string>\",\n    \"deviceBgpNeighborIp6\": \"<string>\",\n    \"deviceBgpNeighborAsn\": \"<string>\",\n    \"deviceBgpPassword\": \"<string>\",\n    \"useBgpDeviceId\": \"<string>\",\n    \"deviceBgpFlowspec\": \"<boolean>\",\n    \"nms\": {\n      \"agentId\": \"<string>\",\n      \"ipAddress\": \"<string>\",\n      \"snmp\": {\n        \"credentialName\": \"<string>\",\n        \"port\": \"<long>\",\n        \"timeout\": \"<string>\"\n      },\n      \"st\": {\n        \"credentialName\": \"<string>\",\n        \"port\": \"<long>\",\n        \"timeout\": \"<string>\",\n        \"secure\": \"<boolean>\"\n      }\n    },\n    \"deviceBgpCredentialName\": \"<string>\",\n    \"flowSnmpCredentialName\": \"<string>\",\n    \"monitoringTemplateId\": \"<long>\",\n    \"deviceAlert\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4026,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "89e06717-1df7-4eeb-bed1-93fdeebf833e",
+          "name": "Retrieve configuration of a device.",
+          "request": {
+            "name": "Retrieve configuration of a device.",
+            "description": {
+              "content": "Returns configuration of a device specified by ID (see [About Devices](https://kb.kentik.com/v4/Cb01.htm)).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "device",
+                "v202504beta2",
+                "device",
+                ":device.id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "query.noCustomColumns",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "device.id",
+                  "description": "(Required) ID of the requested device"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bd21e6df-9a68-4f07-82fb-d7d3a52716cc",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "device",
+                    "v202504beta2",
+                    "device",
+                    ":device.id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query.noCustomColumns",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "device.id",
+                      "description": "(Required) ID of the requested device"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"device\": {\n    \"id\": \"string\",\n    \"companyId\": \"string\",\n    \"deviceName\": \"string\",\n    \"deviceAlias\": \"string\",\n    \"deviceType\": \"string\",\n    \"deviceDescription\": \"string\",\n    \"site\": {\n      \"id\": \"string\",\n      \"siteName\": \"string\",\n      \"lat\": 1489.5175330548705,\n      \"lon\": 3449.321602694908,\n      \"companyId\": \"string\"\n    },\n    \"plan\": {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"active\": true,\n      \"bgp\": false,\n      \"companyId\": \"string\",\n      \"description\": \"string\",\n      \"deviceTypes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"devices\": [\n        \"string\",\n        \"string\"\n      ],\n      \"fastRetention\": 2121,\n      \"fullRetention\": 6616,\n      \"maxBigdataFps\": 4120,\n      \"maxDevices\": 5597,\n      \"maxFps\": 4175,\n      \"cdate\": \"1993-09-12T18:34:39.472Z\",\n      \"edate\": \"1954-10-14T23:32:28.357Z\",\n      \"metadata\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      }\n    },\n    \"labels\": [\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"edate\": \"1948-09-20T16:26:47.550Z\",\n        \"cdate\": \"2018-05-07T17:43:58.678Z\",\n        \"userId\": \"string\",\n        \"companyId\": \"string\",\n        \"color\": \"string\",\n        \"order\": \"string\",\n        \"pivotDeviceId\": \"string\",\n        \"pivotLabelId\": \"string\"\n      },\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"edate\": \"2017-12-21T11:24:17.659Z\",\n        \"cdate\": \"1959-04-20T20:02:31.705Z\",\n        \"userId\": \"string\",\n        \"companyId\": \"string\",\n        \"color\": \"string\",\n        \"order\": \"string\",\n        \"pivotDeviceId\": \"string\",\n        \"pivotLabelId\": \"string\"\n      }\n    ],\n    \"allInterfaces\": [\n      {\n        \"interfaceDescription\": \"string\",\n        \"initialSnmpSpeed\": \"string\",\n        \"deviceId\": \"string\",\n        \"snmpSpeed\": \"string\",\n        \"snmpAlias\": \"string\",\n        \"snmpId\": \"string\",\n        \"connectivityType\": \"string\",\n        \"networkBoundary\": \"string\",\n        \"provider\": \"string\"\n      },\n      {\n        \"interfaceDescription\": \"string\",\n        \"initialSnmpSpeed\": \"string\",\n        \"deviceId\": \"string\",\n        \"snmpSpeed\": \"string\",\n        \"snmpAlias\": \"string\",\n        \"snmpId\": \"string\",\n        \"connectivityType\": \"string\",\n        \"networkBoundary\": \"string\",\n        \"provider\": \"string\"\n      }\n    ],\n    \"deviceFlowType\": \"string\",\n    \"deviceSampleRate\": \"string\",\n    \"sendingIps\": [\n      \"string\",\n      \"string\"\n    ],\n    \"deviceSnmpIp\": \"string\",\n    \"deviceSnmpCommunity\": \"string\",\n    \"minimizeSnmp\": true,\n    \"deviceBgpType\": \"string\",\n    \"deviceBgpNeighborIp\": \"string\",\n    \"deviceBgpNeighborIp6\": \"string\",\n    \"deviceBgpNeighborAsn\": \"string\",\n    \"deviceBgpFlowspec\": true,\n    \"deviceBgpPassword\": \"string\",\n    \"deviceBgpLabelUnicast\": true,\n    \"bgpLookupStrategy\": \"string\",\n    \"deviceStatus\": \"string\",\n    \"useBgpDeviceId\": \"string\",\n    \"customColumns\": \"string\",\n    \"customColumnData\": [\n      {\n        \"deviceId\": \"string\",\n        \"fieldId\": \"string\",\n        \"colName\": \"string\",\n        \"description\": \"string\",\n        \"colType\": \"string\",\n        \"deviceType\": \"string\"\n      },\n      {\n        \"deviceId\": \"string\",\n        \"fieldId\": \"string\",\n        \"colName\": \"string\",\n        \"description\": \"string\",\n        \"colType\": \"string\",\n        \"deviceType\": \"string\"\n      }\n    ],\n    \"deviceChfClientPort\": \"string\",\n    \"deviceChfClientProtocol\": \"string\",\n    \"deviceChfInterface\": \"string\",\n    \"deviceAgentType\": \"string\",\n    \"maxFlowRate\": 7194,\n    \"maxBigFlowRate\": 695,\n    \"deviceProxyBgp\": \"string\",\n    \"deviceProxyBgp6\": \"string\",\n    \"createdDate\": \"1973-09-12T07:17:28.432Z\",\n    \"updatedDate\": \"1987-10-23T03:53:37.524Z\",\n    \"deviceSnmpV3ConfEnabled\": true,\n    \"deviceSnmpV3Conf\": {\n      \"username\": \"<string>\",\n      \"authenticationProtocol\": \"<string>\",\n      \"authenticationPassphrase\": \"<string>\",\n      \"privacyProtocol\": \"<string>\",\n      \"privacyPassphrase\": \"<string>\"\n    },\n    \"cdnAttr\": \"string\",\n    \"bgpPeerIp4\": \"string\",\n    \"bgpPeerIp6\": \"string\",\n    \"deviceSubtype\": \"string\",\n    \"deviceVendorType\": \"string\",\n    \"deviceModelType\": \"string\",\n    \"cloudExportId\": \"string\",\n    \"deviceKproxy\": \"string\",\n    \"snmpEnabled\": \"string\",\n    \"snmpDisabledReason\": \"string\",\n    \"snmpDisabledReasonOther\": \"string\",\n    \"bgpDisabledReason\": \"string\",\n    \"bgpDisabledReasonOther\": \"string\",\n    \"deviceManufacturer\": \"string\",\n    \"deviceAlert\": \"string\",\n    \"role\": \"string\",\n    \"deviceGnmiV1Conf\": {\n      \"dialoutServer\": \"string\"\n    },\n    \"useAsnFromFlow\": true,\n    \"maxInterface\": 8097,\n    \"maxInterfaceCheck\": 9272,\n    \"nms\": {\n      \"agentId\": \"<string>\",\n      \"ipAddress\": \"<string>\",\n      \"snmp\": {\n        \"credentialName\": \"<string>\",\n        \"port\": \"<long>\",\n        \"timeout\": \"<string>\"\n      },\n      \"st\": {\n        \"credentialName\": \"<string>\",\n        \"port\": \"<long>\",\n        \"timeout\": \"<string>\",\n        \"secure\": \"<boolean>\"\n      }\n    },\n    \"deviceBgpCredentialName\": \"string\",\n    \"flowSnmpCredentialName\": \"string\",\n    \"monitoringTemplateId\": 4284,\n    \"osName\": \"string\",\n    \"osVersion\": \"string\",\n    \"serialNumber\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "017ec281-dd9e-43b8-8b88-dcb56b76b0f4",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "device",
+                    "v202504beta2",
+                    "device",
+                    ":device.id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query.noCustomColumns",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "device.id",
+                      "description": "(Required) ID of the requested device"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4026,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6d11855a-92be-4c78-b443-d94915255a4c",
+          "name": "Delete configuration of a device.",
+          "request": {
+            "name": "Delete configuration of a device.",
+            "description": {
+              "content": "Deletes configuration of a device with specific ID (see [About Devices](https://kb.kentik.com/v4/Cb01.htm)).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "device",
+                "v202504beta2",
+                "device",
+                ":device.id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "device.id",
+                  "description": "(Required) ID of the device to be deleted"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e3372b97-9718-4a13-be2a-5d7b448fb5d5",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "device",
+                    "v202504beta2",
+                    "device",
+                    ":device.id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "device.id",
+                      "description": "(Required) ID of the device to be deleted"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d7614c7d-a98b-480a-bab8-dc7dd96d778b",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "device",
+                    "v202504beta2",
+                    "device",
+                    ":device.id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "device.id",
+                      "description": "(Required) ID of the device to be deleted"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4026,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "843571cd-27aa-42b4-802e-71ea6997e380",
+          "name": "Updates labels of a device.",
+          "request": {
+            "name": "Updates labels of a device.",
+            "description": {
+              "content": "Removes all existing labels from the device and applies the device labels (see [About Device Labels](https://kb.kentik.com/v4/Cb16.htm)) specified by id. Returns the updated configuration.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "device",
+                "v202504beta2",
+                "device",
+                ":id",
+                "labels"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) ID of the device to be updated"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"labels\": [\n    {\n      \"id\": \"<long>\"\n    },\n    {\n      \"id\": \"<long>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "344047fa-5951-4ded-b48a-5587c8a813de",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "device",
+                    "v202504beta2",
+                    "device",
+                    ":id",
+                    "labels"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) ID of the device to be updated"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"labels\": [\n    {\n      \"id\": \"<long>\"\n    },\n    {\n      \"id\": \"<long>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"device\": {\n    \"id\": \"string\",\n    \"companyId\": \"string\",\n    \"deviceName\": \"string\",\n    \"deviceAlias\": \"string\",\n    \"deviceType\": \"string\",\n    \"deviceDescription\": \"string\",\n    \"site\": {\n      \"id\": \"string\",\n      \"siteName\": \"string\",\n      \"lat\": 6476.344845669433,\n      \"lon\": 2076.6838139660636,\n      \"companyId\": \"string\"\n    },\n    \"plan\": {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"active\": false,\n      \"bgp\": true,\n      \"companyId\": \"string\",\n      \"description\": \"string\",\n      \"deviceTypes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"devices\": [\n        \"string\",\n        \"string\"\n      ],\n      \"fastRetention\": 1321,\n      \"fullRetention\": 8401,\n      \"maxBigdataFps\": 6297,\n      \"maxDevices\": 121,\n      \"maxFps\": 7415,\n      \"cdate\": \"2004-10-29T08:44:39.591Z\",\n      \"edate\": \"2019-08-15T16:04:20.198Z\",\n      \"metadata\": {\n        \"key_0\": \"string\"\n      }\n    },\n    \"labels\": [\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"edate\": \"2005-05-15T23:38:34.251Z\",\n        \"cdate\": \"1954-06-18T10:56:18.996Z\",\n        \"userId\": \"string\",\n        \"companyId\": \"string\",\n        \"color\": \"string\",\n        \"order\": \"string\",\n        \"pivotDeviceId\": \"string\",\n        \"pivotLabelId\": \"string\"\n      },\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"edate\": \"1950-06-02T22:32:08.334Z\",\n        \"cdate\": \"1997-11-03T17:01:51.049Z\",\n        \"userId\": \"string\",\n        \"companyId\": \"string\",\n        \"color\": \"string\",\n        \"order\": \"string\",\n        \"pivotDeviceId\": \"string\",\n        \"pivotLabelId\": \"string\"\n      }\n    ],\n    \"allInterfaces\": [\n      {\n        \"interfaceDescription\": \"string\",\n        \"initialSnmpSpeed\": \"string\",\n        \"deviceId\": \"string\",\n        \"snmpSpeed\": \"string\",\n        \"snmpAlias\": \"string\",\n        \"snmpId\": \"string\",\n        \"connectivityType\": \"string\",\n        \"networkBoundary\": \"string\",\n        \"provider\": \"string\"\n      },\n      {\n        \"interfaceDescription\": \"string\",\n        \"initialSnmpSpeed\": \"string\",\n        \"deviceId\": \"string\",\n        \"snmpSpeed\": \"string\",\n        \"snmpAlias\": \"string\",\n        \"snmpId\": \"string\",\n        \"connectivityType\": \"string\",\n        \"networkBoundary\": \"string\",\n        \"provider\": \"string\"\n      }\n    ],\n    \"deviceFlowType\": \"string\",\n    \"deviceSampleRate\": \"string\",\n    \"sendingIps\": [\n      \"string\",\n      \"string\"\n    ],\n    \"deviceSnmpIp\": \"string\",\n    \"deviceSnmpCommunity\": \"string\",\n    \"minimizeSnmp\": true,\n    \"deviceBgpType\": \"string\",\n    \"deviceBgpNeighborIp\": \"string\",\n    \"deviceBgpNeighborIp6\": \"string\",\n    \"deviceBgpNeighborAsn\": \"string\",\n    \"deviceBgpFlowspec\": false,\n    \"deviceBgpPassword\": \"string\",\n    \"deviceBgpLabelUnicast\": false,\n    \"bgpLookupStrategy\": \"string\",\n    \"deviceStatus\": \"string\",\n    \"useBgpDeviceId\": \"string\",\n    \"customColumns\": \"string\",\n    \"customColumnData\": [\n      {\n        \"deviceId\": \"string\",\n        \"fieldId\": \"string\",\n        \"colName\": \"string\",\n        \"description\": \"string\",\n        \"colType\": \"string\",\n        \"deviceType\": \"string\"\n      },\n      {\n        \"deviceId\": \"string\",\n        \"fieldId\": \"string\",\n        \"colName\": \"string\",\n        \"description\": \"string\",\n        \"colType\": \"string\",\n        \"deviceType\": \"string\"\n      }\n    ],\n    \"deviceChfClientPort\": \"string\",\n    \"deviceChfClientProtocol\": \"string\",\n    \"deviceChfInterface\": \"string\",\n    \"deviceAgentType\": \"string\",\n    \"maxFlowRate\": 8956,\n    \"maxBigFlowRate\": 6,\n    \"deviceProxyBgp\": \"string\",\n    \"deviceProxyBgp6\": \"string\",\n    \"createdDate\": \"1976-07-18T17:12:38.210Z\",\n    \"updatedDate\": \"1953-01-24T19:12:59.670Z\",\n    \"deviceSnmpV3ConfEnabled\": false,\n    \"deviceSnmpV3Conf\": {\n      \"username\": \"<string>\",\n      \"authenticationProtocol\": \"<string>\",\n      \"authenticationPassphrase\": \"<string>\",\n      \"privacyProtocol\": \"<string>\",\n      \"privacyPassphrase\": \"<string>\"\n    },\n    \"cdnAttr\": \"string\",\n    \"bgpPeerIp4\": \"string\",\n    \"bgpPeerIp6\": \"string\",\n    \"deviceSubtype\": \"string\",\n    \"deviceVendorType\": \"string\",\n    \"deviceModelType\": \"string\",\n    \"cloudExportId\": \"string\",\n    \"deviceKproxy\": \"string\",\n    \"snmpEnabled\": \"string\",\n    \"snmpDisabledReason\": \"string\",\n    \"snmpDisabledReasonOther\": \"string\",\n    \"bgpDisabledReason\": \"string\",\n    \"bgpDisabledReasonOther\": \"string\",\n    \"deviceManufacturer\": \"string\",\n    \"deviceAlert\": \"string\",\n    \"role\": \"string\",\n    \"deviceGnmiV1Conf\": {\n      \"dialoutServer\": \"string\"\n    },\n    \"useAsnFromFlow\": true,\n    \"maxInterface\": 1582,\n    \"maxInterfaceCheck\": 3717,\n    \"nms\": {\n      \"agentId\": \"<string>\",\n      \"ipAddress\": \"<string>\",\n      \"snmp\": {\n        \"credentialName\": \"<string>\",\n        \"port\": \"<long>\",\n        \"timeout\": \"<string>\"\n      },\n      \"st\": {\n        \"credentialName\": \"<string>\",\n        \"port\": \"<long>\",\n        \"timeout\": \"<string>\",\n        \"secure\": \"<boolean>\"\n      }\n    },\n    \"deviceBgpCredentialName\": \"string\",\n    \"flowSnmpCredentialName\": \"string\",\n    \"monitoringTemplateId\": 7888,\n    \"osName\": \"string\",\n    \"osVersion\": \"string\",\n    \"serialNumber\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "42379c86-886d-4063-86c6-1f190eb78f5e",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "device",
+                    "v202504beta2",
+                    "device",
+                    ":id",
+                    "labels"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) ID of the device to be updated"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"labels\": [\n    {\n      \"id\": \"<long>\"\n    },\n    {\n      \"id\": \"<long>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4026,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-CH-Auth-Email"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "d3665106-7b06-421b-a04e-1cddad3cb810",
+    "name": "AI Advisor AiAdvisorDataService DeviceService API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "# Overview\nProvides programmatic access to AI Advisor.\n\nContact Support:\n Name: Kentik API Engineering",
+      "type": "text/plain"
+    }
+  }
+}

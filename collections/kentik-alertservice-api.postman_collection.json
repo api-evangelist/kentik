@@ -1,0 +1,1395 @@
+{
+  "item": [
+    {
+      "id": "ff83bfcf-75f1-4086-8630-768b89fbe22d",
+      "name": "AlertService",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "777d6033-47eb-40ac-b2d1-3008dc355d80",
+          "name": "List Alerts",
+          "request": {
+            "name": "List Alerts",
+            "description": {
+              "content": "Returns an array of alert objects that contain information about individual alerts.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v202505",
+                "alerts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"pagination\": {\n    \"limit\": \"<uint64>\",\n    \"offset\": \"<uint64>\",\n    \"includeTotalCount\": \"<boolean>\"\n  },\n  \"sorting\": {\n    \"fields\": [\n      {\n        \"by\": \"BY_UNSPECIFIED\",\n        \"order\": \"ORDER_UNSPECIFIED\"\n      },\n      {\n        \"by\": \"BY_UNSPECIFIED\",\n        \"order\": \"ORDER_UNSPECIFIED\"\n      }\n    ]\n  },\n  \"filters\": {\n    \"severities\": [\n      \"SEVERITY_UNSPECIFIED\",\n      \"SEVERITY_UNSPECIFIED\"\n    ],\n    \"alertIds\": [\n      \"[]\",\n      \"[]\"\n    ],\n    \"sources\": [\n      {\n        \"policyType\": \"POLICY_TYPE_UNSPECIFIED\",\n        \"id\": \"<string>\"\n      },\n      {\n        \"policyType\": \"POLICY_TYPE_UNSPECIFIED\",\n        \"id\": \"<string>\"\n      }\n    ],\n    \"keys\": {\n      \"filter\": {},\n      \"filters\": [\n        {\n          \"key\": {\n            \"equals\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"startsWith\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"endsWith\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"contains\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"in\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"any\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"value\": {\n            \"empty\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"equals\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"startsWith\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"endsWith\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"contains\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"in\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"any\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        {\n          \"key\": {\n            \"equals\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"startsWith\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"endsWith\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"contains\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"in\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"any\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"value\": {\n            \"empty\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"equals\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"startsWith\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"endsWith\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"contains\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"in\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"any\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      ]\n    },\n    \"states\": [\n      \"ALERT_STATE_UNSPECIFIED\",\n      \"ALERT_STATE_UNSPECIFIED\"\n    ],\n    \"startedAt\": {\n      \"start\": \"<dateTime>\",\n      \"end\": \"<dateTime>\"\n    },\n    \"endedAt\": {\n      \"start\": \"<dateTime>\",\n      \"end\": \"<dateTime>\"\n    },\n    \"highestSeverities\": [\n      \"SEVERITY_UNSPECIFIED\",\n      \"SEVERITY_UNSPECIFIED\"\n    ],\n    \"recentSeverities\": [\n      \"SEVERITY_UNSPECIFIED\",\n      \"SEVERITY_UNSPECIFIED\"\n    ],\n    \"ackStates\": [\n      \"ALERT_ACKNOWLEDGEMENT_UNSPECIFIED\",\n      \"ALERT_ACKNOWLEDGEMENT_UNSPECIFIED\"\n    ],\n    \"activeAt\": {\n      \"start\": \"<dateTime>\",\n      \"end\": \"<dateTime>\"\n    },\n    \"ackedByUserIds\": [\n      \"[]\",\n      \"[]\"\n    ],\n    \"includeRemovedPolicies\": \"false\",\n    \"contextSearch\": [\n      \"[]\",\n      \"[]\"\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6a86a3af-3157-41dc-96aa-24f7713b4f3b",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v202505",
+                    "alerts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"pagination\": {\n    \"limit\": \"<uint64>\",\n    \"offset\": \"<uint64>\",\n    \"includeTotalCount\": \"<boolean>\"\n  },\n  \"sorting\": {\n    \"fields\": [\n      {\n        \"by\": \"BY_UNSPECIFIED\",\n        \"order\": \"ORDER_UNSPECIFIED\"\n      },\n      {\n        \"by\": \"BY_UNSPECIFIED\",\n        \"order\": \"ORDER_UNSPECIFIED\"\n      }\n    ]\n  },\n  \"filters\": {\n    \"severities\": [\n      \"SEVERITY_UNSPECIFIED\",\n      \"SEVERITY_UNSPECIFIED\"\n    ],\n    \"alertIds\": [\n      \"[]\",\n      \"[]\"\n    ],\n    \"sources\": [\n      {\n        \"policyType\": \"POLICY_TYPE_UNSPECIFIED\",\n        \"id\": \"<string>\"\n      },\n      {\n        \"policyType\": \"POLICY_TYPE_UNSPECIFIED\",\n        \"id\": \"<string>\"\n      }\n    ],\n    \"keys\": {\n      \"filter\": {\n        \"key_1\": 8744.175480595617,\n        \"key_2\": {},\n        \"key_3\": null\n      },\n      \"filters\": [\n        {\n          \"key\": {\n            \"equals\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"startsWith\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"endsWith\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"contains\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"in\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"any\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"value\": {\n            \"empty\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"equals\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"startsWith\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"endsWith\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"contains\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"in\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"any\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        {\n          \"key\": {\n            \"equals\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"startsWith\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"endsWith\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"contains\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"in\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"any\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"value\": {\n            \"empty\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"equals\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"startsWith\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"endsWith\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"contains\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"in\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"any\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      ]\n    },\n    \"states\": [\n      \"ALERT_STATE_UNSPECIFIED\",\n      \"ALERT_STATE_UNSPECIFIED\"\n    ],\n    \"startedAt\": {\n      \"start\": \"<dateTime>\",\n      \"end\": \"<dateTime>\"\n    },\n    \"endedAt\": {\n      \"start\": \"<dateTime>\",\n      \"end\": \"<dateTime>\"\n    },\n    \"highestSeverities\": [\n      \"SEVERITY_UNSPECIFIED\",\n      \"SEVERITY_UNSPECIFIED\"\n    ],\n    \"recentSeverities\": [\n      \"SEVERITY_UNSPECIFIED\",\n      \"SEVERITY_UNSPECIFIED\"\n    ],\n    \"ackStates\": [\n      \"ALERT_ACKNOWLEDGEMENT_UNSPECIFIED\",\n      \"ALERT_ACKNOWLEDGEMENT_UNSPECIFIED\"\n    ],\n    \"activeAt\": {\n      \"start\": \"<dateTime>\",\n      \"end\": \"<dateTime>\"\n    },\n    \"ackedByUserIds\": [\n      \"[]\",\n      \"[]\"\n    ],\n    \"includeRemovedPolicies\": \"false\",\n    \"contextSearch\": [\n      \"[]\",\n      \"[]\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"pagination\": {\n    \"totalCount\": \"string\",\n    \"hasMoreResults\": false\n  },\n  \"alerts\": [\n    {\n      \"id\": \"string\",\n      \"source\": {\n        \"policyType\": \"POLICY_TYPE_UNSPECIFIED\",\n        \"id\": \"<string>\"\n      },\n      \"startTimeAt\": \"1997-07-22T09:08:43.137Z\",\n      \"endTimeAt\": \"1994-06-23T12:27:32.983Z\",\n      \"state\": \"ALERT_STATE_UNSPECIFIED\",\n      \"severity\": \"SEVERITY_UNSPECIFIED\",\n      \"highestSeverity\": \"SEVERITY_UNSPECIFIED\",\n      \"acknowledgement\": {\n        \"state\": \"ALERT_ACKNOWLEDGEMENT_UNSPECIFIED\",\n        \"ackedByUser\": \"string\",\n        \"autoAckId\": \"string\",\n        \"ackedAt\": \"1988-12-12T04:28:43.236Z\"\n      },\n      \"eventStartTimeAt\": \"1948-05-24T19:08:42.556Z\",\n      \"flow\": {\n        \"metricValues\": [\n          {\n            \"name\": \"string\",\n            \"value\": 9878.401769584838\n          },\n          {\n            \"name\": \"string\",\n            \"value\": 8417.115701398869\n          }\n        ],\n        \"activationStatus\": \"ACTIVATION_STATUS_UNSPECIFIED\",\n        \"baselineValue\": 3645.1124516201503,\n        \"alertKeyDetails\": {\n          \"key_0\": {\n            \"device\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"interface\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"site\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"extendedValue\": \"string\"\n          }\n        }\n      },\n      \"nms\": {\n        \"activationInfo\": {\n          \"activate\": {\n            \"connector\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"conditionGroups\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"severity\": \"SEVERITY_UNSPECIFIED\",\n          \"clearManual\": false,\n          \"clearUnlessActivated\": false\n        },\n        \"datasetInfo\": {\n          \"customType\": true,\n          \"dimensions\": [\n            \"string\",\n            \"string\"\n          ],\n          \"entityType\": \"string\",\n          \"measurements\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        \"targets\": {\n          \"key_0\": {\n            \"fields\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"tags\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          \"key_1\": {\n            \"fields\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_2\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"tags\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          \"key_2\": {\n            \"fields\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"tags\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          }\n        },\n        \"metricValues\": {\n          \"key_0\": {\n            \"metrics\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          \"key_1\": {\n            \"metrics\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          \"key_2\": {\n            \"metrics\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          \"key_3\": {\n            \"metrics\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_2\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          }\n        },\n        \"previousMetricValues\": {\n          \"key_0\": {\n            \"metrics\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          \"key_1\": {\n            \"metrics\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          }\n        },\n        \"device\": {\n          \"key_0\": \"string\"\n        },\n        \"groupKey\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\",\n          \"key_2\": \"string\",\n          \"key_3\": \"string\"\n        }\n      },\n      \"mitigationId\": \"string\",\n      \"externalContexts\": [\n        {\n          \"servicenow\": {\n            \"incidentId\": \"string\",\n            \"incidentUrl\": \"string\"\n          },\n          \"jiraCloud\": {\n            \"issueKey\": \"string\",\n            \"issueUrl\": \"string\"\n          }\n        },\n        {\n          \"servicenow\": {\n            \"incidentId\": \"string\",\n            \"incidentUrl\": \"string\"\n          },\n          \"jiraCloud\": {\n            \"issueKey\": \"string\",\n            \"issueUrl\": \"string\"\n          }\n        }\n      ]\n    },\n    {\n      \"id\": \"string\",\n      \"source\": {\n        \"policyType\": \"POLICY_TYPE_UNSPECIFIED\",\n        \"id\": \"<string>\"\n      },\n      \"startTimeAt\": \"1997-11-13T14:53:13.944Z\",\n      \"endTimeAt\": \"1951-10-24T13:13:37.643Z\",\n      \"state\": \"ALERT_STATE_UNSPECIFIED\",\n      \"severity\": \"SEVERITY_UNSPECIFIED\",\n      \"highestSeverity\": \"SEVERITY_UNSPECIFIED\",\n      \"acknowledgement\": {\n        \"state\": \"ALERT_ACKNOWLEDGEMENT_UNSPECIFIED\",\n        \"ackedByUser\": \"string\",\n        \"autoAckId\": \"string\",\n        \"ackedAt\": \"2000-07-29T19:09:30.447Z\"\n      },\n      \"eventStartTimeAt\": \"2003-03-01T04:14:09.448Z\",\n      \"flow\": {\n        \"metricValues\": [\n          {\n            \"name\": \"string\",\n            \"value\": 1206.237086393841\n          },\n          {\n            \"name\": \"string\",\n            \"value\": 4404.113580033007\n          }\n        ],\n        \"activationStatus\": \"ACTIVATION_STATUS_UNSPECIFIED\",\n        \"baselineValue\": 2984.4583147234603,\n        \"alertKeyDetails\": {\n          \"key_0\": {\n            \"device\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"interface\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"site\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"extendedValue\": \"string\"\n          },\n          \"key_1\": {\n            \"device\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"interface\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"site\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"extendedValue\": \"string\"\n          }\n        }\n      },\n      \"nms\": {\n        \"activationInfo\": {\n          \"activate\": {\n            \"connector\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"conditionGroups\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"severity\": \"SEVERITY_UNSPECIFIED\",\n          \"clearManual\": false,\n          \"clearUnlessActivated\": false\n        },\n        \"datasetInfo\": {\n          \"customType\": true,\n          \"dimensions\": [\n            \"string\",\n            \"string\"\n          ],\n          \"entityType\": \"string\",\n          \"measurements\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        \"targets\": {\n          \"key_0\": {\n            \"fields\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_2\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"tags\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          \"key_1\": {\n            \"fields\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_2\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"tags\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          }\n        },\n        \"metricValues\": {\n          \"key_0\": {\n            \"metrics\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          \"key_1\": {\n            \"metrics\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          }\n        },\n        \"previousMetricValues\": {\n          \"key_0\": {\n            \"metrics\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          \"key_1\": {\n            \"metrics\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          }\n        },\n        \"device\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\",\n          \"key_2\": \"string\"\n        },\n        \"groupKey\": {\n          \"key_0\": \"string\"\n        }\n      },\n      \"mitigationId\": \"string\",\n      \"externalContexts\": [\n        {\n          \"servicenow\": {\n            \"incidentId\": \"string\",\n            \"incidentUrl\": \"string\"\n          },\n          \"jiraCloud\": {\n            \"issueKey\": \"string\",\n            \"issueUrl\": \"string\"\n          }\n        },\n        {\n          \"servicenow\": {\n            \"incidentId\": \"string\",\n            \"incidentUrl\": \"string\"\n          },\n          \"jiraCloud\": {\n            \"issueKey\": \"string\",\n            \"issueUrl\": \"string\"\n          }\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "87203fbb-fb37-4aea-8942-3b6eea653c5e",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v202505",
+                    "alerts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"pagination\": {\n    \"limit\": \"<uint64>\",\n    \"offset\": \"<uint64>\",\n    \"includeTotalCount\": \"<boolean>\"\n  },\n  \"sorting\": {\n    \"fields\": [\n      {\n        \"by\": \"BY_UNSPECIFIED\",\n        \"order\": \"ORDER_UNSPECIFIED\"\n      },\n      {\n        \"by\": \"BY_UNSPECIFIED\",\n        \"order\": \"ORDER_UNSPECIFIED\"\n      }\n    ]\n  },\n  \"filters\": {\n    \"severities\": [\n      \"SEVERITY_UNSPECIFIED\",\n      \"SEVERITY_UNSPECIFIED\"\n    ],\n    \"alertIds\": [\n      \"[]\",\n      \"[]\"\n    ],\n    \"sources\": [\n      {\n        \"policyType\": \"POLICY_TYPE_UNSPECIFIED\",\n        \"id\": \"<string>\"\n      },\n      {\n        \"policyType\": \"POLICY_TYPE_UNSPECIFIED\",\n        \"id\": \"<string>\"\n      }\n    ],\n    \"keys\": {\n      \"filter\": {\n        \"key_1\": 8744.175480595617,\n        \"key_2\": {},\n        \"key_3\": null\n      },\n      \"filters\": [\n        {\n          \"key\": {\n            \"equals\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"startsWith\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"endsWith\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"contains\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"in\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"any\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"value\": {\n            \"empty\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"equals\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"startsWith\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"endsWith\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"contains\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"in\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"any\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        {\n          \"key\": {\n            \"equals\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"startsWith\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"endsWith\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"contains\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"in\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"any\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"value\": {\n            \"empty\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"equals\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"startsWith\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"endsWith\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"contains\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"in\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"any\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      ]\n    },\n    \"states\": [\n      \"ALERT_STATE_UNSPECIFIED\",\n      \"ALERT_STATE_UNSPECIFIED\"\n    ],\n    \"startedAt\": {\n      \"start\": \"<dateTime>\",\n      \"end\": \"<dateTime>\"\n    },\n    \"endedAt\": {\n      \"start\": \"<dateTime>\",\n      \"end\": \"<dateTime>\"\n    },\n    \"highestSeverities\": [\n      \"SEVERITY_UNSPECIFIED\",\n      \"SEVERITY_UNSPECIFIED\"\n    ],\n    \"recentSeverities\": [\n      \"SEVERITY_UNSPECIFIED\",\n      \"SEVERITY_UNSPECIFIED\"\n    ],\n    \"ackStates\": [\n      \"ALERT_ACKNOWLEDGEMENT_UNSPECIFIED\",\n      \"ALERT_ACKNOWLEDGEMENT_UNSPECIFIED\"\n    ],\n    \"activeAt\": {\n      \"start\": \"<dateTime>\",\n      \"end\": \"<dateTime>\"\n    },\n    \"ackedByUserIds\": [\n      \"[]\",\n      \"[]\"\n    ],\n    \"includeRemovedPolicies\": \"false\",\n    \"contextSearch\": [\n      \"[]\",\n      \"[]\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 956,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f2580f22-746d-4d03-a4c7-ef263dd0a2e3",
+          "name": "Clear Alerts",
+          "request": {
+            "name": "Clear Alerts",
+            "description": {
+              "content": "Clears alerts.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v202505",
+                "alerts",
+                "clear"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"alertIds\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8c0e82e1-3655-4741-9291-23cdd51fdc77",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v202505",
+                    "alerts",
+                    "clear"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"alertIds\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"clearedAlertIds\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "00470548-e3ef-47dc-b13b-01835cd0ddb7",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v202505",
+                    "alerts",
+                    "clear"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"alertIds\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1903,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b0f5436b-fef7-4b86-9b4a-24ddf98bcf5a",
+          "name": "List Alert Comments",
+          "request": {
+            "name": "List Alert Comments",
+            "description": {
+              "content": "Returns all comments for an alert.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v202505",
+                "alerts",
+                ":alertId",
+                "comments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "alertId",
+                  "description": "(Required) The ID of the alert to list comments for."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bf56b62a-091b-4fee-a791-1468fa48de18",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v202505",
+                    "alerts",
+                    ":alertId",
+                    "comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "alertId",
+                      "description": "(Required) The ID of the alert to list comments for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"comments\": [\n    {\n      \"id\": \"string\",\n      \"text\": \"string\",\n      \"userId\": \"string\",\n      \"userName\": \"string\",\n      \"userFullName\": \"string\",\n      \"userEmail\": \"string\",\n      \"createdAt\": \"1971-06-03T06:41:31.971Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"text\": \"string\",\n      \"userId\": \"string\",\n      \"userName\": \"string\",\n      \"userFullName\": \"string\",\n      \"userEmail\": \"string\",\n      \"createdAt\": \"2019-08-29T22:13:57.513Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "83c31bd6-28b2-4ab2-997b-ddd6e9d75998",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v202505",
+                    "alerts",
+                    ":alertId",
+                    "comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "alertId",
+                      "description": "(Required) The ID of the alert to list comments for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1903,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d382151c-372a-49d9-98fd-a1944247f173",
+          "name": "Add Alert Comment",
+          "request": {
+            "name": "Add Alert Comment",
+            "description": {
+              "content": "Adds a comment to an alert.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v202505",
+                "alerts",
+                ":alertId",
+                "comments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "alertId",
+                  "description": "(Required) The ID of the alert to add the comment to."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"text\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8908d70d-5a5a-4f02-b6cb-ed476d51cd66",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v202505",
+                    "alerts",
+                    ":alertId",
+                    "comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "alertId",
+                      "description": "(Required) The ID of the alert to add the comment to."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"text\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"comment\": {\n    \"id\": \"string\",\n    \"text\": \"string\",\n    \"userId\": \"string\",\n    \"userName\": \"string\",\n    \"userFullName\": \"string\",\n    \"userEmail\": \"string\",\n    \"createdAt\": \"1947-07-18T13:39:01.473Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6ea3f4ab-d531-4675-a4ac-5d928dc7ed03",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v202505",
+                    "alerts",
+                    ":alertId",
+                    "comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "alertId",
+                      "description": "(Required) The ID of the alert to add the comment to."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"text\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1903,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4b3d27cf-0dc7-414d-b0f3-98c834814983",
+          "name": "Set External Context for Alert",
+          "request": {
+            "name": "Set External Context for Alert",
+            "description": {
+              "content": "Add or replace external context",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v202505",
+                "alerts",
+                ":alertId",
+                "external-context"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "alertId",
+                  "description": "(Required) The ID of the alert to add or replace external context."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"context\": {\n    \"servicenow\": {\n      \"incidentId\": \"<string>\",\n      \"incidentUrl\": \"<string>\"\n    },\n    \"jiraCloud\": {\n      \"issueKey\": \"<string>\",\n      \"issueUrl\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ff3391fb-7140-4396-9ec0-7aa88b6170db",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v202505",
+                    "alerts",
+                    ":alertId",
+                    "external-context"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "alertId",
+                      "description": "(Required) The ID of the alert to add or replace external context."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"context\": {\n    \"servicenow\": {\n      \"incidentId\": \"<string>\",\n      \"incidentUrl\": \"<string>\"\n    },\n    \"jiraCloud\": {\n      \"issueKey\": \"<string>\",\n      \"issueUrl\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"updatedAt\": \"2014-11-22T16:55:02.322Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "25124410-0104-483d-83b3-56748c26014b",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v202505",
+                    "alerts",
+                    ":alertId",
+                    "external-context"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "alertId",
+                      "description": "(Required) The ID of the alert to add or replace external context."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"context\": {\n    \"servicenow\": {\n      \"incidentId\": \"<string>\",\n      \"incidentUrl\": \"<string>\"\n    },\n    \"jiraCloud\": {\n      \"issueKey\": \"<string>\",\n      \"issueUrl\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1903,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a61b6880-2388-4e36-8a90-d5b03aa8db9c",
+          "name": "Get Alert",
+          "request": {
+            "name": "Get Alert",
+            "description": {
+              "content": "Returns an alert object that contains information about an individual alert.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v202505",
+                "alerts",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The ID of the alert to get."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4314c332-1dd0-4233-b859-9618b02e3ec1",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v202505",
+                    "alerts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the alert to get."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"alert\": {\n    \"id\": \"string\",\n    \"source\": {\n      \"policyType\": \"POLICY_TYPE_UNSPECIFIED\",\n      \"id\": \"<string>\"\n    },\n    \"startTimeAt\": \"2002-10-08T01:31:50.252Z\",\n    \"endTimeAt\": \"2011-03-26T09:01:23.563Z\",\n    \"state\": \"ALERT_STATE_UNSPECIFIED\",\n    \"severity\": \"SEVERITY_UNSPECIFIED\",\n    \"highestSeverity\": \"SEVERITY_UNSPECIFIED\",\n    \"acknowledgement\": {\n      \"state\": \"ALERT_ACKNOWLEDGEMENT_UNSPECIFIED\",\n      \"ackedByUser\": \"string\",\n      \"autoAckId\": \"string\",\n      \"ackedAt\": \"1991-05-12T11:52:07.304Z\"\n    },\n    \"eventStartTimeAt\": \"1988-12-24T10:21:48.696Z\",\n    \"flow\": {\n      \"metricValues\": [\n        {\n          \"name\": \"string\",\n          \"value\": 7266.41087165587\n        },\n        {\n          \"name\": \"string\",\n          \"value\": 5782.020936894576\n        }\n      ],\n      \"activationStatus\": \"ACTIVATION_STATUS_UNSPECIFIED\",\n      \"baselineValue\": 1638.962009131434,\n      \"alertKeyDetails\": {\n        \"key_0\": {\n          \"device\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"labels\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"interface\": {\n            \"snmpId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"snmpAlias\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"snmpSpeedMbps\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"site\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"latitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"longitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"location\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"country\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"extendedValue\": \"string\"\n        },\n        \"key_1\": {\n          \"device\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"labels\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"interface\": {\n            \"snmpId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"snmpAlias\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"snmpSpeedMbps\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"site\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"latitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"longitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"location\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"country\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"extendedValue\": \"string\"\n        }\n      }\n    },\n    \"nms\": {\n      \"activationInfo\": {\n        \"activate\": {\n          \"connector\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"conditionGroups\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"severity\": \"SEVERITY_UNSPECIFIED\",\n        \"clearManual\": true,\n        \"clearUnlessActivated\": false\n      },\n      \"datasetInfo\": {\n        \"customType\": false,\n        \"dimensions\": [\n          \"string\",\n          \"string\"\n        ],\n        \"entityType\": \"string\",\n        \"measurements\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"targets\": {\n        \"key_0\": {\n          \"fields\": {\n            \"key_0\": 4475.33718014536,\n            \"key_1\": 664.409736039031\n          },\n          \"tags\": {\n            \"key_0\": \"string\"\n          }\n        },\n        \"key_1\": {\n          \"fields\": {\n            \"key_0\": 5435.7974538518265\n          },\n          \"tags\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          }\n        }\n      },\n      \"metricValues\": {\n        \"key_0\": {\n          \"metrics\": {\n            \"key_0\": 1798.508064764457,\n            \"key_1\": 8783.639824233385\n          }\n        }\n      },\n      \"previousMetricValues\": {\n        \"key_0\": {\n          \"metrics\": {\n            \"key_0\": 494.8447873554129,\n            \"key_1\": 5581.14379819584\n          }\n        }\n      },\n      \"device\": {\n        \"key_0\": \"string\"\n      },\n      \"groupKey\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      }\n    },\n    \"mitigationId\": \"string\",\n    \"externalContexts\": [\n      {\n        \"servicenow\": {\n          \"incidentId\": \"<string>\",\n          \"incidentUrl\": \"<string>\"\n        },\n        \"jiraCloud\": {\n          \"issueKey\": \"<string>\",\n          \"issueUrl\": \"<string>\"\n        }\n      },\n      {\n        \"servicenow\": {\n          \"incidentId\": \"<string>\",\n          \"incidentUrl\": \"<string>\"\n        },\n        \"jiraCloud\": {\n          \"issueKey\": \"<string>\",\n          \"issueUrl\": \"<string>\"\n        }\n      }\n    ]\n  },\n  \"history\": [\n    {\n      \"severity\": \"SEVERITY_UNSPECIFIED\",\n      \"startTimeAt\": \"1977-05-12T08:11:40.536Z\",\n      \"endTimeAt\": \"1992-05-03T02:43:16.075Z\",\n      \"flow\": {\n        \"metricValues\": [\n          {\n            \"name\": \"string\",\n            \"value\": 147.10604574034392\n          },\n          {\n            \"name\": \"string\",\n            \"value\": 1849.9611986981856\n          }\n        ],\n        \"activationStatus\": \"ACTIVATION_STATUS_UNSPECIFIED\",\n        \"baselineValue\": 9566.134715427976,\n        \"alertKeyDetails\": {\n          \"key_0\": {\n            \"device\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"interface\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"site\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"extendedValue\": \"string\"\n          }\n        }\n      },\n      \"nms\": {\n        \"activationInfo\": {\n          \"activate\": {\n            \"connector\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"conditionGroups\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"severity\": \"SEVERITY_UNSPECIFIED\",\n          \"clearManual\": true,\n          \"clearUnlessActivated\": true\n        },\n        \"datasetInfo\": {\n          \"customType\": false,\n          \"dimensions\": [\n            \"string\",\n            \"string\"\n          ],\n          \"entityType\": \"string\",\n          \"measurements\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        \"targets\": {\n          \"key_0\": {\n            \"fields\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"tags\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          }\n        },\n        \"metricValues\": {\n          \"key_0\": {\n            \"metrics\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          }\n        },\n        \"previousMetricValues\": {\n          \"key_0\": {\n            \"metrics\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          \"key_1\": {\n            \"metrics\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          }\n        },\n        \"device\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\",\n          \"key_2\": \"string\"\n        },\n        \"groupKey\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\",\n          \"key_2\": \"string\"\n        }\n      }\n    },\n    {\n      \"severity\": \"SEVERITY_UNSPECIFIED\",\n      \"startTimeAt\": \"1998-06-08T16:41:24.336Z\",\n      \"endTimeAt\": \"2001-08-07T00:46:44.999Z\",\n      \"flow\": {\n        \"metricValues\": [\n          {\n            \"name\": \"string\",\n            \"value\": 5708.921097506121\n          },\n          {\n            \"name\": \"string\",\n            \"value\": 4594.66457222472\n          }\n        ],\n        \"activationStatus\": \"ACTIVATION_STATUS_UNSPECIFIED\",\n        \"baselineValue\": 3561.9188831305983,\n        \"alertKeyDetails\": {\n          \"key_0\": {\n            \"device\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"interface\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"site\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"extendedValue\": \"string\"\n          }\n        }\n      },\n      \"nms\": {\n        \"activationInfo\": {\n          \"activate\": {\n            \"connector\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"conditionGroups\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"severity\": \"SEVERITY_UNSPECIFIED\",\n          \"clearManual\": false,\n          \"clearUnlessActivated\": true\n        },\n        \"datasetInfo\": {\n          \"customType\": false,\n          \"dimensions\": [\n            \"string\",\n            \"string\"\n          ],\n          \"entityType\": \"string\",\n          \"measurements\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        \"targets\": {\n          \"key_0\": {\n            \"fields\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_2\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"tags\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_2\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          \"key_1\": {\n            \"fields\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"tags\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          \"key_2\": {\n            \"fields\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"tags\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_2\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_3\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          }\n        },\n        \"metricValues\": {\n          \"key_0\": {\n            \"metrics\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          }\n        },\n        \"previousMetricValues\": {\n          \"key_0\": {\n            \"metrics\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          }\n        },\n        \"device\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\",\n          \"key_2\": \"string\"\n        },\n        \"groupKey\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\",\n          \"key_2\": \"string\",\n          \"key_3\": \"string\"\n        }\n      }\n    }\n  ],\n  \"comments\": [\n    {\n      \"id\": \"string\",\n      \"text\": \"string\",\n      \"userId\": \"string\",\n      \"userName\": \"string\",\n      \"userFullName\": \"string\",\n      \"userEmail\": \"string\",\n      \"createdAt\": \"1980-03-30T21:46:28.200Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"text\": \"string\",\n      \"userId\": \"string\",\n      \"userName\": \"string\",\n      \"userFullName\": \"string\",\n      \"userEmail\": \"string\",\n      \"createdAt\": \"1965-06-10T20:53:26.874Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b605ae72-42ab-47f4-8217-bf6ec502bd4a",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v202505",
+                    "alerts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the alert to get."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1903,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "665d3d63-6013-4a20-b5d7-f024dedc8231",
+          "name": "Ack Alert",
+          "request": {
+            "name": "Ack Alert",
+            "description": {
+              "content": "Acknowledges an alert.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v202505",
+                "alerts",
+                ":id",
+                "ack"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The ID of the alert to acknowledge."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"comment\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f3208d81-69d5-4837-ba07-f423547a59cf",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v202505",
+                    "alerts",
+                    ":id",
+                    "ack"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the alert to acknowledge."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"comment\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"alert\": {\n    \"id\": \"string\",\n    \"source\": {\n      \"policyType\": \"POLICY_TYPE_UNSPECIFIED\",\n      \"id\": \"<string>\"\n    },\n    \"startTimeAt\": \"1963-08-01T19:08:29.993Z\",\n    \"endTimeAt\": \"1997-05-15T05:57:55.021Z\",\n    \"state\": \"ALERT_STATE_UNSPECIFIED\",\n    \"severity\": \"SEVERITY_UNSPECIFIED\",\n    \"highestSeverity\": \"SEVERITY_UNSPECIFIED\",\n    \"acknowledgement\": {\n      \"state\": \"ALERT_ACKNOWLEDGEMENT_UNSPECIFIED\",\n      \"ackedByUser\": \"string\",\n      \"autoAckId\": \"string\",\n      \"ackedAt\": \"1967-02-11T23:11:12.294Z\"\n    },\n    \"eventStartTimeAt\": \"1953-12-27T06:46:52.997Z\",\n    \"flow\": {\n      \"metricValues\": [\n        {\n          \"name\": \"string\",\n          \"value\": 1072.308828369274\n        },\n        {\n          \"name\": \"string\",\n          \"value\": 5900.0740428776935\n        }\n      ],\n      \"activationStatus\": \"ACTIVATION_STATUS_UNSPECIFIED\",\n      \"baselineValue\": 1566.392406878383,\n      \"alertKeyDetails\": {\n        \"key_0\": {\n          \"device\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"labels\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"interface\": {\n            \"snmpId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"snmpAlias\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"snmpSpeedMbps\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"site\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"latitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"longitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"location\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"country\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"extendedValue\": \"string\"\n        },\n        \"key_1\": {\n          \"device\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"labels\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"interface\": {\n            \"snmpId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"snmpAlias\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"snmpSpeedMbps\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"site\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"latitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"longitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"location\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"country\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"extendedValue\": \"string\"\n        }\n      }\n    },\n    \"nms\": {\n      \"activationInfo\": {\n        \"activate\": {\n          \"connector\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"conditionGroups\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"severity\": \"SEVERITY_UNSPECIFIED\",\n        \"clearManual\": false,\n        \"clearUnlessActivated\": true\n      },\n      \"datasetInfo\": {\n        \"customType\": false,\n        \"dimensions\": [\n          \"string\",\n          \"string\"\n        ],\n        \"entityType\": \"string\",\n        \"measurements\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"targets\": {\n        \"key_0\": {\n          \"fields\": {\n            \"key_0\": 7030.254715568001\n          },\n          \"tags\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          }\n        },\n        \"key_1\": {\n          \"fields\": {\n            \"key_0\": 1204.5979259039098,\n            \"key_1\": 4258.656531511241\n          },\n          \"tags\": {\n            \"key_0\": \"string\"\n          }\n        },\n        \"key_2\": {\n          \"fields\": {\n            \"key_0\": 9114.994385179463,\n            \"key_1\": 5319.718978599055\n          },\n          \"tags\": {\n            \"key_0\": \"string\"\n          }\n        }\n      },\n      \"metricValues\": {\n        \"key_0\": {\n          \"metrics\": {\n            \"key_0\": 7196.553983956259,\n            \"key_1\": 1083.7380890523184\n          }\n        },\n        \"key_1\": {\n          \"metrics\": {\n            \"key_0\": 4976.5035045740115,\n            \"key_1\": 8678.129071039524,\n            \"key_2\": 5983.053929399133\n          }\n        }\n      },\n      \"previousMetricValues\": {\n        \"key_0\": {\n          \"metrics\": {\n            \"key_0\": 7188.0523261379385,\n            \"key_1\": 8703.852378026853,\n            \"key_2\": 9407.147833593697\n          }\n        },\n        \"key_1\": {\n          \"metrics\": {\n            \"key_0\": 3952.7505343168214\n          }\n        },\n        \"key_2\": {\n          \"metrics\": {\n            \"key_0\": 774.4436116720632\n          }\n        }\n      },\n      \"device\": {\n        \"key_0\": \"string\"\n      },\n      \"groupKey\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      }\n    },\n    \"mitigationId\": \"string\",\n    \"externalContexts\": [\n      {\n        \"servicenow\": {\n          \"incidentId\": \"<string>\",\n          \"incidentUrl\": \"<string>\"\n        },\n        \"jiraCloud\": {\n          \"issueKey\": \"<string>\",\n          \"issueUrl\": \"<string>\"\n        }\n      },\n      {\n        \"servicenow\": {\n          \"incidentId\": \"<string>\",\n          \"incidentUrl\": \"<string>\"\n        },\n        \"jiraCloud\": {\n          \"issueKey\": \"<string>\",\n          \"issueUrl\": \"<string>\"\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b4d77748-d023-4856-9a63-1ef3ba10e742",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v202505",
+                    "alerts",
+                    ":id",
+                    "ack"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the alert to acknowledge."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"comment\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1903,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "22b40825-7dd0-4ecb-86b8-5c81d0b0303f",
+          "name": "UnAck Alert",
+          "request": {
+            "name": "UnAck Alert",
+            "description": {
+              "content": "Unacknowledges an alert (removes the acknowledgement).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v202505",
+                "alerts",
+                ":id",
+                "unack"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The ID of the alert to remove the acknowledgement from."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "63c61922-503a-41fc-a5ae-a36c795b7f80",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v202505",
+                    "alerts",
+                    ":id",
+                    "unack"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the alert to remove the acknowledgement from."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"alert\": {\n    \"id\": \"string\",\n    \"source\": {\n      \"policyType\": \"POLICY_TYPE_UNSPECIFIED\",\n      \"id\": \"<string>\"\n    },\n    \"startTimeAt\": \"1963-08-01T19:08:29.993Z\",\n    \"endTimeAt\": \"1997-05-15T05:57:55.021Z\",\n    \"state\": \"ALERT_STATE_UNSPECIFIED\",\n    \"severity\": \"SEVERITY_UNSPECIFIED\",\n    \"highestSeverity\": \"SEVERITY_UNSPECIFIED\",\n    \"acknowledgement\": {\n      \"state\": \"ALERT_ACKNOWLEDGEMENT_UNSPECIFIED\",\n      \"ackedByUser\": \"string\",\n      \"autoAckId\": \"string\",\n      \"ackedAt\": \"1967-02-11T23:11:12.294Z\"\n    },\n    \"eventStartTimeAt\": \"1953-12-27T06:46:52.997Z\",\n    \"flow\": {\n      \"metricValues\": [\n        {\n          \"name\": \"string\",\n          \"value\": 1072.308828369274\n        },\n        {\n          \"name\": \"string\",\n          \"value\": 5900.0740428776935\n        }\n      ],\n      \"activationStatus\": \"ACTIVATION_STATUS_UNSPECIFIED\",\n      \"baselineValue\": 1566.392406878383,\n      \"alertKeyDetails\": {\n        \"key_0\": {\n          \"device\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"labels\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"interface\": {\n            \"snmpId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"snmpAlias\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"snmpSpeedMbps\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"site\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"latitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"longitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"location\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"country\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"extendedValue\": \"string\"\n        },\n        \"key_1\": {\n          \"device\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"labels\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"interface\": {\n            \"snmpId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"snmpAlias\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"snmpSpeedMbps\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"site\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"latitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"longitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"location\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"country\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"extendedValue\": \"string\"\n        }\n      }\n    },\n    \"nms\": {\n      \"activationInfo\": {\n        \"activate\": {\n          \"connector\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"conditionGroups\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"severity\": \"SEVERITY_UNSPECIFIED\",\n        \"clearManual\": false,\n        \"clearUnlessActivated\": true\n      },\n      \"datasetInfo\": {\n        \"customType\": false,\n        \"dimensions\": [\n          \"string\",\n          \"string\"\n        ],\n        \"entityType\": \"string\",\n        \"measurements\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"targets\": {\n        \"key_0\": {\n          \"fields\": {\n            \"key_0\": 7030.254715568001\n          },\n          \"tags\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          }\n        },\n        \"key_1\": {\n          \"fields\": {\n            \"key_0\": 1204.5979259039098,\n            \"key_1\": 4258.656531511241\n          },\n          \"tags\": {\n            \"key_0\": \"string\"\n          }\n        },\n        \"key_2\": {\n          \"fields\": {\n            \"key_0\": 9114.994385179463,\n            \"key_1\": 5319.718978599055\n          },\n          \"tags\": {\n            \"key_0\": \"string\"\n          }\n        }\n      },\n      \"metricValues\": {\n        \"key_0\": {\n          \"metrics\": {\n            \"key_0\": 7196.553983956259,\n            \"key_1\": 1083.7380890523184\n          }\n        },\n        \"key_1\": {\n          \"metrics\": {\n            \"key_0\": 4976.5035045740115,\n            \"key_1\": 8678.129071039524,\n            \"key_2\": 5983.053929399133\n          }\n        }\n      },\n      \"previousMetricValues\": {\n        \"key_0\": {\n          \"metrics\": {\n            \"key_0\": 7188.0523261379385,\n            \"key_1\": 8703.852378026853,\n            \"key_2\": 9407.147833593697\n          }\n        },\n        \"key_1\": {\n          \"metrics\": {\n            \"key_0\": 3952.7505343168214\n          }\n        },\n        \"key_2\": {\n          \"metrics\": {\n            \"key_0\": 774.4436116720632\n          }\n        }\n      },\n      \"device\": {\n        \"key_0\": \"string\"\n      },\n      \"groupKey\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      }\n    },\n    \"mitigationId\": \"string\",\n    \"externalContexts\": [\n      {\n        \"servicenow\": {\n          \"incidentId\": \"<string>\",\n          \"incidentUrl\": \"<string>\"\n        },\n        \"jiraCloud\": {\n          \"issueKey\": \"<string>\",\n          \"issueUrl\": \"<string>\"\n        }\n      },\n      {\n        \"servicenow\": {\n          \"incidentId\": \"<string>\",\n          \"incidentUrl\": \"<string>\"\n        },\n        \"jiraCloud\": {\n          \"issueKey\": \"<string>\",\n          \"issueUrl\": \"<string>\"\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6e252278-c2ff-4fb7-841d-feb49df85b7a",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v202505",
+                    "alerts",
+                    ":id",
+                    "unack"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the alert to remove the acknowledgement from."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1903,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-CH-Auth-Email"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "95bded5e-9c3a-4d33-866b-b12a6de314b9",
+    "name": "AI Advisor AiAdvisorDataService AlertService API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "# Overview\nProvides programmatic access to AI Advisor.\n\nContact Support:\n Name: Kentik API Engineering",
+      "type": "text/plain"
+    }
+  }
+}

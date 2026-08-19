@@ -9,16 +9,13 @@ server:
   hosted: true
   transport: http
   url: null
-  notes: >-
-    Kentik publishes a hosted AI Advisor MCP Server that lets agents (Claude
-    Desktop, Cursor, and other MCP clients) query Kentik network observability
-    data in natural language. The KB documents Getting Started, Configuration
-    Examples, Troubleshooting, an MCP Tools Reference, and an MCP Payload
-    Reference. The exact remote endpoint and per-tool JSON schema are provided
-    inside the Kentik portal / KB configuration pages and are not enumerated on
-    a public unauthenticated page; the underlying service is the AI Advisor API
-    (openapi/kentik-ai-advisor-openapi.json). Users must reference "Kentik" in a
-    prompt to route to these tools.
+  notes: Kentik publishes a hosted AI Advisor MCP Server that lets agents (Claude Desktop, Cursor, and
+    other MCP clients) query Kentik network observability data in natural language. The KB documents Getting
+    Started, Configuration Examples, Troubleshooting, an MCP Tools Reference, and an MCP Payload Reference.
+    The exact remote endpoint and per-tool JSON schema are provided inside the Kentik portal / KB configuration
+    pages and are not enumerated on a public unauthenticated page; the underlying service is the AI Advisor
+    API (openapi/kentik-ai-advisor-openapi.json). Users must reference "Kentik" in a prompt to route to
+    these tools.
 capabilities:
 - Natural-language queries over Kentik network telemetry
 - Multi-turn conversations with retained context
@@ -32,3 +29,8 @@ backing_api:
   - CreateChatSession
   - UpdateChatSession
   - GetChatSession
+deployment:
+  mode: remote
+  verified: searched
+  checked: '2026-08-12'
+  source: catalog MCP census

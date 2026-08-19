@@ -1,0 +1,1597 @@
+{
+  "item": [
+    {
+      "id": "6df0339c-1a22-43cd-b0e1-e1436928a8e7",
+      "name": "SiteService",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3a7b49b7-31f2-460e-a8b2-b831ff24a38b",
+          "name": "List all site markets.",
+          "request": {
+            "name": "List all site markets.",
+            "description": {
+              "content": "Returns list of configured site markets.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "site",
+                "v202509",
+                "site_markets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5c2fb76c-7fd3-4835-b16c-1f3689b021d8",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "site",
+                    "v202509",
+                    "site_markets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"siteMarkets\": [\n    {\n      \"name\": \"string\",\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"numberOfSites\": 2728,\n      \"cdate\": \"1953-02-06T16:24:36.685Z\",\n      \"edate\": \"2019-09-14T09:02:57.550Z\"\n    },\n    {\n      \"name\": \"string\",\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"numberOfSites\": 5248,\n      \"cdate\": \"1947-01-16T17:40:41.870Z\",\n      \"edate\": \"1947-07-02T05:49:31.585Z\"\n    }\n  ],\n  \"invalidCount\": 8918\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8025db68-411a-46b9-81d7-e68f83e705d0",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "site",
+                    "v202509",
+                    "site_markets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6541,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "12a464b8-41b8-40a9-869a-c27f8ede99b0",
+          "name": "Configure a new site market.",
+          "request": {
+            "name": "Configure a new site market.",
+            "description": {
+              "content": "Create configuration for a new site market. Returns the newly created configuration.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "site",
+                "v202509",
+                "site_markets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"siteMarket\": {\n    \"name\": \"<string>\",\n    \"description\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e48c15ec-5182-47fe-a92a-6b508123bec5",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "site",
+                    "v202509",
+                    "site_markets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"siteMarket\": {\n    \"name\": \"<string>\",\n    \"description\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"siteMarket\": {\n    \"name\": \"<string>\",\n    \"id\": \"string\",\n    \"description\": \"<string>\",\n    \"numberOfSites\": 2548,\n    \"cdate\": \"2022-09-23T14:38:29.988Z\",\n    \"edate\": \"1992-11-11T06:13:51.731Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "84eb1dfd-a4ca-4888-b4a6-2cd2fabc4fdc",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "site",
+                    "v202509",
+                    "site_markets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"siteMarket\": {\n    \"name\": \"<string>\",\n    \"description\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2898,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "40f34932-8649-45be-93e6-49de0e155d1b",
+          "name": "Retrieve configuration of a site market.",
+          "request": {
+            "name": "Retrieve configuration of a site market.",
+            "description": {
+              "content": "Returns configuration of a site market specified by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "site",
+                "v202509",
+                "site_markets",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) ID of the requested site market"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "10e1fc4d-528b-4d24-ba3e-b6678e8cf94d",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "site",
+                    "v202509",
+                    "site_markets",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) ID of the requested site market"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"siteMarket\": {\n    \"name\": \"<string>\",\n    \"id\": \"string\",\n    \"description\": \"<string>\",\n    \"numberOfSites\": 921,\n    \"cdate\": \"1953-04-11T11:43:05.441Z\",\n    \"edate\": \"1953-10-13T09:34:27.537Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dc3887c1-664a-4753-a676-c7b7370a7a52",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "site",
+                    "v202509",
+                    "site_markets",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) ID of the requested site market"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2898,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c304cff5-6ed7-4a92-ae1f-b9ef2eed1d3e",
+          "name": "Delete configuration of a site market.",
+          "request": {
+            "name": "Delete configuration of a site market.",
+            "description": {
+              "content": "Deletes configuration of a site market with specific ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "site",
+                "v202509",
+                "site_markets",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) ID of the site market to be deleted"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5ac9759e-3167-4dd2-89d1-f95dec9e4e45",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "site",
+                    "v202509",
+                    "site_markets",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) ID of the site market to be deleted"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "03bbdf0f-c18f-4725-b35b-46fb2164fde8",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "site",
+                    "v202509",
+                    "site_markets",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) ID of the site market to be deleted"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2898,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a9001550-3c5f-4a3e-9575-f4d942663fb5",
+          "name": "Updates configuration of a site market.",
+          "request": {
+            "name": "Updates configuration of a site market.",
+            "description": {
+              "content": "Replaces configuration of a site market with attributes in the request. Returns the updated configuration.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "site",
+                "v202509",
+                "site_markets",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) System generated unique identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"siteMarket\": {\n    \"name\": \"<string>\",\n    \"description\": \"<string>\"\n  },\n  \"name\": \"string\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "67bc8071-5600-4057-8e4f-64ddc8f442b7",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "site",
+                    "v202509",
+                    "site_markets",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) System generated unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"siteMarket\": {\n    \"name\": \"<string>\",\n    \"description\": \"<string>\"\n  },\n  \"name\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"siteMarket\": {\n    \"name\": \"<string>\",\n    \"id\": \"string\",\n    \"description\": \"<string>\",\n    \"numberOfSites\": 1243,\n    \"cdate\": \"1971-06-20T16:29:54.699Z\",\n    \"edate\": \"2023-12-13T09:56:21.119Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "99a71dca-6156-41b3-a5c0-c1d4023304f7",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "site",
+                    "v202509",
+                    "site_markets",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) System generated unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"siteMarket\": {\n    \"name\": \"<string>\",\n    \"description\": \"<string>\"\n  },\n  \"name\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2898,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cebcf8cd-2eba-4563-a59c-fc3b5a6c25e2",
+          "name": "List all sites.",
+          "request": {
+            "name": "List all sites.",
+            "description": {
+              "content": "Returns list of configured sites.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "site",
+                "v202509",
+                "sites"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "850bb013-333e-401e-8535-e12334add0e3",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "site",
+                    "v202509",
+                    "sites"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"sites\": [\n    {\n      \"title\": \"string\",\n      \"type\": \"SITE_TYPE_UNSPECIFIED\",\n      \"id\": \"string\",\n      \"lat\": 3366.843665758408,\n      \"lon\": 1297.2069415584476,\n      \"postalAddress\": {\n        \"address\": \"string\",\n        \"city\": \"string\",\n        \"country\": \"string\",\n        \"region\": \"string\",\n        \"postalCode\": \"string\"\n      },\n      \"addressClassification\": {\n        \"infrastructureNetworks\": [\n          \"string\",\n          \"string\"\n        ],\n        \"userAccessNetworks\": [\n          \"string\",\n          \"string\"\n        ],\n        \"otherNetworks\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"architecture\": [\n        {\n          \"layers\": [\n            {\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"deviceIds\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"deviceIds\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"layers\": [\n            {\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"deviceIds\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"deviceIds\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ],\n      \"siteMarket\": {\n        \"name\": \"<string>\",\n        \"id\": \"string\",\n        \"description\": \"<string>\",\n        \"numberOfSites\": 6127,\n        \"cdate\": \"2005-03-16T16:11:43.048Z\",\n        \"edate\": \"2002-07-16T16:14:00.610Z\"\n      },\n      \"peeringdbSiteMapping\": [\n        {\n          \"id\": \"string\",\n          \"siteId\": \"string\",\n          \"peeringdbFacId\": \"string\",\n          \"edate\": \"2022-12-07T16:19:54.742Z\",\n          \"cdate\": \"1976-01-17T22:50:00.930Z\",\n          \"companyId\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"siteId\": \"string\",\n          \"peeringdbFacId\": \"string\",\n          \"edate\": \"1980-10-03T08:07:10.998Z\",\n          \"cdate\": \"1997-01-23T05:44:46.305Z\",\n          \"companyId\": \"string\"\n        }\n      ]\n    },\n    {\n      \"title\": \"string\",\n      \"type\": \"SITE_TYPE_UNSPECIFIED\",\n      \"id\": \"string\",\n      \"lat\": 2978.551868135104,\n      \"lon\": 61.50638416024257,\n      \"postalAddress\": {\n        \"address\": \"string\",\n        \"city\": \"string\",\n        \"country\": \"string\",\n        \"region\": \"string\",\n        \"postalCode\": \"string\"\n      },\n      \"addressClassification\": {\n        \"infrastructureNetworks\": [\n          \"string\",\n          \"string\"\n        ],\n        \"userAccessNetworks\": [\n          \"string\",\n          \"string\"\n        ],\n        \"otherNetworks\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"architecture\": [\n        {\n          \"layers\": [\n            {\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"deviceIds\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"deviceIds\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"layers\": [\n            {\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"deviceIds\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"deviceIds\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ],\n      \"siteMarket\": {\n        \"name\": \"<string>\",\n        \"id\": \"string\",\n        \"description\": \"<string>\",\n        \"numberOfSites\": 7023,\n        \"cdate\": \"1956-09-16T08:23:56.376Z\",\n        \"edate\": \"2001-03-03T01:42:01.477Z\"\n      },\n      \"peeringdbSiteMapping\": [\n        {\n          \"id\": \"string\",\n          \"siteId\": \"string\",\n          \"peeringdbFacId\": \"string\",\n          \"edate\": \"1985-07-29T11:34:10.677Z\",\n          \"cdate\": \"2023-12-03T12:28:06.780Z\",\n          \"companyId\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"siteId\": \"string\",\n          \"peeringdbFacId\": \"string\",\n          \"edate\": \"1995-07-31T19:48:51.976Z\",\n          \"cdate\": \"2000-01-12T07:01:59.308Z\",\n          \"companyId\": \"string\"\n        }\n      ]\n    }\n  ],\n  \"invalidCount\": 4124\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1fd55ca2-b52a-4af9-9433-0b2fb87649a1",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "site",
+                    "v202509",
+                    "sites"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2898,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "72cbe9fe-cbc2-4e8f-b072-295cf9c8ec14",
+          "name": "Configure a new site.",
+          "request": {
+            "name": "Configure a new site.",
+            "description": {
+              "content": "Create configuration for a new site. Returns the newly created configuration.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "site",
+                "v202509",
+                "sites"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"site\": {\n    \"title\": \"<string>\",\n    \"type\": \"SITE_TYPE_UNSPECIFIED\",\n    \"lat\": \"<double>\",\n    \"lon\": \"<double>\",\n    \"postalAddress\": {\n      \"address\": \"<string>\",\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"region\": \"<string>\",\n      \"postalCode\": \"<string>\"\n    },\n    \"addressClassification\": {\n      \"infrastructureNetworks\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"userAccessNetworks\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"otherNetworks\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"architecture\": [\n      {\n        \"layers\": [\n          {\n            \"name\": \"<string>\",\n            \"deviceIds\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"name\": \"<string>\",\n            \"deviceIds\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      {\n        \"layers\": [\n          {\n            \"name\": \"<string>\",\n            \"deviceIds\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"name\": \"<string>\",\n            \"deviceIds\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      }\n    ],\n    \"siteMarket\": {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\"\n    },\n    \"peeringdbSiteMapping\": [\n      {\n        \"id\": \"<string>\",\n        \"siteId\": \"<string>\",\n        \"peeringdbFacId\": \"<string>\",\n        \"companyId\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"siteId\": \"<string>\",\n        \"peeringdbFacId\": \"<string>\",\n        \"companyId\": \"<string>\"\n      }\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1bfc7171-c2e4-4303-89c6-ba8c6eb1b4da",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "site",
+                    "v202509",
+                    "sites"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"site\": {\n    \"title\": \"<string>\",\n    \"type\": \"SITE_TYPE_UNSPECIFIED\",\n    \"lat\": \"<double>\",\n    \"lon\": \"<double>\",\n    \"postalAddress\": {\n      \"address\": \"<string>\",\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"region\": \"<string>\",\n      \"postalCode\": \"<string>\"\n    },\n    \"addressClassification\": {\n      \"infrastructureNetworks\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"userAccessNetworks\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"otherNetworks\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"architecture\": [\n      {\n        \"layers\": [\n          {\n            \"name\": \"<string>\",\n            \"deviceIds\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"name\": \"<string>\",\n            \"deviceIds\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      {\n        \"layers\": [\n          {\n            \"name\": \"<string>\",\n            \"deviceIds\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"name\": \"<string>\",\n            \"deviceIds\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      }\n    ],\n    \"siteMarket\": {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\"\n    },\n    \"peeringdbSiteMapping\": [\n      {\n        \"id\": \"<string>\",\n        \"siteId\": \"<string>\",\n        \"peeringdbFacId\": \"<string>\",\n        \"companyId\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"siteId\": \"<string>\",\n        \"peeringdbFacId\": \"<string>\",\n        \"companyId\": \"<string>\"\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"site\": {\n    \"title\": \"<string>\",\n    \"type\": \"SITE_TYPE_UNSPECIFIED\",\n    \"id\": \"string\",\n    \"lat\": \"<double>\",\n    \"lon\": \"<double>\",\n    \"postalAddress\": {\n      \"address\": \"<string>\",\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"region\": \"<string>\",\n      \"postalCode\": \"<string>\"\n    },\n    \"addressClassification\": {\n      \"infrastructureNetworks\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"userAccessNetworks\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"otherNetworks\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"architecture\": [\n      {\n        \"layers\": [\n          {\n            \"name\": \"<string>\",\n            \"deviceIds\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"name\": \"<string>\",\n            \"deviceIds\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      {\n        \"layers\": [\n          {\n            \"name\": \"<string>\",\n            \"deviceIds\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"name\": \"<string>\",\n            \"deviceIds\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      }\n    ],\n    \"siteMarket\": {\n      \"name\": \"<string>\",\n      \"id\": \"string\",\n      \"description\": \"<string>\",\n      \"numberOfSites\": 7984,\n      \"cdate\": \"1998-03-24T09:59:37.689Z\",\n      \"edate\": \"1993-02-14T11:29:31.628Z\"\n    },\n    \"peeringdbSiteMapping\": [\n      {\n        \"id\": \"<string>\",\n        \"siteId\": \"<string>\",\n        \"peeringdbFacId\": \"<string>\",\n        \"edate\": \"2006-12-22T10:24:23.794Z\",\n        \"cdate\": \"1987-11-10T11:27:41.635Z\",\n        \"companyId\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"siteId\": \"<string>\",\n        \"peeringdbFacId\": \"<string>\",\n        \"edate\": \"1997-05-29T12:10:25.619Z\",\n        \"cdate\": \"1997-12-28T22:17:16.594Z\",\n        \"companyId\": \"<string>\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6f3acf8b-09bc-4a87-b343-aaa82434f56a",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "site",
+                    "v202509",
+                    "sites"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"site\": {\n    \"title\": \"<string>\",\n    \"type\": \"SITE_TYPE_UNSPECIFIED\",\n    \"lat\": \"<double>\",\n    \"lon\": \"<double>\",\n    \"postalAddress\": {\n      \"address\": \"<string>\",\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"region\": \"<string>\",\n      \"postalCode\": \"<string>\"\n    },\n    \"addressClassification\": {\n      \"infrastructureNetworks\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"userAccessNetworks\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"otherNetworks\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"architecture\": [\n      {\n        \"layers\": [\n          {\n            \"name\": \"<string>\",\n            \"deviceIds\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"name\": \"<string>\",\n            \"deviceIds\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      {\n        \"layers\": [\n          {\n            \"name\": \"<string>\",\n            \"deviceIds\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"name\": \"<string>\",\n            \"deviceIds\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      }\n    ],\n    \"siteMarket\": {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\"\n    },\n    \"peeringdbSiteMapping\": [\n      {\n        \"id\": \"<string>\",\n        \"siteId\": \"<string>\",\n        \"peeringdbFacId\": \"<string>\",\n        \"companyId\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"siteId\": \"<string>\",\n        \"peeringdbFacId\": \"<string>\",\n        \"companyId\": \"<string>\"\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2898,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ec710ad9-7367-4566-826e-5ebafbbb85d0",
+          "name": "Retrieve configuration of a site.",
+          "request": {
+            "name": "Retrieve configuration of a site.",
+            "description": {
+              "content": "Returns configuration of a site specified by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "site",
+                "v202509",
+                "sites",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) ID of the requested site"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "171c2bc7-5f4d-4fd7-bb8a-aaa2f6e32824",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "site",
+                    "v202509",
+                    "sites",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) ID of the requested site"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"site\": {\n    \"title\": \"<string>\",\n    \"type\": \"SITE_TYPE_UNSPECIFIED\",\n    \"id\": \"string\",\n    \"lat\": \"<double>\",\n    \"lon\": \"<double>\",\n    \"postalAddress\": {\n      \"address\": \"<string>\",\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"region\": \"<string>\",\n      \"postalCode\": \"<string>\"\n    },\n    \"addressClassification\": {\n      \"infrastructureNetworks\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"userAccessNetworks\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"otherNetworks\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"architecture\": [\n      {\n        \"layers\": [\n          {\n            \"name\": \"<string>\",\n            \"deviceIds\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"name\": \"<string>\",\n            \"deviceIds\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      {\n        \"layers\": [\n          {\n            \"name\": \"<string>\",\n            \"deviceIds\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"name\": \"<string>\",\n            \"deviceIds\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      }\n    ],\n    \"siteMarket\": {\n      \"name\": \"<string>\",\n      \"id\": \"string\",\n      \"description\": \"<string>\",\n      \"numberOfSites\": 3900,\n      \"cdate\": \"2012-06-05T15:16:56.340Z\",\n      \"edate\": \"2013-08-02T23:41:47.064Z\"\n    },\n    \"peeringdbSiteMapping\": [\n      {\n        \"id\": \"<string>\",\n        \"siteId\": \"<string>\",\n        \"peeringdbFacId\": \"<string>\",\n        \"edate\": \"1980-09-19T02:46:54.829Z\",\n        \"cdate\": \"2023-03-15T15:54:15.545Z\",\n        \"companyId\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"siteId\": \"<string>\",\n        \"peeringdbFacId\": \"<string>\",\n        \"edate\": \"2023-11-29T00:54:13.174Z\",\n        \"cdate\": \"1962-11-01T19:47:35.725Z\",\n        \"companyId\": \"<string>\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7773eaae-57bc-4a86-9210-c38e2ff0aa7d",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "site",
+                    "v202509",
+                    "sites",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) ID of the requested site"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2898,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6d021fa2-bacb-4c96-bd8c-40f7e56c5f9e",
+          "name": "Delete configuration of a site.",
+          "request": {
+            "name": "Delete configuration of a site.",
+            "description": {
+              "content": "Deletes configuration of a site with specific ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "site",
+                "v202509",
+                "sites",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) ID of the site to be deleted"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0ba0481e-f1db-4608-8470-d4798e3ac405",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "site",
+                    "v202509",
+                    "sites",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) ID of the site to be deleted"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3cd9e00d-da6b-4cd5-acf5-af2904b6c684",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "site",
+                    "v202509",
+                    "sites",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) ID of the site to be deleted"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2898,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6f80c413-e5af-412b-96e0-0542fc000788",
+          "name": "Updates configuration of a site.",
+          "request": {
+            "name": "Updates configuration of a site.",
+            "description": {
+              "content": "Replaces configuration of a site with attributes in the request. Returns the updated configuration.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "site",
+                "v202509",
+                "sites",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) System generated unique identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"site\": {\n    \"title\": \"<string>\",\n    \"lat\": \"<double>\",\n    \"lon\": \"<double>\",\n    \"postalAddress\": {\n      \"address\": \"<string>\",\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"region\": \"<string>\",\n      \"postalCode\": \"<string>\"\n    },\n    \"type\": \"SITE_TYPE_UNSPECIFIED\",\n    \"addressClassification\": {\n      \"infrastructureNetworks\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"userAccessNetworks\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"otherNetworks\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"architecture\": [\n      {\n        \"layers\": [\n          {\n            \"name\": \"<string>\",\n            \"deviceIds\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          {\n            \"name\": \"<string>\",\n            \"deviceIds\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          }\n        ]\n      },\n      {\n        \"layers\": [\n          {\n            \"name\": \"<string>\",\n            \"deviceIds\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          {\n            \"name\": \"<string>\",\n            \"deviceIds\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          }\n        ]\n      }\n    ],\n    \"siteMarket\": {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\"\n    },\n    \"peeringdbSiteMapping\": [\n      {\n        \"id\": \"<string>\",\n        \"siteId\": \"<string>\",\n        \"peeringdbFacId\": \"<string>\",\n        \"companyId\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"siteId\": \"<string>\",\n        \"peeringdbFacId\": \"<string>\",\n        \"companyId\": \"<string>\"\n      }\n    ]\n  },\n  \"title\": 5531,\n  \"type\": \"string\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "35751aeb-eac5-420f-a5ac-b42223b66d2d",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "site",
+                    "v202509",
+                    "sites",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) System generated unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"site\": {\n    \"title\": \"<string>\",\n    \"lat\": \"<double>\",\n    \"lon\": \"<double>\",\n    \"postalAddress\": {\n      \"address\": \"<string>\",\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"region\": \"<string>\",\n      \"postalCode\": \"<string>\"\n    },\n    \"type\": \"SITE_TYPE_UNSPECIFIED\",\n    \"addressClassification\": {\n      \"infrastructureNetworks\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"userAccessNetworks\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"otherNetworks\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"architecture\": [\n      {\n        \"layers\": [\n          {\n            \"name\": \"<string>\",\n            \"deviceIds\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          {\n            \"name\": \"<string>\",\n            \"deviceIds\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          }\n        ]\n      },\n      {\n        \"layers\": [\n          {\n            \"name\": \"<string>\",\n            \"deviceIds\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          {\n            \"name\": \"<string>\",\n            \"deviceIds\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          }\n        ]\n      }\n    ],\n    \"siteMarket\": {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\"\n    },\n    \"peeringdbSiteMapping\": [\n      {\n        \"id\": \"<string>\",\n        \"siteId\": \"<string>\",\n        \"peeringdbFacId\": \"<string>\",\n        \"companyId\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"siteId\": \"<string>\",\n        \"peeringdbFacId\": \"<string>\",\n        \"companyId\": \"<string>\"\n      }\n    ]\n  },\n  \"title\": false,\n  \"type\": \"string\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"site\": {\n    \"title\": \"<string>\",\n    \"type\": \"SITE_TYPE_UNSPECIFIED\",\n    \"id\": \"string\",\n    \"lat\": \"<double>\",\n    \"lon\": \"<double>\",\n    \"postalAddress\": {\n      \"address\": \"<string>\",\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"region\": \"<string>\",\n      \"postalCode\": \"<string>\"\n    },\n    \"addressClassification\": {\n      \"infrastructureNetworks\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"userAccessNetworks\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"otherNetworks\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"architecture\": [\n      {\n        \"layers\": [\n          {\n            \"name\": \"<string>\",\n            \"deviceIds\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"name\": \"<string>\",\n            \"deviceIds\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      {\n        \"layers\": [\n          {\n            \"name\": \"<string>\",\n            \"deviceIds\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"name\": \"<string>\",\n            \"deviceIds\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      }\n    ],\n    \"siteMarket\": {\n      \"name\": \"<string>\",\n      \"id\": \"string\",\n      \"description\": \"<string>\",\n      \"numberOfSites\": 5515,\n      \"cdate\": \"2020-01-25T17:26:32.009Z\",\n      \"edate\": \"2010-10-24T18:09:17.280Z\"\n    },\n    \"peeringdbSiteMapping\": [\n      {\n        \"id\": \"<string>\",\n        \"siteId\": \"<string>\",\n        \"peeringdbFacId\": \"<string>\",\n        \"edate\": \"2025-06-11T03:11:16.106Z\",\n        \"cdate\": \"1996-08-24T02:32:32.807Z\",\n        \"companyId\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"siteId\": \"<string>\",\n        \"peeringdbFacId\": \"<string>\",\n        \"edate\": \"2008-06-15T16:21:57.983Z\",\n        \"cdate\": \"1954-06-08T03:15:48.115Z\",\n        \"companyId\": \"<string>\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b3d146cb-3d08-42f4-9f25-89fd55d9bd34",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "site",
+                    "v202509",
+                    "sites",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) System generated unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"site\": {\n    \"title\": \"<string>\",\n    \"lat\": \"<double>\",\n    \"lon\": \"<double>\",\n    \"postalAddress\": {\n      \"address\": \"<string>\",\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"region\": \"<string>\",\n      \"postalCode\": \"<string>\"\n    },\n    \"type\": \"SITE_TYPE_UNSPECIFIED\",\n    \"addressClassification\": {\n      \"infrastructureNetworks\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"userAccessNetworks\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"otherNetworks\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"architecture\": [\n      {\n        \"layers\": [\n          {\n            \"name\": \"<string>\",\n            \"deviceIds\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          {\n            \"name\": \"<string>\",\n            \"deviceIds\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          }\n        ]\n      },\n      {\n        \"layers\": [\n          {\n            \"name\": \"<string>\",\n            \"deviceIds\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          {\n            \"name\": \"<string>\",\n            \"deviceIds\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          }\n        ]\n      }\n    ],\n    \"siteMarket\": {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\"\n    },\n    \"peeringdbSiteMapping\": [\n      {\n        \"id\": \"<string>\",\n        \"siteId\": \"<string>\",\n        \"peeringdbFacId\": \"<string>\",\n        \"companyId\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"siteId\": \"<string>\",\n        \"peeringdbFacId\": \"<string>\",\n        \"companyId\": \"<string>\"\n      }\n    ]\n  },\n  \"title\": false,\n  \"type\": \"string\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2898,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-CH-Auth-Email"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "80e78e16-ddbe-4f3f-8cab-68b16b4047a0",
+    "name": "AI Advisor AiAdvisorDataService SiteService API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "# Overview\nProvides programmatic access to AI Advisor.\n\nContact Support:\n Name: Kentik API Engineering",
+      "type": "text/plain"
+    }
+  }
+}

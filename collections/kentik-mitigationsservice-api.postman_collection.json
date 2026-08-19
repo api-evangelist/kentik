@@ -1,0 +1,1219 @@
+{
+  "item": [
+    {
+      "id": "33bdcb7d-64cb-4571-aadb-514136ca86a5",
+      "name": "MitigationsService",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e1f0cf37-7e9d-4ed9-8b4a-c98ea7fc0d96",
+          "name": "List Mitigations",
+          "request": {
+            "name": "List Mitigations",
+            "description": {
+              "content": "Returns a list of mitigations.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v202505",
+                "mitigations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pagination.limit",
+                  "value": "<uint64>",
+                  "description": "limit is how many items to return at most"
+                },
+                {
+                  "disabled": false,
+                  "key": "pagination.offset",
+                  "value": "<uint64>",
+                  "description": "offset is the offset into the list of items"
+                },
+                {
+                  "disabled": false,
+                  "key": "pagination.includeTotalCount",
+                  "value": "<boolean>",
+                  "description": "include_total_count is a flag to enforce API service to include the total count of items in the response,\nwhich in some cases may be very expensive to fetch"
+                },
+                {
+                  "disabled": false,
+                  "key": "filters.createdAt.start",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filters.createdAt.end",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filters.mitigationIds",
+                  "value": "<string>",
+                  "description": "The IDs of the mitigations to list."
+                },
+                {
+                  "disabled": false,
+                  "key": "filters.mitigationIds",
+                  "value": "<string>",
+                  "description": "The IDs of the mitigations to list."
+                },
+                {
+                  "disabled": false,
+                  "key": "filters.alarmIds",
+                  "value": "<string>",
+                  "description": "The alarm IDs the mitigations are associated with."
+                },
+                {
+                  "disabled": false,
+                  "key": "filters.alarmIds",
+                  "value": "<string>",
+                  "description": "The alarm IDs the mitigations are associated with."
+                },
+                {
+                  "disabled": false,
+                  "key": "filters.states",
+                  "value": "<string>",
+                  "description": "The states of the mitigations to filter by."
+                },
+                {
+                  "disabled": false,
+                  "key": "filters.states",
+                  "value": "<string>",
+                  "description": "The states of the mitigations to filter by."
+                },
+                {
+                  "disabled": false,
+                  "key": "filters.platformIds",
+                  "value": "<string>",
+                  "description": "The mitigation platform IDs the mitigations are associated with."
+                },
+                {
+                  "disabled": false,
+                  "key": "filters.platformIds",
+                  "value": "<string>",
+                  "description": "The mitigation platform IDs the mitigations are associated with."
+                },
+                {
+                  "disabled": false,
+                  "key": "filters.methodIds",
+                  "value": "<string>",
+                  "description": "The mitigation method IDs the mitigations are associated with."
+                },
+                {
+                  "disabled": false,
+                  "key": "filters.methodIds",
+                  "value": "<string>",
+                  "description": "The mitigation method IDs the mitigations are associated with."
+                },
+                {
+                  "disabled": false,
+                  "key": "filters.ipCidrs",
+                  "value": "<string>",
+                  "description": "The IP/CIDR ranges the mitigations target."
+                },
+                {
+                  "disabled": false,
+                  "key": "filters.ipCidrs",
+                  "value": "<string>",
+                  "description": "The IP/CIDR ranges the mitigations target."
+                },
+                {
+                  "disabled": false,
+                  "key": "filters.ipCidrPattern",
+                  "value": "<string>",
+                  "description": "The IP/CIDR pattern to filter mitigations by."
+                },
+                {
+                  "disabled": false,
+                  "key": "filters.types",
+                  "value": "<string>",
+                  "description": "The types of mitigations to filter by.\n\n - MITIGATION_TYPE_MANUAL: Manual mitigation\n - MITIGATION_TYPE_AUTO: Automatic mitigation"
+                },
+                {
+                  "disabled": false,
+                  "key": "filters.types",
+                  "value": "<string>",
+                  "description": "The types of mitigations to filter by.\n\n - MITIGATION_TYPE_MANUAL: Manual mitigation\n - MITIGATION_TYPE_AUTO: Automatic mitigation"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3df2a79b-4457-4122-bc27-b83a3dbf4e06",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v202505",
+                    "mitigations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pagination.limit",
+                      "value": "<uint64>"
+                    },
+                    {
+                      "key": "pagination.offset",
+                      "value": "<uint64>"
+                    },
+                    {
+                      "key": "pagination.includeTotalCount",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "filters.createdAt.start",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "filters.createdAt.end",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "filters.mitigationIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filters.mitigationIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filters.alarmIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filters.alarmIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filters.states",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filters.states",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filters.platformIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filters.platformIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filters.methodIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filters.methodIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filters.ipCidrs",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filters.ipCidrs",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filters.ipCidrPattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filters.types",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filters.types",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"pagination\": {\n    \"totalCount\": \"string\",\n    \"hasMoreResults\": true\n  },\n  \"mitigations\": [\n    {\n      \"id\": \"string\",\n      \"type\": \"MITIGATION_TYPE_UNSPECIFIED\",\n      \"alarmIds\": [\n        \"string\",\n        \"string\"\n      ],\n      \"target\": {\n        \"ipCidr\": \"string\",\n        \"flowspec\": {\n          \"dstPrefix\": \"string\",\n          \"srcPrefix\": \"string\",\n          \"ipProtocol\": {\n            \"or\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"dstPort\": {\n            \"or\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"srcPort\": {\n            \"or\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"icmpType\": {\n            \"or\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"icmpCode\": {\n            \"or\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"tcpFlags\": {\n            \"or\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"packetLength\": {\n            \"or\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"dscp\": {\n            \"or\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"fragments\": {\n            \"or\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"adaptiveFlowspec\": {\n          \"value\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          }\n        }\n      },\n      \"currentState\": \"MITIGATION_STATE_UNSPECIFIED\",\n      \"previousState\": \"MITIGATION_STATE_UNSPECIFIED\",\n      \"platformId\": \"string\",\n      \"methodId\": \"string\",\n      \"startTimeAt\": \"2018-06-17T11:07:20.768Z\",\n      \"endTimeAt\": \"2008-08-13T17:53:00.560Z\",\n      \"states\": [\n        {\n          \"timestamp\": \"1980-04-27T19:59:02.995Z\",\n          \"state\": \"MITIGATION_STATE_UNSPECIFIED\",\n          \"event\": \"MITIGATION_EVENT_UNSPECIFIED\"\n        },\n        {\n          \"timestamp\": \"2025-03-18T09:42:59.204Z\",\n          \"state\": \"MITIGATION_STATE_UNSPECIFIED\",\n          \"event\": \"MITIGATION_EVENT_UNSPECIFIED\"\n        }\n      ],\n      \"autoStopTtl\": \"string\",\n      \"comment\": \"string\",\n      \"source\": {\n        \"policyType\": \"POLICY_TYPE_UNSPECIFIED\",\n        \"id\": \"string\"\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"type\": \"MITIGATION_TYPE_UNSPECIFIED\",\n      \"alarmIds\": [\n        \"string\",\n        \"string\"\n      ],\n      \"target\": {\n        \"ipCidr\": \"string\",\n        \"flowspec\": {\n          \"dstPrefix\": \"string\",\n          \"srcPrefix\": \"string\",\n          \"ipProtocol\": {\n            \"or\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"dstPort\": {\n            \"or\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"srcPort\": {\n            \"or\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"icmpType\": {\n            \"or\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"icmpCode\": {\n            \"or\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"tcpFlags\": {\n            \"or\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"packetLength\": {\n            \"or\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"dscp\": {\n            \"or\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"fragments\": {\n            \"or\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"adaptiveFlowspec\": {\n          \"value\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          }\n        }\n      },\n      \"currentState\": \"MITIGATION_STATE_UNSPECIFIED\",\n      \"previousState\": \"MITIGATION_STATE_UNSPECIFIED\",\n      \"platformId\": \"string\",\n      \"methodId\": \"string\",\n      \"startTimeAt\": \"1983-03-27T14:35:46.482Z\",\n      \"endTimeAt\": \"1973-03-11T19:12:08.830Z\",\n      \"states\": [\n        {\n          \"timestamp\": \"1983-02-28T08:35:33.466Z\",\n          \"state\": \"MITIGATION_STATE_UNSPECIFIED\",\n          \"event\": \"MITIGATION_EVENT_UNSPECIFIED\"\n        },\n        {\n          \"timestamp\": \"2024-04-22T15:34:22.354Z\",\n          \"state\": \"MITIGATION_STATE_UNSPECIFIED\",\n          \"event\": \"MITIGATION_EVENT_UNSPECIFIED\"\n        }\n      ],\n      \"autoStopTtl\": \"string\",\n      \"comment\": \"string\",\n      \"source\": {\n        \"policyType\": \"POLICY_TYPE_UNSPECIFIED\",\n        \"id\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "72a939a4-4d28-47fc-9cfd-7bced6101f56",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v202505",
+                    "mitigations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pagination.limit",
+                      "value": "<uint64>"
+                    },
+                    {
+                      "key": "pagination.offset",
+                      "value": "<uint64>"
+                    },
+                    {
+                      "key": "pagination.includeTotalCount",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "filters.createdAt.start",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "filters.createdAt.end",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "filters.mitigationIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filters.mitigationIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filters.alarmIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filters.alarmIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filters.states",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filters.states",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filters.platformIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filters.platformIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filters.methodIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filters.methodIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filters.ipCidrs",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filters.ipCidrs",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filters.ipCidrPattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filters.types",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filters.types",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1020,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bd6640c2-9ebe-41e4-9fb3-24bbb1da7e26",
+          "name": "Create Mitigation",
+          "request": {
+            "name": "Create Mitigation",
+            "description": {
+              "content": "Creates a new manual mitigation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v202505",
+                "mitigations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"platformId\": \"<string>\",\n  \"methodId\": \"<string>\",\n  \"ipCidr\": \"<string>\",\n  \"srcPort\": \"<int64>\",\n  \"dstPort\": \"<int64>\",\n  \"comment\": \"<string>\",\n  \"autoStopTtl\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ea718dbd-123e-4959-9c8e-ec59ffb72fc0",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v202505",
+                    "mitigations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"platformId\": \"<string>\",\n  \"methodId\": \"<string>\",\n  \"ipCidr\": \"<string>\",\n  \"srcPort\": \"<int64>\",\n  \"dstPort\": \"<int64>\",\n  \"comment\": \"<string>\",\n  \"autoStopTtl\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9d1003e9-c17a-4815-88b1-0a7c296fd06a",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v202505",
+                    "mitigations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"platformId\": \"<string>\",\n  \"methodId\": \"<string>\",\n  \"ipCidr\": \"<string>\",\n  \"srcPort\": \"<int64>\",\n  \"dstPort\": \"<int64>\",\n  \"comment\": \"<string>\",\n  \"autoStopTtl\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 9548,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dfc25208-0677-4bd8-bff6-32bc47ab0cdc",
+          "name": "Get Available Actions",
+          "request": {
+            "name": "Get Available Actions",
+            "description": {
+              "content": "Returns available actions for mitigations.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v202505",
+                "mitigations",
+                "actions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2edecba3-734a-457a-9e38-ed4bdbf554a9",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v202505",
+                    "mitigations",
+                    "actions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"transitions\": [\n    {\n      \"fromState\": \"MITIGATION_STATE_UNSPECIFIED\",\n      \"availableActions\": [\n        {\n          \"eventName\": \"string\",\n          \"action\": \"MITIGATION_USER_ACTION_UNSPECIFIED\",\n          \"actionDescription\": \"string\",\n          \"fromState\": \"MITIGATION_STATE_UNSPECIFIED\",\n          \"toStates\": [\n            \"MITIGATION_STATE_UNSPECIFIED\",\n            \"MITIGATION_STATE_UNSPECIFIED\"\n          ]\n        },\n        {\n          \"eventName\": \"string\",\n          \"action\": \"MITIGATION_USER_ACTION_UNSPECIFIED\",\n          \"actionDescription\": \"string\",\n          \"fromState\": \"MITIGATION_STATE_UNSPECIFIED\",\n          \"toStates\": [\n            \"MITIGATION_STATE_UNSPECIFIED\",\n            \"MITIGATION_STATE_UNSPECIFIED\"\n          ]\n        }\n      ]\n    },\n    {\n      \"fromState\": \"MITIGATION_STATE_UNSPECIFIED\",\n      \"availableActions\": [\n        {\n          \"eventName\": \"string\",\n          \"action\": \"MITIGATION_USER_ACTION_UNSPECIFIED\",\n          \"actionDescription\": \"string\",\n          \"fromState\": \"MITIGATION_STATE_UNSPECIFIED\",\n          \"toStates\": [\n            \"MITIGATION_STATE_UNSPECIFIED\",\n            \"MITIGATION_STATE_UNSPECIFIED\"\n          ]\n        },\n        {\n          \"eventName\": \"string\",\n          \"action\": \"MITIGATION_USER_ACTION_UNSPECIFIED\",\n          \"actionDescription\": \"string\",\n          \"fromState\": \"MITIGATION_STATE_UNSPECIFIED\",\n          \"toStates\": [\n            \"MITIGATION_STATE_UNSPECIFIED\",\n            \"MITIGATION_STATE_UNSPECIFIED\"\n          ]\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e7c6731a-654b-49a4-9a0a-0348288436ae",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v202505",
+                    "mitigations",
+                    "actions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 9548,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "21c12b57-b72e-4cd7-8b81-19e5bc6f8e9d",
+          "name": "Act on Mitigation",
+          "request": {
+            "name": "Act on Mitigation",
+            "description": {
+              "content": "Performs an action on one or more mitigations.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v202505",
+                "mitigations",
+                ":action"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "action",
+                  "description": "(Required) The action to perform on the mitigations."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ids\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f2107f97-31dd-408e-9d38-91a41d00078e",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v202505",
+                    "mitigations",
+                    ":action"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "action",
+                      "description": "(Required) The action to perform on the mitigations."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ids\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"mitigationId\": \"string\",\n      \"success\": false,\n      \"message\": \"string\"\n    },\n    {\n      \"mitigationId\": \"string\",\n      \"success\": false,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ff744015-7953-4115-8a58-b8cf9c3344dc",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v202505",
+                    "mitigations",
+                    ":action"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "action",
+                      "description": "(Required) The action to perform on the mitigations."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ids\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 9548,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6b0416c9-c725-4ded-b774-822faf5c83d4",
+          "name": "Get Mitigation",
+          "request": {
+            "name": "Get Mitigation",
+            "description": {
+              "content": "Returns a mitigation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v202505",
+                "mitigations",
+                ":action"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "action",
+                  "description": "(Required) The ID of the mitigation to get."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "64e3d7f8-a023-4acc-84f3-d8712bd09039",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v202505",
+                    "mitigations",
+                    ":action"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "action",
+                      "description": "(Required) The ID of the mitigation to get."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"mitigation\": {\n    \"id\": \"string\",\n    \"type\": \"MITIGATION_TYPE_UNSPECIFIED\",\n    \"alarmIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"target\": {\n      \"ipCidr\": \"string\",\n      \"flowspec\": {\n        \"dstPrefix\": \"string\",\n        \"srcPrefix\": \"string\",\n        \"ipProtocol\": {\n          \"or\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"dstPort\": {\n          \"or\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"srcPort\": {\n          \"or\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"icmpType\": {\n          \"or\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"icmpCode\": {\n          \"or\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"tcpFlags\": {\n          \"or\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"packetLength\": {\n          \"or\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"dscp\": {\n          \"or\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"fragments\": {\n          \"or\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      },\n      \"adaptiveFlowspec\": {\n        \"value\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        }\n      }\n    },\n    \"currentState\": \"MITIGATION_STATE_UNSPECIFIED\",\n    \"previousState\": \"MITIGATION_STATE_UNSPECIFIED\",\n    \"platformId\": \"string\",\n    \"methodId\": \"string\",\n    \"startTimeAt\": \"2012-03-28T04:49:36.590Z\",\n    \"endTimeAt\": \"2006-05-10T05:21:05.819Z\",\n    \"states\": [\n      {\n        \"timestamp\": \"1997-03-12T17:19:39.475Z\",\n        \"state\": \"MITIGATION_STATE_UNSPECIFIED\",\n        \"event\": \"MITIGATION_EVENT_UNSPECIFIED\"\n      },\n      {\n        \"timestamp\": \"1991-06-01T02:22:05.622Z\",\n        \"state\": \"MITIGATION_STATE_UNSPECIFIED\",\n        \"event\": \"MITIGATION_EVENT_UNSPECIFIED\"\n      }\n    ],\n    \"autoStopTtl\": \"string\",\n    \"comment\": \"string\",\n    \"source\": {\n      \"policyType\": \"POLICY_TYPE_UNSPECIFIED\",\n      \"id\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b32a1ade-b5be-47fb-a6fa-378c30010cf5",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v202505",
+                    "mitigations",
+                    ":action"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "action",
+                      "description": "(Required) The ID of the mitigation to get."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 9548,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "55bd12b0-e1b0-4feb-8dd5-404068b8ea40",
+          "name": "Get Available Actions for Mitigation",
+          "request": {
+            "name": "Get Available Actions for Mitigation",
+            "description": {
+              "content": "Returns available actions for a specific mitigation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v202505",
+                "mitigations",
+                ":id",
+                "actions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<int64>",
+                  "key": "id",
+                  "description": "(Required) The ID of the mitigation to get available actions for."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9225ec3a-761b-4388-a00c-3b6f99a14804",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v202505",
+                    "mitigations",
+                    ":id",
+                    "actions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<int64>",
+                      "key": "id",
+                      "description": "(Required) The ID of the mitigation to get available actions for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"availableActions\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "afaa6182-a87a-4b2f-9984-fe1b4ca05402",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v202505",
+                    "mitigations",
+                    ":id",
+                    "actions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<int64>",
+                      "key": "id",
+                      "description": "(Required) The ID of the mitigation to get available actions for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 9548,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-CH-Auth-Email"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "5cbf3b95-c1b2-4669-86fe-00da94720699",
+    "name": "AI Advisor AiAdvisorDataService MitigationsService API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "# Overview\nProvides programmatic access to AI Advisor.\n\nContact Support:\n Name: Kentik API Engineering",
+      "type": "text/plain"
+    }
+  }
+}

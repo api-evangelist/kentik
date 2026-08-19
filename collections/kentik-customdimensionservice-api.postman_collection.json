@@ -1,0 +1,1740 @@
+{
+  "item": [
+    {
+      "id": "271dbb4e-07da-4ddc-a45f-7426decac6b9",
+      "name": "CustomDimensionService",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1b112962-1f9d-4d4b-98c9-12ec4a417fc2",
+          "name": "List Custom Dimensions",
+          "request": {
+            "name": "List Custom Dimensions",
+            "description": {
+              "content": "Returns an array of custom dimension objects that each contain information about an individual custom dimension.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "custom_dimensions",
+                "v202411alpha1"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "55f01879-e2ea-4381-bba6-83ed31520b60",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "custom_dimensions",
+                    "v202411alpha1"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"dimensions\": [\n    {\n      \"name\": \"string\",\n      \"type\": \"string\",\n      \"description\": \"string\",\n      \"id\": \"string\",\n      \"populators\": [\n        {\n          \"id\": \"string\",\n          \"value\": \"string\",\n          \"direction\": \"string\",\n          \"deviceName\": [\n            \"string\",\n            \"string\"\n          ],\n          \"deviceType\": [\n            \"string\",\n            \"string\"\n          ],\n          \"site\": [\n            \"string\",\n            \"string\"\n          ],\n          \"interfaceName\": [\n            \"string\",\n            \"string\"\n          ],\n          \"addr\": [\n            \"string\",\n            \"string\"\n          ],\n          \"port\": [\n            4730,\n            7291\n          ],\n          \"tcpFlags\": 643,\n          \"protocol\": [\n            6892,\n            6434\n          ],\n          \"asn\": [\n            9620,\n            499\n          ],\n          \"lasthopAsName\": [\n            \"string\",\n            \"string\"\n          ],\n          \"nexthopAsn\": [\n            3398,\n            6925\n          ],\n          \"nexthopAsName\": [\n            \"string\",\n            \"string\"\n          ],\n          \"nexthop\": [\n            \"string\",\n            \"string\"\n          ],\n          \"bgpAspath\": [\n            \"string\",\n            \"string\"\n          ],\n          \"bgpCommunity\": [\n            \"string\",\n            \"string\"\n          ],\n          \"mac\": [\n            \"string\",\n            \"string\"\n          ],\n          \"country\": [\n            \"string\",\n            \"string\"\n          ],\n          \"vlans\": [\n            \"string\",\n            \"string\"\n          ],\n          \"user\": \"string\",\n          \"createdDate\": \"1991-12-03T15:15:49.941Z\",\n          \"updatedDate\": \"1972-02-28T20:34:54.422Z\",\n          \"addrCount\": 8735,\n          \"macCount\": 5728,\n          \"extendedFields\": {\n            \"key_0\": {\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"key_1\": {\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          }\n        },\n        {\n          \"id\": \"string\",\n          \"value\": \"string\",\n          \"direction\": \"string\",\n          \"deviceName\": [\n            \"string\",\n            \"string\"\n          ],\n          \"deviceType\": [\n            \"string\",\n            \"string\"\n          ],\n          \"site\": [\n            \"string\",\n            \"string\"\n          ],\n          \"interfaceName\": [\n            \"string\",\n            \"string\"\n          ],\n          \"addr\": [\n            \"string\",\n            \"string\"\n          ],\n          \"port\": [\n            7229,\n            6999\n          ],\n          \"tcpFlags\": 3243,\n          \"protocol\": [\n            8315,\n            3313\n          ],\n          \"asn\": [\n            6056,\n            8172\n          ],\n          \"lasthopAsName\": [\n            \"string\",\n            \"string\"\n          ],\n          \"nexthopAsn\": [\n            1022,\n            9216\n          ],\n          \"nexthopAsName\": [\n            \"string\",\n            \"string\"\n          ],\n          \"nexthop\": [\n            \"string\",\n            \"string\"\n          ],\n          \"bgpAspath\": [\n            \"string\",\n            \"string\"\n          ],\n          \"bgpCommunity\": [\n            \"string\",\n            \"string\"\n          ],\n          \"mac\": [\n            \"string\",\n            \"string\"\n          ],\n          \"country\": [\n            \"string\",\n            \"string\"\n          ],\n          \"vlans\": [\n            \"string\",\n            \"string\"\n          ],\n          \"user\": \"string\",\n          \"createdDate\": \"2025-02-19T05:05:11.144Z\",\n          \"updatedDate\": \"1972-08-26T06:32:06.612Z\",\n          \"addrCount\": 6044,\n          \"macCount\": 6311,\n          \"extendedFields\": {\n            \"key_0\": {\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"key_1\": {\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          }\n        }\n      ],\n      \"companyId\": \"string\",\n      \"createdDate\": \"1961-04-09T10:00:18.788Z\",\n      \"updatedDate\": \"1966-06-29T10:07:36.966Z\"\n    },\n    {\n      \"name\": \"string\",\n      \"type\": \"string\",\n      \"description\": \"string\",\n      \"id\": \"string\",\n      \"populators\": [\n        {\n          \"id\": \"string\",\n          \"value\": \"string\",\n          \"direction\": \"string\",\n          \"deviceName\": [\n            \"string\",\n            \"string\"\n          ],\n          \"deviceType\": [\n            \"string\",\n            \"string\"\n          ],\n          \"site\": [\n            \"string\",\n            \"string\"\n          ],\n          \"interfaceName\": [\n            \"string\",\n            \"string\"\n          ],\n          \"addr\": [\n            \"string\",\n            \"string\"\n          ],\n          \"port\": [\n            5648,\n            2365\n          ],\n          \"tcpFlags\": 2601,\n          \"protocol\": [\n            1154,\n            984\n          ],\n          \"asn\": [\n            407,\n            1724\n          ],\n          \"lasthopAsName\": [\n            \"string\",\n            \"string\"\n          ],\n          \"nexthopAsn\": [\n            1417,\n            6571\n          ],\n          \"nexthopAsName\": [\n            \"string\",\n            \"string\"\n          ],\n          \"nexthop\": [\n            \"string\",\n            \"string\"\n          ],\n          \"bgpAspath\": [\n            \"string\",\n            \"string\"\n          ],\n          \"bgpCommunity\": [\n            \"string\",\n            \"string\"\n          ],\n          \"mac\": [\n            \"string\",\n            \"string\"\n          ],\n          \"country\": [\n            \"string\",\n            \"string\"\n          ],\n          \"vlans\": [\n            \"string\",\n            \"string\"\n          ],\n          \"user\": \"string\",\n          \"createdDate\": \"1968-07-19T20:30:39.257Z\",\n          \"updatedDate\": \"2021-11-25T15:26:07.737Z\",\n          \"addrCount\": 8825,\n          \"macCount\": 7197,\n          \"extendedFields\": {\n            \"key_0\": {\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          }\n        },\n        {\n          \"id\": \"string\",\n          \"value\": \"string\",\n          \"direction\": \"string\",\n          \"deviceName\": [\n            \"string\",\n            \"string\"\n          ],\n          \"deviceType\": [\n            \"string\",\n            \"string\"\n          ],\n          \"site\": [\n            \"string\",\n            \"string\"\n          ],\n          \"interfaceName\": [\n            \"string\",\n            \"string\"\n          ],\n          \"addr\": [\n            \"string\",\n            \"string\"\n          ],\n          \"port\": [\n            5449,\n            5725\n          ],\n          \"tcpFlags\": 9055,\n          \"protocol\": [\n            5831,\n            7265\n          ],\n          \"asn\": [\n            6989,\n            197\n          ],\n          \"lasthopAsName\": [\n            \"string\",\n            \"string\"\n          ],\n          \"nexthopAsn\": [\n            4400,\n            74\n          ],\n          \"nexthopAsName\": [\n            \"string\",\n            \"string\"\n          ],\n          \"nexthop\": [\n            \"string\",\n            \"string\"\n          ],\n          \"bgpAspath\": [\n            \"string\",\n            \"string\"\n          ],\n          \"bgpCommunity\": [\n            \"string\",\n            \"string\"\n          ],\n          \"mac\": [\n            \"string\",\n            \"string\"\n          ],\n          \"country\": [\n            \"string\",\n            \"string\"\n          ],\n          \"vlans\": [\n            \"string\",\n            \"string\"\n          ],\n          \"user\": \"string\",\n          \"createdDate\": \"1988-06-16T00:10:33.943Z\",\n          \"updatedDate\": \"1993-04-26T01:55:08.061Z\",\n          \"addrCount\": 6985,\n          \"macCount\": 4579,\n          \"extendedFields\": {\n            \"key_0\": {\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"key_1\": {\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"key_2\": {\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          }\n        }\n      ],\n      \"companyId\": \"string\",\n      \"createdDate\": \"1977-10-20T20:35:48.623Z\",\n      \"updatedDate\": \"1984-02-14T10:33:39.064Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "da593a15-2b5c-4350-a90b-78abce522236",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "custom_dimensions",
+                    "v202411alpha1"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6430,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "db0fdb28-f656-4067-bf75-66311beb606b",
+          "name": "Custom Dimension Info",
+          "request": {
+            "name": "Custom Dimension Info",
+            "description": {
+              "content": "Returns a custom dimension object containing information about an individual custom dimension.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "custom_dimensions",
+                "v202411alpha1",
+                ":customDimensionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "customDimensionId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "da6a207e-6681-4281-a38b-7a8d14c4dada",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "custom_dimensions",
+                    "v202411alpha1",
+                    ":customDimensionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customDimensionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"dimension\": {\n    \"name\": \"string\",\n    \"type\": \"string\",\n    \"description\": \"string\",\n    \"id\": \"string\",\n    \"populators\": [\n      {\n        \"id\": \"string\",\n        \"value\": \"string\",\n        \"direction\": \"string\",\n        \"deviceName\": [\n          \"string\",\n          \"string\"\n        ],\n        \"deviceType\": [\n          \"string\",\n          \"string\"\n        ],\n        \"site\": [\n          \"string\",\n          \"string\"\n        ],\n        \"interfaceName\": [\n          \"string\",\n          \"string\"\n        ],\n        \"addr\": [\n          \"string\",\n          \"string\"\n        ],\n        \"port\": [\n          8468,\n          922\n        ],\n        \"tcpFlags\": 9928,\n        \"protocol\": [\n          3481,\n          4705\n        ],\n        \"asn\": [\n          2862,\n          5569\n        ],\n        \"lasthopAsName\": [\n          \"string\",\n          \"string\"\n        ],\n        \"nexthopAsn\": [\n          817,\n          90\n        ],\n        \"nexthopAsName\": [\n          \"string\",\n          \"string\"\n        ],\n        \"nexthop\": [\n          \"string\",\n          \"string\"\n        ],\n        \"bgpAspath\": [\n          \"string\",\n          \"string\"\n        ],\n        \"bgpCommunity\": [\n          \"string\",\n          \"string\"\n        ],\n        \"mac\": [\n          \"string\",\n          \"string\"\n        ],\n        \"country\": [\n          \"string\",\n          \"string\"\n        ],\n        \"vlans\": [\n          \"string\",\n          \"string\"\n        ],\n        \"user\": \"string\",\n        \"createdDate\": \"2000-12-05T20:38:47.446Z\",\n        \"updatedDate\": \"1986-05-18T04:18:04.122Z\",\n        \"addrCount\": 1803,\n        \"macCount\": 3477,\n        \"extendedFields\": {\n          \"key_0\": {\n            \"value\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        }\n      },\n      {\n        \"id\": \"string\",\n        \"value\": \"string\",\n        \"direction\": \"string\",\n        \"deviceName\": [\n          \"string\",\n          \"string\"\n        ],\n        \"deviceType\": [\n          \"string\",\n          \"string\"\n        ],\n        \"site\": [\n          \"string\",\n          \"string\"\n        ],\n        \"interfaceName\": [\n          \"string\",\n          \"string\"\n        ],\n        \"addr\": [\n          \"string\",\n          \"string\"\n        ],\n        \"port\": [\n          9590,\n          7717\n        ],\n        \"tcpFlags\": 2705,\n        \"protocol\": [\n          154,\n          1653\n        ],\n        \"asn\": [\n          9429,\n          6748\n        ],\n        \"lasthopAsName\": [\n          \"string\",\n          \"string\"\n        ],\n        \"nexthopAsn\": [\n          3059,\n          6061\n        ],\n        \"nexthopAsName\": [\n          \"string\",\n          \"string\"\n        ],\n        \"nexthop\": [\n          \"string\",\n          \"string\"\n        ],\n        \"bgpAspath\": [\n          \"string\",\n          \"string\"\n        ],\n        \"bgpCommunity\": [\n          \"string\",\n          \"string\"\n        ],\n        \"mac\": [\n          \"string\",\n          \"string\"\n        ],\n        \"country\": [\n          \"string\",\n          \"string\"\n        ],\n        \"vlans\": [\n          \"string\",\n          \"string\"\n        ],\n        \"user\": \"string\",\n        \"createdDate\": \"1957-09-28T08:51:42.717Z\",\n        \"updatedDate\": \"2019-06-29T06:56:39.516Z\",\n        \"addrCount\": 6558,\n        \"macCount\": 4790,\n        \"extendedFields\": {\n          \"key_0\": {\n            \"value\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        }\n      }\n    ],\n    \"companyId\": \"string\",\n    \"createdDate\": \"2001-10-06T04:00:06.771Z\",\n    \"updatedDate\": \"1977-10-22T13:00:05.045Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e4c8d2aa-9951-4a9e-ad66-a877cd9eb010",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "custom_dimensions",
+                    "v202411alpha1",
+                    ":customDimensionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customDimensionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5848,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f374f298-8bb7-4f89-aa67-ebae11ef531e",
+          "name": "Delete Custom Dimension",
+          "request": {
+            "name": "Delete Custom Dimension",
+            "description": {
+              "content": "Deletes a custom dimension.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "custom_dimensions",
+                "v202411alpha1",
+                ":customDimensionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "customDimensionId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2c84bd1f-44b5-4fd7-9144-c69bfc396d61",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "custom_dimensions",
+                    "v202411alpha1",
+                    ":customDimensionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customDimensionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a1cface2-0af5-4ee2-9fcc-cfc1bc51ce38",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "custom_dimensions",
+                    "v202411alpha1",
+                    ":customDimensionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customDimensionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5848,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a09db22f-6d65-44e0-8b42-2209eea2de05",
+          "name": "Update Custom Dimension",
+          "request": {
+            "name": "Update Custom Dimension",
+            "description": {
+              "content": "Updates and returns a custom dimension object containing information about an individual custom dimension (see About Custom Dimensions). Populators are not sent back in the response body. To get them use 'Custom Dimension info' API instead.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "custom_dimensions",
+                "v202411alpha1",
+                ":customDimensionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "customDimensionId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0a0cf933-ab72-4b56-8b32-2e2927b0e19c",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "custom_dimensions",
+                    "v202411alpha1",
+                    ":customDimensionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customDimensionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"dimension\": {\n    \"name\": \"<string>\",\n    \"type\": \"<string>\",\n    \"description\": \"<string>\",\n    \"id\": \"string\",\n    \"populators\": [\n      {\n        \"id\": \"string\",\n        \"value\": \"string\",\n        \"direction\": \"string\",\n        \"deviceName\": [\n          \"string\",\n          \"string\"\n        ],\n        \"deviceType\": [\n          \"string\",\n          \"string\"\n        ],\n        \"site\": [\n          \"string\",\n          \"string\"\n        ],\n        \"interfaceName\": [\n          \"string\",\n          \"string\"\n        ],\n        \"addr\": [\n          \"string\",\n          \"string\"\n        ],\n        \"port\": [\n          6613,\n          7604\n        ],\n        \"tcpFlags\": 6931,\n        \"protocol\": [\n          4097,\n          9037\n        ],\n        \"asn\": [\n          7692,\n          8484\n        ],\n        \"lasthopAsName\": [\n          \"string\",\n          \"string\"\n        ],\n        \"nexthopAsn\": [\n          4848,\n          9278\n        ],\n        \"nexthopAsName\": [\n          \"string\",\n          \"string\"\n        ],\n        \"nexthop\": [\n          \"string\",\n          \"string\"\n        ],\n        \"bgpAspath\": [\n          \"string\",\n          \"string\"\n        ],\n        \"bgpCommunity\": [\n          \"string\",\n          \"string\"\n        ],\n        \"mac\": [\n          \"string\",\n          \"string\"\n        ],\n        \"country\": [\n          \"string\",\n          \"string\"\n        ],\n        \"vlans\": [\n          \"string\",\n          \"string\"\n        ],\n        \"user\": \"string\",\n        \"createdDate\": \"1948-04-27T15:03:02.363Z\",\n        \"updatedDate\": \"1973-01-04T02:42:33.218Z\",\n        \"addrCount\": 1081,\n        \"macCount\": 6566,\n        \"extendedFields\": {\n          \"key_0\": {\n            \"value\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"key_1\": {\n            \"value\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"key_2\": {\n            \"value\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"key_3\": {\n            \"value\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        }\n      },\n      {\n        \"id\": \"string\",\n        \"value\": \"string\",\n        \"direction\": \"string\",\n        \"deviceName\": [\n          \"string\",\n          \"string\"\n        ],\n        \"deviceType\": [\n          \"string\",\n          \"string\"\n        ],\n        \"site\": [\n          \"string\",\n          \"string\"\n        ],\n        \"interfaceName\": [\n          \"string\",\n          \"string\"\n        ],\n        \"addr\": [\n          \"string\",\n          \"string\"\n        ],\n        \"port\": [\n          2335,\n          3491\n        ],\n        \"tcpFlags\": 6632,\n        \"protocol\": [\n          8120,\n          4470\n        ],\n        \"asn\": [\n          3671,\n          2784\n        ],\n        \"lasthopAsName\": [\n          \"string\",\n          \"string\"\n        ],\n        \"nexthopAsn\": [\n          3203,\n          4913\n        ],\n        \"nexthopAsName\": [\n          \"string\",\n          \"string\"\n        ],\n        \"nexthop\": [\n          \"string\",\n          \"string\"\n        ],\n        \"bgpAspath\": [\n          \"string\",\n          \"string\"\n        ],\n        \"bgpCommunity\": [\n          \"string\",\n          \"string\"\n        ],\n        \"mac\": [\n          \"string\",\n          \"string\"\n        ],\n        \"country\": [\n          \"string\",\n          \"string\"\n        ],\n        \"vlans\": [\n          \"string\",\n          \"string\"\n        ],\n        \"user\": \"string\",\n        \"createdDate\": \"2009-09-29T17:02:03.430Z\",\n        \"updatedDate\": \"2024-12-10T22:41:09.021Z\",\n        \"addrCount\": 6760,\n        \"macCount\": 6167,\n        \"extendedFields\": {\n          \"key_0\": {\n            \"value\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"key_1\": {\n            \"value\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        }\n      }\n    ],\n    \"companyId\": \"string\",\n    \"createdDate\": \"1994-08-31T04:43:22.741Z\",\n    \"updatedDate\": \"2021-05-02T15:04:41.901Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dd44812d-ccea-456e-b3dc-db7f567c7127",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "custom_dimensions",
+                    "v202411alpha1",
+                    ":customDimensionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customDimensionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5848,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d846d248-6865-4884-84f6-3ff018e87e0e",
+          "name": "Create Populator",
+          "request": {
+            "name": "Create Populator",
+            "description": {
+              "content": "Creates and returns a populator object containing information about an individual populator.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "custom_dimensions",
+                "v202411alpha1",
+                ":customDimensionId",
+                "populator"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "customDimensionId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"value\": \"<string>\",\n  \"direction\": \"<string>\",\n  \"deviceName\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"deviceType\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"site\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"interfaceName\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"addr\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"port\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"tcpFlags\": \"<long>\",\n  \"protocol\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"asn\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"lasthopAsName\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"nexthopAsn\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"nexthopAsName\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"nexthop\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"bgpAspath\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"bgpCommunity\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"mac\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"country\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"vlans\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3cc0d998-e04c-4c2e-9405-5acf10bae54e",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "custom_dimensions",
+                    "v202411alpha1",
+                    ":customDimensionId",
+                    "populator"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customDimensionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"populator\": {\n    \"id\": \"string\",\n    \"value\": \"<string>\",\n    \"direction\": \"<string>\",\n    \"deviceName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"deviceType\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"site\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"interfaceName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"addr\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"port\": [\n      \"<long>\",\n      \"<long>\"\n    ],\n    \"tcpFlags\": \"<long>\",\n    \"protocol\": [\n      \"<long>\",\n      \"<long>\"\n    ],\n    \"asn\": [\n      \"<long>\",\n      \"<long>\"\n    ],\n    \"lasthopAsName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nexthopAsn\": [\n      \"<long>\",\n      \"<long>\"\n    ],\n    \"nexthopAsName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nexthop\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"bgpAspath\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"bgpCommunity\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"mac\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"country\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"vlans\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"user\": \"string\",\n    \"createdDate\": \"1955-01-08T01:00:27.905Z\",\n    \"updatedDate\": \"1958-09-18T04:02:59.674Z\",\n    \"addrCount\": 3962,\n    \"macCount\": 5965,\n    \"extendedFields\": {\n      \"key_0\": {\n        \"value\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"key_1\": {\n        \"value\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2f130f2e-8e9e-4d51-8d5c-696db383f811",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "custom_dimensions",
+                    "v202411alpha1",
+                    ":customDimensionId",
+                    "populator"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customDimensionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5848,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2359c0b6-4420-432c-8e4b-e97ea54d151e",
+          "name": "Get Populator",
+          "request": {
+            "name": "Get Populator",
+            "description": {
+              "content": "Get Populator by Dimension and Populator ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "custom_dimensions",
+                "v202411alpha1",
+                ":customDimensionId",
+                "populator",
+                ":populatorId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fieldLimit",
+                  "value": "<long>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "customDimensionId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "populatorId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "83d69ce0-4e80-4c64-9104-a9fe419e02ff",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "custom_dimensions",
+                    "v202411alpha1",
+                    ":customDimensionId",
+                    "populator",
+                    ":populatorId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fieldLimit",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customDimensionId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "populatorId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"populator\": {\n    \"id\": \"string\",\n    \"value\": \"<string>\",\n    \"direction\": \"<string>\",\n    \"deviceName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"deviceType\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"site\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"interfaceName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"addr\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"port\": [\n      \"<long>\",\n      \"<long>\"\n    ],\n    \"tcpFlags\": \"<long>\",\n    \"protocol\": [\n      \"<long>\",\n      \"<long>\"\n    ],\n    \"asn\": [\n      \"<long>\",\n      \"<long>\"\n    ],\n    \"lasthopAsName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nexthopAsn\": [\n      \"<long>\",\n      \"<long>\"\n    ],\n    \"nexthopAsName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nexthop\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"bgpAspath\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"bgpCommunity\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"mac\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"country\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"vlans\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"user\": \"string\",\n    \"createdDate\": \"1955-01-08T01:00:27.905Z\",\n    \"updatedDate\": \"1958-09-18T04:02:59.674Z\",\n    \"addrCount\": 3962,\n    \"macCount\": 5965,\n    \"extendedFields\": {\n      \"key_0\": {\n        \"value\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"key_1\": {\n        \"value\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4e335154-e78e-4b36-85b0-75c8cd82f053",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "custom_dimensions",
+                    "v202411alpha1",
+                    ":customDimensionId",
+                    "populator",
+                    ":populatorId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fieldLimit",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customDimensionId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "populatorId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5848,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f448d205-ebe6-4211-9a79-457cdea9959f",
+          "name": "Delete Populator",
+          "request": {
+            "name": "Delete Populator",
+            "description": {
+              "content": "Deletes a populator.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "custom_dimensions",
+                "v202411alpha1",
+                ":customDimensionId",
+                "populator",
+                ":populatorId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "customDimensionId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "populatorId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3ceb8f63-5321-4512-9a1e-5326f4eeea14",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "custom_dimensions",
+                    "v202411alpha1",
+                    ":customDimensionId",
+                    "populator",
+                    ":populatorId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customDimensionId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "populatorId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8dc58d4c-5c46-4d53-bd81-5f91181deaa5",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "custom_dimensions",
+                    "v202411alpha1",
+                    ":customDimensionId",
+                    "populator",
+                    ":populatorId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customDimensionId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "populatorId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5848,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ccef7233-3d89-4886-8630-3fa025f9aeb2",
+          "name": "Update Populator",
+          "request": {
+            "name": "Update Populator",
+            "description": {
+              "content": "Updates and returns a populator object containing information about an individual populator.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "custom_dimensions",
+                "v202411alpha1",
+                ":customDimensionId",
+                "populator",
+                ":populatorId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "customDimensionId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "populatorId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"value\": \"<string>\",\n  \"direction\": \"<string>\",\n  \"deviceName\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"deviceType\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"site\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"interfaceName\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"addr\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"port\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"tcpFlags\": \"<long>\",\n  \"protocol\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"asn\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"lasthopAsName\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"nexthopAsn\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"nexthopAsName\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"nexthop\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"bgpAspath\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"bgpCommunity\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"mac\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"country\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"vlans\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "18b3f8dc-24ff-4302-a155-6a85b904c6d6",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "custom_dimensions",
+                    "v202411alpha1",
+                    ":customDimensionId",
+                    "populator",
+                    ":populatorId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customDimensionId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "populatorId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"populator\": {\n    \"id\": \"string\",\n    \"value\": \"<string>\",\n    \"direction\": \"<string>\",\n    \"deviceName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"deviceType\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"site\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"interfaceName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"addr\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"port\": [\n      \"<long>\",\n      \"<long>\"\n    ],\n    \"tcpFlags\": \"<long>\",\n    \"protocol\": [\n      \"<long>\",\n      \"<long>\"\n    ],\n    \"asn\": [\n      \"<long>\",\n      \"<long>\"\n    ],\n    \"lasthopAsName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nexthopAsn\": [\n      \"<long>\",\n      \"<long>\"\n    ],\n    \"nexthopAsName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nexthop\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"bgpAspath\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"bgpCommunity\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"mac\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"country\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"vlans\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"user\": \"string\",\n    \"createdDate\": \"1955-01-08T01:00:27.905Z\",\n    \"updatedDate\": \"1958-09-18T04:02:59.674Z\",\n    \"addrCount\": 3962,\n    \"macCount\": 5965,\n    \"extendedFields\": {\n      \"key_0\": {\n        \"value\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"key_1\": {\n        \"value\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a316d536-2e95-4d73-b5e4-58ffdc199aed",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "custom_dimensions",
+                    "v202411alpha1",
+                    ":customDimensionId",
+                    "populator",
+                    ":populatorId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customDimensionId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "populatorId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5848,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "81657e16-dd04-4f11-8c07-0f0f880c6636",
+          "name": "Get Populator Field",
+          "request": {
+            "name": "Get Populator Field",
+            "description": {
+              "content": "Get Populator field by Dimension, Populator ID, and field name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "custom_dimensions",
+                "v202411alpha1",
+                ":customDimensionId",
+                "populator",
+                ":populatorId",
+                "field",
+                ":fieldName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "customDimensionId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "populatorId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "fieldName",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b8420f11-7d05-40bf-8cb8-1f68b6ef355a",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "custom_dimensions",
+                    "v202411alpha1",
+                    ":customDimensionId",
+                    "populator",
+                    ":populatorId",
+                    "field",
+                    ":fieldName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customDimensionId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "populatorId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "fieldName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"totalCount\": 250,\n  \"offset\": 3547,\n  \"limit\": 8483,\n  \"extendedFields\": {\n    \"key_0\": {\n      \"value\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a62292ed-ec71-4854-a219-38c032b2e883",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "custom_dimensions",
+                    "v202411alpha1",
+                    ":customDimensionId",
+                    "populator",
+                    ":populatorId",
+                    "field",
+                    ":fieldName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customDimensionId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "populatorId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "fieldName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5848,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "749ffcd9-1051-411a-925d-d12d9ac6f0ef",
+          "name": "Create Custom Dimension",
+          "request": {
+            "name": "Create Custom Dimension",
+            "description": {
+              "content": "Creates and returns a custom dimension object containing information about an individual custom dimension",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "customdimension"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "78378be0-6c44-4e0f-95a7-9ac9640073f4",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "customdimension"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"dimension\": {\n    \"name\": \"<string>\",\n    \"type\": \"<string>\",\n    \"description\": \"<string>\",\n    \"id\": \"string\",\n    \"populators\": [\n      {\n        \"id\": \"string\",\n        \"value\": \"<string>\",\n        \"direction\": \"<string>\",\n        \"deviceName\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"deviceType\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"site\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"interfaceName\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"addr\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"port\": [\n          \"<long>\",\n          \"<long>\"\n        ],\n        \"tcpFlags\": \"<long>\",\n        \"protocol\": [\n          \"<long>\",\n          \"<long>\"\n        ],\n        \"asn\": [\n          \"<long>\",\n          \"<long>\"\n        ],\n        \"lasthopAsName\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"nexthopAsn\": [\n          \"<long>\",\n          \"<long>\"\n        ],\n        \"nexthopAsName\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"nexthop\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"bgpAspath\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"bgpCommunity\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"mac\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"country\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"vlans\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"user\": \"string\",\n        \"createdDate\": \"1998-04-12T07:22:08.294Z\",\n        \"updatedDate\": \"1975-10-15T18:08:32.102Z\",\n        \"addrCount\": 4547,\n        \"macCount\": 9953,\n        \"extendedFields\": {\n          \"key_0\": {\n            \"value\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"key_1\": {\n            \"value\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"key_2\": {\n            \"value\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        }\n      },\n      {\n        \"id\": \"string\",\n        \"value\": \"<string>\",\n        \"direction\": \"<string>\",\n        \"deviceName\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"deviceType\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"site\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"interfaceName\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"addr\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"port\": [\n          \"<long>\",\n          \"<long>\"\n        ],\n        \"tcpFlags\": \"<long>\",\n        \"protocol\": [\n          \"<long>\",\n          \"<long>\"\n        ],\n        \"asn\": [\n          \"<long>\",\n          \"<long>\"\n        ],\n        \"lasthopAsName\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"nexthopAsn\": [\n          \"<long>\",\n          \"<long>\"\n        ],\n        \"nexthopAsName\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"nexthop\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"bgpAspath\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"bgpCommunity\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"mac\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"country\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"vlans\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"user\": \"string\",\n        \"createdDate\": \"2007-12-27T14:37:27.990Z\",\n        \"updatedDate\": \"1963-03-08T01:58:28.880Z\",\n        \"addrCount\": 5822,\n        \"macCount\": 3277,\n        \"extendedFields\": {\n          \"key_0\": {\n            \"value\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"key_1\": {\n            \"value\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"key_2\": {\n            \"value\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        }\n      }\n    ],\n    \"companyId\": \"string\",\n    \"createdDate\": \"1981-05-24T19:52:20.321Z\",\n    \"updatedDate\": \"1992-10-01T05:07:32.527Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7fb6af33-ac65-4283-ae0b-a1fb14ba8a70",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "customdimension"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5848,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-CH-Auth-Email"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "24f1427e-a122-4c58-b7d0-684601820ac0",
+    "name": "AI Advisor AiAdvisorDataService CustomDimensionService API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "# Overview\nProvides programmatic access to AI Advisor.\n\nContact Support:\n Name: Kentik API Engineering",
+      "type": "text/plain"
+    }
+  }
+}

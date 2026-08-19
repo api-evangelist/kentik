@@ -1,0 +1,300 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AI Advisor AiAdvisorDataService SyntheticsAdminService API",
+    "version": "v202511"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-CH-Auth-Email",
+      "value": "{{X-CH-Auth-Email}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "SyntheticsAdminService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List agent alert configurations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/synthetics/v202309/agentAlerts",
+            "params": [
+              {
+                "name": "agentIds",
+                "value": "",
+                "type": "query",
+                "description": "Optional list of agent ids to retrieve alert configurations for"
+              }
+            ]
+          },
+          "docs": "Lists all agent alert configurations, optionally filtered by a list of agent ids."
+        },
+        {
+          "info": {
+            "name": "Create an agent alert configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/synthetics/v202309/agentAlerts",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new agent alert configuration."
+        },
+        {
+          "info": {
+            "name": "Get an agent alert configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/synthetics/v202309/agentAlerts/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieves an existing agent alert configuration."
+        },
+        {
+          "info": {
+            "name": "Update an agent alert configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/synthetics/v202309/agentAlerts/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates an existing agent alert configuration with the time threshold and notification channels provided."
+        },
+        {
+          "info": {
+            "name": "Delete an agent alert configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/synthetics/v202309/agentAlerts/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deletes an existing agent alert configuration."
+        },
+        {
+          "info": {
+            "name": "List available agents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/synthetics/v202309/agents"
+          },
+          "docs": "Returns list of all synthetic agents available in the account."
+        },
+        {
+          "info": {
+            "name": "Get information about an agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/synthetics/v202309/agents/:agent.id",
+            "params": [
+              {
+                "name": "agent.id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the requested agent"
+              }
+            ]
+          },
+          "docs": "Returns information about the requested synthetic agent."
+        },
+        {
+          "info": {
+            "name": "Update configuration of an agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/synthetics/v202309/agents/:agent.id",
+            "params": [
+              {
+                "name": "agent.id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the agent"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update configuration of a synthetic agent."
+        },
+        {
+          "info": {
+            "name": "Delete an agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/synthetics/v202309/agents/:agent.id",
+            "params": [
+              {
+                "name": "agent.id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the agent to be deleted"
+              }
+            ]
+          },
+          "docs": "Deletes the requested agent. The deleted agent is removed from configuration of all tests."
+        },
+        {
+          "info": {
+            "name": "List all tests",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/synthetics/v202309/tests"
+          },
+          "docs": "Returns a list of all configured active and paused synthetic tests."
+        },
+        {
+          "info": {
+            "name": "Create a test",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/synthetics/v202309/tests",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create synthetic test based on configuration provided in the request."
+        },
+        {
+          "info": {
+            "name": "Get information about a test",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/synthetics/v202309/tests/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of requested test"
+              }
+            ]
+          },
+          "docs": "Returns configuration and status for the requested synthetic test."
+        },
+        {
+          "info": {
+            "name": "Update configuration of a test",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/synthetics/v202309/tests/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique ID of the test"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates configuration of a synthetic test."
+        },
+        {
+          "info": {
+            "name": "Delete a synthetic test.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/synthetics/v202309/tests/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the test to be deleted"
+              }
+            ]
+          },
+          "docs": "Deletes the synthetics test. All accumulated results for the test cease to be accessible."
+        },
+        {
+          "info": {
+            "name": "Update status of a synthetic test",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/synthetics/v202309/tests/:id/status",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the test which status is to be modified"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update status of a synthetic test"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

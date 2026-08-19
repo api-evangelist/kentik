@@ -1,0 +1,202 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AI Advisor AiAdvisorDataService MitigationsService API",
+    "version": "v202511"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-CH-Auth-Email",
+      "value": "{{X-CH-Auth-Email}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "MitigationsService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Mitigations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v202505/mitigations",
+            "params": [
+              {
+                "name": "pagination.limit",
+                "value": "",
+                "type": "query",
+                "description": "limit is how many items to return at most"
+              },
+              {
+                "name": "pagination.offset",
+                "value": "",
+                "type": "query",
+                "description": "offset is the offset into the list of items"
+              },
+              {
+                "name": "pagination.includeTotalCount",
+                "value": "",
+                "type": "query",
+                "description": "include_total_count is a flag to enforce API service to include the total count of items in the response,\nwhich in some cases may be very expensive to fetch"
+              },
+              {
+                "name": "filters.createdAt.start",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filters.createdAt.end",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filters.mitigationIds",
+                "value": "",
+                "type": "query",
+                "description": "The IDs of the mitigations to list."
+              },
+              {
+                "name": "filters.alarmIds",
+                "value": "",
+                "type": "query",
+                "description": "The alarm IDs the mitigations are associated with."
+              },
+              {
+                "name": "filters.states",
+                "value": "",
+                "type": "query",
+                "description": "The states of the mitigations to filter by."
+              },
+              {
+                "name": "filters.platformIds",
+                "value": "",
+                "type": "query",
+                "description": "The mitigation platform IDs the mitigations are associated with."
+              },
+              {
+                "name": "filters.methodIds",
+                "value": "",
+                "type": "query",
+                "description": "The mitigation method IDs the mitigations are associated with."
+              },
+              {
+                "name": "filters.ipCidrs",
+                "value": "",
+                "type": "query",
+                "description": "The IP/CIDR ranges the mitigations target."
+              },
+              {
+                "name": "filters.ipCidrPattern",
+                "value": "",
+                "type": "query",
+                "description": "The IP/CIDR pattern to filter mitigations by."
+              },
+              {
+                "name": "filters.types",
+                "value": "",
+                "type": "query",
+                "description": "The types of mitigations to filter by.\n\n - MITIGATION_TYPE_MANUAL: Manual mitigation\n - MITIGATION_TYPE_AUTO: Automatic mitigation"
+              }
+            ]
+          },
+          "docs": "Returns a list of mitigations."
+        },
+        {
+          "info": {
+            "name": "Create Mitigation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v202505/mitigations",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new manual mitigation."
+        },
+        {
+          "info": {
+            "name": "Get Available Actions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v202505/mitigations/actions"
+          },
+          "docs": "Returns available actions for mitigations."
+        },
+        {
+          "info": {
+            "name": "Get Mitigation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v202505/mitigations/:action",
+            "params": [
+              {
+                "name": "action",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the mitigation to get."
+              }
+            ]
+          },
+          "docs": "Returns a mitigation."
+        },
+        {
+          "info": {
+            "name": "Act on Mitigation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v202505/mitigations/:action",
+            "params": [
+              {
+                "name": "action",
+                "value": "",
+                "type": "path",
+                "description": "The action to perform on the mitigations."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Performs an action on one or more mitigations."
+        },
+        {
+          "info": {
+            "name": "Get Available Actions for Mitigation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v202505/mitigations/:id/actions",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the mitigation to get available actions for."
+              }
+            ]
+          },
+          "docs": "Returns available actions for a specific mitigation."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

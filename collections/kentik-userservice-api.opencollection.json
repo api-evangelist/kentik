@@ -1,0 +1,151 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AI Advisor AiAdvisorDataService UserService API",
+    "version": "v202511"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-CH-Auth-Email",
+      "value": "{{X-CH-Auth-Email}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "UserService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all users.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/user/v202211/users"
+          },
+          "docs": "Returns a list of all user accounts in the company."
+        },
+        {
+          "info": {
+            "name": "Create new user account.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/user/v202211/users",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates new user account based on attributes in the request. Returns attributes of the newly created account."
+        },
+        {
+          "info": {
+            "name": "Get attributes of a user account.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/user/v202211/users/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the requested user"
+              }
+            ]
+          },
+          "docs": "Returns attributes of a user account specified by ID."
+        },
+        {
+          "info": {
+            "name": "Update attributes of a user account.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/user/v202211/users/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "System generated unique identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Replaces all attributes of a user account specified by ID with attributes in the request. Returns updated attributes."
+        },
+        {
+          "info": {
+            "name": "Delete a user account.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/user/v202211/users/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the the user account to be deleted"
+              }
+            ]
+          },
+          "docs": "Deletes user account specified by ID."
+        },
+        {
+          "info": {
+            "name": "Resets active sessions for a user.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/user/v202211/users/:id/reset_active_sessions",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the the user whose sessions should be reset"
+              }
+            ]
+          },
+          "docs": "Resets active sessions for a user specified by ID."
+        },
+        {
+          "info": {
+            "name": "Reset API token for a user.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/user/v202211/users/:id/reset_api_token",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the the user whose API token should be reset"
+              }
+            ]
+          },
+          "docs": "Resets API token for a user specified by ID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

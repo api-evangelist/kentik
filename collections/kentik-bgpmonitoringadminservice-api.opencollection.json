@@ -1,0 +1,136 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AI Advisor AiAdvisorDataService BgpMonitoringAdminService API",
+    "version": "v202511"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-CH-Auth-Email",
+      "value": "{{X-CH-Auth-Email}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "BgpMonitoringAdminService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List BGP Monitors.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/bgp_monitoring/v202210/monitors"
+          },
+          "docs": "Returns list of all BGP monitors present in the account."
+        },
+        {
+          "info": {
+            "name": "Create new BGP Monitor instance.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/bgp_monitoring/v202210/monitors",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates new BGP Monitor and if successful returns its configuration."
+        },
+        {
+          "info": {
+            "name": "Get BGP Monitor configuration.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/bgp_monitoring/v202210/monitors/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the BGP monitor to be retrieved"
+              }
+            ]
+          },
+          "docs": "Returns configuration of existing BGP monitor with specific ID."
+        },
+        {
+          "info": {
+            "name": "Update configuration of a BGP monitor.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/bgp_monitoring/v202210/monitors/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "System generated unique identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates configuration of BGP monitor with specific ID and returns updated  configuration."
+        },
+        {
+          "info": {
+            "name": "Delete existing BGP Monitor.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/bgp_monitoring/v202210/monitors/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the BGP monitor to be deleted"
+              }
+            ]
+          },
+          "docs": "Delete BGP monitor with with specific ID."
+        },
+        {
+          "info": {
+            "name": "Sets administrative status of a BGP monitor.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/bgp_monitoring/v202210/monitors/:id/status",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the BGP monitor whose status is to be modified"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sets administrative status of BGP monitor with specific ID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

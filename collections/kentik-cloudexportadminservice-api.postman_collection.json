@@ -1,0 +1,823 @@
+{
+  "item": [
+    {
+      "id": "af568870-c0b3-4d12-9001-0ebbd7f6b1b8",
+      "name": "CloudExportAdminService",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4628f6ec-d281-4623-861c-3767efaee423",
+          "name": "List cloud exports.",
+          "request": {
+            "name": "List cloud exports.",
+            "description": {
+              "content": "Returns a list of all cloud exports in the account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cloud_export",
+                "v202506",
+                "exports"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3e600d1d-04dc-4a2d-aec8-1e667a26d41a",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cloud_export",
+                    "v202506",
+                    "exports"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exports\": [\n    {\n      \"enabled\": true,\n      \"name\": \"string\",\n      \"planId\": \"string\",\n      \"cloudProvider\": \"CLOUD_PROVIDER_UNSPECIFIED\",\n      \"id\": \"string\",\n      \"type\": \"CLOUD_EXPORT_TYPE_UNSPECIFIED\",\n      \"description\": \"string\",\n      \"aws\": {\n        \"iamRoleArn\": \"string\",\n        \"region\": \"string\",\n        \"metadataOnly\": false,\n        \"collectFlowLogs\": true,\n        \"collectFirewallLogs\": true,\n        \"collectMetrics\": true,\n        \"bucket\": \"string\",\n        \"bucketPrefix\": \"string\",\n        \"deleteAfterRead\": false,\n        \"awsIamRoleArnIsOrg\": false,\n        \"secondaryAwsAccounts\": [\n          \"string\",\n          \"string\"\n        ],\n        \"secondaryAwsBlockedAccounts\": [\n          \"string\",\n          \"string\"\n        ],\n        \"secondaryAwsRegions\": [\n          \"string\",\n          \"string\"\n        ],\n        \"secondaryAwsSuffix\": \"string\"\n      },\n      \"azure\": {\n        \"location\": \"string\",\n        \"resourceGroup\": \"string\",\n        \"storageAccount\": \"string\",\n        \"subscriptionId\": \"string\",\n        \"securityPrincipalEnabled\": false\n      },\n      \"gce\": {\n        \"project\": \"string\",\n        \"subscription\": \"string\",\n        \"metadataOnly\": false,\n        \"collectFlowLogs\": true,\n        \"collectMetrics\": true\n      },\n      \"oci\": {\n        \"ociTenancyId\": \"string\",\n        \"ociDefaultRegion\": \"string\",\n        \"ociUserId\": \"string\",\n        \"ociCompartmentId\": [\n          \"string\",\n          \"string\"\n        ],\n        \"ociCollectFlowLogs\": false,\n        \"ociBucketName\": \"string\",\n        \"ociBucketNamespaceName\": \"string\",\n        \"ociServiceConnectorOcid\": \"string\",\n        \"ociFlowObjectNamePrefix\": \"string\",\n        \"metadataOnly\": false\n      },\n      \"currentStatus\": {\n        \"status\": \"string\",\n        \"errorMessage\": \"string\",\n        \"flowFound\": false,\n        \"apiAccess\": true,\n        \"storageAccountAccess\": false\n      },\n      \"cdate\": \"1965-01-05T22:41:50.453Z\",\n      \"edate\": \"1989-01-04T16:47:24.495Z\",\n      \"sampling\": {\n        \"samplingEnabled\": false,\n        \"samplingType\": \"CLOUD_EXPORT_SAMPLING_TYPE_UNSPECIFIED\",\n        \"samplingRate\": 3693\n      }\n    },\n    {\n      \"enabled\": false,\n      \"name\": \"string\",\n      \"planId\": \"string\",\n      \"cloudProvider\": \"CLOUD_PROVIDER_UNSPECIFIED\",\n      \"id\": \"string\",\n      \"type\": \"CLOUD_EXPORT_TYPE_UNSPECIFIED\",\n      \"description\": \"string\",\n      \"aws\": {\n        \"iamRoleArn\": \"string\",\n        \"region\": \"string\",\n        \"metadataOnly\": false,\n        \"collectFlowLogs\": false,\n        \"collectFirewallLogs\": true,\n        \"collectMetrics\": false,\n        \"bucket\": \"string\",\n        \"bucketPrefix\": \"string\",\n        \"deleteAfterRead\": false,\n        \"awsIamRoleArnIsOrg\": true,\n        \"secondaryAwsAccounts\": [\n          \"string\",\n          \"string\"\n        ],\n        \"secondaryAwsBlockedAccounts\": [\n          \"string\",\n          \"string\"\n        ],\n        \"secondaryAwsRegions\": [\n          \"string\",\n          \"string\"\n        ],\n        \"secondaryAwsSuffix\": \"string\"\n      },\n      \"azure\": {\n        \"location\": \"string\",\n        \"resourceGroup\": \"string\",\n        \"storageAccount\": \"string\",\n        \"subscriptionId\": \"string\",\n        \"securityPrincipalEnabled\": true\n      },\n      \"gce\": {\n        \"project\": \"string\",\n        \"subscription\": \"string\",\n        \"metadataOnly\": true,\n        \"collectFlowLogs\": false,\n        \"collectMetrics\": false\n      },\n      \"oci\": {\n        \"ociTenancyId\": \"string\",\n        \"ociDefaultRegion\": \"string\",\n        \"ociUserId\": \"string\",\n        \"ociCompartmentId\": [\n          \"string\",\n          \"string\"\n        ],\n        \"ociCollectFlowLogs\": false,\n        \"ociBucketName\": \"string\",\n        \"ociBucketNamespaceName\": \"string\",\n        \"ociServiceConnectorOcid\": \"string\",\n        \"ociFlowObjectNamePrefix\": \"string\",\n        \"metadataOnly\": false\n      },\n      \"currentStatus\": {\n        \"status\": \"string\",\n        \"errorMessage\": \"string\",\n        \"flowFound\": true,\n        \"apiAccess\": true,\n        \"storageAccountAccess\": true\n      },\n      \"cdate\": \"2024-05-12T13:24:20.946Z\",\n      \"edate\": \"1973-02-15T15:41:35.783Z\",\n      \"sampling\": {\n        \"samplingEnabled\": false,\n        \"samplingType\": \"CLOUD_EXPORT_SAMPLING_TYPE_UNSPECIFIED\",\n        \"samplingRate\": 476\n      }\n    }\n  ],\n  \"invalidExportsCount\": 9363\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5f5bc514-acf9-4bb2-8799-fffd6c18f8c5",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cloud_export",
+                    "v202506",
+                    "exports"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4104,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1ef410cb-5b37-49f7-b0a9-2ff1d5ea58ef",
+          "name": "Create Cloud Export.",
+          "request": {
+            "name": "Create Cloud Export.",
+            "description": {
+              "content": "Create new cloud export based on configuration in the request.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cloud_export",
+                "v202506",
+                "exports"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"export\": {\n    \"enabled\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"planId\": \"<string>\",\n    \"cloudProvider\": \"CLOUD_PROVIDER_UNSPECIFIED\",\n    \"type\": \"CLOUD_EXPORT_TYPE_UNSPECIFIED\",\n    \"description\": \"<string>\",\n    \"aws\": {\n      \"iamRoleArn\": \"<string>\",\n      \"region\": \"<string>\",\n      \"metadataOnly\": \"<boolean>\",\n      \"collectFlowLogs\": \"<boolean>\",\n      \"collectFirewallLogs\": \"<boolean>\",\n      \"collectMetrics\": \"<boolean>\",\n      \"bucket\": \"<string>\",\n      \"bucketPrefix\": \"<string>\",\n      \"deleteAfterRead\": \"<boolean>\",\n      \"awsIamRoleArnIsOrg\": \"<boolean>\",\n      \"secondaryAwsAccounts\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"secondaryAwsBlockedAccounts\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"secondaryAwsRegions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"secondaryAwsSuffix\": \"<string>\"\n    },\n    \"azure\": {\n      \"location\": \"<string>\",\n      \"resourceGroup\": \"<string>\",\n      \"storageAccount\": \"<string>\",\n      \"subscriptionId\": \"<string>\",\n      \"securityPrincipalEnabled\": \"<boolean>\"\n    },\n    \"gce\": {\n      \"project\": \"<string>\",\n      \"subscription\": \"<string>\",\n      \"metadataOnly\": \"<boolean>\",\n      \"collectFlowLogs\": \"<boolean>\",\n      \"collectMetrics\": \"<boolean>\"\n    },\n    \"oci\": {\n      \"ociTenancyId\": \"<string>\",\n      \"ociDefaultRegion\": \"<string>\",\n      \"ociUserId\": \"<string>\",\n      \"ociCompartmentId\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"ociCollectFlowLogs\": \"<boolean>\",\n      \"ociBucketName\": \"<string>\",\n      \"ociBucketNamespaceName\": \"<string>\",\n      \"ociServiceConnectorOcid\": \"<string>\",\n      \"ociFlowObjectNamePrefix\": \"<string>\",\n      \"metadataOnly\": \"<boolean>\"\n    },\n    \"currentStatus\": {},\n    \"sampling\": {\n      \"samplingEnabled\": \"<boolean>\",\n      \"samplingType\": \"CLOUD_EXPORT_SAMPLING_TYPE_UNSPECIFIED\",\n      \"samplingRate\": \"<long>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f70932a6-3515-4eda-9b1b-35664b629b7b",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cloud_export",
+                    "v202506",
+                    "exports"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"export\": {\n    \"enabled\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"planId\": \"<string>\",\n    \"cloudProvider\": \"CLOUD_PROVIDER_UNSPECIFIED\",\n    \"type\": \"CLOUD_EXPORT_TYPE_UNSPECIFIED\",\n    \"description\": \"<string>\",\n    \"aws\": {\n      \"iamRoleArn\": \"<string>\",\n      \"region\": \"<string>\",\n      \"metadataOnly\": \"<boolean>\",\n      \"collectFlowLogs\": \"<boolean>\",\n      \"collectFirewallLogs\": \"<boolean>\",\n      \"collectMetrics\": \"<boolean>\",\n      \"bucket\": \"<string>\",\n      \"bucketPrefix\": \"<string>\",\n      \"deleteAfterRead\": \"<boolean>\",\n      \"awsIamRoleArnIsOrg\": \"<boolean>\",\n      \"secondaryAwsAccounts\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"secondaryAwsBlockedAccounts\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"secondaryAwsRegions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"secondaryAwsSuffix\": \"<string>\"\n    },\n    \"azure\": {\n      \"location\": \"<string>\",\n      \"resourceGroup\": \"<string>\",\n      \"storageAccount\": \"<string>\",\n      \"subscriptionId\": \"<string>\",\n      \"securityPrincipalEnabled\": \"<boolean>\"\n    },\n    \"gce\": {\n      \"project\": \"<string>\",\n      \"subscription\": \"<string>\",\n      \"metadataOnly\": \"<boolean>\",\n      \"collectFlowLogs\": \"<boolean>\",\n      \"collectMetrics\": \"<boolean>\"\n    },\n    \"oci\": {\n      \"ociTenancyId\": \"<string>\",\n      \"ociDefaultRegion\": \"<string>\",\n      \"ociUserId\": \"<string>\",\n      \"ociCompartmentId\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"ociCollectFlowLogs\": \"<boolean>\",\n      \"ociBucketName\": \"<string>\",\n      \"ociBucketNamespaceName\": \"<string>\",\n      \"ociServiceConnectorOcid\": \"<string>\",\n      \"ociFlowObjectNamePrefix\": \"<string>\",\n      \"metadataOnly\": \"<boolean>\"\n    },\n    \"currentStatus\": {},\n    \"sampling\": {\n      \"samplingEnabled\": \"<boolean>\",\n      \"samplingType\": \"CLOUD_EXPORT_SAMPLING_TYPE_UNSPECIFIED\",\n      \"samplingRate\": \"<long>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"export\": {\n    \"enabled\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"planId\": \"<string>\",\n    \"cloudProvider\": \"CLOUD_PROVIDER_UNSPECIFIED\",\n    \"id\": \"string\",\n    \"type\": \"CLOUD_EXPORT_TYPE_UNSPECIFIED\",\n    \"description\": \"<string>\",\n    \"aws\": {\n      \"iamRoleArn\": \"<string>\",\n      \"region\": \"<string>\",\n      \"metadataOnly\": \"<boolean>\",\n      \"collectFlowLogs\": \"<boolean>\",\n      \"collectFirewallLogs\": \"<boolean>\",\n      \"collectMetrics\": \"<boolean>\",\n      \"bucket\": \"<string>\",\n      \"bucketPrefix\": \"<string>\",\n      \"deleteAfterRead\": \"<boolean>\",\n      \"awsIamRoleArnIsOrg\": \"<boolean>\",\n      \"secondaryAwsAccounts\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"secondaryAwsBlockedAccounts\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"secondaryAwsRegions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"secondaryAwsSuffix\": \"<string>\"\n    },\n    \"azure\": {\n      \"location\": \"<string>\",\n      \"resourceGroup\": \"<string>\",\n      \"storageAccount\": \"<string>\",\n      \"subscriptionId\": \"<string>\",\n      \"securityPrincipalEnabled\": \"<boolean>\"\n    },\n    \"gce\": {\n      \"project\": \"<string>\",\n      \"subscription\": \"<string>\",\n      \"metadataOnly\": \"<boolean>\",\n      \"collectFlowLogs\": \"<boolean>\",\n      \"collectMetrics\": \"<boolean>\"\n    },\n    \"oci\": {\n      \"ociTenancyId\": \"<string>\",\n      \"ociDefaultRegion\": \"<string>\",\n      \"ociUserId\": \"<string>\",\n      \"ociCompartmentId\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"ociCollectFlowLogs\": \"<boolean>\",\n      \"ociBucketName\": \"<string>\",\n      \"ociBucketNamespaceName\": \"<string>\",\n      \"ociServiceConnectorOcid\": \"<string>\",\n      \"ociFlowObjectNamePrefix\": \"<string>\",\n      \"metadataOnly\": \"<boolean>\"\n    },\n    \"currentStatus\": {\n      \"status\": \"string\",\n      \"errorMessage\": \"string\",\n      \"flowFound\": true,\n      \"apiAccess\": true,\n      \"storageAccountAccess\": false\n    },\n    \"cdate\": \"2019-04-18T13:26:54.294Z\",\n    \"edate\": \"2013-01-27T03:41:07.178Z\",\n    \"sampling\": {\n      \"samplingEnabled\": \"<boolean>\",\n      \"samplingType\": \"CLOUD_EXPORT_SAMPLING_TYPE_UNSPECIFIED\",\n      \"samplingRate\": \"<long>\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bcec7431-6080-42fb-9041-b90eb574147e",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cloud_export",
+                    "v202506",
+                    "exports"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"export\": {\n    \"enabled\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"planId\": \"<string>\",\n    \"cloudProvider\": \"CLOUD_PROVIDER_UNSPECIFIED\",\n    \"type\": \"CLOUD_EXPORT_TYPE_UNSPECIFIED\",\n    \"description\": \"<string>\",\n    \"aws\": {\n      \"iamRoleArn\": \"<string>\",\n      \"region\": \"<string>\",\n      \"metadataOnly\": \"<boolean>\",\n      \"collectFlowLogs\": \"<boolean>\",\n      \"collectFirewallLogs\": \"<boolean>\",\n      \"collectMetrics\": \"<boolean>\",\n      \"bucket\": \"<string>\",\n      \"bucketPrefix\": \"<string>\",\n      \"deleteAfterRead\": \"<boolean>\",\n      \"awsIamRoleArnIsOrg\": \"<boolean>\",\n      \"secondaryAwsAccounts\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"secondaryAwsBlockedAccounts\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"secondaryAwsRegions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"secondaryAwsSuffix\": \"<string>\"\n    },\n    \"azure\": {\n      \"location\": \"<string>\",\n      \"resourceGroup\": \"<string>\",\n      \"storageAccount\": \"<string>\",\n      \"subscriptionId\": \"<string>\",\n      \"securityPrincipalEnabled\": \"<boolean>\"\n    },\n    \"gce\": {\n      \"project\": \"<string>\",\n      \"subscription\": \"<string>\",\n      \"metadataOnly\": \"<boolean>\",\n      \"collectFlowLogs\": \"<boolean>\",\n      \"collectMetrics\": \"<boolean>\"\n    },\n    \"oci\": {\n      \"ociTenancyId\": \"<string>\",\n      \"ociDefaultRegion\": \"<string>\",\n      \"ociUserId\": \"<string>\",\n      \"ociCompartmentId\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"ociCollectFlowLogs\": \"<boolean>\",\n      \"ociBucketName\": \"<string>\",\n      \"ociBucketNamespaceName\": \"<string>\",\n      \"ociServiceConnectorOcid\": \"<string>\",\n      \"ociFlowObjectNamePrefix\": \"<string>\",\n      \"metadataOnly\": \"<boolean>\"\n    },\n    \"currentStatus\": {},\n    \"sampling\": {\n      \"samplingEnabled\": \"<boolean>\",\n      \"samplingType\": \"CLOUD_EXPORT_SAMPLING_TYPE_UNSPECIFIED\",\n      \"samplingRate\": \"<long>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4319,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a17a53c1-dae2-49be-8096-8e5bb004c4df",
+          "name": "Update configuration of cloud export.",
+          "request": {
+            "name": "Update configuration of cloud export.",
+            "description": {
+              "content": "Replace complete configuration of a cloud export with data in the request.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cloud_export",
+                "v202506",
+                "exports",
+                ":export.id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "export.id",
+                  "description": "(Required) Unique identifier of the instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"export\": {\n    \"type\": \"CLOUD_EXPORT_TYPE_UNSPECIFIED\",\n    \"enabled\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"planId\": \"<string>\",\n    \"cloudProvider\": \"CLOUD_PROVIDER_UNSPECIFIED\",\n    \"aws\": {\n      \"iamRoleArn\": \"<string>\",\n      \"region\": \"<string>\",\n      \"metadataOnly\": \"<boolean>\",\n      \"collectFlowLogs\": \"<boolean>\",\n      \"collectFirewallLogs\": \"<boolean>\",\n      \"collectMetrics\": \"<boolean>\",\n      \"bucket\": \"<string>\",\n      \"bucketPrefix\": \"<string>\",\n      \"deleteAfterRead\": \"<boolean>\",\n      \"awsIamRoleArnIsOrg\": \"<boolean>\",\n      \"secondaryAwsAccounts\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"secondaryAwsBlockedAccounts\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"secondaryAwsRegions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"secondaryAwsSuffix\": \"<string>\"\n    },\n    \"azure\": {\n      \"location\": \"<string>\",\n      \"resourceGroup\": \"<string>\",\n      \"storageAccount\": \"<string>\",\n      \"subscriptionId\": \"<string>\",\n      \"securityPrincipalEnabled\": \"<boolean>\"\n    },\n    \"gce\": {\n      \"project\": \"<string>\",\n      \"subscription\": \"<string>\",\n      \"metadataOnly\": \"<boolean>\",\n      \"collectFlowLogs\": \"<boolean>\",\n      \"collectMetrics\": \"<boolean>\"\n    },\n    \"oci\": {\n      \"ociTenancyId\": \"<string>\",\n      \"ociDefaultRegion\": \"<string>\",\n      \"ociUserId\": \"<string>\",\n      \"ociCompartmentId\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"ociCollectFlowLogs\": \"<boolean>\",\n      \"ociBucketName\": \"<string>\",\n      \"ociBucketNamespaceName\": \"<string>\",\n      \"ociServiceConnectorOcid\": \"<string>\",\n      \"ociFlowObjectNamePrefix\": \"<string>\",\n      \"metadataOnly\": \"<boolean>\"\n    },\n    \"currentStatus\": {},\n    \"sampling\": {\n      \"samplingEnabled\": \"<boolean>\",\n      \"samplingType\": \"CLOUD_EXPORT_SAMPLING_TYPE_UNSPECIFIED\",\n      \"samplingRate\": \"<long>\"\n    }\n  },\n  \"enabled\": true,\n  \"name\": true,\n  \"planId\": 7056.930376481657\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a546ce8c-fdc5-40c6-850e-6ff066b0e781",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cloud_export",
+                    "v202506",
+                    "exports",
+                    ":export.id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "export.id",
+                      "description": "(Required) Unique identifier of the instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"export\": {\n    \"type\": \"CLOUD_EXPORT_TYPE_UNSPECIFIED\",\n    \"enabled\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"planId\": \"<string>\",\n    \"cloudProvider\": \"CLOUD_PROVIDER_UNSPECIFIED\",\n    \"aws\": {\n      \"iamRoleArn\": \"<string>\",\n      \"region\": \"<string>\",\n      \"metadataOnly\": \"<boolean>\",\n      \"collectFlowLogs\": \"<boolean>\",\n      \"collectFirewallLogs\": \"<boolean>\",\n      \"collectMetrics\": \"<boolean>\",\n      \"bucket\": \"<string>\",\n      \"bucketPrefix\": \"<string>\",\n      \"deleteAfterRead\": \"<boolean>\",\n      \"awsIamRoleArnIsOrg\": \"<boolean>\",\n      \"secondaryAwsAccounts\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"secondaryAwsBlockedAccounts\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"secondaryAwsRegions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"secondaryAwsSuffix\": \"<string>\"\n    },\n    \"azure\": {\n      \"location\": \"<string>\",\n      \"resourceGroup\": \"<string>\",\n      \"storageAccount\": \"<string>\",\n      \"subscriptionId\": \"<string>\",\n      \"securityPrincipalEnabled\": \"<boolean>\"\n    },\n    \"gce\": {\n      \"project\": \"<string>\",\n      \"subscription\": \"<string>\",\n      \"metadataOnly\": \"<boolean>\",\n      \"collectFlowLogs\": \"<boolean>\",\n      \"collectMetrics\": \"<boolean>\"\n    },\n    \"oci\": {\n      \"ociTenancyId\": \"<string>\",\n      \"ociDefaultRegion\": \"<string>\",\n      \"ociUserId\": \"<string>\",\n      \"ociCompartmentId\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"ociCollectFlowLogs\": \"<boolean>\",\n      \"ociBucketName\": \"<string>\",\n      \"ociBucketNamespaceName\": \"<string>\",\n      \"ociServiceConnectorOcid\": \"<string>\",\n      \"ociFlowObjectNamePrefix\": \"<string>\",\n      \"metadataOnly\": \"<boolean>\"\n    },\n    \"currentStatus\": {},\n    \"sampling\": {\n      \"samplingEnabled\": \"<boolean>\",\n      \"samplingType\": \"CLOUD_EXPORT_SAMPLING_TYPE_UNSPECIFIED\",\n      \"samplingRate\": \"<long>\"\n    }\n  },\n  \"enabled\": \"string\",\n  \"name\": 2422.9667831272973,\n  \"planId\": \"string\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"export\": {\n    \"enabled\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"planId\": \"<string>\",\n    \"cloudProvider\": \"CLOUD_PROVIDER_UNSPECIFIED\",\n    \"id\": \"string\",\n    \"type\": \"CLOUD_EXPORT_TYPE_UNSPECIFIED\",\n    \"description\": \"<string>\",\n    \"aws\": {\n      \"iamRoleArn\": \"<string>\",\n      \"region\": \"<string>\",\n      \"metadataOnly\": \"<boolean>\",\n      \"collectFlowLogs\": \"<boolean>\",\n      \"collectFirewallLogs\": \"<boolean>\",\n      \"collectMetrics\": \"<boolean>\",\n      \"bucket\": \"<string>\",\n      \"bucketPrefix\": \"<string>\",\n      \"deleteAfterRead\": \"<boolean>\",\n      \"awsIamRoleArnIsOrg\": \"<boolean>\",\n      \"secondaryAwsAccounts\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"secondaryAwsBlockedAccounts\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"secondaryAwsRegions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"secondaryAwsSuffix\": \"<string>\"\n    },\n    \"azure\": {\n      \"location\": \"<string>\",\n      \"resourceGroup\": \"<string>\",\n      \"storageAccount\": \"<string>\",\n      \"subscriptionId\": \"<string>\",\n      \"securityPrincipalEnabled\": \"<boolean>\"\n    },\n    \"gce\": {\n      \"project\": \"<string>\",\n      \"subscription\": \"<string>\",\n      \"metadataOnly\": \"<boolean>\",\n      \"collectFlowLogs\": \"<boolean>\",\n      \"collectMetrics\": \"<boolean>\"\n    },\n    \"oci\": {\n      \"ociTenancyId\": \"<string>\",\n      \"ociDefaultRegion\": \"<string>\",\n      \"ociUserId\": \"<string>\",\n      \"ociCompartmentId\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"ociCollectFlowLogs\": \"<boolean>\",\n      \"ociBucketName\": \"<string>\",\n      \"ociBucketNamespaceName\": \"<string>\",\n      \"ociServiceConnectorOcid\": \"<string>\",\n      \"ociFlowObjectNamePrefix\": \"<string>\",\n      \"metadataOnly\": \"<boolean>\"\n    },\n    \"currentStatus\": {\n      \"status\": \"string\",\n      \"errorMessage\": \"string\",\n      \"flowFound\": false,\n      \"apiAccess\": false,\n      \"storageAccountAccess\": false\n    },\n    \"cdate\": \"1946-08-18T14:53:10.062Z\",\n    \"edate\": \"2018-04-03T16:07:50.074Z\",\n    \"sampling\": {\n      \"samplingEnabled\": \"<boolean>\",\n      \"samplingType\": \"CLOUD_EXPORT_SAMPLING_TYPE_UNSPECIFIED\",\n      \"samplingRate\": \"<long>\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "48b9317d-0d48-41cf-9815-fdac7652ea0c",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cloud_export",
+                    "v202506",
+                    "exports",
+                    ":export.id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "export.id",
+                      "description": "(Required) Unique identifier of the instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"export\": {\n    \"type\": \"CLOUD_EXPORT_TYPE_UNSPECIFIED\",\n    \"enabled\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"planId\": \"<string>\",\n    \"cloudProvider\": \"CLOUD_PROVIDER_UNSPECIFIED\",\n    \"aws\": {\n      \"iamRoleArn\": \"<string>\",\n      \"region\": \"<string>\",\n      \"metadataOnly\": \"<boolean>\",\n      \"collectFlowLogs\": \"<boolean>\",\n      \"collectFirewallLogs\": \"<boolean>\",\n      \"collectMetrics\": \"<boolean>\",\n      \"bucket\": \"<string>\",\n      \"bucketPrefix\": \"<string>\",\n      \"deleteAfterRead\": \"<boolean>\",\n      \"awsIamRoleArnIsOrg\": \"<boolean>\",\n      \"secondaryAwsAccounts\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"secondaryAwsBlockedAccounts\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"secondaryAwsRegions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"secondaryAwsSuffix\": \"<string>\"\n    },\n    \"azure\": {\n      \"location\": \"<string>\",\n      \"resourceGroup\": \"<string>\",\n      \"storageAccount\": \"<string>\",\n      \"subscriptionId\": \"<string>\",\n      \"securityPrincipalEnabled\": \"<boolean>\"\n    },\n    \"gce\": {\n      \"project\": \"<string>\",\n      \"subscription\": \"<string>\",\n      \"metadataOnly\": \"<boolean>\",\n      \"collectFlowLogs\": \"<boolean>\",\n      \"collectMetrics\": \"<boolean>\"\n    },\n    \"oci\": {\n      \"ociTenancyId\": \"<string>\",\n      \"ociDefaultRegion\": \"<string>\",\n      \"ociUserId\": \"<string>\",\n      \"ociCompartmentId\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"ociCollectFlowLogs\": \"<boolean>\",\n      \"ociBucketName\": \"<string>\",\n      \"ociBucketNamespaceName\": \"<string>\",\n      \"ociServiceConnectorOcid\": \"<string>\",\n      \"ociFlowObjectNamePrefix\": \"<string>\",\n      \"metadataOnly\": \"<boolean>\"\n    },\n    \"currentStatus\": {},\n    \"sampling\": {\n      \"samplingEnabled\": \"<boolean>\",\n      \"samplingType\": \"CLOUD_EXPORT_SAMPLING_TYPE_UNSPECIFIED\",\n      \"samplingRate\": \"<long>\"\n    }\n  },\n  \"enabled\": \"string\",\n  \"name\": 2422.9667831272973,\n  \"planId\": \"string\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4319,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f8459b63-dbd8-4f58-b377-b37ff33b0019",
+          "name": "Get cloud export configuration and status.",
+          "request": {
+            "name": "Get cloud export configuration and status.",
+            "description": {
+              "content": "Returns configuration and status of cloud export with specified ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cloud_export",
+                "v202506",
+                "exports",
+                ":export.id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "export.id",
+                  "description": "(Required) ID of the cloud export to be retrieved."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2687620b-1ac4-4599-b355-b538c0603244",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cloud_export",
+                    "v202506",
+                    "exports",
+                    ":export.id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "export.id",
+                      "description": "(Required) ID of the cloud export to be retrieved."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"export\": {\n    \"enabled\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"planId\": \"<string>\",\n    \"cloudProvider\": \"CLOUD_PROVIDER_UNSPECIFIED\",\n    \"id\": \"string\",\n    \"type\": \"CLOUD_EXPORT_TYPE_UNSPECIFIED\",\n    \"description\": \"<string>\",\n    \"aws\": {\n      \"iamRoleArn\": \"<string>\",\n      \"region\": \"<string>\",\n      \"metadataOnly\": \"<boolean>\",\n      \"collectFlowLogs\": \"<boolean>\",\n      \"collectFirewallLogs\": \"<boolean>\",\n      \"collectMetrics\": \"<boolean>\",\n      \"bucket\": \"<string>\",\n      \"bucketPrefix\": \"<string>\",\n      \"deleteAfterRead\": \"<boolean>\",\n      \"awsIamRoleArnIsOrg\": \"<boolean>\",\n      \"secondaryAwsAccounts\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"secondaryAwsBlockedAccounts\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"secondaryAwsRegions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"secondaryAwsSuffix\": \"<string>\"\n    },\n    \"azure\": {\n      \"location\": \"<string>\",\n      \"resourceGroup\": \"<string>\",\n      \"storageAccount\": \"<string>\",\n      \"subscriptionId\": \"<string>\",\n      \"securityPrincipalEnabled\": \"<boolean>\"\n    },\n    \"gce\": {\n      \"project\": \"<string>\",\n      \"subscription\": \"<string>\",\n      \"metadataOnly\": \"<boolean>\",\n      \"collectFlowLogs\": \"<boolean>\",\n      \"collectMetrics\": \"<boolean>\"\n    },\n    \"oci\": {\n      \"ociTenancyId\": \"<string>\",\n      \"ociDefaultRegion\": \"<string>\",\n      \"ociUserId\": \"<string>\",\n      \"ociCompartmentId\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"ociCollectFlowLogs\": \"<boolean>\",\n      \"ociBucketName\": \"<string>\",\n      \"ociBucketNamespaceName\": \"<string>\",\n      \"ociServiceConnectorOcid\": \"<string>\",\n      \"ociFlowObjectNamePrefix\": \"<string>\",\n      \"metadataOnly\": \"<boolean>\"\n    },\n    \"currentStatus\": {\n      \"status\": \"string\",\n      \"errorMessage\": \"string\",\n      \"flowFound\": false,\n      \"apiAccess\": false,\n      \"storageAccountAccess\": false\n    },\n    \"cdate\": \"2018-09-22T10:40:49.566Z\",\n    \"edate\": \"1990-11-14T01:29:52.970Z\",\n    \"sampling\": {\n      \"samplingEnabled\": \"<boolean>\",\n      \"samplingType\": \"CLOUD_EXPORT_SAMPLING_TYPE_UNSPECIFIED\",\n      \"samplingRate\": \"<long>\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "915d906a-1717-447c-9e15-efe36237855a",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cloud_export",
+                    "v202506",
+                    "exports",
+                    ":export.id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "export.id",
+                      "description": "(Required) ID of the cloud export to be retrieved."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4319,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "735c7de8-8a11-4a0f-8ac6-73b43f294ce1",
+          "name": "Delete a cloud export.",
+          "request": {
+            "name": "Delete a cloud export.",
+            "description": {
+              "content": "Delete cloud export with specified ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cloud_export",
+                "v202506",
+                "exports",
+                ":export.id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "export.id",
+                  "description": "(Required) ID of the cloud export to be deleted."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e20d3fec-f1ee-472c-a863-efd0a8fff08c",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cloud_export",
+                    "v202506",
+                    "exports",
+                    ":export.id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "export.id",
+                      "description": "(Required) ID of the cloud export to be deleted."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7a5e921c-3cd5-4a43-9d58-8f50f2efb471",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cloud_export",
+                    "v202506",
+                    "exports",
+                    ":export.id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "export.id",
+                      "description": "(Required) ID of the cloud export to be deleted."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4319,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-CH-Auth-Email"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "197e63bd-7499-4c31-b164-f14bc36ab1aa",
+    "name": "AI Advisor AiAdvisorDataService CloudExportAdminService API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "# Overview\nProvides programmatic access to AI Advisor.\n\nContact Support:\n Name: Kentik API Engineering",
+      "type": "text/plain"
+    }
+  }
+}

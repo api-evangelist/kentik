@@ -1,0 +1,2432 @@
+{
+  "item": [
+    {
+      "id": "4dd81ffc-4db5-4638-9653-d958f6afd3cb",
+      "name": "SyntheticsAdminService",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "75475750-1dbf-4bab-94a3-d824f0d6e91b",
+          "name": "List agent alert configurations",
+          "request": {
+            "name": "List agent alert configurations",
+            "description": {
+              "content": "Lists all agent alert configurations, optionally filtered by a list of agent ids.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "synthetics",
+                "v202309",
+                "agentAlerts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "agentIds",
+                  "value": "<string>",
+                  "description": "Optional list of agent ids to retrieve alert configurations for"
+                },
+                {
+                  "disabled": false,
+                  "key": "agentIds",
+                  "value": "<string>",
+                  "description": "Optional list of agent ids to retrieve alert configurations for"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f69f6e1f-ff0e-4f0d-8b07-8450f71da7a2",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "synthetics",
+                    "v202309",
+                    "agentAlerts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "agentIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "agentIds",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"agentAlerts\": [\n    {\n      \"id\": \"string\",\n      \"thresholdSeconds\": 568,\n      \"notificationChannelIds\": [\n        \"string\",\n        \"string\"\n      ],\n      \"agentId\": \"string\",\n      \"agentName\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"thresholdSeconds\": 3042,\n      \"notificationChannelIds\": [\n        \"string\",\n        \"string\"\n      ],\n      \"agentId\": \"string\",\n      \"agentName\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aa894c1a-b6c5-4049-9c53-296d3f8f08e9",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "synthetics",
+                    "v202309",
+                    "agentAlerts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "agentIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "agentIds",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2896,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7570107e-4b3f-4af5-84db-b6f48bf414d8",
+          "name": "Create an agent alert configuration",
+          "request": {
+            "name": "Create an agent alert configuration",
+            "description": {
+              "content": "Creates a new agent alert configuration.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "synthetics",
+                "v202309",
+                "agentAlerts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"thresholdSeconds\": \"<long>\",\n  \"notificationChannelIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"agentId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4e2c4fbc-d264-443c-bc27-f8263b545716",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "synthetics",
+                    "v202309",
+                    "agentAlerts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"thresholdSeconds\": \"<long>\",\n  \"notificationChannelIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"agentId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"agentAlert\": {\n    \"id\": \"string\",\n    \"thresholdSeconds\": 259,\n    \"notificationChannelIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"agentId\": \"string\",\n    \"agentName\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7b4f2c4d-4ec8-46d5-902c-19b99ac9621a",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "synthetics",
+                    "v202309",
+                    "agentAlerts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"thresholdSeconds\": \"<long>\",\n  \"notificationChannelIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"agentId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7806,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c8214616-ecc5-4bb0-8039-2ae47021ff62",
+          "name": "Get an agent alert configuration",
+          "request": {
+            "name": "Get an agent alert configuration",
+            "description": {
+              "content": "Retrieves an existing agent alert configuration.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "synthetics",
+                "v202309",
+                "agentAlerts",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "de4ea811-b939-4403-aed9-79d2c44db753",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "synthetics",
+                    "v202309",
+                    "agentAlerts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"agentAlert\": {\n    \"id\": \"string\",\n    \"thresholdSeconds\": 259,\n    \"notificationChannelIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"agentId\": \"string\",\n    \"agentName\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "69ed88e9-3529-438a-8453-d79fe2476d51",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "synthetics",
+                    "v202309",
+                    "agentAlerts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7806,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0a024968-cdab-4266-8439-cd3977263f4a",
+          "name": "Delete an agent alert configuration",
+          "request": {
+            "name": "Delete an agent alert configuration",
+            "description": {
+              "content": "Deletes an existing agent alert configuration.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "synthetics",
+                "v202309",
+                "agentAlerts",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0fbed195-3e42-4819-935d-61c5cf310f7c",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "synthetics",
+                    "v202309",
+                    "agentAlerts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8d1722e1-a4f0-43e3-bde9-f50e5a85d31f",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "synthetics",
+                    "v202309",
+                    "agentAlerts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7806,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9354c77a-3ee9-4494-9e35-4f127610d3ae",
+          "name": "Update an agent alert configuration",
+          "request": {
+            "name": "Update an agent alert configuration",
+            "description": {
+              "content": "Updates an existing agent alert configuration with the time threshold and notification channels provided.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "synthetics",
+                "v202309",
+                "agentAlerts",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"thresholdSeconds\": \"<long>\",\n  \"notificationChannelIds\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0e7f9f93-84f3-4141-88cc-4acd2674d85f",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "synthetics",
+                    "v202309",
+                    "agentAlerts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"thresholdSeconds\": \"<long>\",\n  \"notificationChannelIds\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"agentAlert\": {\n    \"id\": \"string\",\n    \"thresholdSeconds\": 259,\n    \"notificationChannelIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"agentId\": \"string\",\n    \"agentName\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "01cbd867-a117-41d5-81a6-f57b7d2b5b06",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "synthetics",
+                    "v202309",
+                    "agentAlerts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"thresholdSeconds\": \"<long>\",\n  \"notificationChannelIds\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7806,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b1456022-40f1-4c4b-b3a3-59b18e959970",
+          "name": "List available agents",
+          "request": {
+            "name": "List available agents",
+            "description": {
+              "content": "Returns list of all synthetic agents available in the account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "synthetics",
+                "v202309",
+                "agents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8fa16c32-caa1-4342-9b31-7bd25649fecc",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "synthetics",
+                    "v202309",
+                    "agents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"agents\": [\n    {\n      \"id\": \"string\",\n      \"siteName\": \"string\",\n      \"status\": \"AGENT_STATUS_UNSPECIFIED\",\n      \"alias\": \"string\",\n      \"type\": \"string\",\n      \"os\": \"string\",\n      \"ip\": \"string\",\n      \"lat\": 636.9190378147449,\n      \"long\": 2452.7694028234982,\n      \"lastAuthed\": \"1995-01-15T07:17:26.867Z\",\n      \"family\": \"IP_FAMILY_UNSPECIFIED\",\n      \"asn\": 6384,\n      \"siteId\": \"string\",\n      \"version\": \"string\",\n      \"city\": \"string\",\n      \"region\": \"string\",\n      \"country\": \"string\",\n      \"testIds\": [\n        \"string\",\n        \"string\"\n      ],\n      \"localIp\": \"string\",\n      \"cloudRegion\": \"string\",\n      \"cloudProvider\": \"string\",\n      \"agentImpl\": \"IMPLEMENT_TYPE_UNSPECIFIED\",\n      \"labels\": [\n        \"string\",\n        \"string\"\n      ],\n      \"metadata\": {\n        \"privateIpv4Addresses\": [\n          {\n            \"value\": \"string\"\n          },\n          {\n            \"value\": \"string\"\n          }\n        ],\n        \"publicIpv4Addresses\": [\n          {\n            \"value\": \"string\"\n          },\n          {\n            \"value\": \"string\"\n          }\n        ],\n        \"privateIpv6Addresses\": [\n          {\n            \"value\": \"string\"\n          },\n          {\n            \"value\": \"string\"\n          }\n        ],\n        \"publicIpv6Addresses\": [\n          {\n            \"value\": \"string\"\n          },\n          {\n            \"value\": \"string\"\n          }\n        ]\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"siteName\": \"string\",\n      \"status\": \"AGENT_STATUS_UNSPECIFIED\",\n      \"alias\": \"string\",\n      \"type\": \"string\",\n      \"os\": \"string\",\n      \"ip\": \"string\",\n      \"lat\": 3232.382848207992,\n      \"long\": 8223.881825793955,\n      \"lastAuthed\": \"1963-05-29T15:26:43.364Z\",\n      \"family\": \"IP_FAMILY_UNSPECIFIED\",\n      \"asn\": 3560,\n      \"siteId\": \"string\",\n      \"version\": \"string\",\n      \"city\": \"string\",\n      \"region\": \"string\",\n      \"country\": \"string\",\n      \"testIds\": [\n        \"string\",\n        \"string\"\n      ],\n      \"localIp\": \"string\",\n      \"cloudRegion\": \"string\",\n      \"cloudProvider\": \"string\",\n      \"agentImpl\": \"IMPLEMENT_TYPE_UNSPECIFIED\",\n      \"labels\": [\n        \"string\",\n        \"string\"\n      ],\n      \"metadata\": {\n        \"privateIpv4Addresses\": [\n          {\n            \"value\": \"string\"\n          },\n          {\n            \"value\": \"string\"\n          }\n        ],\n        \"publicIpv4Addresses\": [\n          {\n            \"value\": \"string\"\n          },\n          {\n            \"value\": \"string\"\n          }\n        ],\n        \"privateIpv6Addresses\": [\n          {\n            \"value\": \"string\"\n          },\n          {\n            \"value\": \"string\"\n          }\n        ],\n        \"publicIpv6Addresses\": [\n          {\n            \"value\": \"string\"\n          },\n          {\n            \"value\": \"string\"\n          }\n        ]\n      }\n    }\n  ],\n  \"invalidCount\": 1313\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ce64beb0-a213-4770-bad2-609102467153",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "synthetics",
+                    "v202309",
+                    "agents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7806,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9a67c108-110e-4a99-abc3-f007e9e143cd",
+          "name": "Update configuration of an agent",
+          "request": {
+            "name": "Update configuration of an agent",
+            "description": {
+              "content": "Update configuration of a synthetic agent.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "synthetics",
+                "v202309",
+                "agents",
+                ":agent.id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "agent.id",
+                  "description": "(Required) Unique identifier of the agent"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"agent\": {\n    \"siteName\": \"<string>\",\n    \"status\": \"AGENT_STATUS_UNSPECIFIED\",\n    \"alias\": \"<string>\",\n    \"lat\": \"<double>\",\n    \"long\": \"<double>\",\n    \"family\": \"IP_FAMILY_UNSPECIFIED\",\n    \"asn\": \"<long>\",\n    \"siteId\": \"<string>\",\n    \"city\": \"<string>\",\n    \"region\": \"<string>\",\n    \"country\": \"<string>\",\n    \"localIp\": \"<string>\",\n    \"cloudRegion\": \"<string>\",\n    \"cloudProvider\": \"<string>\",\n    \"agentImpl\": \"IMPLEMENT_TYPE_UNSPECIFIED\",\n    \"labels\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"metadata\": {\n      \"privateIpv4Addresses\": [\n        {\n          \"value\": \"<string>\"\n        },\n        {\n          \"value\": \"<string>\"\n        }\n      ],\n      \"privateIpv6Addresses\": [\n        {\n          \"value\": \"<string>\"\n        },\n        {\n          \"value\": \"<string>\"\n        }\n      ]\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b7977d53-852c-40ec-8d6d-4c585564ae00",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "synthetics",
+                    "v202309",
+                    "agents",
+                    ":agent.id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "agent.id",
+                      "description": "(Required) Unique identifier of the agent"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"agent\": {\n    \"siteName\": \"<string>\",\n    \"status\": \"AGENT_STATUS_UNSPECIFIED\",\n    \"alias\": \"<string>\",\n    \"lat\": \"<double>\",\n    \"long\": \"<double>\",\n    \"family\": \"IP_FAMILY_UNSPECIFIED\",\n    \"asn\": \"<long>\",\n    \"siteId\": \"<string>\",\n    \"city\": \"<string>\",\n    \"region\": \"<string>\",\n    \"country\": \"<string>\",\n    \"localIp\": \"<string>\",\n    \"cloudRegion\": \"<string>\",\n    \"cloudProvider\": \"<string>\",\n    \"agentImpl\": \"IMPLEMENT_TYPE_UNSPECIFIED\",\n    \"labels\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"metadata\": {\n      \"privateIpv4Addresses\": [\n        {\n          \"value\": \"<string>\"\n        },\n        {\n          \"value\": \"<string>\"\n        }\n      ],\n      \"privateIpv6Addresses\": [\n        {\n          \"value\": \"<string>\"\n        },\n        {\n          \"value\": \"<string>\"\n        }\n      ]\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"agent\": {\n    \"id\": \"string\",\n    \"siteName\": \"string\",\n    \"status\": \"AGENT_STATUS_UNSPECIFIED\",\n    \"alias\": \"string\",\n    \"type\": \"string\",\n    \"os\": \"string\",\n    \"ip\": \"string\",\n    \"lat\": 2864.6480508755567,\n    \"long\": 6034.107985441695,\n    \"lastAuthed\": \"2014-05-04T00:23:05.054Z\",\n    \"family\": \"IP_FAMILY_UNSPECIFIED\",\n    \"asn\": 220,\n    \"siteId\": \"string\",\n    \"version\": \"string\",\n    \"city\": \"string\",\n    \"region\": \"string\",\n    \"country\": \"string\",\n    \"testIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"localIp\": \"string\",\n    \"cloudRegion\": \"string\",\n    \"cloudProvider\": \"string\",\n    \"agentImpl\": \"IMPLEMENT_TYPE_UNSPECIFIED\",\n    \"labels\": [\n      \"string\",\n      \"string\"\n    ],\n    \"metadata\": {\n      \"privateIpv4Addresses\": [\n        {\n          \"value\": \"<string>\"\n        },\n        {\n          \"value\": \"<string>\"\n        }\n      ],\n      \"publicIpv4Addresses\": [\n        {\n          \"value\": \"<string>\"\n        },\n        {\n          \"value\": \"<string>\"\n        }\n      ],\n      \"privateIpv6Addresses\": [\n        {\n          \"value\": \"<string>\"\n        },\n        {\n          \"value\": \"<string>\"\n        }\n      ],\n      \"publicIpv6Addresses\": [\n        {\n          \"value\": \"<string>\"\n        },\n        {\n          \"value\": \"<string>\"\n        }\n      ]\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "03303dad-bc41-4b0f-95a0-e9c7f640fe55",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "synthetics",
+                    "v202309",
+                    "agents",
+                    ":agent.id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "agent.id",
+                      "description": "(Required) Unique identifier of the agent"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"agent\": {\n    \"siteName\": \"<string>\",\n    \"status\": \"AGENT_STATUS_UNSPECIFIED\",\n    \"alias\": \"<string>\",\n    \"lat\": \"<double>\",\n    \"long\": \"<double>\",\n    \"family\": \"IP_FAMILY_UNSPECIFIED\",\n    \"asn\": \"<long>\",\n    \"siteId\": \"<string>\",\n    \"city\": \"<string>\",\n    \"region\": \"<string>\",\n    \"country\": \"<string>\",\n    \"localIp\": \"<string>\",\n    \"cloudRegion\": \"<string>\",\n    \"cloudProvider\": \"<string>\",\n    \"agentImpl\": \"IMPLEMENT_TYPE_UNSPECIFIED\",\n    \"labels\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"metadata\": {\n      \"privateIpv4Addresses\": [\n        {\n          \"value\": \"<string>\"\n        },\n        {\n          \"value\": \"<string>\"\n        }\n      ],\n      \"privateIpv6Addresses\": [\n        {\n          \"value\": \"<string>\"\n        },\n        {\n          \"value\": \"<string>\"\n        }\n      ]\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7806,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "26fa967c-3873-4c86-bdc1-3545746cd1a4",
+          "name": "Get information about an agent",
+          "request": {
+            "name": "Get information about an agent",
+            "description": {
+              "content": "Returns information about the requested synthetic agent.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "synthetics",
+                "v202309",
+                "agents",
+                ":agent.id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "agent.id",
+                  "description": "(Required) ID of the requested agent"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4b79c21a-c377-4941-8f79-f96cd33d1555",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "synthetics",
+                    "v202309",
+                    "agents",
+                    ":agent.id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "agent.id",
+                      "description": "(Required) ID of the requested agent"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"agent\": {\n    \"id\": \"string\",\n    \"siteName\": \"string\",\n    \"status\": \"AGENT_STATUS_UNSPECIFIED\",\n    \"alias\": \"string\",\n    \"type\": \"string\",\n    \"os\": \"string\",\n    \"ip\": \"string\",\n    \"lat\": 7330.173040920066,\n    \"long\": 8131.200240088443,\n    \"lastAuthed\": \"1992-12-17T10:50:30.450Z\",\n    \"family\": \"IP_FAMILY_UNSPECIFIED\",\n    \"asn\": 6436,\n    \"siteId\": \"string\",\n    \"version\": \"string\",\n    \"city\": \"string\",\n    \"region\": \"string\",\n    \"country\": \"string\",\n    \"testIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"localIp\": \"string\",\n    \"cloudRegion\": \"string\",\n    \"cloudProvider\": \"string\",\n    \"agentImpl\": \"IMPLEMENT_TYPE_UNSPECIFIED\",\n    \"labels\": [\n      \"string\",\n      \"string\"\n    ],\n    \"metadata\": {\n      \"privateIpv4Addresses\": [\n        {\n          \"value\": \"<string>\"\n        },\n        {\n          \"value\": \"<string>\"\n        }\n      ],\n      \"publicIpv4Addresses\": [\n        {\n          \"value\": \"<string>\"\n        },\n        {\n          \"value\": \"<string>\"\n        }\n      ],\n      \"privateIpv6Addresses\": [\n        {\n          \"value\": \"<string>\"\n        },\n        {\n          \"value\": \"<string>\"\n        }\n      ],\n      \"publicIpv6Addresses\": [\n        {\n          \"value\": \"<string>\"\n        },\n        {\n          \"value\": \"<string>\"\n        }\n      ]\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dacae778-22bd-40b5-a79d-4fe8970f5f9b",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "synthetics",
+                    "v202309",
+                    "agents",
+                    ":agent.id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "agent.id",
+                      "description": "(Required) ID of the requested agent"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7806,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c2252921-5f54-45a9-89de-7d1e4a33b771",
+          "name": "Delete an agent",
+          "request": {
+            "name": "Delete an agent",
+            "description": {
+              "content": "Deletes the requested agent. The deleted agent is removed from configuration of all tests.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "synthetics",
+                "v202309",
+                "agents",
+                ":agent.id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "agent.id",
+                  "description": "(Required) ID of the agent to be deleted"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d3e75b8e-6eeb-4f69-949d-8cb4b29cf8f4",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "synthetics",
+                    "v202309",
+                    "agents",
+                    ":agent.id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "agent.id",
+                      "description": "(Required) ID of the agent to be deleted"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3cdd885c-f0d0-4528-bb79-ab0c584b8cfd",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "synthetics",
+                    "v202309",
+                    "agents",
+                    ":agent.id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "agent.id",
+                      "description": "(Required) ID of the agent to be deleted"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7806,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d24f7846-0a5b-47a1-82c6-d391db9eda52",
+          "name": "List all tests",
+          "request": {
+            "name": "List all tests",
+            "description": {
+              "content": "Returns a list of all configured active and paused synthetic tests.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "synthetics",
+                "v202309",
+                "tests"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0e0ec73e-8b2a-4765-b536-fc30176af934",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "synthetics",
+                    "v202309",
+                    "tests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tests\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"type\": \"string\",\n      \"status\": \"TEST_STATUS_UNSPECIFIED\",\n      \"settings\": {\n        \"hostname\": {\n          \"target\": \"string\"\n        },\n        \"ip\": {\n          \"targets\": [\n            \"string\",\n            \"string\"\n          ],\n          \"useLocalIp\": false\n        },\n        \"agent\": {\n          \"target\": \"string\",\n          \"useLocalIp\": false,\n          \"reciprocal\": true\n        },\n        \"flow\": {\n          \"target\": \"string\",\n          \"targetRefreshIntervalMillis\": 1889,\n          \"maxProviders\": 5437,\n          \"maxIpTargets\": 3258,\n          \"type\": \"string\",\n          \"inetDirection\": \"string\",\n          \"direction\": \"string\"\n        },\n        \"dns\": {\n          \"target\": \"string\",\n          \"timeout\": 172,\n          \"recordType\": \"DNS_RECORD_UNSPECIFIED\",\n          \"servers\": [\n            \"string\",\n            \"string\"\n          ],\n          \"port\": 7677\n        },\n        \"url\": {\n          \"target\": \"string\",\n          \"timeout\": 3734,\n          \"method\": \"string\",\n          \"headers\": {\n            \"key_0\": \"string\"\n          },\n          \"body\": \"string\",\n          \"ignoreTlsErrors\": false\n        },\n        \"networkGrid\": {\n          \"targets\": [\n            \"string\",\n            \"string\"\n          ],\n          \"useLocalIp\": false\n        },\n        \"pageLoad\": {\n          \"target\": \"string\",\n          \"timeout\": 8112,\n          \"headers\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\",\n            \"key_2\": \"string\"\n          },\n          \"ignoreTlsErrors\": false,\n          \"cssSelectors\": {\n            \"key_0\": \"string\"\n          }\n        },\n        \"dnsGrid\": {\n          \"target\": \"string\",\n          \"timeout\": 797,\n          \"recordType\": \"DNS_RECORD_UNSPECIFIED\",\n          \"servers\": [\n            \"string\",\n            \"string\"\n          ],\n          \"port\": 2671\n        },\n        \"networkMesh\": {\n          \"useLocalIp\": true\n        },\n        \"agentIds\": [\n          \"string\",\n          \"string\"\n        ],\n        \"tasks\": [\n          \"string\",\n          \"string\"\n        ],\n        \"healthSettings\": {\n          \"latencyCritical\": 7553.575834167165,\n          \"latencyWarning\": 5693.877893997444,\n          \"packetLossCritical\": 5881.293477753664,\n          \"packetLossWarning\": 3587.7030677094212,\n          \"jitterCritical\": 1353.216896663364,\n          \"jitterWarning\": 3925.2492939467843,\n          \"httpLatencyCritical\": 6331.134796849989,\n          \"httpLatencyWarning\": 3914.538202207869,\n          \"httpValidCodes\": [\n            8220,\n            8792\n          ],\n          \"dnsValidCodes\": [\n            1657,\n            9024\n          ],\n          \"latencyCriticalStddev\": 6231.8864136424445,\n          \"latencyWarningStddev\": 966.3557686873547,\n          \"jitterCriticalStddev\": 6061.099894646145,\n          \"jitterWarningStddev\": 4651.24354188689,\n          \"httpLatencyCriticalStddev\": 9554.293997032355,\n          \"httpLatencyWarningStddev\": 9772.60551532502,\n          \"unhealthySubtestThreshold\": 8145,\n          \"activation\": {\n            \"gracePeriod\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timeUnit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timeWindow\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"times\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"certExpiryWarning\": 5427,\n          \"certExpiryCritical\": 5034,\n          \"dnsValidIps\": \"string\",\n          \"dnsLatencyCritical\": 338.80656380734007,\n          \"dnsLatencyWarning\": 7820.361952185845,\n          \"dnsLatencyCriticalStddev\": 8873.515848571482,\n          \"dnsLatencyWarningStddev\": 444.37550204150523,\n          \"perAgentAlerting\": true,\n          \"disabledMetrics\": {\n            \"pingLatency\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"pingJitter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"pingPacketLoss\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"httpLatency\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"httpHeaders\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"httpCodes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"httpCertExpiry\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"transactionLatency\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dnsLatency\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dnsCodes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dnsIps\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"throughputBandwidth\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"healthDisabled\": true,\n          \"throughputCritical\": 2761.8924472332474,\n          \"throughputWarning\": 8319.364512890435,\n          \"throughputCriticalStddev\": 3179.837129273495,\n          \"throughputWarningStddev\": 2505.3263695487994,\n          \"disableAlerts\": false\n        },\n        \"ping\": {\n          \"count\": 2797,\n          \"protocol\": \"string\",\n          \"port\": 9261,\n          \"timeout\": 519,\n          \"delay\": 8551.958725673296,\n          \"dscp\": 6920\n        },\n        \"trace\": {\n          \"count\": 8528,\n          \"protocol\": \"string\",\n          \"port\": 7491,\n          \"timeout\": 8319,\n          \"limit\": 742,\n          \"delay\": 8101.432612220136,\n          \"dscp\": 3867,\n          \"mtu\": true\n        },\n        \"period\": 1826,\n        \"family\": \"IP_FAMILY_UNSPECIFIED\",\n        \"notificationChannels\": [\n          \"string\",\n          \"string\"\n        ],\n        \"notes\": \"string\",\n        \"throughput\": {\n          \"port\": 7630,\n          \"omit\": 4402,\n          \"duration\": 2247,\n          \"bandwidth\": 9587,\n          \"protocol\": \"string\"\n        },\n        \"schedule\": {\n          \"enabled\": false,\n          \"start\": 8567,\n          \"end\": 7186\n        },\n        \"alerting\": {\n          \"disableWarningNotifications\": true,\n          \"alertingType\": \"ALERTING_TYPE_UNSPECIFIED\",\n          \"groupedAlertSettings\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"cdate\": \"2025-03-27T21:41:40.302Z\",\n      \"edate\": \"1953-12-06T01:16:03.155Z\",\n      \"createdBy\": {\n        \"id\": \"string\",\n        \"email\": \"string\",\n        \"fullName\": \"string\"\n      },\n      \"lastUpdatedBy\": {\n        \"id\": \"string\",\n        \"email\": \"string\",\n        \"fullName\": \"string\"\n      },\n      \"labels\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"type\": \"string\",\n      \"status\": \"TEST_STATUS_UNSPECIFIED\",\n      \"settings\": {\n        \"hostname\": {\n          \"target\": \"string\"\n        },\n        \"ip\": {\n          \"targets\": [\n            \"string\",\n            \"string\"\n          ],\n          \"useLocalIp\": true\n        },\n        \"agent\": {\n          \"target\": \"string\",\n          \"useLocalIp\": true,\n          \"reciprocal\": false\n        },\n        \"flow\": {\n          \"target\": \"string\",\n          \"targetRefreshIntervalMillis\": 8113,\n          \"maxProviders\": 2532,\n          \"maxIpTargets\": 4407,\n          \"type\": \"string\",\n          \"inetDirection\": \"string\",\n          \"direction\": \"string\"\n        },\n        \"dns\": {\n          \"target\": \"string\",\n          \"timeout\": 8762,\n          \"recordType\": \"DNS_RECORD_UNSPECIFIED\",\n          \"servers\": [\n            \"string\",\n            \"string\"\n          ],\n          \"port\": 1253\n        },\n        \"url\": {\n          \"target\": \"string\",\n          \"timeout\": 6338,\n          \"method\": \"string\",\n          \"headers\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          },\n          \"body\": \"string\",\n          \"ignoreTlsErrors\": true\n        },\n        \"networkGrid\": {\n          \"targets\": [\n            \"string\",\n            \"string\"\n          ],\n          \"useLocalIp\": false\n        },\n        \"pageLoad\": {\n          \"target\": \"string\",\n          \"timeout\": 6933,\n          \"headers\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          },\n          \"ignoreTlsErrors\": false,\n          \"cssSelectors\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\",\n            \"key_2\": \"string\"\n          }\n        },\n        \"dnsGrid\": {\n          \"target\": \"string\",\n          \"timeout\": 189,\n          \"recordType\": \"DNS_RECORD_UNSPECIFIED\",\n          \"servers\": [\n            \"string\",\n            \"string\"\n          ],\n          \"port\": 8184\n        },\n        \"networkMesh\": {\n          \"useLocalIp\": false\n        },\n        \"agentIds\": [\n          \"string\",\n          \"string\"\n        ],\n        \"tasks\": [\n          \"string\",\n          \"string\"\n        ],\n        \"healthSettings\": {\n          \"latencyCritical\": 8096.0553870352915,\n          \"latencyWarning\": 9201.426574591502,\n          \"packetLossCritical\": 5705.21397632067,\n          \"packetLossWarning\": 4370.919193215697,\n          \"jitterCritical\": 9281.446609507198,\n          \"jitterWarning\": 8987.515935315761,\n          \"httpLatencyCritical\": 7087.5337727959095,\n          \"httpLatencyWarning\": 2099.079960550406,\n          \"httpValidCodes\": [\n            1889,\n            3289\n          ],\n          \"dnsValidCodes\": [\n            9667,\n            3048\n          ],\n          \"latencyCriticalStddev\": 6670.774044559542,\n          \"latencyWarningStddev\": 9918.34951714245,\n          \"jitterCriticalStddev\": 5413.571672843519,\n          \"jitterWarningStddev\": 7772.269092683715,\n          \"httpLatencyCriticalStddev\": 8089.256618623411,\n          \"httpLatencyWarningStddev\": 4650.325038219703,\n          \"unhealthySubtestThreshold\": 2011,\n          \"activation\": {\n            \"gracePeriod\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timeUnit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timeWindow\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"times\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"certExpiryWarning\": 4679,\n          \"certExpiryCritical\": 9150,\n          \"dnsValidIps\": \"string\",\n          \"dnsLatencyCritical\": 3074.585903406325,\n          \"dnsLatencyWarning\": 9030.247005840572,\n          \"dnsLatencyCriticalStddev\": 1475.2930750924754,\n          \"dnsLatencyWarningStddev\": 2639.2817804497504,\n          \"perAgentAlerting\": true,\n          \"disabledMetrics\": {\n            \"pingLatency\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"pingJitter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"pingPacketLoss\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"httpLatency\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"httpHeaders\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"httpCodes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"httpCertExpiry\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"transactionLatency\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dnsLatency\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dnsCodes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dnsIps\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"throughputBandwidth\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"healthDisabled\": true,\n          \"throughputCritical\": 4435.976452009025,\n          \"throughputWarning\": 5469.869412545319,\n          \"throughputCriticalStddev\": 5670.221669815283,\n          \"throughputWarningStddev\": 4866.4482637666915,\n          \"disableAlerts\": true\n        },\n        \"ping\": {\n          \"count\": 4282,\n          \"protocol\": \"string\",\n          \"port\": 7643,\n          \"timeout\": 2623,\n          \"delay\": 1532.4257101897322,\n          \"dscp\": 2459\n        },\n        \"trace\": {\n          \"count\": 9616,\n          \"protocol\": \"string\",\n          \"port\": 2445,\n          \"timeout\": 8541,\n          \"limit\": 857,\n          \"delay\": 8317.937565554636,\n          \"dscp\": 1459,\n          \"mtu\": true\n        },\n        \"period\": 6360,\n        \"family\": \"IP_FAMILY_UNSPECIFIED\",\n        \"notificationChannels\": [\n          \"string\",\n          \"string\"\n        ],\n        \"notes\": \"string\",\n        \"throughput\": {\n          \"port\": 2407,\n          \"omit\": 1021,\n          \"duration\": 3588,\n          \"bandwidth\": 37,\n          \"protocol\": \"string\"\n        },\n        \"schedule\": {\n          \"enabled\": true,\n          \"start\": 789,\n          \"end\": 4993\n        },\n        \"alerting\": {\n          \"disableWarningNotifications\": false,\n          \"alertingType\": \"ALERTING_TYPE_UNSPECIFIED\",\n          \"groupedAlertSettings\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"cdate\": \"2017-09-11T22:47:12.044Z\",\n      \"edate\": \"1973-06-01T10:05:54.610Z\",\n      \"createdBy\": {\n        \"id\": \"string\",\n        \"email\": \"string\",\n        \"fullName\": \"string\"\n      },\n      \"lastUpdatedBy\": {\n        \"id\": \"string\",\n        \"email\": \"string\",\n        \"fullName\": \"string\"\n      },\n      \"labels\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ],\n  \"invalidCount\": 1126\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "edc2c878-962e-4ea5-b9f0-df5f4d409521",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "synthetics",
+                    "v202309",
+                    "tests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7806,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7f645935-7f4a-41e7-82fa-fe9fb983f7bc",
+          "name": "Create a test",
+          "request": {
+            "name": "Create a test",
+            "description": {
+              "content": "Create synthetic test based on configuration provided in the request.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "synthetics",
+                "v202309",
+                "tests"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"test\": {\n    \"name\": \"<string>\",\n    \"type\": \"<string>\",\n    \"status\": \"TEST_STATUS_UNSPECIFIED\",\n    \"settings\": {\n      \"hostname\": {\n        \"target\": \"<string>\"\n      },\n      \"ip\": {\n        \"targets\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"useLocalIp\": \"<boolean>\"\n      },\n      \"agent\": {\n        \"target\": \"<string>\",\n        \"useLocalIp\": \"<boolean>\",\n        \"reciprocal\": \"<boolean>\"\n      },\n      \"flow\": {\n        \"target\": \"<string>\",\n        \"targetRefreshIntervalMillis\": \"<long>\",\n        \"maxProviders\": \"<long>\",\n        \"maxIpTargets\": \"<long>\",\n        \"type\": \"<string>\",\n        \"inetDirection\": \"<string>\",\n        \"direction\": \"<string>\"\n      },\n      \"dns\": {\n        \"target\": \"<string>\",\n        \"timeout\": \"<long>\",\n        \"recordType\": \"DNS_RECORD_UNSPECIFIED\",\n        \"servers\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"port\": \"<long>\"\n      },\n      \"url\": {\n        \"target\": \"<string>\",\n        \"timeout\": \"<long>\",\n        \"method\": \"<string>\",\n        \"headers\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\",\n          \"key_2\": \"<string>\"\n        },\n        \"body\": \"<string>\",\n        \"ignoreTlsErrors\": \"<boolean>\"\n      },\n      \"networkGrid\": {\n        \"targets\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"useLocalIp\": \"<boolean>\"\n      },\n      \"pageLoad\": {\n        \"target\": \"<string>\",\n        \"timeout\": \"<long>\",\n        \"headers\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\",\n          \"key_2\": \"<string>\"\n        },\n        \"ignoreTlsErrors\": \"<boolean>\",\n        \"cssSelectors\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\"\n        }\n      },\n      \"dnsGrid\": {\n        \"target\": \"<string>\",\n        \"timeout\": \"<long>\",\n        \"recordType\": \"DNS_RECORD_UNSPECIFIED\",\n        \"servers\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"port\": \"<long>\"\n      },\n      \"networkMesh\": {\n        \"useLocalIp\": \"<boolean>\"\n      },\n      \"agentIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"tasks\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"healthSettings\": {\n        \"latencyCritical\": \"<float>\",\n        \"latencyWarning\": \"<float>\",\n        \"packetLossCritical\": \"<float>\",\n        \"packetLossWarning\": \"<float>\",\n        \"jitterCritical\": \"<float>\",\n        \"jitterWarning\": \"<float>\",\n        \"httpLatencyCritical\": \"<float>\",\n        \"httpLatencyWarning\": \"<float>\",\n        \"httpValidCodes\": [\n          \"<long>\",\n          \"<long>\"\n        ],\n        \"dnsValidCodes\": [\n          \"<long>\",\n          \"<long>\"\n        ],\n        \"latencyCriticalStddev\": \"<float>\",\n        \"latencyWarningStddev\": \"<float>\",\n        \"jitterCriticalStddev\": \"<float>\",\n        \"jitterWarningStddev\": \"<float>\",\n        \"httpLatencyCriticalStddev\": \"<float>\",\n        \"httpLatencyWarningStddev\": \"<float>\",\n        \"unhealthySubtestThreshold\": \"<long>\",\n        \"activation\": {\n          \"gracePeriod\": \"<string>\",\n          \"timeUnit\": \"<string>\",\n          \"timeWindow\": \"<string>\",\n          \"times\": \"<string>\"\n        },\n        \"certExpiryWarning\": \"<long>\",\n        \"certExpiryCritical\": \"<long>\",\n        \"dnsValidIps\": \"<string>\",\n        \"dnsLatencyCritical\": \"<float>\",\n        \"dnsLatencyWarning\": \"<float>\",\n        \"dnsLatencyCriticalStddev\": \"<float>\",\n        \"dnsLatencyWarningStddev\": \"<float>\",\n        \"perAgentAlerting\": \"<boolean>\",\n        \"disabledMetrics\": {\n          \"pingLatency\": \"<boolean>\",\n          \"pingJitter\": \"<boolean>\",\n          \"pingPacketLoss\": \"<boolean>\",\n          \"httpLatency\": \"<boolean>\",\n          \"httpHeaders\": \"<boolean>\",\n          \"httpCodes\": \"<boolean>\",\n          \"httpCertExpiry\": \"<boolean>\",\n          \"transactionLatency\": \"<boolean>\",\n          \"dnsLatency\": \"<boolean>\",\n          \"dnsCodes\": \"<boolean>\",\n          \"dnsIps\": \"<boolean>\",\n          \"throughputBandwidth\": \"<boolean>\"\n        },\n        \"healthDisabled\": \"<boolean>\",\n        \"throughputCritical\": \"<float>\",\n        \"throughputWarning\": \"<float>\",\n        \"throughputCriticalStddev\": \"<float>\",\n        \"throughputWarningStddev\": \"<float>\",\n        \"disableAlerts\": \"<boolean>\"\n      },\n      \"ping\": {\n        \"count\": \"<long>\",\n        \"protocol\": \"<string>\",\n        \"port\": \"<long>\",\n        \"timeout\": \"<long>\",\n        \"delay\": \"<float>\",\n        \"dscp\": \"<long>\"\n      },\n      \"trace\": {\n        \"count\": \"<long>\",\n        \"protocol\": \"<string>\",\n        \"port\": \"<long>\",\n        \"timeout\": \"<long>\",\n        \"limit\": \"<long>\",\n        \"delay\": \"<float>\",\n        \"dscp\": \"<long>\",\n        \"mtu\": \"<boolean>\"\n      },\n      \"period\": \"<long>\",\n      \"family\": \"IP_FAMILY_UNSPECIFIED\",\n      \"notificationChannels\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"notes\": \"<string>\",\n      \"throughput\": {\n        \"port\": \"<long>\",\n        \"omit\": \"<long>\",\n        \"duration\": \"<long>\",\n        \"bandwidth\": \"<long>\",\n        \"protocol\": \"<string>\"\n      },\n      \"schedule\": {\n        \"enabled\": \"<boolean>\",\n        \"start\": \"<long>\",\n        \"end\": \"<long>\"\n      },\n      \"alerting\": {\n        \"disableWarningNotifications\": \"<boolean>\",\n        \"alertingType\": \"ALERTING_TYPE_UNSPECIFIED\",\n        \"groupedAlertSettings\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    },\n    \"createdBy\": {},\n    \"lastUpdatedBy\": {},\n    \"labels\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "737dce24-ac7f-4d9a-bdf0-d3122c491e44",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "synthetics",
+                    "v202309",
+                    "tests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"test\": {\n    \"name\": \"<string>\",\n    \"type\": \"<string>\",\n    \"status\": \"TEST_STATUS_UNSPECIFIED\",\n    \"settings\": {\n      \"hostname\": {\n        \"target\": \"<string>\"\n      },\n      \"ip\": {\n        \"targets\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"useLocalIp\": \"<boolean>\"\n      },\n      \"agent\": {\n        \"target\": \"<string>\",\n        \"useLocalIp\": \"<boolean>\",\n        \"reciprocal\": \"<boolean>\"\n      },\n      \"flow\": {\n        \"target\": \"<string>\",\n        \"targetRefreshIntervalMillis\": \"<long>\",\n        \"maxProviders\": \"<long>\",\n        \"maxIpTargets\": \"<long>\",\n        \"type\": \"<string>\",\n        \"inetDirection\": \"<string>\",\n        \"direction\": \"<string>\"\n      },\n      \"dns\": {\n        \"target\": \"<string>\",\n        \"timeout\": \"<long>\",\n        \"recordType\": \"DNS_RECORD_UNSPECIFIED\",\n        \"servers\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"port\": \"<long>\"\n      },\n      \"url\": {\n        \"target\": \"<string>\",\n        \"timeout\": \"<long>\",\n        \"method\": \"<string>\",\n        \"headers\": {\n          \"key_0\": \"<string>\"\n        },\n        \"body\": \"<string>\",\n        \"ignoreTlsErrors\": \"<boolean>\"\n      },\n      \"networkGrid\": {\n        \"targets\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"useLocalIp\": \"<boolean>\"\n      },\n      \"pageLoad\": {\n        \"target\": \"<string>\",\n        \"timeout\": \"<long>\",\n        \"headers\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\",\n          \"key_2\": \"<string>\",\n          \"key_3\": \"<string>\",\n          \"key_4\": \"<string>\"\n        },\n        \"ignoreTlsErrors\": \"<boolean>\",\n        \"cssSelectors\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\"\n        }\n      },\n      \"dnsGrid\": {\n        \"target\": \"<string>\",\n        \"timeout\": \"<long>\",\n        \"recordType\": \"DNS_RECORD_UNSPECIFIED\",\n        \"servers\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"port\": \"<long>\"\n      },\n      \"networkMesh\": {\n        \"useLocalIp\": \"<boolean>\"\n      },\n      \"agentIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"tasks\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"healthSettings\": {\n        \"latencyCritical\": \"<float>\",\n        \"latencyWarning\": \"<float>\",\n        \"packetLossCritical\": \"<float>\",\n        \"packetLossWarning\": \"<float>\",\n        \"jitterCritical\": \"<float>\",\n        \"jitterWarning\": \"<float>\",\n        \"httpLatencyCritical\": \"<float>\",\n        \"httpLatencyWarning\": \"<float>\",\n        \"httpValidCodes\": [\n          \"<long>\",\n          \"<long>\"\n        ],\n        \"dnsValidCodes\": [\n          \"<long>\",\n          \"<long>\"\n        ],\n        \"latencyCriticalStddev\": \"<float>\",\n        \"latencyWarningStddev\": \"<float>\",\n        \"jitterCriticalStddev\": \"<float>\",\n        \"jitterWarningStddev\": \"<float>\",\n        \"httpLatencyCriticalStddev\": \"<float>\",\n        \"httpLatencyWarningStddev\": \"<float>\",\n        \"unhealthySubtestThreshold\": \"<long>\",\n        \"activation\": {\n          \"gracePeriod\": \"<string>\",\n          \"timeUnit\": \"<string>\",\n          \"timeWindow\": \"<string>\",\n          \"times\": \"<string>\"\n        },\n        \"certExpiryWarning\": \"<long>\",\n        \"certExpiryCritical\": \"<long>\",\n        \"dnsValidIps\": \"<string>\",\n        \"dnsLatencyCritical\": \"<float>\",\n        \"dnsLatencyWarning\": \"<float>\",\n        \"dnsLatencyCriticalStddev\": \"<float>\",\n        \"dnsLatencyWarningStddev\": \"<float>\",\n        \"perAgentAlerting\": \"<boolean>\",\n        \"disabledMetrics\": {\n          \"pingLatency\": \"<boolean>\",\n          \"pingJitter\": \"<boolean>\",\n          \"pingPacketLoss\": \"<boolean>\",\n          \"httpLatency\": \"<boolean>\",\n          \"httpHeaders\": \"<boolean>\",\n          \"httpCodes\": \"<boolean>\",\n          \"httpCertExpiry\": \"<boolean>\",\n          \"transactionLatency\": \"<boolean>\",\n          \"dnsLatency\": \"<boolean>\",\n          \"dnsCodes\": \"<boolean>\",\n          \"dnsIps\": \"<boolean>\",\n          \"throughputBandwidth\": \"<boolean>\"\n        },\n        \"healthDisabled\": \"<boolean>\",\n        \"throughputCritical\": \"<float>\",\n        \"throughputWarning\": \"<float>\",\n        \"throughputCriticalStddev\": \"<float>\",\n        \"throughputWarningStddev\": \"<float>\",\n        \"disableAlerts\": \"<boolean>\"\n      },\n      \"ping\": {\n        \"count\": \"<long>\",\n        \"protocol\": \"<string>\",\n        \"port\": \"<long>\",\n        \"timeout\": \"<long>\",\n        \"delay\": \"<float>\",\n        \"dscp\": \"<long>\"\n      },\n      \"trace\": {\n        \"count\": \"<long>\",\n        \"protocol\": \"<string>\",\n        \"port\": \"<long>\",\n        \"timeout\": \"<long>\",\n        \"limit\": \"<long>\",\n        \"delay\": \"<float>\",\n        \"dscp\": \"<long>\",\n        \"mtu\": \"<boolean>\"\n      },\n      \"period\": \"<long>\",\n      \"family\": \"IP_FAMILY_UNSPECIFIED\",\n      \"notificationChannels\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"notes\": \"<string>\",\n      \"throughput\": {\n        \"port\": \"<long>\",\n        \"omit\": \"<long>\",\n        \"duration\": \"<long>\",\n        \"bandwidth\": \"<long>\",\n        \"protocol\": \"<string>\"\n      },\n      \"schedule\": {\n        \"enabled\": \"<boolean>\",\n        \"start\": \"<long>\",\n        \"end\": \"<long>\"\n      },\n      \"alerting\": {\n        \"disableWarningNotifications\": \"<boolean>\",\n        \"alertingType\": \"ALERTING_TYPE_UNSPECIFIED\",\n        \"groupedAlertSettings\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    },\n    \"createdBy\": {},\n    \"lastUpdatedBy\": {},\n    \"labels\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"test\": {\n    \"id\": \"string\",\n    \"name\": \"<string>\",\n    \"type\": \"<string>\",\n    \"status\": \"TEST_STATUS_UNSPECIFIED\",\n    \"settings\": {\n      \"hostname\": {\n        \"target\": \"<string>\"\n      },\n      \"ip\": {\n        \"targets\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"useLocalIp\": \"<boolean>\"\n      },\n      \"agent\": {\n        \"target\": \"<string>\",\n        \"useLocalIp\": \"<boolean>\",\n        \"reciprocal\": \"<boolean>\"\n      },\n      \"flow\": {\n        \"target\": \"<string>\",\n        \"targetRefreshIntervalMillis\": \"<long>\",\n        \"maxProviders\": \"<long>\",\n        \"maxIpTargets\": \"<long>\",\n        \"type\": \"<string>\",\n        \"inetDirection\": \"<string>\",\n        \"direction\": \"<string>\"\n      },\n      \"dns\": {\n        \"target\": \"<string>\",\n        \"timeout\": \"<long>\",\n        \"recordType\": \"DNS_RECORD_UNSPECIFIED\",\n        \"servers\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"port\": \"<long>\"\n      },\n      \"url\": {\n        \"target\": \"<string>\",\n        \"timeout\": \"<long>\",\n        \"method\": \"<string>\",\n        \"headers\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\"\n        },\n        \"body\": \"<string>\",\n        \"ignoreTlsErrors\": \"<boolean>\"\n      },\n      \"networkGrid\": {\n        \"targets\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"useLocalIp\": \"<boolean>\"\n      },\n      \"pageLoad\": {\n        \"target\": \"<string>\",\n        \"timeout\": \"<long>\",\n        \"headers\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\"\n        },\n        \"ignoreTlsErrors\": \"<boolean>\",\n        \"cssSelectors\": {\n          \"key_0\": \"<string>\"\n        }\n      },\n      \"dnsGrid\": {\n        \"target\": \"<string>\",\n        \"timeout\": \"<long>\",\n        \"recordType\": \"DNS_RECORD_UNSPECIFIED\",\n        \"servers\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"port\": \"<long>\"\n      },\n      \"networkMesh\": {\n        \"useLocalIp\": \"<boolean>\"\n      },\n      \"agentIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"tasks\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"healthSettings\": {\n        \"latencyCritical\": \"<float>\",\n        \"latencyWarning\": \"<float>\",\n        \"packetLossCritical\": \"<float>\",\n        \"packetLossWarning\": \"<float>\",\n        \"jitterCritical\": \"<float>\",\n        \"jitterWarning\": \"<float>\",\n        \"httpLatencyCritical\": \"<float>\",\n        \"httpLatencyWarning\": \"<float>\",\n        \"httpValidCodes\": [\n          \"<long>\",\n          \"<long>\"\n        ],\n        \"dnsValidCodes\": [\n          \"<long>\",\n          \"<long>\"\n        ],\n        \"latencyCriticalStddev\": \"<float>\",\n        \"latencyWarningStddev\": \"<float>\",\n        \"jitterCriticalStddev\": \"<float>\",\n        \"jitterWarningStddev\": \"<float>\",\n        \"httpLatencyCriticalStddev\": \"<float>\",\n        \"httpLatencyWarningStddev\": \"<float>\",\n        \"unhealthySubtestThreshold\": \"<long>\",\n        \"activation\": {\n          \"gracePeriod\": \"<string>\",\n          \"timeUnit\": \"<string>\",\n          \"timeWindow\": \"<string>\",\n          \"times\": \"<string>\"\n        },\n        \"certExpiryWarning\": \"<long>\",\n        \"certExpiryCritical\": \"<long>\",\n        \"dnsValidIps\": \"<string>\",\n        \"dnsLatencyCritical\": \"<float>\",\n        \"dnsLatencyWarning\": \"<float>\",\n        \"dnsLatencyCriticalStddev\": \"<float>\",\n        \"dnsLatencyWarningStddev\": \"<float>\",\n        \"perAgentAlerting\": \"<boolean>\",\n        \"disabledMetrics\": {\n          \"pingLatency\": \"<boolean>\",\n          \"pingJitter\": \"<boolean>\",\n          \"pingPacketLoss\": \"<boolean>\",\n          \"httpLatency\": \"<boolean>\",\n          \"httpHeaders\": \"<boolean>\",\n          \"httpCodes\": \"<boolean>\",\n          \"httpCertExpiry\": \"<boolean>\",\n          \"transactionLatency\": \"<boolean>\",\n          \"dnsLatency\": \"<boolean>\",\n          \"dnsCodes\": \"<boolean>\",\n          \"dnsIps\": \"<boolean>\",\n          \"throughputBandwidth\": \"<boolean>\"\n        },\n        \"healthDisabled\": \"<boolean>\",\n        \"throughputCritical\": \"<float>\",\n        \"throughputWarning\": \"<float>\",\n        \"throughputCriticalStddev\": \"<float>\",\n        \"throughputWarningStddev\": \"<float>\",\n        \"disableAlerts\": \"<boolean>\"\n      },\n      \"ping\": {\n        \"count\": \"<long>\",\n        \"protocol\": \"<string>\",\n        \"port\": \"<long>\",\n        \"timeout\": \"<long>\",\n        \"delay\": \"<float>\",\n        \"dscp\": \"<long>\"\n      },\n      \"trace\": {\n        \"count\": \"<long>\",\n        \"protocol\": \"<string>\",\n        \"port\": \"<long>\",\n        \"timeout\": \"<long>\",\n        \"limit\": \"<long>\",\n        \"delay\": \"<float>\",\n        \"dscp\": \"<long>\",\n        \"mtu\": \"<boolean>\"\n      },\n      \"period\": \"<long>\",\n      \"family\": \"IP_FAMILY_UNSPECIFIED\",\n      \"notificationChannels\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"notes\": \"<string>\",\n      \"throughput\": {\n        \"port\": \"<long>\",\n        \"omit\": \"<long>\",\n        \"duration\": \"<long>\",\n        \"bandwidth\": \"<long>\",\n        \"protocol\": \"<string>\"\n      },\n      \"schedule\": {\n        \"enabled\": \"<boolean>\",\n        \"start\": \"<long>\",\n        \"end\": \"<long>\"\n      },\n      \"alerting\": {\n        \"disableWarningNotifications\": \"<boolean>\",\n        \"alertingType\": \"ALERTING_TYPE_UNSPECIFIED\",\n        \"groupedAlertSettings\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    },\n    \"cdate\": \"1951-12-22T04:02:17.391Z\",\n    \"edate\": \"1995-11-08T13:17:13.081Z\",\n    \"createdBy\": {\n      \"id\": \"string\",\n      \"email\": \"string\",\n      \"fullName\": \"string\"\n    },\n    \"lastUpdatedBy\": {\n      \"id\": \"string\",\n      \"email\": \"string\",\n      \"fullName\": \"string\"\n    },\n    \"labels\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bff73417-88dc-44af-96ef-740ed9d7d5ac",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "synthetics",
+                    "v202309",
+                    "tests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"test\": {\n    \"name\": \"<string>\",\n    \"type\": \"<string>\",\n    \"status\": \"TEST_STATUS_UNSPECIFIED\",\n    \"settings\": {\n      \"hostname\": {\n        \"target\": \"<string>\"\n      },\n      \"ip\": {\n        \"targets\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"useLocalIp\": \"<boolean>\"\n      },\n      \"agent\": {\n        \"target\": \"<string>\",\n        \"useLocalIp\": \"<boolean>\",\n        \"reciprocal\": \"<boolean>\"\n      },\n      \"flow\": {\n        \"target\": \"<string>\",\n        \"targetRefreshIntervalMillis\": \"<long>\",\n        \"maxProviders\": \"<long>\",\n        \"maxIpTargets\": \"<long>\",\n        \"type\": \"<string>\",\n        \"inetDirection\": \"<string>\",\n        \"direction\": \"<string>\"\n      },\n      \"dns\": {\n        \"target\": \"<string>\",\n        \"timeout\": \"<long>\",\n        \"recordType\": \"DNS_RECORD_UNSPECIFIED\",\n        \"servers\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"port\": \"<long>\"\n      },\n      \"url\": {\n        \"target\": \"<string>\",\n        \"timeout\": \"<long>\",\n        \"method\": \"<string>\",\n        \"headers\": {\n          \"key_0\": \"<string>\"\n        },\n        \"body\": \"<string>\",\n        \"ignoreTlsErrors\": \"<boolean>\"\n      },\n      \"networkGrid\": {\n        \"targets\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"useLocalIp\": \"<boolean>\"\n      },\n      \"pageLoad\": {\n        \"target\": \"<string>\",\n        \"timeout\": \"<long>\",\n        \"headers\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\",\n          \"key_2\": \"<string>\",\n          \"key_3\": \"<string>\",\n          \"key_4\": \"<string>\"\n        },\n        \"ignoreTlsErrors\": \"<boolean>\",\n        \"cssSelectors\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\"\n        }\n      },\n      \"dnsGrid\": {\n        \"target\": \"<string>\",\n        \"timeout\": \"<long>\",\n        \"recordType\": \"DNS_RECORD_UNSPECIFIED\",\n        \"servers\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"port\": \"<long>\"\n      },\n      \"networkMesh\": {\n        \"useLocalIp\": \"<boolean>\"\n      },\n      \"agentIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"tasks\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"healthSettings\": {\n        \"latencyCritical\": \"<float>\",\n        \"latencyWarning\": \"<float>\",\n        \"packetLossCritical\": \"<float>\",\n        \"packetLossWarning\": \"<float>\",\n        \"jitterCritical\": \"<float>\",\n        \"jitterWarning\": \"<float>\",\n        \"httpLatencyCritical\": \"<float>\",\n        \"httpLatencyWarning\": \"<float>\",\n        \"httpValidCodes\": [\n          \"<long>\",\n          \"<long>\"\n        ],\n        \"dnsValidCodes\": [\n          \"<long>\",\n          \"<long>\"\n        ],\n        \"latencyCriticalStddev\": \"<float>\",\n        \"latencyWarningStddev\": \"<float>\",\n        \"jitterCriticalStddev\": \"<float>\",\n        \"jitterWarningStddev\": \"<float>\",\n        \"httpLatencyCriticalStddev\": \"<float>\",\n        \"httpLatencyWarningStddev\": \"<float>\",\n        \"unhealthySubtestThreshold\": \"<long>\",\n        \"activation\": {\n          \"gracePeriod\": \"<string>\",\n          \"timeUnit\": \"<string>\",\n          \"timeWindow\": \"<string>\",\n          \"times\": \"<string>\"\n        },\n        \"certExpiryWarning\": \"<long>\",\n        \"certExpiryCritical\": \"<long>\",\n        \"dnsValidIps\": \"<string>\",\n        \"dnsLatencyCritical\": \"<float>\",\n        \"dnsLatencyWarning\": \"<float>\",\n        \"dnsLatencyCriticalStddev\": \"<float>\",\n        \"dnsLatencyWarningStddev\": \"<float>\",\n        \"perAgentAlerting\": \"<boolean>\",\n        \"disabledMetrics\": {\n          \"pingLatency\": \"<boolean>\",\n          \"pingJitter\": \"<boolean>\",\n          \"pingPacketLoss\": \"<boolean>\",\n          \"httpLatency\": \"<boolean>\",\n          \"httpHeaders\": \"<boolean>\",\n          \"httpCodes\": \"<boolean>\",\n          \"httpCertExpiry\": \"<boolean>\",\n          \"transactionLatency\": \"<boolean>\",\n          \"dnsLatency\": \"<boolean>\",\n          \"dnsCodes\": \"<boolean>\",\n          \"dnsIps\": \"<boolean>\",\n          \"throughputBandwidth\": \"<boolean>\"\n        },\n        \"healthDisabled\": \"<boolean>\",\n        \"throughputCritical\": \"<float>\",\n        \"throughputWarning\": \"<float>\",\n        \"throughputCriticalStddev\": \"<float>\",\n        \"throughputWarningStddev\": \"<float>\",\n        \"disableAlerts\": \"<boolean>\"\n      },\n      \"ping\": {\n        \"count\": \"<long>\",\n        \"protocol\": \"<string>\",\n        \"port\": \"<long>\",\n        \"timeout\": \"<long>\",\n        \"delay\": \"<float>\",\n        \"dscp\": \"<long>\"\n      },\n      \"trace\": {\n        \"count\": \"<long>\",\n        \"protocol\": \"<string>\",\n        \"port\": \"<long>\",\n        \"timeout\": \"<long>\",\n        \"limit\": \"<long>\",\n        \"delay\": \"<float>\",\n        \"dscp\": \"<long>\",\n        \"mtu\": \"<boolean>\"\n      },\n      \"period\": \"<long>\",\n      \"family\": \"IP_FAMILY_UNSPECIFIED\",\n      \"notificationChannels\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"notes\": \"<string>\",\n      \"throughput\": {\n        \"port\": \"<long>\",\n        \"omit\": \"<long>\",\n        \"duration\": \"<long>\",\n        \"bandwidth\": \"<long>\",\n        \"protocol\": \"<string>\"\n      },\n      \"schedule\": {\n        \"enabled\": \"<boolean>\",\n        \"start\": \"<long>\",\n        \"end\": \"<long>\"\n      },\n      \"alerting\": {\n        \"disableWarningNotifications\": \"<boolean>\",\n        \"alertingType\": \"ALERTING_TYPE_UNSPECIFIED\",\n        \"groupedAlertSettings\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    },\n    \"createdBy\": {},\n    \"lastUpdatedBy\": {},\n    \"labels\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7806,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3e1f7494-c2fa-42f2-8eba-febfe3f4267b",
+          "name": "Get information about a test",
+          "request": {
+            "name": "Get information about a test",
+            "description": {
+              "content": "Returns configuration and status for the requested synthetic test.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "synthetics",
+                "v202309",
+                "tests",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) ID of requested test"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a7c71eb8-d14a-487d-ab67-e40c29d80f4c",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "synthetics",
+                    "v202309",
+                    "tests",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) ID of requested test"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"test\": {\n    \"id\": \"string\",\n    \"name\": \"<string>\",\n    \"type\": \"<string>\",\n    \"status\": \"TEST_STATUS_UNSPECIFIED\",\n    \"settings\": {\n      \"hostname\": {\n        \"target\": \"<string>\"\n      },\n      \"ip\": {\n        \"targets\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"useLocalIp\": \"<boolean>\"\n      },\n      \"agent\": {\n        \"target\": \"<string>\",\n        \"useLocalIp\": \"<boolean>\",\n        \"reciprocal\": \"<boolean>\"\n      },\n      \"flow\": {\n        \"target\": \"<string>\",\n        \"targetRefreshIntervalMillis\": \"<long>\",\n        \"maxProviders\": \"<long>\",\n        \"maxIpTargets\": \"<long>\",\n        \"type\": \"<string>\",\n        \"inetDirection\": \"<string>\",\n        \"direction\": \"<string>\"\n      },\n      \"dns\": {\n        \"target\": \"<string>\",\n        \"timeout\": \"<long>\",\n        \"recordType\": \"DNS_RECORD_UNSPECIFIED\",\n        \"servers\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"port\": \"<long>\"\n      },\n      \"url\": {\n        \"target\": \"<string>\",\n        \"timeout\": \"<long>\",\n        \"method\": \"<string>\",\n        \"headers\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\"\n        },\n        \"body\": \"<string>\",\n        \"ignoreTlsErrors\": \"<boolean>\"\n      },\n      \"networkGrid\": {\n        \"targets\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"useLocalIp\": \"<boolean>\"\n      },\n      \"pageLoad\": {\n        \"target\": \"<string>\",\n        \"timeout\": \"<long>\",\n        \"headers\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\",\n          \"key_2\": \"<string>\",\n          \"key_3\": \"<string>\"\n        },\n        \"ignoreTlsErrors\": \"<boolean>\",\n        \"cssSelectors\": {\n          \"key_0\": \"<string>\"\n        }\n      },\n      \"dnsGrid\": {\n        \"target\": \"<string>\",\n        \"timeout\": \"<long>\",\n        \"recordType\": \"DNS_RECORD_UNSPECIFIED\",\n        \"servers\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"port\": \"<long>\"\n      },\n      \"networkMesh\": {\n        \"useLocalIp\": \"<boolean>\"\n      },\n      \"agentIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"tasks\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"healthSettings\": {\n        \"latencyCritical\": \"<float>\",\n        \"latencyWarning\": \"<float>\",\n        \"packetLossCritical\": \"<float>\",\n        \"packetLossWarning\": \"<float>\",\n        \"jitterCritical\": \"<float>\",\n        \"jitterWarning\": \"<float>\",\n        \"httpLatencyCritical\": \"<float>\",\n        \"httpLatencyWarning\": \"<float>\",\n        \"httpValidCodes\": [\n          \"<long>\",\n          \"<long>\"\n        ],\n        \"dnsValidCodes\": [\n          \"<long>\",\n          \"<long>\"\n        ],\n        \"latencyCriticalStddev\": \"<float>\",\n        \"latencyWarningStddev\": \"<float>\",\n        \"jitterCriticalStddev\": \"<float>\",\n        \"jitterWarningStddev\": \"<float>\",\n        \"httpLatencyCriticalStddev\": \"<float>\",\n        \"httpLatencyWarningStddev\": \"<float>\",\n        \"unhealthySubtestThreshold\": \"<long>\",\n        \"activation\": {\n          \"gracePeriod\": \"<string>\",\n          \"timeUnit\": \"<string>\",\n          \"timeWindow\": \"<string>\",\n          \"times\": \"<string>\"\n        },\n        \"certExpiryWarning\": \"<long>\",\n        \"certExpiryCritical\": \"<long>\",\n        \"dnsValidIps\": \"<string>\",\n        \"dnsLatencyCritical\": \"<float>\",\n        \"dnsLatencyWarning\": \"<float>\",\n        \"dnsLatencyCriticalStddev\": \"<float>\",\n        \"dnsLatencyWarningStddev\": \"<float>\",\n        \"perAgentAlerting\": \"<boolean>\",\n        \"disabledMetrics\": {\n          \"pingLatency\": \"<boolean>\",\n          \"pingJitter\": \"<boolean>\",\n          \"pingPacketLoss\": \"<boolean>\",\n          \"httpLatency\": \"<boolean>\",\n          \"httpHeaders\": \"<boolean>\",\n          \"httpCodes\": \"<boolean>\",\n          \"httpCertExpiry\": \"<boolean>\",\n          \"transactionLatency\": \"<boolean>\",\n          \"dnsLatency\": \"<boolean>\",\n          \"dnsCodes\": \"<boolean>\",\n          \"dnsIps\": \"<boolean>\",\n          \"throughputBandwidth\": \"<boolean>\"\n        },\n        \"healthDisabled\": \"<boolean>\",\n        \"throughputCritical\": \"<float>\",\n        \"throughputWarning\": \"<float>\",\n        \"throughputCriticalStddev\": \"<float>\",\n        \"throughputWarningStddev\": \"<float>\",\n        \"disableAlerts\": \"<boolean>\"\n      },\n      \"ping\": {\n        \"count\": \"<long>\",\n        \"protocol\": \"<string>\",\n        \"port\": \"<long>\",\n        \"timeout\": \"<long>\",\n        \"delay\": \"<float>\",\n        \"dscp\": \"<long>\"\n      },\n      \"trace\": {\n        \"count\": \"<long>\",\n        \"protocol\": \"<string>\",\n        \"port\": \"<long>\",\n        \"timeout\": \"<long>\",\n        \"limit\": \"<long>\",\n        \"delay\": \"<float>\",\n        \"dscp\": \"<long>\",\n        \"mtu\": \"<boolean>\"\n      },\n      \"period\": \"<long>\",\n      \"family\": \"IP_FAMILY_UNSPECIFIED\",\n      \"notificationChannels\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"notes\": \"<string>\",\n      \"throughput\": {\n        \"port\": \"<long>\",\n        \"omit\": \"<long>\",\n        \"duration\": \"<long>\",\n        \"bandwidth\": \"<long>\",\n        \"protocol\": \"<string>\"\n      },\n      \"schedule\": {\n        \"enabled\": \"<boolean>\",\n        \"start\": \"<long>\",\n        \"end\": \"<long>\"\n      },\n      \"alerting\": {\n        \"disableWarningNotifications\": \"<boolean>\",\n        \"alertingType\": \"ALERTING_TYPE_UNSPECIFIED\",\n        \"groupedAlertSettings\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    },\n    \"cdate\": \"2024-03-04T10:35:04.412Z\",\n    \"edate\": \"2016-04-08T12:17:13.076Z\",\n    \"createdBy\": {\n      \"id\": \"string\",\n      \"email\": \"string\",\n      \"fullName\": \"string\"\n    },\n    \"lastUpdatedBy\": {\n      \"id\": \"string\",\n      \"email\": \"string\",\n      \"fullName\": \"string\"\n    },\n    \"labels\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "670ba3ba-cf4c-47f2-b853-ce8b4ace8eac",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "synthetics",
+                    "v202309",
+                    "tests",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) ID of requested test"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7806,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fe23ca8c-49b5-4ca2-99a4-4f6052f46b1e",
+          "name": "Delete a synthetic test.",
+          "request": {
+            "name": "Delete a synthetic test.",
+            "description": {
+              "content": "Deletes the synthetics test. All accumulated results for the test cease to be accessible.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "synthetics",
+                "v202309",
+                "tests",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) ID of the test to be deleted"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "aff08d46-8e4a-49c6-818f-f34a92d1842b",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "synthetics",
+                    "v202309",
+                    "tests",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) ID of the test to be deleted"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e07341a0-6e74-4f13-82f3-4e8a567cb6e1",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "synthetics",
+                    "v202309",
+                    "tests",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) ID of the test to be deleted"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7806,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "239de16a-98eb-49f9-bb39-208b122275dc",
+          "name": "Update configuration of a test",
+          "request": {
+            "name": "Update configuration of a test",
+            "description": {
+              "content": "Updates configuration of a synthetic test.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "synthetics",
+                "v202309",
+                "tests",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Unique ID of the test"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"test\": {\n    \"name\": \"<string>\",\n    \"type\": \"<string>\",\n    \"status\": \"TEST_STATUS_UNSPECIFIED\",\n    \"settings\": {\n      \"hostname\": {\n        \"target\": \"<string>\"\n      },\n      \"ip\": {\n        \"targets\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"useLocalIp\": \"<boolean>\"\n      },\n      \"agent\": {\n        \"target\": \"<string>\",\n        \"useLocalIp\": \"<boolean>\",\n        \"reciprocal\": \"<boolean>\"\n      },\n      \"flow\": {\n        \"target\": \"<string>\",\n        \"targetRefreshIntervalMillis\": \"<long>\",\n        \"maxProviders\": \"<long>\",\n        \"maxIpTargets\": \"<long>\",\n        \"type\": \"<string>\",\n        \"inetDirection\": \"<string>\",\n        \"direction\": \"<string>\"\n      },\n      \"dns\": {\n        \"target\": \"<string>\",\n        \"timeout\": \"<long>\",\n        \"recordType\": \"DNS_RECORD_UNSPECIFIED\",\n        \"servers\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"port\": \"<long>\"\n      },\n      \"url\": {\n        \"target\": \"<string>\",\n        \"timeout\": \"<long>\",\n        \"method\": \"<string>\",\n        \"headers\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\",\n          \"key_2\": \"<string>\"\n        },\n        \"body\": \"<string>\",\n        \"ignoreTlsErrors\": \"<boolean>\"\n      },\n      \"networkGrid\": {\n        \"targets\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"useLocalIp\": \"<boolean>\"\n      },\n      \"pageLoad\": {\n        \"target\": \"<string>\",\n        \"timeout\": \"<long>\",\n        \"headers\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\",\n          \"key_2\": \"<string>\"\n        },\n        \"ignoreTlsErrors\": \"<boolean>\",\n        \"cssSelectors\": {\n          \"key_0\": \"<string>\"\n        }\n      },\n      \"dnsGrid\": {\n        \"target\": \"<string>\",\n        \"timeout\": \"<long>\",\n        \"recordType\": \"DNS_RECORD_UNSPECIFIED\",\n        \"servers\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"port\": \"<long>\"\n      },\n      \"networkMesh\": {\n        \"useLocalIp\": \"<boolean>\"\n      },\n      \"agentIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"tasks\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"healthSettings\": {\n        \"latencyCritical\": \"<float>\",\n        \"latencyWarning\": \"<float>\",\n        \"packetLossCritical\": \"<float>\",\n        \"packetLossWarning\": \"<float>\",\n        \"jitterCritical\": \"<float>\",\n        \"jitterWarning\": \"<float>\",\n        \"httpLatencyCritical\": \"<float>\",\n        \"httpLatencyWarning\": \"<float>\",\n        \"httpValidCodes\": [\n          \"<long>\",\n          \"<long>\"\n        ],\n        \"dnsValidCodes\": [\n          \"<long>\",\n          \"<long>\"\n        ],\n        \"latencyCriticalStddev\": \"<float>\",\n        \"latencyWarningStddev\": \"<float>\",\n        \"jitterCriticalStddev\": \"<float>\",\n        \"jitterWarningStddev\": \"<float>\",\n        \"httpLatencyCriticalStddev\": \"<float>\",\n        \"httpLatencyWarningStddev\": \"<float>\",\n        \"unhealthySubtestThreshold\": \"<long>\",\n        \"activation\": {\n          \"gracePeriod\": \"<string>\",\n          \"timeUnit\": \"<string>\",\n          \"timeWindow\": \"<string>\",\n          \"times\": \"<string>\"\n        },\n        \"certExpiryWarning\": \"<long>\",\n        \"certExpiryCritical\": \"<long>\",\n        \"dnsValidIps\": \"<string>\",\n        \"dnsLatencyCritical\": \"<float>\",\n        \"dnsLatencyWarning\": \"<float>\",\n        \"dnsLatencyCriticalStddev\": \"<float>\",\n        \"dnsLatencyWarningStddev\": \"<float>\",\n        \"perAgentAlerting\": \"<boolean>\",\n        \"disabledMetrics\": {\n          \"pingLatency\": \"<boolean>\",\n          \"pingJitter\": \"<boolean>\",\n          \"pingPacketLoss\": \"<boolean>\",\n          \"httpLatency\": \"<boolean>\",\n          \"httpHeaders\": \"<boolean>\",\n          \"httpCodes\": \"<boolean>\",\n          \"httpCertExpiry\": \"<boolean>\",\n          \"transactionLatency\": \"<boolean>\",\n          \"dnsLatency\": \"<boolean>\",\n          \"dnsCodes\": \"<boolean>\",\n          \"dnsIps\": \"<boolean>\",\n          \"throughputBandwidth\": \"<boolean>\"\n        },\n        \"healthDisabled\": \"<boolean>\",\n        \"throughputCritical\": \"<float>\",\n        \"throughputWarning\": \"<float>\",\n        \"throughputCriticalStddev\": \"<float>\",\n        \"throughputWarningStddev\": \"<float>\",\n        \"disableAlerts\": \"<boolean>\"\n      },\n      \"ping\": {\n        \"count\": \"<long>\",\n        \"protocol\": \"<string>\",\n        \"port\": \"<long>\",\n        \"timeout\": \"<long>\",\n        \"delay\": \"<float>\",\n        \"dscp\": \"<long>\"\n      },\n      \"trace\": {\n        \"count\": \"<long>\",\n        \"protocol\": \"<string>\",\n        \"port\": \"<long>\",\n        \"timeout\": \"<long>\",\n        \"limit\": \"<long>\",\n        \"delay\": \"<float>\",\n        \"dscp\": \"<long>\",\n        \"mtu\": \"<boolean>\"\n      },\n      \"period\": \"<long>\",\n      \"family\": \"IP_FAMILY_UNSPECIFIED\",\n      \"notificationChannels\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"notes\": \"<string>\",\n      \"throughput\": {\n        \"port\": \"<long>\",\n        \"omit\": \"<long>\",\n        \"duration\": \"<long>\",\n        \"bandwidth\": \"<long>\",\n        \"protocol\": \"<string>\"\n      },\n      \"schedule\": {\n        \"enabled\": \"<boolean>\",\n        \"start\": \"<long>\",\n        \"end\": \"<long>\"\n      },\n      \"alerting\": {\n        \"disableWarningNotifications\": \"<boolean>\",\n        \"alertingType\": \"ALERTING_TYPE_UNSPECIFIED\",\n        \"groupedAlertSettings\": {\n          \"default\": {\n            \"metric\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"srcGroupBy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"percentOfSrcGroup\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"filterIds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"overrides\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      }\n    },\n    \"createdBy\": {},\n    \"lastUpdatedBy\": {},\n    \"labels\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "446e08d5-75d7-4fef-bf25-9771ba70d7cd",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "synthetics",
+                    "v202309",
+                    "tests",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique ID of the test"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"test\": {\n    \"name\": \"<string>\",\n    \"type\": \"<string>\",\n    \"status\": \"TEST_STATUS_UNSPECIFIED\",\n    \"settings\": {\n      \"hostname\": {\n        \"target\": \"<string>\"\n      },\n      \"ip\": {\n        \"targets\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"useLocalIp\": \"<boolean>\"\n      },\n      \"agent\": {\n        \"target\": \"<string>\",\n        \"useLocalIp\": \"<boolean>\",\n        \"reciprocal\": \"<boolean>\"\n      },\n      \"flow\": {\n        \"target\": \"<string>\",\n        \"targetRefreshIntervalMillis\": \"<long>\",\n        \"maxProviders\": \"<long>\",\n        \"maxIpTargets\": \"<long>\",\n        \"type\": \"<string>\",\n        \"inetDirection\": \"<string>\",\n        \"direction\": \"<string>\"\n      },\n      \"dns\": {\n        \"target\": \"<string>\",\n        \"timeout\": \"<long>\",\n        \"recordType\": \"DNS_RECORD_UNSPECIFIED\",\n        \"servers\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"port\": \"<long>\"\n      },\n      \"url\": {\n        \"target\": \"<string>\",\n        \"timeout\": \"<long>\",\n        \"method\": \"<string>\",\n        \"headers\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\"\n        },\n        \"body\": \"<string>\",\n        \"ignoreTlsErrors\": \"<boolean>\"\n      },\n      \"networkGrid\": {\n        \"targets\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"useLocalIp\": \"<boolean>\"\n      },\n      \"pageLoad\": {\n        \"target\": \"<string>\",\n        \"timeout\": \"<long>\",\n        \"headers\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\",\n          \"key_2\": \"<string>\"\n        },\n        \"ignoreTlsErrors\": \"<boolean>\",\n        \"cssSelectors\": {\n          \"key_0\": \"<string>\"\n        }\n      },\n      \"dnsGrid\": {\n        \"target\": \"<string>\",\n        \"timeout\": \"<long>\",\n        \"recordType\": \"DNS_RECORD_UNSPECIFIED\",\n        \"servers\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"port\": \"<long>\"\n      },\n      \"networkMesh\": {\n        \"useLocalIp\": \"<boolean>\"\n      },\n      \"agentIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"tasks\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"healthSettings\": {\n        \"latencyCritical\": \"<float>\",\n        \"latencyWarning\": \"<float>\",\n        \"packetLossCritical\": \"<float>\",\n        \"packetLossWarning\": \"<float>\",\n        \"jitterCritical\": \"<float>\",\n        \"jitterWarning\": \"<float>\",\n        \"httpLatencyCritical\": \"<float>\",\n        \"httpLatencyWarning\": \"<float>\",\n        \"httpValidCodes\": [\n          \"<long>\",\n          \"<long>\"\n        ],\n        \"dnsValidCodes\": [\n          \"<long>\",\n          \"<long>\"\n        ],\n        \"latencyCriticalStddev\": \"<float>\",\n        \"latencyWarningStddev\": \"<float>\",\n        \"jitterCriticalStddev\": \"<float>\",\n        \"jitterWarningStddev\": \"<float>\",\n        \"httpLatencyCriticalStddev\": \"<float>\",\n        \"httpLatencyWarningStddev\": \"<float>\",\n        \"unhealthySubtestThreshold\": \"<long>\",\n        \"activation\": {\n          \"gracePeriod\": \"<string>\",\n          \"timeUnit\": \"<string>\",\n          \"timeWindow\": \"<string>\",\n          \"times\": \"<string>\"\n        },\n        \"certExpiryWarning\": \"<long>\",\n        \"certExpiryCritical\": \"<long>\",\n        \"dnsValidIps\": \"<string>\",\n        \"dnsLatencyCritical\": \"<float>\",\n        \"dnsLatencyWarning\": \"<float>\",\n        \"dnsLatencyCriticalStddev\": \"<float>\",\n        \"dnsLatencyWarningStddev\": \"<float>\",\n        \"perAgentAlerting\": \"<boolean>\",\n        \"disabledMetrics\": {\n          \"pingLatency\": \"<boolean>\",\n          \"pingJitter\": \"<boolean>\",\n          \"pingPacketLoss\": \"<boolean>\",\n          \"httpLatency\": \"<boolean>\",\n          \"httpHeaders\": \"<boolean>\",\n          \"httpCodes\": \"<boolean>\",\n          \"httpCertExpiry\": \"<boolean>\",\n          \"transactionLatency\": \"<boolean>\",\n          \"dnsLatency\": \"<boolean>\",\n          \"dnsCodes\": \"<boolean>\",\n          \"dnsIps\": \"<boolean>\",\n          \"throughputBandwidth\": \"<boolean>\"\n        },\n        \"healthDisabled\": \"<boolean>\",\n        \"throughputCritical\": \"<float>\",\n        \"throughputWarning\": \"<float>\",\n        \"throughputCriticalStddev\": \"<float>\",\n        \"throughputWarningStddev\": \"<float>\",\n        \"disableAlerts\": \"<boolean>\"\n      },\n      \"ping\": {\n        \"count\": \"<long>\",\n        \"protocol\": \"<string>\",\n        \"port\": \"<long>\",\n        \"timeout\": \"<long>\",\n        \"delay\": \"<float>\",\n        \"dscp\": \"<long>\"\n      },\n      \"trace\": {\n        \"count\": \"<long>\",\n        \"protocol\": \"<string>\",\n        \"port\": \"<long>\",\n        \"timeout\": \"<long>\",\n        \"limit\": \"<long>\",\n        \"delay\": \"<float>\",\n        \"dscp\": \"<long>\",\n        \"mtu\": \"<boolean>\"\n      },\n      \"period\": \"<long>\",\n      \"family\": \"IP_FAMILY_UNSPECIFIED\",\n      \"notificationChannels\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"notes\": \"<string>\",\n      \"throughput\": {\n        \"port\": \"<long>\",\n        \"omit\": \"<long>\",\n        \"duration\": \"<long>\",\n        \"bandwidth\": \"<long>\",\n        \"protocol\": \"<string>\"\n      },\n      \"schedule\": {\n        \"enabled\": \"<boolean>\",\n        \"start\": \"<long>\",\n        \"end\": \"<long>\"\n      },\n      \"alerting\": {\n        \"disableWarningNotifications\": \"<boolean>\",\n        \"alertingType\": \"ALERTING_TYPE_UNSPECIFIED\",\n        \"groupedAlertSettings\": {\n          \"default\": {\n            \"metric\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"srcGroupBy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"percentOfSrcGroup\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"filterIds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"overrides\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      }\n    },\n    \"createdBy\": {},\n    \"lastUpdatedBy\": {},\n    \"labels\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"test\": {\n    \"id\": \"string\",\n    \"name\": \"<string>\",\n    \"type\": \"<string>\",\n    \"status\": \"TEST_STATUS_UNSPECIFIED\",\n    \"settings\": {\n      \"hostname\": {\n        \"target\": \"<string>\"\n      },\n      \"ip\": {\n        \"targets\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"useLocalIp\": \"<boolean>\"\n      },\n      \"agent\": {\n        \"target\": \"<string>\",\n        \"useLocalIp\": \"<boolean>\",\n        \"reciprocal\": \"<boolean>\"\n      },\n      \"flow\": {\n        \"target\": \"<string>\",\n        \"targetRefreshIntervalMillis\": \"<long>\",\n        \"maxProviders\": \"<long>\",\n        \"maxIpTargets\": \"<long>\",\n        \"type\": \"<string>\",\n        \"inetDirection\": \"<string>\",\n        \"direction\": \"<string>\"\n      },\n      \"dns\": {\n        \"target\": \"<string>\",\n        \"timeout\": \"<long>\",\n        \"recordType\": \"DNS_RECORD_UNSPECIFIED\",\n        \"servers\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"port\": \"<long>\"\n      },\n      \"url\": {\n        \"target\": \"<string>\",\n        \"timeout\": \"<long>\",\n        \"method\": \"<string>\",\n        \"headers\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\"\n        },\n        \"body\": \"<string>\",\n        \"ignoreTlsErrors\": \"<boolean>\"\n      },\n      \"networkGrid\": {\n        \"targets\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"useLocalIp\": \"<boolean>\"\n      },\n      \"pageLoad\": {\n        \"target\": \"<string>\",\n        \"timeout\": \"<long>\",\n        \"headers\": {\n          \"key_0\": \"<string>\"\n        },\n        \"ignoreTlsErrors\": \"<boolean>\",\n        \"cssSelectors\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\"\n        }\n      },\n      \"dnsGrid\": {\n        \"target\": \"<string>\",\n        \"timeout\": \"<long>\",\n        \"recordType\": \"DNS_RECORD_UNSPECIFIED\",\n        \"servers\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"port\": \"<long>\"\n      },\n      \"networkMesh\": {\n        \"useLocalIp\": \"<boolean>\"\n      },\n      \"agentIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"tasks\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"healthSettings\": {\n        \"latencyCritical\": \"<float>\",\n        \"latencyWarning\": \"<float>\",\n        \"packetLossCritical\": \"<float>\",\n        \"packetLossWarning\": \"<float>\",\n        \"jitterCritical\": \"<float>\",\n        \"jitterWarning\": \"<float>\",\n        \"httpLatencyCritical\": \"<float>\",\n        \"httpLatencyWarning\": \"<float>\",\n        \"httpValidCodes\": [\n          \"<long>\",\n          \"<long>\"\n        ],\n        \"dnsValidCodes\": [\n          \"<long>\",\n          \"<long>\"\n        ],\n        \"latencyCriticalStddev\": \"<float>\",\n        \"latencyWarningStddev\": \"<float>\",\n        \"jitterCriticalStddev\": \"<float>\",\n        \"jitterWarningStddev\": \"<float>\",\n        \"httpLatencyCriticalStddev\": \"<float>\",\n        \"httpLatencyWarningStddev\": \"<float>\",\n        \"unhealthySubtestThreshold\": \"<long>\",\n        \"activation\": {\n          \"gracePeriod\": \"<string>\",\n          \"timeUnit\": \"<string>\",\n          \"timeWindow\": \"<string>\",\n          \"times\": \"<string>\"\n        },\n        \"certExpiryWarning\": \"<long>\",\n        \"certExpiryCritical\": \"<long>\",\n        \"dnsValidIps\": \"<string>\",\n        \"dnsLatencyCritical\": \"<float>\",\n        \"dnsLatencyWarning\": \"<float>\",\n        \"dnsLatencyCriticalStddev\": \"<float>\",\n        \"dnsLatencyWarningStddev\": \"<float>\",\n        \"perAgentAlerting\": \"<boolean>\",\n        \"disabledMetrics\": {\n          \"pingLatency\": \"<boolean>\",\n          \"pingJitter\": \"<boolean>\",\n          \"pingPacketLoss\": \"<boolean>\",\n          \"httpLatency\": \"<boolean>\",\n          \"httpHeaders\": \"<boolean>\",\n          \"httpCodes\": \"<boolean>\",\n          \"httpCertExpiry\": \"<boolean>\",\n          \"transactionLatency\": \"<boolean>\",\n          \"dnsLatency\": \"<boolean>\",\n          \"dnsCodes\": \"<boolean>\",\n          \"dnsIps\": \"<boolean>\",\n          \"throughputBandwidth\": \"<boolean>\"\n        },\n        \"healthDisabled\": \"<boolean>\",\n        \"throughputCritical\": \"<float>\",\n        \"throughputWarning\": \"<float>\",\n        \"throughputCriticalStddev\": \"<float>\",\n        \"throughputWarningStddev\": \"<float>\",\n        \"disableAlerts\": \"<boolean>\"\n      },\n      \"ping\": {\n        \"count\": \"<long>\",\n        \"protocol\": \"<string>\",\n        \"port\": \"<long>\",\n        \"timeout\": \"<long>\",\n        \"delay\": \"<float>\",\n        \"dscp\": \"<long>\"\n      },\n      \"trace\": {\n        \"count\": \"<long>\",\n        \"protocol\": \"<string>\",\n        \"port\": \"<long>\",\n        \"timeout\": \"<long>\",\n        \"limit\": \"<long>\",\n        \"delay\": \"<float>\",\n        \"dscp\": \"<long>\",\n        \"mtu\": \"<boolean>\"\n      },\n      \"period\": \"<long>\",\n      \"family\": \"IP_FAMILY_UNSPECIFIED\",\n      \"notificationChannels\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"notes\": \"<string>\",\n      \"throughput\": {\n        \"port\": \"<long>\",\n        \"omit\": \"<long>\",\n        \"duration\": \"<long>\",\n        \"bandwidth\": \"<long>\",\n        \"protocol\": \"<string>\"\n      },\n      \"schedule\": {\n        \"enabled\": \"<boolean>\",\n        \"start\": \"<long>\",\n        \"end\": \"<long>\"\n      },\n      \"alerting\": {\n        \"disableWarningNotifications\": \"<boolean>\",\n        \"alertingType\": \"ALERTING_TYPE_UNSPECIFIED\",\n        \"groupedAlertSettings\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    },\n    \"cdate\": \"2009-09-30T19:15:13.225Z\",\n    \"edate\": \"2015-11-22T02:00:31.383Z\",\n    \"createdBy\": {\n      \"id\": \"string\",\n      \"email\": \"string\",\n      \"fullName\": \"string\"\n    },\n    \"lastUpdatedBy\": {\n      \"id\": \"string\",\n      \"email\": \"string\",\n      \"fullName\": \"string\"\n    },\n    \"labels\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fd4e23fa-9be1-4b3f-b0a7-75b226aa733d",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "synthetics",
+                    "v202309",
+                    "tests",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique ID of the test"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"test\": {\n    \"name\": \"<string>\",\n    \"type\": \"<string>\",\n    \"status\": \"TEST_STATUS_UNSPECIFIED\",\n    \"settings\": {\n      \"hostname\": {\n        \"target\": \"<string>\"\n      },\n      \"ip\": {\n        \"targets\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"useLocalIp\": \"<boolean>\"\n      },\n      \"agent\": {\n        \"target\": \"<string>\",\n        \"useLocalIp\": \"<boolean>\",\n        \"reciprocal\": \"<boolean>\"\n      },\n      \"flow\": {\n        \"target\": \"<string>\",\n        \"targetRefreshIntervalMillis\": \"<long>\",\n        \"maxProviders\": \"<long>\",\n        \"maxIpTargets\": \"<long>\",\n        \"type\": \"<string>\",\n        \"inetDirection\": \"<string>\",\n        \"direction\": \"<string>\"\n      },\n      \"dns\": {\n        \"target\": \"<string>\",\n        \"timeout\": \"<long>\",\n        \"recordType\": \"DNS_RECORD_UNSPECIFIED\",\n        \"servers\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"port\": \"<long>\"\n      },\n      \"url\": {\n        \"target\": \"<string>\",\n        \"timeout\": \"<long>\",\n        \"method\": \"<string>\",\n        \"headers\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\"\n        },\n        \"body\": \"<string>\",\n        \"ignoreTlsErrors\": \"<boolean>\"\n      },\n      \"networkGrid\": {\n        \"targets\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"useLocalIp\": \"<boolean>\"\n      },\n      \"pageLoad\": {\n        \"target\": \"<string>\",\n        \"timeout\": \"<long>\",\n        \"headers\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\",\n          \"key_2\": \"<string>\"\n        },\n        \"ignoreTlsErrors\": \"<boolean>\",\n        \"cssSelectors\": {\n          \"key_0\": \"<string>\"\n        }\n      },\n      \"dnsGrid\": {\n        \"target\": \"<string>\",\n        \"timeout\": \"<long>\",\n        \"recordType\": \"DNS_RECORD_UNSPECIFIED\",\n        \"servers\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"port\": \"<long>\"\n      },\n      \"networkMesh\": {\n        \"useLocalIp\": \"<boolean>\"\n      },\n      \"agentIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"tasks\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"healthSettings\": {\n        \"latencyCritical\": \"<float>\",\n        \"latencyWarning\": \"<float>\",\n        \"packetLossCritical\": \"<float>\",\n        \"packetLossWarning\": \"<float>\",\n        \"jitterCritical\": \"<float>\",\n        \"jitterWarning\": \"<float>\",\n        \"httpLatencyCritical\": \"<float>\",\n        \"httpLatencyWarning\": \"<float>\",\n        \"httpValidCodes\": [\n          \"<long>\",\n          \"<long>\"\n        ],\n        \"dnsValidCodes\": [\n          \"<long>\",\n          \"<long>\"\n        ],\n        \"latencyCriticalStddev\": \"<float>\",\n        \"latencyWarningStddev\": \"<float>\",\n        \"jitterCriticalStddev\": \"<float>\",\n        \"jitterWarningStddev\": \"<float>\",\n        \"httpLatencyCriticalStddev\": \"<float>\",\n        \"httpLatencyWarningStddev\": \"<float>\",\n        \"unhealthySubtestThreshold\": \"<long>\",\n        \"activation\": {\n          \"gracePeriod\": \"<string>\",\n          \"timeUnit\": \"<string>\",\n          \"timeWindow\": \"<string>\",\n          \"times\": \"<string>\"\n        },\n        \"certExpiryWarning\": \"<long>\",\n        \"certExpiryCritical\": \"<long>\",\n        \"dnsValidIps\": \"<string>\",\n        \"dnsLatencyCritical\": \"<float>\",\n        \"dnsLatencyWarning\": \"<float>\",\n        \"dnsLatencyCriticalStddev\": \"<float>\",\n        \"dnsLatencyWarningStddev\": \"<float>\",\n        \"perAgentAlerting\": \"<boolean>\",\n        \"disabledMetrics\": {\n          \"pingLatency\": \"<boolean>\",\n          \"pingJitter\": \"<boolean>\",\n          \"pingPacketLoss\": \"<boolean>\",\n          \"httpLatency\": \"<boolean>\",\n          \"httpHeaders\": \"<boolean>\",\n          \"httpCodes\": \"<boolean>\",\n          \"httpCertExpiry\": \"<boolean>\",\n          \"transactionLatency\": \"<boolean>\",\n          \"dnsLatency\": \"<boolean>\",\n          \"dnsCodes\": \"<boolean>\",\n          \"dnsIps\": \"<boolean>\",\n          \"throughputBandwidth\": \"<boolean>\"\n        },\n        \"healthDisabled\": \"<boolean>\",\n        \"throughputCritical\": \"<float>\",\n        \"throughputWarning\": \"<float>\",\n        \"throughputCriticalStddev\": \"<float>\",\n        \"throughputWarningStddev\": \"<float>\",\n        \"disableAlerts\": \"<boolean>\"\n      },\n      \"ping\": {\n        \"count\": \"<long>\",\n        \"protocol\": \"<string>\",\n        \"port\": \"<long>\",\n        \"timeout\": \"<long>\",\n        \"delay\": \"<float>\",\n        \"dscp\": \"<long>\"\n      },\n      \"trace\": {\n        \"count\": \"<long>\",\n        \"protocol\": \"<string>\",\n        \"port\": \"<long>\",\n        \"timeout\": \"<long>\",\n        \"limit\": \"<long>\",\n        \"delay\": \"<float>\",\n        \"dscp\": \"<long>\",\n        \"mtu\": \"<boolean>\"\n      },\n      \"period\": \"<long>\",\n      \"family\": \"IP_FAMILY_UNSPECIFIED\",\n      \"notificationChannels\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"notes\": \"<string>\",\n      \"throughput\": {\n        \"port\": \"<long>\",\n        \"omit\": \"<long>\",\n        \"duration\": \"<long>\",\n        \"bandwidth\": \"<long>\",\n        \"protocol\": \"<string>\"\n      },\n      \"schedule\": {\n        \"enabled\": \"<boolean>\",\n        \"start\": \"<long>\",\n        \"end\": \"<long>\"\n      },\n      \"alerting\": {\n        \"disableWarningNotifications\": \"<boolean>\",\n        \"alertingType\": \"ALERTING_TYPE_UNSPECIFIED\",\n        \"groupedAlertSettings\": {\n          \"default\": {\n            \"metric\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"srcGroupBy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"percentOfSrcGroup\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"filterIds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"overrides\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      }\n    },\n    \"createdBy\": {},\n    \"lastUpdatedBy\": {},\n    \"labels\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7806,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e500872c-c215-4f30-8b7e-4d876748fd0a",
+          "name": "Update status of a synthetic test",
+          "request": {
+            "name": "Update status of a synthetic test",
+            "description": {
+              "content": "Update status of a synthetic test",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "synthetics",
+                "v202309",
+                "tests",
+                ":id",
+                "status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) ID of the test which status is to be modified"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"TEST_STATUS_UNSPECIFIED\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6be2c0a8-4119-4510-9218-d9e6fe4c79a5",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "synthetics",
+                    "v202309",
+                    "tests",
+                    ":id",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) ID of the test which status is to be modified"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"TEST_STATUS_UNSPECIFIED\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9d9ae936-003d-41e5-ac6d-dd8c655a84d3",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "synthetics",
+                    "v202309",
+                    "tests",
+                    ":id",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) ID of the test which status is to be modified"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"TEST_STATUS_UNSPECIFIED\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7806,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-CH-Auth-Email"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "10d65273-eec8-4cdf-b7aa-74a406335e9f",
+    "name": "AI Advisor AiAdvisorDataService SyntheticsAdminService API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "# Overview\nProvides programmatic access to AI Advisor.\n\nContact Support:\n Name: Kentik API Engineering",
+      "type": "text/plain"
+    }
+  }
+}

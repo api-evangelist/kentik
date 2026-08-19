@@ -1,0 +1,81 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AI Advisor AiAdvisorDataService CostService API",
+    "version": "v202511"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-CH-Auth-Email",
+      "value": "{{X-CH-Auth-Email}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "CostService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all cost providers.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cost/v202308/cost/providers"
+          },
+          "docs": "Returns list of configured cost providers."
+        },
+        {
+          "info": {
+            "name": "List all cost provider summaries.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cost/v202308/cost/summary",
+            "params": [
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "Date of the cost provider summary (YYYY-MM)"
+              }
+            ]
+          },
+          "docs": "Returns list of summaries of configured cost providers."
+        },
+        {
+          "info": {
+            "name": "Get cost provider summary.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cost/v202308/cost/summary/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the cost provider (can be found using ListCostProviders RPC)"
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "Date of the cost provider summary (YYYY-MM)"
+              }
+            ]
+          },
+          "docs": "Returns summary of configured cost provider."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

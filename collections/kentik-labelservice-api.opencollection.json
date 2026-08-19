@@ -1,0 +1,94 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AI Advisor AiAdvisorDataService LabelService API",
+    "version": "v202511"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-CH-Auth-Email",
+      "value": "{{X-CH-Auth-Email}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "LabelService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all configured labels",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/label/v202210/labels"
+          },
+          "docs": "Returns list of all labels configured in the account."
+        },
+        {
+          "info": {
+            "name": "Create a new label.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/label/v202210/labels",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new label based on data in the request."
+        },
+        {
+          "info": {
+            "name": "Update an existing label.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/label/v202210/labels/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique system assigned identifier of the label"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates configuration of a label."
+        },
+        {
+          "info": {
+            "name": "Delete a label.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/label/v202210/labels/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the label to be deleted"
+              }
+            ]
+          },
+          "docs": "Deletes label with specified with id."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

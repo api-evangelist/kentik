@@ -1,0 +1,223 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AI Advisor AiAdvisorDataService DeviceService API",
+    "version": "v202511"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-CH-Auth-Email",
+      "value": "{{X-CH-Auth-Email}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "DeviceService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all devices.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/device/v202504beta2/device",
+            "params": [
+              {
+                "name": "query.noCustomColumns",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Controls the amount of detail returned for each device. Defaults to FULL.\n\n - DEVICE_VIEW_UNSPECIFIED: When unspecified, defaults to FULL for backward compatibility.\n - DEVICE_VIEW_FULL: Returns the full device configuration with all fields populated.\n - DEVICE_VIEW_BASIC: Returns only basic device information: id, device_name, device_status.\n - DEVICE_VIEW_ID_ONLY: Returns only device IDs."
+              }
+            ]
+          },
+          "docs": "Returns list of configured devices. Use the 'view' parameter to control response detail: FULL (default), BASIC (id, name, status), or ID_ONLY (id only). See [About Devices](https://kb.kentik.com/v4/Cb01.htm)."
+        },
+        {
+          "info": {
+            "name": "Configure a new device.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/device/v202504beta2/device",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create configuration for a new device. Returns the newly created configuration (see [About Devices](https://kb.kentik.com/v4/Cb01.htm))."
+        },
+        {
+          "info": {
+            "name": "Configure multiple devices (max 100).",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/device/v202504beta2/device/batch_create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create configuration for multiple devices. Returns the newly created configurations (see [About Devices](https://kb.kentik.com/v4/Cb01.htm))."
+        },
+        {
+          "info": {
+            "name": "Delete configuration of multiple devices.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/device/v202504beta2/device/batch_delete",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Deletes configuration of multiple devices with specific IDs (see [About Devices](https://kb.kentik.com/v4/Cb01.htm))."
+        },
+        {
+          "info": {
+            "name": "Updates configuration of multiple devices (max 100).",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/device/v202504beta2/device/batch_update",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Replaces configuration of multiple devices with attributes in the request. Returns the updated configurations (see [About Devices](https://kb.kentik.com/v4/Cb01.htm))."
+        },
+        {
+          "info": {
+            "name": "Retrieve configuration of a device by name.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/device/v202504beta2/device/name/:deviceName",
+            "params": [
+              {
+                "name": "deviceName",
+                "value": "",
+                "type": "path",
+                "description": "Name of the requested device"
+              },
+              {
+                "name": "query.noCustomColumns",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns configuration of a device specified by name (see [About Devices](https://kb.kentik.com/v4/Cb01.htm))."
+        },
+        {
+          "info": {
+            "name": "Retrieve configuration of a device.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/device/v202504beta2/device/:device.id",
+            "params": [
+              {
+                "name": "device.id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the requested device"
+              },
+              {
+                "name": "query.noCustomColumns",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns configuration of a device specified by ID (see [About Devices](https://kb.kentik.com/v4/Cb01.htm))."
+        },
+        {
+          "info": {
+            "name": "Updates configuration of a device.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/device/v202504beta2/device/:device.id",
+            "params": [
+              {
+                "name": "device.id",
+                "value": "",
+                "type": "path",
+                "description": "System generated unique identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Replaces configuration of a device with attributes in the request. Returns the updated configuration (see [About Devices](https://kb.kentik.com/v4/Cb01.htm))."
+        },
+        {
+          "info": {
+            "name": "Delete configuration of a device.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/device/v202504beta2/device/:device.id",
+            "params": [
+              {
+                "name": "device.id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the device to be deleted"
+              }
+            ]
+          },
+          "docs": "Deletes configuration of a device with specific ID (see [About Devices](https://kb.kentik.com/v4/Cb01.htm))."
+        },
+        {
+          "info": {
+            "name": "Updates labels of a device.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/device/v202504beta2/device/:id/labels",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the device to be updated"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Removes all existing labels from the device and applies the device labels (see [About Device Labels](https://kb.kentik.com/v4/Cb16.htm)) specified by id. Returns the updated configuration."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

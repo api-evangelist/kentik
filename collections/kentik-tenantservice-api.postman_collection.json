@@ -1,0 +1,823 @@
+{
+  "item": [
+    {
+      "id": "5de2fbec-8e44-49ff-8098-cc216bd3c61d",
+      "name": "TenantService",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ddec62a5-9cc2-4465-bd6d-9c4c8c308fcd",
+          "name": "List MKP tenants.",
+          "request": {
+            "name": "List MKP tenants.",
+            "description": {
+              "content": "Returns a list of MKP tenants.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mkp",
+                "v202407",
+                "tenants"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fd971774-1828-4a08-93bd-3d11083c5752",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mkp",
+                    "v202407",
+                    "tenants"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tenants\": [\n    {\n      \"id\": \"string\",\n      \"companyId\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"type\": \"string\",\n      \"enabled\": true,\n      \"alerts\": [\n        {\n          \"saved\": true,\n          \"policyId\": \"string\",\n          \"thresholds\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"activate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"severity\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"conditions\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"mitigations\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"notificationChannels\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"thresholdAckRequired\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"enableTenantNotifications\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"receiveLandlordNotifications\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"activate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"severity\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"conditions\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"mitigations\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"notificationChannels\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"thresholdAckRequired\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"enableTenantNotifications\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"receiveLandlordNotifications\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"primaryMetric\": \"string\",\n          \"secondaryMetrics\": [\n            \"string\",\n            \"string\"\n          ],\n          \"isTemplate\": true,\n          \"subpolicyId\": \"string\"\n        },\n        {\n          \"saved\": false,\n          \"policyId\": \"string\",\n          \"thresholds\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"activate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"severity\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"conditions\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"mitigations\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"notificationChannels\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"thresholdAckRequired\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"enableTenantNotifications\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"receiveLandlordNotifications\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"activate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"severity\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"conditions\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"mitigations\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"notificationChannels\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"thresholdAckRequired\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"enableTenantNotifications\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"receiveLandlordNotifications\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"primaryMetric\": \"string\",\n          \"secondaryMetrics\": [\n            \"string\",\n            \"string\"\n          ],\n          \"isTemplate\": false,\n          \"subpolicyId\": \"string\"\n        }\n      ],\n      \"assets\": {\n        \"reports\": [\n          {\n            \"id\": \"string\",\n            \"type\": \"string\"\n          },\n          {\n            \"id\": \"string\",\n            \"type\": \"string\"\n          }\n        ],\n        \"defaultReport\": {\n          \"id\": \"string\",\n          \"type\": \"string\"\n        }\n      },\n      \"asn\": \"string\",\n      \"cidr\": \"string\",\n      \"customDimensions\": [\n        {\n          \"dimension\": \"string\",\n          \"populator\": \"string\"\n        },\n        {\n          \"dimension\": \"string\",\n          \"populator\": \"string\"\n        }\n      ],\n      \"devices\": {\n        \"allDevices\": false,\n        \"deviceTypes\": [\n          \"string\",\n          \"string\"\n        ],\n        \"deviceLabels\": [\n          2337,\n          2872\n        ],\n        \"deviceSites\": [\n          9272,\n          1498\n        ],\n        \"deviceName\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"filters\": null,\n      \"interfaceName\": \"string\",\n      \"snmpAlias\": \"string\",\n      \"packages\": [\n        {\n          \"id\": \"string\",\n          \"companyId\": \"string\",\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"icon\": \"string\",\n          \"color\": \"string\",\n          \"alerts\": [\n            {\n              \"saved\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"policyId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"thresholds\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"primaryMetric\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"secondaryMetrics\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"isTemplate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"subpolicyId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"saved\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"policyId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"thresholds\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"primaryMetric\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"secondaryMetrics\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"isTemplate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"subpolicyId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"assets\": {\n            \"reports\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"defaultReport\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"isDefault\": false,\n          \"tenants\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"pivotTemplateId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"pivotUserGroupId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"pivotTemplateId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"pivotUserGroupId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"id\": \"string\",\n          \"companyId\": \"string\",\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"icon\": \"string\",\n          \"color\": \"string\",\n          \"alerts\": [\n            {\n              \"saved\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"policyId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"thresholds\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"primaryMetric\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"secondaryMetrics\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"isTemplate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"subpolicyId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"saved\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"policyId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"thresholds\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"primaryMetric\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"secondaryMetrics\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"isTemplate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"subpolicyId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"assets\": {\n            \"reports\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"defaultReport\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"isDefault\": true,\n          \"tenants\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"pivotTemplateId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"pivotUserGroupId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"pivotTemplateId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"pivotUserGroupId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ],\n      \"users\": [\n        {\n          \"userEmail\": \"string\",\n          \"userFullName\": \"string\",\n          \"role\": \"ROLE_UNSPECIFIED\",\n          \"id\": \"string\",\n          \"permissions\": [\n            {\n              \"capability\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"allowed\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"capability\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"allowed\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"filter\": \"string\",\n          \"lastLogin\": \"1994-02-17T13:09:11.754Z\",\n          \"cdate\": \"1981-07-29T20:36:33.275Z\",\n          \"edate\": \"2008-10-13T00:44:21.090Z\",\n          \"defaultLandingPageType\": \"LANDING_TYPE_UNSPECIFIED\",\n          \"defaultLandingPageValue\": \"string\",\n          \"roles\": [\n            \"string\",\n            \"string\"\n          ],\n          \"roleSets\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        {\n          \"userEmail\": \"string\",\n          \"userFullName\": \"string\",\n          \"role\": \"ROLE_UNSPECIFIED\",\n          \"id\": \"string\",\n          \"permissions\": [\n            {\n              \"capability\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"allowed\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"capability\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"allowed\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"filter\": \"string\",\n          \"lastLogin\": \"1950-04-06T02:35:32.120Z\",\n          \"cdate\": \"1961-04-08T19:22:47.921Z\",\n          \"edate\": \"1965-01-18T12:28:42.323Z\",\n          \"defaultLandingPageType\": \"LANDING_TYPE_UNSPECIFIED\",\n          \"defaultLandingPageValue\": \"string\",\n          \"roles\": [\n            \"string\",\n            \"string\"\n          ],\n          \"roleSets\": [\n            \"string\",\n            \"string\"\n          ]\n        }\n      ],\n      \"templateId\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"companyId\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"type\": \"string\",\n      \"enabled\": true,\n      \"alerts\": [\n        {\n          \"saved\": true,\n          \"policyId\": \"string\",\n          \"thresholds\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"activate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"severity\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"conditions\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"mitigations\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"notificationChannels\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"thresholdAckRequired\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"enableTenantNotifications\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"receiveLandlordNotifications\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"activate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"severity\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"conditions\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"mitigations\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"notificationChannels\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"thresholdAckRequired\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"enableTenantNotifications\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"receiveLandlordNotifications\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"primaryMetric\": \"string\",\n          \"secondaryMetrics\": [\n            \"string\",\n            \"string\"\n          ],\n          \"isTemplate\": true,\n          \"subpolicyId\": \"string\"\n        },\n        {\n          \"saved\": false,\n          \"policyId\": \"string\",\n          \"thresholds\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"activate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"severity\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"conditions\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"mitigations\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"notificationChannels\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"thresholdAckRequired\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"enableTenantNotifications\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"receiveLandlordNotifications\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"activate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"severity\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"conditions\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"mitigations\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"notificationChannels\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"thresholdAckRequired\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"enableTenantNotifications\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"receiveLandlordNotifications\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"primaryMetric\": \"string\",\n          \"secondaryMetrics\": [\n            \"string\",\n            \"string\"\n          ],\n          \"isTemplate\": true,\n          \"subpolicyId\": \"string\"\n        }\n      ],\n      \"assets\": {\n        \"reports\": [\n          {\n            \"id\": \"string\",\n            \"type\": \"string\"\n          },\n          {\n            \"id\": \"string\",\n            \"type\": \"string\"\n          }\n        ],\n        \"defaultReport\": {\n          \"id\": \"string\",\n          \"type\": \"string\"\n        }\n      },\n      \"asn\": \"string\",\n      \"cidr\": \"string\",\n      \"customDimensions\": [\n        {\n          \"dimension\": \"string\",\n          \"populator\": \"string\"\n        },\n        {\n          \"dimension\": \"string\",\n          \"populator\": \"string\"\n        }\n      ],\n      \"devices\": {\n        \"allDevices\": true,\n        \"deviceTypes\": [\n          \"string\",\n          \"string\"\n        ],\n        \"deviceLabels\": [\n          3660,\n          6577\n        ],\n        \"deviceSites\": [\n          3468,\n          8214\n        ],\n        \"deviceName\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"filters\": {},\n      \"interfaceName\": \"string\",\n      \"snmpAlias\": \"string\",\n      \"packages\": [\n        {\n          \"id\": \"string\",\n          \"companyId\": \"string\",\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"icon\": \"string\",\n          \"color\": \"string\",\n          \"alerts\": [\n            {\n              \"saved\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"policyId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"thresholds\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"primaryMetric\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"secondaryMetrics\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"isTemplate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"subpolicyId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"saved\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"policyId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"thresholds\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"primaryMetric\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"secondaryMetrics\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"isTemplate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"subpolicyId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"assets\": {\n            \"reports\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"defaultReport\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"isDefault\": true,\n          \"tenants\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"pivotTemplateId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"pivotUserGroupId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"pivotTemplateId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"pivotUserGroupId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"id\": \"string\",\n          \"companyId\": \"string\",\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"icon\": \"string\",\n          \"color\": \"string\",\n          \"alerts\": [\n            {\n              \"saved\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"policyId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"thresholds\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"primaryMetric\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"secondaryMetrics\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"isTemplate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"subpolicyId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"saved\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"policyId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"thresholds\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"primaryMetric\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"secondaryMetrics\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"isTemplate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"subpolicyId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"assets\": {\n            \"reports\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"defaultReport\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"isDefault\": false,\n          \"tenants\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"pivotTemplateId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"pivotUserGroupId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"pivotTemplateId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"pivotUserGroupId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ],\n      \"users\": [\n        {\n          \"userEmail\": \"string\",\n          \"userFullName\": \"string\",\n          \"role\": \"ROLE_UNSPECIFIED\",\n          \"id\": \"string\",\n          \"permissions\": [\n            {\n              \"capability\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"allowed\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"capability\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"allowed\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"filter\": \"string\",\n          \"lastLogin\": \"1956-10-24T01:30:46.751Z\",\n          \"cdate\": \"2009-11-24T09:37:07.263Z\",\n          \"edate\": \"1996-02-10T19:57:48.197Z\",\n          \"defaultLandingPageType\": \"LANDING_TYPE_UNSPECIFIED\",\n          \"defaultLandingPageValue\": \"string\",\n          \"roles\": [\n            \"string\",\n            \"string\"\n          ],\n          \"roleSets\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        {\n          \"userEmail\": \"string\",\n          \"userFullName\": \"string\",\n          \"role\": \"ROLE_UNSPECIFIED\",\n          \"id\": \"string\",\n          \"permissions\": [\n            {\n              \"capability\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"allowed\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"capability\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"allowed\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"filter\": \"string\",\n          \"lastLogin\": \"1952-04-07T16:44:06.151Z\",\n          \"cdate\": \"1997-02-09T12:30:46.927Z\",\n          \"edate\": \"2002-07-10T23:02:04.159Z\",\n          \"defaultLandingPageType\": \"LANDING_TYPE_UNSPECIFIED\",\n          \"defaultLandingPageValue\": \"string\",\n          \"roles\": [\n            \"string\",\n            \"string\"\n          ],\n          \"roleSets\": [\n            \"string\",\n            \"string\"\n          ]\n        }\n      ],\n      \"templateId\": \"string\"\n    }\n  ],\n  \"invalidCount\": 3824\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "13e73774-e578-4b2d-b66a-4cbe2d2a95dd",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mkp",
+                    "v202407",
+                    "tenants"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 9340,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7acee77a-993c-4ec4-b4dd-df948f672ac2",
+          "name": "Create a tenant.",
+          "request": {
+            "name": "Create a tenant.",
+            "description": {
+              "content": "Create tenant from request. returns created tenant.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mkp",
+                "v202407",
+                "tenants"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tenant\": {\n    \"assets\": {\n      \"reports\": [\n        {\n          \"id\": \"<string>\",\n          \"type\": \"<string>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"type\": \"<string>\"\n        }\n      ],\n      \"defaultReport\": {\n        \"id\": \"<string>\",\n        \"type\": \"<string>\"\n      }\n    },\n    \"devices\": {\n      \"allDevices\": \"<boolean>\",\n      \"deviceTypes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"deviceLabels\": [\n        \"<long>\",\n        \"<long>\"\n      ],\n      \"deviceSites\": [\n        \"<long>\",\n        \"<long>\"\n      ],\n      \"deviceName\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"filters\": {}\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "66271ebc-b2d9-456b-8d6f-7b52eab81db8",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mkp",
+                    "v202407",
+                    "tenants"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tenant\": {\n    \"assets\": {\n      \"reports\": [\n        {\n          \"id\": \"<string>\",\n          \"type\": \"<string>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"type\": \"<string>\"\n        }\n      ],\n      \"defaultReport\": {\n        \"id\": \"<string>\",\n        \"type\": \"<string>\"\n      }\n    },\n    \"devices\": {\n      \"allDevices\": \"<boolean>\",\n      \"deviceTypes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"deviceLabels\": [\n        \"<long>\",\n        \"<long>\"\n      ],\n      \"deviceSites\": [\n        \"<long>\",\n        \"<long>\"\n      ],\n      \"deviceName\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"filters\": {}\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tenant\": {\n    \"id\": \"string\",\n    \"companyId\": \"string\",\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"type\": \"string\",\n    \"enabled\": false,\n    \"alerts\": [\n      {\n        \"saved\": false,\n        \"policyId\": \"string\",\n        \"thresholds\": [\n          {\n            \"id\": \"string\",\n            \"activate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"severity\": \"string\",\n            \"conditions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"mitigations\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"notificationChannels\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"thresholdAckRequired\": false,\n            \"enableTenantNotifications\": false,\n            \"receiveLandlordNotifications\": false\n          },\n          {\n            \"id\": \"string\",\n            \"activate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"severity\": \"string\",\n            \"conditions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"mitigations\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"notificationChannels\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"thresholdAckRequired\": false,\n            \"enableTenantNotifications\": false,\n            \"receiveLandlordNotifications\": false\n          }\n        ],\n        \"primaryMetric\": \"string\",\n        \"secondaryMetrics\": [\n          \"string\",\n          \"string\"\n        ],\n        \"isTemplate\": true,\n        \"subpolicyId\": \"string\"\n      },\n      {\n        \"saved\": true,\n        \"policyId\": \"string\",\n        \"thresholds\": [\n          {\n            \"id\": \"string\",\n            \"activate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"severity\": \"string\",\n            \"conditions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"mitigations\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"notificationChannels\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"thresholdAckRequired\": false,\n            \"enableTenantNotifications\": true,\n            \"receiveLandlordNotifications\": false\n          },\n          {\n            \"id\": \"string\",\n            \"activate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"severity\": \"string\",\n            \"conditions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"mitigations\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"notificationChannels\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"thresholdAckRequired\": false,\n            \"enableTenantNotifications\": false,\n            \"receiveLandlordNotifications\": true\n          }\n        ],\n        \"primaryMetric\": \"string\",\n        \"secondaryMetrics\": [\n          \"string\",\n          \"string\"\n        ],\n        \"isTemplate\": true,\n        \"subpolicyId\": \"string\"\n      }\n    ],\n    \"assets\": {\n      \"reports\": [\n        {\n          \"id\": \"<string>\",\n          \"type\": \"<string>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"type\": \"<string>\"\n        }\n      ],\n      \"defaultReport\": {\n        \"id\": \"<string>\",\n        \"type\": \"<string>\"\n      }\n    },\n    \"asn\": \"string\",\n    \"cidr\": \"string\",\n    \"customDimensions\": [\n      {\n        \"dimension\": \"string\",\n        \"populator\": \"string\"\n      },\n      {\n        \"dimension\": \"string\",\n        \"populator\": \"string\"\n      }\n    ],\n    \"devices\": {\n      \"allDevices\": \"<boolean>\",\n      \"deviceTypes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"deviceLabels\": [\n        \"<long>\",\n        \"<long>\"\n      ],\n      \"deviceSites\": [\n        \"<long>\",\n        \"<long>\"\n      ],\n      \"deviceName\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"filters\": null,\n    \"interfaceName\": \"string\",\n    \"snmpAlias\": \"string\",\n    \"packages\": [\n      {\n        \"id\": \"string\",\n        \"companyId\": \"string\",\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"icon\": \"string\",\n        \"color\": \"string\",\n        \"alerts\": [\n          {\n            \"saved\": false,\n            \"policyId\": \"string\",\n            \"thresholds\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"primaryMetric\": \"string\",\n            \"secondaryMetrics\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"isTemplate\": true,\n            \"subpolicyId\": \"string\"\n          },\n          {\n            \"saved\": true,\n            \"policyId\": \"string\",\n            \"thresholds\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"primaryMetric\": \"string\",\n            \"secondaryMetrics\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"isTemplate\": false,\n            \"subpolicyId\": \"string\"\n          }\n        ],\n        \"assets\": {\n          \"reports\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"defaultReport\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"isDefault\": false,\n        \"tenants\": [\n          {\n            \"id\": \"string\",\n            \"pivotTemplateId\": \"string\",\n            \"pivotUserGroupId\": \"string\"\n          },\n          {\n            \"id\": \"string\",\n            \"pivotTemplateId\": \"string\",\n            \"pivotUserGroupId\": \"string\"\n          }\n        ]\n      },\n      {\n        \"id\": \"string\",\n        \"companyId\": \"string\",\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"icon\": \"string\",\n        \"color\": \"string\",\n        \"alerts\": [\n          {\n            \"saved\": true,\n            \"policyId\": \"string\",\n            \"thresholds\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"primaryMetric\": \"string\",\n            \"secondaryMetrics\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"isTemplate\": false,\n            \"subpolicyId\": \"string\"\n          },\n          {\n            \"saved\": false,\n            \"policyId\": \"string\",\n            \"thresholds\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"primaryMetric\": \"string\",\n            \"secondaryMetrics\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"isTemplate\": false,\n            \"subpolicyId\": \"string\"\n          }\n        ],\n        \"assets\": {\n          \"reports\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"defaultReport\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"isDefault\": true,\n        \"tenants\": [\n          {\n            \"id\": \"string\",\n            \"pivotTemplateId\": \"string\",\n            \"pivotUserGroupId\": \"string\"\n          },\n          {\n            \"id\": \"string\",\n            \"pivotTemplateId\": \"string\",\n            \"pivotUserGroupId\": \"string\"\n          }\n        ]\n      }\n    ],\n    \"users\": [\n      {\n        \"userEmail\": \"string\",\n        \"userFullName\": \"string\",\n        \"role\": \"ROLE_UNSPECIFIED\",\n        \"id\": \"string\",\n        \"permissions\": [\n          {\n            \"capability\": \"string\",\n            \"allowed\": false\n          },\n          {\n            \"capability\": \"string\",\n            \"allowed\": true\n          }\n        ],\n        \"filter\": \"string\",\n        \"lastLogin\": \"2024-09-13T16:36:35.888Z\",\n        \"cdate\": \"1997-01-31T11:44:26.758Z\",\n        \"edate\": \"2020-07-03T13:39:49.285Z\",\n        \"defaultLandingPageType\": \"LANDING_TYPE_UNSPECIFIED\",\n        \"defaultLandingPageValue\": \"string\",\n        \"roles\": [\n          \"string\",\n          \"string\"\n        ],\n        \"roleSets\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"userEmail\": \"string\",\n        \"userFullName\": \"string\",\n        \"role\": \"ROLE_UNSPECIFIED\",\n        \"id\": \"string\",\n        \"permissions\": [\n          {\n            \"capability\": \"string\",\n            \"allowed\": true\n          },\n          {\n            \"capability\": \"string\",\n            \"allowed\": false\n          }\n        ],\n        \"filter\": \"string\",\n        \"lastLogin\": \"2021-11-28T02:03:51.388Z\",\n        \"cdate\": \"1949-10-21T17:07:41.016Z\",\n        \"edate\": \"1983-05-20T10:54:04.413Z\",\n        \"defaultLandingPageType\": \"LANDING_TYPE_UNSPECIFIED\",\n        \"defaultLandingPageValue\": \"string\",\n        \"roles\": [\n          \"string\",\n          \"string\"\n        ],\n        \"roleSets\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ],\n    \"templateId\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "13734d83-35a0-41bb-ab16-cb38b0475a86",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mkp",
+                    "v202407",
+                    "tenants"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tenant\": {\n    \"assets\": {\n      \"reports\": [\n        {\n          \"id\": \"<string>\",\n          \"type\": \"<string>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"type\": \"<string>\"\n        }\n      ],\n      \"defaultReport\": {\n        \"id\": \"<string>\",\n        \"type\": \"<string>\"\n      }\n    },\n    \"devices\": {\n      \"allDevices\": \"<boolean>\",\n      \"deviceTypes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"deviceLabels\": [\n        \"<long>\",\n        \"<long>\"\n      ],\n      \"deviceSites\": [\n        \"<long>\",\n        \"<long>\"\n      ],\n      \"deviceName\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"filters\": {}\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2192,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4774ff96-0f89-4947-a230-db40c1d15197",
+          "name": "Get information aboout a tenant.",
+          "request": {
+            "name": "Get information aboout a tenant.",
+            "description": {
+              "content": "Returns information about package specified with ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mkp",
+                "v202407",
+                "tenants",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "099e38e9-4eef-4140-976e-832d98513a6b",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mkp",
+                    "v202407",
+                    "tenants",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tenant\": {\n    \"id\": \"string\",\n    \"companyId\": \"string\",\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"type\": \"string\",\n    \"enabled\": true,\n    \"alerts\": [\n      {\n        \"saved\": true,\n        \"policyId\": \"string\",\n        \"thresholds\": [\n          {\n            \"id\": \"string\",\n            \"activate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"severity\": \"string\",\n            \"conditions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"mitigations\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"notificationChannels\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"thresholdAckRequired\": true,\n            \"enableTenantNotifications\": true,\n            \"receiveLandlordNotifications\": false\n          },\n          {\n            \"id\": \"string\",\n            \"activate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"severity\": \"string\",\n            \"conditions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"mitigations\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"notificationChannels\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"thresholdAckRequired\": true,\n            \"enableTenantNotifications\": false,\n            \"receiveLandlordNotifications\": true\n          }\n        ],\n        \"primaryMetric\": \"string\",\n        \"secondaryMetrics\": [\n          \"string\",\n          \"string\"\n        ],\n        \"isTemplate\": false,\n        \"subpolicyId\": \"string\"\n      },\n      {\n        \"saved\": false,\n        \"policyId\": \"string\",\n        \"thresholds\": [\n          {\n            \"id\": \"string\",\n            \"activate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"severity\": \"string\",\n            \"conditions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"mitigations\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"notificationChannels\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"thresholdAckRequired\": false,\n            \"enableTenantNotifications\": false,\n            \"receiveLandlordNotifications\": false\n          },\n          {\n            \"id\": \"string\",\n            \"activate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"severity\": \"string\",\n            \"conditions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"mitigations\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"notificationChannels\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"thresholdAckRequired\": false,\n            \"enableTenantNotifications\": false,\n            \"receiveLandlordNotifications\": true\n          }\n        ],\n        \"primaryMetric\": \"string\",\n        \"secondaryMetrics\": [\n          \"string\",\n          \"string\"\n        ],\n        \"isTemplate\": true,\n        \"subpolicyId\": \"string\"\n      }\n    ],\n    \"assets\": {\n      \"reports\": [\n        {\n          \"id\": \"<string>\",\n          \"type\": \"<string>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"type\": \"<string>\"\n        }\n      ],\n      \"defaultReport\": {\n        \"id\": \"<string>\",\n        \"type\": \"<string>\"\n      }\n    },\n    \"asn\": \"string\",\n    \"cidr\": \"string\",\n    \"customDimensions\": [\n      {\n        \"dimension\": \"string\",\n        \"populator\": \"string\"\n      },\n      {\n        \"dimension\": \"string\",\n        \"populator\": \"string\"\n      }\n    ],\n    \"devices\": {\n      \"allDevices\": \"<boolean>\",\n      \"deviceTypes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"deviceLabels\": [\n        \"<long>\",\n        \"<long>\"\n      ],\n      \"deviceSites\": [\n        \"<long>\",\n        \"<long>\"\n      ],\n      \"deviceName\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"filters\": 1039.6169954285938,\n    \"interfaceName\": \"string\",\n    \"snmpAlias\": \"string\",\n    \"packages\": [\n      {\n        \"id\": \"string\",\n        \"companyId\": \"string\",\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"icon\": \"string\",\n        \"color\": \"string\",\n        \"alerts\": [\n          {\n            \"saved\": true,\n            \"policyId\": \"string\",\n            \"thresholds\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"primaryMetric\": \"string\",\n            \"secondaryMetrics\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"isTemplate\": true,\n            \"subpolicyId\": \"string\"\n          },\n          {\n            \"saved\": true,\n            \"policyId\": \"string\",\n            \"thresholds\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"primaryMetric\": \"string\",\n            \"secondaryMetrics\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"isTemplate\": false,\n            \"subpolicyId\": \"string\"\n          }\n        ],\n        \"assets\": {\n          \"reports\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"defaultReport\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"isDefault\": false,\n        \"tenants\": [\n          {\n            \"id\": \"string\",\n            \"pivotTemplateId\": \"string\",\n            \"pivotUserGroupId\": \"string\"\n          },\n          {\n            \"id\": \"string\",\n            \"pivotTemplateId\": \"string\",\n            \"pivotUserGroupId\": \"string\"\n          }\n        ]\n      },\n      {\n        \"id\": \"string\",\n        \"companyId\": \"string\",\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"icon\": \"string\",\n        \"color\": \"string\",\n        \"alerts\": [\n          {\n            \"saved\": true,\n            \"policyId\": \"string\",\n            \"thresholds\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"primaryMetric\": \"string\",\n            \"secondaryMetrics\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"isTemplate\": true,\n            \"subpolicyId\": \"string\"\n          },\n          {\n            \"saved\": true,\n            \"policyId\": \"string\",\n            \"thresholds\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"primaryMetric\": \"string\",\n            \"secondaryMetrics\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"isTemplate\": false,\n            \"subpolicyId\": \"string\"\n          }\n        ],\n        \"assets\": {\n          \"reports\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"defaultReport\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"isDefault\": true,\n        \"tenants\": [\n          {\n            \"id\": \"string\",\n            \"pivotTemplateId\": \"string\",\n            \"pivotUserGroupId\": \"string\"\n          },\n          {\n            \"id\": \"string\",\n            \"pivotTemplateId\": \"string\",\n            \"pivotUserGroupId\": \"string\"\n          }\n        ]\n      }\n    ],\n    \"users\": [\n      {\n        \"userEmail\": \"string\",\n        \"userFullName\": \"string\",\n        \"role\": \"ROLE_UNSPECIFIED\",\n        \"id\": \"string\",\n        \"permissions\": [\n          {\n            \"capability\": \"string\",\n            \"allowed\": true\n          },\n          {\n            \"capability\": \"string\",\n            \"allowed\": true\n          }\n        ],\n        \"filter\": \"string\",\n        \"lastLogin\": \"2013-01-31T17:42:28.547Z\",\n        \"cdate\": \"1976-10-26T16:22:57.950Z\",\n        \"edate\": \"2007-12-31T03:28:10.769Z\",\n        \"defaultLandingPageType\": \"LANDING_TYPE_UNSPECIFIED\",\n        \"defaultLandingPageValue\": \"string\",\n        \"roles\": [\n          \"string\",\n          \"string\"\n        ],\n        \"roleSets\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"userEmail\": \"string\",\n        \"userFullName\": \"string\",\n        \"role\": \"ROLE_UNSPECIFIED\",\n        \"id\": \"string\",\n        \"permissions\": [\n          {\n            \"capability\": \"string\",\n            \"allowed\": true\n          },\n          {\n            \"capability\": \"string\",\n            \"allowed\": false\n          }\n        ],\n        \"filter\": \"string\",\n        \"lastLogin\": \"1953-01-06T12:24:59.609Z\",\n        \"cdate\": \"1988-02-05T21:37:33.796Z\",\n        \"edate\": \"1954-11-19T01:10:20.537Z\",\n        \"defaultLandingPageType\": \"LANDING_TYPE_UNSPECIFIED\",\n        \"defaultLandingPageValue\": \"string\",\n        \"roles\": [\n          \"string\",\n          \"string\"\n        ],\n        \"roleSets\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ],\n    \"templateId\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "acb8823c-8cec-4e4b-a1d3-60ae4f27e0cd",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mkp",
+                    "v202407",
+                    "tenants",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2192,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a0b19e0c-701a-4bfb-863f-c5fe1b22163c",
+          "name": "Delete a tenant.",
+          "request": {
+            "name": "Delete a tenant.",
+            "description": {
+              "content": "Deletes the tenant specified with id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mkp",
+                "v202407",
+                "tenants",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5d45ca82-6a9e-4ae9-9c29-c25c028623b6",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mkp",
+                    "v202407",
+                    "tenants",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fcada15a-0f72-4eac-a4ef-6a9c9ee9b2bb",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mkp",
+                    "v202407",
+                    "tenants",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2192,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "52f80cf1-dadd-4f94-a9a7-9dfd53edb470",
+          "name": "Update a tenant.",
+          "request": {
+            "name": "Update a tenant.",
+            "description": {
+              "content": "Update tenant attributes specified with id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mkp",
+                "v202407",
+                "tenants",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Unique system assigned identifier of the tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tenant\": {\n    \"assets\": {\n      \"reports\": [\n        {\n          \"id\": \"<string>\",\n          \"type\": \"<string>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"type\": \"<string>\"\n        }\n      ],\n      \"defaultReport\": {\n        \"id\": \"<string>\",\n        \"type\": \"<string>\"\n      }\n    },\n    \"devices\": {\n      \"allDevices\": \"<boolean>\",\n      \"deviceTypes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"deviceLabels\": [\n        \"<long>\",\n        \"<long>\"\n      ],\n      \"deviceSites\": [\n        \"<long>\",\n        \"<long>\"\n      ],\n      \"deviceName\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"filters\": \"string\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0cac80a9-b951-4ab9-8f10-6ead09ea33ff",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mkp",
+                    "v202407",
+                    "tenants",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique system assigned identifier of the tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tenant\": {\n    \"assets\": {\n      \"reports\": [\n        {\n          \"id\": \"<string>\",\n          \"type\": \"<string>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"type\": \"<string>\"\n        }\n      ],\n      \"defaultReport\": {\n        \"id\": \"<string>\",\n        \"type\": \"<string>\"\n      }\n    },\n    \"devices\": {\n      \"allDevices\": \"<boolean>\",\n      \"deviceTypes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"deviceLabels\": [\n        \"<long>\",\n        \"<long>\"\n      ],\n      \"deviceSites\": [\n        \"<long>\",\n        \"<long>\"\n      ],\n      \"deviceName\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tenant\": {\n    \"id\": \"string\",\n    \"companyId\": \"string\",\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"type\": \"string\",\n    \"enabled\": true,\n    \"alerts\": [\n      {\n        \"saved\": false,\n        \"policyId\": \"string\",\n        \"thresholds\": [\n          {\n            \"id\": \"string\",\n            \"activate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"severity\": \"string\",\n            \"conditions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"mitigations\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"notificationChannels\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"thresholdAckRequired\": false,\n            \"enableTenantNotifications\": true,\n            \"receiveLandlordNotifications\": false\n          },\n          {\n            \"id\": \"string\",\n            \"activate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"severity\": \"string\",\n            \"conditions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"mitigations\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"notificationChannels\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"thresholdAckRequired\": true,\n            \"enableTenantNotifications\": true,\n            \"receiveLandlordNotifications\": false\n          }\n        ],\n        \"primaryMetric\": \"string\",\n        \"secondaryMetrics\": [\n          \"string\",\n          \"string\"\n        ],\n        \"isTemplate\": false,\n        \"subpolicyId\": \"string\"\n      },\n      {\n        \"saved\": false,\n        \"policyId\": \"string\",\n        \"thresholds\": [\n          {\n            \"id\": \"string\",\n            \"activate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"severity\": \"string\",\n            \"conditions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"mitigations\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"notificationChannels\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"thresholdAckRequired\": false,\n            \"enableTenantNotifications\": true,\n            \"receiveLandlordNotifications\": false\n          },\n          {\n            \"id\": \"string\",\n            \"activate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"severity\": \"string\",\n            \"conditions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"mitigations\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"notificationChannels\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"thresholdAckRequired\": true,\n            \"enableTenantNotifications\": false,\n            \"receiveLandlordNotifications\": true\n          }\n        ],\n        \"primaryMetric\": \"string\",\n        \"secondaryMetrics\": [\n          \"string\",\n          \"string\"\n        ],\n        \"isTemplate\": false,\n        \"subpolicyId\": \"string\"\n      }\n    ],\n    \"assets\": {\n      \"reports\": [\n        {\n          \"id\": \"<string>\",\n          \"type\": \"<string>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"type\": \"<string>\"\n        }\n      ],\n      \"defaultReport\": {\n        \"id\": \"<string>\",\n        \"type\": \"<string>\"\n      }\n    },\n    \"asn\": \"string\",\n    \"cidr\": \"string\",\n    \"customDimensions\": [\n      {\n        \"dimension\": \"string\",\n        \"populator\": \"string\"\n      },\n      {\n        \"dimension\": \"string\",\n        \"populator\": \"string\"\n      }\n    ],\n    \"devices\": {\n      \"allDevices\": \"<boolean>\",\n      \"deviceTypes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"deviceLabels\": [\n        \"<long>\",\n        \"<long>\"\n      ],\n      \"deviceSites\": [\n        \"<long>\",\n        \"<long>\"\n      ],\n      \"deviceName\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"filters\": null,\n    \"interfaceName\": \"string\",\n    \"snmpAlias\": \"string\",\n    \"packages\": [\n      {\n        \"id\": \"string\",\n        \"companyId\": \"string\",\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"icon\": \"string\",\n        \"color\": \"string\",\n        \"alerts\": [\n          {\n            \"saved\": true,\n            \"policyId\": \"string\",\n            \"thresholds\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"primaryMetric\": \"string\",\n            \"secondaryMetrics\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"isTemplate\": false,\n            \"subpolicyId\": \"string\"\n          },\n          {\n            \"saved\": true,\n            \"policyId\": \"string\",\n            \"thresholds\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"primaryMetric\": \"string\",\n            \"secondaryMetrics\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"isTemplate\": true,\n            \"subpolicyId\": \"string\"\n          }\n        ],\n        \"assets\": {\n          \"reports\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"defaultReport\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"isDefault\": true,\n        \"tenants\": [\n          {\n            \"id\": \"string\",\n            \"pivotTemplateId\": \"string\",\n            \"pivotUserGroupId\": \"string\"\n          },\n          {\n            \"id\": \"string\",\n            \"pivotTemplateId\": \"string\",\n            \"pivotUserGroupId\": \"string\"\n          }\n        ]\n      },\n      {\n        \"id\": \"string\",\n        \"companyId\": \"string\",\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"icon\": \"string\",\n        \"color\": \"string\",\n        \"alerts\": [\n          {\n            \"saved\": false,\n            \"policyId\": \"string\",\n            \"thresholds\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"primaryMetric\": \"string\",\n            \"secondaryMetrics\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"isTemplate\": true,\n            \"subpolicyId\": \"string\"\n          },\n          {\n            \"saved\": false,\n            \"policyId\": \"string\",\n            \"thresholds\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"primaryMetric\": \"string\",\n            \"secondaryMetrics\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"isTemplate\": true,\n            \"subpolicyId\": \"string\"\n          }\n        ],\n        \"assets\": {\n          \"reports\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"defaultReport\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"isDefault\": true,\n        \"tenants\": [\n          {\n            \"id\": \"string\",\n            \"pivotTemplateId\": \"string\",\n            \"pivotUserGroupId\": \"string\"\n          },\n          {\n            \"id\": \"string\",\n            \"pivotTemplateId\": \"string\",\n            \"pivotUserGroupId\": \"string\"\n          }\n        ]\n      }\n    ],\n    \"users\": [\n      {\n        \"userEmail\": \"string\",\n        \"userFullName\": \"string\",\n        \"role\": \"ROLE_UNSPECIFIED\",\n        \"id\": \"string\",\n        \"permissions\": [\n          {\n            \"capability\": \"string\",\n            \"allowed\": true\n          },\n          {\n            \"capability\": \"string\",\n            \"allowed\": true\n          }\n        ],\n        \"filter\": \"string\",\n        \"lastLogin\": \"2025-12-23T19:03:37.045Z\",\n        \"cdate\": \"1979-08-02T13:34:11.215Z\",\n        \"edate\": \"2026-07-30T05:48:01.393Z\",\n        \"defaultLandingPageType\": \"LANDING_TYPE_UNSPECIFIED\",\n        \"defaultLandingPageValue\": \"string\",\n        \"roles\": [\n          \"string\",\n          \"string\"\n        ],\n        \"roleSets\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"userEmail\": \"string\",\n        \"userFullName\": \"string\",\n        \"role\": \"ROLE_UNSPECIFIED\",\n        \"id\": \"string\",\n        \"permissions\": [\n          {\n            \"capability\": \"string\",\n            \"allowed\": true\n          },\n          {\n            \"capability\": \"string\",\n            \"allowed\": false\n          }\n        ],\n        \"filter\": \"string\",\n        \"lastLogin\": \"2020-05-21T13:55:31.524Z\",\n        \"cdate\": \"1967-12-23T17:36:34.510Z\",\n        \"edate\": \"1947-04-04T19:56:25.674Z\",\n        \"defaultLandingPageType\": \"LANDING_TYPE_UNSPECIFIED\",\n        \"defaultLandingPageValue\": \"string\",\n        \"roles\": [\n          \"string\",\n          \"string\"\n        ],\n        \"roleSets\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ],\n    \"templateId\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "58102eb9-b6c9-4bcc-9124-2b2464c5ea40",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mkp",
+                    "v202407",
+                    "tenants",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique system assigned identifier of the tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tenant\": {\n    \"assets\": {\n      \"reports\": [\n        {\n          \"id\": \"<string>\",\n          \"type\": \"<string>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"type\": \"<string>\"\n        }\n      ],\n      \"defaultReport\": {\n        \"id\": \"<string>\",\n        \"type\": \"<string>\"\n      }\n    },\n    \"devices\": {\n      \"allDevices\": \"<boolean>\",\n      \"deviceTypes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"deviceLabels\": [\n        \"<long>\",\n        \"<long>\"\n      ],\n      \"deviceSites\": [\n        \"<long>\",\n        \"<long>\"\n      ],\n      \"deviceName\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2192,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-CH-Auth-Email"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9d0b4515-6eae-45b0-b5f0-5e501d7fa070",
+    "name": "AI Advisor AiAdvisorDataService TenantService API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "# Overview\nProvides programmatic access to AI Advisor.\n\nContact Support:\n Name: Kentik API Engineering",
+      "type": "text/plain"
+    }
+  }
+}

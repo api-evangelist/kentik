@@ -1,0 +1,361 @@
+{
+  "item": [
+    {
+      "id": "450e355d-7889-4f45-8621-cebc8a6b672e",
+      "name": "BgpMonitoringDataService",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b03488f0-f71c-4fe3-95d6-3a427898f64b",
+          "name": "Get metrics for a BGP prefix.",
+          "request": {
+            "name": "Get metrics for a BGP prefix.",
+            "description": {
+              "content": "Retrieve metric data for single BGP prefix and time interval.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bgp_monitoring",
+                "v202210",
+                "metrics"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"startTime\": \"<dateTime>\",\n  \"endTime\": \"<dateTime>\",\n  \"target\": {\n    \"afi\": \"AFI_UNSPECIFIED\",\n    \"safi\": \"SAFI_UNSPECIFIED\",\n    \"prefix\": \"<string>\"\n  },\n  \"metrics\": [\n    \"BGP_METRIC_TYPE_UNSPECIFIED\",\n    \"BGP_METRIC_TYPE_UNSPECIFIED\"\n  ],\n  \"includeCovered\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "17a3868c-10e7-4fda-8084-42b09256ff76",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bgp_monitoring",
+                    "v202210",
+                    "metrics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startTime\": \"<dateTime>\",\n  \"endTime\": \"<dateTime>\",\n  \"target\": {\n    \"afi\": \"AFI_UNSPECIFIED\",\n    \"safi\": \"SAFI_UNSPECIFIED\",\n    \"prefix\": \"<string>\"\n  },\n  \"metrics\": [\n    \"BGP_METRIC_TYPE_UNSPECIFIED\",\n    \"BGP_METRIC_TYPE_UNSPECIFIED\"\n  ],\n  \"includeCovered\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"metrics\": [\n    {\n      \"timestamp\": \"1971-07-15T01:20:01.308Z\",\n      \"nlri\": {\n        \"afi\": \"AFI_UNSPECIFIED\",\n        \"safi\": \"SAFI_UNSPECIFIED\",\n        \"prefix\": \"<string>\"\n      },\n      \"reachability\": 3210.0679056471836,\n      \"pathChanges\": 701\n    },\n    {\n      \"timestamp\": \"1982-02-01T22:08:28.405Z\",\n      \"nlri\": {\n        \"afi\": \"AFI_UNSPECIFIED\",\n        \"safi\": \"SAFI_UNSPECIFIED\",\n        \"prefix\": \"<string>\"\n      },\n      \"reachability\": 2524.3295314344928,\n      \"pathChanges\": 5268\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b3a5176e-88e6-43ef-aaef-f30932d05cdf",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bgp_monitoring",
+                    "v202210",
+                    "metrics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startTime\": \"<dateTime>\",\n  \"endTime\": \"<dateTime>\",\n  \"target\": {\n    \"afi\": \"AFI_UNSPECIFIED\",\n    \"safi\": \"SAFI_UNSPECIFIED\",\n    \"prefix\": \"<string>\"\n  },\n  \"metrics\": [\n    \"BGP_METRIC_TYPE_UNSPECIFIED\",\n    \"BGP_METRIC_TYPE_UNSPECIFIED\"\n  ],\n  \"includeCovered\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 8869,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8175502a-ad63-4eeb-b0e0-9ca45a887675",
+          "name": "Get routes for a BGP prefix.",
+          "request": {
+            "name": "Get routes for a BGP prefix.",
+            "description": {
+              "content": "Retrieve snapshot of route information for single BGP prefix at specific time.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bgp_monitoring",
+                "v202210",
+                "routes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"time\": \"<dateTime>\",\n  \"target\": {\n    \"afi\": \"AFI_UNSPECIFIED\",\n    \"safi\": \"SAFI_UNSPECIFIED\",\n    \"prefix\": \"<string>\"\n  },\n  \"includeCovered\": \"<boolean>\",\n  \"checkRpki\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "48d96fb4-a504-4964-b03e-7ed52cd3ec73",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bgp_monitoring",
+                    "v202210",
+                    "routes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"time\": \"<dateTime>\",\n  \"target\": {\n    \"afi\": \"AFI_UNSPECIFIED\",\n    \"safi\": \"SAFI_UNSPECIFIED\",\n    \"prefix\": \"<string>\"\n  },\n  \"includeCovered\": \"<boolean>\",\n  \"checkRpki\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"routes\": [\n    {\n      \"nlri\": {\n        \"afi\": \"AFI_UNSPECIFIED\",\n        \"safi\": \"SAFI_UNSPECIFIED\",\n        \"prefix\": \"<string>\"\n      },\n      \"originAsn\": 8214,\n      \"asPath\": [\n        \"string\",\n        \"string\"\n      ],\n      \"vantagePoint\": {\n        \"dataset\": \"string\",\n        \"collector\": \"string\",\n        \"peerAsn\": 256,\n        \"peerIp\": \"string\"\n      },\n      \"rpkiStatus\": \"RPKI_STATUS_UNSPECIFIED\",\n      \"nexthop\": \"string\"\n    },\n    {\n      \"nlri\": {\n        \"afi\": \"AFI_UNSPECIFIED\",\n        \"safi\": \"SAFI_UNSPECIFIED\",\n        \"prefix\": \"<string>\"\n      },\n      \"originAsn\": 8446,\n      \"asPath\": [\n        \"string\",\n        \"string\"\n      ],\n      \"vantagePoint\": {\n        \"dataset\": \"string\",\n        \"collector\": \"string\",\n        \"peerAsn\": 6530,\n        \"peerIp\": \"string\"\n      },\n      \"rpkiStatus\": \"RPKI_STATUS_UNSPECIFIED\",\n      \"nexthop\": \"string\"\n    }\n  ],\n  \"asNames\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0a08e449-1c71-4563-bef6-c346a5bb4f6c",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bgp_monitoring",
+                    "v202210",
+                    "routes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"time\": \"<dateTime>\",\n  \"target\": {\n    \"afi\": \"AFI_UNSPECIFIED\",\n    \"safi\": \"SAFI_UNSPECIFIED\",\n    \"prefix\": \"<string>\"\n  },\n  \"includeCovered\": \"<boolean>\",\n  \"checkRpki\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 8173,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-CH-Auth-Email"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a8a19326-8ea3-4a71-8fd2-b72cdd45c0d1",
+    "name": "AI Advisor AiAdvisorDataService BgpMonitoringDataService API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "# Overview\nProvides programmatic access to AI Advisor.\n\nContact Support:\n Name: Kentik API Engineering",
+      "type": "text/plain"
+    }
+  }
+}

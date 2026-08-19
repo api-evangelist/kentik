@@ -1,0 +1,794 @@
+{
+  "item": [
+    {
+      "id": "7cf04c66-bbd5-4799-81d5-3bacffb20720",
+      "name": "PolicyService",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "50cf83ef-eaef-42ba-a580-a9bc162f3a75",
+          "name": "List Policies",
+          "request": {
+            "name": "List Policies",
+            "description": {
+              "content": "Returns a list of alerting policies.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v202505",
+                "policies",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"pagination\": {\n    \"limit\": \"<uint64>\",\n    \"offset\": \"<uint64>\",\n    \"includeTotalCount\": \"<boolean>\"\n  },\n  \"sorting\": {\n    \"fields\": [\n      {\n        \"by\": \"BY_UNSPECIFIED\",\n        \"order\": \"ORDER_UNSPECIFIED\"\n      },\n      {\n        \"by\": \"BY_UNSPECIFIED\",\n        \"order\": \"ORDER_UNSPECIFIED\"\n      }\n    ]\n  },\n  \"filters\": {\n    \"sources\": [\n      {\n        \"policyType\": \"POLICY_TYPE_UNSPECIFIED\",\n        \"id\": \"<string>\"\n      },\n      {\n        \"policyType\": \"POLICY_TYPE_UNSPECIFIED\",\n        \"id\": \"<string>\"\n      }\n    ],\n    \"userIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"createdAt\": {\n      \"start\": \"<dateTime>\",\n      \"end\": \"<dateTime>\"\n    },\n    \"modifiedAt\": {\n      \"start\": \"<dateTime>\",\n      \"end\": \"<dateTime>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "39e70916-807a-4b19-9b5c-44d14c3a7acc",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v202505",
+                    "policies",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"pagination\": {\n    \"limit\": \"<uint64>\",\n    \"offset\": \"<uint64>\",\n    \"includeTotalCount\": \"<boolean>\"\n  },\n  \"sorting\": {\n    \"fields\": [\n      {\n        \"by\": \"BY_UNSPECIFIED\",\n        \"order\": \"ORDER_UNSPECIFIED\"\n      },\n      {\n        \"by\": \"BY_UNSPECIFIED\",\n        \"order\": \"ORDER_UNSPECIFIED\"\n      }\n    ]\n  },\n  \"filters\": {\n    \"sources\": [\n      {\n        \"policyType\": \"POLICY_TYPE_UNSPECIFIED\",\n        \"id\": \"<string>\"\n      },\n      {\n        \"policyType\": \"POLICY_TYPE_UNSPECIFIED\",\n        \"id\": \"<string>\"\n      }\n    ],\n    \"userIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"createdAt\": {\n      \"start\": \"<dateTime>\",\n      \"end\": \"<dateTime>\"\n    },\n    \"modifiedAt\": {\n      \"start\": \"<dateTime>\",\n      \"end\": \"<dateTime>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"pagination\": {\n    \"totalCount\": \"string\",\n    \"hasMoreResults\": false\n  },\n  \"policies\": [\n    {\n      \"source\": {\n        \"policyType\": \"POLICY_TYPE_UNSPECIFIED\",\n        \"id\": \"<string>\"\n      },\n      \"createdAt\": \"2004-11-26T04:15:51.175Z\",\n      \"modifiedAt\": \"2007-12-28T22:29:16.603Z\",\n      \"createdBy\": \"string\",\n      \"modifiedBy\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"enabled\": false,\n      \"levels\": [\n        {\n          \"severity\": \"SEVERITY_UNSPECIFIED\",\n          \"description\": \"string\",\n          \"ackRequired\": false,\n          \"nms\": {\n            \"activate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"clearType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"conditional\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"flow\": {\n            \"conditions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"activation\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mitigationAssociations\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"event\": {\n            \"filters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"notifications\": [\n            {\n              \"channelId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"channelId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"severity\": \"SEVERITY_UNSPECIFIED\",\n          \"description\": \"string\",\n          \"ackRequired\": false,\n          \"nms\": {\n            \"activate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"clearType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"conditional\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"flow\": {\n            \"conditions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"activation\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mitigationAssociations\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"event\": {\n            \"filters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"notifications\": [\n            {\n              \"channelId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"channelId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ],\n      \"flow\": {\n        \"dataset\": {\n          \"sources\": {\n            \"allDevices\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"deviceIds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"labelIds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"siteIds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"types\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"deviceTags\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"filters\": {\n            \"connector\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"filters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"groups\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"saved\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"dimensions\": [\n            \"string\",\n            \"string\"\n          ],\n          \"metrics\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        \"evaluation\": {\n          \"frequency\": \"60s\",\n          \"keyCount\": \"25\"\n        },\n        \"baseline\": {\n          \"storedKeyCount\": \"25\",\n          \"windowLength\": \"2419200s\",\n          \"windowStartOffset\": \"86400s\",\n          \"rollupAggregation\": \"AGGREGATION_TYPE_UNSPECIFIED\",\n          \"compareMode\": \"COMPARE_MODE_UNSPECIFIED\",\n          \"neighbourhoodRadius\": \"string\",\n          \"neighbourhoodAggregation\": \"AGGREGATION_TYPE_UNSPECIFIED\",\n          \"finalAggregation\": \"AGGREGATION_TYPE_UNSPECIFIED\"\n        }\n      },\n      \"nms\": {\n        \"dataset\": {\n          \"sources\": {\n            \"allDevices\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"deviceIds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"labelIds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"siteIds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"types\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"deviceTags\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"filters\": {\n            \"connector\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"filters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"groups\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"saved\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"measurements\": [\n            \"string\",\n            \"string\"\n          ],\n          \"customDimensions\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        \"evaluation\": {\n          \"activationDelay\": \"string\",\n          \"clearanceDelay\": \"string\"\n        }\n      },\n      \"event\": {\n        \"type\": \"EVENT_TYPE_UNSPECIFIED\",\n        \"dimensions\": [\n          \"string\",\n          \"string\"\n        ],\n        \"filters\": \"string\"\n      },\n      \"hasErrors\": false,\n      \"lastError\": {\n        \"timestamp\": \"2009-06-25T17:45:59.917Z\",\n        \"description\": \"string\"\n      },\n      \"expireDate\": \"1974-11-17T06:12:09.339Z\"\n    },\n    {\n      \"source\": {\n        \"policyType\": \"POLICY_TYPE_UNSPECIFIED\",\n        \"id\": \"<string>\"\n      },\n      \"createdAt\": \"1952-01-19T13:12:35.637Z\",\n      \"modifiedAt\": \"1953-02-25T20:47:05.115Z\",\n      \"createdBy\": \"string\",\n      \"modifiedBy\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"enabled\": false,\n      \"levels\": [\n        {\n          \"severity\": \"SEVERITY_UNSPECIFIED\",\n          \"description\": \"string\",\n          \"ackRequired\": true,\n          \"nms\": {\n            \"activate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"clearType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"conditional\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"flow\": {\n            \"conditions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"activation\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mitigationAssociations\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"event\": {\n            \"filters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"notifications\": [\n            {\n              \"channelId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"channelId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"severity\": \"SEVERITY_UNSPECIFIED\",\n          \"description\": \"string\",\n          \"ackRequired\": false,\n          \"nms\": {\n            \"activate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"clearType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"conditional\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"flow\": {\n            \"conditions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"activation\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mitigationAssociations\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"event\": {\n            \"filters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"notifications\": [\n            {\n              \"channelId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"channelId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ],\n      \"flow\": {\n        \"dataset\": {\n          \"sources\": {\n            \"allDevices\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"deviceIds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"labelIds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"siteIds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"types\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"deviceTags\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"filters\": {\n            \"connector\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"filters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"groups\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"saved\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"dimensions\": [\n            \"string\",\n            \"string\"\n          ],\n          \"metrics\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        \"evaluation\": {\n          \"frequency\": \"60s\",\n          \"keyCount\": \"25\"\n        },\n        \"baseline\": {\n          \"storedKeyCount\": \"25\",\n          \"windowLength\": \"2419200s\",\n          \"windowStartOffset\": \"86400s\",\n          \"rollupAggregation\": \"AGGREGATION_TYPE_UNSPECIFIED\",\n          \"compareMode\": \"COMPARE_MODE_UNSPECIFIED\",\n          \"neighbourhoodRadius\": \"string\",\n          \"neighbourhoodAggregation\": \"AGGREGATION_TYPE_UNSPECIFIED\",\n          \"finalAggregation\": \"AGGREGATION_TYPE_UNSPECIFIED\"\n        }\n      },\n      \"nms\": {\n        \"dataset\": {\n          \"sources\": {\n            \"allDevices\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"deviceIds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"labelIds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"siteIds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"types\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"deviceTags\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"filters\": {\n            \"connector\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"filters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"groups\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"saved\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"measurements\": [\n            \"string\",\n            \"string\"\n          ],\n          \"customDimensions\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        \"evaluation\": {\n          \"activationDelay\": \"string\",\n          \"clearanceDelay\": \"string\"\n        }\n      },\n      \"event\": {\n        \"type\": \"EVENT_TYPE_UNSPECIFIED\",\n        \"dimensions\": [\n          \"string\",\n          \"string\"\n        ],\n        \"filters\": null\n      },\n      \"hasErrors\": true,\n      \"lastError\": {\n        \"timestamp\": \"1996-10-26T09:19:30.459Z\",\n        \"description\": \"string\"\n      },\n      \"expireDate\": \"1962-04-27T14:00:40.238Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4f2dd78f-5b9d-44ba-bcb3-dfc8cd5cb3b0",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v202505",
+                    "policies",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"pagination\": {\n    \"limit\": \"<uint64>\",\n    \"offset\": \"<uint64>\",\n    \"includeTotalCount\": \"<boolean>\"\n  },\n  \"sorting\": {\n    \"fields\": [\n      {\n        \"by\": \"BY_UNSPECIFIED\",\n        \"order\": \"ORDER_UNSPECIFIED\"\n      },\n      {\n        \"by\": \"BY_UNSPECIFIED\",\n        \"order\": \"ORDER_UNSPECIFIED\"\n      }\n    ]\n  },\n  \"filters\": {\n    \"sources\": [\n      {\n        \"policyType\": \"POLICY_TYPE_UNSPECIFIED\",\n        \"id\": \"<string>\"\n      },\n      {\n        \"policyType\": \"POLICY_TYPE_UNSPECIFIED\",\n        \"id\": \"<string>\"\n      }\n    ],\n    \"userIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"createdAt\": {\n      \"start\": \"<dateTime>\",\n      \"end\": \"<dateTime>\"\n    },\n    \"modifiedAt\": {\n      \"start\": \"<dateTime>\",\n      \"end\": \"<dateTime>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 8622,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5b3b0270-2808-449a-a562-8775992f2c1f",
+          "name": "Get Policy",
+          "request": {
+            "name": "Get Policy",
+            "description": {
+              "content": "Returns an alerting policy.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v202505",
+                "policies",
+                ":policyType",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "policyType",
+                  "description": "(Required) The type of policy to get."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The ID of the policy to get."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1ca7f83a-3af1-4451-9b2d-2425bd70c14c",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v202505",
+                    "policies",
+                    ":policyType",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "policyType",
+                      "description": "(Required) The type of policy to get."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the policy to get."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"policy\": {\n    \"source\": {\n      \"policyType\": \"POLICY_TYPE_UNSPECIFIED\",\n      \"id\": \"<string>\"\n    },\n    \"createdAt\": \"1973-01-29T22:42:49.929Z\",\n    \"modifiedAt\": \"1992-07-29T17:39:02.598Z\",\n    \"createdBy\": \"string\",\n    \"modifiedBy\": \"string\",\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"enabled\": true,\n    \"levels\": [\n      {\n        \"severity\": \"SEVERITY_UNSPECIFIED\",\n        \"description\": \"string\",\n        \"ackRequired\": false,\n        \"nms\": {\n          \"activate\": {\n            \"connector\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"conditionGroups\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"clearType\": \"CLEAR_TYPE_UNSPECIFIED\",\n          \"conditional\": {\n            \"connector\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"conditionGroups\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"flow\": {\n          \"conditions\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"activation\": {\n            \"matchTimes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"matchWindow\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"resetCountWindow\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"mitigationAssociations\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"event\": {\n          \"filters\": {\n            \"conjunctions\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"notifications\": [\n          {\n            \"channelId\": \"string\"\n          },\n          {\n            \"channelId\": \"string\"\n          }\n        ]\n      },\n      {\n        \"severity\": \"SEVERITY_UNSPECIFIED\",\n        \"description\": \"string\",\n        \"ackRequired\": false,\n        \"nms\": {\n          \"activate\": {\n            \"connector\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"conditionGroups\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"clearType\": \"CLEAR_TYPE_UNSPECIFIED\",\n          \"conditional\": {\n            \"connector\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"conditionGroups\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"flow\": {\n          \"conditions\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"activation\": {\n            \"matchTimes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"matchWindow\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"resetCountWindow\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"mitigationAssociations\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"event\": {\n          \"filters\": {\n            \"conjunctions\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"notifications\": [\n          {\n            \"channelId\": \"string\"\n          },\n          {\n            \"channelId\": \"string\"\n          }\n        ]\n      }\n    ],\n    \"flow\": {\n      \"dataset\": {\n        \"sources\": {\n          \"allDevices\": false,\n          \"deviceIds\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"labelIds\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"siteIds\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"types\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"deviceTags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"filters\": \"string\",\n        \"dimensions\": [\n          \"string\",\n          \"string\"\n        ],\n        \"metrics\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"evaluation\": {\n        \"frequency\": \"60s\",\n        \"keyCount\": \"25\"\n      },\n      \"baseline\": {\n        \"storedKeyCount\": \"25\",\n        \"windowLength\": \"2419200s\",\n        \"windowStartOffset\": \"86400s\",\n        \"rollupAggregation\": \"AGGREGATION_TYPE_UNSPECIFIED\",\n        \"compareMode\": \"COMPARE_MODE_UNSPECIFIED\",\n        \"neighbourhoodRadius\": \"string\",\n        \"neighbourhoodAggregation\": \"AGGREGATION_TYPE_UNSPECIFIED\",\n        \"finalAggregation\": \"AGGREGATION_TYPE_UNSPECIFIED\"\n      }\n    },\n    \"nms\": {\n      \"dataset\": {\n        \"sources\": {\n          \"allDevices\": false,\n          \"deviceIds\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"labelIds\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"siteIds\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"types\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"deviceTags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"measurements\": [\n          \"string\",\n          \"string\"\n        ],\n        \"customDimensions\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"evaluation\": {\n        \"activationDelay\": \"string\",\n        \"clearanceDelay\": \"string\"\n      }\n    },\n    \"event\": {\n      \"type\": \"EVENT_TYPE_UNSPECIFIED\",\n      \"dimensions\": [\n        \"string\",\n        \"string\"\n      ],\n      \"filters\": {}\n    },\n    \"hasErrors\": false,\n    \"lastError\": {\n      \"timestamp\": \"2016-02-05T15:15:29.383Z\",\n      \"description\": \"string\"\n    },\n    \"expireDate\": \"2008-03-19T10:42:29.647Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "833f55d2-b259-4432-80e1-fd6a166d9961",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v202505",
+                    "policies",
+                    ":policyType",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "policyType",
+                      "description": "(Required) The type of policy to get."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the policy to get."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6701,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b78c49b2-69a7-40fd-bf70-aa269462e605",
+          "name": "Disable Policy",
+          "request": {
+            "name": "Disable Policy",
+            "description": {
+              "content": "Disables an alerting policy.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v202505",
+                "policies",
+                ":policyType",
+                ":id",
+                "disable"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "policyType",
+                  "description": "(Required) The type of policy to disable."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The ID of the policy to disable."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "61f0164f-bd29-47f4-8b27-6242cb91d774",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v202505",
+                    "policies",
+                    ":policyType",
+                    ":id",
+                    "disable"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "policyType",
+                      "description": "(Required) The type of policy to disable."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the policy to disable."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"policy\": {\n    \"source\": {\n      \"policyType\": \"POLICY_TYPE_UNSPECIFIED\",\n      \"id\": \"<string>\"\n    },\n    \"createdAt\": \"2009-12-07T21:13:41.218Z\",\n    \"modifiedAt\": \"1965-06-10T18:12:20.422Z\",\n    \"createdBy\": \"string\",\n    \"modifiedBy\": \"string\",\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"enabled\": false,\n    \"levels\": [\n      {\n        \"severity\": \"SEVERITY_UNSPECIFIED\",\n        \"description\": \"string\",\n        \"ackRequired\": true,\n        \"nms\": {\n          \"activate\": {\n            \"connector\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"conditionGroups\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"clearType\": \"CLEAR_TYPE_UNSPECIFIED\",\n          \"conditional\": {\n            \"connector\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"conditionGroups\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"flow\": {\n          \"conditions\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"activation\": {\n            \"matchTimes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"matchWindow\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"resetCountWindow\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"mitigationAssociations\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"event\": {\n          \"filters\": {\n            \"conjunctions\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"notifications\": [\n          {\n            \"channelId\": \"string\"\n          },\n          {\n            \"channelId\": \"string\"\n          }\n        ]\n      },\n      {\n        \"severity\": \"SEVERITY_UNSPECIFIED\",\n        \"description\": \"string\",\n        \"ackRequired\": false,\n        \"nms\": {\n          \"activate\": {\n            \"connector\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"conditionGroups\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"clearType\": \"CLEAR_TYPE_UNSPECIFIED\",\n          \"conditional\": {\n            \"connector\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"conditionGroups\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"flow\": {\n          \"conditions\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"activation\": {\n            \"matchTimes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"matchWindow\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"resetCountWindow\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"mitigationAssociations\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"event\": {\n          \"filters\": {\n            \"conjunctions\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"notifications\": [\n          {\n            \"channelId\": \"string\"\n          },\n          {\n            \"channelId\": \"string\"\n          }\n        ]\n      }\n    ],\n    \"flow\": {\n      \"dataset\": {\n        \"sources\": {\n          \"allDevices\": false,\n          \"deviceIds\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"labelIds\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"siteIds\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"types\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"deviceTags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"filters\": 799.1224104143646,\n        \"dimensions\": [\n          \"string\",\n          \"string\"\n        ],\n        \"metrics\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"evaluation\": {\n        \"frequency\": \"60s\",\n        \"keyCount\": \"25\"\n      },\n      \"baseline\": {\n        \"storedKeyCount\": \"25\",\n        \"windowLength\": \"2419200s\",\n        \"windowStartOffset\": \"86400s\",\n        \"rollupAggregation\": \"AGGREGATION_TYPE_UNSPECIFIED\",\n        \"compareMode\": \"COMPARE_MODE_UNSPECIFIED\",\n        \"neighbourhoodRadius\": \"string\",\n        \"neighbourhoodAggregation\": \"AGGREGATION_TYPE_UNSPECIFIED\",\n        \"finalAggregation\": \"AGGREGATION_TYPE_UNSPECIFIED\"\n      }\n    },\n    \"nms\": {\n      \"dataset\": {\n        \"sources\": {\n          \"allDevices\": false,\n          \"deviceIds\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"labelIds\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"siteIds\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"types\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"deviceTags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"filters\": \"string\",\n        \"measurements\": [\n          \"string\",\n          \"string\"\n        ],\n        \"customDimensions\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"evaluation\": {\n        \"activationDelay\": \"string\",\n        \"clearanceDelay\": \"string\"\n      }\n    },\n    \"event\": {\n      \"type\": \"EVENT_TYPE_UNSPECIFIED\",\n      \"dimensions\": [\n        \"string\",\n        \"string\"\n      ],\n      \"filters\": \"string\"\n    },\n    \"hasErrors\": true,\n    \"lastError\": {\n      \"timestamp\": \"1955-11-04T20:00:42.705Z\",\n      \"description\": \"string\"\n    },\n    \"expireDate\": \"1983-07-30T02:00:59.296Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fd621563-9a19-4beb-b1a7-8f9dd55b2448",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v202505",
+                    "policies",
+                    ":policyType",
+                    ":id",
+                    "disable"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "policyType",
+                      "description": "(Required) The type of policy to disable."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the policy to disable."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6701,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8bb2caf2-a77f-48b6-88b2-faa29867060a",
+          "name": "Enable Policy",
+          "request": {
+            "name": "Enable Policy",
+            "description": {
+              "content": "Enables an alerting policy.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v202505",
+                "policies",
+                ":policyType",
+                ":id",
+                "enable"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "policyType",
+                  "description": "(Required) The type of policy to enable."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The ID of the policy to enable."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "236ba97f-9e5a-4344-aabb-ab6ec7f0575a",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v202505",
+                    "policies",
+                    ":policyType",
+                    ":id",
+                    "enable"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "policyType",
+                      "description": "(Required) The type of policy to enable."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the policy to enable."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"policy\": {\n    \"source\": {\n      \"policyType\": \"POLICY_TYPE_UNSPECIFIED\",\n      \"id\": \"<string>\"\n    },\n    \"createdAt\": \"2009-12-07T21:13:41.218Z\",\n    \"modifiedAt\": \"1965-06-10T18:12:20.422Z\",\n    \"createdBy\": \"string\",\n    \"modifiedBy\": \"string\",\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"enabled\": false,\n    \"levels\": [\n      {\n        \"severity\": \"SEVERITY_UNSPECIFIED\",\n        \"description\": \"string\",\n        \"ackRequired\": true,\n        \"nms\": {\n          \"activate\": {\n            \"connector\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"conditionGroups\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"clearType\": \"CLEAR_TYPE_UNSPECIFIED\",\n          \"conditional\": {\n            \"connector\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"conditionGroups\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"flow\": {\n          \"conditions\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"activation\": {\n            \"matchTimes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"matchWindow\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"resetCountWindow\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"mitigationAssociations\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"event\": {\n          \"filters\": {\n            \"conjunctions\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"notifications\": [\n          {\n            \"channelId\": \"string\"\n          },\n          {\n            \"channelId\": \"string\"\n          }\n        ]\n      },\n      {\n        \"severity\": \"SEVERITY_UNSPECIFIED\",\n        \"description\": \"string\",\n        \"ackRequired\": false,\n        \"nms\": {\n          \"activate\": {\n            \"connector\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"conditionGroups\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"clearType\": \"CLEAR_TYPE_UNSPECIFIED\",\n          \"conditional\": {\n            \"connector\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"conditionGroups\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"flow\": {\n          \"conditions\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"activation\": {\n            \"matchTimes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"matchWindow\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"resetCountWindow\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"mitigationAssociations\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"event\": {\n          \"filters\": {\n            \"conjunctions\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"notifications\": [\n          {\n            \"channelId\": \"string\"\n          },\n          {\n            \"channelId\": \"string\"\n          }\n        ]\n      }\n    ],\n    \"flow\": {\n      \"dataset\": {\n        \"sources\": {\n          \"allDevices\": false,\n          \"deviceIds\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"labelIds\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"siteIds\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"types\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"deviceTags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"filters\": 799.1224104143646,\n        \"dimensions\": [\n          \"string\",\n          \"string\"\n        ],\n        \"metrics\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"evaluation\": {\n        \"frequency\": \"60s\",\n        \"keyCount\": \"25\"\n      },\n      \"baseline\": {\n        \"storedKeyCount\": \"25\",\n        \"windowLength\": \"2419200s\",\n        \"windowStartOffset\": \"86400s\",\n        \"rollupAggregation\": \"AGGREGATION_TYPE_UNSPECIFIED\",\n        \"compareMode\": \"COMPARE_MODE_UNSPECIFIED\",\n        \"neighbourhoodRadius\": \"string\",\n        \"neighbourhoodAggregation\": \"AGGREGATION_TYPE_UNSPECIFIED\",\n        \"finalAggregation\": \"AGGREGATION_TYPE_UNSPECIFIED\"\n      }\n    },\n    \"nms\": {\n      \"dataset\": {\n        \"sources\": {\n          \"allDevices\": false,\n          \"deviceIds\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"labelIds\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"siteIds\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"types\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"deviceTags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"filters\": \"string\",\n        \"measurements\": [\n          \"string\",\n          \"string\"\n        ],\n        \"customDimensions\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"evaluation\": {\n        \"activationDelay\": \"string\",\n        \"clearanceDelay\": \"string\"\n      }\n    },\n    \"event\": {\n      \"type\": \"EVENT_TYPE_UNSPECIFIED\",\n      \"dimensions\": [\n        \"string\",\n        \"string\"\n      ],\n      \"filters\": \"string\"\n    },\n    \"hasErrors\": true,\n    \"lastError\": {\n      \"timestamp\": \"1955-11-04T20:00:42.705Z\",\n      \"description\": \"string\"\n    },\n    \"expireDate\": \"1983-07-30T02:00:59.296Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b3152042-bfb4-4a17-838f-c384d9a90235",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v202505",
+                    "policies",
+                    ":policyType",
+                    ":id",
+                    "enable"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "policyType",
+                      "description": "(Required) The type of policy to enable."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the policy to enable."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-CH-Auth-Email",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6701,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-CH-Auth-Email"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ed76c8fc-f299-4dc1-a2c8-e0bfb1696267",
+    "name": "AI Advisor AiAdvisorDataService PolicyService API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "# Overview\nProvides programmatic access to AI Advisor.\n\nContact Support:\n Name: Kentik API Engineering",
+      "type": "text/plain"
+    }
+  }
+}
