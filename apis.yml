@@ -7,6 +7,18 @@ description: Kentik is a network observability company whose SaaS platform (the 
   transcoding that exposes dozens of services — devices, sites, labels, users, alert policies, mitigations, synthetics, cloud
   export, notification channels, capacity plans, and an AI Advisor MCP server — authenticated with X-CH-Auth-Email plus X-CH-Auth-API-Token
   headers.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
