@@ -213,7 +213,7 @@ apis:
   humanURL: https://kb.kentik.com/docs/apis-overview
   baseURL: https://grpc.api.kentik.com
   tags:
-  - AuditService
+  - Audit Service
   tags_raw:
   - AuditService
   properties:
