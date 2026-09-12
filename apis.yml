@@ -1270,6 +1270,8 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: Website
+  url: https://www.kentik.com/
 - type: Documentation
   url: https://kb.kentik.com/docs/apis-overview
 - type: APIReference
