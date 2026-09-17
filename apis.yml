@@ -208,58 +208,6 @@ apis:
     url: grpc/kentik-ai-advisor.proto
   - type: Protobuf
     url: grpc/kentik-audit.proto
-- aid: kentik:kentik-auditservice-api
-  name: Kentik AuditService API
-  description: The AuditService API from Kentik — 3 operation(s) for auditservice.
-  humanURL: https://kb.kentik.com/docs/apis-overview
-  baseURL: https://grpc.api.kentik.com
-  tags:
-  - Audit Service
-  tags_raw:
-  - AuditService
-  properties:
-  - type: OpenAPI
-    url: openapi/kentik-auditservice-api-openapi.yml
-  - type: Protobuf
-    url: grpc/kentik-synthetics.proto
-  - type: Protobuf
-    url: grpc/kentik-cloud-export.proto
-  - type: Protobuf
-    url: grpc/kentik-alerting.proto
-  - type: Protobuf
-    url: grpc/kentik-mitigation.proto
-  - type: Protobuf
-    url: grpc/kentik-alert-policy.proto
-  - type: Protobuf
-    url: grpc/kentik-device.proto
-  - type: Protobuf
-    url: grpc/kentik-user.proto
-  - type: Protobuf
-    url: grpc/kentik-site.proto
-  - type: Protobuf
-    url: grpc/kentik-label.proto
-  - type: Protobuf
-    url: grpc/kentik-as-group.proto
-  - type: Protobuf
-    url: grpc/kentik-notification-channel.proto
-  - type: Protobuf
-    url: grpc/kentik-capacity-plan.proto
-  - type: Protobuf
-    url: grpc/kentik-bgp-monitoring.proto
-  - type: Protobuf
-    url: grpc/kentik-mkp.proto
-  - type: Protobuf
-    url: grpc/kentik-kmi.proto
-  - type: Protobuf
-    url: grpc/kentik-cost.proto
-  - type: Protobuf
-    url: grpc/kentik-custom-dimension.proto
-  - type: Protobuf
-    url: grpc/kentik-flow-tag.proto
-  - type: Protobuf
-    url: grpc/kentik-ai-advisor.proto
-  - type: Protobuf
-    url: grpc/kentik-audit.proto
 - aid: kentik:kentik-bgpmonitoringadminservice-api
   name: Kentik BgpMonitoringAdminService API
   description: >-
@@ -1224,6 +1172,56 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/kentik-userservice-api-openapi.yml
+  - type: Protobuf
+    url: grpc/kentik-synthetics.proto
+  - type: Protobuf
+    url: grpc/kentik-cloud-export.proto
+  - type: Protobuf
+    url: grpc/kentik-alerting.proto
+  - type: Protobuf
+    url: grpc/kentik-mitigation.proto
+  - type: Protobuf
+    url: grpc/kentik-alert-policy.proto
+  - type: Protobuf
+    url: grpc/kentik-device.proto
+  - type: Protobuf
+    url: grpc/kentik-user.proto
+  - type: Protobuf
+    url: grpc/kentik-site.proto
+  - type: Protobuf
+    url: grpc/kentik-label.proto
+  - type: Protobuf
+    url: grpc/kentik-as-group.proto
+  - type: Protobuf
+    url: grpc/kentik-notification-channel.proto
+  - type: Protobuf
+    url: grpc/kentik-capacity-plan.proto
+  - type: Protobuf
+    url: grpc/kentik-bgp-monitoring.proto
+  - type: Protobuf
+    url: grpc/kentik-mkp.proto
+  - type: Protobuf
+    url: grpc/kentik-kmi.proto
+  - type: Protobuf
+    url: grpc/kentik-cost.proto
+  - type: Protobuf
+    url: grpc/kentik-custom-dimension.proto
+  - type: Protobuf
+    url: grpc/kentik-flow-tag.proto
+  - type: Protobuf
+    url: grpc/kentik-ai-advisor.proto
+  - type: Protobuf
+    url: grpc/kentik-audit.proto
+- aid: kentik:kentik-audit-service-api
+  name: Kentik Audit Service API
+  description: The Audit Service API from Kentik — 3 operation(s) for audit service.
+  humanURL: https://kb.kentik.com/docs/apis-overview
+  baseURL: https://grpc.api.kentik.com
+  tags:
+  - Audit Service
+  properties:
+  - type: OpenAPI
+    url: openapi/kentik-audit-service-api-openapi.yml
   - type: Protobuf
     url: grpc/kentik-synthetics.proto
   - type: Protobuf
