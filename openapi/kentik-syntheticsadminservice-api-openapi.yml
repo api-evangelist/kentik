@@ -1,10 +1,10 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: AI Advisor AiAdvisorDataService SyntheticsAdminService API
+  title: Synthetics Monitoring Synthetics Admin Service API
   description: '# Overview
 
-    Provides programmatic access to AI Advisor.'
-  version: v202511
+    The Synthetics Monitoring API provides programmatic access to Kentik''s synthetic monitoring system.'
+  version: v202309
   contact:
     name: Kentik API Engineering
     url: https://github.com/kentik/api-schema-public
@@ -329,7 +329,7 @@ paths:
       tags:
       - SyntheticsAdminService
     delete:
-      summary: Delete a synthetic test.
+      summary: Delete a synthetic test
       description: Deletes the synthetics test. All accumulated results for the test cease to be accessible.
       operationId: DeleteTest
       responses:
@@ -389,7 +389,6 @@ paths:
   /synthetics/v202309/tests/{id}/status:
     put:
       summary: Update status of a synthetic test
-      description: Update status of a synthetic test
       operationId: SetTestStatus
       responses:
         '200':
@@ -421,16 +420,6 @@ paths:
       - SyntheticsAdminService
 components:
   schemas:
-    v202309AlertingType:
-      type: string
-      enum:
-      - ALERTING_TYPE_UNSPECIFIED
-      - ALERTING_TYPE_AGENT
-      - ALERTING_TYPE_GROUPED
-      - ALERTING_TYPE_SUBTEST
-      default: ALERTING_TYPE_UNSPECIFIED
-      description: "- ALERTING_TYPE_UNSPECIFIED: Invalid value.\n - ALERTING_TYPE_AGENT: Per-Agent - Generates alerts based on individual metric thresholds (This can be noisy)\n - ALERTING_TYPE_GROUPED: Grouped - Reduces the number of alert notifications for upstream issues by forcing alert conditions to exist across multiple network paths\n - ALERTING_TYPE_SUBTEST: All metrics - Calculates health and alerts for the test as a whole"
-      title: AlertingType
     v202309ActivationSettings:
       type: object
       properties:
@@ -447,29 +436,491 @@ components:
           type: string
           description: Number of occurrences of unhealthy test status within the time window triggering alarm activation
       title: ActivationSettings
+    v202309DeleteTestResponse:
+      type: object
+      title: DeleteTestResponse
+    v202309UpdateAgentAlertResponse:
+      type: object
+      properties:
+        agentAlert:
+          $ref: '#/components/schemas/v202309AgentAlert'
+    AgentMetadataIpValue:
+      type: object
+      properties:
+        value:
+          type: string
+    v202309TestThroughputSettings:
+      type: object
+      properties:
+        port:
+          type: integer
+          format: int64
+          description: Target port for TCP or UDP throughput task (the port the target server is listening on)
+        omit:
+          type: integer
+          format: int64
+          description: (optional) Number of seconds to omit from the start of the test
+        duration:
+          type: integer
+          format: int64
+          description: Duration of the test in seconds
+        bandwidth:
+          type: integer
+          format: int64
+          description: (optional) Target bandwidth in Mbps, if no bandwidth is specified, the test will measure the maximum bandwidth for TCP and 10Mbps for UDP
+        protocol:
+          type: string
+          description: Transport protocol to use (tcp | udp)
+      title: TestThroughputSettings
+    v202309AlertingType:
+      type: string
+      enum:
+      - ALERTING_TYPE_UNSPECIFIED
+      - ALERTING_TYPE_AGENT
+      - ALERTING_TYPE_GROUPED
+      - ALERTING_TYPE_SUBTEST
+      default: ALERTING_TYPE_UNSPECIFIED
+      description: "- ALERTING_TYPE_UNSPECIFIED: Invalid value.\n - ALERTING_TYPE_AGENT: Per-Agent - Generates alerts based on individual metric thresholds (This can be noisy)\n - ALERTING_TYPE_GROUPED: Grouped - Reduces the number of alert notifications for upstream issues by forcing alert conditions to exist across multiple network paths\n - ALERTING_TYPE_SUBTEST: All metrics - Calculates health and alerts for the test as a whole"
+      title: AlertingType
+    v202309GroupedAlertSettings:
+      type: object
+      properties:
+        default:
+          $ref: '#/components/schemas/v202309GroupedAlertSetting'
+        overrides:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202309GroupedAlertSetting'
+          description: Overrides to default grouped alerting settings
+      title: GroupedAlertSettings
     v202309GetAgentAlertResponse:
       type: object
       properties:
         agentAlert:
           $ref: '#/components/schemas/v202309AgentAlert'
-    v202309DeleteTestResponse:
+    v202309AlertingSettings:
       type: object
-      title: DeleteTestResponse
-    v202309DNSRecord:
+      properties:
+        disableWarningNotifications:
+          type: boolean
+          description: Boolean indicating whether to disable warning-level alert notifications
+        alertingType:
+          $ref: '#/components/schemas/v202309AlertingType'
+        groupedAlertSettings:
+          $ref: '#/components/schemas/v202309GroupedAlertSettings'
+      title: AlertingSettings
+    v202309UrlTest:
+      type: object
+      properties:
+        target:
+          type: string
+          description: HTTP or HTTPS URL to request
+        timeout:
+          type: integer
+          format: int64
+          description: HTTP transaction timeout (in milliseconds)
+        method:
+          type: string
+          description: HTTP method to use (GET | HEAD | PATCH | POST | PUT)
+        headers:
+          type: object
+          additionalProperties:
+            type: string
+          description: Map of HTTP header values keyed by header names
+        body:
+          type: string
+          description: HTTP request body
+        ignoreTlsErrors:
+          type: boolean
+          description: Boolean indicating whether to ignore TLS certificate verification errors
+      title: UrlTest
+    v202309FlowTest:
+      type: object
+      properties:
+        target:
+          type: string
+          description: Target ASN, CDN, Country, Region of City for autonomous test (type of value depends on flow test sub-type)
+        targetRefreshIntervalMillis:
+          type: integer
+          format: int64
+          description: Period (in milliseconds) for refreshing list of targets based on available flow data
+        maxProviders:
+          type: integer
+          format: int64
+          description: Maximum number of IP providers to track autonomously
+        maxIpTargets:
+          type: integer
+          format: int64
+          description: Maximum number of target IP addresses to select based flow data query
+        type:
+          type: string
+          description: Autonomous test sub-type (asn | cdn | country | region | city)
+        inetDirection:
+          type: string
+          description: Selection of address from flow data (src = source address in inbound flows | dst = destination addresses in outbound flows)
+        direction:
+          type: string
+          description: Direction of flows to match target attribute for extraction of target addresses (src | dst)
+      title: FlowTest
+    v202309DeleteAgentResponse:
+      type: object
+      title: DeleteAgentResponse
+    v202309ListAgentAlertsResponse:
+      type: object
+      properties:
+        agentAlerts:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202309AgentAlert'
+    v202309AgentAlert:
+      type: object
+      properties:
+        id:
+          type: string
+        thresholdSeconds:
+          type: integer
+          format: int64
+        notificationChannelIds:
+          type: array
+          items:
+            type: string
+        agentId:
+          type: string
+        agentName:
+          type: string
+    SyntheticsAdminServiceUpdateAgentBody:
+      type: object
+      properties:
+        agent:
+          type: object
+          properties:
+            siteName:
+              type: string
+              description: Name of the site where agent is located
+            status:
+              $ref: '#/components/schemas/v202309AgentStatus'
+            alias:
+              type: string
+              description: User selected descriptive name of the agent
+            type:
+              type: string
+              description: Type of agent (global | private)
+              readOnly: true
+            os:
+              type: string
+              description: OS version of server/VM hosting the agent
+              readOnly: true
+            ip:
+              type: string
+              description: Public IP address of the agent (auto-detected)
+              readOnly: true
+            lat:
+              type: number
+              format: double
+              description: Latitude of agent's location (signed decimal degrees)
+            long:
+              type: number
+              format: double
+              description: Longitude of agent's location (signed decimal degrees)
+            lastAuthed:
+              type: string
+              format: date-time
+              description: Timestamp of the last authorization
+              readOnly: true
+            family:
+              $ref: '#/components/schemas/v202309IPFamily'
+            asn:
+              type: integer
+              format: int64
+              description: ASN of the AS owning agent's public address
+            siteId:
+              type: string
+              description: ID of the site hosting the agent (if configured in Kentik)
+            version:
+              type: string
+              description: Software version of the agent
+              readOnly: true
+            city:
+              type: string
+              description: City where the agent is located
+            region:
+              type: string
+              description: Geographical region of agent's location
+            country:
+              type: string
+              description: Country of agent's location
+            testIds:
+              type: array
+              items:
+                type: string
+              description: IDs of user's test running on the agent
+              readOnly: true
+            localIp:
+              type: string
+              description: Internal IP address of the agent
+            cloudRegion:
+              type: string
+              description: Cloud region (if any) hosting the agent
+            cloudProvider:
+              type: string
+              description: Cloud provider (if any) hosting the agent
+            agentImpl:
+              $ref: '#/components/schemas/v202309ImplementType'
+            labels:
+              type: array
+              items:
+                type: string
+              description: List of names of labels associated with the agent
+            metadata:
+              $ref: '#/components/schemas/v202309AgentMetadata'
+          title: Agent
+      title: UpdateAgentRequest
+    protobufAny:
+      type: object
+      properties:
+        '@type':
+          type: string
+      additionalProperties: {}
+    v202309CreateAgentAlertRequest:
+      type: object
+      properties:
+        thresholdSeconds:
+          type: integer
+          format: int64
+        notificationChannelIds:
+          type: array
+          items:
+            type: string
+        agentId:
+          type: string
+    v202309PageLoadTest:
+      type: object
+      properties:
+        target:
+          type: string
+          description: HTTP or HTTPS URL to request
+        timeout:
+          type: integer
+          format: int64
+          description: HTTP transaction timeout (in milliseconds)
+        headers:
+          type: object
+          additionalProperties:
+            type: string
+          description: Map of HTTP header values keyed by header names
+        ignoreTlsErrors:
+          type: boolean
+          description: Boolean indicating whether to ignore TLS certificate verification errors
+        cssSelectors:
+          type: object
+          additionalProperties:
+            type: string
+          description: Map of CSS selector values keyed by selector name
+      title: PageLoadTest
+    v202309GetTestResponse:
+      type: object
+      properties:
+        test:
+          $ref: '#/components/schemas/v202309Test'
+      title: GetTestResponse
+    v202309DisabledMetrics:
+      type: object
+      properties:
+        pingLatency:
+          type: boolean
+        pingJitter:
+          type: boolean
+        pingPacketLoss:
+          type: boolean
+        httpLatency:
+          type: boolean
+        httpHeaders:
+          type: boolean
+        httpCodes:
+          type: boolean
+        httpCertExpiry:
+          type: boolean
+        transactionLatency:
+          type: boolean
+        dnsLatency:
+          type: boolean
+        dnsCodes:
+          type: boolean
+        dnsIps:
+          type: boolean
+        throughputBandwidth:
+          type: boolean
+    v202303UserInfo:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique system generated ID
+          readOnly: true
+        email:
+          type: string
+          description: E-mail address of the user
+          readOnly: true
+        fullName:
+          type: string
+          description: Full name of the user
+          readOnly: true
+      title: UserInfo
+    v202309CreateTestResponse:
+      type: object
+      properties:
+        test:
+          $ref: '#/components/schemas/v202309Test'
+      title: CreateTestResponse
+    v202309SetTestStatusResponse:
+      type: object
+      title: SetTestStatusResponse
+    v202309TestPingSettings:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int64
+          description: Number of probe packets to send in one iteration
+        protocol:
+          type: string
+          description: Transport protocol to use (icmp | tcp)
+        port:
+          type: integer
+          format: int64
+          description: Target port for TCP probes (ignored for ICMP)
+        timeout:
+          type: integer
+          format: int64
+          description: Timeout in milliseconds for execution of the task
+        delay:
+          type: number
+          format: float
+          description: Inter-probe delay in milliseconds
+        dscp:
+          type: integer
+          format: int64
+          description: DSCP code to be set in IP header of probe packets
+      title: TestPingSettings
+    v202309DnsTest:
+      type: object
+      properties:
+        target:
+          type: string
+          description: Fully qualified DNS name to query
+        timeout:
+          type: integer
+          format: int64
+          description: '--- Deprecated: value is ignored. ---'
+        recordType:
+          $ref: '#/components/schemas/v202309DNSRecord'
+        servers:
+          type: array
+          items:
+            type: string
+          description: List of IP addresses of DNS servers
+        port:
+          type: integer
+          format: int64
+          description: Target DNS server port
+      title: DnsTest
+    v202309HostnameTest:
+      type: object
+      properties:
+        target:
+          type: string
+          description: Fully qualified DNS name of the target host
+      title: HostnameTest
+    v202309GetAgentResponse:
+      type: object
+      properties:
+        agent:
+          $ref: '#/components/schemas/v202309Agent'
+      title: GetAgentResponse
+    v202309AgentTest:
+      type: object
+      properties:
+        target:
+          type: string
+          description: ID of the target agent
+        useLocalIp:
+          type: boolean
+          description: Boolean value indicating whether to use local (private) IP address of the target agent
+        reciprocal:
+          type: boolean
+          description: Boolean value indicating whether to make the test bidirectional
+      title: AgentTest
+    v202309UpdateTestResponse:
+      type: object
+      properties:
+        test:
+          $ref: '#/components/schemas/v202309Test'
+      title: UpdateTestResponse
+    v202309CreateAgentAlertResponse:
+      type: object
+      properties:
+        agentAlert:
+          $ref: '#/components/schemas/v202309AgentAlert'
+    v202309ListTestsResponse:
+      type: object
+      properties:
+        tests:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202309Test'
+          description: List of configured active or paused tests
+        invalidCount:
+          type: integer
+          format: int64
+          description: Number of invalid entries encountered while collecting data
+      title: ListTestsResponse
+    SyntheticsAdminServiceUpdateTestBody:
+      type: object
+      properties:
+        test:
+          type: object
+          properties:
+            name:
+              type: string
+              description: User selected name of the test
+            type:
+              type: string
+              description: Type of the test
+            status:
+              $ref: '#/components/schemas/v202309TestStatus'
+            settings:
+              $ref: '#/components/schemas/v202309TestSettings'
+            cdate:
+              type: string
+              format: date-time
+              description: Creation timestamp (UTC)
+              readOnly: true
+            edate:
+              type: string
+              format: date-time
+              description: Last modification timestamp (UTC)
+              readOnly: true
+            createdBy:
+              $ref: '#/components/schemas/v202303UserInfo'
+            lastUpdatedBy:
+              $ref: '#/components/schemas/v202303UserInfo'
+            labels:
+              type: array
+              items:
+                type: string
+              description: Set of labels associated with the test
+          title: Test
+      title: UpdateTestRequest
+    v202309ImplementType:
       type: string
       enum:
-      - DNS_RECORD_UNSPECIFIED
-      - DNS_RECORD_A
-      - DNS_RECORD_AAAA
-      - DNS_RECORD_CNAME
-      - DNS_RECORD_DNAME
-      - DNS_RECORD_NS
-      - DNS_RECORD_MX
-      - DNS_RECORD_PTR
-      - DNS_RECORD_SOA
-      default: DNS_RECORD_UNSPECIFIED
-      description: "- DNS_RECORD_UNSPECIFIED: Invalid value\n - DNS_RECORD_A: name to IPv4 address(es) mapping\n - DNS_RECORD_AAAA: name to IPv6 address(es) mapping\n - DNS_RECORD_CNAME: alternative resource name\n - DNS_RECORD_DNAME: alternative resource set name\n - DNS_RECORD_NS: domain to name server mapping\n - DNS_RECORD_MX: SMTP mail server record\n - DNS_RECORD_PTR: IPv4/6 address to name mapping\n - DNS_RECORD_SOA: domain meta-data"
-      title: DNSRecord
+      - IMPLEMENT_TYPE_UNSPECIFIED
+      - IMPLEMENT_TYPE_RUST
+      - IMPLEMENT_TYPE_NODE
+      - IMPLEMENT_TYPE_NETWORK
+      default: IMPLEMENT_TYPE_UNSPECIFIED
+      description: "- IMPLEMENT_TYPE_RUST: ksynth, a.k.a network agent (implemented in Rust) capable of running all tasks except for page-load and transaction\n - IMPLEMENT_TYPE_NODE: ksynth-agent, a.k.a. app agent (implemented in NodeJS) with Chromium enabled capable of running all tasks\n - IMPLEMENT_TYPE_NETWORK: ksynth-agent, a.k.a. app agent with Chromium disabled, capable of running all tasks except for page-load and transaction"
+      title: ImplementType
     v202309Test:
       type: object
       properties:
@@ -507,96 +958,213 @@ components:
             type: string
           description: Set of labels associated with the test
       title: Test
-    v202309CreateTestResponse:
+    rpcStatus:
       type: object
       properties:
-        test:
-          $ref: '#/components/schemas/v202309Test'
-      title: CreateTestResponse
-    v202309ListAgentAlertsResponse:
-      type: object
-      properties:
-        agentAlerts:
-          type: array
-          items:
-            $ref: '#/components/schemas/v202309AgentAlert'
-    v202309GetAgentResponse:
-      type: object
-      properties:
-        agent:
-          $ref: '#/components/schemas/v202309Agent'
-      title: GetAgentResponse
-    v202309UpdateAgentAlertResponse:
-      type: object
-      properties:
-        agentAlert:
-          $ref: '#/components/schemas/v202309AgentAlert'
-    v202309GroupedAlertSettings:
-      type: object
-      properties:
-        default:
-          $ref: '#/components/schemas/v202309GroupedAlertSetting'
-        overrides:
-          type: array
-          items:
-            $ref: '#/components/schemas/v202309GroupedAlertSetting'
-          description: Overrides to default grouped alerting settings
-      title: GroupedAlertSettings
-    v202309CreateAgentAlertResponse:
-      type: object
-      properties:
-        agentAlert:
-          $ref: '#/components/schemas/v202309AgentAlert'
-    v202309DeleteAgentAlertResponse:
-      type: object
-    v202309ListAgentsResponse:
-      type: object
-      properties:
-        agents:
-          type: array
-          items:
-            $ref: '#/components/schemas/v202309Agent'
-          description: List of available agents
-        invalidCount:
+        code:
           type: integer
-          format: int64
-          description: Number of invalid entries encountered while collecting data
-      title: ListAgentsResponse
-    v202309ListTestsResponse:
-      type: object
-      properties:
-        tests:
-          type: array
-          items:
-            $ref: '#/components/schemas/v202309Test'
-          description: List of configured active or paused tests
-        invalidCount:
-          type: integer
-          format: int64
-          description: Number of invalid entries encountered while collecting data
-      title: ListTestsResponse
-    v202309DnsTest:
-      type: object
-      properties:
-        target:
+          format: int32
+        message:
           type: string
-          description: Fully qualified DNS name to query
-        timeout:
-          type: integer
-          format: int64
-          description: '--- Deprecated: value is ignored. ---'
-        recordType:
-          $ref: '#/components/schemas/v202309DNSRecord'
-        servers:
+        details:
+          type: array
+          items:
+            $ref: '#/components/schemas/protobufAny'
+    v202309NetworkMeshTest:
+      type: object
+      properties:
+        useLocalIp:
+          type: boolean
+          description: Boolean value indicating whether to use local (private) IP address of the target agents
+      title: NetworkMeshTest
+    v202309TestSettings:
+      type: object
+      properties:
+        hostname:
+          $ref: '#/components/schemas/v202309HostnameTest'
+        ip:
+          $ref: '#/components/schemas/v202309IpTest'
+        agent:
+          $ref: '#/components/schemas/v202309AgentTest'
+        flow:
+          $ref: '#/components/schemas/v202309FlowTest'
+        dns:
+          $ref: '#/components/schemas/v202309DnsTest'
+        url:
+          $ref: '#/components/schemas/v202309UrlTest'
+        networkGrid:
+          $ref: '#/components/schemas/v202309IpTest'
+        pageLoad:
+          $ref: '#/components/schemas/v202309PageLoadTest'
+        dnsGrid:
+          $ref: '#/components/schemas/v202309DnsTest'
+        networkMesh:
+          $ref: '#/components/schemas/v202309NetworkMeshTest'
+        agentIds:
           type: array
           items:
             type: string
-          description: List of IP addresses of DNS servers
-        port:
+          description: IDs of agents assigned to run tasks on behalf of the test
+        tasks:
+          type: array
+          items:
+            type: string
+          description: List of task names to run for the test
+        healthSettings:
+          $ref: '#/components/schemas/v202309HealthSettings'
+        ping:
+          $ref: '#/components/schemas/v202309TestPingSettings'
+        trace:
+          $ref: '#/components/schemas/v202309TestTraceSettings'
+        period:
           type: integer
           format: int64
-          description: Target DNS server port
-      title: DnsTest
+          description: Test evaluation period (in seconds)
+        family:
+          $ref: '#/components/schemas/v202309IPFamily'
+        notificationChannels:
+          type: array
+          items:
+            type: string
+          description: List of IDs of notification channels for alarms triggered by the test
+        notes:
+          type: string
+          description: Add a note or comment for this test
+        throughput:
+          $ref: '#/components/schemas/v202309TestThroughputSettings'
+        schedule:
+          $ref: '#/components/schemas/v202309ScheduleSettings'
+        alerting:
+          $ref: '#/components/schemas/v202309AlertingSettings'
+      title: TestSettings
+    v202309ScheduleSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+          description: Boolean indicating an (dis|en)abled schedule
+        start:
+          type: integer
+          format: int64
+          description: UTC unix timestamps indicating the start of the schedule
+        end:
+          type: integer
+          format: int64
+          description: UTC unix timestamp indicating the end of the schedule
+      title: ScheduleSettings
+    v202309TestStatus:
+      type: string
+      enum:
+      - TEST_STATUS_UNSPECIFIED
+      - TEST_STATUS_ACTIVE
+      - TEST_STATUS_PAUSED
+      - TEST_STATUS_DELETED
+      - TEST_STATUS_PREVIEW
+      default: TEST_STATUS_UNSPECIFIED
+      description: "- TEST_STATUS_UNSPECIFIED: Invalid value.\n - TEST_STATUS_ACTIVE: Test is active.\n - TEST_STATUS_PAUSED: Test is paused.\n - TEST_STATUS_DELETED: Test is deleted. Not user settable.\n - TEST_STATUS_PREVIEW: Test is preview"
+      title: TestStatus
+    v202309DNSRecord:
+      type: string
+      enum:
+      - DNS_RECORD_UNSPECIFIED
+      - DNS_RECORD_A
+      - DNS_RECORD_AAAA
+      - DNS_RECORD_CNAME
+      - DNS_RECORD_DNAME
+      - DNS_RECORD_NS
+      - DNS_RECORD_MX
+      - DNS_RECORD_PTR
+      - DNS_RECORD_SOA
+      default: DNS_RECORD_UNSPECIFIED
+      description: "- DNS_RECORD_UNSPECIFIED: Invalid value\n - DNS_RECORD_A: name to IPv4 address(es) mapping\n - DNS_RECORD_AAAA: name to IPv6 address(es) mapping\n - DNS_RECORD_CNAME: alternative resource name\n - DNS_RECORD_DNAME: alternative resource set name\n - DNS_RECORD_NS: domain to name server mapping\n - DNS_RECORD_MX: SMTP mail server record\n - DNS_RECORD_PTR: IPv4/6 address to name mapping\n - DNS_RECORD_SOA: domain meta-data"
+      title: DNSRecord
+    v202309Agent:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the agent
+          readOnly: true
+        siteName:
+          type: string
+          description: Name of the site where agent is located
+        status:
+          $ref: '#/components/schemas/v202309AgentStatus'
+        alias:
+          type: string
+          description: User selected descriptive name of the agent
+        type:
+          type: string
+          description: Type of agent (global | private)
+          readOnly: true
+        os:
+          type: string
+          description: OS version of server/VM hosting the agent
+          readOnly: true
+        ip:
+          type: string
+          description: Public IP address of the agent (auto-detected)
+          readOnly: true
+        lat:
+          type: number
+          format: double
+          description: Latitude of agent's location (signed decimal degrees)
+        long:
+          type: number
+          format: double
+          description: Longitude of agent's location (signed decimal degrees)
+        lastAuthed:
+          type: string
+          format: date-time
+          description: Timestamp of the last authorization
+          readOnly: true
+        family:
+          $ref: '#/components/schemas/v202309IPFamily'
+        asn:
+          type: integer
+          format: int64
+          description: ASN of the AS owning agent's public address
+        siteId:
+          type: string
+          description: ID of the site hosting the agent (if configured in Kentik)
+        version:
+          type: string
+          description: Software version of the agent
+          readOnly: true
+        city:
+          type: string
+          description: City where the agent is located
+        region:
+          type: string
+          description: Geographical region of agent's location
+        country:
+          type: string
+          description: Country of agent's location
+        testIds:
+          type: array
+          items:
+            type: string
+          description: IDs of user's test running on the agent
+          readOnly: true
+        localIp:
+          type: string
+          description: Internal IP address of the agent
+        cloudRegion:
+          type: string
+          description: Cloud region (if any) hosting the agent
+        cloudProvider:
+          type: string
+          description: Cloud provider (if any) hosting the agent
+        agentImpl:
+          $ref: '#/components/schemas/v202309ImplementType'
+        labels:
+          type: array
+          items:
+            type: string
+          description: List of names of labels associated with the agent
+        metadata:
+          $ref: '#/components/schemas/v202309AgentMetadata'
+      title: Agent
     v202309IpTest:
       type: object
       properties:
@@ -619,218 +1187,25 @@ components:
       default: IP_FAMILY_UNSPECIFIED
       description: "- IP_FAMILY_UNSPECIFIED: Invalid value.\n - IP_FAMILY_V4: IPv4 only\n - IP_FAMILY_V6: IPv6 only\n - IP_FAMILY_DUAL: IPv4 and IPv6 supported"
       title: IPFamily
-    v202309TestThroughputSettings:
+    v202309GroupedAlertSetting:
       type: object
       properties:
-        port:
-          type: integer
-          format: int64
-          description: Target port for TCP or UDP throughput task (the port the target server is listening on)
-        omit:
-          type: integer
-          format: int64
-          description: (optional) Number of seconds to omit from the start of the test
-        duration:
-          type: integer
-          format: int64
-          description: Duration of the test in seconds
-        bandwidth:
-          type: integer
-          format: int64
-          description: (optional) Target bandwidth in Mbps, if no bandwidth is specified, the test will measure the maximum bandwidth for TCP and 10Mbps for UDP
-        protocol:
+        metric:
           type: string
-          description: Transport protocol to use (tcp | udp)
-      title: TestThroughputSettings
-    v202309DisabledMetrics:
-      type: object
-      properties:
-        pingLatency:
-          type: boolean
-        pingJitter:
-          type: boolean
-        pingPacketLoss:
-          type: boolean
-        httpLatency:
-          type: boolean
-        httpHeaders:
-          type: boolean
-        httpCodes:
-          type: boolean
-        httpCertExpiry:
-          type: boolean
-        transactionLatency:
-          type: boolean
-        dnsLatency:
-          type: boolean
-        dnsCodes:
-          type: boolean
-        dnsIps:
-          type: boolean
-        throughputBandwidth:
-          type: boolean
-    v202309UpdateAgentResponse:
-      type: object
-      properties:
-        agent:
-          $ref: '#/components/schemas/v202309Agent'
-      title: UpdateAgentResponse
-    v202309AlertingSettings:
-      type: object
-      properties:
-        disableWarningNotifications:
-          type: boolean
-          description: Boolean indicating whether to disable warning-level alert notifications
-        alertingType:
-          $ref: '#/components/schemas/v202309AlertingType'
-        groupedAlertSettings:
-          $ref: '#/components/schemas/v202309GroupedAlertSettings'
-      title: AlertingSettings
-    v202309PageLoadTest:
-      type: object
-      properties:
-        target:
-          type: string
-          description: HTTP or HTTPS URL to request
-        timeout:
+          description: Metric
+        srcGroupBy:
+          $ref: '#/components/schemas/v202309SrcGroupBy'
+        percentOfSrcGroup:
           type: integer
           format: int64
-          description: HTTP transaction timeout (in milliseconds)
-        headers:
-          type: object
-          additionalProperties:
-            type: string
-          description: Map of HTTP header values keyed by header names
-        ignoreTlsErrors:
-          type: boolean
-          description: Boolean indicating whether to ignore TLS certificate verification errors
-        cssSelectors:
-          type: object
-          additionalProperties:
-            type: string
-          description: Map of CSS selector values keyed by selector name
-      title: PageLoadTest
-    SyntheticsAdminServiceSetTestStatusBody:
-      type: object
-      properties:
-        status:
-          $ref: '#/components/schemas/v202309TestStatus'
-      title: SetTestStatusRequest
-      required:
-      - status
-    v202309NetworkMeshTest:
-      type: object
-      properties:
-        useLocalIp:
-          type: boolean
-          description: Boolean value indicating whether to use local (private) IP address of the target agents
-      title: NetworkMeshTest
-    v202309FlowTest:
-      type: object
-      properties:
-        target:
-          type: string
-          description: Target ASN, CDN, Country, Region of City for autonomous test (type of value depends on flow test sub-type)
-        targetRefreshIntervalMillis:
-          type: integer
-          format: int64
-          description: Period (in milliseconds) for refreshing list of targets based on available flow data
-        maxProviders:
-          type: integer
-          format: int64
-          description: Maximum number of IP providers to track autonomously
-        maxIpTargets:
-          type: integer
-          format: int64
-          description: Maximum number of target IP addresses to select based flow data query
-        type:
-          type: string
-          description: Autonomous test sub-type (asn | cdn | country | region | city)
-        inetDirection:
-          type: string
-          description: Selection of address from flow data (src = source address in inbound flows | dst = destination addresses in outbound flows)
-        direction:
-          type: string
-          description: Direction of flows to match target attribute for extraction of target addresses (src | dst)
-      title: FlowTest
-    v202309TestStatus:
-      type: string
-      enum:
-      - TEST_STATUS_UNSPECIFIED
-      - TEST_STATUS_ACTIVE
-      - TEST_STATUS_PAUSED
-      - TEST_STATUS_DELETED
-      - TEST_STATUS_PREVIEW
-      default: TEST_STATUS_UNSPECIFIED
-      description: "- TEST_STATUS_UNSPECIFIED: Invalid value.\n - TEST_STATUS_ACTIVE: Test is active.\n - TEST_STATUS_PAUSED: Test is paused.\n - TEST_STATUS_DELETED: Test is deleted. Not user settable.\n - TEST_STATUS_PREVIEW: Test is preview"
-      title: TestStatus
-    v202309CreateTestRequest:
-      type: object
-      properties:
-        test:
-          $ref: '#/components/schemas/v202309Test'
-      title: CreateTestRequest
-      required:
-      - test
-    v202309TestTraceSettings:
-      type: object
-      properties:
-        count:
-          type: integer
-          format: int64
-          description: Number of probe packets to send in one iteration
-        protocol:
-          type: string
-          description: Transport protocol to use (icmp | tcp | udp)
-        port:
-          type: integer
-          format: int64
-          description: Target port for TCP or UDP probes (ignored for ICMP)
-        timeout:
-          type: integer
-          format: int64
-          description: Timeout in milliseconds for execution of the task
-        limit:
-          type: integer
-          format: int64
-          description: Maximum number of hops to probe (i.e. maximum TTL)
-        delay:
-          type: number
-          format: float
-          description: Inter-probe delay in milliseconds
-        dscp:
-          type: integer
-          format: int64
-          description: DSCP code to be set in IP header of probe packets
-        mtu:
-          type: boolean
-          description: Enable MTU in trace results
-      title: TestTraceSettings
-    v202309AgentTest:
-      type: object
-      properties:
-        target:
-          type: string
-          description: ID of the target agent
-        useLocalIp:
-          type: boolean
-          description: Boolean value indicating whether to use local (private) IP address of the target agent
-        reciprocal:
-          type: boolean
-          description: Boolean value indicating whether to make the test bidirectional
-      title: AgentTest
-    rpcStatus:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-        message:
-          type: string
-        details:
+          description: Grouping percentage
+        filterIds:
           type: array
           items:
-            $ref: '#/components/schemas/protobufAny'
+            type: integer
+            format: int64
+          description: List of IDs to include in the group
+      title: GroupedAlertSetting
     v202309HealthSettings:
       type: object
       properties:
@@ -963,7 +1338,83 @@ components:
           type: boolean
           description: Boolean value indicating whether to disable all alerts for this test
       title: HealthSettings
-    v202309CreateAgentAlertRequest:
+    v202309AgentStatus:
+      type: string
+      enum:
+      - AGENT_STATUS_UNSPECIFIED
+      - AGENT_STATUS_OK
+      - AGENT_STATUS_WAIT
+      - AGENT_STATUS_DELETED
+      default: AGENT_STATUS_UNSPECIFIED
+      description: "- AGENT_STATUS_UNSPECIFIED: Invalid value.\n - AGENT_STATUS_OK: Agent is ready to accept tests\n - AGENT_STATUS_WAIT: Agent is waiting for authorization\n - AGENT_STATUS_DELETED: Agent was deleted - not user settable"
+      title: AgentStatus
+    v202309UpdateAgentResponse:
+      type: object
+      properties:
+        agent:
+          $ref: '#/components/schemas/v202309Agent'
+      title: UpdateAgentResponse
+    v202309CreateTestRequest:
+      type: object
+      properties:
+        test:
+          $ref: '#/components/schemas/v202309Test'
+      title: CreateTestRequest
+      required:
+      - test
+    SyntheticsAdminServiceSetTestStatusBody:
+      type: object
+      properties:
+        status:
+          $ref: '#/components/schemas/v202309TestStatus'
+      title: SetTestStatusRequest
+      required:
+      - status
+    v202309SrcGroupBy:
+      type: string
+      enum:
+      - SRC_GROUP_BY_UNSPECIFIED
+      - SRC_GROUP_BY_ALL_AGENTS
+      - SRC_GROUP_BY_LABEL
+      - SRC_GROUP_BY_SITE
+      default: SRC_GROUP_BY_UNSPECIFIED
+      description: "- SRC_GROUP_BY_UNSPECIFIED: Invalid value.\n - SRC_GROUP_BY_ALL_AGENTS: Grouped by all agents\n - SRC_GROUP_BY_LABEL: Grouped by label\n - SRC_GROUP_BY_SITE: Grouped by site"
+      title: SrcGroupBy
+    v202309TestTraceSettings:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int64
+          description: Number of probe packets to send in one iteration
+        protocol:
+          type: string
+          description: Transport protocol to use (icmp | tcp | udp)
+        port:
+          type: integer
+          format: int64
+          description: Target port for TCP or UDP probes (ignored for ICMP)
+        timeout:
+          type: integer
+          format: int64
+          description: Timeout in milliseconds for execution of the task
+        limit:
+          type: integer
+          format: int64
+          description: Maximum number of hops to probe (i.e. maximum TTL)
+        delay:
+          type: number
+          format: float
+          description: Inter-probe delay in milliseconds
+        dscp:
+          type: integer
+          format: int64
+          description: DSCP code to be set in IP header of probe packets
+        mtu:
+          type: boolean
+          description: Enable MTU in trace results
+      title: TestTraceSettings
+    SyntheticsAdminServiceUpdateAgentAlertBody:
       type: object
       properties:
         thresholdSeconds:
@@ -973,208 +1424,19 @@ components:
           type: array
           items:
             type: string
-        agentId:
-          type: string
-    AgentMetadataIpValue:
+    v202309ListAgentsResponse:
       type: object
       properties:
-        value:
-          type: string
-    SyntheticsAdminServiceUpdateTestBody:
-      type: object
-      properties:
-        test:
-          type: object
-          properties:
-            name:
-              type: string
-              description: User selected name of the test
-            type:
-              type: string
-              description: Type of the test
-            status:
-              $ref: '#/components/schemas/v202309TestStatus'
-            settings:
-              $ref: '#/components/schemas/v202309TestSettings'
-            cdate:
-              type: string
-              format: date-time
-              description: Creation timestamp (UTC)
-              readOnly: true
-            edate:
-              type: string
-              format: date-time
-              description: Last modification timestamp (UTC)
-              readOnly: true
-            createdBy:
-              $ref: '#/components/schemas/v202303UserInfo'
-            lastUpdatedBy:
-              $ref: '#/components/schemas/v202303UserInfo'
-            labels:
-              type: array
-              items:
-                type: string
-              description: Set of labels associated with the test
-          title: Test
-      title: UpdateTestRequest
-    v202309Agent:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Unique identifier of the agent
-          readOnly: true
-        siteName:
-          type: string
-          description: Name of the site where agent is located
-        status:
-          $ref: '#/components/schemas/v202309AgentStatus'
-        alias:
-          type: string
-          description: User selected descriptive name of the agent
-        type:
-          type: string
-          description: Type of agent (global | private)
-          readOnly: true
-        os:
-          type: string
-          description: OS version of server/VM hosting the agent
-          readOnly: true
-        ip:
-          type: string
-          description: Public IP address of the agent (auto-detected)
-          readOnly: true
-        lat:
-          type: number
-          format: double
-          description: Latitude of agent's location (signed decimal degrees)
-        long:
-          type: number
-          format: double
-          description: Longitude of agent's location (signed decimal degrees)
-        lastAuthed:
-          type: string
-          format: date-time
-          description: Timestamp of the last authorization
-          readOnly: true
-        family:
-          $ref: '#/components/schemas/v202309IPFamily'
-        asn:
-          type: integer
-          format: int64
-          description: ASN of the AS owning agent's public address
-        siteId:
-          type: string
-          description: ID of the site hosting the agent (if configured in Kentik)
-        version:
-          type: string
-          description: Software version of the agent
-          readOnly: true
-        city:
-          type: string
-          description: City where the agent is located
-        region:
-          type: string
-          description: Geographical region of agent's location
-        country:
-          type: string
-          description: Country of agent's location
-        testIds:
+        agents:
           type: array
           items:
-            type: string
-          description: IDs of user's test running on the agent
-          readOnly: true
-        localIp:
-          type: string
-          description: Internal IP address of the agent
-        cloudRegion:
-          type: string
-          description: Cloud region (if any) hosting the agent
-        cloudProvider:
-          type: string
-          description: Cloud provider (if any) hosting the agent
-        agentImpl:
-          $ref: '#/components/schemas/v202309ImplementType'
-        labels:
-          type: array
-          items:
-            type: string
-          description: List of names of labels associated with the agent
-        metadata:
-          $ref: '#/components/schemas/v202309AgentMetadata'
-      title: Agent
-    v202309TestPingSettings:
-      type: object
-      properties:
-        count:
+            $ref: '#/components/schemas/v202309Agent'
+          description: List of available agents
+        invalidCount:
           type: integer
           format: int64
-          description: Number of probe packets to send in one iteration
-        protocol:
-          type: string
-          description: Transport protocol to use (icmp | tcp)
-        port:
-          type: integer
-          format: int64
-          description: Target port for TCP probes (ignored for ICMP)
-        timeout:
-          type: integer
-          format: int64
-          description: Timeout in milliseconds for execution of the task
-        delay:
-          type: number
-          format: float
-          description: Inter-probe delay in milliseconds
-        dscp:
-          type: integer
-          format: int64
-          description: DSCP code to be set in IP header of probe packets
-      title: TestPingSettings
-    v202303UserInfo:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Unique system generated ID
-          readOnly: true
-        email:
-          type: string
-          description: E-mail address of the user
-          readOnly: true
-        fullName:
-          type: string
-          description: Full name of the user
-          readOnly: true
-      title: UserInfo
-    v202309SetTestStatusResponse:
-      type: object
-      title: SetTestStatusResponse
-    v202309UrlTest:
-      type: object
-      properties:
-        target:
-          type: string
-          description: HTTP or HTTPS URL to request
-        timeout:
-          type: integer
-          format: int64
-          description: HTTP transaction timeout (in milliseconds)
-        method:
-          type: string
-          description: HTTP method to use (GET | HEAD | PATCH | POST | PUT)
-        headers:
-          type: object
-          additionalProperties:
-            type: string
-          description: Map of HTTP header values keyed by header names
-        body:
-          type: string
-          description: HTTP request body
-        ignoreTlsErrors:
-          type: boolean
-          description: Boolean indicating whether to ignore TLS certificate verification errors
-      title: UrlTest
+          description: Number of invalid entries encountered while collecting data
+      title: ListAgentsResponse
     v202309AgentMetadata:
       type: object
       properties:
@@ -1201,271 +1463,8 @@ components:
           description: List of public IPv6 addresses
           readOnly: true
       title: AgentMetadata
-    v202309GroupedAlertSetting:
+    v202309DeleteAgentAlertResponse:
       type: object
-      properties:
-        metric:
-          type: string
-          description: Metric
-        srcGroupBy:
-          $ref: '#/components/schemas/v202309SrcGroupBy'
-        percentOfSrcGroup:
-          type: integer
-          format: int64
-          description: Grouping percentage
-        filterIds:
-          type: array
-          items:
-            type: integer
-            format: int64
-          description: List of IDs to include in the group
-      title: GroupedAlertSetting
-    v202309AgentAlert:
-      type: object
-      properties:
-        id:
-          type: string
-        thresholdSeconds:
-          type: integer
-          format: int64
-        notificationChannelIds:
-          type: array
-          items:
-            type: string
-        agentId:
-          type: string
-        agentName:
-          type: string
-    v202309GetTestResponse:
-      type: object
-      properties:
-        test:
-          $ref: '#/components/schemas/v202309Test'
-      title: GetTestResponse
-    SyntheticsAdminServiceUpdateAgentBody:
-      type: object
-      properties:
-        agent:
-          type: object
-          properties:
-            siteName:
-              type: string
-              description: Name of the site where agent is located
-            status:
-              $ref: '#/components/schemas/v202309AgentStatus'
-            alias:
-              type: string
-              description: User selected descriptive name of the agent
-            type:
-              type: string
-              description: Type of agent (global | private)
-              readOnly: true
-            os:
-              type: string
-              description: OS version of server/VM hosting the agent
-              readOnly: true
-            ip:
-              type: string
-              description: Public IP address of the agent (auto-detected)
-              readOnly: true
-            lat:
-              type: number
-              format: double
-              description: Latitude of agent's location (signed decimal degrees)
-            long:
-              type: number
-              format: double
-              description: Longitude of agent's location (signed decimal degrees)
-            lastAuthed:
-              type: string
-              format: date-time
-              description: Timestamp of the last authorization
-              readOnly: true
-            family:
-              $ref: '#/components/schemas/v202309IPFamily'
-            asn:
-              type: integer
-              format: int64
-              description: ASN of the AS owning agent's public address
-            siteId:
-              type: string
-              description: ID of the site hosting the agent (if configured in Kentik)
-            version:
-              type: string
-              description: Software version of the agent
-              readOnly: true
-            city:
-              type: string
-              description: City where the agent is located
-            region:
-              type: string
-              description: Geographical region of agent's location
-            country:
-              type: string
-              description: Country of agent's location
-            testIds:
-              type: array
-              items:
-                type: string
-              description: IDs of user's test running on the agent
-              readOnly: true
-            localIp:
-              type: string
-              description: Internal IP address of the agent
-            cloudRegion:
-              type: string
-              description: Cloud region (if any) hosting the agent
-            cloudProvider:
-              type: string
-              description: Cloud provider (if any) hosting the agent
-            agentImpl:
-              $ref: '#/components/schemas/v202309ImplementType'
-            labels:
-              type: array
-              items:
-                type: string
-              description: List of names of labels associated with the agent
-            metadata:
-              $ref: '#/components/schemas/v202309AgentMetadata'
-          title: Agent
-      title: UpdateAgentRequest
-    v202309HostnameTest:
-      type: object
-      properties:
-        target:
-          type: string
-          description: Fully qualified DNS name of the target host
-      title: HostnameTest
-    v202309DeleteAgentResponse:
-      type: object
-      title: DeleteAgentResponse
-    v202309SrcGroupBy:
-      type: string
-      enum:
-      - SRC_GROUP_BY_UNSPECIFIED
-      - SRC_GROUP_BY_ALL_AGENTS
-      - SRC_GROUP_BY_LABEL
-      - SRC_GROUP_BY_SITE
-      default: SRC_GROUP_BY_UNSPECIFIED
-      description: "- SRC_GROUP_BY_UNSPECIFIED: Invalid value.\n - SRC_GROUP_BY_ALL_AGENTS: Grouped by all agents\n - SRC_GROUP_BY_LABEL: Grouped by label\n - SRC_GROUP_BY_SITE: Grouped by site"
-      title: SrcGroupBy
-    SyntheticsAdminServiceUpdateAgentAlertBody:
-      type: object
-      properties:
-        thresholdSeconds:
-          type: integer
-          format: int64
-        notificationChannelIds:
-          type: array
-          items:
-            type: string
-    v202309ScheduleSettings:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-          description: Boolean indicating an (dis|en)abled schedule
-        start:
-          type: integer
-          format: int64
-          description: UTC unix timestamps indicating the start of the schedule
-        end:
-          type: integer
-          format: int64
-          description: UTC unix timestamp indicating the end of the schedule
-      title: ScheduleSettings
-    v202309UpdateTestResponse:
-      type: object
-      properties:
-        test:
-          $ref: '#/components/schemas/v202309Test'
-      title: UpdateTestResponse
-    v202309TestSettings:
-      type: object
-      properties:
-        hostname:
-          $ref: '#/components/schemas/v202309HostnameTest'
-        ip:
-          $ref: '#/components/schemas/v202309IpTest'
-        agent:
-          $ref: '#/components/schemas/v202309AgentTest'
-        flow:
-          $ref: '#/components/schemas/v202309FlowTest'
-        dns:
-          $ref: '#/components/schemas/v202309DnsTest'
-        url:
-          $ref: '#/components/schemas/v202309UrlTest'
-        networkGrid:
-          $ref: '#/components/schemas/v202309IpTest'
-        pageLoad:
-          $ref: '#/components/schemas/v202309PageLoadTest'
-        dnsGrid:
-          $ref: '#/components/schemas/v202309DnsTest'
-        networkMesh:
-          $ref: '#/components/schemas/v202309NetworkMeshTest'
-        agentIds:
-          type: array
-          items:
-            type: string
-          description: IDs of agents assigned to run tasks on behalf of the test
-        tasks:
-          type: array
-          items:
-            type: string
-          description: List of task names to run for the test
-        healthSettings:
-          $ref: '#/components/schemas/v202309HealthSettings'
-        ping:
-          $ref: '#/components/schemas/v202309TestPingSettings'
-        trace:
-          $ref: '#/components/schemas/v202309TestTraceSettings'
-        period:
-          type: integer
-          format: int64
-          description: Test evaluation period (in seconds)
-        family:
-          $ref: '#/components/schemas/v202309IPFamily'
-        notificationChannels:
-          type: array
-          items:
-            type: string
-          description: List of IDs of notification channels for alarms triggered by the test
-        notes:
-          type: string
-          description: Add a note or comment for this test
-        throughput:
-          $ref: '#/components/schemas/v202309TestThroughputSettings'
-        schedule:
-          $ref: '#/components/schemas/v202309ScheduleSettings'
-        alerting:
-          $ref: '#/components/schemas/v202309AlertingSettings'
-      title: TestSettings
-    protobufAny:
-      type: object
-      properties:
-        '@type':
-          type: string
-      additionalProperties: {}
-    v202309ImplementType:
-      type: string
-      enum:
-      - IMPLEMENT_TYPE_UNSPECIFIED
-      - IMPLEMENT_TYPE_RUST
-      - IMPLEMENT_TYPE_NODE
-      - IMPLEMENT_TYPE_NETWORK
-      default: IMPLEMENT_TYPE_UNSPECIFIED
-      description: "- IMPLEMENT_TYPE_RUST: ksynth, a.k.a network agent (implemented in Rust) capable of running all tasks except for page-load and transaction\n - IMPLEMENT_TYPE_NODE: ksynth-agent, a.k.a. app agent (implemented in NodeJS) with Chromium enabled capable of running all tasks\n - IMPLEMENT_TYPE_NETWORK: ksynth-agent, a.k.a. app agent with Chromium disabled, capable of running all tasks except for page-load and transaction"
-      title: ImplementType
-    v202309AgentStatus:
-      type: string
-      enum:
-      - AGENT_STATUS_UNSPECIFIED
-      - AGENT_STATUS_OK
-      - AGENT_STATUS_WAIT
-      - AGENT_STATUS_DELETED
-      default: AGENT_STATUS_UNSPECIFIED
-      description: "- AGENT_STATUS_UNSPECIFIED: Invalid value.\n - AGENT_STATUS_OK: Agent is ready to accept tests\n - AGENT_STATUS_WAIT: Agent is waiting for authorization\n - AGENT_STATUS_DELETED: Agent was deleted - not user settable"
-      title: AgentStatus
   securitySchemes:
     email:
       type: apiKey
@@ -1476,5 +1475,5 @@ components:
       name: X-CH-Auth-API-Token
       in: header
 externalDocs:
-  description: General information about Kentik APIs
-  url: https://kb.kentik.com/v0/Ab09.htm#Ab09-APIs_Overview
+  description: Kentik synthetic monitoring system
+  url: https://kb.kentik.com/v4/Ma00.htm#Ma00-Synthetics_Overview

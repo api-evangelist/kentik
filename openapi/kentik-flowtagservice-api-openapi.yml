@@ -1,10 +1,10 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: AI Advisor AiAdvisorDataService FlowTagService API
+  title: Flow Tag Service API
   description: '# Overview
 
-    Provides programmatic access to AI Advisor.'
-  version: v202511
+    The Flow Tag API enables programmatic creation and management of flow tags.'
+  version: v202404alpha1
   contact:
     name: Kentik API Engineering
     url: https://github.com/kentik/api-schema-public
@@ -16,7 +16,7 @@ tags:
 paths:
   /flow_tag/v202404alpha1/tag:
     get:
-      summary: Search flow tag configuration.
+      summary: Search flow tag configuration
       description: Returns configuration of flow tag with search parameters.
       operationId: SearchFlowTag
       responses:
@@ -78,7 +78,7 @@ paths:
       tags:
       - FlowTagService
     post:
-      summary: Create flow tag configuration.
+      summary: Create flow tag configuration
       description: Create a flow tag configuration.
       operationId: CreateFlowTag
       responses:
@@ -104,7 +104,7 @@ paths:
       - FlowTagService
   /flow_tag/v202404alpha1/tag/{flowTag.id}:
     put:
-      summary: Update flow tag configuration.
+      summary: Update flow tag configuration
       description: Update a flow tag configuration.
       operationId: UpdateFlowTag
       responses:
@@ -136,7 +136,7 @@ paths:
       tags:
       - FlowTagService
     get:
-      summary: Get flow tag configuration.
+      summary: Get flow tag configuration
       description: Returns configuration of flow tag with specified ID.
       operationId: GetFlowTag
       responses:
@@ -161,7 +161,7 @@ paths:
       tags:
       - FlowTagService
     delete:
-      summary: Delete flow tag configuration.
+      summary: Delete flow tag configuration
       description: Delete a flow tag configuration with id.
       operationId: DeleteFlowTag
       responses:
@@ -187,6 +187,37 @@ paths:
       - FlowTagService
 components:
   schemas:
+    v202404alpha1UpdateFlowTagResponse:
+      type: object
+      properties:
+        flowTag:
+          $ref: '#/components/schemas/v202404alpha1FlowTag'
+      title: UpdateFlowTagResponse
+    v202404alpha1GetFlowTagResponse:
+      type: object
+      properties:
+        flowTag:
+          $ref: '#/components/schemas/v202404alpha1FlowTag'
+      title: GetFlowTagResponse
+    v202404alpha1CreateFlowTagResponse:
+      type: object
+      properties:
+        flowTag:
+          $ref: '#/components/schemas/v202404alpha1FlowTag'
+      title: CreateFlowTagResponse
+    v202404alpha1AddressInfo:
+      type: object
+      properties:
+        addresses:
+          type: array
+          items:
+            type: string
+          title: List of returning mac or ip address
+        totalCount:
+          type: integer
+          format: int32
+          title: Total number of addresses available
+      title: AddressInfo
     rpcStatus:
       type: object
       properties:
@@ -199,27 +230,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/protobufAny'
-    v202404alpha1UpdateFlowTagResponse:
-      type: object
-      properties:
-        flowTag:
-          $ref: '#/components/schemas/v202404alpha1FlowTag'
-      title: UpdateFlowTagResponse
-    v202404alpha1CreateFlowTagRequest:
-      type: object
-      properties:
-        flowTag:
-          $ref: '#/components/schemas/v202404alpha1FlowTag'
-      title: CreateFlowTagRequest
-    v202404alpha1CreateFlowTagResponse:
-      type: object
-      properties:
-        flowTag:
-          $ref: '#/components/schemas/v202404alpha1FlowTag'
-      title: CreateFlowTagResponse
-    v202404alpha1DeleteFlowTagResponse:
-      type: object
-      title: DeleteFlowTagResponse
     v202404alpha1SearchFlowTagResponse:
       type: object
       properties:
@@ -234,145 +244,6 @@ components:
           type: integer
           format: int64
       title: SearchFlowTagResponse
-    v202404alpha1AddressInfo:
-      type: object
-      properties:
-        addresses:
-          type: array
-          items:
-            type: string
-          title: List of returning mac or ip address
-        totalCount:
-          type: integer
-          format: int32
-          title: Total number of addresses available
-      title: AddressInfo
-    v202404alpha1FlowTag:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Unique system assigned identifier of the flow tag
-          readOnly: true
-        name:
-          type: string
-          description: This will appear in places where selecting a tag is necessary
-          readOnly: true
-        editedBy:
-          type: string
-          description: User who last edited this tag
-          readOnly: true
-        createdBy:
-          type: string
-          description: User who created this tag
-          readOnly: true
-        cdate:
-          type: string
-          format: date-time
-          description: Date and time when this tag was created
-          readOnly: true
-        edate:
-          type: string
-          format: date-time
-          description: Date and time when this tag was last updated
-          readOnly: true
-        ip:
-          $ref: '#/components/schemas/v202404alpha1AddressInfo'
-        port:
-          type: array
-          items:
-            type: string
-          description: Port number associated with the flow tag
-        tcpFlags:
-          type: integer
-          format: int64
-          description: TCP flags associated with the flow tag
-        protocol:
-          type: array
-          items:
-            type: integer
-            format: int64
-          description: Protocol numbers associated with the flow tag
-        deviceName:
-          type: array
-          items:
-            type: string
-          description: Name of the device associated with the flow tag
-        deviceType:
-          type: array
-          items:
-            type: string
-          description: Type of the device associated with the flow tag
-        site:
-          type: array
-          items:
-            type: string
-          description: Site where the device associated with the flow tag is located
-        interfaceName:
-          type: array
-          items:
-            type: string
-          description: Name of the interface associated with the flow tag
-        asn:
-          type: array
-          items:
-            type: string
-          description: Autonomous System Number (ASN) associated with the flow tag
-        lasthopAsName:
-          type: array
-          items:
-            type: string
-          description: Name of the last hop's Autonomous System (AS) associated with the flow tag
-        nexthopAsn:
-          type: array
-          items:
-            type: string
-          description: Autonomous System Number (ASN) of the next hop associated with the flow tag
-        nexthopAsName:
-          type: array
-          items:
-            type: string
-          description: Name of the next hop's Autonomous System (AS) associated with the flow tag
-        nexthop:
-          type: array
-          items:
-            type: string
-          description: Next hop associated with the flow tag
-        bgpAspath:
-          type: array
-          items:
-            type: string
-          description: BGP AS path associated with the flow tag
-        bgpCommunity:
-          type: array
-          items:
-            type: string
-          description: BGP community associated with the flow tag
-        mac:
-          $ref: '#/components/schemas/v202404alpha1AddressInfo'
-        country:
-          type: array
-          items:
-            type: string
-          description: Country associated with the flow tag
-        vlans:
-          type: array
-          items:
-            type: string
-          description: VLANs associated with the flow tag
-      title: FlowTag
-    protobufAny:
-      type: object
-      properties:
-        '@type':
-          type: string
-      additionalProperties: {}
-    v202404alpha1GetFlowTagResponse:
-      type: object
-      properties:
-        flowTag:
-          $ref: '#/components/schemas/v202404alpha1FlowTag'
-      title: GetFlowTagResponse
     FlowTagServiceUpdateFlowTagBody:
       type: object
       properties:
@@ -487,6 +358,135 @@ components:
               description: VLANs associated with the flow tag
           title: FlowTag
       title: UpdateFlowTagRequest
+    protobufAny:
+      type: object
+      properties:
+        '@type':
+          type: string
+      additionalProperties: {}
+    v202404alpha1DeleteFlowTagResponse:
+      type: object
+      title: DeleteFlowTagResponse
+    v202404alpha1CreateFlowTagRequest:
+      type: object
+      properties:
+        flowTag:
+          $ref: '#/components/schemas/v202404alpha1FlowTag'
+      title: CreateFlowTagRequest
+    v202404alpha1FlowTag:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique system assigned identifier of the flow tag
+          readOnly: true
+        name:
+          type: string
+          description: This will appear in places where selecting a tag is necessary
+          readOnly: true
+        editedBy:
+          type: string
+          description: User who last edited this tag
+          readOnly: true
+        createdBy:
+          type: string
+          description: User who created this tag
+          readOnly: true
+        cdate:
+          type: string
+          format: date-time
+          description: Date and time when this tag was created
+          readOnly: true
+        edate:
+          type: string
+          format: date-time
+          description: Date and time when this tag was last updated
+          readOnly: true
+        ip:
+          $ref: '#/components/schemas/v202404alpha1AddressInfo'
+        port:
+          type: array
+          items:
+            type: string
+          description: Port number associated with the flow tag
+        tcpFlags:
+          type: integer
+          format: int64
+          description: TCP flags associated with the flow tag
+        protocol:
+          type: array
+          items:
+            type: integer
+            format: int64
+          description: Protocol numbers associated with the flow tag
+        deviceName:
+          type: array
+          items:
+            type: string
+          description: Name of the device associated with the flow tag
+        deviceType:
+          type: array
+          items:
+            type: string
+          description: Type of the device associated with the flow tag
+        site:
+          type: array
+          items:
+            type: string
+          description: Site where the device associated with the flow tag is located
+        interfaceName:
+          type: array
+          items:
+            type: string
+          description: Name of the interface associated with the flow tag
+        asn:
+          type: array
+          items:
+            type: string
+          description: Autonomous System Number (ASN) associated with the flow tag
+        lasthopAsName:
+          type: array
+          items:
+            type: string
+          description: Name of the last hop's Autonomous System (AS) associated with the flow tag
+        nexthopAsn:
+          type: array
+          items:
+            type: string
+          description: Autonomous System Number (ASN) of the next hop associated with the flow tag
+        nexthopAsName:
+          type: array
+          items:
+            type: string
+          description: Name of the next hop's Autonomous System (AS) associated with the flow tag
+        nexthop:
+          type: array
+          items:
+            type: string
+          description: Next hop associated with the flow tag
+        bgpAspath:
+          type: array
+          items:
+            type: string
+          description: BGP AS path associated with the flow tag
+        bgpCommunity:
+          type: array
+          items:
+            type: string
+          description: BGP community associated with the flow tag
+        mac:
+          $ref: '#/components/schemas/v202404alpha1AddressInfo'
+        country:
+          type: array
+          items:
+            type: string
+          description: Country associated with the flow tag
+        vlans:
+          type: array
+          items:
+            type: string
+          description: VLANs associated with the flow tag
+      title: FlowTag
   securitySchemes:
     email:
       type: apiKey

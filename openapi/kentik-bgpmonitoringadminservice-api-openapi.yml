@@ -1,10 +1,10 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: AI Advisor AiAdvisorDataService BgpMonitoringAdminService API
+  title: Bgp Monitoring Admin Service API
   description: '# Overview
 
-    Provides programmatic access to AI Advisor.'
-  version: v202511
+    The BGP Monitoring API provides programmatic access to Kentik''s BGP monitoring system.'
+  version: v202210
   contact:
     name: Kentik API Engineering
     url: https://github.com/kentik/api-schema-public
@@ -16,7 +16,7 @@ tags:
 paths:
   /bgp_monitoring/v202210/monitors:
     get:
-      summary: List BGP Monitors.
+      summary: List BGP Monitors
       description: Returns list of all BGP monitors present in the account.
       operationId: ListMonitors
       responses:
@@ -35,7 +35,7 @@ paths:
       tags:
       - BgpMonitoringAdminService
     post:
-      summary: Create new BGP Monitor instance.
+      summary: Create new BGP Monitor instance
       description: Creates new BGP Monitor and if successful returns its configuration.
       operationId: CreateMonitor
       responses:
@@ -61,7 +61,7 @@ paths:
       - BgpMonitoringAdminService
   /bgp_monitoring/v202210/monitors/{id}:
     get:
-      summary: Get BGP Monitor configuration.
+      summary: Get BGP Monitor configuration
       description: Returns configuration of existing BGP monitor with specific ID.
       operationId: GetMonitor
       responses:
@@ -87,7 +87,7 @@ paths:
       tags:
       - BgpMonitoringAdminService
     delete:
-      summary: Delete existing BGP Monitor.
+      summary: Delete existing BGP Monitor
       description: Delete BGP monitor with with specific ID.
       operationId: DeleteMonitor
       responses:
@@ -113,8 +113,8 @@ paths:
       tags:
       - BgpMonitoringAdminService
     put:
-      summary: Update configuration of a BGP monitor.
-      description: Updates configuration of BGP monitor with specific ID and returns updated  configuration.
+      summary: Update configuration of a BGP monitor
+      description: Updates configuration of BGP monitor with specific ID and returns updated configuration.
       operationId: UpdateMonitor
       responses:
         '200':
@@ -146,7 +146,7 @@ paths:
       - BgpMonitoringAdminService
   /bgp_monitoring/v202210/monitors/{id}/status:
     put:
-      summary: Sets administrative status of a BGP monitor.
+      summary: Sets administrative status of a BGP monitor
       description: Sets administrative status of BGP monitor with specific ID.
       operationId: SetMonitorStatus
       responses:
@@ -179,9 +179,12 @@ paths:
       - BgpMonitoringAdminService
 components:
   schemas:
-    v202210SetMonitorStatusResponse:
+    v202210UpdateMonitorResponse:
       type: object
-      title: SetMonitorStatusResponse
+      properties:
+        monitor:
+          $ref: '#/components/schemas/v202210BgpMonitor'
+      title: UpdateMonitorResponse
     v202210BgpMonitorSettings:
       type: object
       properties:
@@ -221,6 +224,85 @@ components:
       title: BgpMonitorSettings
       required:
       - targets
+    v202210SetMonitorStatusResponse:
+      type: object
+      title: SetMonitorStatusResponse
+    v202210ListMonitorsResponse:
+      type: object
+      properties:
+        monitors:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202210BgpMonitor'
+          description: List of BGP monitors configured in the account
+          readOnly: true
+        invalidCount:
+          type: integer
+          format: int64
+          description: Number of invalid objects (should be always zero)
+          readOnly: true
+      title: ListMonitorsResponse
+    v202210BgpHealthSettings:
+      type: object
+      properties:
+        reachabilityWarning:
+          type: number
+          format: float
+          description: Threshold (in percents) for triggering warning level alert
+        reachabilityCritical:
+          type: number
+          format: float
+          description: Threshold (in percents) for triggering critical level alert
+      title: BgpHealthSettings
+    v202210BgpMonitor:
+      type: object
+      properties:
+        id:
+          type: string
+          description: System generated unique identifier
+          readOnly: true
+        name:
+          type: string
+          description: User selected name of the monitor
+        status:
+          $ref: '#/components/schemas/v202210BgpMonitorStatus'
+        settings:
+          $ref: '#/components/schemas/v202210BgpMonitorSettings'
+        cdate:
+          type: string
+          format: date-time
+          description: Creation timestamp (UTC)
+          readOnly: true
+        edate:
+          type: string
+          format: date-time
+          description: Last modification timestamp (UTC)
+          readOnly: true
+        createdBy:
+          $ref: '#/components/schemas/v202303UserInfo'
+        lastUpdatedBy:
+          $ref: '#/components/schemas/v202303UserInfo'
+        labels:
+          type: array
+          items:
+            type: string
+      title: BgpMonitor
+      required:
+      - name
+    v202210CreateMonitorRequest:
+      type: object
+      properties:
+        monitor:
+          $ref: '#/components/schemas/v202210BgpMonitor'
+      title: CreateMonitorRequest
+      required:
+      - monitor
+    protobufAny:
+      type: object
+      properties:
+        '@type':
+          type: string
+      additionalProperties: {}
     v202210Nlri:
       type: object
       properties:
@@ -236,9 +318,16 @@ components:
       - afi
       - safi
       - prefix
-    v202210DeleteMonitorResponse:
-      type: object
-      title: DeleteMonitorResponse
+    v202210BgpMonitorStatus:
+      type: string
+      enum:
+      - BGP_MONITOR_STATUS_UNSPECIFIED
+      - BGP_MONITOR_STATUS_ACTIVE
+      - BGP_MONITOR_STATUS_PAUSED
+      - BGP_MONITOR_STATUS_DELETED
+      default: BGP_MONITOR_STATUS_UNSPECIFIED
+      description: "- BGP_MONITOR_STATUS_UNSPECIFIED: Invalid value.\n - BGP_MONITOR_STATUS_ACTIVE: Monitor is active.\n - BGP_MONITOR_STATUS_PAUSED: Monitor is paused.\n - BGP_MONITOR_STATUS_DELETED: Monitor is deleted. Not user settable"
+      title: BgpMonitorStatus
     BgpMonitoringAdminServiceUpdateMonitorBody:
       type: object
       properties:
@@ -275,32 +364,6 @@ components:
       required:
       - name
       - monitor
-    v202210GetMonitorResponse:
-      type: object
-      properties:
-        monitor:
-          $ref: '#/components/schemas/v202210BgpMonitor'
-      title: GetMonitorResponse
-    rpcStatus:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-        message:
-          type: string
-        details:
-          type: array
-          items:
-            $ref: '#/components/schemas/protobufAny'
-    BgpMonitoringAdminServiceSetMonitorStatusBody:
-      type: object
-      properties:
-        status:
-          $ref: '#/components/schemas/v202210BgpMonitorStatus'
-      title: SetMonitorStatusRequest
-      required:
-      - status
     v202303UserInfo:
       type: object
       properties:
@@ -317,70 +380,18 @@ components:
           description: Full name of the user
           readOnly: true
       title: UserInfo
-    v202210CreateMonitorResponse:
+    rpcStatus:
       type: object
       properties:
-        monitor:
-          $ref: '#/components/schemas/v202210BgpMonitor'
-      title: CreateMonitorResponse
-    v202210ListMonitorsResponse:
-      type: object
-      properties:
-        monitors:
-          type: array
-          items:
-            $ref: '#/components/schemas/v202210BgpMonitor'
-          description: List of BGP monitors configured in the account
-          readOnly: true
-        invalidCount:
+        code:
           type: integer
-          format: int64
-          description: Number of invalid objects (should be always zero)
-          readOnly: true
-      title: ListMonitorsResponse
-    v202303Afi:
-      type: string
-      enum:
-      - AFI_UNSPECIFIED
-      - AFI_IP4
-      - AFI_IP6
-      default: AFI_UNSPECIFIED
-      title: Afi
-    v202210BgpMonitor:
-      type: object
-      properties:
-        id:
+          format: int32
+        message:
           type: string
-          description: System generated unique identifier
-          readOnly: true
-        name:
-          type: string
-          description: User selected name of the monitor
-        status:
-          $ref: '#/components/schemas/v202210BgpMonitorStatus'
-        settings:
-          $ref: '#/components/schemas/v202210BgpMonitorSettings'
-        cdate:
-          type: string
-          format: date-time
-          description: Creation timestamp (UTC)
-          readOnly: true
-        edate:
-          type: string
-          format: date-time
-          description: Last modification timestamp (UTC)
-          readOnly: true
-        createdBy:
-          $ref: '#/components/schemas/v202303UserInfo'
-        lastUpdatedBy:
-          $ref: '#/components/schemas/v202303UserInfo'
-        labels:
+        details:
           type: array
           items:
-            type: string
-      title: BgpMonitor
-      required:
-      - name
+            $ref: '#/components/schemas/protobufAny'
     v202303Safi:
       type: string
       enum:
@@ -390,48 +401,37 @@ components:
       - SAFI_L3VPN
       default: SAFI_UNSPECIFIED
       title: Safi
-    v202210UpdateMonitorResponse:
+    BgpMonitoringAdminServiceSetMonitorStatusBody:
+      type: object
+      properties:
+        status:
+          $ref: '#/components/schemas/v202210BgpMonitorStatus'
+      title: SetMonitorStatusRequest
+      required:
+      - status
+    v202210GetMonitorResponse:
       type: object
       properties:
         monitor:
           $ref: '#/components/schemas/v202210BgpMonitor'
-      title: UpdateMonitorResponse
-    v202210BgpMonitorStatus:
+      title: GetMonitorResponse
+    v202210CreateMonitorResponse:
+      type: object
+      properties:
+        monitor:
+          $ref: '#/components/schemas/v202210BgpMonitor'
+      title: CreateMonitorResponse
+    v202303Afi:
       type: string
       enum:
-      - BGP_MONITOR_STATUS_UNSPECIFIED
-      - BGP_MONITOR_STATUS_ACTIVE
-      - BGP_MONITOR_STATUS_PAUSED
-      - BGP_MONITOR_STATUS_DELETED
-      default: BGP_MONITOR_STATUS_UNSPECIFIED
-      description: "- BGP_MONITOR_STATUS_UNSPECIFIED: Invalid value.\n - BGP_MONITOR_STATUS_ACTIVE: Monitor is active.\n - BGP_MONITOR_STATUS_PAUSED: Monitor is paused.\n - BGP_MONITOR_STATUS_DELETED: Monitor is deleted. Not user settable"
-      title: BgpMonitorStatus
-    v202210CreateMonitorRequest:
+      - AFI_UNSPECIFIED
+      - AFI_IP4
+      - AFI_IP6
+      default: AFI_UNSPECIFIED
+      title: Afi
+    v202210DeleteMonitorResponse:
       type: object
-      properties:
-        monitor:
-          $ref: '#/components/schemas/v202210BgpMonitor'
-      title: CreateMonitorRequest
-      required:
-      - monitor
-    protobufAny:
-      type: object
-      properties:
-        '@type':
-          type: string
-      additionalProperties: {}
-    v202210BgpHealthSettings:
-      type: object
-      properties:
-        reachabilityWarning:
-          type: number
-          format: float
-          description: Threshold (in percents) for triggering warning level alert
-        reachabilityCritical:
-          type: number
-          format: float
-          description: Threshold (in percents) for triggering critical level alert
-      title: BgpHealthSettings
+      title: DeleteMonitorResponse
   securitySchemes:
     email:
       type: apiKey
@@ -442,5 +442,5 @@ components:
       name: X-CH-Auth-API-Token
       in: header
 externalDocs:
-  description: General information about Kentik APIs
-  url: https://kb.kentik.com/v0/Ab09.htm#Ab09-APIs_Overview
+  description: More about Kentik BGP monitoring
+  url: https://kb.kentik.com/v4/Ma03.htm#Ma03-BGP_Monitor_Details_Page

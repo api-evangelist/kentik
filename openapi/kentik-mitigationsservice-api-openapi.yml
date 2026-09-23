@@ -1,10 +1,10 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: AI Advisor AiAdvisorDataService MitigationsService API
+  title: Mitigations Service API
   description: '# Overview
 
-    Provides programmatic access to AI Advisor.'
-  version: v202511
+    The Alert Mitigations API provides programmatic access to Kentik''s capabilities of configuring and managing network infrastructure mitigations that are triggered automatically based on alerts or manually to prevent network attacks.'
+  version: v202505
   contact:
     name: Kentik API Engineering
     url: https://github.com/kentik/api-schema-public
@@ -304,14 +304,40 @@ paths:
       - MitigationsService
 components:
   schemas:
-    v202505MitigationType:
+    v202501NumericOp:
       type: string
       enum:
-      - MITIGATION_TYPE_UNSPECIFIED
-      - MITIGATION_TYPE_MANUAL
-      - MITIGATION_TYPE_AUTO
-      default: MITIGATION_TYPE_UNSPECIFIED
-      title: "- MITIGATION_TYPE_MANUAL: Manual mitigation\n - MITIGATION_TYPE_AUTO: Automatic mitigation"
+      - NUMERIC_OP_UNSPECIFIED
+      - NUMERIC_OP_EQUALS
+      - NUMERIC_OP_NOT_EQUALS
+      - NUMERIC_OP_LESS_THAN
+      - NUMERIC_OP_GREATER_THAN
+      - NUMERIC_OP_LESS_THAN_OR_EQUALS
+      - NUMERIC_OP_GREATER_THAN_OR_EQUALS
+      default: NUMERIC_OP_UNSPECIFIED
+    v202505MitigationsServiceGetResponse:
+      type: object
+      properties:
+        mitigation:
+          $ref: '#/components/schemas/v202505Mitigation'
+    v202501NumericPredicateGroup:
+      type: object
+      properties:
+        and:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202501NumericPredicate'
+    v202505MitigationsServiceListResponse:
+      type: object
+      properties:
+        pagination:
+          $ref: '#/components/schemas/typesv202506PaginationInfo'
+        mitigations:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202505Mitigation'
+          description: The mitigations that were found matching the filters.
+          readOnly: true
     v202505Source:
       type: object
       properties:
@@ -323,6 +349,51 @@ components:
       required:
       - policyType
       - id
+    v202501NumericPredicate:
+      type: object
+      properties:
+        operator:
+          $ref: '#/components/schemas/v202501NumericOp'
+        value:
+          type: string
+          format: uint64
+    v202505MitigationsServiceCreateResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The ID of the created mitigation.
+          readOnly: true
+    v202505MitigationType:
+      type: string
+      enum:
+      - MITIGATION_TYPE_UNSPECIFIED
+      - MITIGATION_TYPE_MANUAL
+      - MITIGATION_TYPE_AUTO
+      default: MITIGATION_TYPE_UNSPECIFIED
+      title: "- MITIGATION_TYPE_MANUAL: Manual mitigation\n - MITIGATION_TYPE_AUTO: Automatic mitigation"
+    v202505MitigationsServiceActResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202505MitigationsActResult'
+          description: The results of the mitigation actions.
+          readOnly: true
+    v202505MitigationUserAction:
+      type: string
+      enum:
+      - MITIGATION_USER_ACTION_UNSPECIFIED
+      - MITIGATION_USER_ACTION_TAKE_CONTROL
+      - MITIGATION_USER_ACTION_STOP
+      - MITIGATION_USER_ACTION_START
+      - MITIGATION_USER_ACTION_DELETE
+      - MITIGATION_USER_ACTION_APPROVE_START
+      - MITIGATION_USER_ACTION_SKIP_WAIT
+      - MITIGATION_USER_ACTION_RETRY
+      - MITIGATION_USER_ACTION_ACK
+      default: MITIGATION_USER_ACTION_UNSPECIFIED
     v202501FragmentPredicateGroup:
       type: object
       properties:
@@ -330,21 +401,52 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/v202501FragmentPredicate'
-    v202505MitigationsServiceGetResponse:
+    v202501Fragment:
+      type: string
+      enum:
+      - FRAGMENT_UNSPECIFIED
+      - FRAGMENT_DF
+      - FRAGMENT_ISF
+      - FRAGMENT_FF
+      - FRAGMENT_LF
+      default: FRAGMENT_UNSPECIFIED
+      title: "- FRAGMENT_DF: Don't Fragment\n - FRAGMENT_ISF: Is a fragment other than the first\n - FRAGMENT_FF: First Fragment\n - FRAGMENT_LF: Last Fragment"
+    v202505PolicyType:
+      type: string
+      enum:
+      - POLICY_TYPE_UNSPECIFIED
+      - POLICY_TYPE_AGENT
+      - POLICY_TYPE_COMPONENT
+      - POLICY_TYPE_DEVICE
+      - POLICY_TYPE_EVENT
+      - POLICY_TYPE_INTERFACE
+      - POLICY_TYPE_CUSTOM
+      - POLICY_TYPE_CLOUD
+      - POLICY_TYPE_PROTECT
+      - POLICY_TYPE_TRAFFIC
+      - POLICY_TYPE_KMETRICS
+      default: POLICY_TYPE_UNSPECIFIED
+      title: "- POLICY_TYPE_AGENT: NMS Agent Policy\n - POLICY_TYPE_COMPONENT: NMS Component Policy\n - POLICY_TYPE_DEVICE: NMS Device Policy\n - POLICY_TYPE_EVENT: NMS Event Policy\n - POLICY_TYPE_INTERFACE: NMS Interface Policy\n - POLICY_TYPE_CUSTOM: NMS Custom Policy\n - POLICY_TYPE_CLOUD: Flow Alerting Cloud Policy\n - POLICY_TYPE_PROTECT: Flow Alerting Protect Policy\n - POLICY_TYPE_TRAFFIC: Flow Alerting Traffic Policy\n - POLICY_TYPE_KMETRICS: Flow Alerting KMetrics Policy"
+    v202501NumericFormula:
       type: object
       properties:
-        mitigation:
-          $ref: '#/components/schemas/v202505Mitigation'
-    MitigationsServiceActBody:
-      type: object
-      properties:
-        ids:
+        or:
           type: array
           items:
-            type: string
-          description: The IDs of the mitigations to act on.
-      required:
-      - ids
+            $ref: '#/components/schemas/v202501NumericPredicateGroup'
+    v202505MitigationsActResult:
+      type: object
+      properties:
+        mitigationId:
+          type: string
+          format: int64
+          description: The ID of the mitigation that was acted upon.
+        success:
+          type: boolean
+          description: Whether the action was successful.
+        message:
+          type: string
+          description: A message describing the result of the action.
     v202505MitigationActionDetail:
       type: object
       properties:
@@ -363,19 +465,28 @@ components:
           items:
             $ref: '#/components/schemas/v202505MitigationState'
           description: The possible states the mitigation can transition to.
-    v202505MitigationsActResult:
+    protobufAny:
       type: object
       properties:
-        mitigationId:
+        '@type':
           type: string
-          format: int64
-          description: The ID of the mitigation that was acted upon.
-        success:
-          type: boolean
-          description: Whether the action was successful.
-        message:
-          type: string
-          description: A message describing the result of the action.
+      additionalProperties: {}
+    v202501FragmentPredicate:
+      type: object
+      properties:
+        operator:
+          $ref: '#/components/schemas/v202501BitwiseOp'
+        values:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202501Fragment'
+    v202501TCPFlagsFormula:
+      type: object
+      properties:
+        or:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202501TCPFlagsPredicateGroup'
     v202505MitigationState:
       type: string
       enum:
@@ -397,41 +508,71 @@ components:
       - MITIGATION_STATE_STARTING_FAIL
       - MITIGATION_STATE_START_WAIT
       default: MITIGATION_STATE_UNSPECIFIED
-    v202506MitigationTarget:
+    v202501TCPFlag:
+      type: string
+      enum:
+      - TCP_FLAG_UNSPECIFIED
+      - TCP_FLAG_FIN
+      - TCP_FLAG_SYN
+      - TCP_FLAG_RST
+      - TCP_FLAG_PSH
+      - TCP_FLAG_ACK
+      - TCP_FLAG_URG
+      - TCP_FLAG_ECE
+      - TCP_FLAG_CWR
+      default: TCP_FLAG_UNSPECIFIED
+    v202505MitigationEvent:
+      type: string
+      enum:
+      - MITIGATION_EVENT_UNSPECIFIED
+      - MITIGATION_EVENT_USER_MANUAL_CONTROL
+      - MITIGATION_EVENT_USER_STOP
+      - MITIGATION_EVENT_USER_START
+      - MITIGATION_EVENT_USER_DELETE
+      - MITIGATION_EVENT_USER_APPROVE_START
+      - MITIGATION_EVENT_USER_SKIP_WAIT
+      - MITIGATION_EVENT_USER_RETRY
+      - MITIGATION_EVENT_USER_ACK
+      - MITIGATION_EVENT_SKIP_WAIT
+      - MITIGATION_EVENT_DONE_WAIT
+      - MITIGATION_EVENT_AUTO_START
+      - MITIGATION_EVENT_AUTO_STOP
+      - MITIGATION_EVENT_REMOTE_ADDED
+      - MITIGATION_EVENT_REMOTE_REMOVED
+      - MITIGATION_EVENT_REMOTE_ERROR
+      - MITIGATION_EVENT_SYSTEM_CLEAR_DELETED
+      - MITIGATION_EVENT_TTL_EXPIRED
+      default: MITIGATION_EVENT_UNSPECIFIED
+    v202505MitigationsServiceCreateRequest:
       type: object
       properties:
+        platformId:
+          type: string
+          description: The mitigation platform ID where the mitigation will be deployed.
+        methodId:
+          type: string
+          description: The mitigation method ID for the mitigation technique.
         ipCidr:
           type: string
-        flowspec:
-          $ref: '#/components/schemas/v202501FlowspecMatch'
-        adaptiveFlowspec:
-          $ref: '#/components/schemas/v202303KeyValue'
-    typesv202506PaginationInfo:
-      type: object
-      properties:
-        totalCount:
+          description: The IP/CIDR range to mitigate.
+        srcPort:
           type: string
-          format: uint64
-          description: 'total_count is the total number of items in the list.
-
-            It may be provided optionally if include_total_count is set to false.
-
-            It will be provided always if include_total_count is set to true.'
-        hasMoreResults:
-          type: boolean
-          title: 'has_more_results is a flag to indicate if there are more results to fetch
-
-            It may be provided instead of total_count if include_total_count is set to false and it would be very expensive to fetch the total count'
-    MitigationsServiceAvailableActionsResponseMitigationAvailableTransitions:
-      type: object
-      properties:
-        fromState:
-          $ref: '#/components/schemas/v202505MitigationState'
-        availableActions:
-          type: array
-          items:
-            $ref: '#/components/schemas/v202505MitigationActionDetail'
-          description: The available actions from this state.
+          format: int64
+          description: The source port to mitigate.
+        dstPort:
+          type: string
+          format: int64
+          description: The destination port to mitigate.
+        comment:
+          type: string
+          description: A comment describing the mitigation.
+        autoStopTtl:
+          type: string
+          description: The automatic stop time-to-live for the mitigation.
+      required:
+      - platformId
+      - methodId
+      - ipCidr
     v202303KeyValue:
       type: object
       properties:
@@ -439,58 +580,18 @@ components:
           type: object
           additionalProperties:
             type: string
-    v202501FlowspecMatch:
+    rpcStatus:
       type: object
       properties:
-        dstPrefix:
+        code:
+          type: integer
+          format: int32
+        message:
           type: string
-          title: IPv4 or IPv6 CIDR prefix to match
-        srcPrefix:
-          type: string
-          title: IPv4 or IPv6 CIDR prefix to match
-        ipProtocol:
-          $ref: '#/components/schemas/v202501NumericFormula'
-        dstPort:
-          $ref: '#/components/schemas/v202501NumericFormula'
-        srcPort:
-          $ref: '#/components/schemas/v202501NumericFormula'
-        icmpType:
-          $ref: '#/components/schemas/v202501NumericFormula'
-        icmpCode:
-          $ref: '#/components/schemas/v202501NumericFormula'
-        tcpFlags:
-          $ref: '#/components/schemas/v202501TCPFlagsFormula'
-        packetLength:
-          $ref: '#/components/schemas/v202501NumericFormula'
-        dscp:
-          $ref: '#/components/schemas/v202501NumericFormula'
-        fragments:
-          $ref: '#/components/schemas/v202501FragmentFormula'
-      description: 'FlowspecMatch represents the traffic filtering criteria encoded
-
-        as Flow Specification NLRI as per RFC 8955:
-
-        https://datatracker.ietf.org/doc/html/rfc8955#name-dissemination-of-ipv4-flow-
-
-        and other related documents.'
-    v202505MitigationStateEntry:
-      type: object
-      properties:
-        timestamp:
-          type: string
-          format: date-time
-          description: The timestamp when the state change occurred.
-        state:
-          $ref: '#/components/schemas/v202505MitigationState'
-        event:
-          $ref: '#/components/schemas/v202505MitigationEvent'
-    v202501TCPFlagsPredicateGroup:
-      type: object
-      properties:
-        and:
+        details:
           type: array
           items:
-            $ref: '#/components/schemas/v202501TCPFlagsPredicate'
+            $ref: '#/components/schemas/protobufAny'
     v202505Mitigation:
       type: object
       properties:
@@ -546,42 +647,17 @@ components:
           readOnly: true
         source:
           $ref: '#/components/schemas/v202505Source'
-    rpcStatus:
+    v202505MitigationStateEntry:
       type: object
       properties:
-        code:
-          type: integer
-          format: int32
-        message:
+        timestamp:
           type: string
-        details:
-          type: array
-          items:
-            $ref: '#/components/schemas/protobufAny'
-    v202501TCPFlagsPredicate:
-      type: object
-      properties:
-        operator:
-          $ref: '#/components/schemas/v202501BitwiseOp'
-        values:
-          type: array
-          items:
-            $ref: '#/components/schemas/v202501TCPFlag'
-    v202501NumericPredicate:
-      type: object
-      properties:
-        operator:
-          $ref: '#/components/schemas/v202501NumericOp'
-        value:
-          type: string
-          format: uint64
-    v202501TCPFlagsFormula:
-      type: object
-      properties:
-        or:
-          type: array
-          items:
-            $ref: '#/components/schemas/v202501TCPFlagsPredicateGroup'
+          format: date-time
+          description: The timestamp when the state change occurred.
+        state:
+          $ref: '#/components/schemas/v202505MitigationState'
+        event:
+          $ref: '#/components/schemas/v202505MitigationEvent'
     v202505MitigationsServiceAvailableActionsForMitigationResponse:
       type: object
       properties:
@@ -591,186 +667,6 @@ components:
             type: string
           description: The available actions for the mitigation.
           readOnly: true
-    v202505MitigationsServiceCreateResponse:
-      type: object
-      properties:
-        id:
-          type: string
-          description: The ID of the created mitigation.
-          readOnly: true
-    v202501Fragment:
-      type: string
-      enum:
-      - FRAGMENT_UNSPECIFIED
-      - FRAGMENT_DF
-      - FRAGMENT_ISF
-      - FRAGMENT_FF
-      - FRAGMENT_LF
-      default: FRAGMENT_UNSPECIFIED
-      title: "- FRAGMENT_DF: Don't Fragment\n - FRAGMENT_ISF: Is a fragment other than the first\n - FRAGMENT_FF: First Fragment\n - FRAGMENT_LF: Last Fragment"
-    v202505MitigationsServiceAvailableActionsResponse:
-      type: object
-      properties:
-        transitions:
-          type: array
-          items:
-            $ref: '#/components/schemas/MitigationsServiceAvailableActionsResponseMitigationAvailableTransitions'
-          description: The available state transitions for mitigations.
-          readOnly: true
-    v202505MitigationEvent:
-      type: string
-      enum:
-      - MITIGATION_EVENT_UNSPECIFIED
-      - MITIGATION_EVENT_USER_MANUAL_CONTROL
-      - MITIGATION_EVENT_USER_STOP
-      - MITIGATION_EVENT_USER_START
-      - MITIGATION_EVENT_USER_DELETE
-      - MITIGATION_EVENT_USER_APPROVE_START
-      - MITIGATION_EVENT_USER_SKIP_WAIT
-      - MITIGATION_EVENT_USER_RETRY
-      - MITIGATION_EVENT_USER_ACK
-      - MITIGATION_EVENT_SKIP_WAIT
-      - MITIGATION_EVENT_DONE_WAIT
-      - MITIGATION_EVENT_AUTO_START
-      - MITIGATION_EVENT_AUTO_STOP
-      - MITIGATION_EVENT_REMOTE_ADDED
-      - MITIGATION_EVENT_REMOTE_REMOVED
-      - MITIGATION_EVENT_REMOTE_ERROR
-      - MITIGATION_EVENT_SYSTEM_CLEAR_DELETED
-      - MITIGATION_EVENT_TTL_EXPIRED
-      default: MITIGATION_EVENT_UNSPECIFIED
-    v202501NumericPredicateGroup:
-      type: object
-      properties:
-        and:
-          type: array
-          items:
-            $ref: '#/components/schemas/v202501NumericPredicate'
-    v202501NumericOp:
-      type: string
-      enum:
-      - NUMERIC_OP_UNSPECIFIED
-      - NUMERIC_OP_EQUALS
-      - NUMERIC_OP_NOT_EQUALS
-      - NUMERIC_OP_LESS_THAN
-      - NUMERIC_OP_GREATER_THAN
-      - NUMERIC_OP_LESS_THAN_OR_EQUALS
-      - NUMERIC_OP_GREATER_THAN_OR_EQUALS
-      default: NUMERIC_OP_UNSPECIFIED
-    v202505PolicyType:
-      type: string
-      enum:
-      - POLICY_TYPE_UNSPECIFIED
-      - POLICY_TYPE_AGENT
-      - POLICY_TYPE_COMPONENT
-      - POLICY_TYPE_DEVICE
-      - POLICY_TYPE_EVENT
-      - POLICY_TYPE_INTERFACE
-      - POLICY_TYPE_CUSTOM
-      - POLICY_TYPE_CLOUD
-      - POLICY_TYPE_PROTECT
-      - POLICY_TYPE_TRAFFIC
-      - POLICY_TYPE_KMETRICS
-      default: POLICY_TYPE_UNSPECIFIED
-      title: "- POLICY_TYPE_AGENT: NMS Agent Policy\n - POLICY_TYPE_COMPONENT: NMS Component Policy\n - POLICY_TYPE_DEVICE: NMS Device Policy\n - POLICY_TYPE_EVENT: NMS Event Policy\n - POLICY_TYPE_INTERFACE: NMS Interface Policy\n - POLICY_TYPE_CUSTOM: NMS Custom Policy\n - POLICY_TYPE_CLOUD: Flow Alerting Cloud Policy\n - POLICY_TYPE_PROTECT: Flow Alerting Protect Policy\n - POLICY_TYPE_TRAFFIC: Flow Alerting Traffic Policy\n - POLICY_TYPE_KMETRICS: Flow Alerting KMetrics Policy"
-    v202505MitigationsServiceActResponse:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/v202505MitigationsActResult'
-          description: The results of the mitigation actions.
-          readOnly: true
-    v202505MitigationsServiceCreateRequest:
-      type: object
-      properties:
-        platformId:
-          type: string
-          description: The mitigation platform ID where the mitigation will be deployed.
-        methodId:
-          type: string
-          description: The mitigation method ID for the mitigation technique.
-        ipCidr:
-          type: string
-          description: The IP/CIDR range to mitigate.
-        srcPort:
-          type: string
-          format: int64
-          description: The source port to mitigate.
-        dstPort:
-          type: string
-          format: int64
-          description: The destination port to mitigate.
-        comment:
-          type: string
-          description: A comment describing the mitigation.
-        autoStopTtl:
-          type: string
-          description: The automatic stop time-to-live for the mitigation.
-      required:
-      - platformId
-      - methodId
-      - ipCidr
-    v202501TCPFlag:
-      type: string
-      enum:
-      - TCP_FLAG_UNSPECIFIED
-      - TCP_FLAG_FIN
-      - TCP_FLAG_SYN
-      - TCP_FLAG_RST
-      - TCP_FLAG_PSH
-      - TCP_FLAG_ACK
-      - TCP_FLAG_URG
-      - TCP_FLAG_ECE
-      - TCP_FLAG_CWR
-      default: TCP_FLAG_UNSPECIFIED
-    v202505MitigationsServiceListResponse:
-      type: object
-      properties:
-        pagination:
-          $ref: '#/components/schemas/typesv202506PaginationInfo'
-        mitigations:
-          type: array
-          items:
-            $ref: '#/components/schemas/v202505Mitigation'
-          description: The mitigations that were found matching the filters.
-          readOnly: true
-    v202505MitigationUserAction:
-      type: string
-      enum:
-      - MITIGATION_USER_ACTION_UNSPECIFIED
-      - MITIGATION_USER_ACTION_TAKE_CONTROL
-      - MITIGATION_USER_ACTION_STOP
-      - MITIGATION_USER_ACTION_START
-      - MITIGATION_USER_ACTION_DELETE
-      - MITIGATION_USER_ACTION_APPROVE_START
-      - MITIGATION_USER_ACTION_SKIP_WAIT
-      - MITIGATION_USER_ACTION_RETRY
-      - MITIGATION_USER_ACTION_ACK
-      default: MITIGATION_USER_ACTION_UNSPECIFIED
-    v202501FragmentPredicate:
-      type: object
-      properties:
-        operator:
-          $ref: '#/components/schemas/v202501BitwiseOp'
-        values:
-          type: array
-          items:
-            $ref: '#/components/schemas/v202501Fragment'
-    protobufAny:
-      type: object
-      properties:
-        '@type':
-          type: string
-      additionalProperties: {}
-    v202501NumericFormula:
-      type: object
-      properties:
-        or:
-          type: array
-          items:
-            $ref: '#/components/schemas/v202501NumericPredicateGroup'
     v202501BitwiseOp:
       type: string
       enum:
@@ -781,6 +677,32 @@ components:
       - BITWISE_OP_NOT_ALL
       default: BITWISE_OP_UNSPECIFIED
       title: "- BITWISE_OP_ANY: (data & value) != 0\n - BITWISE_OP_NONE: (data & value) == 0\n - BITWISE_OP_ALL: (data & value) == value\n - BITWISE_OP_NOT_ALL: (data & value) != value"
+    v202501TCPFlagsPredicateGroup:
+      type: object
+      properties:
+        and:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202501TCPFlagsPredicate'
+    v202501TCPFlagsPredicate:
+      type: object
+      properties:
+        operator:
+          $ref: '#/components/schemas/v202501BitwiseOp'
+        values:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202501TCPFlag'
+    MitigationsServiceAvailableActionsResponseMitigationAvailableTransitions:
+      type: object
+      properties:
+        fromState:
+          $ref: '#/components/schemas/v202505MitigationState'
+        availableActions:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202505MitigationActionDetail'
+          description: The available actions from this state.
     v202501FragmentFormula:
       type: object
       properties:
@@ -788,6 +710,84 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/v202501FragmentPredicateGroup'
+    MitigationsServiceActBody:
+      type: object
+      properties:
+        ids:
+          type: array
+          items:
+            type: string
+          description: The IDs of the mitigations to act on.
+      required:
+      - ids
+    v202506MitigationTarget:
+      type: object
+      properties:
+        ipCidr:
+          type: string
+        flowspec:
+          $ref: '#/components/schemas/v202501FlowspecMatch'
+        adaptiveFlowspec:
+          $ref: '#/components/schemas/v202303KeyValue'
+    v202501FlowspecMatch:
+      type: object
+      properties:
+        dstPrefix:
+          type: string
+          title: IPv4 or IPv6 CIDR prefix to match
+        srcPrefix:
+          type: string
+          title: IPv4 or IPv6 CIDR prefix to match
+        ipProtocol:
+          $ref: '#/components/schemas/v202501NumericFormula'
+        dstPort:
+          $ref: '#/components/schemas/v202501NumericFormula'
+        srcPort:
+          $ref: '#/components/schemas/v202501NumericFormula'
+        icmpType:
+          $ref: '#/components/schemas/v202501NumericFormula'
+        icmpCode:
+          $ref: '#/components/schemas/v202501NumericFormula'
+        tcpFlags:
+          $ref: '#/components/schemas/v202501TCPFlagsFormula'
+        packetLength:
+          $ref: '#/components/schemas/v202501NumericFormula'
+        dscp:
+          $ref: '#/components/schemas/v202501NumericFormula'
+        fragments:
+          $ref: '#/components/schemas/v202501FragmentFormula'
+      description: 'FlowspecMatch represents the traffic filtering criteria encoded
+
+        as Flow Specification NLRI as per RFC 8955:
+
+        https://datatracker.ietf.org/doc/html/rfc8955#name-dissemination-of-ipv4-flow-
+
+        and other related documents.'
+    typesv202506PaginationInfo:
+      type: object
+      properties:
+        totalCount:
+          type: string
+          format: uint64
+          description: 'total_count is the total number of items in the list.
+
+            It may be provided optionally if include_total_count is set to false.
+
+            It will be provided always if include_total_count is set to true.'
+        hasMoreResults:
+          type: boolean
+          title: 'has_more_results is a flag to indicate if there are more results to fetch
+
+            It may be provided instead of total_count if include_total_count is set to false and it would be very expensive to fetch the total count'
+    v202505MitigationsServiceAvailableActionsResponse:
+      type: object
+      properties:
+        transitions:
+          type: array
+          items:
+            $ref: '#/components/schemas/MitigationsServiceAvailableActionsResponseMitigationAvailableTransitions'
+          description: The available state transitions for mitigations.
+          readOnly: true
   securitySchemes:
     email:
       type: apiKey
@@ -798,5 +798,5 @@ components:
       name: X-CH-Auth-API-Token
       in: header
 externalDocs:
-  description: General information about Kentik APIs
-  url: https://kb.kentik.com/v0/Ab09.htm#Ab09-APIs_Overview
+  description: Kentik Alerts documentation
+  url: https://kb.kentik.com/docs/alerting
