@@ -94,6 +94,50 @@ paths:
       - AiAdvisorDataService
 components:
   schemas:
+    v202511GetChatSessionResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The unique identifier (UUID) for the chat session
+        status:
+          $ref: '#/components/schemas/v202511SessionStatus'
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202511ChatMessage'
+      title: GetChatSessionResponse
+    protobufAny:
+      type: object
+      properties:
+        '@type':
+          type: string
+      additionalProperties: {}
+    rpcStatus:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        details:
+          type: array
+          items:
+            $ref: '#/components/schemas/protobufAny'
+    v202511UpdateChatSessionRequest:
+      type: object
+      properties:
+        prompt:
+          type: string
+          description: The user question
+        id:
+          type: string
+          description: The unique identifier (UUID) for the chat session
+      title: UpdateChatSessionRequest
+      required:
+      - prompt
+      - id
     v202511ChatMessage:
       type: object
       properties:
@@ -119,77 +163,6 @@ components:
         prompt:
           type: string
       title: ChatMessage
-    v202511UpdateChatSessionRequest:
-      type: object
-      properties:
-        prompt:
-          type: string
-          description: The user question
-        id:
-          type: string
-          description: The unique identifier (UUID) for the chat session
-      title: UpdateChatSessionRequest
-      required:
-      - prompt
-      - id
-    v202511GetChatSessionResponse:
-      type: object
-      properties:
-        id:
-          type: string
-          description: The unique identifier (UUID) for the chat session
-        status:
-          $ref: '#/components/schemas/v202511SessionStatus'
-        messages:
-          type: array
-          items:
-            $ref: '#/components/schemas/v202511ChatMessage'
-      title: GetChatSessionResponse
-    rpcStatus:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-        message:
-          type: string
-        details:
-          type: array
-          items:
-            $ref: '#/components/schemas/protobufAny'
-    protobufAny:
-      type: object
-      properties:
-        '@type':
-          type: string
-      additionalProperties: {}
-    v202511CreateChatSessionResponse:
-      type: object
-      properties:
-        id:
-          type: string
-          description: The unique identifier (UUID) for the chat session
-        status:
-          $ref: '#/components/schemas/v202511SessionStatus'
-      title: CreateChatSessionResponse
-    v202511UpdateChatSessionResponse:
-      type: object
-      properties:
-        id:
-          type: string
-          description: The unique identifier (UUID) for the chat session
-        status:
-          $ref: '#/components/schemas/v202511SessionStatus'
-      title: UpdateChatSessionResponse
-    v202511CreateChatSessionRequest:
-      type: object
-      properties:
-        prompt:
-          type: string
-          description: The user question
-      title: CreateChatSessionRequest
-      required:
-      - prompt
     v202511SessionStatus:
       type: string
       enum:
@@ -201,6 +174,33 @@ components:
       - SESSION_STATUS_AWAITING_APPROVAL
       default: SESSION_STATUS_UNSPECIFIED
       title: SessionStatus represents the state of a chat session or message
+    v202511CreateChatSessionRequest:
+      type: object
+      properties:
+        prompt:
+          type: string
+          description: The user question
+      title: CreateChatSessionRequest
+      required:
+      - prompt
+    v202511UpdateChatSessionResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The unique identifier (UUID) for the chat session
+        status:
+          $ref: '#/components/schemas/v202511SessionStatus'
+      title: UpdateChatSessionResponse
+    v202511CreateChatSessionResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The unique identifier (UUID) for the chat session
+        status:
+          $ref: '#/components/schemas/v202511SessionStatus'
+      title: CreateChatSessionResponse
   securitySchemes:
     email:
       type: apiKey

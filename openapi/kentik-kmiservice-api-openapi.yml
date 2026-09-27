@@ -267,14 +267,41 @@ components:
         asnDetails:
           $ref: '#/components/schemas/v202212ASNDetails'
       title: GetASNDetailsResponse
-    KmiServiceGetRankingsBody:
+    v202212ASNDetails:
       type: object
       properties:
-        limit:
+        asn:
           type: integer
           format: int64
-          description: 'Maximum number of entries returned. (Default: 600).'
-      title: GetRankingsRequest
+          description: Autonomous System Number (ASN)
+          readOnly: true
+        name:
+          type: string
+          description: Name of the Autonomous System
+          readOnly: true
+        countryName:
+          type: string
+          description: Country Name of the Autonomous System
+          readOnly: true
+        customers:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202212CustomerProvider'
+          description: List of Customers
+          readOnly: true
+        providers:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202212CustomerProvider'
+          description: List of Providers
+          readOnly: true
+        peers:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202212Peer'
+          description: List of Peers
+          readOnly: true
+      title: ASNDetails
     v202212ListMarketsResponse:
       type: object
       properties:
@@ -285,6 +312,77 @@ components:
           description: Markets
           readOnly: true
       title: ListMarketsResponse
+    KmiServiceGetASNDetailsBody:
+      type: object
+      properties:
+        ip:
+          type: string
+          enum:
+          - v4
+          - v6
+          default: v4
+          description: IP Address Family ('v4' or 'v6'). Defaults to 'v4'.
+        mutualProvider:
+          type: string
+          enum:
+          - all
+          - only
+          - exclude
+          default: all
+          description: Filter by mutual provider ('all', 'only', 'exclude'). Defaults to 'all'.
+        mutualCustomer:
+          type: string
+          enum:
+          - all
+          - only
+          - exclude
+          default: all
+          description: Filter by mutual customer ('all', 'only', 'exclude'). Defaults to 'all'.
+        singlehomedCustomer:
+          type: string
+          enum:
+          - all
+          - only
+          - exclude
+          default: all
+          description: Filter by singlehomed customer ('all', 'only', 'exclude'). Defaults to 'all'.
+      title: GetASNDetailsRequest
+    v202212CustomerProvider:
+      type: object
+      properties:
+        asn:
+          type: integer
+          format: int64
+          description: Autonomous System Number (ASN)
+          readOnly: true
+        name:
+          type: string
+          description: Name of the Autonomous System
+          readOnly: true
+        score:
+          type: integer
+          format: int64
+          description: Score of the Autonomous System
+          readOnly: true
+        singlehomedCustomer:
+          type: boolean
+          description: Singlehomed customer (only one upstream provider to the internet)
+          readOnly: true
+        mutualCustomer:
+          type: boolean
+          description: Mutual customer
+          readOnly: true
+        mutualProvider:
+          type: boolean
+          description: Mutual provider
+          readOnly: true
+      title: CustomerProvider
+    protobufAny:
+      type: object
+      properties:
+        '@type':
+          type: string
+      additionalProperties: {}
     rpcStatus:
       type: object
       properties:
@@ -330,77 +428,14 @@ components:
           description: Score Change of the Autonomous System
           readOnly: true
       title: Ranking
-    protobufAny:
+    KmiServiceGetRankingsBody:
       type: object
       properties:
-        '@type':
-          type: string
-      additionalProperties: {}
-    v202212CustomerProvider:
-      type: object
-      properties:
-        asn:
+        limit:
           type: integer
           format: int64
-          description: Autonomous System Number (ASN)
-          readOnly: true
-        name:
-          type: string
-          description: Name of the Autonomous System
-          readOnly: true
-        score:
-          type: integer
-          format: int64
-          description: Score of the Autonomous System
-          readOnly: true
-        singlehomedCustomer:
-          type: boolean
-          description: Singlehomed customer (only one upstream provider to the internet)
-          readOnly: true
-        mutualCustomer:
-          type: boolean
-          description: Mutual customer
-          readOnly: true
-        mutualProvider:
-          type: boolean
-          description: Mutual provider
-          readOnly: true
-      title: CustomerProvider
-    KmiServiceGetASNDetailsBody:
-      type: object
-      properties:
-        ip:
-          type: string
-          enum:
-          - v4
-          - v6
-          default: v4
-          description: IP Address Family ('v4' or 'v6'). Defaults to 'v4'.
-        mutualProvider:
-          type: string
-          enum:
-          - all
-          - only
-          - exclude
-          default: all
-          description: Filter by mutual provider ('all', 'only', 'exclude'). Defaults to 'all'.
-        mutualCustomer:
-          type: string
-          enum:
-          - all
-          - only
-          - exclude
-          default: all
-          description: Filter by mutual customer ('all', 'only', 'exclude'). Defaults to 'all'.
-        singlehomedCustomer:
-          type: string
-          enum:
-          - all
-          - only
-          - exclude
-          default: all
-          description: Filter by singlehomed customer ('all', 'only', 'exclude'). Defaults to 'all'.
-      title: GetASNDetailsRequest
+          description: 'Maximum number of entries returned. (Default: 600).'
+      title: GetRankingsRequest
     v202212Market:
       type: object
       properties:
@@ -413,17 +448,7 @@ components:
           description: Geo Market Name
           readOnly: true
       title: Market
-    v202212GetGlobalInsightsResponse:
-      type: object
-      properties:
-        insights:
-          type: array
-          items:
-            $ref: '#/components/schemas/v202212Insight'
-          description: List of global insights
-          readOnly: true
-      title: GetGlobalInsightsResponse
-    v202212ASNDetails:
+    v202212Peer:
       type: object
       properties:
         asn:
@@ -435,29 +460,32 @@ components:
           type: string
           description: Name of the Autonomous System
           readOnly: true
-        countryName:
-          type: string
-          description: Country Name of the Autonomous System
+        pfxCount:
+          type: integer
+          format: int64
+          description: Prefix Count (number of distinct IP address blocks announced by AS)
           readOnly: true
-        customers:
+      title: Peer
+    v202212GetASNInsightsResponse:
+      type: object
+      properties:
+        insights:
           type: array
           items:
-            $ref: '#/components/schemas/v202212CustomerProvider'
-          description: List of Customers
+            $ref: '#/components/schemas/v202212Insight'
+          description: List of ASN-specific insights
           readOnly: true
-        providers:
+      title: GetASNInsightsResponse
+    v202212GetGlobalInsightsResponse:
+      type: object
+      properties:
+        insights:
           type: array
           items:
-            $ref: '#/components/schemas/v202212CustomerProvider'
-          description: List of Providers
+            $ref: '#/components/schemas/v202212Insight'
+          description: List of global insights
           readOnly: true
-        peers:
-          type: array
-          items:
-            $ref: '#/components/schemas/v202212Peer'
-          description: List of Peers
-          readOnly: true
-      title: ASNDetails
+      title: GetGlobalInsightsResponse
     v202212Insight:
       type: object
       properties:
@@ -497,34 +525,6 @@ components:
           format: int64
           description: Number of invalid entries encountered while collecting data
       title: GetRankingsResponse
-    v202212GetASNInsightsResponse:
-      type: object
-      properties:
-        insights:
-          type: array
-          items:
-            $ref: '#/components/schemas/v202212Insight'
-          description: List of ASN-specific insights
-          readOnly: true
-      title: GetASNInsightsResponse
-    v202212Peer:
-      type: object
-      properties:
-        asn:
-          type: integer
-          format: int64
-          description: Autonomous System Number (ASN)
-          readOnly: true
-        name:
-          type: string
-          description: Name of the Autonomous System
-          readOnly: true
-        pfxCount:
-          type: integer
-          format: int64
-          description: Prefix Count (number of distinct IP address blocks announced by AS)
-          readOnly: true
-      title: Peer
   securitySchemes:
     email:
       type: apiKey

@@ -57,6 +57,7 @@ tags:
 - gRPC
 - AIOps
 - Observability
+- Monitoring
 apis:
 - aid: kentik:kentik-aiadvisordataservice-api
   name: Kentik AiAdvisorDataService API

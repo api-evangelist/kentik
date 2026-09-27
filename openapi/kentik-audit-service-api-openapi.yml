@@ -95,7 +95,7 @@ paths:
     get:
       summary: Get an Audit Event
       description: Return a specific audit event.
-      operationId: GetAuditEvent
+      operationId: getAuditV202601EventsByIdByCtime
       responses:
         '200':
           description: A successful response.
@@ -124,8 +124,54 @@ paths:
           format: date-time
       tags:
       - Audit Service
+      x-operation-id-source: normalized
+      x-operation-id-original: GetAuditEvent
 components:
   schemas:
+    v202601GenericEvent:
+      type: object
+      properties:
+        eventSource:
+          type: string
+          title: Attribute Source of Audit log
+        action:
+          type: string
+          title: Attribute Action of Audit log
+        eventType:
+          type: string
+          title: Attribute Type of Audit log
+        owner:
+          type: string
+          title: Attribute User of Audit log
+        metadata:
+          type: object
+          additionalProperties:
+            type: string
+          title: generic bag of metadata about the event
+    rpcStatus:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        details:
+          type: array
+          items:
+            $ref: '#/components/schemas/protobufAny'
+    v202601GetAuditEventResponse:
+      type: object
+      properties:
+        event:
+          $ref: '#/components/schemas/v202601AuditEvent'
+    v202601ListAuditEventsResponse:
+      type: object
+      properties:
+        events:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202601AuditEvent'
     v202601AuditEvent:
       type: object
       properties:
@@ -191,56 +237,12 @@ components:
           type: string
           title: User agent
       description: AuditEvent represents an audit event with request and enriched contextual information.
-    v202601ListAuditEventsResponse:
-      type: object
-      properties:
-        events:
-          type: array
-          items:
-            $ref: '#/components/schemas/v202601AuditEvent'
-    rpcStatus:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-        message:
-          type: string
-        details:
-          type: array
-          items:
-            $ref: '#/components/schemas/protobufAny'
     protobufAny:
       type: object
       properties:
         '@type':
           type: string
       additionalProperties: {}
-    v202601GetAuditEventResponse:
-      type: object
-      properties:
-        event:
-          $ref: '#/components/schemas/v202601AuditEvent'
-    v202601GenericEvent:
-      type: object
-      properties:
-        eventSource:
-          type: string
-          title: Attribute Source of Audit log
-        action:
-          type: string
-          title: Attribute Action of Audit log
-        eventType:
-          type: string
-          title: Attribute Type of Audit log
-        owner:
-          type: string
-          title: Attribute User of Audit log
-        metadata:
-          type: object
-          additionalProperties:
-            type: string
-          title: generic bag of metadata about the event
   securitySchemes:
     email:
       type: apiKey

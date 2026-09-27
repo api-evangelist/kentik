@@ -89,6 +89,73 @@ paths:
       - NotificationChannelService
 components:
   schemas:
+    v202210SearchNotificationChannelsResponse:
+      type: object
+      properties:
+        notificationChannels:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202210NotificationChannel'
+          description: List of matching notification channels.
+          readOnly: true
+        invalidCount:
+          type: integer
+          format: int32
+          description: Number of invalid entries that were not included in the list (should be always zero)
+          readOnly: true
+      title: SearchNotificationChannelsResponse
+    v202210GetNotificationChannelResponse:
+      type: object
+      properties:
+        notificationChannel:
+          $ref: '#/components/schemas/v202210NotificationChannel'
+      title: GetNotificationChannelResponse
+    protobufAny:
+      type: object
+      properties:
+        '@type':
+          type: string
+      additionalProperties: {}
+    rpcStatus:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        details:
+          type: array
+          items:
+            $ref: '#/components/schemas/protobufAny'
+    v202210NotificationChannel:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the channel
+          readOnly: true
+        name:
+          type: string
+          description: User selected name of the channel
+          readOnly: true
+        type:
+          $ref: '#/components/schemas/v202210ChannelType'
+        enabled:
+          type: boolean
+          description: Administrative status
+          readOnly: true
+        cdate:
+          type: string
+          format: date-time
+          description: Creation timestamp (UTC)
+          readOnly: true
+        edate:
+          type: string
+          format: date-time
+          description: Last modification timestamp (UTC)
+          readOnly: true
+      title: NotificationChannel
     v202210SearchNotificationChannelsRequest:
       type: object
       properties:
@@ -120,45 +187,6 @@ components:
           description: Number of invalid entries that were not included in the list (should be always zero)
           readOnly: true
       title: ListNotificationChannelsResponse
-    rpcStatus:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-        message:
-          type: string
-        details:
-          type: array
-          items:
-            $ref: '#/components/schemas/protobufAny'
-    v202210SearchNotificationChannelsResponse:
-      type: object
-      properties:
-        notificationChannels:
-          type: array
-          items:
-            $ref: '#/components/schemas/v202210NotificationChannel'
-          description: List of matching notification channels.
-          readOnly: true
-        invalidCount:
-          type: integer
-          format: int32
-          description: Number of invalid entries that were not included in the list (should be always zero)
-          readOnly: true
-      title: SearchNotificationChannelsResponse
-    protobufAny:
-      type: object
-      properties:
-        '@type':
-          type: string
-      additionalProperties: {}
-    v202210GetNotificationChannelResponse:
-      type: object
-      properties:
-        notificationChannel:
-          $ref: '#/components/schemas/v202210NotificationChannel'
-      title: GetNotificationChannelResponse
     v202210ChannelType:
       type: string
       enum:
@@ -178,34 +206,6 @@ components:
       default: CHANNEL_TYPE_UNSPECIFIED
       description: "- CHANNEL_TYPE_UNSPECIFIED: Invalid value.\n - CHANNEL_TYPE_XMATTERS: XMATTERS platform\n - CHANNEL_TYPE_SLACK: Slack channel\n - CHANNEL_TYPE_SERVICENOW: ServiceNow platform\n - CHANNEL_TYPE_SYSLOG: Syslog server\n - CHANNEL_TYPE_OPSGENIE: Atlassian Opsgenie\n - CHANNEL_TYPE_CUSTOM_WEBHOOK: Custom REST webhook\n - CHANNEL_TYPE_SPLUNK: Splunk platform\n - CHANNEL_TYPE_MSTEAMS: Microsoft Teams channel\n - CHANNEL_TYPE_JSON: webhook with JSON payload\n - CHANNEL_TYPE_EMAIL: E-mail\n - CHANNEL_TYPE_VICTOROPS: Splunk On-Call (formerly VictorOps)\n - CHANNEL_TYPE_PAGERDUTY: Pagerduty platform"
       title: ChannelType
-    v202210NotificationChannel:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Unique identifier of the channel
-          readOnly: true
-        name:
-          type: string
-          description: User selected name of the channel
-          readOnly: true
-        type:
-          $ref: '#/components/schemas/v202210ChannelType'
-        enabled:
-          type: boolean
-          description: Administrative status
-          readOnly: true
-        cdate:
-          type: string
-          format: date-time
-          description: Creation timestamp (UTC)
-          readOnly: true
-        edate:
-          type: string
-          format: date-time
-          description: Last modification timestamp (UTC)
-          readOnly: true
-      title: NotificationChannel
   securitySchemes:
     email:
       type: apiKey

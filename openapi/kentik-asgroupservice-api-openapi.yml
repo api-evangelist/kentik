@@ -155,6 +155,12 @@ components:
         asGroup:
           $ref: '#/components/schemas/v202212ASGroupDetailed'
       title: GetASGroupResponse
+    protobufAny:
+      type: object
+      properties:
+        '@type':
+          type: string
+      additionalProperties: {}
     v202212CreateASGroupRequest:
       type: object
       properties:
@@ -163,6 +169,92 @@ components:
       title: CreateASGroupRequest
       required:
       - asGroup
+    rpcStatus:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        details:
+          type: array
+          items:
+            $ref: '#/components/schemas/protobufAny'
+    v202212DeleteASGroupResponse:
+      type: object
+      title: DeleteASGroupResponse
+    v202212ASGroupConcise:
+      type: object
+      properties:
+        id:
+          type: string
+          description: System generated unique identifier
+          readOnly: true
+        name:
+          type: string
+          description: User selected unique name
+        asn:
+          type: array
+          items:
+            type: string
+          description: List of ASNs
+        createdDate:
+          type: string
+          format: date-time
+          description: Creation timestamp (UTC)
+          readOnly: true
+        updatedDate:
+          type: string
+          format: date-time
+          description: Last modification timestamp (UTC)
+          readOnly: true
+      title: ASGroupConcise
+      required:
+      - name
+    v202212ASGroupDetailed:
+      type: object
+      properties:
+        id:
+          type: string
+          description: System generated unique identifier
+          readOnly: true
+        name:
+          type: string
+          description: User selected unique name
+        asn:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202212AutonomousSystem'
+          description: List of ASNs
+        createdDate:
+          type: string
+          format: date-time
+          description: Creation timestamp (UTC)
+          readOnly: true
+        updatedDate:
+          type: string
+          format: date-time
+          description: Last modification timestamp (UTC)
+          readOnly: true
+      title: ASGroupDetailed
+      required:
+      - name
+    v202212AutonomousSystem:
+      type: object
+      properties:
+        asn:
+          type: integer
+          format: int64
+        name:
+          type: string
+      title: AutonomousSystem
+    v202212UpdateASGroupResponse:
+      type: object
+      properties:
+        asGroup:
+          $ref: '#/components/schemas/v202212ASGroupDetailed'
+      title: UpdateASGroupResponse
     ASGroupServiceUpdateASGroupBody:
       type: object
       properties:
@@ -192,98 +284,12 @@ components:
       required:
       - name
       - asGroup
-    v202212AutonomousSystem:
-      type: object
-      properties:
-        asn:
-          type: integer
-          format: int64
-        name:
-          type: string
-      title: AutonomousSystem
-    rpcStatus:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-        message:
-          type: string
-        details:
-          type: array
-          items:
-            $ref: '#/components/schemas/protobufAny'
-    v202212ASGroupDetailed:
-      type: object
-      properties:
-        id:
-          type: string
-          description: System generated unique identifier
-          readOnly: true
-        name:
-          type: string
-          description: User selected unique name
-        asn:
-          type: array
-          items:
-            $ref: '#/components/schemas/v202212AutonomousSystem'
-          description: List of ASNs
-        createdDate:
-          type: string
-          format: date-time
-          description: Creation timestamp (UTC)
-          readOnly: true
-        updatedDate:
-          type: string
-          format: date-time
-          description: Last modification timestamp (UTC)
-          readOnly: true
-      title: ASGroupDetailed
-      required:
-      - name
-    v202212UpdateASGroupResponse:
+    v202212CreateASGroupResponse:
       type: object
       properties:
         asGroup:
           $ref: '#/components/schemas/v202212ASGroupDetailed'
-      title: UpdateASGroupResponse
-    protobufAny:
-      type: object
-      properties:
-        '@type':
-          type: string
-      additionalProperties: {}
-    v202212ASGroupConcise:
-      type: object
-      properties:
-        id:
-          type: string
-          description: System generated unique identifier
-          readOnly: true
-        name:
-          type: string
-          description: User selected unique name
-        asn:
-          type: array
-          items:
-            type: string
-          description: List of ASNs
-        createdDate:
-          type: string
-          format: date-time
-          description: Creation timestamp (UTC)
-          readOnly: true
-        updatedDate:
-          type: string
-          format: date-time
-          description: Last modification timestamp (UTC)
-          readOnly: true
-      title: ASGroupConcise
-      required:
-      - name
-    v202212DeleteASGroupResponse:
-      type: object
-      title: DeleteASGroupResponse
+      title: CreateASGroupResponse
     v202212ListASGroupsResponse:
       type: object
       properties:
@@ -297,12 +303,6 @@ components:
           format: int64
           description: Number of invalid entries encountered while collecting data
       title: ListASGroupsResponse
-    v202212CreateASGroupResponse:
-      type: object
-      properties:
-        asGroup:
-          $ref: '#/components/schemas/v202212ASGroupDetailed'
-      title: CreateASGroupResponse
   securitySchemes:
     email:
       type: apiKey

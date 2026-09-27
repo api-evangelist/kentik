@@ -253,28 +253,16 @@ paths:
       - AlertService
 components:
   schemas:
-    v202505FlowContext:
+    v202505ExternalContext:
       type: object
       properties:
-        metricValues:
-          type: array
-          items:
-            $ref: '#/components/schemas/FlowContextMetricValue'
-          description: The metric values of the alert determined by the policy configuration.
-          readOnly: true
-        activationStatus:
-          $ref: '#/components/schemas/FlowContextActivationStatus'
-        baselineValue:
-          type: number
-          format: double
-          description: The baseline value used when activating the alert.
-          readOnly: true
-        alertKeyDetails:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/FlowContextAlertKeyDetails'
-          description: 'The alert key details of the alert: each key might be expanded into multiple details.'
-          readOnly: true
+        servicenow:
+          $ref: '#/components/schemas/v202505ServiceNowContext'
+        jiraCloud:
+          $ref: '#/components/schemas/v202505JiraCloudContext'
+      required:
+      - servicenow
+      - jiraCloud
     v202505NmsConditionOperator:
       type: string
       enum:
@@ -298,37 +286,115 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/v202303KeyValueFilter'
-    v202505NmsThresholdCondition:
+    v202303AttributeFilterStringArray:
       type: object
       properties:
-        operator:
-          $ref: '#/components/schemas/v202505NmsConditionOperator'
-        conditionValue:
+        values:
+          type: array
+          items:
+            type: string
+    v202505NmsCondition:
+      type: object
+      properties:
+        measurement:
           type: string
-    v202505NmsStateChangeCondition:
+        metric:
+          type: string
+        threshold:
+          $ref: '#/components/schemas/v202505NmsThresholdCondition'
+        stateChange:
+          $ref: '#/components/schemas/v202505NmsStateChangeCondition'
+        stateInCondition:
+          $ref: '#/components/schemas/v202505NmsStateSet'
+    v202303KeyValueFilter:
       type: object
       properties:
-        from:
-          $ref: '#/components/schemas/v202505NmsStateSet'
-        to:
-          $ref: '#/components/schemas/v202505NmsStateSet'
-    FieldBy:
-      type: string
-      enum:
-      - BY_UNSPECIFIED
-      - BY_ID
-      - BY_NAME
-      - BY_CREATED_AT
-      - BY_UPDATED_AT
-      - BY_SEVERITY
-      - BY_STATUS
-      - BY_POLICY_TYPE
-      - BY_START_TIME
-      - BY_END_TIME
-      - BY_ALARM_STATE
-      - BY_ALARM_POLICY_NAME
-      - BY_ALARM_PRIMARY_DIMENSION
-      default: BY_UNSPECIFIED
+        key:
+          $ref: '#/components/schemas/v202303SimpleAttributeFilter'
+        value:
+          $ref: '#/components/schemas/v202303AttributeFilter'
+    v202505AlertServiceSetExternalContextResponse:
+      type: object
+      properties:
+        updatedAt:
+          type: string
+          format: date-time
+          description: Timestamp of external context update.
+          readOnly: true
+    v202505AlertServiceListRequest:
+      type: object
+      properties:
+        pagination:
+          $ref: '#/components/schemas/typesv202506PaginationConfig'
+        sorting:
+          $ref: '#/components/schemas/typesv202506SortingConfig'
+        filters:
+          $ref: '#/components/schemas/v202505AlertFilters'
+    v202505Alert:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The ID (UUID format) of the alert.
+          readOnly: true
+        source:
+          $ref: '#/components/schemas/v202505Source'
+        startTimeAt:
+          type: string
+          format: date-time
+          description: The start time of the alert.
+          readOnly: true
+        endTimeAt:
+          type: string
+          format: date-time
+          description: The end time of the alert.
+          readOnly: true
+        state:
+          $ref: '#/components/schemas/v202505AlertState'
+        severity:
+          $ref: '#/components/schemas/v202303Severity'
+        highestSeverity:
+          $ref: '#/components/schemas/v202303Severity'
+        acknowledgement:
+          $ref: '#/components/schemas/AlertAcknowledgement'
+        eventStartTimeAt:
+          type: string
+          format: date-time
+          description: The timestamp of the first trigger event that caused an alert to eventually activate.
+          readOnly: true
+        flow:
+          $ref: '#/components/schemas/v202505FlowContext'
+        nms:
+          $ref: '#/components/schemas/v202505NmsContext'
+        mitigationId:
+          type: string
+          format: uint64
+          description: ID of the associated mitigation, if applicable.
+          readOnly: true
+        externalContexts:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202505ExternalContext'
+          description: External contexts attached to the alert (e.g. ServiceNow).
+          readOnly: true
+    NmsContextAlarmTarget:
+      type: object
+      properties:
+        fields:
+          type: object
+          additionalProperties:
+            type: number
+            format: double
+        tags:
+          type: object
+          additionalProperties:
+            type: string
+    AlertServiceAckBody:
+      type: object
+      properties:
+        comment:
+          type: string
+          description: The comment to add to the acknowledgement.
     v202505Source:
       type: object
       properties:
@@ -340,25 +406,309 @@ components:
       required:
       - policyType
       - id
-    v202303AttributeFilterStringArray:
+    v202505AlertServiceAddCommentResponse:
+      type: object
+      properties:
+        comment:
+          $ref: '#/components/schemas/v202505Comment'
+    v202505AlertState:
+      type: string
+      enum:
+      - ALERT_STATE_UNSPECIFIED
+      - ALERT_STATE_CLEAR
+      - ALERT_STATE_ACTIVE
+      default: ALERT_STATE_UNSPECIFIED
+      title: "- ALERT_STATE_CLEAR: alert is cleared, no longer active\n - ALERT_STATE_ACTIVE: alert is active"
+    FlowContextAlertKeyDetails:
+      type: object
+      properties:
+        device:
+          $ref: '#/components/schemas/FlowContextDeviceDetails'
+        interface:
+          $ref: '#/components/schemas/FlowContextInterfaceDetails'
+        site:
+          $ref: '#/components/schemas/FlowContextSiteDetails'
+        extendedValue:
+          type: string
+          description: The extended value of the alert key.
+          readOnly: true
+    AlertServiceAddCommentBody:
+      type: object
+      properties:
+        text:
+          type: string
+          description: The text content of the comment. Maximum length is 5000 characters.
+          maxLength: 5000
+      required:
+      - text
+    FlowContextMetricValue:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name of the metric value (e.g. 'bytes_in', 'bytes_out', 'packets_in', 'packets_out', etc.).
+          readOnly: true
+        value:
+          type: number
+          format: double
+          description: The value of the given metric.
+          readOnly: true
+    v202505NmsConditionGroup:
+      type: object
+      properties:
+        connector:
+          $ref: '#/components/schemas/v202505NmsConditionConnector'
+        not:
+          type: boolean
+        conditions:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202505NmsCondition'
+        conditionGroups:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202505NmsConditionGroup'
+          title: recursive
+    FlowContextDeviceDetails:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The ID of the device.
+          readOnly: true
+        name:
+          type: string
+          description: The name of the device.
+          readOnly: true
+        type:
+          type: string
+          description: The type of the device (e.g. 'router').
+          readOnly: true
+        labels:
+          type: array
+          items:
+            type: string
+          description: The labels associated with the device.
+          readOnly: true
+    v202505NmsStateChangeCondition:
+      type: object
+      properties:
+        from:
+          $ref: '#/components/schemas/v202505NmsStateSet'
+        to:
+          $ref: '#/components/schemas/v202505NmsStateSet'
+    v202505NmsActivateOrClearConditions:
+      type: object
+      properties:
+        connector:
+          $ref: '#/components/schemas/v202505NmsConditionConnector'
+        conditionGroups:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202505NmsConditionGroup'
+    protobufAny:
+      type: object
+      properties:
+        '@type':
+          type: string
+      additionalProperties: {}
+    v202505NmsContext:
+      type: object
+      properties:
+        activationInfo:
+          $ref: '#/components/schemas/NmsContextActivationInfo'
+        datasetInfo:
+          $ref: '#/components/schemas/NmsContextDatasetInfo'
+        targets:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/NmsContextAlarmTarget'
+          title: AlarmTargets
+        metricValues:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/NmsContextAlarmMetricMap'
+          title: AlarmMetrics
+        previousMetricValues:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/NmsContextAlarmMetricMap'
+          title: AlarmPreviousStatus
+        device:
+          type: object
+          additionalProperties:
+            type: string
+          title: AlarmDevice
+        groupKey:
+          type: object
+          additionalProperties:
+            type: string
+          title: 'AlarmGroupKey - for example: {device_id: 123, ifindex: 42} for an interface alarm OR {agent_id: 12} for an agent alarm
+
+            sub-set of dimensions which all matches should include'
+      title: in the comments are evm equivalents
+    rpcStatus:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        details:
+          type: array
+          items:
+            $ref: '#/components/schemas/protobufAny'
+    v202505AlertServiceUnAckResponse:
+      type: object
+      properties:
+        alert:
+          $ref: '#/components/schemas/v202505Alert'
+    v202303SimpleAttributeFilterStringArray:
       type: object
       properties:
         values:
           type: array
           items:
             type: string
-    v202505JiraCloudContext:
+    v202303SimpleAttributeFilter:
       type: object
       properties:
-        issueKey:
+        equals:
           type: string
-          description: Jira Cloud issue key, e.g., KEY-123.
-        issueUrl:
+        startsWith:
           type: string
-          description: Jira Cloud issue URL, e.g., https://instance.atlassian.net/browse/KEY-123.
-      required:
-      - issueKey
-      - issueUrl
+        endsWith:
+          type: string
+        contains:
+          type: string
+        in:
+          $ref: '#/components/schemas/v202303SimpleAttributeFilterStringArray'
+        any:
+          type: boolean
+          description: 'The equivalent of: value="*.  To use any this value MUST be set to true.'
+    v202505Comment:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The unique identifier of the comment.
+          readOnly: true
+        text:
+          type: string
+          description: The text content of the comment.
+          readOnly: true
+        userId:
+          type: string
+          description: The ID of the user who created the comment.
+          readOnly: true
+        userName:
+          type: string
+          description: The username of the user who created the comment.
+          readOnly: true
+        userFullName:
+          type: string
+          description: The full name of the user who created the comment.
+          readOnly: true
+        userEmail:
+          type: string
+          description: The email of the user who created the comment.
+          readOnly: true
+        createdAt:
+          type: string
+          format: date-time
+          description: The timestamp when the comment was created.
+          readOnly: true
+    v202505NmsThresholdCondition:
+      type: object
+      properties:
+        operator:
+          $ref: '#/components/schemas/v202505NmsConditionOperator'
+        conditionValue:
+          type: string
+    v202505NmsConditionConnector:
+      type: string
+      enum:
+      - NMS_CONDITION_CONNECTOR_UNSPECIFIED
+      - NMS_CONDITION_CONNECTOR_ANY
+      - NMS_CONDITION_CONNECTOR_ALL
+      default: NMS_CONDITION_CONNECTOR_UNSPECIFIED
+      title: "- NMS_CONDITION_CONNECTOR_ANY: Any of the conditions must be true\n - NMS_CONDITION_CONNECTOR_ALL: All of the conditions must be true"
+    NmsContextActivationInfo:
+      type: object
+      properties:
+        activate:
+          $ref: '#/components/schemas/v202505NmsActivateOrClearConditions'
+        severity:
+          $ref: '#/components/schemas/v202303Severity'
+        clearManual:
+          type: boolean
+        clearUnlessActivated:
+          type: boolean
+    v202303TimeRange:
+      type: object
+      properties:
+        start:
+          type: string
+          format: date-time
+        end:
+          type: string
+          format: date-time
+    v202505AlertServiceClearResponse:
+      type: object
+      properties:
+        clearedAlertIds:
+          type: array
+          items:
+            type: string
+          description: The IDs of the alerts that have been cleared.
+          readOnly: true
+    v202505AlertPhase:
+      type: object
+      properties:
+        severity:
+          $ref: '#/components/schemas/v202303Severity'
+        startTimeAt:
+          type: string
+          format: date-time
+          description: The start time of the alert phase.
+          readOnly: true
+        endTimeAt:
+          type: string
+          format: date-time
+          description: The end time of the alert phase.
+          readOnly: true
+        flow:
+          $ref: '#/components/schemas/v202505FlowContext'
+        nms:
+          $ref: '#/components/schemas/v202505NmsContext'
+    typesv202506SortingConfig:
+      type: object
+      properties:
+        fields:
+          type: array
+          items:
+            $ref: '#/components/schemas/SortingConfigField'
+    AlertServiceUnAckBody:
+      type: object
+    v202505NmsStateSet:
+      type: object
+      properties:
+        not:
+          type: boolean
+        states:
+          type: array
+          items:
+            type: string
+    v202505AlertServiceListCommentsResponse:
+      type: object
+      properties:
+        comments:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202505Comment'
+          description: The comments on the alert.
+          readOnly: true
     v202505AlertFilters:
       type: object
       properties:
@@ -422,265 +772,26 @@ components:
             type: string
             default: '[]'
           description: The context search terms (e.g. device name, interface name, site name, labels etc.) of the alerts to list.
-    AlertServiceSetExternalContextBody:
+    FlowContextInterfaceDetails:
       type: object
       properties:
-        context:
-          $ref: '#/components/schemas/v202505ExternalContext'
-      required:
-      - context
-    v202303SimpleAttributeFilter:
-      type: object
-      properties:
-        equals:
+        snmpId:
           type: string
-        startsWith:
-          type: string
-        endsWith:
-          type: string
-        contains:
-          type: string
-        in:
-          $ref: '#/components/schemas/v202303SimpleAttributeFilterStringArray'
-        any:
-          type: boolean
-          description: 'The equivalent of: value="*.  To use any this value MUST be set to true.'
-    v202505NmsConditionConnector:
-      type: string
-      enum:
-      - NMS_CONDITION_CONNECTOR_UNSPECIFIED
-      - NMS_CONDITION_CONNECTOR_ANY
-      - NMS_CONDITION_CONNECTOR_ALL
-      default: NMS_CONDITION_CONNECTOR_UNSPECIFIED
-      title: "- NMS_CONDITION_CONNECTOR_ANY: Any of the conditions must be true\n - NMS_CONDITION_CONNECTOR_ALL: All of the conditions must be true"
-    v202505NmsContext:
-      type: object
-      properties:
-        activationInfo:
-          $ref: '#/components/schemas/NmsContextActivationInfo'
-        datasetInfo:
-          $ref: '#/components/schemas/NmsContextDatasetInfo'
-        targets:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/NmsContextAlarmTarget'
-          title: AlarmTargets
-        metricValues:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/NmsContextAlarmMetricMap'
-          title: AlarmMetrics
-        previousMetricValues:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/NmsContextAlarmMetricMap'
-          title: AlarmPreviousStatus
-        device:
-          type: object
-          additionalProperties:
-            type: string
-          title: AlarmDevice
-        groupKey:
-          type: object
-          additionalProperties:
-            type: string
-          title: 'AlarmGroupKey - for example: {device_id: 123, ifindex: 42} for an interface alarm OR {agent_id: 12} for an agent alarm
-
-            sub-set of dimensions which all matches should include'
-      title: in the comments are evm equivalents
-    v202505NmsConditionGroup:
-      type: object
-      properties:
-        connector:
-          $ref: '#/components/schemas/v202505NmsConditionConnector'
-        not:
-          type: boolean
-        conditions:
-          type: array
-          items:
-            $ref: '#/components/schemas/v202505NmsCondition'
-        conditionGroups:
-          type: array
-          items:
-            $ref: '#/components/schemas/v202505NmsConditionGroup'
-          title: recursive
-    FlowContextDeviceDetails:
-      type: object
-      properties:
-        id:
-          type: string
-          description: The ID of the device.
+          description: The SNMP ID of the interface.
           readOnly: true
-        name:
+        snmpAlias:
           type: string
-          description: The name of the device.
+          description: The SNMP alias of the interface (e.g. 'eth0').
           readOnly: true
-        type:
+        description:
           type: string
-          description: The type of the device (e.g. 'router').
+          description: The description of the interface.
           readOnly: true
-        labels:
-          type: array
-          items:
-            type: string
-          description: The labels associated with the device.
-          readOnly: true
-    v202505AlertServiceUnAckResponse:
-      type: object
-      properties:
-        alert:
-          $ref: '#/components/schemas/v202505Alert'
-    NmsContextAlarmTarget:
-      type: object
-      properties:
-        fields:
-          type: object
-          additionalProperties:
-            type: number
-            format: double
-        tags:
-          type: object
-          additionalProperties:
-            type: string
-    v202505PolicyType:
-      type: string
-      enum:
-      - POLICY_TYPE_UNSPECIFIED
-      - POLICY_TYPE_AGENT
-      - POLICY_TYPE_COMPONENT
-      - POLICY_TYPE_DEVICE
-      - POLICY_TYPE_EVENT
-      - POLICY_TYPE_INTERFACE
-      - POLICY_TYPE_CUSTOM
-      - POLICY_TYPE_CLOUD
-      - POLICY_TYPE_PROTECT
-      - POLICY_TYPE_TRAFFIC
-      - POLICY_TYPE_KMETRICS
-      default: POLICY_TYPE_UNSPECIFIED
-      title: "- POLICY_TYPE_AGENT: NMS Agent Policy\n - POLICY_TYPE_COMPONENT: NMS Component Policy\n - POLICY_TYPE_DEVICE: NMS Device Policy\n - POLICY_TYPE_EVENT: NMS Event Policy\n - POLICY_TYPE_INTERFACE: NMS Interface Policy\n - POLICY_TYPE_CUSTOM: NMS Custom Policy\n - POLICY_TYPE_CLOUD: Flow Alerting Cloud Policy\n - POLICY_TYPE_PROTECT: Flow Alerting Protect Policy\n - POLICY_TYPE_TRAFFIC: Flow Alerting Traffic Policy\n - POLICY_TYPE_KMETRICS: Flow Alerting KMetrics Policy"
-    NmsContextActivationInfo:
-      type: object
-      properties:
-        activate:
-          $ref: '#/components/schemas/v202505NmsActivateOrClearConditions'
-        severity:
-          $ref: '#/components/schemas/v202303Severity'
-        clearManual:
-          type: boolean
-        clearUnlessActivated:
-          type: boolean
-    SortingConfigOrder:
-      type: string
-      enum:
-      - ORDER_UNSPECIFIED
-      - ORDER_ASCENDING
-      - ORDER_DESCENDING
-      default: ORDER_UNSPECIFIED
-    AlertServiceUnAckBody:
-      type: object
-    NmsContextAlarmMetricMap:
-      type: object
-      properties:
-        metrics:
-          type: object
-          additionalProperties:
-            type: number
-            format: double
-    v202505Alert:
-      type: object
-      properties:
-        id:
+        snmpSpeedMbps:
           type: string
-          description: The ID (UUID format) of the alert.
+          format: int64
+          description: The SNMP speed of the interface in Mbps.
           readOnly: true
-        source:
-          $ref: '#/components/schemas/v202505Source'
-        startTimeAt:
-          type: string
-          format: date-time
-          description: The start time of the alert.
-          readOnly: true
-        endTimeAt:
-          type: string
-          format: date-time
-          description: The end time of the alert.
-          readOnly: true
-        state:
-          $ref: '#/components/schemas/v202505AlertState'
-        severity:
-          $ref: '#/components/schemas/v202303Severity'
-        highestSeverity:
-          $ref: '#/components/schemas/v202303Severity'
-        acknowledgement:
-          $ref: '#/components/schemas/AlertAcknowledgement'
-        eventStartTimeAt:
-          type: string
-          format: date-time
-          description: The timestamp of the first trigger event that caused an alert to eventually activate.
-          readOnly: true
-        flow:
-          $ref: '#/components/schemas/v202505FlowContext'
-        nms:
-          $ref: '#/components/schemas/v202505NmsContext'
-        mitigationId:
-          type: string
-          format: uint64
-          description: ID of the associated mitigation, if applicable.
-          readOnly: true
-        externalContexts:
-          type: array
-          items:
-            $ref: '#/components/schemas/v202505ExternalContext'
-          description: External contexts attached to the alert (e.g. ServiceNow).
-          readOnly: true
-    protobufAny:
-      type: object
-      properties:
-        '@type':
-          type: string
-      additionalProperties: {}
-    v202303Severity:
-      type: string
-      enum:
-      - SEVERITY_UNSPECIFIED
-      - SEVERITY_CLEAR
-      - SEVERITY_MINOR
-      - SEVERITY_WARNING
-      - SEVERITY_MAJOR
-      - SEVERITY_SEVERE
-      - SEVERITY_CRITICAL
-      default: SEVERITY_UNSPECIFIED
-    v202505AlertServiceClearRequest:
-      type: object
-      properties:
-        alertIds:
-          type: array
-          items:
-            type: string
-          description: The IDs of the alerts to clear.
-      required:
-      - alertIds
-    v202505AlertServiceClearResponse:
-      type: object
-      properties:
-        clearedAlertIds:
-          type: array
-          items:
-            type: string
-          description: The IDs of the alerts that have been cleared.
-          readOnly: true
-    rpcStatus:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-        message:
-          type: string
-        details:
-          type: array
-          items:
-            $ref: '#/components/schemas/protobufAny'
     v202303AttributeFilter:
       type: object
       properties:
@@ -707,221 +818,51 @@ components:
           description: 'The equivalent of: value="*.  To use any this value MUST be set to true. Setting not to true
 
             enables us to look for "not-anything", but that predicate does not make much sense.'
-    typesv202506PaginationConfig:
-      type: object
-      properties:
-        limit:
-          type: string
-          format: uint64
-          title: limit is how many items to return at most
-        offset:
-          type: string
-          format: uint64
-          title: offset is the offset into the list of items
-        includeTotalCount:
-          type: boolean
-          title: 'include_total_count is a flag to enforce API service to include the total count of items in the response,
-
-            which in some cases may be very expensive to fetch'
-    v202505ExternalContext:
-      type: object
-      properties:
-        servicenow:
-          $ref: '#/components/schemas/v202505ServiceNowContext'
-        jiraCloud:
-          $ref: '#/components/schemas/v202505JiraCloudContext'
-      required:
-      - servicenow
-      - jiraCloud
-    v202505NmsStateSet:
-      type: object
-      properties:
-        not:
-          type: boolean
-        states:
-          type: array
-          items:
-            type: string
-    v202505AlertPhase:
-      type: object
-      properties:
-        severity:
-          $ref: '#/components/schemas/v202303Severity'
-        startTimeAt:
-          type: string
-          format: date-time
-          description: The start time of the alert phase.
-          readOnly: true
-        endTimeAt:
-          type: string
-          format: date-time
-          description: The end time of the alert phase.
-          readOnly: true
-        flow:
-          $ref: '#/components/schemas/v202505FlowContext'
-        nms:
-          $ref: '#/components/schemas/v202505NmsContext'
-    v202505NmsCondition:
-      type: object
-      properties:
-        measurement:
-          type: string
-        metric:
-          type: string
-        threshold:
-          $ref: '#/components/schemas/v202505NmsThresholdCondition'
-        stateChange:
-          $ref: '#/components/schemas/v202505NmsStateChangeCondition'
-        stateInCondition:
-          $ref: '#/components/schemas/v202505NmsStateSet'
-    v202505Comment:
-      type: object
-      properties:
-        id:
-          type: string
-          description: The unique identifier of the comment.
-          readOnly: true
-        text:
-          type: string
-          description: The text content of the comment.
-          readOnly: true
-        userId:
-          type: string
-          description: The ID of the user who created the comment.
-          readOnly: true
-        userName:
-          type: string
-          description: The username of the user who created the comment.
-          readOnly: true
-        userFullName:
-          type: string
-          description: The full name of the user who created the comment.
-          readOnly: true
-        userEmail:
-          type: string
-          description: The email of the user who created the comment.
-          readOnly: true
-        createdAt:
-          type: string
-          format: date-time
-          description: The timestamp when the comment was created.
-          readOnly: true
     v202505AlertServiceAckResponse:
       type: object
       properties:
         alert:
           $ref: '#/components/schemas/v202505Alert'
-    typesv202506SortingConfig:
+    typesv202506PaginationInfo:
       type: object
       properties:
-        fields:
+        totalCount:
+          type: string
+          format: uint64
+          description: 'total_count is the total number of items in the list.
+
+            It may be provided optionally if include_total_count is set to false.
+
+            It will be provided always if include_total_count is set to true.'
+        hasMoreResults:
+          type: boolean
+          title: 'has_more_results is a flag to indicate if there are more results to fetch
+
+            It may be provided instead of total_count if include_total_count is set to false and it would be very expensive to fetch the total count'
+    SortingConfigField:
+      type: object
+      properties:
+        by:
+          $ref: '#/components/schemas/FieldBy'
+        order:
+          $ref: '#/components/schemas/SortingConfigOrder'
+    v202505AlertServiceGetResponse:
+      type: object
+      properties:
+        alert:
+          $ref: '#/components/schemas/v202505Alert'
+        history:
           type: array
           items:
-            $ref: '#/components/schemas/SortingConfigField'
-    v202505AlertServiceAddCommentResponse:
-      type: object
-      properties:
-        comment:
-          $ref: '#/components/schemas/v202505Comment'
-    FlowContextMetricValue:
-      type: object
-      properties:
-        name:
-          type: string
-          description: The name of the metric value (e.g. 'bytes_in', 'bytes_out', 'packets_in', 'packets_out', etc.).
+            $ref: '#/components/schemas/v202505AlertPhase'
+          description: The history of the alert.
           readOnly: true
-        value:
-          type: number
-          format: double
-          description: The value of the given metric.
-          readOnly: true
-    FlowContextAlertKeyDetails:
-      type: object
-      properties:
-        device:
-          $ref: '#/components/schemas/FlowContextDeviceDetails'
-        interface:
-          $ref: '#/components/schemas/FlowContextInterfaceDetails'
-        site:
-          $ref: '#/components/schemas/FlowContextSiteDetails'
-        extendedValue:
-          type: string
-          description: The extended value of the alert key.
-          readOnly: true
-    AlertServiceAddCommentBody:
-      type: object
-      properties:
-        text:
-          type: string
-          description: The text content of the comment. Maximum length is 5000 characters.
-          maxLength: 5000
-      required:
-      - text
-    FlowContextInterfaceDetails:
-      type: object
-      properties:
-        snmpId:
-          type: string
-          description: The SNMP ID of the interface.
-          readOnly: true
-        snmpAlias:
-          type: string
-          description: The SNMP alias of the interface (e.g. 'eth0').
-          readOnly: true
-        description:
-          type: string
-          description: The description of the interface.
-          readOnly: true
-        snmpSpeedMbps:
-          type: string
-          format: int64
-          description: The SNMP speed of the interface in Mbps.
-          readOnly: true
-    v202505ServiceNowContext:
-      type: object
-      properties:
-        incidentId:
-          type: string
-          description: Incident ID associated with incoming Kentik alert, e.g., INC0012345.
-        incidentUrl:
-          type: string
-          description: Incident URL, e.g. https://instance.service-now.com/...
-      required:
-      - incidentId
-      - incidentUrl
-    v202505AlertAcknowledgement:
-      type: string
-      enum:
-      - ALERT_ACKNOWLEDGEMENT_UNSPECIFIED
-      - ALERT_ACKNOWLEDGEMENT_REQUIRED
-      - ALERT_ACKNOWLEDGEMENT_DONE
-      - ALERT_ACKNOWLEDGEMENT_NOT_ACKED
-      default: ALERT_ACKNOWLEDGEMENT_UNSPECIFIED
-      title: "- ALERT_ACKNOWLEDGEMENT_REQUIRED: alert acknowledgement is required (by the policy configuration)\n - ALERT_ACKNOWLEDGEMENT_DONE: alert acknowledgement is done (either manually or automatically)\n - ALERT_ACKNOWLEDGEMENT_NOT_ACKED: alert acknowledgement is not done (no matter if it's required or not)"
-    v202303KeyValueFilter:
-      type: object
-      properties:
-        key:
-          $ref: '#/components/schemas/v202303SimpleAttributeFilter'
-        value:
-          $ref: '#/components/schemas/v202303AttributeFilter'
-    v202505AlertServiceListResponse:
-      type: object
-      properties:
-        pagination:
-          $ref: '#/components/schemas/typesv202506PaginationInfo'
-        alerts:
+        comments:
           type: array
           items:
-            $ref: '#/components/schemas/v202505Alert'
-          description: The alerts result set.
+            $ref: '#/components/schemas/v202505Comment'
+          description: The comments on the alert.
           readOnly: true
-    AlertServiceAckBody:
-      type: object
-      properties:
-        comment:
-          type: string
-          description: The comment to add to the acknowledgement.
     FlowContextSiteDetails:
       type: object
       properties:
@@ -948,37 +889,46 @@ components:
           type: string
           description: The country of the site (e.g. 'United States').
           readOnly: true
-    v202505AlertState:
+    v202505ServiceNowContext:
+      type: object
+      properties:
+        incidentId:
+          type: string
+          description: Incident ID associated with incoming Kentik alert, e.g., INC0012345.
+        incidentUrl:
+          type: string
+          description: Incident URL, e.g. https://instance.service-now.com/...
+      required:
+      - incidentId
+      - incidentUrl
+    FieldBy:
       type: string
       enum:
-      - ALERT_STATE_UNSPECIFIED
-      - ALERT_STATE_CLEAR
-      - ALERT_STATE_ACTIVE
-      default: ALERT_STATE_UNSPECIFIED
-      title: "- ALERT_STATE_CLEAR: alert is cleared, no longer active\n - ALERT_STATE_ACTIVE: alert is active"
-    SortingConfigField:
-      type: object
-      properties:
-        by:
-          $ref: '#/components/schemas/FieldBy'
-        order:
-          $ref: '#/components/schemas/SortingConfigOrder'
-    v202303SimpleAttributeFilterStringArray:
-      type: object
-      properties:
-        values:
-          type: array
-          items:
-            type: string
-    v202505AlertServiceListCommentsResponse:
-      type: object
-      properties:
-        comments:
-          type: array
-          items:
-            $ref: '#/components/schemas/v202505Comment'
-          description: The comments on the alert.
-          readOnly: true
+      - BY_UNSPECIFIED
+      - BY_ID
+      - BY_NAME
+      - BY_CREATED_AT
+      - BY_UPDATED_AT
+      - BY_SEVERITY
+      - BY_STATUS
+      - BY_POLICY_TYPE
+      - BY_START_TIME
+      - BY_END_TIME
+      - BY_ALARM_STATE
+      - BY_ALARM_POLICY_NAME
+      - BY_ALARM_PRIMARY_DIMENSION
+      default: BY_UNSPECIFIED
+    v202303Severity:
+      type: string
+      enum:
+      - SEVERITY_UNSPECIFIED
+      - SEVERITY_CLEAR
+      - SEVERITY_MINOR
+      - SEVERITY_WARNING
+      - SEVERITY_MAJOR
+      - SEVERITY_SEVERE
+      - SEVERITY_CRITICAL
+      default: SEVERITY_UNSPECIFIED
     NmsContextDatasetInfo:
       type: object
       properties:
@@ -994,22 +944,97 @@ components:
           type: array
           items:
             type: string
-    typesv202506PaginationInfo:
+    v202505FlowContext:
       type: object
       properties:
-        totalCount:
+        metricValues:
+          type: array
+          items:
+            $ref: '#/components/schemas/FlowContextMetricValue'
+          description: The metric values of the alert determined by the policy configuration.
+          readOnly: true
+        activationStatus:
+          $ref: '#/components/schemas/FlowContextActivationStatus'
+        baselineValue:
+          type: number
+          format: double
+          description: The baseline value used when activating the alert.
+          readOnly: true
+        alertKeyDetails:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/FlowContextAlertKeyDetails'
+          description: 'The alert key details of the alert: each key might be expanded into multiple details.'
+          readOnly: true
+    NmsContextAlarmMetricMap:
+      type: object
+      properties:
+        metrics:
+          type: object
+          additionalProperties:
+            type: number
+            format: double
+    v202505PolicyType:
+      type: string
+      enum:
+      - POLICY_TYPE_UNSPECIFIED
+      - POLICY_TYPE_AGENT
+      - POLICY_TYPE_COMPONENT
+      - POLICY_TYPE_DEVICE
+      - POLICY_TYPE_EVENT
+      - POLICY_TYPE_INTERFACE
+      - POLICY_TYPE_CUSTOM
+      - POLICY_TYPE_CLOUD
+      - POLICY_TYPE_PROTECT
+      - POLICY_TYPE_TRAFFIC
+      - POLICY_TYPE_KMETRICS
+      default: POLICY_TYPE_UNSPECIFIED
+      title: "- POLICY_TYPE_AGENT: NMS Agent Policy\n - POLICY_TYPE_COMPONENT: NMS Component Policy\n - POLICY_TYPE_DEVICE: NMS Device Policy\n - POLICY_TYPE_EVENT: NMS Event Policy\n - POLICY_TYPE_INTERFACE: NMS Interface Policy\n - POLICY_TYPE_CUSTOM: NMS Custom Policy\n - POLICY_TYPE_CLOUD: Flow Alerting Cloud Policy\n - POLICY_TYPE_PROTECT: Flow Alerting Protect Policy\n - POLICY_TYPE_TRAFFIC: Flow Alerting Traffic Policy\n - POLICY_TYPE_KMETRICS: Flow Alerting KMetrics Policy"
+    AlertServiceSetExternalContextBody:
+      type: object
+      properties:
+        context:
+          $ref: '#/components/schemas/v202505ExternalContext'
+      required:
+      - context
+    v202505AlertServiceClearRequest:
+      type: object
+      properties:
+        alertIds:
+          type: array
+          items:
+            type: string
+          description: The IDs of the alerts to clear.
+      required:
+      - alertIds
+    typesv202506PaginationConfig:
+      type: object
+      properties:
+        limit:
           type: string
           format: uint64
-          description: 'total_count is the total number of items in the list.
-
-            It may be provided optionally if include_total_count is set to false.
-
-            It will be provided always if include_total_count is set to true.'
-        hasMoreResults:
+          title: limit is how many items to return at most
+        offset:
+          type: string
+          format: uint64
+          title: offset is the offset into the list of items
+        includeTotalCount:
           type: boolean
-          title: 'has_more_results is a flag to indicate if there are more results to fetch
+          title: 'include_total_count is a flag to enforce API service to include the total count of items in the response,
 
-            It may be provided instead of total_count if include_total_count is set to false and it would be very expensive to fetch the total count'
+            which in some cases may be very expensive to fetch'
+    v202505JiraCloudContext:
+      type: object
+      properties:
+        issueKey:
+          type: string
+          description: Jira Cloud issue key, e.g., KEY-123.
+        issueUrl:
+          type: string
+          description: Jira Cloud issue URL, e.g., https://instance.atlassian.net/browse/KEY-123.
+      required:
+      - issueKey
+      - issueUrl
     FlowContextActivationStatus:
       type: string
       enum:
@@ -1053,58 +1078,33 @@ components:
           format: date-time
           description: The timestamp of the acknowledgement.
           readOnly: true
-    v202505AlertServiceSetExternalContextResponse:
-      type: object
-      properties:
-        updatedAt:
-          type: string
-          format: date-time
-          description: Timestamp of external context update.
-          readOnly: true
-    v202505AlertServiceListRequest:
+    v202505AlertAcknowledgement:
+      type: string
+      enum:
+      - ALERT_ACKNOWLEDGEMENT_UNSPECIFIED
+      - ALERT_ACKNOWLEDGEMENT_REQUIRED
+      - ALERT_ACKNOWLEDGEMENT_DONE
+      - ALERT_ACKNOWLEDGEMENT_NOT_ACKED
+      default: ALERT_ACKNOWLEDGEMENT_UNSPECIFIED
+      title: "- ALERT_ACKNOWLEDGEMENT_REQUIRED: alert acknowledgement is required (by the policy configuration)\n - ALERT_ACKNOWLEDGEMENT_DONE: alert acknowledgement is done (either manually or automatically)\n - ALERT_ACKNOWLEDGEMENT_NOT_ACKED: alert acknowledgement is not done (no matter if it's required or not)"
+    v202505AlertServiceListResponse:
       type: object
       properties:
         pagination:
-          $ref: '#/components/schemas/typesv202506PaginationConfig'
-        sorting:
-          $ref: '#/components/schemas/typesv202506SortingConfig'
-        filters:
-          $ref: '#/components/schemas/v202505AlertFilters'
-    v202505AlertServiceGetResponse:
-      type: object
-      properties:
-        alert:
-          $ref: '#/components/schemas/v202505Alert'
-        history:
+          $ref: '#/components/schemas/typesv202506PaginationInfo'
+        alerts:
           type: array
           items:
-            $ref: '#/components/schemas/v202505AlertPhase'
-          description: The history of the alert.
+            $ref: '#/components/schemas/v202505Alert'
+          description: The alerts result set.
           readOnly: true
-        comments:
-          type: array
-          items:
-            $ref: '#/components/schemas/v202505Comment'
-          description: The comments on the alert.
-          readOnly: true
-    v202505NmsActivateOrClearConditions:
-      type: object
-      properties:
-        connector:
-          $ref: '#/components/schemas/v202505NmsConditionConnector'
-        conditionGroups:
-          type: array
-          items:
-            $ref: '#/components/schemas/v202505NmsConditionGroup'
-    v202303TimeRange:
-      type: object
-      properties:
-        start:
-          type: string
-          format: date-time
-        end:
-          type: string
-          format: date-time
+    SortingConfigOrder:
+      type: string
+      enum:
+      - ORDER_UNSPECIFIED
+      - ORDER_ASCENDING
+      - ORDER_DESCENDING
+      default: ORDER_UNSPECIFIED
   securitySchemes:
     email:
       type: apiKey

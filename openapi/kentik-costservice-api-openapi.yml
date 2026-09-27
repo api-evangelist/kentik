@@ -96,31 +96,25 @@ paths:
       - CostService
 components:
   schemas:
-    googlerpcStatus:
+    protobufAny:
       type: object
       properties:
-        code:
-          type: integer
-          format: int32
-        message:
+        '@type':
           type: string
-        details:
-          type: array
-          items:
-            $ref: '#/components/schemas/protobufAny'
-    v202308ListCostProvidersResponse:
+      additionalProperties: {}
+    v202308CostProviderConcise:
       type: object
       properties:
-        providers:
-          type: array
-          items:
-            $ref: '#/components/schemas/v202308CostProviderConcise'
-          description: List of configurations of requested cost providers
-        invalidCount:
-          type: integer
-          format: int64
-          description: Number of invalid entries encountered while collecting data
-      title: ListCostProvidersResponse
+        id:
+          type: string
+          description: ID of the cost provider
+          readOnly: true
+        name:
+          type: string
+          description: Name of the cost provider
+      title: CostProviderConcise
+      required:
+      - name
     v202308GetCostProviderSummaryResponse:
       type: object
       properties:
@@ -197,6 +191,31 @@ components:
           type: string
           description: Egress traffic percent variation of the cost provider (percentage changed vs the previous month)
       title: CostProviderSummary
+    v202308ListCostProvidersResponse:
+      type: object
+      properties:
+        providers:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202308CostProviderConcise'
+          description: List of configurations of requested cost providers
+        invalidCount:
+          type: integer
+          format: int64
+          description: Number of invalid entries encountered while collecting data
+      title: ListCostProvidersResponse
+    googlerpcStatus:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        details:
+          type: array
+          items:
+            $ref: '#/components/schemas/protobufAny'
     costv202308Status:
       type: string
       enum:
@@ -205,25 +224,6 @@ components:
       - STATUS_COMPLETE
       default: STATUS_UNSPECIFIED
       title: Status
-    protobufAny:
-      type: object
-      properties:
-        '@type':
-          type: string
-      additionalProperties: {}
-    v202308CostProviderConcise:
-      type: object
-      properties:
-        id:
-          type: string
-          description: ID of the cost provider
-          readOnly: true
-        name:
-          type: string
-          description: Name of the cost provider
-      title: CostProviderConcise
-      required:
-      - name
     v202308ListCostProviderSummariesResponse:
       type: object
       properties:
