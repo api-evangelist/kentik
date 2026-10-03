@@ -279,31 +279,18 @@ paths:
       - SiteService
 components:
   schemas:
-    v202509CreateSiteResponse:
+    rpcStatus:
       type: object
       properties:
-        site:
-          $ref: '#/components/schemas/v202509Site'
-      title: CreateSiteResponse
-    v202509UpdateSiteMarketResponse:
-      type: object
-      properties:
-        siteMarket:
-          $ref: '#/components/schemas/v202509SiteMarket'
-      title: UpdateSiteMarketResponse
-    v202509ListSiteMarketsResponse:
-      type: object
-      properties:
-        siteMarkets:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        details:
           type: array
           items:
-            $ref: '#/components/schemas/v202509SiteMarket'
-          description: List of configurations of requested site markets
-        invalidCount:
-          type: integer
-          format: int64
-          description: Number of invalid entries encountered while collecting data
-      title: ListSiteMarketsResponse
+            $ref: '#/components/schemas/protobufAny'
     v202509SiteIpAddressClassification:
       type: object
       properties:
@@ -323,113 +310,19 @@ components:
             type: string
           description: List of IP address prefixes (in standard CIDR notation) used in other networks
       title: SiteIpAddressClassification
-    v202509PostalAddress:
-      type: object
-      properties:
-        address:
-          type: string
-          description: Street address
-        city:
-          type: string
-          description: City (full name)
-        region:
-          type: string
-          description: Geographical region
-        postalCode:
-          type: string
-          description: Country specific postal code
-        country:
-          type: string
-          description: Country (full name or country code)
-      title: PostalAddress
-      required:
-      - address
-      - city
-      - country
-    v202509PeeringDBSiteMapping:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Peering DB id
-        siteId:
-          type: string
-          description: Peering DB site id
-        peeringdbFacId:
-          type: string
-          description: Peering DB facility id
-        edate:
-          type: string
-          format: date-time
-          description: Last modification timestamp (UTC)
-          readOnly: true
-        cdate:
-          type: string
-          format: date-time
-          description: Creation timestamp (UTC)
-          readOnly: true
-        companyId:
-          type: string
-          description: Company ID
-      required:
-      - id
-      - siteId
-      - peeringdbFacId
-    v202509CreateSiteMarketResponse:
-      type: object
-      properties:
-        siteMarket:
-          $ref: '#/components/schemas/v202509SiteMarket'
-      title: CreateSiteMarketResponse
-    protobufAny:
-      type: object
-      properties:
-        '@type':
-          type: string
-      additionalProperties: {}
-    rpcStatus:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-        message:
-          type: string
-        details:
-          type: array
-          items:
-            $ref: '#/components/schemas/protobufAny'
-    v202509SiteMarket:
-      type: object
-      properties:
-        id:
-          type: string
-          description: System generated unique identifier
-          readOnly: true
-        name:
-          type: string
-          description: User selected unique name
-        description:
-          type: string
-          description: Free-form description
-        numberOfSites:
-          type: integer
-          format: int64
-          description: Number of sites in this market
-          readOnly: true
-        cdate:
-          type: string
-          format: date-time
-          description: Creation timestamp (UTC)
-          readOnly: true
-        edate:
-          type: string
-          format: date-time
-          description: Last modification timestamp (UTC)
-          readOnly: true
-      title: SiteMarket
-      required:
-      - name
+    v202509SiteType:
+      type: string
+      enum:
+      - SITE_TYPE_UNSPECIFIED
+      - SITE_TYPE_DATA_CENTER
+      - SITE_TYPE_CLOUD
+      - SITE_TYPE_BRANCH
+      - SITE_TYPE_CONNECTIVITY
+      - SITE_TYPE_CUSTOMER
+      - SITE_TYPE_OTHER
+      default: SITE_TYPE_UNSPECIFIED
+      description: "- SITE_TYPE_UNSPECIFIED: Invalid value.\n - SITE_TYPE_DATA_CENTER: Data center site type.\n - SITE_TYPE_CLOUD: Cloud site type.\n - SITE_TYPE_BRANCH: Branch office site type.\n - SITE_TYPE_CONNECTIVITY: Connectivity/PoP site type.\n - SITE_TYPE_CUSTOMER: Customer/partner site type.\n - SITE_TYPE_OTHER: Other site type."
+      title: SiteType
     v202509Site:
       type: object
       properties:
@@ -470,12 +363,104 @@ components:
       required:
       - title
       - type
-    v202509GetSiteResponse:
+    v202509GetSiteMarketResponse:
       type: object
       properties:
-        site:
-          $ref: '#/components/schemas/v202509Site'
-      title: GetSiteResponse
+        siteMarket:
+          $ref: '#/components/schemas/v202509SiteMarket'
+      title: GetSiteMarketResponse
+    v202509PeeringDBSiteMapping:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Peering DB id
+        siteId:
+          type: string
+          description: Peering DB site id
+        peeringdbFacId:
+          type: string
+          description: Peering DB facility id
+        edate:
+          type: string
+          format: date-time
+          description: Last modification timestamp (UTC)
+          readOnly: true
+        cdate:
+          type: string
+          format: date-time
+          description: Creation timestamp (UTC)
+          readOnly: true
+        companyId:
+          type: string
+          description: Company ID
+      required:
+      - id
+      - siteId
+      - peeringdbFacId
+    v202509CreateSiteMarketRequest:
+      type: object
+      properties:
+        siteMarket:
+          $ref: '#/components/schemas/v202509SiteMarket'
+      title: CreateSiteMarketRequest
+      required:
+      - siteMarket
+    SiteServiceUpdateSiteMarketBody:
+      type: object
+      properties:
+        siteMarket:
+          type: object
+          properties:
+            name:
+              type: string
+              description: User selected unique name
+            description:
+              type: string
+              description: Free-form description
+            numberOfSites:
+              type: integer
+              format: int64
+              description: Number of sites in this market
+              readOnly: true
+            cdate:
+              type: string
+              format: date-time
+              description: Creation timestamp (UTC)
+              readOnly: true
+            edate:
+              type: string
+              format: date-time
+              description: Last modification timestamp (UTC)
+              readOnly: true
+          title: SiteMarket
+      title: UpdateSiteMarketRequest
+      required:
+      - name
+      - siteMarket
+    v202509PostalAddress:
+      type: object
+      properties:
+        address:
+          type: string
+          description: Street address
+        city:
+          type: string
+          description: City (full name)
+        region:
+          type: string
+          description: Geographical region
+        postalCode:
+          type: string
+          description: Country specific postal code
+        country:
+          type: string
+          description: Country (full name or country code)
+      title: PostalAddress
+      required:
+      - address
+      - city
+      - country
     v202509ListSitesResponse:
       type: object
       properties:
@@ -489,24 +474,24 @@ components:
           format: int64
           description: Number of invalid entries encountered while collecting data
       title: ListSitesResponse
-    v202509UpdateSiteResponse:
+    v202509CreateSiteResponse:
       type: object
       properties:
         site:
           $ref: '#/components/schemas/v202509Site'
-      title: UpdateSiteResponse
-    v202509Layer:
+      title: CreateSiteResponse
+    v202509LayerSet:
       type: object
       properties:
-        name:
-          type: string
-          description: Name of the network layer
-        deviceIds:
+        layers:
           type: array
           items:
-            type: string
-          description: IDs of devices that are deemed to be part of the network layer
-      title: Layer
+            $ref: '#/components/schemas/v202509Layer'
+          description: List of parallel network layers
+      title: LayerSet
+    v202509DeleteSiteMarketResponse:
+      type: object
+      title: DeleteSiteMarketResponse
     v202509CreateSiteRequest:
       type: object
       properties:
@@ -556,80 +541,95 @@ components:
       - title
       - type
       - site
-    v202509CreateSiteMarketRequest:
-      type: object
-      properties:
-        siteMarket:
-          $ref: '#/components/schemas/v202509SiteMarket'
-      title: CreateSiteMarketRequest
-      required:
-      - siteMarket
-    SiteServiceUpdateSiteMarketBody:
-      type: object
-      properties:
-        siteMarket:
-          type: object
-          properties:
-            name:
-              type: string
-              description: User selected unique name
-            description:
-              type: string
-              description: Free-form description
-            numberOfSites:
-              type: integer
-              format: int64
-              description: Number of sites in this market
-              readOnly: true
-            cdate:
-              type: string
-              format: date-time
-              description: Creation timestamp (UTC)
-              readOnly: true
-            edate:
-              type: string
-              format: date-time
-              description: Last modification timestamp (UTC)
-              readOnly: true
-          title: SiteMarket
-      title: UpdateSiteMarketRequest
-      required:
-      - name
-      - siteMarket
     v202509DeleteSiteResponse:
       type: object
       title: DeleteSiteResponse
-    v202509DeleteSiteMarketResponse:
-      type: object
-      title: DeleteSiteMarketResponse
-    v202509GetSiteMarketResponse:
+    v202509UpdateSiteMarketResponse:
       type: object
       properties:
         siteMarket:
           $ref: '#/components/schemas/v202509SiteMarket'
-      title: GetSiteMarketResponse
-    v202509SiteType:
-      type: string
-      enum:
-      - SITE_TYPE_UNSPECIFIED
-      - SITE_TYPE_DATA_CENTER
-      - SITE_TYPE_CLOUD
-      - SITE_TYPE_BRANCH
-      - SITE_TYPE_CONNECTIVITY
-      - SITE_TYPE_CUSTOMER
-      - SITE_TYPE_OTHER
-      default: SITE_TYPE_UNSPECIFIED
-      description: "- SITE_TYPE_UNSPECIFIED: Invalid value.\n - SITE_TYPE_DATA_CENTER: Data center site type.\n - SITE_TYPE_CLOUD: Cloud site type.\n - SITE_TYPE_BRANCH: Branch office site type.\n - SITE_TYPE_CONNECTIVITY: Connectivity/PoP site type.\n - SITE_TYPE_CUSTOMER: Customer/partner site type.\n - SITE_TYPE_OTHER: Other site type."
-      title: SiteType
-    v202509LayerSet:
+      title: UpdateSiteMarketResponse
+    protobufAny:
       type: object
       properties:
-        layers:
+        '@type':
+          type: string
+      additionalProperties: {}
+    v202509ListSiteMarketsResponse:
+      type: object
+      properties:
+        siteMarkets:
           type: array
           items:
-            $ref: '#/components/schemas/v202509Layer'
-          description: List of parallel network layers
-      title: LayerSet
+            $ref: '#/components/schemas/v202509SiteMarket'
+          description: List of configurations of requested site markets
+        invalidCount:
+          type: integer
+          format: int64
+          description: Number of invalid entries encountered while collecting data
+      title: ListSiteMarketsResponse
+    v202509SiteMarket:
+      type: object
+      properties:
+        id:
+          type: string
+          description: System generated unique identifier
+          readOnly: true
+        name:
+          type: string
+          description: User selected unique name
+        description:
+          type: string
+          description: Free-form description
+        numberOfSites:
+          type: integer
+          format: int64
+          description: Number of sites in this market
+          readOnly: true
+        cdate:
+          type: string
+          format: date-time
+          description: Creation timestamp (UTC)
+          readOnly: true
+        edate:
+          type: string
+          format: date-time
+          description: Last modification timestamp (UTC)
+          readOnly: true
+      title: SiteMarket
+      required:
+      - name
+    v202509GetSiteResponse:
+      type: object
+      properties:
+        site:
+          $ref: '#/components/schemas/v202509Site'
+      title: GetSiteResponse
+    v202509UpdateSiteResponse:
+      type: object
+      properties:
+        site:
+          $ref: '#/components/schemas/v202509Site'
+      title: UpdateSiteResponse
+    v202509CreateSiteMarketResponse:
+      type: object
+      properties:
+        siteMarket:
+          $ref: '#/components/schemas/v202509SiteMarket'
+      title: CreateSiteMarketResponse
+    v202509Layer:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the network layer
+        deviceIds:
+          type: array
+          items:
+            type: string
+          description: IDs of devices that are deemed to be part of the network layer
+      title: Layer
   securitySchemes:
     email:
       type: apiKey

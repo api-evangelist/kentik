@@ -261,13 +261,19 @@ paths:
       - KmiService
 components:
   schemas:
-    v202212GetASNDetailsResponse:
+    rpcStatus:
       type: object
       properties:
-        asnDetails:
-          $ref: '#/components/schemas/v202212ASNDetails'
-      title: GetASNDetailsResponse
-    v202212ASNDetails:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        details:
+          type: array
+          items:
+            $ref: '#/components/schemas/protobufAny'
+    v202212CustomerProvider:
       type: object
       properties:
         asn:
@@ -279,39 +285,50 @@ components:
           type: string
           description: Name of the Autonomous System
           readOnly: true
-        countryName:
-          type: string
-          description: Country Name of the Autonomous System
+        score:
+          type: integer
+          format: int64
+          description: Score of the Autonomous System
           readOnly: true
-        customers:
-          type: array
-          items:
-            $ref: '#/components/schemas/v202212CustomerProvider'
-          description: List of Customers
+        singlehomedCustomer:
+          type: boolean
+          description: Singlehomed customer (only one upstream provider to the internet)
           readOnly: true
-        providers:
-          type: array
-          items:
-            $ref: '#/components/schemas/v202212CustomerProvider'
-          description: List of Providers
+        mutualCustomer:
+          type: boolean
+          description: Mutual customer
           readOnly: true
-        peers:
-          type: array
-          items:
-            $ref: '#/components/schemas/v202212Peer'
-          description: List of Peers
+        mutualProvider:
+          type: boolean
+          description: Mutual provider
           readOnly: true
-      title: ASNDetails
-    v202212ListMarketsResponse:
+      title: CustomerProvider
+    v202212Insight:
       type: object
       properties:
-        markets:
-          type: array
-          items:
-            $ref: '#/components/schemas/v202212Market'
-          description: Markets
+        asn:
+          type: integer
+          format: int64
+          description: Autonomous System Number (ASN)
           readOnly: true
-      title: ListMarketsResponse
+        name:
+          type: string
+          description: Name of the Autonomous System
+          readOnly: true
+        type:
+          type: integer
+          format: int64
+          description: Type of insight
+          readOnly: true
+        message:
+          type: string
+          description: Insight message text
+          readOnly: true
+        createdAt:
+          type: string
+          description: Timestamp when insight was created
+          readOnly: true
+      title: Insight
     KmiServiceGetASNDetailsBody:
       type: object
       properties:
@@ -347,54 +364,56 @@ components:
           default: all
           description: Filter by singlehomed customer ('all', 'only', 'exclude'). Defaults to 'all'.
       title: GetASNDetailsRequest
-    v202212CustomerProvider:
+    KmiServiceGetRankingsBody:
       type: object
       properties:
-        asn:
+        limit:
           type: integer
           format: int64
-          description: Autonomous System Number (ASN)
+          description: 'Maximum number of entries returned. (Default: 600).'
+      title: GetRankingsRequest
+    v202212GetGlobalInsightsResponse:
+      type: object
+      properties:
+        insights:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202212Insight'
+          description: List of global insights
+          readOnly: true
+      title: GetGlobalInsightsResponse
+    v202212ListMarketsResponse:
+      type: object
+      properties:
+        markets:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202212Market'
+          description: Markets
+          readOnly: true
+      title: ListMarketsResponse
+    v202212Market:
+      type: object
+      properties:
+        marketId:
+          type: string
+          description: Unique Geo Market identifier
           readOnly: true
         name:
           type: string
-          description: Name of the Autonomous System
+          description: Geo Market Name
           readOnly: true
-        score:
-          type: integer
-          format: int64
-          description: Score of the Autonomous System
-          readOnly: true
-        singlehomedCustomer:
-          type: boolean
-          description: Singlehomed customer (only one upstream provider to the internet)
-          readOnly: true
-        mutualCustomer:
-          type: boolean
-          description: Mutual customer
-          readOnly: true
-        mutualProvider:
-          type: boolean
-          description: Mutual provider
-          readOnly: true
-      title: CustomerProvider
-    protobufAny:
+      title: Market
+    v202212GetASNInsightsResponse:
       type: object
       properties:
-        '@type':
-          type: string
-      additionalProperties: {}
-    rpcStatus:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-        message:
-          type: string
-        details:
+        insights:
           type: array
           items:
-            $ref: '#/components/schemas/protobufAny'
+            $ref: '#/components/schemas/v202212Insight'
+          description: List of ASN-specific insights
+          readOnly: true
+      title: GetASNInsightsResponse
     v202212Ranking:
       type: object
       properties:
@@ -428,26 +447,47 @@ components:
           description: Score Change of the Autonomous System
           readOnly: true
       title: Ranking
-    KmiServiceGetRankingsBody:
+    v202212ASNDetails:
       type: object
       properties:
-        limit:
+        asn:
           type: integer
           format: int64
-          description: 'Maximum number of entries returned. (Default: 600).'
-      title: GetRankingsRequest
-    v202212Market:
-      type: object
-      properties:
-        marketId:
-          type: string
-          description: Unique Geo Market identifier
+          description: Autonomous System Number (ASN)
           readOnly: true
         name:
           type: string
-          description: Geo Market Name
+          description: Name of the Autonomous System
           readOnly: true
-      title: Market
+        countryName:
+          type: string
+          description: Country Name of the Autonomous System
+          readOnly: true
+        customers:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202212CustomerProvider'
+          description: List of Customers
+          readOnly: true
+        providers:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202212CustomerProvider'
+          description: List of Providers
+          readOnly: true
+        peers:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202212Peer'
+          description: List of Peers
+          readOnly: true
+      title: ASNDetails
+    protobufAny:
+      type: object
+      properties:
+        '@type':
+          type: string
+      additionalProperties: {}
     v202212Peer:
       type: object
       properties:
@@ -466,52 +506,6 @@ components:
           description: Prefix Count (number of distinct IP address blocks announced by AS)
           readOnly: true
       title: Peer
-    v202212GetASNInsightsResponse:
-      type: object
-      properties:
-        insights:
-          type: array
-          items:
-            $ref: '#/components/schemas/v202212Insight'
-          description: List of ASN-specific insights
-          readOnly: true
-      title: GetASNInsightsResponse
-    v202212GetGlobalInsightsResponse:
-      type: object
-      properties:
-        insights:
-          type: array
-          items:
-            $ref: '#/components/schemas/v202212Insight'
-          description: List of global insights
-          readOnly: true
-      title: GetGlobalInsightsResponse
-    v202212Insight:
-      type: object
-      properties:
-        asn:
-          type: integer
-          format: int64
-          description: Autonomous System Number (ASN)
-          readOnly: true
-        name:
-          type: string
-          description: Name of the Autonomous System
-          readOnly: true
-        type:
-          type: integer
-          format: int64
-          description: Type of insight
-          readOnly: true
-        message:
-          type: string
-          description: Insight message text
-          readOnly: true
-        createdAt:
-          type: string
-          description: Timestamp when insight was created
-          readOnly: true
-      title: Insight
     v202212GetRankingsResponse:
       type: object
       properties:
@@ -525,6 +519,12 @@ components:
           format: int64
           description: Number of invalid entries encountered while collecting data
       title: GetRankingsResponse
+    v202212GetASNDetailsResponse:
+      type: object
+      properties:
+        asnDetails:
+          $ref: '#/components/schemas/v202212ASNDetails'
+      title: GetASNDetailsResponse
   securitySchemes:
     email:
       type: apiKey

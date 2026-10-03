@@ -89,33 +89,21 @@ paths:
       - NotificationChannelService
 components:
   schemas:
-    v202210SearchNotificationChannelsResponse:
+    v202210ListNotificationChannelsResponse:
       type: object
       properties:
         notificationChannels:
           type: array
           items:
             $ref: '#/components/schemas/v202210NotificationChannel'
-          description: List of matching notification channels.
+          description: List of notification channels
           readOnly: true
         invalidCount:
           type: integer
           format: int32
           description: Number of invalid entries that were not included in the list (should be always zero)
           readOnly: true
-      title: SearchNotificationChannelsResponse
-    v202210GetNotificationChannelResponse:
-      type: object
-      properties:
-        notificationChannel:
-          $ref: '#/components/schemas/v202210NotificationChannel'
-      title: GetNotificationChannelResponse
-    protobufAny:
-      type: object
-      properties:
-        '@type':
-          type: string
-      additionalProperties: {}
+      title: ListNotificationChannelsResponse
     rpcStatus:
       type: object
       properties:
@@ -128,6 +116,22 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/protobufAny'
+    v202210SearchNotificationChannelsRequest:
+      type: object
+      properties:
+        namePattern:
+          type: string
+          description: Regular expression pattern for matching the name attribute of channels. Empty string matches any name, otherwise the regular expression must consume all characters in the channel name.
+        types:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202210ChannelType'
+          description: List of ChannelType enum values to match. Empty list matches any channel type.
+        includeDisabled:
+          type: boolean
+          default: 'false'
+          description: Include disabled channels in results.
+      title: SearchNotificationChannelsRequest
     v202210NotificationChannel:
       type: object
       properties:
@@ -156,37 +160,33 @@ components:
           description: Last modification timestamp (UTC)
           readOnly: true
       title: NotificationChannel
-    v202210SearchNotificationChannelsRequest:
-      type: object
-      properties:
-        namePattern:
-          type: string
-          description: Regular expression pattern for matching the name attribute of channels. Empty string matches any name, otherwise the regular expression must consume all characters in the channel name.
-        types:
-          type: array
-          items:
-            $ref: '#/components/schemas/v202210ChannelType'
-          description: List of ChannelType enum values to match. Empty list matches any channel type.
-        includeDisabled:
-          type: boolean
-          default: 'false'
-          description: Include disabled channels in results.
-      title: SearchNotificationChannelsRequest
-    v202210ListNotificationChannelsResponse:
+    v202210SearchNotificationChannelsResponse:
       type: object
       properties:
         notificationChannels:
           type: array
           items:
             $ref: '#/components/schemas/v202210NotificationChannel'
-          description: List of notification channels
+          description: List of matching notification channels.
           readOnly: true
         invalidCount:
           type: integer
           format: int32
           description: Number of invalid entries that were not included in the list (should be always zero)
           readOnly: true
-      title: ListNotificationChannelsResponse
+      title: SearchNotificationChannelsResponse
+    v202210GetNotificationChannelResponse:
+      type: object
+      properties:
+        notificationChannel:
+          $ref: '#/components/schemas/v202210NotificationChannel'
+      title: GetNotificationChannelResponse
+    protobufAny:
+      type: object
+      properties:
+        '@type':
+          type: string
+      additionalProperties: {}
     v202210ChannelType:
       type: string
       enum:

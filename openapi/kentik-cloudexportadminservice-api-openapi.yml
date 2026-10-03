@@ -146,6 +146,111 @@ paths:
       - CloudExportAdminService
 components:
   schemas:
+    rpcStatus:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        details:
+          type: array
+          items:
+            $ref: '#/components/schemas/protobufAny'
+    v202506GetCloudExportResponse:
+      type: object
+      properties:
+        export:
+          $ref: '#/components/schemas/v202506CloudExport'
+      title: GetCloudExportResponse
+    v202506CloudExportSamplingProperties:
+      type: object
+      properties:
+        samplingEnabled:
+          type: boolean
+          description: Boolean indicating if sampling is used for this export.
+        samplingType:
+          $ref: '#/components/schemas/v202506CloudExportSamplingType'
+        samplingRate:
+          type: integer
+          format: int64
+          description: Sampling rate for the export.
+    v202506CloudExportStatus:
+      type: object
+      properties:
+        status:
+          type: string
+          description: Status of the export task.
+          readOnly: true
+        errorMessage:
+          type: string
+          description: Text of the last error message (empty if status is OK).
+          readOnly: true
+        flowFound:
+          type: boolean
+          description: Indication whether any flow data were exported.
+          readOnly: true
+        apiAccess:
+          type: boolean
+          description: Indication whether the export process is able to access cloud API.
+          readOnly: true
+        storageAccountAccess:
+          type: boolean
+          description: Indication whether the export process is able to access storage account containing flow logs.
+          readOnly: true
+      title: CloudExportStatus
+    CloudExportAdminServiceUpdateCloudExportBody:
+      type: object
+      properties:
+        export:
+          type: object
+          properties:
+            type:
+              $ref: '#/components/schemas/v202506CloudExportType'
+            enabled:
+              type: boolean
+              description: Attribute controlling whether the instance is active
+            name:
+              type: string
+              description: User selected name of the instance
+            description:
+              type: string
+              description: Description of the instance
+            planId:
+              type: string
+              description: Identifier of the billing plan for the instance
+            cloudProvider:
+              $ref: '#/components/schemas/v202506CloudProvider'
+            aws:
+              $ref: '#/components/schemas/v202506AwsProperties'
+            azure:
+              $ref: '#/components/schemas/v202506AzureProperties'
+            gce:
+              $ref: '#/components/schemas/v202506GceProperties'
+            oci:
+              $ref: '#/components/schemas/v202506OciProperties'
+            currentStatus:
+              $ref: '#/components/schemas/v202506CloudExportStatus'
+            cdate:
+              type: string
+              format: date-time
+              description: Creation timestamp (UTC)
+              readOnly: true
+            edate:
+              type: string
+              format: date-time
+              description: Last modification timestamp (UTC)
+              readOnly: true
+            sampling:
+              $ref: '#/components/schemas/v202506CloudExportSamplingProperties'
+          title: CloudExport
+      title: UpdateCloudExportRequest
+      required:
+      - enabled
+      - name
+      - planId
+      - cloudProvider
     v202506CloudProvider:
       type: string
       enum:
@@ -157,6 +262,19 @@ components:
       default: CLOUD_PROVIDER_UNSPECIFIED
       description: "- CLOUD_PROVIDER_UNSPECIFIED: Invalid value.\n - CLOUD_PROVIDER_AWS: Amazon Web Services\n - CLOUD_PROVIDER_AZURE: Microsoft Azure\n - CLOUD_PROVIDER_GCE: Google Cloud\n - CLOUD_PROVIDER_OCI: OCI"
       title: CloudProvider
+    v202506ListCloudExportsResponse:
+      type: object
+      properties:
+        exports:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202506CloudExport'
+          description: List of cloud export objects.
+        invalidExportsCount:
+          type: integer
+          format: int64
+          description: Number of objects with invalid data (which are not returned in the response).
+      title: ListCloudExportsResponse
     v202506CloudExport:
       type: object
       properties:
@@ -208,69 +326,27 @@ components:
       - name
       - planId
       - cloudProvider
-    v202506CloudExportSamplingProperties:
+    v202506GceProperties:
       type: object
       properties:
-        samplingEnabled:
-          type: boolean
-          description: Boolean indicating if sampling is used for this export.
-        samplingType:
-          $ref: '#/components/schemas/v202506CloudExportSamplingType'
-        samplingRate:
-          type: integer
-          format: int64
-          description: Sampling rate for the export.
-    v202506ListCloudExportsResponse:
-      type: object
-      properties:
-        exports:
-          type: array
-          items:
-            $ref: '#/components/schemas/v202506CloudExport'
-          description: List of cloud export objects.
-        invalidExportsCount:
-          type: integer
-          format: int64
-          description: Number of objects with invalid data (which are not returned in the response).
-      title: ListCloudExportsResponse
-    v202506OciProperties:
-      type: object
-      properties:
-        ociUserId:
+        project:
           type: string
-          description: ID of the user created to represent the Kentik cloud export tool.
-        ociTenancyId:
+          description: Name of the project from which to export flow logs.
+        subscription:
           type: string
-          description: OCI Tenancy details.
-        ociCompartmentId:
-          type: array
-          items:
-            type: string
-          description: Compartment IDs from which to collect metadata.
-        ociDefaultRegion:
-          type: string
-          description: Default Enabled Region from which to collect metadata.
-        ociCollectFlowLogs:
-          type: boolean
-          description: Import metadata and collect flow logs (default true).
-        ociBucketName:
-          type: string
-          description: Name of the bucket from which flow logs are to be extracted.  Required if collecting flow logs (default)
-        ociBucketNamespaceName:
-          type: string
-          description: Namespace of the bucket from which flow logs are to be extracted.  Required if collecting flow logs (default)
-        ociServiceConnectorOcid:
-          type: string
-        ociFlowObjectNamePrefix:
-          type: string
-          description: We will look for files in the bucket whose names start with {%prefix%}/{%service_connector_ocid%}
+          description: GCP Pub/Sub subscription providing flow logs.
         metadataOnly:
           type: boolean
           description: Import only metadata without any flows (default false).
-      title: OciProperties
+        collectFlowLogs:
+          type: boolean
+          description: Import metadata and collect flow logs (default true).
+        collectMetrics:
+          type: boolean
+          description: Import metadata and collect metrics data.  Note that flow logs will still be collected unless metadata_only is also set to true. (default false).
+      title: GceProperties
       required:
-      - ociTenancyId
-      - ociDefaultRegion
+      - project
     v202506AwsProperties:
       type: object
       properties:
@@ -326,132 +402,6 @@ components:
       required:
       - iamRoleArn
       - region
-    CloudExportAdminServiceUpdateCloudExportBody:
-      type: object
-      properties:
-        export:
-          type: object
-          properties:
-            type:
-              $ref: '#/components/schemas/v202506CloudExportType'
-            enabled:
-              type: boolean
-              description: Attribute controlling whether the instance is active
-            name:
-              type: string
-              description: User selected name of the instance
-            description:
-              type: string
-              description: Description of the instance
-            planId:
-              type: string
-              description: Identifier of the billing plan for the instance
-            cloudProvider:
-              $ref: '#/components/schemas/v202506CloudProvider'
-            aws:
-              $ref: '#/components/schemas/v202506AwsProperties'
-            azure:
-              $ref: '#/components/schemas/v202506AzureProperties'
-            gce:
-              $ref: '#/components/schemas/v202506GceProperties'
-            oci:
-              $ref: '#/components/schemas/v202506OciProperties'
-            currentStatus:
-              $ref: '#/components/schemas/v202506CloudExportStatus'
-            cdate:
-              type: string
-              format: date-time
-              description: Creation timestamp (UTC)
-              readOnly: true
-            edate:
-              type: string
-              format: date-time
-              description: Last modification timestamp (UTC)
-              readOnly: true
-            sampling:
-              $ref: '#/components/schemas/v202506CloudExportSamplingProperties'
-          title: CloudExport
-      title: UpdateCloudExportRequest
-      required:
-      - enabled
-      - name
-      - planId
-      - cloudProvider
-    protobufAny:
-      type: object
-      properties:
-        '@type':
-          type: string
-      additionalProperties: {}
-    rpcStatus:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-        message:
-          type: string
-        details:
-          type: array
-          items:
-            $ref: '#/components/schemas/protobufAny'
-    v202506GceProperties:
-      type: object
-      properties:
-        project:
-          type: string
-          description: Name of the project from which to export flow logs.
-        subscription:
-          type: string
-          description: GCP Pub/Sub subscription providing flow logs.
-        metadataOnly:
-          type: boolean
-          description: Import only metadata without any flows (default false).
-        collectFlowLogs:
-          type: boolean
-          description: Import metadata and collect flow logs (default true).
-        collectMetrics:
-          type: boolean
-          description: Import metadata and collect metrics data.  Note that flow logs will still be collected unless metadata_only is also set to true. (default false).
-      title: GceProperties
-      required:
-      - project
-    v202506UpdateCloudExportResponse:
-      type: object
-      properties:
-        export:
-          $ref: '#/components/schemas/v202506CloudExport'
-      title: UpdateCloudExportResponse
-    v202506CloudExportStatus:
-      type: object
-      properties:
-        status:
-          type: string
-          description: Status of the export task.
-          readOnly: true
-        errorMessage:
-          type: string
-          description: Text of the last error message (empty if status is OK).
-          readOnly: true
-        flowFound:
-          type: boolean
-          description: Indication whether any flow data were exported.
-          readOnly: true
-        apiAccess:
-          type: boolean
-          description: Indication whether the export process is able to access cloud API.
-          readOnly: true
-        storageAccountAccess:
-          type: boolean
-          description: Indication whether the export process is able to access storage account containing flow logs.
-          readOnly: true
-      title: CloudExportStatus
-    v202506CreateCloudExportRequest:
-      type: object
-      properties:
-        export:
-          $ref: '#/components/schemas/v202506CloudExport'
-      title: CreateCloudExportRequest
     v202506CloudExportSamplingType:
       type: string
       enum:
@@ -460,12 +410,44 @@ components:
       - CLOUD_EXPORT_SAMPLING_TYPE_UNSAMPLED
       default: CLOUD_EXPORT_SAMPLING_TYPE_UNSPECIFIED
       title: "- CLOUD_EXPORT_SAMPLING_TYPE_UNSPECIFIED: Invalid value.\n - CLOUD_EXPORT_SAMPLING_TYPE_RATE: Export all flows\n - CLOUD_EXPORT_SAMPLING_TYPE_UNSAMPLED: Export sampled flows"
-    v202506CreateCloudExportResponse:
+    v202506OciProperties:
       type: object
       properties:
-        export:
-          $ref: '#/components/schemas/v202506CloudExport'
-      title: CreateCloudExportResponse
+        ociUserId:
+          type: string
+          description: ID of the user created to represent the Kentik cloud export tool.
+        ociTenancyId:
+          type: string
+          description: OCI Tenancy details.
+        ociCompartmentId:
+          type: array
+          items:
+            type: string
+          description: Compartment IDs from which to collect metadata.
+        ociDefaultRegion:
+          type: string
+          description: Default Enabled Region from which to collect metadata.
+        ociCollectFlowLogs:
+          type: boolean
+          description: Import metadata and collect flow logs (default true).
+        ociBucketName:
+          type: string
+          description: Name of the bucket from which flow logs are to be extracted.  Required if collecting flow logs (default)
+        ociBucketNamespaceName:
+          type: string
+          description: Namespace of the bucket from which flow logs are to be extracted.  Required if collecting flow logs (default)
+        ociServiceConnectorOcid:
+          type: string
+        ociFlowObjectNamePrefix:
+          type: string
+          description: We will look for files in the bucket whose names start with {%prefix%}/{%service_connector_ocid%}
+        metadataOnly:
+          type: boolean
+          description: Import only metadata without any flows (default false).
+      title: OciProperties
+      required:
+      - ociTenancyId
+      - ociDefaultRegion
     v202506CloudExportType:
       type: string
       enum:
@@ -475,15 +457,27 @@ components:
       default: CLOUD_EXPORT_TYPE_UNSPECIFIED
       description: "- CLOUD_EXPORT_TYPE_UNSPECIFIED: Invalid value.\n - CLOUD_EXPORT_TYPE_KENTIK_MANAGED: Cloud export process is managed by Kentik\n - CLOUD_EXPORT_TYPE_CUSTOMER_MANAGED: Cloud export process is managed by customer"
       title: CloudExportType
-    v202506GetCloudExportResponse:
+    v202506DeleteCloudExportResponse:
+      type: object
+      title: DeleteCloudExportResponse
+    v202506CreateCloudExportRequest:
       type: object
       properties:
         export:
           $ref: '#/components/schemas/v202506CloudExport'
-      title: GetCloudExportResponse
-    v202506DeleteCloudExportResponse:
+      title: CreateCloudExportRequest
+    v202506UpdateCloudExportResponse:
       type: object
-      title: DeleteCloudExportResponse
+      properties:
+        export:
+          $ref: '#/components/schemas/v202506CloudExport'
+      title: UpdateCloudExportResponse
+    protobufAny:
+      type: object
+      properties:
+        '@type':
+          type: string
+      additionalProperties: {}
     v202506AzureProperties:
       type: object
       properties:
@@ -508,6 +502,12 @@ components:
       - resourceGroup
       - storageAccount
       - subscriptionId
+    v202506CreateCloudExportResponse:
+      type: object
+      properties:
+        export:
+          $ref: '#/components/schemas/v202506CloudExport'
+      title: CreateCloudExportResponse
   securitySchemes:
     email:
       type: apiKey

@@ -128,6 +128,18 @@ paths:
       x-operation-id-original: GetAuditEvent
 components:
   schemas:
+    rpcStatus:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        details:
+          type: array
+          items:
+            $ref: '#/components/schemas/protobufAny'
     v202601GenericEvent:
       type: object
       properties:
@@ -148,30 +160,6 @@ components:
           additionalProperties:
             type: string
           title: generic bag of metadata about the event
-    rpcStatus:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-        message:
-          type: string
-        details:
-          type: array
-          items:
-            $ref: '#/components/schemas/protobufAny'
-    v202601GetAuditEventResponse:
-      type: object
-      properties:
-        event:
-          $ref: '#/components/schemas/v202601AuditEvent'
-    v202601ListAuditEventsResponse:
-      type: object
-      properties:
-        events:
-          type: array
-          items:
-            $ref: '#/components/schemas/v202601AuditEvent'
     v202601AuditEvent:
       type: object
       properties:
@@ -237,6 +225,18 @@ components:
           type: string
           title: User agent
       description: AuditEvent represents an audit event with request and enriched contextual information.
+    v202601ListAuditEventsResponse:
+      type: object
+      properties:
+        events:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202601AuditEvent'
+    v202601GetAuditEventResponse:
+      type: object
+      properties:
+        event:
+          $ref: '#/components/schemas/v202601AuditEvent'
     protobufAny:
       type: object
       properties:

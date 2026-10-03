@@ -179,6 +179,54 @@ paths:
       - BgpMonitoringAdminService
 components:
   schemas:
+    rpcStatus:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        details:
+          type: array
+          items:
+            $ref: '#/components/schemas/protobufAny'
+    v202210Nlri:
+      type: object
+      properties:
+        afi:
+          $ref: '#/components/schemas/v202303Afi'
+        safi:
+          $ref: '#/components/schemas/v202303Safi'
+        prefix:
+          type: string
+          description: Actual prefix data (format depends on AFI)
+      title: Nlri
+      required:
+      - afi
+      - safi
+      - prefix
+    v202210ListMonitorsResponse:
+      type: object
+      properties:
+        monitors:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202210BgpMonitor'
+          description: List of BGP monitors configured in the account
+          readOnly: true
+        invalidCount:
+          type: integer
+          format: int64
+          description: Number of invalid objects (should be always zero)
+          readOnly: true
+      title: ListMonitorsResponse
+    v202210UpdateMonitorResponse:
+      type: object
+      properties:
+        monitor:
+          $ref: '#/components/schemas/v202210BgpMonitor'
+      title: UpdateMonitorResponse
     BgpMonitoringAdminServiceSetMonitorStatusBody:
       type: object
       properties:
@@ -187,25 +235,18 @@ components:
       title: SetMonitorStatusRequest
       required:
       - status
-    v202210SetMonitorStatusResponse:
-      type: object
-      title: SetMonitorStatusResponse
-    v202210CreateMonitorResponse:
+    v202210BgpHealthSettings:
       type: object
       properties:
-        monitor:
-          $ref: '#/components/schemas/v202210BgpMonitor'
-      title: CreateMonitorResponse
-    v202210BgpMonitorStatus:
-      type: string
-      enum:
-      - BGP_MONITOR_STATUS_UNSPECIFIED
-      - BGP_MONITOR_STATUS_ACTIVE
-      - BGP_MONITOR_STATUS_PAUSED
-      - BGP_MONITOR_STATUS_DELETED
-      default: BGP_MONITOR_STATUS_UNSPECIFIED
-      description: "- BGP_MONITOR_STATUS_UNSPECIFIED: Invalid value.\n - BGP_MONITOR_STATUS_ACTIVE: Monitor is active.\n - BGP_MONITOR_STATUS_PAUSED: Monitor is paused.\n - BGP_MONITOR_STATUS_DELETED: Monitor is deleted. Not user settable"
-      title: BgpMonitorStatus
+        reachabilityWarning:
+          type: number
+          format: float
+          description: Threshold (in percents) for triggering warning level alert
+        reachabilityCritical:
+          type: number
+          format: float
+          description: Threshold (in percents) for triggering critical level alert
+      title: BgpHealthSettings
     v202210BgpMonitorSettings:
       type: object
       properties:
@@ -245,119 +286,9 @@ components:
       title: BgpMonitorSettings
       required:
       - targets
-    v202210GetMonitorResponse:
-      type: object
-      properties:
-        monitor:
-          $ref: '#/components/schemas/v202210BgpMonitor'
-      title: GetMonitorResponse
-    v202210UpdateMonitorResponse:
-      type: object
-      properties:
-        monitor:
-          $ref: '#/components/schemas/v202210BgpMonitor'
-      title: UpdateMonitorResponse
-    v202210BgpMonitor:
-      type: object
-      properties:
-        id:
-          type: string
-          description: System generated unique identifier
-          readOnly: true
-        name:
-          type: string
-          description: User selected name of the monitor
-        status:
-          $ref: '#/components/schemas/v202210BgpMonitorStatus'
-        settings:
-          $ref: '#/components/schemas/v202210BgpMonitorSettings'
-        cdate:
-          type: string
-          format: date-time
-          description: Creation timestamp (UTC)
-          readOnly: true
-        edate:
-          type: string
-          format: date-time
-          description: Last modification timestamp (UTC)
-          readOnly: true
-        createdBy:
-          $ref: '#/components/schemas/v202303UserInfo'
-        lastUpdatedBy:
-          $ref: '#/components/schemas/v202303UserInfo'
-        labels:
-          type: array
-          items:
-            type: string
-      title: BgpMonitor
-      required:
-      - name
     v202210DeleteMonitorResponse:
       type: object
       title: DeleteMonitorResponse
-    protobufAny:
-      type: object
-      properties:
-        '@type':
-          type: string
-      additionalProperties: {}
-    rpcStatus:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-        message:
-          type: string
-        details:
-          type: array
-          items:
-            $ref: '#/components/schemas/protobufAny'
-    v202210CreateMonitorRequest:
-      type: object
-      properties:
-        monitor:
-          $ref: '#/components/schemas/v202210BgpMonitor'
-      title: CreateMonitorRequest
-      required:
-      - monitor
-    v202303Safi:
-      type: string
-      enum:
-      - SAFI_UNSPECIFIED
-      - SAFI_UNICAST
-      - SAFI_MPLS
-      - SAFI_L3VPN
-      default: SAFI_UNSPECIFIED
-      title: Safi
-    v202303UserInfo:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Unique system generated ID
-          readOnly: true
-        email:
-          type: string
-          description: E-mail address of the user
-          readOnly: true
-        fullName:
-          type: string
-          description: Full name of the user
-          readOnly: true
-      title: UserInfo
-    v202210BgpHealthSettings:
-      type: object
-      properties:
-        reachabilityWarning:
-          type: number
-          format: float
-          description: Threshold (in percents) for triggering warning level alert
-        reachabilityCritical:
-          type: number
-          format: float
-          description: Threshold (in percents) for triggering critical level alert
-      title: BgpHealthSettings
     BgpMonitoringAdminServiceUpdateMonitorBody:
       type: object
       properties:
@@ -394,21 +325,105 @@ components:
       required:
       - name
       - monitor
-    v202210Nlri:
+    v202210GetMonitorResponse:
       type: object
       properties:
-        afi:
-          $ref: '#/components/schemas/v202303Afi'
-        safi:
-          $ref: '#/components/schemas/v202303Safi'
-        prefix:
+        monitor:
+          $ref: '#/components/schemas/v202210BgpMonitor'
+      title: GetMonitorResponse
+    v202210BgpMonitor:
+      type: object
+      properties:
+        id:
           type: string
-          description: Actual prefix data (format depends on AFI)
-      title: Nlri
+          description: System generated unique identifier
+          readOnly: true
+        name:
+          type: string
+          description: User selected name of the monitor
+        status:
+          $ref: '#/components/schemas/v202210BgpMonitorStatus'
+        settings:
+          $ref: '#/components/schemas/v202210BgpMonitorSettings'
+        cdate:
+          type: string
+          format: date-time
+          description: Creation timestamp (UTC)
+          readOnly: true
+        edate:
+          type: string
+          format: date-time
+          description: Last modification timestamp (UTC)
+          readOnly: true
+        createdBy:
+          $ref: '#/components/schemas/v202303UserInfo'
+        lastUpdatedBy:
+          $ref: '#/components/schemas/v202303UserInfo'
+        labels:
+          type: array
+          items:
+            type: string
+      title: BgpMonitor
       required:
-      - afi
-      - safi
-      - prefix
+      - name
+    v202303UserInfo:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique system generated ID
+          readOnly: true
+        email:
+          type: string
+          description: E-mail address of the user
+          readOnly: true
+        fullName:
+          type: string
+          description: Full name of the user
+          readOnly: true
+      title: UserInfo
+    v202210CreateMonitorResponse:
+      type: object
+      properties:
+        monitor:
+          $ref: '#/components/schemas/v202210BgpMonitor'
+      title: CreateMonitorResponse
+    v202303Safi:
+      type: string
+      enum:
+      - SAFI_UNSPECIFIED
+      - SAFI_UNICAST
+      - SAFI_MPLS
+      - SAFI_L3VPN
+      default: SAFI_UNSPECIFIED
+      title: Safi
+    protobufAny:
+      type: object
+      properties:
+        '@type':
+          type: string
+      additionalProperties: {}
+    v202210SetMonitorStatusResponse:
+      type: object
+      title: SetMonitorStatusResponse
+    v202210CreateMonitorRequest:
+      type: object
+      properties:
+        monitor:
+          $ref: '#/components/schemas/v202210BgpMonitor'
+      title: CreateMonitorRequest
+      required:
+      - monitor
+    v202210BgpMonitorStatus:
+      type: string
+      enum:
+      - BGP_MONITOR_STATUS_UNSPECIFIED
+      - BGP_MONITOR_STATUS_ACTIVE
+      - BGP_MONITOR_STATUS_PAUSED
+      - BGP_MONITOR_STATUS_DELETED
+      default: BGP_MONITOR_STATUS_UNSPECIFIED
+      description: "- BGP_MONITOR_STATUS_UNSPECIFIED: Invalid value.\n - BGP_MONITOR_STATUS_ACTIVE: Monitor is active.\n - BGP_MONITOR_STATUS_PAUSED: Monitor is paused.\n - BGP_MONITOR_STATUS_DELETED: Monitor is deleted. Not user settable"
+      title: BgpMonitorStatus
     v202303Afi:
       type: string
       enum:
@@ -417,21 +432,6 @@ components:
       - AFI_IP6
       default: AFI_UNSPECIFIED
       title: Afi
-    v202210ListMonitorsResponse:
-      type: object
-      properties:
-        monitors:
-          type: array
-          items:
-            $ref: '#/components/schemas/v202210BgpMonitor'
-          description: List of BGP monitors configured in the account
-          readOnly: true
-        invalidCount:
-          type: integer
-          format: int64
-          description: Number of invalid objects (should be always zero)
-          readOnly: true
-      title: ListMonitorsResponse
   securitySchemes:
     email:
       type: apiKey

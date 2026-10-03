@@ -187,6 +187,24 @@ paths:
       - FlowTagService
 components:
   schemas:
+    rpcStatus:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        details:
+          type: array
+          items:
+            $ref: '#/components/schemas/protobufAny'
+    v202404alpha1UpdateFlowTagResponse:
+      type: object
+      properties:
+        flowTag:
+          $ref: '#/components/schemas/v202404alpha1FlowTag'
+      title: UpdateFlowTagResponse
     FlowTagServiceUpdateFlowTagBody:
       type: object
       properties:
@@ -301,39 +319,18 @@ components:
               description: VLANs associated with the flow tag
           title: FlowTag
       title: UpdateFlowTagRequest
-    v202404alpha1UpdateFlowTagResponse:
+    v202404alpha1CreateFlowTagRequest:
       type: object
       properties:
         flowTag:
           $ref: '#/components/schemas/v202404alpha1FlowTag'
-      title: UpdateFlowTagResponse
+      title: CreateFlowTagRequest
     v202404alpha1GetFlowTagResponse:
       type: object
       properties:
         flowTag:
           $ref: '#/components/schemas/v202404alpha1FlowTag'
       title: GetFlowTagResponse
-    v202404alpha1DeleteFlowTagResponse:
-      type: object
-      title: DeleteFlowTagResponse
-    protobufAny:
-      type: object
-      properties:
-        '@type':
-          type: string
-      additionalProperties: {}
-    rpcStatus:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-        message:
-          type: string
-        details:
-          type: array
-          items:
-            $ref: '#/components/schemas/protobufAny'
     v202404alpha1SearchFlowTagResponse:
       type: object
       properties:
@@ -348,19 +345,12 @@ components:
           type: integer
           format: int64
       title: SearchFlowTagResponse
-    v202404alpha1AddressInfo:
+    v202404alpha1CreateFlowTagResponse:
       type: object
       properties:
-        addresses:
-          type: array
-          items:
-            type: string
-          title: List of returning mac or ip address
-        totalCount:
-          type: integer
-          format: int32
-          title: Total number of addresses available
-      title: AddressInfo
+        flowTag:
+          $ref: '#/components/schemas/v202404alpha1FlowTag'
+      title: CreateFlowTagResponse
     v202404alpha1FlowTag:
       type: object
       properties:
@@ -475,18 +465,28 @@ components:
             type: string
           description: VLANs associated with the flow tag
       title: FlowTag
-    v202404alpha1CreateFlowTagResponse:
+    v202404alpha1DeleteFlowTagResponse:
+      type: object
+      title: DeleteFlowTagResponse
+    protobufAny:
       type: object
       properties:
-        flowTag:
-          $ref: '#/components/schemas/v202404alpha1FlowTag'
-      title: CreateFlowTagResponse
-    v202404alpha1CreateFlowTagRequest:
+        '@type':
+          type: string
+      additionalProperties: {}
+    v202404alpha1AddressInfo:
       type: object
       properties:
-        flowTag:
-          $ref: '#/components/schemas/v202404alpha1FlowTag'
-      title: CreateFlowTagRequest
+        addresses:
+          type: array
+          items:
+            type: string
+          title: List of returning mac or ip address
+        totalCount:
+          type: integer
+          format: int32
+          title: Total number of addresses available
+      title: AddressInfo
   securitySchemes:
     email:
       type: apiKey

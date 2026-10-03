@@ -200,56 +200,6 @@ paths:
       - UserService
 components:
   schemas:
-    v202211Role:
-      type: string
-      enum:
-      - ROLE_UNSPECIFIED
-      - ROLE_MEMBER
-      - ROLE_ADMINISTRATOR
-      - ROLE_SUPER_ADMINISTRATOR
-      default: ROLE_UNSPECIFIED
-      description: "- ROLE_UNSPECIFIED: Invalid value.\n - ROLE_MEMBER: Member\n - ROLE_ADMINISTRATOR: Administrator\n - ROLE_SUPER_ADMINISTRATOR: Super-administrator"
-      title: Role
-    v202211DeleteUserResponse:
-      type: object
-      title: DeleteUserResponse
-    v202211LandingType:
-      type: string
-      enum:
-      - LANDING_TYPE_UNSPECIFIED
-      - LANDING_TYPE_LOCAL
-      - LANDING_TYPE_OBSERVATION_DECK
-      - LANDING_TYPE_NMS_DASHBOARD
-      - LANDING_TYPE_NETWORK_EXPLORER
-      - LANDING_TYPE_LIBRARY
-      - LANDING_TYPE_SYNTHETICS
-      - LANDING_TYPE_EXPLORER
-      - LANDING_TYPE_ALERTING
-      - LANDING_TYPE_INSIGHTS
-      - LANDING_TYPE_DASHBOARD
-      - LANDING_TYPE_SAVED_VIEW
-      - LANDING_TYPE_QUICK_VIEW
-      - LANDING_TYPE_MARKET_INTELLIGENCE
-      default: LANDING_TYPE_UNSPECIFIED
-      title: LandingType
-    v202211UpdateUserResponse:
-      type: object
-      properties:
-        user:
-          $ref: '#/components/schemas/v202211User'
-      title: UpdateUserResponse
-    v202211CreateUserResponse:
-      type: object
-      properties:
-        user:
-          $ref: '#/components/schemas/v202211User'
-      title: CreateUserResponse
-    protobufAny:
-      type: object
-      properties:
-        '@type':
-          type: string
-      additionalProperties: {}
     rpcStatus:
       type: object
       properties:
@@ -262,20 +212,12 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/protobufAny'
-    v202211CreateUserRequest:
+    v202211UpdateUserResponse:
       type: object
       properties:
         user:
           $ref: '#/components/schemas/v202211User'
-      title: CreateUserRequest
-      required:
-      - user
-    v202211GetUserResponse:
-      type: object
-      properties:
-        user:
-          $ref: '#/components/schemas/v202211User'
-      title: GetUserResponse
+      title: UpdateUserResponse
     UserServiceUpdateUserBody:
       type: object
       properties:
@@ -336,9 +278,36 @@ components:
       - userFullName
       - role
       - user
-    v202211ResetApiTokenResponse:
+    v202211ListUsersResponse:
       type: object
-      title: ResetApiTokenResponse
+      properties:
+        users:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202211User'
+          description: Last of users in the account
+          readOnly: true
+        invalidCount:
+          type: integer
+          format: int64
+          description: Number of invalid entries encountered while collecting data
+      title: ListUsersResponse
+    v202211CreateUserResponse:
+      type: object
+      properties:
+        user:
+          $ref: '#/components/schemas/v202211User'
+      title: CreateUserResponse
+    v202211Role:
+      type: string
+      enum:
+      - ROLE_UNSPECIFIED
+      - ROLE_MEMBER
+      - ROLE_ADMINISTRATOR
+      - ROLE_SUPER_ADMINISTRATOR
+      default: ROLE_UNSPECIFIED
+      description: "- ROLE_UNSPECIFIED: Invalid value.\n - ROLE_MEMBER: Member\n - ROLE_ADMINISTRATOR: Administrator\n - ROLE_SUPER_ADMINISTRATOR: Super-administrator"
+      title: Role
     v202211PermissionEntry:
       type: object
       properties:
@@ -352,6 +321,9 @@ components:
       required:
       - capability
       - allowed
+    v202211ResetApiTokenResponse:
+      type: object
+      title: ResetApiTokenResponse
     v202211User:
       type: object
       properties:
@@ -411,23 +383,51 @@ components:
       - userEmail
       - userFullName
       - role
+    v202211CreateUserRequest:
+      type: object
+      properties:
+        user:
+          $ref: '#/components/schemas/v202211User'
+      title: CreateUserRequest
+      required:
+      - user
     v202211ResetActiveSessionsResponse:
       type: object
       title: ResetActiveSessionsResponse
-    v202211ListUsersResponse:
+    protobufAny:
       type: object
       properties:
-        users:
-          type: array
-          items:
-            $ref: '#/components/schemas/v202211User'
-          description: Last of users in the account
-          readOnly: true
-        invalidCount:
-          type: integer
-          format: int64
-          description: Number of invalid entries encountered while collecting data
-      title: ListUsersResponse
+        '@type':
+          type: string
+      additionalProperties: {}
+    v202211LandingType:
+      type: string
+      enum:
+      - LANDING_TYPE_UNSPECIFIED
+      - LANDING_TYPE_LOCAL
+      - LANDING_TYPE_OBSERVATION_DECK
+      - LANDING_TYPE_NMS_DASHBOARD
+      - LANDING_TYPE_NETWORK_EXPLORER
+      - LANDING_TYPE_LIBRARY
+      - LANDING_TYPE_SYNTHETICS
+      - LANDING_TYPE_EXPLORER
+      - LANDING_TYPE_ALERTING
+      - LANDING_TYPE_INSIGHTS
+      - LANDING_TYPE_DASHBOARD
+      - LANDING_TYPE_SAVED_VIEW
+      - LANDING_TYPE_QUICK_VIEW
+      - LANDING_TYPE_MARKET_INTELLIGENCE
+      default: LANDING_TYPE_UNSPECIFIED
+      title: LandingType
+    v202211DeleteUserResponse:
+      type: object
+      title: DeleteUserResponse
+    v202211GetUserResponse:
+      type: object
+      properties:
+        user:
+          $ref: '#/components/schemas/v202211User'
+      title: GetUserResponse
   securitySchemes:
     email:
       type: apiKey
