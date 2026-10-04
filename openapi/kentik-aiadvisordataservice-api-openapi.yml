@@ -94,19 +94,13 @@ paths:
       - AiAdvisorDataService
 components:
   schemas:
-    rpcStatus:
+    protobufAny:
       type: object
       properties:
-        code:
-          type: integer
-          format: int32
-        message:
+        '@type':
           type: string
-        details:
-          type: array
-          items:
-            $ref: '#/components/schemas/protobufAny'
-    v202511UpdateChatSessionResponse:
+      additionalProperties: {}
+    v202511GetChatSessionResponse:
       type: object
       properties:
         id:
@@ -114,7 +108,11 @@ components:
           description: The unique identifier (UUID) for the chat session
         status:
           $ref: '#/components/schemas/v202511SessionStatus'
-      title: UpdateChatSessionResponse
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202511ChatMessage'
+      title: GetChatSessionResponse
     v202511CreateChatSessionRequest:
       type: object
       properties:
@@ -171,12 +169,18 @@ components:
         status:
           $ref: '#/components/schemas/v202511SessionStatus'
       title: CreateChatSessionResponse
-    protobufAny:
+    rpcStatus:
       type: object
       properties:
-        '@type':
+        code:
+          type: integer
+          format: int32
+        message:
           type: string
-      additionalProperties: {}
+        details:
+          type: array
+          items:
+            $ref: '#/components/schemas/protobufAny'
     v202511SessionStatus:
       type: string
       enum:
@@ -188,7 +192,7 @@ components:
       - SESSION_STATUS_AWAITING_APPROVAL
       default: SESSION_STATUS_UNSPECIFIED
       title: SessionStatus represents the state of a chat session or message
-    v202511GetChatSessionResponse:
+    v202511UpdateChatSessionResponse:
       type: object
       properties:
         id:
@@ -196,11 +200,7 @@ components:
           description: The unique identifier (UUID) for the chat session
         status:
           $ref: '#/components/schemas/v202511SessionStatus'
-        messages:
-          type: array
-          items:
-            $ref: '#/components/schemas/v202511ChatMessage'
-      title: GetChatSessionResponse
+      title: UpdateChatSessionResponse
   securitySchemes:
     email:
       type: apiKey

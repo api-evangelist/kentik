@@ -312,18 +312,44 @@ paths:
       - DeviceService
 components:
   schemas:
-    rpcStatus:
+    v202504beta2CreateDevicesRequest:
       type: object
       properties:
-        code:
-          type: integer
-          format: int32
-        message:
-          type: string
-        details:
+        devices:
           type: array
           items:
-            $ref: '#/components/schemas/protobufAny'
+            $ref: '#/components/schemas/v202504beta2DeviceConcise'
+          description: List of configurations of devices to be created
+      title: CreateDevicesRequest
+      required:
+      - devices
+    v202504beta2GnmiV1Conf:
+      type: object
+      properties:
+        dialoutServer:
+          type: string
+          description: Dialout server
+      title: GnmiV1Conf
+    v202504beta2UpdateDeviceResponse:
+      type: object
+      properties:
+        device:
+          $ref: '#/components/schemas/v202504beta2DeviceDetailed'
+      title: UpdateDeviceResponse
+    v202504beta2DeviceNmsConfig:
+      type: object
+      properties:
+        agentId:
+          type: string
+          description: ID of the agent that is monitoring this device.
+        ipAddress:
+          type: string
+          description: Local IP address of this device.
+        snmp:
+          $ref: '#/components/schemas/v202504beta2DeviceNmsSnmpConfig'
+        st:
+          $ref: '#/components/schemas/v202504beta2DeviceNmsStConfig'
+      title: DeviceNmsConfig
     v202504beta2UpdateDevicesResponse:
       type: object
       properties:
@@ -338,104 +364,46 @@ components:
             type: string
           description: List of IDs of devices that failed to be updated
       title: UpdateDevicesResponse
-    v202504beta2DeviceNmsSnmpConfig:
+    v202504beta2UpdateDeviceLabelsResponse:
+      type: object
+      properties:
+        device:
+          $ref: '#/components/schemas/v202504beta2DeviceDetailed'
+      title: UpdateDeviceLabelsResponse
+    v202504beta2DeviceNmsStConfig:
       type: object
       properties:
         credentialName:
           type: string
-          description: Name of the SNMP credentials from the credential vault.
+          description: Name of the ST credentials from the credential vault.
         port:
           type: integer
           format: int64
-          description: SNMP port, to override default of 161.
+          description: ST port, to override default of 6030.
         timeout:
           type: string
           description: Timeout, to override default of 2s.
-      title: DeviceNmsSnmpConfig
-    v202504beta2DeviceConcise:
+        secure:
+          type: boolean
+          description: Use SSL to connect to this device.
+      title: DeviceNmsStConfig
+    v202504beta2GetDeviceByNameResponse:
       type: object
       properties:
-        id:
-          type: string
-          description: System generated unique identifier
-          title: id
-        deviceName:
-          type: string
-          description: 'Device name (device_name) - The name of the device. Valid characters: alphanumeric and underscores. Length: min=4, max=60.'
-        deviceSubtype:
-          type: string
-          description: Device subtype (device_subtype) - The device subtype.
-        cdnAttr:
-          type: string
-          description: 'CDN attributes (cdn_attr) - If this is a DNS server, you can contribute its queries to Kentik''s CDN attribution database. Valid values: "Y" or "N". ** cdn_attr is required when the device subtype''s parent type is "host-nprobe-dns-www"'
-        deviceDescription:
-          type: string
-          description: 'Description (device_description) - The device description. Valid characters: any. Length: max=128.'
-        sendingIps:
+        device:
+          $ref: '#/components/schemas/v202504beta2DeviceDetailed'
+      title: GetDeviceByNameResponse
+    v202504beta2DeleteDevicesRequest:
+      type: object
+      properties:
+        ids:
           type: array
           items:
             type: string
-          description: Device ip (sending_ips) - Array containing one or more IP address(es), from which the device is sending flow. ** sending_ips is required when the device subtype's parent type is "router"
-        deviceSampleRate:
-          type: number
-          format: double
-          description: 'Sample rate (device_sample_rate) - The rate at which the device is sampling flows. Valid values: integer bigger than 1. Recommended rate varies depending on flow volume; see https://kb.kentik.com/Ab02.htm#Ab02-Flow_Sampling. ** device_sample_rate is required when the device subtype''s parent type is "router"'
-        planId:
-          type: integer
-          format: int64
-          description: 'Plan (plan_id) - The ID of the plan to which this device is assigned. Available plan(s) can be found via the Plans API. Valid value: integer.'
-        siteId:
-          type: integer
-          format: int64
-          description: 'Site (site_id) - The ID of the site (if any) to which this device is assigned. Site IDs are system generated when a site is created. Valid value: integer.'
-        minimizeSnmp:
-          type: boolean
-          description: SNMP polling (minimize_snmp) - The interval at which SNMP will be polled. If "false" (Standard), interface counter will be polled every 10 minutes and interface description every 30 minutes. If "true" (Minimum) (Minimum), interface counter won't be polled and interface description will be polled every 6 hours. ** minimize_snmp is required when the device subtype's parent type is "router"
-        deviceSnmpIp:
-          type: string
-          description: Device SNMP IP (device_snmp_ip) - The SNMP IP to use when polling the device. device_snmp_ip is ignored unless the device subtype's parent type is "router"
-        deviceSnmpCommunity:
-          type: string
-          description: SNMP community (device_snmp_community) - The SNMP community to use when polling the device. device_snmp_community is ignored unless the device subtype's parent type is "router"
-        deviceSnmpV3Conf:
-          $ref: '#/components/schemas/v202504beta2DeviceSnmpV3Conf'
-        deviceBgpType:
-          type: string
-          description: 'BGP (device_bgp_type) - Device bgp type. Valid values: "none" (use generic IP/ASN mapping), "device" (peer with the device itself), "other_device" (share routing table of existing peered device)'
-        deviceBgpNeighborIp:
-          type: string
-          description: Your IPv4 peering address (device_bgp_neighbor_ip) - A valid IPv4 address to use for peering with the device. ** An IPv4 and/or IPv6 peering address is required when device_bgp_type is set to "device"
-        deviceBgpNeighborIp6:
-          type: string
-          description: Your IPv6 peering address (device_bgp_neighbor_ip6) - A valid IPv6 address to use for peering with the device. ** An IPv4 and/or IPv6 peering address is required when device_bgp_type is set to "device"
-        deviceBgpNeighborAsn:
-          type: string
-          description: Your ASN (device_bgp_neighbor_asn) - The valid AS number (ASN) of the autonomous system that this device belongs to. ** device_bgp_neighbor_asn is required when device_bgp_type is set to "device"
-        deviceBgpPassword:
-          type: string
-          description: 'BGP md5 password (device_bgp_password) - Optional BGP MD5 password (shared authentication password for BGP peering). Valid characters: printable ASCII excluding space and question mark. Length: 32. device_bgp_password is optional when device_bgp_type is set to "device"'
-        useBgpDeviceId:
-          type: string
-          description: 'Select master BGP device (use_bgp_device_id) - The ID of the device whose BGP table should be shared with this device. ** use_bgp_device_id is required when device_bgp_type is set to "other_device"). Valid value: a system-generated device_id'
-        deviceBgpFlowspec:
-          type: boolean
-          description: BGP Flowspec Compatibility (device_bgp_flowspec) - Toggle BGP Flowspec Compatibility for device.
-        nms:
-          $ref: '#/components/schemas/v202504beta2DeviceNmsConfig'
-        deviceBgpCredentialName:
-          type: string
-          description: BGP Credential Name (device_bgp_credential_name) - Unsupported Field. Use device_bgp_password instead.
-        flowSnmpCredentialName:
-          type: string
-          description: 'Snmp Credential Name (flow_snmp_credential_name) - Optional Credential Name (Credential for Flow Snmp peering). Valid characters: alphanumeric. Length: 32.'
-        monitoringTemplateId:
-          type: integer
-          format: int64
-          description: Monitoring template - The ID of the monitoring template assigned to this device.
-        deviceAlert:
-          type: string
-          description: Device alert - The device alert endpoint URL.
-      title: DeviceConcise
+          description: List of IDs of devices to be deleted
+      title: DeleteDevicesRequest
+      required:
+      - ids
     v202504beta2DeviceDetailed:
       type: object
       properties:
@@ -654,81 +622,17 @@ components:
           type: string
           description: Serial number
       title: DeviceDetailed
-    v202504beta2UpdateDeviceLabelsResponse:
+    v202504beta2CreateDeviceRequest:
       type: object
       properties:
         device:
-          $ref: '#/components/schemas/v202504beta2DeviceDetailed'
-      title: UpdateDeviceLabelsResponse
-    devicev202504beta2Label:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Label ID
-        name:
-          type: string
-          description: Label name
-        description:
-          type: string
-          description: Label description
-        edate:
-          type: string
-          format: date-time
-          description: Label end date (UTC)
-        cdate:
-          type: string
-          format: date-time
-          description: Label creation date (UTC)
-        userId:
-          type: string
-          description: User ID
-        companyId:
-          type: string
-          description: Company ID
-        color:
-          type: string
-          description: Label color
-        order:
-          type: string
-          description: Label order
-        pivotDeviceId:
-          type: string
-          description: Pivot device ID
-        pivotLabelId:
-          type: string
-          description: Pivot label ID
-      title: Label
-    v202504beta2ListDevicesResponse:
-      type: object
-      properties:
-        devices:
-          type: array
-          items:
-            $ref: '#/components/schemas/v202504beta2DeviceDetailed'
-          description: List of configurations of devices
-        invalidCount:
-          type: integer
-          format: int64
-          description: Number of invalid entries encountered while collecting data
-      title: ListDevicesResponse
-    v202504beta2GetDeviceResponse:
-      type: object
-      properties:
-        device:
-          $ref: '#/components/schemas/v202504beta2DeviceDetailed'
-      title: GetDeviceResponse
-    v202504beta2CreateDevicesRequest:
-      type: object
-      properties:
-        devices:
-          type: array
-          items:
-            $ref: '#/components/schemas/v202504beta2DeviceConcise'
-          description: List of configurations of devices to be created
-      title: CreateDevicesRequest
+          $ref: '#/components/schemas/v202504beta2DeviceConcise'
+      title: CreateDeviceRequest
       required:
-      - devices
+      - device
+    v202504beta2DeleteDeviceResponse:
+      type: object
+      title: DeleteDeviceResponse
     v202504beta2Interface:
       type: object
       properties:
@@ -760,6 +664,31 @@ components:
           type: string
           description: Provider
       title: Interface
+    v202504beta2LabelConcise:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: Label ID
+      title: LabelConcise
+    v202504beta2CreateDeviceResponse:
+      type: object
+      properties:
+        device:
+          $ref: '#/components/schemas/v202504beta2DeviceDetailed'
+      title: CreateDeviceResponse
+    v202504beta2UpdateDevicesRequest:
+      type: object
+      properties:
+        devices:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202504beta2DeviceConcise'
+          description: List of configurations of devices to be updated
+      title: UpdateDevicesRequest
+      required:
+      - devices
     v202504beta2Plan:
       type: object
       properties:
@@ -825,32 +754,6 @@ components:
             type: string
           description: Plan Metadata
       title: Plan
-    DeviceServiceUpdateDeviceLabelsBody:
-      type: object
-      properties:
-        labels:
-          type: array
-          items:
-            $ref: '#/components/schemas/v202504beta2LabelConcise'
-          description: List of labels to be added to the device
-      title: UpdateDeviceLabelsRequest
-      required:
-      - labels
-    v202504beta2GnmiV1Conf:
-      type: object
-      properties:
-        dialoutServer:
-          type: string
-          description: Dialout server
-      title: GnmiV1Conf
-    v202504beta2CreateDeviceRequest:
-      type: object
-      properties:
-        device:
-          $ref: '#/components/schemas/v202504beta2DeviceConcise'
-      title: CreateDeviceRequest
-      required:
-      - device
     DeviceServiceUpdateDeviceBody:
       type: object
       properties:
@@ -937,31 +840,133 @@ components:
       title: UpdateDeviceRequest
       required:
       - device
-    v202504beta2DeleteDevicesRequest:
+    v202504beta2ListDevicesResponse:
       type: object
       properties:
-        ids:
+        devices:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202504beta2DeviceDetailed'
+          description: List of configurations of devices
+        invalidCount:
+          type: integer
+          format: int64
+          description: Number of invalid entries encountered while collecting data
+      title: ListDevicesResponse
+    v202504beta2Site:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Site ID
+        siteName:
+          type: string
+          description: Site name
+        lat:
+          type: number
+          format: double
+          description: Site latitude
+        lon:
+          type: number
+          format: double
+          description: Site longitude
+        companyId:
+          type: string
+          description: Company ID
+      title: Site
+    v202504beta2DeleteDevicesResponse:
+      type: object
+      properties:
+        failedDevices:
           type: array
           items:
             type: string
-          description: List of IDs of devices to be deleted
-      title: DeleteDevicesRequest
-      required:
-      - ids
-    v202504beta2DeviceNmsConfig:
+          description: List of IDs of devices that failed to be deleted
+      title: DeleteDevicesResponse
+    v202504beta2DeviceNmsSnmpConfig:
       type: object
       properties:
-        agentId:
+        credentialName:
           type: string
-          description: ID of the agent that is monitoring this device.
-        ipAddress:
+          description: Name of the SNMP credentials from the credential vault.
+        port:
+          type: integer
+          format: int64
+          description: SNMP port, to override default of 161.
+        timeout:
           type: string
-          description: Local IP address of this device.
-        snmp:
-          $ref: '#/components/schemas/v202504beta2DeviceNmsSnmpConfig'
-        st:
-          $ref: '#/components/schemas/v202504beta2DeviceNmsStConfig'
-      title: DeviceNmsConfig
+          description: Timeout, to override default of 2s.
+      title: DeviceNmsSnmpConfig
+    v202504beta2CreateDevicesResponse:
+      type: object
+      properties:
+        devices:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202504beta2DeviceDetailed'
+          description: List of configurations of newly created devices
+        failedDevices:
+          type: array
+          items:
+            type: string
+          description: List of names of devices that failed to be created
+      title: CreateDevicesResponse
+    DeviceServiceUpdateDeviceLabelsBody:
+      type: object
+      properties:
+        labels:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202504beta2LabelConcise'
+          description: List of labels to be added to the device
+      title: UpdateDeviceLabelsRequest
+      required:
+      - labels
+    devicev202504beta2Label:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Label ID
+        name:
+          type: string
+          description: Label name
+        description:
+          type: string
+          description: Label description
+        edate:
+          type: string
+          format: date-time
+          description: Label end date (UTC)
+        cdate:
+          type: string
+          format: date-time
+          description: Label creation date (UTC)
+        userId:
+          type: string
+          description: User ID
+        companyId:
+          type: string
+          description: Company ID
+        color:
+          type: string
+          description: Label color
+        order:
+          type: string
+          description: Label order
+        pivotDeviceId:
+          type: string
+          description: Pivot device ID
+        pivotLabelId:
+          type: string
+          description: Pivot label ID
+      title: Label
+    v202504beta2GetDeviceResponse:
+      type: object
+      properties:
+        device:
+          $ref: '#/components/schemas/v202504beta2DeviceDetailed'
+      title: GetDeviceResponse
     v202504beta2CustomColumnData:
       type: object
       properties:
@@ -984,81 +989,102 @@ components:
           type: string
           description: Device type
       title: CustomColumnData
-    v202504beta2DeleteDevicesResponse:
-      type: object
-      properties:
-        failedDevices:
-          type: array
-          items:
-            type: string
-          description: List of IDs of devices that failed to be deleted
-      title: DeleteDevicesResponse
-    v202504beta2CreateDeviceResponse:
-      type: object
-      properties:
-        device:
-          $ref: '#/components/schemas/v202504beta2DeviceDetailed'
-      title: CreateDeviceResponse
-    v202504beta2DeleteDeviceResponse:
-      type: object
-      title: DeleteDeviceResponse
-    v202504beta2LabelConcise:
+    v202504beta2DeviceConcise:
       type: object
       properties:
         id:
-          type: integer
-          format: int64
-          description: Label ID
-      title: LabelConcise
-    v202504beta2CreateDevicesResponse:
-      type: object
-      properties:
-        devices:
-          type: array
-          items:
-            $ref: '#/components/schemas/v202504beta2DeviceDetailed'
-          description: List of configurations of newly created devices
-        failedDevices:
+          type: string
+          description: System generated unique identifier
+          title: id
+        deviceName:
+          type: string
+          description: 'Device name (device_name) - The name of the device. Valid characters: alphanumeric and underscores. Length: min=4, max=60.'
+        deviceSubtype:
+          type: string
+          description: Device subtype (device_subtype) - The device subtype.
+        cdnAttr:
+          type: string
+          description: 'CDN attributes (cdn_attr) - If this is a DNS server, you can contribute its queries to Kentik''s CDN attribution database. Valid values: "Y" or "N". ** cdn_attr is required when the device subtype''s parent type is "host-nprobe-dns-www"'
+        deviceDescription:
+          type: string
+          description: 'Description (device_description) - The device description. Valid characters: any. Length: max=128.'
+        sendingIps:
           type: array
           items:
             type: string
-          description: List of names of devices that failed to be created
-      title: CreateDevicesResponse
-    v202504beta2GetDeviceByNameResponse:
-      type: object
-      properties:
-        device:
-          $ref: '#/components/schemas/v202504beta2DeviceDetailed'
-      title: GetDeviceByNameResponse
-    protobufAny:
-      type: object
-      properties:
-        '@type':
-          type: string
-      additionalProperties: {}
-    v202504beta2UpdateDeviceResponse:
-      type: object
-      properties:
-        device:
-          $ref: '#/components/schemas/v202504beta2DeviceDetailed'
-      title: UpdateDeviceResponse
-    v202504beta2DeviceNmsStConfig:
-      type: object
-      properties:
-        credentialName:
-          type: string
-          description: Name of the ST credentials from the credential vault.
-        port:
+          description: Device ip (sending_ips) - Array containing one or more IP address(es), from which the device is sending flow. ** sending_ips is required when the device subtype's parent type is "router"
+        deviceSampleRate:
+          type: number
+          format: double
+          description: 'Sample rate (device_sample_rate) - The rate at which the device is sampling flows. Valid values: integer bigger than 1. Recommended rate varies depending on flow volume; see https://kb.kentik.com/Ab02.htm#Ab02-Flow_Sampling. ** device_sample_rate is required when the device subtype''s parent type is "router"'
+        planId:
           type: integer
           format: int64
-          description: ST port, to override default of 6030.
-        timeout:
-          type: string
-          description: Timeout, to override default of 2s.
-        secure:
+          description: 'Plan (plan_id) - The ID of the plan to which this device is assigned. Available plan(s) can be found via the Plans API. Valid value: integer.'
+        siteId:
+          type: integer
+          format: int64
+          description: 'Site (site_id) - The ID of the site (if any) to which this device is assigned. Site IDs are system generated when a site is created. Valid value: integer.'
+        minimizeSnmp:
           type: boolean
-          description: Use SSL to connect to this device.
-      title: DeviceNmsStConfig
+          description: SNMP polling (minimize_snmp) - The interval at which SNMP will be polled. If "false" (Standard), interface counter will be polled every 10 minutes and interface description every 30 minutes. If "true" (Minimum) (Minimum), interface counter won't be polled and interface description will be polled every 6 hours. ** minimize_snmp is required when the device subtype's parent type is "router"
+        deviceSnmpIp:
+          type: string
+          description: Device SNMP IP (device_snmp_ip) - The SNMP IP to use when polling the device. device_snmp_ip is ignored unless the device subtype's parent type is "router"
+        deviceSnmpCommunity:
+          type: string
+          description: SNMP community (device_snmp_community) - The SNMP community to use when polling the device. device_snmp_community is ignored unless the device subtype's parent type is "router"
+        deviceSnmpV3Conf:
+          $ref: '#/components/schemas/v202504beta2DeviceSnmpV3Conf'
+        deviceBgpType:
+          type: string
+          description: 'BGP (device_bgp_type) - Device bgp type. Valid values: "none" (use generic IP/ASN mapping), "device" (peer with the device itself), "other_device" (share routing table of existing peered device)'
+        deviceBgpNeighborIp:
+          type: string
+          description: Your IPv4 peering address (device_bgp_neighbor_ip) - A valid IPv4 address to use for peering with the device. ** An IPv4 and/or IPv6 peering address is required when device_bgp_type is set to "device"
+        deviceBgpNeighborIp6:
+          type: string
+          description: Your IPv6 peering address (device_bgp_neighbor_ip6) - A valid IPv6 address to use for peering with the device. ** An IPv4 and/or IPv6 peering address is required when device_bgp_type is set to "device"
+        deviceBgpNeighborAsn:
+          type: string
+          description: Your ASN (device_bgp_neighbor_asn) - The valid AS number (ASN) of the autonomous system that this device belongs to. ** device_bgp_neighbor_asn is required when device_bgp_type is set to "device"
+        deviceBgpPassword:
+          type: string
+          description: 'BGP md5 password (device_bgp_password) - Optional BGP MD5 password (shared authentication password for BGP peering). Valid characters: printable ASCII excluding space and question mark. Length: 32. device_bgp_password is optional when device_bgp_type is set to "device"'
+        useBgpDeviceId:
+          type: string
+          description: 'Select master BGP device (use_bgp_device_id) - The ID of the device whose BGP table should be shared with this device. ** use_bgp_device_id is required when device_bgp_type is set to "other_device"). Valid value: a system-generated device_id'
+        deviceBgpFlowspec:
+          type: boolean
+          description: BGP Flowspec Compatibility (device_bgp_flowspec) - Toggle BGP Flowspec Compatibility for device.
+        nms:
+          $ref: '#/components/schemas/v202504beta2DeviceNmsConfig'
+        deviceBgpCredentialName:
+          type: string
+          description: BGP Credential Name (device_bgp_credential_name) - Unsupported Field. Use device_bgp_password instead.
+        flowSnmpCredentialName:
+          type: string
+          description: 'Snmp Credential Name (flow_snmp_credential_name) - Optional Credential Name (Credential for Flow Snmp peering). Valid characters: alphanumeric. Length: 32.'
+        monitoringTemplateId:
+          type: integer
+          format: int64
+          description: Monitoring template - The ID of the monitoring template assigned to this device.
+        deviceAlert:
+          type: string
+          description: Device alert - The device alert endpoint URL.
+      title: DeviceConcise
+    rpcStatus:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        details:
+          type: array
+          items:
+            $ref: '#/components/schemas/protobufAny'
     v202504beta2DeviceSnmpV3Conf:
       type: object
       properties:
@@ -1078,38 +1104,12 @@ components:
           type: string
           description: Privacy Passphrase (privacy_passphrase) - the passphrase to use for SNMP v3 privacy protocol (required when PrivacyProtocol not NoPriv)
       title: DeviceSnmpV3Conf
-    v202504beta2Site:
+    protobufAny:
       type: object
       properties:
-        id:
+        '@type':
           type: string
-          description: Site ID
-        siteName:
-          type: string
-          description: Site name
-        lat:
-          type: number
-          format: double
-          description: Site latitude
-        lon:
-          type: number
-          format: double
-          description: Site longitude
-        companyId:
-          type: string
-          description: Company ID
-      title: Site
-    v202504beta2UpdateDevicesRequest:
-      type: object
-      properties:
-        devices:
-          type: array
-          items:
-            $ref: '#/components/schemas/v202504beta2DeviceConcise'
-          description: List of configurations of devices to be updated
-      title: UpdateDevicesRequest
-      required:
-      - devices
+      additionalProperties: {}
   securitySchemes:
     email:
       type: apiKey

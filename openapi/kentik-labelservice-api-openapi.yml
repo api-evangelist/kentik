@@ -120,6 +120,53 @@ paths:
       - LabelService
 components:
   schemas:
+    LabelServiceUpdateLabelBody:
+      type: object
+      properties:
+        label:
+          type: object
+          properties:
+            name:
+              type: string
+              description: Label text visible in listing of configuration of objects to which it has been applied
+            description:
+              type: string
+              description: Optional description of the label, visible only in API responses
+            color:
+              type: string
+              description: '[Hexadecimal code of the color](https://www.color-hex.com/) of the label text background in the portal'
+            cdate:
+              type: string
+              format: date-time
+              description: Creation timestamp (UTC)
+              readOnly: true
+            edate:
+              type: string
+              format: date-time
+              description: Last modification timestamp (UTC)
+              readOnly: true
+          title: Label
+      title: UpdateLabelRequest
+      required:
+      - name
+      - label
+    v202210UpdateLabelResponse:
+      type: object
+      properties:
+        label:
+          $ref: '#/components/schemas/labelv202210Label'
+      title: UpdateLabelResponse
+    v202210CreateLabelRequest:
+      type: object
+      properties:
+        label:
+          $ref: '#/components/schemas/labelv202210Label'
+      title: CreateLabelRequest
+      required:
+      - label
+    v202210DeleteLabelResponse:
+      type: object
+      title: DeleteLabelResponse
     rpcStatus:
       type: object
       properties:
@@ -132,15 +179,12 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/protobufAny'
-    v202210CreateLabelResponse:
+    protobufAny:
       type: object
       properties:
-        label:
-          $ref: '#/components/schemas/labelv202210Label'
-      title: CreateLabelResponse
-    v202210DeleteLabelResponse:
-      type: object
-      title: DeleteLabelResponse
+        '@type':
+          type: string
+      additionalProperties: {}
     labelv202210Label:
       type: object
       properties:
@@ -184,56 +228,12 @@ components:
           format: int32
           description: Number of invalid entries encountered while collecting data (should be always 0)
       title: ListLabelsResponse
-    protobufAny:
-      type: object
-      properties:
-        '@type':
-          type: string
-      additionalProperties: {}
-    v202210CreateLabelRequest:
+    v202210CreateLabelResponse:
       type: object
       properties:
         label:
           $ref: '#/components/schemas/labelv202210Label'
-      title: CreateLabelRequest
-      required:
-      - label
-    v202210UpdateLabelResponse:
-      type: object
-      properties:
-        label:
-          $ref: '#/components/schemas/labelv202210Label'
-      title: UpdateLabelResponse
-    LabelServiceUpdateLabelBody:
-      type: object
-      properties:
-        label:
-          type: object
-          properties:
-            name:
-              type: string
-              description: Label text visible in listing of configuration of objects to which it has been applied
-            description:
-              type: string
-              description: Optional description of the label, visible only in API responses
-            color:
-              type: string
-              description: '[Hexadecimal code of the color](https://www.color-hex.com/) of the label text background in the portal'
-            cdate:
-              type: string
-              format: date-time
-              description: Creation timestamp (UTC)
-              readOnly: true
-            edate:
-              type: string
-              format: date-time
-              description: Last modification timestamp (UTC)
-              readOnly: true
-          title: Label
-      title: UpdateLabelRequest
-      required:
-      - name
-      - label
+      title: CreateLabelResponse
   securitySchemes:
     email:
       type: apiKey

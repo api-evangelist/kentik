@@ -110,45 +110,43 @@ paths:
       - CapacityPlanService
 components:
   schemas:
-    SummaryStatusUtilStatus:
+    protobufAny:
+      type: object
+      properties:
+        '@type':
+          type: string
+      additionalProperties: {}
+    SummaryStatusRunoutStatus:
       type: object
       properties:
         status:
           type: string
-          description: Status of utilization
+          description: Status of runout
           readOnly: true
-        highestPct:
-          type: integer
-          format: int64
-          description: Highest utilization percentage
-          readOnly: true
-      title: UtilStatus
-    InterfacesDetailStatusDetail:
-      type: object
-      properties:
-        bps:
+        earliestDate:
           type: string
           format: uint64
-          description: Bandwidth in bps
+          description: Earliest runout date
           readOnly: true
-        count:
-          type: integer
-          format: int64
-          description: Number of interfaces
-          readOnly: true
-      title: StatusDetail
-    rpcStatus:
+      title: RunoutStatus
+    ConfigUtilConfig:
       type: object
       properties:
-        code:
-          type: integer
-          format: int32
-        message:
+        aggregate:
           type: string
-        details:
-          type: array
-          items:
-            $ref: '#/components/schemas/protobufAny'
+          description: Aggregate for utilization
+          readOnly: true
+        warnPct:
+          type: integer
+          format: int64
+          description: Warning percentage for utilization
+          readOnly: true
+        critPct:
+          type: integer
+          format: int64
+          description: Critical percentage for utilization
+          readOnly: true
+      title: UtilConfig
     v202212CapacitySummary:
       type: object
       properties:
@@ -175,32 +173,6 @@ components:
         summaryStatus:
           $ref: '#/components/schemas/v202212SummaryStatus'
       title: CapacitySummary
-    v202212GetCapacityPlanResponse:
-      type: object
-      properties:
-        capacity:
-          $ref: '#/components/schemas/v202212CapacityPlan'
-      title: GetCapacityPlanResponse
-    CapacitySummaryInterfacesDetail:
-      type: object
-      properties:
-        totalCount:
-          type: integer
-          format: int64
-          description: Total number of interfaces
-          readOnly: true
-        totalCapacityBps:
-          type: string
-          format: uint64
-          description: Total capacity in bps
-          readOnly: true
-        healthy:
-          $ref: '#/components/schemas/InterfacesDetailStatusDetail'
-        warning:
-          $ref: '#/components/schemas/InterfacesDetailStatusDetail'
-        critical:
-          $ref: '#/components/schemas/InterfacesDetailStatusDetail'
-      title: InterfacesDetail
     v202212CapacityPlan:
       type: object
       properties:
@@ -231,6 +203,40 @@ components:
         summaryStatus:
           $ref: '#/components/schemas/v202212SummaryStatus'
       title: CapacityPlan
+    v202212SummaryStatus:
+      type: object
+      properties:
+        runout:
+          $ref: '#/components/schemas/SummaryStatusRunoutStatus'
+        utilization:
+          $ref: '#/components/schemas/SummaryStatusUtilStatus'
+      title: SummaryStatus
+    v202212ListCapacitySummariesResponse:
+      type: object
+      properties:
+        capacity:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202212CapacitySummary'
+          description: List of capacity plan summaries
+        invalidCount:
+          type: integer
+          format: int64
+          description: Number of invalid entries encountered while collecting data
+      title: ListCapacitySummariesResponse
+    SummaryStatusUtilStatus:
+      type: object
+      properties:
+        status:
+          type: string
+          description: Status of utilization
+          readOnly: true
+        highestPct:
+          type: integer
+          format: int64
+          description: Highest utilization percentage
+          readOnly: true
+      title: UtilStatus
     CapacityPlanInterfaceDetail:
       type: object
       properties:
@@ -303,38 +309,24 @@ components:
           description: Runout out variation
           readOnly: true
       title: InterfaceDetail
-    v202212GetCapacitySummaryResponse:
+    v202212GetCapacityPlanResponse:
       type: object
       properties:
         capacity:
-          $ref: '#/components/schemas/v202212CapacitySummary'
-      title: GetCapacitySummaryResponse
-    ConfigUtilConfig:
+          $ref: '#/components/schemas/v202212CapacityPlan'
+      title: GetCapacityPlanResponse
+    rpcStatus:
       type: object
       properties:
-        aggregate:
+        code:
+          type: integer
+          format: int32
+        message:
           type: string
-          description: Aggregate for utilization
-          readOnly: true
-        warnPct:
-          type: integer
-          format: int64
-          description: Warning percentage for utilization
-          readOnly: true
-        critPct:
-          type: integer
-          format: int64
-          description: Critical percentage for utilization
-          readOnly: true
-      title: UtilConfig
-    v202212Config:
-      type: object
-      properties:
-        runout:
-          $ref: '#/components/schemas/ConfigRunoutConfig'
-        utilization:
-          $ref: '#/components/schemas/ConfigUtilConfig'
-      title: Config
+        details:
+          type: array
+          items:
+            $ref: '#/components/schemas/protobufAny'
     ConfigRunoutConfig:
       type: object
       properties:
@@ -366,46 +358,54 @@ components:
           format: int64
           description: Number of invalid entries encountered while collecting data
       title: ListCapacityPlansResponse
-    protobufAny:
-      type: object
-      properties:
-        '@type':
-          type: string
-      additionalProperties: {}
-    v202212ListCapacitySummariesResponse:
+    v202212GetCapacitySummaryResponse:
       type: object
       properties:
         capacity:
-          type: array
-          items:
-            $ref: '#/components/schemas/v202212CapacitySummary'
-          description: List of capacity plan summaries
-        invalidCount:
-          type: integer
-          format: int64
-          description: Number of invalid entries encountered while collecting data
-      title: ListCapacitySummariesResponse
-    SummaryStatusRunoutStatus:
+          $ref: '#/components/schemas/v202212CapacitySummary'
+      title: GetCapacitySummaryResponse
+    InterfacesDetailStatusDetail:
       type: object
       properties:
-        status:
-          type: string
-          description: Status of runout
-          readOnly: true
-        earliestDate:
+        bps:
           type: string
           format: uint64
-          description: Earliest runout date
+          description: Bandwidth in bps
           readOnly: true
-      title: RunoutStatus
-    v202212SummaryStatus:
+        count:
+          type: integer
+          format: int64
+          description: Number of interfaces
+          readOnly: true
+      title: StatusDetail
+    v202212Config:
       type: object
       properties:
         runout:
-          $ref: '#/components/schemas/SummaryStatusRunoutStatus'
+          $ref: '#/components/schemas/ConfigRunoutConfig'
         utilization:
-          $ref: '#/components/schemas/SummaryStatusUtilStatus'
-      title: SummaryStatus
+          $ref: '#/components/schemas/ConfigUtilConfig'
+      title: Config
+    CapacitySummaryInterfacesDetail:
+      type: object
+      properties:
+        totalCount:
+          type: integer
+          format: int64
+          description: Total number of interfaces
+          readOnly: true
+        totalCapacityBps:
+          type: string
+          format: uint64
+          description: Total capacity in bps
+          readOnly: true
+        healthy:
+          $ref: '#/components/schemas/InterfacesDetailStatusDetail'
+        warning:
+          $ref: '#/components/schemas/InterfacesDetailStatusDetail'
+        critical:
+          $ref: '#/components/schemas/InterfacesDetailStatusDetail'
+      title: InterfacesDetail
   securitySchemes:
     email:
       type: apiKey

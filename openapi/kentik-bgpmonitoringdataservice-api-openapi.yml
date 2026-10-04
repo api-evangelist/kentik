@@ -68,65 +68,12 @@ paths:
       - BgpMonitoringDataService
 components:
   schemas:
-    rpcStatus:
+    protobufAny:
       type: object
       properties:
-        code:
-          type: integer
-          format: int32
-        message:
+        '@type':
           type: string
-        details:
-          type: array
-          items:
-            $ref: '#/components/schemas/protobufAny'
-    v202210Nlri:
-      type: object
-      properties:
-        afi:
-          $ref: '#/components/schemas/v202303Afi'
-        safi:
-          $ref: '#/components/schemas/v202303Safi'
-        prefix:
-          type: string
-          description: Actual prefix data (format depends on AFI)
-      title: Nlri
-      required:
-      - afi
-      - safi
-      - prefix
-    v202210GetRoutesForTargetRequest:
-      type: object
-      properties:
-        time:
-          type: string
-          format: date-time
-          description: Reference UTC time for the route information snapshot
-        target:
-          $ref: '#/components/schemas/v202210Nlri'
-        includeCovered:
-          type: boolean
-          description: 'Return routes for subnets (sub-prefixes) of the target prefix (default: false)'
-        checkRpki:
-          type: boolean
-          description: 'Return information about validity of prefix advertisements with respect to RPKI (default: false)'
-      title: GetRoutesForTargetRequest
-      required:
-      - time
-      - target
-    v202303RpkiStatus:
-      type: string
-      enum:
-      - RPKI_STATUS_UNSPECIFIED
-      - RPKI_STATUS_NOT_FOUND
-      - RPKI_STATUS_EXPLICIT_INVALID
-      - RPKI_STATUS_INVALID_PREFIX
-      - RPKI_STATUS_INVALID
-      - RPKI_STATUS_VALID
-      - RPKI_STATUS_ERROR
-      default: RPKI_STATUS_UNSPECIFIED
-      description: "- RPKI_STATUS_UNSPECIFIED: Invalid value.\n - RPKI_STATUS_NOT_FOUND: No matching ROAs found for the prefix.\n - RPKI_STATUS_EXPLICIT_INVALID: Explicitly invalid prefix matching ROA\n - RPKI_STATUS_INVALID_PREFIX: Prefix format not suitable for validation\n - RPKI_STATUS_INVALID: Prefix origin does not match any matching ROA\n - RPKI_STATUS_VALID: Prefix origin matches an ROA\n - RPKI_STATUS_ERROR: Error during validation"
-      title: RpkiStatus
+      additionalProperties: {}
     v202210BgpMetric:
       type: object
       properties:
@@ -148,43 +95,6 @@ components:
           description: Number of AS path changes for the prefix across all vantage points in the queried time interval
           readOnly: true
       title: BgpMetric
-    v202303VantagePoint:
-      type: object
-      properties:
-        dataset:
-          type: string
-          description: Name of the collector data set
-          readOnly: true
-        collector:
-          type: string
-          description: Name of the collector
-          readOnly: true
-        peerAsn:
-          type: integer
-          format: int64
-          description: ASN of the peer from which the collector receives BGP data
-          readOnly: true
-        peerIp:
-          type: string
-          description: IP address of the peer from which the collector receives BGP data
-          readOnly: true
-      title: VantagePoint
-    v202210GetRoutesForTargetResponse:
-      type: object
-      properties:
-        routes:
-          type: array
-          items:
-            $ref: '#/components/schemas/v202210RouteInfo'
-          description: List of routes
-          readOnly: true
-        asNames:
-          type: object
-          additionalProperties:
-            type: string
-          description: look-aside map AS names keyed by ASNs
-          readOnly: true
-      title: GetRoutesForTargetResponse
     v202210GetMetricsForTargetResponse:
       type: object
       properties:
@@ -195,30 +105,6 @@ components:
           description: List of observations (metric values)
           readOnly: true
       title: GetMetricsForTargetResponse
-    v202210RouteInfo:
-      type: object
-      properties:
-        nlri:
-          $ref: '#/components/schemas/v202210Nlri'
-        originAsn:
-          type: integer
-          format: int64
-          description: The autonomous system number originating the NLRI
-          readOnly: true
-        asPath:
-          type: array
-          items:
-            type: string
-          description: AS path observed at the vantage point for the NLRI
-        vantagePoint:
-          $ref: '#/components/schemas/v202303VantagePoint'
-        rpkiStatus:
-          $ref: '#/components/schemas/v202303RpkiStatus'
-        nexthop:
-          type: string
-          description: IP address of the first route hop from the vantage point toward the target
-          readOnly: true
-      title: RouteInfo
     v202303Safi:
       type: string
       enum:
@@ -228,29 +114,19 @@ components:
       - SAFI_L3VPN
       default: SAFI_UNSPECIFIED
       title: Safi
-    protobufAny:
-      type: object
-      properties:
-        '@type':
-          type: string
-      additionalProperties: {}
-    v202303Afi:
+    v202303RpkiStatus:
       type: string
       enum:
-      - AFI_UNSPECIFIED
-      - AFI_IP4
-      - AFI_IP6
-      default: AFI_UNSPECIFIED
-      title: Afi
-    v202210BgpMetricType:
-      type: string
-      enum:
-      - BGP_METRIC_TYPE_UNSPECIFIED
-      - BGP_METRIC_TYPE_REACHABILITY
-      - BGP_METRIC_TYPE_PATH_CHANGES
-      default: BGP_METRIC_TYPE_UNSPECIFIED
-      description: "- BGP_METRIC_TYPE_UNSPECIFIED: Invalid value.\n - BGP_METRIC_TYPE_REACHABILITY: Reachability metric in percents\n - BGP_METRIC_TYPE_PATH_CHANGES: Number of path changes over time interval"
-      title: BgpMetricType
+      - RPKI_STATUS_UNSPECIFIED
+      - RPKI_STATUS_NOT_FOUND
+      - RPKI_STATUS_EXPLICIT_INVALID
+      - RPKI_STATUS_INVALID_PREFIX
+      - RPKI_STATUS_INVALID
+      - RPKI_STATUS_VALID
+      - RPKI_STATUS_ERROR
+      default: RPKI_STATUS_UNSPECIFIED
+      description: "- RPKI_STATUS_UNSPECIFIED: Invalid value.\n - RPKI_STATUS_NOT_FOUND: No matching ROAs found for the prefix.\n - RPKI_STATUS_EXPLICIT_INVALID: Explicitly invalid prefix matching ROA\n - RPKI_STATUS_INVALID_PREFIX: Prefix format not suitable for validation\n - RPKI_STATUS_INVALID: Prefix origin does not match any matching ROA\n - RPKI_STATUS_VALID: Prefix origin matches an ROA\n - RPKI_STATUS_ERROR: Error during validation"
+      title: RpkiStatus
     v202210GetMetricsForTargetRequest:
       type: object
       properties:
@@ -278,6 +154,130 @@ components:
       - endTime
       - target
       - metrics
+    v202210GetRoutesForTargetRequest:
+      type: object
+      properties:
+        time:
+          type: string
+          format: date-time
+          description: Reference UTC time for the route information snapshot
+        target:
+          $ref: '#/components/schemas/v202210Nlri'
+        includeCovered:
+          type: boolean
+          description: 'Return routes for subnets (sub-prefixes) of the target prefix (default: false)'
+        checkRpki:
+          type: boolean
+          description: 'Return information about validity of prefix advertisements with respect to RPKI (default: false)'
+      title: GetRoutesForTargetRequest
+      required:
+      - time
+      - target
+    v202303Afi:
+      type: string
+      enum:
+      - AFI_UNSPECIFIED
+      - AFI_IP4
+      - AFI_IP6
+      default: AFI_UNSPECIFIED
+      title: Afi
+    v202210Nlri:
+      type: object
+      properties:
+        afi:
+          $ref: '#/components/schemas/v202303Afi'
+        safi:
+          $ref: '#/components/schemas/v202303Safi'
+        prefix:
+          type: string
+          description: Actual prefix data (format depends on AFI)
+      title: Nlri
+      required:
+      - afi
+      - safi
+      - prefix
+    v202303VantagePoint:
+      type: object
+      properties:
+        dataset:
+          type: string
+          description: Name of the collector data set
+          readOnly: true
+        collector:
+          type: string
+          description: Name of the collector
+          readOnly: true
+        peerAsn:
+          type: integer
+          format: int64
+          description: ASN of the peer from which the collector receives BGP data
+          readOnly: true
+        peerIp:
+          type: string
+          description: IP address of the peer from which the collector receives BGP data
+          readOnly: true
+      title: VantagePoint
+    rpcStatus:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        details:
+          type: array
+          items:
+            $ref: '#/components/schemas/protobufAny'
+    v202210GetRoutesForTargetResponse:
+      type: object
+      properties:
+        routes:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202210RouteInfo'
+          description: List of routes
+          readOnly: true
+        asNames:
+          type: object
+          additionalProperties:
+            type: string
+          description: look-aside map AS names keyed by ASNs
+          readOnly: true
+      title: GetRoutesForTargetResponse
+    v202210RouteInfo:
+      type: object
+      properties:
+        nlri:
+          $ref: '#/components/schemas/v202210Nlri'
+        originAsn:
+          type: integer
+          format: int64
+          description: The autonomous system number originating the NLRI
+          readOnly: true
+        asPath:
+          type: array
+          items:
+            type: string
+          description: AS path observed at the vantage point for the NLRI
+        vantagePoint:
+          $ref: '#/components/schemas/v202303VantagePoint'
+        rpkiStatus:
+          $ref: '#/components/schemas/v202303RpkiStatus'
+        nexthop:
+          type: string
+          description: IP address of the first route hop from the vantage point toward the target
+          readOnly: true
+      title: RouteInfo
+    v202210BgpMetricType:
+      type: string
+      enum:
+      - BGP_METRIC_TYPE_UNSPECIFIED
+      - BGP_METRIC_TYPE_REACHABILITY
+      - BGP_METRIC_TYPE_PATH_CHANGES
+      default: BGP_METRIC_TYPE_UNSPECIFIED
+      description: "- BGP_METRIC_TYPE_UNSPECIFIED: Invalid value.\n - BGP_METRIC_TYPE_REACHABILITY: Reachability metric in percents\n - BGP_METRIC_TYPE_PATH_CHANGES: Number of path changes over time interval"
+      title: BgpMetricType
   securitySchemes:
     email:
       type: apiKey

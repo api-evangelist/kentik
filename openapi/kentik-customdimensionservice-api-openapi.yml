@@ -311,30 +311,34 @@ paths:
       - CustomDimensionService
 components:
   schemas:
-    rpcStatus:
+    v202411alpha1GetPopulatorFieldResponse:
       type: object
       properties:
-        code:
+        totalCount:
           type: integer
-          format: int32
-        message:
-          type: string
-        details:
-          type: array
-          items:
-            $ref: '#/components/schemas/protobufAny'
-    v202411alpha1DeletePopulatorResponse:
-      type: object
+          format: int64
+        offset:
+          type: integer
+          format: int64
+        limit:
+          type: integer
+          format: int64
+        extendedFields:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/v202411alpha1ExtendedField'
     v202411alpha1UpdatePopulatorResponse:
       type: object
       properties:
         populator:
           $ref: '#/components/schemas/v202411alpha1Populator'
-    v202411alpha1CreatePopulatorResponse:
+    v202411alpha1ListCustomDimensionsResponse:
       type: object
       properties:
-        populator:
-          $ref: '#/components/schemas/v202411alpha1Populator'
+        dimensions:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202411alpha1CustomDimension'
     v202411alpha1Populator:
       type: object
       properties:
@@ -471,18 +475,10 @@ components:
             $ref: '#/components/schemas/v202411alpha1ExtendedField'
           description: Additional fields set on object but not currently available on API.
           readOnly: true
-    v202411alpha1ListCustomDimensionsResponse:
+    v202411alpha1DeletePopulatorResponse:
       type: object
-      properties:
-        dimensions:
-          type: array
-          items:
-            $ref: '#/components/schemas/v202411alpha1CustomDimension'
-    v202411alpha1GetCustomDimensionInfoResponse:
+    v202411alpha1DeleteCustomDimensionResponse:
       type: object
-      properties:
-        dimension:
-          $ref: '#/components/schemas/v202411alpha1CustomDimension'
     v202411alpha1ExtendedField:
       type: object
       properties:
@@ -490,39 +486,33 @@ components:
           type: array
           items:
             type: string
-    v202411alpha1DeleteCustomDimensionResponse:
-      type: object
-    v202411alpha1UpdateCustomDimensionResponse:
+    v202411alpha1CreatePopulatorResponse:
       type: object
       properties:
-        dimension:
-          $ref: '#/components/schemas/v202411alpha1CustomDimension'
+        populator:
+          $ref: '#/components/schemas/v202411alpha1Populator'
     v202411alpha1CreateCustomDimensionResponse:
       type: object
       properties:
         dimension:
           $ref: '#/components/schemas/v202411alpha1CustomDimension'
-    v202411alpha1GetPopulatorFieldResponse:
-      type: object
-      properties:
-        totalCount:
-          type: integer
-          format: int64
-        offset:
-          type: integer
-          format: int64
-        limit:
-          type: integer
-          format: int64
-        extendedFields:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/v202411alpha1ExtendedField'
     v202411alpha1GetPopulatorResponse:
       type: object
       properties:
         populator:
           $ref: '#/components/schemas/v202411alpha1Populator'
+    rpcStatus:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        details:
+          type: array
+          items:
+            $ref: '#/components/schemas/protobufAny'
     protobufAny:
       type: object
       properties:
@@ -570,18 +560,28 @@ components:
       - name
       - type
       - description
+    v202411alpha1UpdateCustomDimensionResponse:
+      type: object
+      properties:
+        dimension:
+          $ref: '#/components/schemas/v202411alpha1CustomDimension'
+    v202411alpha1GetCustomDimensionInfoResponse:
+      type: object
+      properties:
+        dimension:
+          $ref: '#/components/schemas/v202411alpha1CustomDimension'
   requestBodies:
-    v202411alpha1Populator:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/v202411alpha1Populator'
-      required: true
     v202411alpha1CustomDimension:
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/v202411alpha1CustomDimension'
+      required: true
+    v202411alpha1Populator:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/v202411alpha1Populator'
       required: true
   securitySchemes:
     email:

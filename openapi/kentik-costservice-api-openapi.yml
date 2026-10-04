@@ -96,19 +96,19 @@ paths:
       - CostService
 components:
   schemas:
-    v202308ListCostProvidersResponse:
+    v202308GetCostProviderSummaryResponse:
       type: object
       properties:
         providers:
           type: array
           items:
-            $ref: '#/components/schemas/v202308CostProviderConcise'
-          description: List of configurations of requested cost providers
+            $ref: '#/components/schemas/v202308CostProviderSummary'
+          description: List of summaries of requested cost providers
         invalidCount:
           type: integer
           format: int64
           description: Number of invalid entries encountered while collecting data
-      title: ListCostProvidersResponse
+      title: GetCostProviderSummaryResponse
     costv202308Status:
       type: string
       enum:
@@ -117,19 +117,6 @@ components:
       - STATUS_COMPLETE
       default: STATUS_UNSPECIFIED
       title: Status
-    v202308CostProviderConcise:
-      type: object
-      properties:
-        id:
-          type: string
-          description: ID of the cost provider
-          readOnly: true
-        name:
-          type: string
-          description: Name of the cost provider
-      title: CostProviderConcise
-      required:
-      - name
     googlerpcStatus:
       type: object
       properties:
@@ -205,6 +192,38 @@ components:
           type: string
           description: Egress traffic percent variation of the cost provider (percentage changed vs the previous month)
       title: CostProviderSummary
+    v202308CostProviderConcise:
+      type: object
+      properties:
+        id:
+          type: string
+          description: ID of the cost provider
+          readOnly: true
+        name:
+          type: string
+          description: Name of the cost provider
+      title: CostProviderConcise
+      required:
+      - name
+    v202308ListCostProvidersResponse:
+      type: object
+      properties:
+        providers:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202308CostProviderConcise'
+          description: List of configurations of requested cost providers
+        invalidCount:
+          type: integer
+          format: int64
+          description: Number of invalid entries encountered while collecting data
+      title: ListCostProvidersResponse
+    protobufAny:
+      type: object
+      properties:
+        '@type':
+          type: string
+      additionalProperties: {}
     v202308ListCostProviderSummariesResponse:
       type: object
       properties:
@@ -218,25 +237,6 @@ components:
           format: int64
           description: Number of invalid entries encountered while collecting data
       title: ListCostProviderSummariesResponse
-    protobufAny:
-      type: object
-      properties:
-        '@type':
-          type: string
-      additionalProperties: {}
-    v202308GetCostProviderSummaryResponse:
-      type: object
-      properties:
-        providers:
-          type: array
-          items:
-            $ref: '#/components/schemas/v202308CostProviderSummary'
-          description: List of summaries of requested cost providers
-        invalidCount:
-          type: integer
-          format: int64
-          description: Number of invalid entries encountered while collecting data
-      title: GetCostProviderSummaryResponse
   securitySchemes:
     email:
       type: apiKey

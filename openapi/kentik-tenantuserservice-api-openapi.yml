@@ -143,18 +143,21 @@ paths:
       - TenantUserService
 components:
   schemas:
-    rpcStatus:
+    v202407CreateTenantUserResponse:
       type: object
       properties:
-        code:
-          type: integer
-          format: int32
-        message:
-          type: string
-        details:
-          type: array
-          items:
-            $ref: '#/components/schemas/protobufAny'
+        user:
+          $ref: '#/components/schemas/v202407TenantUser'
+      title: CreateTenantUserResponse
+    v202407UpdateTenantUserResponse:
+      type: object
+      properties:
+        user:
+          $ref: '#/components/schemas/v202407TenantUser'
+      title: UpdateTenantUserResponse
+    v202407DeleteTenantUserResponse:
+      type: object
+      title: DeleteTenantUserResponse
     TenantUserServiceUpdateTenantUserBody:
       type: object
       properties:
@@ -172,9 +175,6 @@ components:
       required:
       - userFullName
       - userEmail
-    v202407DeleteTenantUserResponse:
-      type: object
-      title: DeleteTenantUserResponse
     TenantUserServiceCreateTenantUserBody:
       type: object
       properties:
@@ -196,6 +196,24 @@ components:
       required:
       - userFullName
       - userEmail
+    rpcStatus:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        details:
+          type: array
+          items:
+            $ref: '#/components/schemas/protobufAny'
+    protobufAny:
+      type: object
+      properties:
+        '@type':
+          type: string
+      additionalProperties: {}
     v202407TenantUser:
       type: object
       properties:
@@ -217,18 +235,6 @@ components:
       - tenantId
       - userFullName
       - userEmail
-    v202407UpdateTenantUserResponse:
-      type: object
-      properties:
-        user:
-          $ref: '#/components/schemas/v202407TenantUser'
-      title: UpdateTenantUserResponse
-    protobufAny:
-      type: object
-      properties:
-        '@type':
-          type: string
-      additionalProperties: {}
     v202407ListTenantUserResponse:
       type: object
       properties:
@@ -240,12 +246,6 @@ components:
           type: integer
           format: int64
       title: ListTenantUserResponse
-    v202407CreateTenantUserResponse:
-      type: object
-      properties:
-        user:
-          $ref: '#/components/schemas/v202407TenantUser'
-      title: CreateTenantUserResponse
   securitySchemes:
     email:
       type: apiKey

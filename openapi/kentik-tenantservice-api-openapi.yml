@@ -144,52 +144,27 @@ paths:
       - TenantService
 components:
   schemas:
-    rpcStatus:
+    v202407Asset:
       type: object
       properties:
-        code:
-          type: integer
-          format: int32
-        message:
-          type: string
-        details:
+        reports:
           type: array
           items:
-            $ref: '#/components/schemas/protobufAny'
-    v202407Mitigation:
+            $ref: '#/components/schemas/AssetReport'
+        defaultReport:
+          $ref: '#/components/schemas/AssetReport'
+      title: Asset
+    v202407ListTenantResponse:
       type: object
       properties:
-        id:
-          type: string
-        status:
-          type: string
-        companyId:
-          type: string
-        pairingId:
-          type: string
-        thresholdId:
-          type: string
-        isMethodOverridable:
-          type: boolean
-        mitigationApplyType:
-          type: string
-        mitigationClearType:
-          type: string
-        mitigationApplyTimer:
+        tenants:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202407Tenant'
+        invalidCount:
           type: integer
           format: int64
-        mitigationClearTimer:
-          type: integer
-          format: int64
-        isPlatformOverridable:
-          type: boolean
-      title: Mitigation
-    v202407UpdateTenantResponse:
-      type: object
-      properties:
-        tenant:
-          $ref: '#/components/schemas/v202407Tenant'
-      title: UpdateTenantResponse
+      title: ListTenantResponse
     v202407Filter:
       type: object
       properties:
@@ -220,31 +195,6 @@ components:
           items:
             type: string
       title: Filter
-    v202407GetTenantResponse:
-      type: object
-      properties:
-        tenant:
-          $ref: '#/components/schemas/v202407Tenant'
-      title: GetTenantResponse
-    v202211LandingType:
-      type: string
-      enum:
-      - LANDING_TYPE_UNSPECIFIED
-      - LANDING_TYPE_LOCAL
-      - LANDING_TYPE_OBSERVATION_DECK
-      - LANDING_TYPE_NMS_DASHBOARD
-      - LANDING_TYPE_NETWORK_EXPLORER
-      - LANDING_TYPE_LIBRARY
-      - LANDING_TYPE_SYNTHETICS
-      - LANDING_TYPE_EXPLORER
-      - LANDING_TYPE_ALERTING
-      - LANDING_TYPE_INSIGHTS
-      - LANDING_TYPE_DASHBOARD
-      - LANDING_TYPE_SAVED_VIEW
-      - LANDING_TYPE_QUICK_VIEW
-      - LANDING_TYPE_MARKET_INTELLIGENCE
-      default: LANDING_TYPE_UNSPECIFIED
-      title: LandingType
     v202407Tenant:
       type: object
       properties:
@@ -324,6 +274,83 @@ components:
           description: Package template ID to assign with tenant.
           readOnly: true
       title: Tenant
+    v202407Threshold:
+      type: object
+      properties:
+        id:
+          type: string
+        activate:
+          $ref: '#/components/schemas/v202407Activate'
+        severity:
+          type: string
+        conditions:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202407Condition'
+        mitigations:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202407Mitigation'
+        notificationChannels:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202407NotificationChannel'
+        thresholdAckRequired:
+          type: boolean
+        enableTenantNotifications:
+          type: boolean
+        receiveLandlordNotifications:
+          type: boolean
+      title: Threshold
+    v202407DeleteTenantResponse:
+      type: object
+      title: DeleteTenantResponse
+    v202407UpdateTenantResponse:
+      type: object
+      properties:
+        tenant:
+          $ref: '#/components/schemas/v202407Tenant'
+      title: UpdateTenantResponse
+    v202407Activate:
+      type: object
+      properties:
+        times:
+          type: integer
+          format: int64
+        operator:
+          type: string
+        timeWindowSeconds:
+          type: integer
+          format: int64
+        gracePeriodSeconds:
+          type: integer
+          format: int64
+      title: Activate
+    v202407GetTenantResponse:
+      type: object
+      properties:
+        tenant:
+          $ref: '#/components/schemas/v202407Tenant'
+      title: GetTenantResponse
+    v202211LandingType:
+      type: string
+      enum:
+      - LANDING_TYPE_UNSPECIFIED
+      - LANDING_TYPE_LOCAL
+      - LANDING_TYPE_OBSERVATION_DECK
+      - LANDING_TYPE_NMS_DASHBOARD
+      - LANDING_TYPE_NETWORK_EXPLORER
+      - LANDING_TYPE_LIBRARY
+      - LANDING_TYPE_SYNTHETICS
+      - LANDING_TYPE_EXPLORER
+      - LANDING_TYPE_ALERTING
+      - LANDING_TYPE_INSIGHTS
+      - LANDING_TYPE_DASHBOARD
+      - LANDING_TYPE_SAVED_VIEW
+      - LANDING_TYPE_QUICK_VIEW
+      - LANDING_TYPE_MARKET_INTELLIGENCE
+      default: LANDING_TYPE_UNSPECIFIED
+      title: LandingType
     AssetReport:
       type: object
       properties:
@@ -331,22 +358,62 @@ components:
           type: string
         type:
           type: string
-    v202407Condition:
+    v202211Role:
+      type: string
+      enum:
+      - ROLE_UNSPECIFIED
+      - ROLE_MEMBER
+      - ROLE_ADMINISTRATOR
+      - ROLE_SUPER_ADMINISTRATOR
+      default: ROLE_UNSPECIFIED
+      description: "- ROLE_UNSPECIFIED: Invalid value.\n - ROLE_MEMBER: Member\n - ROLE_ADMINISTRATOR: Administrator\n - ROLE_SUPER_ADMINISTRATOR: Super-administrator"
+      title: Role
+    v202407Devices:
       type: object
       properties:
-        type:
+        allDevices:
+          type: boolean
+        deviceTypes:
+          type: array
+          items:
+            type: string
+        deviceLabels:
+          type: array
+          items:
+            type: integer
+            format: int64
+        deviceSites:
+          type: array
+          items:
+            type: integer
+            format: int64
+        deviceName:
+          type: array
+          items:
+            type: string
+      title: Devices
+    v202407Alert:
+      type: object
+      properties:
+        saved:
+          type: boolean
+        policyId:
           type: string
-        value:
+        thresholds:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202407Threshold'
+        primaryMetric:
           type: string
-        metric:
+        secondaryMetrics:
+          type: array
+          items:
+            type: string
+        isTemplate:
+          type: boolean
+        subpolicyId:
           type: string
-        operator:
-          type: string
-        valueType:
-          type: string
-        valueSelect:
-          type: string
-      title: Condition
+      title: Alert
     TenantServiceUpdateTenantBody:
       type: object
       properties:
@@ -472,82 +539,6 @@ components:
           description: Tenant link information
           readOnly: true
       title: Package
-    v202407DeleteTenantResponse:
-      type: object
-      title: DeleteTenantResponse
-    v202407NotificationChannel:
-      type: object
-      properties:
-        id:
-          type: string
-      title: NotificationChannel
-    v202407CreateTenantResponse:
-      type: object
-      properties:
-        tenant:
-          $ref: '#/components/schemas/v202407Tenant'
-      title: CreateTenantResponse
-    v202407Alert:
-      type: object
-      properties:
-        saved:
-          type: boolean
-        policyId:
-          type: string
-        thresholds:
-          type: array
-          items:
-            $ref: '#/components/schemas/v202407Threshold'
-        primaryMetric:
-          type: string
-        secondaryMetrics:
-          type: array
-          items:
-            type: string
-        isTemplate:
-          type: boolean
-        subpolicyId:
-          type: string
-      title: Alert
-    v202407Devices:
-      type: object
-      properties:
-        allDevices:
-          type: boolean
-        deviceTypes:
-          type: array
-          items:
-            type: string
-        deviceLabels:
-          type: array
-          items:
-            type: integer
-            format: int64
-        deviceSites:
-          type: array
-          items:
-            type: integer
-            format: int64
-        deviceName:
-          type: array
-          items:
-            type: string
-      title: Devices
-    v202407Activate:
-      type: object
-      properties:
-        times:
-          type: integer
-          format: int64
-        operator:
-          type: string
-        timeWindowSeconds:
-          type: integer
-          format: int64
-        gracePeriodSeconds:
-          type: integer
-          format: int64
-      title: Activate
     v202407CustomDimension:
       type: object
       properties:
@@ -556,30 +547,6 @@ components:
         populator:
           type: string
       title: CustomDimension
-    v202211PermissionEntry:
-      type: object
-      properties:
-        capability:
-          type: string
-          description: String identifying capability that is granted of denied
-        allowed:
-          type: boolean
-          description: Flag indicating whether operation is allowed
-      title: PermissionEntry
-      required:
-      - capability
-      - allowed
-    v202407ListTenantResponse:
-      type: object
-      properties:
-        tenants:
-          type: array
-          items:
-            $ref: '#/components/schemas/v202407Tenant'
-        invalidCount:
-          type: integer
-          format: int64
-      title: ListTenantResponse
     v202407FilterField:
       type: object
       properties:
@@ -590,22 +557,6 @@ components:
         filterValue:
           type: string
       title: FilterField
-    protobufAny:
-      type: object
-      properties:
-        '@type':
-          type: string
-      additionalProperties: {}
-    v202407Asset:
-      type: object
-      properties:
-        reports:
-          type: array
-          items:
-            $ref: '#/components/schemas/AssetReport'
-        defaultReport:
-          $ref: '#/components/schemas/AssetReport'
-      title: Asset
     v202407TenantLink:
       type: object
       properties:
@@ -616,22 +567,18 @@ components:
         pivotUserGroupId:
           type: string
       title: TenantLink
+    v202407NotificationChannel:
+      type: object
+      properties:
+        id:
+          type: string
+      title: NotificationChannel
     v202407CreateTenantRequest:
       type: object
       properties:
         tenant:
           $ref: '#/components/schemas/v202407Tenant'
       title: CreateTenantRequest
-    v202211Role:
-      type: string
-      enum:
-      - ROLE_UNSPECIFIED
-      - ROLE_MEMBER
-      - ROLE_ADMINISTRATOR
-      - ROLE_SUPER_ADMINISTRATOR
-      default: ROLE_UNSPECIFIED
-      description: "- ROLE_UNSPECIFIED: Invalid value.\n - ROLE_MEMBER: Member\n - ROLE_ADMINISTRATOR: Administrator\n - ROLE_SUPER_ADMINISTRATOR: Super-administrator"
-      title: Role
     v202211User:
       type: object
       properties:
@@ -691,34 +638,87 @@ components:
       - userEmail
       - userFullName
       - role
-    v202407Threshold:
+    v202211PermissionEntry:
+      type: object
+      properties:
+        capability:
+          type: string
+          description: String identifying capability that is granted of denied
+        allowed:
+          type: boolean
+          description: Flag indicating whether operation is allowed
+      title: PermissionEntry
+      required:
+      - capability
+      - allowed
+    v202407Mitigation:
       type: object
       properties:
         id:
           type: string
-        activate:
-          $ref: '#/components/schemas/v202407Activate'
-        severity:
+        status:
           type: string
-        conditions:
+        companyId:
+          type: string
+        pairingId:
+          type: string
+        thresholdId:
+          type: string
+        isMethodOverridable:
+          type: boolean
+        mitigationApplyType:
+          type: string
+        mitigationClearType:
+          type: string
+        mitigationApplyTimer:
+          type: integer
+          format: int64
+        mitigationClearTimer:
+          type: integer
+          format: int64
+        isPlatformOverridable:
+          type: boolean
+      title: Mitigation
+    v202407Condition:
+      type: object
+      properties:
+        type:
+          type: string
+        value:
+          type: string
+        metric:
+          type: string
+        operator:
+          type: string
+        valueType:
+          type: string
+        valueSelect:
+          type: string
+      title: Condition
+    rpcStatus:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        details:
           type: array
           items:
-            $ref: '#/components/schemas/v202407Condition'
-        mitigations:
-          type: array
-          items:
-            $ref: '#/components/schemas/v202407Mitigation'
-        notificationChannels:
-          type: array
-          items:
-            $ref: '#/components/schemas/v202407NotificationChannel'
-        thresholdAckRequired:
-          type: boolean
-        enableTenantNotifications:
-          type: boolean
-        receiveLandlordNotifications:
-          type: boolean
-      title: Threshold
+            $ref: '#/components/schemas/protobufAny'
+    protobufAny:
+      type: object
+      properties:
+        '@type':
+          type: string
+      additionalProperties: {}
+    v202407CreateTenantResponse:
+      type: object
+      properties:
+        tenant:
+          $ref: '#/components/schemas/v202407Tenant'
+      title: CreateTenantResponse
   securitySchemes:
     email:
       type: apiKey

@@ -94,102 +94,6 @@ paths:
       - SyntheticsDataService
 components:
   schemas:
-    rpcStatus:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-        message:
-          type: string
-        details:
-          type: array
-          items:
-            $ref: '#/components/schemas/protobufAny'
-    v202309TestResults:
-      type: object
-      properties:
-        testId:
-          type: string
-          description: ID of the test for which results are provided
-        time:
-          type: string
-          format: date-time
-          description: Results timestamp (UTC)
-        health:
-          type: string
-          description: Health status of the test
-        agents:
-          type: array
-          items:
-            $ref: '#/components/schemas/v202309AgentResults'
-          description: List of results from agents executing tasks on behalf of the test
-      title: TestResults
-    v202309TraceHop:
-      type: object
-      properties:
-        latency:
-          type: integer
-          format: int32
-          description: Round-trip packet latency to the node (in microseconds) - 0 if no response was received
-        nodeId:
-          type: string
-          description: ID of the node for this hop in the Nodes map  - empty if no response was received
-      title: TraceHop
-    v202309AgentResults:
-      type: object
-      properties:
-        agentId:
-          type: string
-          description: ID of the agent providing results
-        health:
-          type: string
-          description: Overall health status of all task for the test executed by this agent
-        tasks:
-          type: array
-          items:
-            $ref: '#/components/schemas/v202309TaskResults'
-          description: List of results for individual tasks
-      title: AgentResults
-    v202309GetTraceForTestRequest:
-      type: object
-      properties:
-        id:
-          type: string
-          description: ID of test for which to retrieve network path trace data
-        startTime:
-          type: string
-          format: date-time
-          description: Timestamp of the oldest results to include in results
-        endTime:
-          type: string
-          format: date-time
-          description: Timestamp of the newest results to include in results
-        agentIds:
-          type: array
-          items:
-            type: string
-          description: List of agent IDs from which to return results
-        targetIps:
-          type: array
-          items:
-            type: string
-          description: List of target IP addresses for which to retrieve results
-      title: GetTraceForTestRequest
-      required:
-      - startTime
-      - endTime
-    v202309DNSResponseData:
-      type: object
-      properties:
-        status:
-          type: integer
-          format: int64
-          description: Received DNS status
-        data:
-          type: string
-          description: Text rendering of received DNS resolution
-      title: DNSResponseData
     v202309GetResultsForTestsCsvRequest:
       type: object
       properties:
@@ -226,76 +130,17 @@ components:
           items:
             $ref: '#/components/schemas/v202309TestResults'
       title: GetResultsForTestsResponse
-    v202309PathTrace:
+    v202309DNSResponseData:
       type: object
       properties:
-        asPath:
-          type: array
-          items:
-            type: integer
-            format: int32
-          description: AS path of the network trace
-        isComplete:
-          type: boolean
-          description: Indication whether response from target was received
-        hops:
-          type: array
-          items:
-            $ref: '#/components/schemas/v202309TraceHop'
-          description: List of hops in the trace
-      title: PathTrace
-    v202309GetTraceForTestResponse:
-      type: object
-      properties:
-        nodes:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/v202309NetNode'
-          description: Map of network node information keyed by node IDs
-        paths:
-          type: array
-          items:
-            $ref: '#/components/schemas/v202309Path'
-          description: List of retrieved network path data
-      title: GetTraceForTestResponse
-    v202309GetResultsForTestsCsvResponse:
-      type: object
-      properties:
-        contentType:
-          type: string
-          description: Content type of the response hardcoded to 'text/csv'
+        status:
+          type: integer
+          format: int64
+          description: Received DNS status
         data:
           type: string
-          format: byte
-          description: CSV data as byte array
-      title: GetResultsForTestsCsvResponse
-    v202309PacketLossData:
-      type: object
-      properties:
-        current:
-          type: number
-          format: double
-          description: Current packet loss value
-        health:
-          type: string
-          description: Health evaluation status for the metric (healthy | warning | critical)
-      title: PacketLossData
-    v202309PingResults:
-      type: object
-      properties:
-        target:
-          type: string
-          description: Hostname or address of the probed target
-        packetLoss:
-          $ref: '#/components/schemas/v202309PacketLossData'
-        latency:
-          $ref: '#/components/schemas/v202309MetricData'
-        jitter:
-          $ref: '#/components/schemas/v202309MetricData'
-        dstIp:
-          type: string
-          description: IP address of probed target
-      title: PingResults
+          description: Text rendering of received DNS resolution
+      title: DNSResponseData
     v202309DNSResults:
       type: object
       properties:
@@ -310,52 +155,25 @@ components:
         response:
           $ref: '#/components/schemas/v202309DNSResponseData'
       title: DNSResults
-    v202309NetNode:
+    v202309MetricData:
       type: object
       properties:
-        ip:
-          type: string
-          description: IP address of the node in standard textual notation
-        asn:
+        current:
           type: integer
           format: int64
-          description: AS number owning the address of the node
-        asName:
+          description: Current value of metric
+        rollingAvg:
+          type: integer
+          format: int64
+          description: Rolling average of metric
+        rollingStddev:
+          type: integer
+          format: int64
+          description: Rolling average of standard deviation of metric
+        health:
           type: string
-          description: Name of the AS owning the address of the node
-        location:
-          $ref: '#/components/schemas/syntheticsv202309Location'
-        dnsName:
-          type: string
-          description: DNS name of the node (obtained by reverse DNS resolution)
-        deviceId:
-          type: string
-          description: ID of the device corresponding with the node in Kentik configuration
-        siteId:
-          type: string
-          description: ID of the site containing the device corresponding with the node in Kentik configuration
-      title: NetNode
-    syntheticsv202309Location:
-      type: object
-      properties:
-        latitude:
-          type: number
-          format: double
-          description: Latitude in signed decimal degrees
-        longitude:
-          type: number
-          format: double
-          description: Longitude in signed decimal degrees
-        country:
-          type: string
-          description: Country of the location
-        region:
-          type: string
-          description: Geographic region within the country
-        city:
-          type: string
-          description: City of the location
-      title: Location
+          description: Health evaluation status for the metric (healthy | warning | critical)
+      title: MetricData
     v202309GetResultsForTestsRequest:
       type: object
       properties:
@@ -390,12 +208,94 @@ components:
       - ids
       - startTime
       - endTime
-    protobufAny:
+    v202309PathTrace:
       type: object
       properties:
-        '@type':
+        asPath:
+          type: array
+          items:
+            type: integer
+            format: int32
+          description: AS path of the network trace
+        isComplete:
+          type: boolean
+          description: Indication whether response from target was received
+        hops:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202309TraceHop'
+          description: List of hops in the trace
+      title: PathTrace
+    v202309GetTraceForTestResponse:
+      type: object
+      properties:
+        nodes:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/v202309NetNode'
+          description: Map of network node information keyed by node IDs
+        paths:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202309Path'
+          description: List of retrieved network path data
+      title: GetTraceForTestResponse
+    v202309PingResults:
+      type: object
+      properties:
+        target:
           type: string
-      additionalProperties: {}
+          description: Hostname or address of the probed target
+        packetLoss:
+          $ref: '#/components/schemas/v202309PacketLossData'
+        latency:
+          $ref: '#/components/schemas/v202309MetricData'
+        jitter:
+          $ref: '#/components/schemas/v202309MetricData'
+        dstIp:
+          type: string
+          description: IP address of probed target
+      title: PingResults
+    v202309Stats:
+      type: object
+      properties:
+        average:
+          type: integer
+          format: int32
+          description: Average value
+        min:
+          type: integer
+          format: int32
+          description: Minimum value
+        max:
+          type: integer
+          format: int32
+          description: Maximum value
+      title: Stats
+    v202309TaskResults:
+      type: object
+      properties:
+        ping:
+          $ref: '#/components/schemas/v202309PingResults'
+        http:
+          $ref: '#/components/schemas/v202309HTTPResults'
+        dns:
+          $ref: '#/components/schemas/v202309DNSResults'
+        health:
+          type: string
+          description: Health status of the task
+      title: TaskResults
+    v202309TraceHop:
+      type: object
+      properties:
+        latency:
+          type: integer
+          format: int32
+          description: Round-trip packet latency to the node (in microseconds) - 0 if no response was received
+        nodeId:
+          type: string
+          description: ID of the node for this hop in the Nodes map  - empty if no response was received
+      title: TraceHop
     v202309Path:
       type: object
       properties:
@@ -421,38 +321,6 @@ components:
           format: date-time
           description: Timestamp (UTC) of initiation of the path trace
       title: Path
-    v202309MetricData:
-      type: object
-      properties:
-        current:
-          type: integer
-          format: int64
-          description: Current value of metric
-        rollingAvg:
-          type: integer
-          format: int64
-          description: Rolling average of metric
-        rollingStddev:
-          type: integer
-          format: int64
-          description: Rolling average of standard deviation of metric
-        health:
-          type: string
-          description: Health evaluation status for the metric (healthy | warning | critical)
-      title: MetricData
-    v202309TaskResults:
-      type: object
-      properties:
-        ping:
-          $ref: '#/components/schemas/v202309PingResults'
-        http:
-          $ref: '#/components/schemas/v202309HTTPResults'
-        dns:
-          $ref: '#/components/schemas/v202309DNSResults'
-        health:
-          type: string
-          description: Health status of the task
-      title: TaskResults
     v202309HTTPResponseData:
       type: object
       properties:
@@ -468,6 +336,125 @@ components:
           type: string
           description: Detailed information about transaction timing, connection characteristics and response
       title: HTTPResponseData
+    v202309TestResults:
+      type: object
+      properties:
+        testId:
+          type: string
+          description: ID of the test for which results are provided
+        time:
+          type: string
+          format: date-time
+          description: Results timestamp (UTC)
+        health:
+          type: string
+          description: Health status of the test
+        agents:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202309AgentResults'
+          description: List of results from agents executing tasks on behalf of the test
+      title: TestResults
+    v202309NetNode:
+      type: object
+      properties:
+        ip:
+          type: string
+          description: IP address of the node in standard textual notation
+        asn:
+          type: integer
+          format: int64
+          description: AS number owning the address of the node
+        asName:
+          type: string
+          description: Name of the AS owning the address of the node
+        location:
+          $ref: '#/components/schemas/syntheticsv202309Location'
+        dnsName:
+          type: string
+          description: DNS name of the node (obtained by reverse DNS resolution)
+        deviceId:
+          type: string
+          description: ID of the device corresponding with the node in Kentik configuration
+        siteId:
+          type: string
+          description: ID of the site containing the device corresponding with the node in Kentik configuration
+      title: NetNode
+    v202309GetResultsForTestsCsvResponse:
+      type: object
+      properties:
+        contentType:
+          type: string
+          description: Content type of the response hardcoded to 'text/csv'
+        data:
+          type: string
+          format: byte
+          description: CSV data as byte array
+      title: GetResultsForTestsCsvResponse
+    v202309GetTraceForTestRequest:
+      type: object
+      properties:
+        id:
+          type: string
+          description: ID of test for which to retrieve network path trace data
+        startTime:
+          type: string
+          format: date-time
+          description: Timestamp of the oldest results to include in results
+        endTime:
+          type: string
+          format: date-time
+          description: Timestamp of the newest results to include in results
+        agentIds:
+          type: array
+          items:
+            type: string
+          description: List of agent IDs from which to return results
+        targetIps:
+          type: array
+          items:
+            type: string
+          description: List of target IP addresses for which to retrieve results
+      title: GetTraceForTestRequest
+      required:
+      - startTime
+      - endTime
+    v202309AgentResults:
+      type: object
+      properties:
+        agentId:
+          type: string
+          description: ID of the agent providing results
+        health:
+          type: string
+          description: Overall health status of all task for the test executed by this agent
+        tasks:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202309TaskResults'
+          description: List of results for individual tasks
+      title: AgentResults
+    syntheticsv202309Location:
+      type: object
+      properties:
+        latitude:
+          type: number
+          format: double
+          description: Latitude in signed decimal degrees
+        longitude:
+          type: number
+          format: double
+          description: Longitude in signed decimal degrees
+        country:
+          type: string
+          description: Country of the location
+        region:
+          type: string
+          description: Geographic region within the country
+        city:
+          type: string
+          description: City of the location
+      title: Location
     v202309HTTPResults:
       type: object
       properties:
@@ -482,22 +469,35 @@ components:
           type: string
           description: IP address of probed target server
       title: HTTPResults
-    v202309Stats:
+    rpcStatus:
       type: object
       properties:
-        average:
+        code:
           type: integer
           format: int32
-          description: Average value
-        min:
-          type: integer
-          format: int32
-          description: Minimum value
-        max:
-          type: integer
-          format: int32
-          description: Maximum value
-      title: Stats
+        message:
+          type: string
+        details:
+          type: array
+          items:
+            $ref: '#/components/schemas/protobufAny'
+    protobufAny:
+      type: object
+      properties:
+        '@type':
+          type: string
+      additionalProperties: {}
+    v202309PacketLossData:
+      type: object
+      properties:
+        current:
+          type: number
+          format: double
+          description: Current packet loss value
+        health:
+          type: string
+          description: Health evaluation status for the metric (healthy | warning | critical)
+      title: PacketLossData
   securitySchemes:
     email:
       type: apiKey
