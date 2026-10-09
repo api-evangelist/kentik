@@ -1,23 +1,28 @@
-generated: '2026-07-19'
+generated: '2026-09-23'
 method: generated
-source: openapi/kentik-ai-advisor-openapi.json, openapi/kentik-alert-policy-openapi.json, openapi/kentik-alerting-openapi.json,
-  openapi/kentik-as-group-openapi.json, openapi/kentik-audit-openapi.json, openapi/kentik-bgp-monitoring-openapi.json,
-  openapi/kentik-capacity-plan-openapi.json, openapi/kentik-cloud-export-openapi.json, openapi/kentik-cost-openapi.json,
-  openapi/kentik-custom-dimension-openapi.json, openapi/kentik-device-openapi.json, openapi/kentik-flow-tag-openapi.json,
-  openapi/kentik-kmi-openapi.json, openapi/kentik-label-openapi.json, openapi/kentik-mitigation-openapi.json,
-  openapi/kentik-mkp-openapi.json, openapi/kentik-notification-channel-openapi.json, openapi/kentik-site-openapi.json,
-  openapi/kentik-synthetics-openapi.json, openapi/kentik-user-openapi.json
+source: openapi/kentik-aiadvisordataservice-api-openapi.yml, openapi/kentik-alertservice-api-openapi.yml,
+  openapi/kentik-asgroupservice-api-openapi.yml, openapi/kentik-audit-service-api-openapi.yml,
+  openapi/kentik-bgpmonitoringadminservice-api-openapi.yml, openapi/kentik-bgpmonitoringdataservice-api-openapi.yml,
+  openapi/kentik-capacityplanservice-api-openapi.yml, openapi/kentik-cloudexportadminservice-api-openapi.yml,
+  openapi/kentik-costservice-api-openapi.yml, openapi/kentik-customdimensionservice-api-openapi.yml,
+  openapi/kentik-deviceservice-api-openapi.yml, openapi/kentik-flowtagservice-api-openapi.yml,
+  openapi/kentik-kmiservice-api-openapi.yml, openapi/kentik-labelservice-api-openapi.yml, openapi/kentik-mitigationsservice-api-openapi.yml,
+  openapi/kentik-notificationchannelservice-api-openapi.yml, openapi/kentik-packageservice-api-openapi.yml,
+  openapi/kentik-policyservice-api-openapi.yml, openapi/kentik-siteservice-api-openapi.yml,
+  openapi/kentik-syntheticsadminservice-api-openapi.yml, openapi/kentik-syntheticsdataservice-api-openapi.yml,
+  openapi/kentik-tenantservice-api-openapi.yml, openapi/kentik-tenantuserservice-api-openapi.yml,
+  openapi/kentik-userservice-api-openapi.yml
 description: Recommended x-agentic-access execution contracts, classified heuristically from
   the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
   audience per deployment. See research/curity/agentic-governance/.
 summary:
   operations: 135
   by_action_class:
-    acting: 79
-    connected: 56
+    acting: 69
+    connected: 66
   by_consequence:
-    write: 76
-    read: 56
+    write: 66
+    read: 66
     safety-critical: 3
   human_in_the_loop_required: 3
 operations:
@@ -63,25 +68,9 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-- path: /v202505/policies/list
+- path: /v202505/alerts
   method: post
   operationId: List
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /v202505/policies/{policyType}/{id}
-  method: get
-  operationId: Get
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -89,54 +78,6 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-- path: /v202505/policies/{policyType}/{id}/disable
-  method: post
-  operationId: Disable
-  x-agentic-access:
-    action-class: acting
-    consequence: safety-critical
-    subject: required
-    audience: null
-    token:
-      max-ttl: 120
-      exchange: true
-      purpose-required: true
-      proof-of-possession: true
-    escalation:
-      human-in-the-loop: required
-    audit: required
-- path: /v202505/policies/{policyType}/{id}/enable
-  method: post
-  operationId: Enable
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /v202505/alerts
-  method: post
-  operationId: List
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
 - path: /v202505/alerts/clear
   method: post
   operationId: Clear
@@ -335,22 +276,6 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-- path: /bgp_monitoring/v202210/metrics
-  method: post
-  operationId: GetMetricsForTarget
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
 - path: /bgp_monitoring/v202210/monitors
   method: get
   operationId: ListMonitors
@@ -435,22 +360,26 @@ operations:
       - abnormal
       - high-value
     audit: required
+- path: /bgp_monitoring/v202210/metrics
+  method: post
+  operationId: GetMetricsForTarget
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
 - path: /bgp_monitoring/v202210/routes
   method: post
   operationId: GetRoutesForTarget
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
 - path: /capacity_plan/v202212/capacity_plan
   method: get
   operationId: ListCapacityPlans
@@ -959,34 +888,22 @@ operations:
   method: post
   operationId: GetASNDetails
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
 - path: /kmi/v202212/market/{marketId}/rankings/{rankType}/ip/{ip}
   method: post
   operationId: GetRankings
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
 - path: /kmi/v202212/markets
   method: get
   operationId: ListMarkets
@@ -1127,6 +1044,36 @@ operations:
     token:
       max-ttl: 3600
     audit: none
+- path: /notification_channel/v202210/notification_channels
+  method: get
+  operationId: ListNotificationChannels
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /notification_channel/v202210/notification_channels/search
+  method: post
+  operationId: SearchNotificationChannels
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /notification_channel/v202210/notification_channels/{id}
+  method: get
+  operationId: GetNotificationChannel
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
 - path: /mkp/v202407/packages
   method: get
   operationId: PackageList
@@ -1195,35 +1142,9 @@ operations:
       - abnormal
       - high-value
     audit: required
-- path: /mkp/v202407/tenants
-  method: get
-  operationId: TenantList
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /mkp/v202407/tenants
+- path: /v202505/policies/list
   method: post
-  operationId: TenantCreate
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /mkp/v202407/tenants/{id}
-  method: get
-  operationId: TenantGet
+  operationId: List
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -1231,41 +1152,9 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-- path: /mkp/v202407/tenants/{id}
-  method: delete
-  operationId: TenantDelete
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /mkp/v202407/tenants/{id}
-  method: put
-  operationId: TenantUpdate
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /mkp/v202407/tenants/{tenantId}/users
+- path: /v202505/policies/{policyType}/{id}
   method: get
-  operationId: TenantUserList
+  operationId: Get
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -1273,67 +1162,25 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-- path: /mkp/v202407/tenants/{tenantId}/users
+- path: /v202505/policies/{policyType}/{id}/disable
   method: post
-  operationId: TenantUserCreate
+  operationId: Disable
   x-agentic-access:
     action-class: acting
-    consequence: write
+    consequence: safety-critical
     subject: required
     audience: null
     token:
-      max-ttl: 900
+      max-ttl: 120
+      exchange: true
+      purpose-required: true
+      proof-of-possession: true
     escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
+      human-in-the-loop: required
     audit: required
-- path: /mkp/v202407/tenants/{tenantId}/users/{id}
-  method: delete
-  operationId: TenantUserDelete
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /mkp/v202407/tenants/{tenantId}/users/{id}
-  method: put
-  operationId: TenantUserUpdate
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /notification_channel/v202210/notification_channels
-  method: get
-  operationId: ListNotificationChannels
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /notification_channel/v202210/notification_channels/search
+- path: /v202505/policies/{policyType}/{id}/enable
   method: post
-  operationId: SearchNotificationChannels
+  operationId: Enable
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -1347,16 +1194,6 @@ operations:
       - abnormal
       - high-value
     audit: required
-- path: /notification_channel/v202210/notification_channels/{id}
-  method: get
-  operationId: GetNotificationChannel
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
 - path: /site/v202509/site_markets
   method: get
   operationId: ListSiteMarkets
@@ -1613,38 +1450,6 @@ operations:
       - abnormal
       - high-value
     audit: required
-- path: /synthetics/v202309/results
-  method: post
-  operationId: GetResultsForTests
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /synthetics/v202309/results/csv
-  method: post
-  operationId: GetResultsForTestsCsv
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
 - path: /synthetics/v202309/tests
   method: get
   operationId: ListTests
@@ -1729,9 +1534,149 @@ operations:
       - abnormal
       - high-value
     audit: required
+- path: /synthetics/v202309/results
+  method: post
+  operationId: GetResultsForTests
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /synthetics/v202309/results/csv
+  method: post
+  operationId: GetResultsForTestsCsv
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
 - path: /synthetics/v202309/trace
   method: post
   operationId: GetTraceForTest
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /mkp/v202407/tenants
+  method: get
+  operationId: TenantList
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /mkp/v202407/tenants
+  method: post
+  operationId: TenantCreate
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /mkp/v202407/tenants/{id}
+  method: get
+  operationId: TenantGet
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /mkp/v202407/tenants/{id}
+  method: delete
+  operationId: TenantDelete
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /mkp/v202407/tenants/{id}
+  method: put
+  operationId: TenantUpdate
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /mkp/v202407/tenants/{tenantId}/users
+  method: get
+  operationId: TenantUserList
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /mkp/v202407/tenants/{tenantId}/users
+  method: post
+  operationId: TenantUserCreate
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /mkp/v202407/tenants/{tenantId}/users/{id}
+  method: delete
+  operationId: TenantUserDelete
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /mkp/v202407/tenants/{tenantId}/users/{id}
+  method: put
+  operationId: TenantUserUpdate
   x-agentic-access:
     action-class: acting
     consequence: write
