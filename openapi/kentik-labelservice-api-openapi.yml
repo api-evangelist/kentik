@@ -120,6 +120,12 @@ paths:
       - LabelService
 components:
   schemas:
+    protobufAny:
+      type: object
+      properties:
+        '@type':
+          type: string
+      additionalProperties: {}
     LabelServiceUpdateLabelBody:
       type: object
       properties:
@@ -150,12 +156,21 @@ components:
       required:
       - name
       - label
+    v202210CreateLabelResponse:
+      type: object
+      properties:
+        label:
+          $ref: '#/components/schemas/labelv202210Label'
+      title: CreateLabelResponse
     v202210UpdateLabelResponse:
       type: object
       properties:
         label:
           $ref: '#/components/schemas/labelv202210Label'
       title: UpdateLabelResponse
+    v202210DeleteLabelResponse:
+      type: object
+      title: DeleteLabelResponse
     v202210CreateLabelRequest:
       type: object
       properties:
@@ -164,27 +179,20 @@ components:
       title: CreateLabelRequest
       required:
       - label
-    v202210DeleteLabelResponse:
-      type: object
-      title: DeleteLabelResponse
-    rpcStatus:
+    v202210ListLabelsResponse:
       type: object
       properties:
-        code:
-          type: integer
-          format: int32
-        message:
-          type: string
-        details:
+        labels:
           type: array
           items:
-            $ref: '#/components/schemas/protobufAny'
-    protobufAny:
-      type: object
-      properties:
-        '@type':
-          type: string
-      additionalProperties: {}
+            $ref: '#/components/schemas/labelv202210Label'
+          description: List of configured labels
+          readOnly: true
+        invalidCount:
+          type: integer
+          format: int32
+          description: Number of invalid entries encountered while collecting data (should be always 0)
+      title: ListLabelsResponse
     labelv202210Label:
       type: object
       properties:
@@ -214,26 +222,18 @@ components:
       title: Label
       required:
       - name
-    v202210ListLabelsResponse:
+    rpcStatus:
       type: object
       properties:
-        labels:
-          type: array
-          items:
-            $ref: '#/components/schemas/labelv202210Label'
-          description: List of configured labels
-          readOnly: true
-        invalidCount:
+        code:
           type: integer
           format: int32
-          description: Number of invalid entries encountered while collecting data (should be always 0)
-      title: ListLabelsResponse
-    v202210CreateLabelResponse:
-      type: object
-      properties:
-        label:
-          $ref: '#/components/schemas/labelv202210Label'
-      title: CreateLabelResponse
+        message:
+          type: string
+        details:
+          type: array
+          items:
+            $ref: '#/components/schemas/protobufAny'
   securitySchemes:
     email:
       type: apiKey

@@ -144,68 +144,28 @@ paths:
       - PackageService
 components:
   schemas:
-    v202407Asset:
-      type: object
-      properties:
-        reports:
-          type: array
-          items:
-            $ref: '#/components/schemas/AssetReport'
-        defaultReport:
-          $ref: '#/components/schemas/AssetReport'
-      title: Asset
-    PackageServiceUpdatePackageBody:
-      type: object
-      properties:
-        package:
-          type: object
-          properties:
-            companyId:
-              type: string
-              description: Company id of the associated package
-              readOnly: true
-            name:
-              type: string
-              description: Name of package template
-              readOnly: true
-            description:
-              type: string
-              description: Description of package template
-              readOnly: true
-            icon:
-              type: string
-              description: Icon to display
-              readOnly: true
-            color:
-              type: string
-              description: Color of Icon
-              readOnly: true
-            alerts:
-              type: array
-              items:
-                $ref: '#/components/schemas/v202407Alert'
-              description: Alert thresholds and policies
-              readOnly: true
-            assets:
-              $ref: '#/components/schemas/v202407Asset'
-            isDefault:
-              type: boolean
-              description: Is default template
-              readOnly: true
-            tenants:
-              type: array
-              items:
-                $ref: '#/components/schemas/v202407TenantLink'
-              description: Tenant link information
-              readOnly: true
-          title: Package
-      title: UpdatePackageRequest
-    v202407CreatePackageResponse:
+    v202407UpdatePackageResponse:
       type: object
       properties:
         package:
           $ref: '#/components/schemas/v202407Package'
-      title: CreatePackageResponse
+      title: UpdatePackageResponse
+    v202407DeletePackageResponse:
+      type: object
+      title: DeletePackageResponse
+    v202407CreatePackageRequest:
+      type: object
+      properties:
+        package:
+          $ref: '#/components/schemas/v202407Package'
+      title: CreatePackageRequest
+    AssetReport:
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
     v202407Threshold:
       type: object
       properties:
@@ -234,49 +194,74 @@ components:
         receiveLandlordNotifications:
           type: boolean
       title: Threshold
-    v202407ListPackageResponse:
+    protobufAny:
       type: object
       properties:
-        packages:
-          type: array
-          items:
-            $ref: '#/components/schemas/v202407Package'
-        invalidCount:
-          type: integer
-          format: int64
-          description: The number of invalid packages, for troubleshooting. Should be zero.
-      title: ListPackageResponse
-    v202407Activate:
-      type: object
-      properties:
-        times:
-          type: integer
-          format: int64
-        operator:
+        '@type':
           type: string
-        timeWindowSeconds:
-          type: integer
-          format: int64
-        gracePeriodSeconds:
-          type: integer
-          format: int64
-      title: Activate
-    v202407DeletePackageResponse:
-      type: object
-      title: DeletePackageResponse
-    v202407UpdatePackageResponse:
-      type: object
-      properties:
-        package:
-          $ref: '#/components/schemas/v202407Package'
-      title: UpdatePackageResponse
-    AssetReport:
+      additionalProperties: {}
+    v202407Mitigation:
       type: object
       properties:
         id:
           type: string
-        type:
+        status:
           type: string
+        companyId:
+          type: string
+        pairingId:
+          type: string
+        thresholdId:
+          type: string
+        isMethodOverridable:
+          type: boolean
+        mitigationApplyType:
+          type: string
+        mitigationClearType:
+          type: string
+        mitigationApplyTimer:
+          type: integer
+          format: int64
+        mitigationClearTimer:
+          type: integer
+          format: int64
+        isPlatformOverridable:
+          type: boolean
+      title: Mitigation
+    v202407TenantLink:
+      type: object
+      properties:
+        id:
+          type: string
+        pivotTemplateId:
+          type: string
+        pivotUserGroupId:
+          type: string
+      title: TenantLink
+    v202407CreatePackageResponse:
+      type: object
+      properties:
+        package:
+          $ref: '#/components/schemas/v202407Package'
+      title: CreatePackageResponse
+    rpcStatus:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        details:
+          type: array
+          items:
+            $ref: '#/components/schemas/protobufAny'
+    v202407NotificationChannel:
+      type: object
+      properties:
+        id:
+          type: string
+      title: NotificationChannel
     v202407Alert:
       type: object
       properties:
@@ -299,6 +284,44 @@ components:
         subpolicyId:
           type: string
       title: Alert
+    v202407Condition:
+      type: object
+      properties:
+        type:
+          type: string
+        value:
+          type: string
+        metric:
+          type: string
+        operator:
+          type: string
+        valueType:
+          type: string
+        valueSelect:
+          type: string
+      title: Condition
+    v202407ListPackageResponse:
+      type: object
+      properties:
+        packages:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202407Package'
+        invalidCount:
+          type: integer
+          format: int64
+          description: The number of invalid packages, for troubleshooting. Should be zero.
+      title: ListPackageResponse
+    v202407Asset:
+      type: object
+      properties:
+        reports:
+          type: array
+          items:
+            $ref: '#/components/schemas/AssetReport'
+        defaultReport:
+          $ref: '#/components/schemas/AssetReport'
+      title: Asset
     v202407Package:
       type: object
       properties:
@@ -345,96 +368,73 @@ components:
           description: Tenant link information
           readOnly: true
       title: Package
-    v202407CreatePackageRequest:
+    PackageServiceUpdatePackageBody:
       type: object
       properties:
         package:
-          $ref: '#/components/schemas/v202407Package'
-      title: CreatePackageRequest
-    v202407TenantLink:
-      type: object
-      properties:
-        id:
-          type: string
-        pivotTemplateId:
-          type: string
-        pivotUserGroupId:
-          type: string
-      title: TenantLink
-    v202407NotificationChannel:
-      type: object
-      properties:
-        id:
-          type: string
-      title: NotificationChannel
-    v202407Mitigation:
-      type: object
-      properties:
-        id:
-          type: string
-        status:
-          type: string
-        companyId:
-          type: string
-        pairingId:
-          type: string
-        thresholdId:
-          type: string
-        isMethodOverridable:
-          type: boolean
-        mitigationApplyType:
-          type: string
-        mitigationClearType:
-          type: string
-        mitigationApplyTimer:
-          type: integer
-          format: int64
-        mitigationClearTimer:
-          type: integer
-          format: int64
-        isPlatformOverridable:
-          type: boolean
-      title: Mitigation
-    v202407Condition:
-      type: object
-      properties:
-        type:
-          type: string
-        value:
-          type: string
-        metric:
-          type: string
-        operator:
-          type: string
-        valueType:
-          type: string
-        valueSelect:
-          type: string
-      title: Condition
+          type: object
+          properties:
+            companyId:
+              type: string
+              description: Company id of the associated package
+              readOnly: true
+            name:
+              type: string
+              description: Name of package template
+              readOnly: true
+            description:
+              type: string
+              description: Description of package template
+              readOnly: true
+            icon:
+              type: string
+              description: Icon to display
+              readOnly: true
+            color:
+              type: string
+              description: Color of Icon
+              readOnly: true
+            alerts:
+              type: array
+              items:
+                $ref: '#/components/schemas/v202407Alert'
+              description: Alert thresholds and policies
+              readOnly: true
+            assets:
+              $ref: '#/components/schemas/v202407Asset'
+            isDefault:
+              type: boolean
+              description: Is default template
+              readOnly: true
+            tenants:
+              type: array
+              items:
+                $ref: '#/components/schemas/v202407TenantLink'
+              description: Tenant link information
+              readOnly: true
+          title: Package
+      title: UpdatePackageRequest
     v202407GetPackageResponse:
       type: object
       properties:
         package:
           $ref: '#/components/schemas/v202407Package'
       title: GetPackageResponse
-    rpcStatus:
+    v202407Activate:
       type: object
       properties:
-        code:
+        times:
           type: integer
-          format: int32
-        message:
+          format: int64
+        operator:
           type: string
-        details:
-          type: array
-          items:
-            $ref: '#/components/schemas/protobufAny'
-    protobufAny:
-      type: object
-      properties:
-        '@type':
-          type: string
-      additionalProperties: {}
+        timeWindowSeconds:
+          type: integer
+          format: int64
+        gracePeriodSeconds:
+          type: integer
+          format: int64
+      title: Activate
   securitySchemes:
     email:
       type: apiKey

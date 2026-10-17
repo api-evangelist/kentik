@@ -100,7 +100,7 @@ components:
         '@type':
           type: string
       additionalProperties: {}
-    v202511GetChatSessionResponse:
+    v202511UpdateChatSessionResponse:
       type: object
       properties:
         id:
@@ -108,20 +108,7 @@ components:
           description: The unique identifier (UUID) for the chat session
         status:
           $ref: '#/components/schemas/v202511SessionStatus'
-        messages:
-          type: array
-          items:
-            $ref: '#/components/schemas/v202511ChatMessage'
-      title: GetChatSessionResponse
-    v202511CreateChatSessionRequest:
-      type: object
-      properties:
-        prompt:
-          type: string
-          description: The user question
-      title: CreateChatSessionRequest
-      required:
-      - prompt
+      title: UpdateChatSessionResponse
     v202511ChatMessage:
       type: object
       properties:
@@ -147,6 +134,51 @@ components:
         prompt:
           type: string
       title: ChatMessage
+    v202511SessionStatus:
+      type: string
+      enum:
+      - SESSION_STATUS_UNSPECIFIED
+      - SESSION_STATUS_PENDING
+      - SESSION_STATUS_PROCESSING
+      - SESSION_STATUS_COMPLETED
+      - SESSION_STATUS_FAILED
+      - SESSION_STATUS_AWAITING_APPROVAL
+      default: SESSION_STATUS_UNSPECIFIED
+      title: SessionStatus represents the state of a chat session or message
+    rpcStatus:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        details:
+          type: array
+          items:
+            $ref: '#/components/schemas/protobufAny'
+    v202511GetChatSessionResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The unique identifier (UUID) for the chat session
+        status:
+          $ref: '#/components/schemas/v202511SessionStatus'
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202511ChatMessage'
+      title: GetChatSessionResponse
+    v202511CreateChatSessionRequest:
+      type: object
+      properties:
+        prompt:
+          type: string
+          description: The user question
+      title: CreateChatSessionRequest
+      required:
+      - prompt
     v202511UpdateChatSessionRequest:
       type: object
       properties:
@@ -169,38 +201,6 @@ components:
         status:
           $ref: '#/components/schemas/v202511SessionStatus'
       title: CreateChatSessionResponse
-    rpcStatus:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-        message:
-          type: string
-        details:
-          type: array
-          items:
-            $ref: '#/components/schemas/protobufAny'
-    v202511SessionStatus:
-      type: string
-      enum:
-      - SESSION_STATUS_UNSPECIFIED
-      - SESSION_STATUS_PENDING
-      - SESSION_STATUS_PROCESSING
-      - SESSION_STATUS_COMPLETED
-      - SESSION_STATUS_FAILED
-      - SESSION_STATUS_AWAITING_APPROVAL
-      default: SESSION_STATUS_UNSPECIFIED
-      title: SessionStatus represents the state of a chat session or message
-    v202511UpdateChatSessionResponse:
-      type: object
-      properties:
-        id:
-          type: string
-          description: The unique identifier (UUID) for the chat session
-        status:
-          $ref: '#/components/schemas/v202511SessionStatus'
-      title: UpdateChatSessionResponse
   securitySchemes:
     email:
       type: apiKey

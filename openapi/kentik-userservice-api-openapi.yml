@@ -200,6 +200,18 @@ paths:
       - UserService
 components:
   schemas:
+    protobufAny:
+      type: object
+      properties:
+        '@type':
+          type: string
+      additionalProperties: {}
+    v202211UpdateUserResponse:
+      type: object
+      properties:
+        user:
+          $ref: '#/components/schemas/v202211User'
+      title: UpdateUserResponse
     v202211LandingType:
       type: string
       enum:
@@ -219,6 +231,65 @@ components:
       - LANDING_TYPE_MARKET_INTELLIGENCE
       default: LANDING_TYPE_UNSPECIFIED
       title: LandingType
+    v202211User:
+      type: object
+      properties:
+        id:
+          type: string
+          description: System generated unique identifier
+          readOnly: true
+        userEmail:
+          type: string
+          description: User e-mail address (serves also as username)
+        userFullName:
+          type: string
+          description: Full name
+        role:
+          $ref: '#/components/schemas/v202211Role'
+        permissions:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202211PermissionEntry'
+          description: Legacy permissions granted to the user (deprecated, use rbac roles and role-sets)
+          readOnly: true
+        filter:
+          type: string
+          description: Optional JSON string defining filter for objects visible to the user
+        lastLogin:
+          type: string
+          format: date-time
+          description: UTC Timestamp of user's last login session
+          readOnly: true
+        cdate:
+          type: string
+          format: date-time
+          description: Creation timestamp (UTC)
+          readOnly: true
+        edate:
+          type: string
+          format: date-time
+          description: Last modification timestamp (UTC)
+          readOnly: true
+        defaultLandingPageType:
+          $ref: '#/components/schemas/v202211LandingType'
+        defaultLandingPageValue:
+          type: string
+          description: Identifier of the specific landing page. Applies to Dashboard, Quick View, Saved View, and Observation Deck landing page types.
+        roles:
+          type: array
+          items:
+            type: string
+          description: List of RBAC roles.
+        roleSets:
+          type: array
+          items:
+            type: string
+          description: List of RBAC role sets.
+      title: User
+      required:
+      - userEmail
+      - userFullName
+      - role
     v202211Role:
       type: string
       enum:
@@ -229,6 +300,31 @@ components:
       default: ROLE_UNSPECIFIED
       description: "- ROLE_UNSPECIFIED: Invalid value.\n - ROLE_MEMBER: Member\n - ROLE_ADMINISTRATOR: Administrator\n - ROLE_SUPER_ADMINISTRATOR: Super-administrator"
       title: Role
+    v202211ListUsersResponse:
+      type: object
+      properties:
+        users:
+          type: array
+          items:
+            $ref: '#/components/schemas/v202211User'
+          description: Last of users in the account
+          readOnly: true
+        invalidCount:
+          type: integer
+          format: int64
+          description: Number of invalid entries encountered while collecting data
+      title: ListUsersResponse
+    v202211CreateUserRequest:
+      type: object
+      properties:
+        user:
+          $ref: '#/components/schemas/v202211User'
+      title: CreateUserRequest
+      required:
+      - user
+    v202211ResetApiTokenResponse:
+      type: object
+      title: ResetApiTokenResponse
     UserServiceUpdateUserBody:
       type: object
       properties:
@@ -289,74 +385,15 @@ components:
       - userFullName
       - role
       - user
-    v202211CreateUserResponse:
+    v202211DeleteUserResponse:
+      type: object
+      title: DeleteUserResponse
+    v202211GetUserResponse:
       type: object
       properties:
         user:
           $ref: '#/components/schemas/v202211User'
-      title: CreateUserResponse
-    v202211DeleteUserResponse:
-      type: object
-      title: DeleteUserResponse
-    v202211User:
-      type: object
-      properties:
-        id:
-          type: string
-          description: System generated unique identifier
-          readOnly: true
-        userEmail:
-          type: string
-          description: User e-mail address (serves also as username)
-        userFullName:
-          type: string
-          description: Full name
-        role:
-          $ref: '#/components/schemas/v202211Role'
-        permissions:
-          type: array
-          items:
-            $ref: '#/components/schemas/v202211PermissionEntry'
-          description: Legacy permissions granted to the user (deprecated, use rbac roles and role-sets)
-          readOnly: true
-        filter:
-          type: string
-          description: Optional JSON string defining filter for objects visible to the user
-        lastLogin:
-          type: string
-          format: date-time
-          description: UTC Timestamp of user's last login session
-          readOnly: true
-        cdate:
-          type: string
-          format: date-time
-          description: Creation timestamp (UTC)
-          readOnly: true
-        edate:
-          type: string
-          format: date-time
-          description: Last modification timestamp (UTC)
-          readOnly: true
-        defaultLandingPageType:
-          $ref: '#/components/schemas/v202211LandingType'
-        defaultLandingPageValue:
-          type: string
-          description: Identifier of the specific landing page. Applies to Dashboard, Quick View, Saved View, and Observation Deck landing page types.
-        roles:
-          type: array
-          items:
-            type: string
-          description: List of RBAC roles.
-        roleSets:
-          type: array
-          items:
-            type: string
-          description: List of RBAC role sets.
-      title: User
-      required:
-      - userEmail
-      - userFullName
-      - role
+      title: GetUserResponse
     v202211PermissionEntry:
       type: object
       properties:
@@ -370,32 +407,15 @@ components:
       required:
       - capability
       - allowed
-    v202211CreateUserRequest:
-      type: object
-      properties:
-        user:
-          $ref: '#/components/schemas/v202211User'
-      title: CreateUserRequest
-      required:
-      - user
-    v202211ResetApiTokenResponse:
-      type: object
-      title: ResetApiTokenResponse
     v202211ResetActiveSessionsResponse:
       type: object
       title: ResetActiveSessionsResponse
-    v202211GetUserResponse:
+    v202211CreateUserResponse:
       type: object
       properties:
         user:
           $ref: '#/components/schemas/v202211User'
-      title: GetUserResponse
-    v202211UpdateUserResponse:
-      type: object
-      properties:
-        user:
-          $ref: '#/components/schemas/v202211User'
-      title: UpdateUserResponse
+      title: CreateUserResponse
     rpcStatus:
       type: object
       properties:
@@ -408,26 +428,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/protobufAny'
-    protobufAny:
-      type: object
-      properties:
-        '@type':
-          type: string
-      additionalProperties: {}
-    v202211ListUsersResponse:
-      type: object
-      properties:
-        users:
-          type: array
-          items:
-            $ref: '#/components/schemas/v202211User'
-          description: Last of users in the account
-          readOnly: true
-        invalidCount:
-          type: integer
-          format: int64
-          description: Number of invalid entries encountered while collecting data
-      title: ListUsersResponse
   securitySchemes:
     email:
       type: apiKey

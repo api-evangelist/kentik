@@ -143,71 +143,6 @@ paths:
       - TenantUserService
 components:
   schemas:
-    v202407CreateTenantUserResponse:
-      type: object
-      properties:
-        user:
-          $ref: '#/components/schemas/v202407TenantUser'
-      title: CreateTenantUserResponse
-    v202407UpdateTenantUserResponse:
-      type: object
-      properties:
-        user:
-          $ref: '#/components/schemas/v202407TenantUser'
-      title: UpdateTenantUserResponse
-    v202407DeleteTenantUserResponse:
-      type: object
-      title: DeleteTenantUserResponse
-    TenantUserServiceUpdateTenantUserBody:
-      type: object
-      properties:
-        user:
-          type: object
-          properties:
-            userFullName:
-              type: string
-              description: Full name of the user
-            userEmail:
-              type: string
-              description: Email address of the user
-          title: TenantUser
-      title: UpdateTenantUserRequest
-      required:
-      - userFullName
-      - userEmail
-    TenantUserServiceCreateTenantUserBody:
-      type: object
-      properties:
-        user:
-          type: object
-          properties:
-            id:
-              type: string
-              description: Unique system assigned identifier of the user
-              readOnly: true
-            userFullName:
-              type: string
-              description: Full name of the user
-            userEmail:
-              type: string
-              description: Email address of the user
-          title: TenantUser
-      title: CreateTenantUserRequest
-      required:
-      - userFullName
-      - userEmail
-    rpcStatus:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-        message:
-          type: string
-        details:
-          type: array
-          items:
-            $ref: '#/components/schemas/protobufAny'
     protobufAny:
       type: object
       properties:
@@ -246,6 +181,71 @@ components:
           type: integer
           format: int64
       title: ListTenantUserResponse
+    v202407DeleteTenantUserResponse:
+      type: object
+      title: DeleteTenantUserResponse
+    TenantUserServiceCreateTenantUserBody:
+      type: object
+      properties:
+        user:
+          type: object
+          properties:
+            id:
+              type: string
+              description: Unique system assigned identifier of the user
+              readOnly: true
+            userFullName:
+              type: string
+              description: Full name of the user
+            userEmail:
+              type: string
+              description: Email address of the user
+          title: TenantUser
+      title: CreateTenantUserRequest
+      required:
+      - userFullName
+      - userEmail
+    TenantUserServiceUpdateTenantUserBody:
+      type: object
+      properties:
+        user:
+          type: object
+          properties:
+            userFullName:
+              type: string
+              description: Full name of the user
+            userEmail:
+              type: string
+              description: Email address of the user
+          title: TenantUser
+      title: UpdateTenantUserRequest
+      required:
+      - userFullName
+      - userEmail
+    v202407UpdateTenantUserResponse:
+      type: object
+      properties:
+        user:
+          $ref: '#/components/schemas/v202407TenantUser'
+      title: UpdateTenantUserResponse
+    v202407CreateTenantUserResponse:
+      type: object
+      properties:
+        user:
+          $ref: '#/components/schemas/v202407TenantUser'
+      title: CreateTenantUserResponse
+    rpcStatus:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        details:
+          type: array
+          items:
+            $ref: '#/components/schemas/protobufAny'
   securitySchemes:
     email:
       type: apiKey
