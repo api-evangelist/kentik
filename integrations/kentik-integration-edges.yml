@@ -7,6 +7,8 @@ checked:
 - https://www.peeringdb.com/api/fac
 - https://www.peeringdb.com/api/ix
 - https://www.peeringdb.com/api/net
+- opentofu/integrations/opentofu-integration-edges.yml
+- terraform/integrations/terraform-integration-edges.yml
 marketplace_apps: []
 edges:
 - partner_name: Microsoft Azure Marketplace
@@ -24,26 +26,6 @@ edges:
   seller_name: Kentik Technologies, Inc.
   detected_by: sweep-cloud-marketplaces.py
   detected: '2026-10-13'
-- partner_name: Grafana (own)
-  partner: grafana-com
-  partner_match: mirror
-  mirror_match: domain
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://grafana.com/grafana/plugins/kentik-connect-datasource/
-  mirror_of: grafana-com/integrations/grafana-com-integration-edges.yml
-  apps:
-  - Kentik
-  - Kentik Connect Pro
-  listing_count: 2
-  detected: '2026-10-14'
-  detected_by: mirror-platform-listings.py
-  category: Data Source
-  badges:
-  - signature:commercial
 - partner_name: PeeringDB (interconnection register)
   partner: null
   partner_match: register
@@ -75,5 +57,63 @@ edges:
     detected: '2026-10-20'
   detected_by: sweep-network-edge.py
   first_seen: '2026-10-20'
+- partner_name: Grafana (own)
+  partner: grafana-com
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://grafana.com/grafana/plugins/kentik-connect-datasource/
+  mirror_of: grafana-com/integrations/grafana-com-integration-edges.yml
+  apps:
+  - Kentik
+  - Kentik Connect Pro
+  listing_count: 2
+  detected: '2026-10-14'
+  detected_by: mirror-platform-listings.py
+  category: Data Source
+  badges:
+  - signature:commercial
+- partner_name: OpenTofu (opentofu-registry)
+  partner: opentofu
+  partner_match: mirror
+  mirror_match: register
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: opentofu-registry
+  evidence: https://search.opentofu.org/provider/kentik/kentik-cloudexport
+  mirror_of: opentofu/integrations/opentofu-integration-edges.yml
+  apps:
+  - kentik/kentik-cloudexport
+  - kentik/kentik-synthetics
+  listing_count: 1
+  detected: '2026-10-21'
+  detected_by: mirror-platform-listings.py
+  category: infrastructure-as-code provider registry listing
+- partner_name: Terraform (terraform-registry)
+  partner: terraform
+  partner_match: mirror
+  mirror_match: register
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: terraform-registry
+  evidence: https://registry.terraform.io/providers/kentik/kentik-cloudexport
+  mirror_of: terraform/integrations/terraform-integration-edges.yml
+  apps:
+  - kentik/kentik-cloudexport
+  - kentik/kentik-synthetics
+  listing_count: 1
+  detected: '2026-10-21'
+  detected_by: mirror-platform-listings.py
+  category: infrastructure-as-code provider registry listing
+  badges:
+  - Verified publisher (Terraform partner tier)
 source:
 - grafana-com/integrations/grafana-com-integration-edges.yml
