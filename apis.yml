@@ -1269,6 +1269,8 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/kentik/overview
 - type: CapabilityMap
   url: capabilities/kentik-capability-edges.yml
   name: Kentik Business Capability Map
