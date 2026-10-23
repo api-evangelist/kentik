@@ -9,6 +9,7 @@ checked:
 - https://www.peeringdb.com/api/net
 - opentofu/integrations/opentofu-integration-edges.yml
 - terraform/integrations/terraform-integration-edges.yml
+- ansible/integrations/ansible-integration-edges.yml
 marketplace_apps: []
 edges:
 - partner_name: Microsoft Azure Marketplace
@@ -115,5 +116,23 @@ edges:
   category: infrastructure-as-code provider registry listing
   badges:
   - Verified publisher (Terraform partner tier)
+- partner_name: Ansible (ansible-galaxy)
+  partner: ansible
+  partner_match: mirror
+  mirror_match: register
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: ansible-galaxy
+  evidence: https://galaxy.ansible.com/ui/repo/published/kentik/kentik_config/
+  mirror_of: ansible/integrations/ansible-integration-edges.yml
+  apps:
+  - kentik.kentik_config
+  - kentik.ansible_eda
+  listing_count: 1
+  detected: '2026-10-22'
+  detected_by: mirror-platform-listings.py
+  category: configuration-management content listing (Ansible collection)
 source:
 - grafana-com/integrations/grafana-com-integration-edges.yml
