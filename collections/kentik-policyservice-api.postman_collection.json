@@ -1,768 +1,792 @@
 {
+  "info": {
+    "_postman_id": "8c76b1bb-fd14-4bfb-ade2-ba47d37e2f4a",
+    "name": "Alerting Policies Policy Service API",
+    "description": "# Overview\nThe Alerting Policies API provides programmatic access to Kentik's configuration of the policies that define how, when, and to whom alerts are triggered.\n\nContact Support:\n Name: Kentik API Engineering",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:18:54.000Z",
+    "updatedAt": "2026-10-22T01:18:54.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-8c76b1bb-fd14-4bfb-ade2-ba47d37e2f4a"
+  },
   "item": [
     {
-      "id": "7cf04c66-bbd5-4799-81d5-3bacffb20720",
-      "name": "PolicyService",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "v202505",
       "item": [
         {
-          "id": "50cf83ef-eaef-42ba-a580-a9bc162f3a75",
-          "name": "List Policies",
-          "request": {
-            "name": "List Policies",
-            "description": {
-              "content": "Returns a list of alerting policies.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "v202505",
-                "policies",
-                "list"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"pagination\": {\n    \"limit\": \"<uint64>\",\n    \"offset\": \"<uint64>\",\n    \"includeTotalCount\": \"<boolean>\"\n  },\n  \"sorting\": {\n    \"fields\": [\n      {\n        \"by\": \"BY_UNSPECIFIED\",\n        \"order\": \"ORDER_UNSPECIFIED\"\n      },\n      {\n        \"by\": \"BY_UNSPECIFIED\",\n        \"order\": \"ORDER_UNSPECIFIED\"\n      }\n    ]\n  },\n  \"filters\": {\n    \"sources\": [\n      {\n        \"policyType\": \"POLICY_TYPE_UNSPECIFIED\",\n        \"id\": \"<string>\"\n      },\n      {\n        \"policyType\": \"POLICY_TYPE_UNSPECIFIED\",\n        \"id\": \"<string>\"\n      }\n    ],\n    \"userIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"createdAt\": {\n      \"start\": \"<dateTime>\",\n      \"end\": \"<dateTime>\"\n    },\n    \"modifiedAt\": {\n      \"start\": \"<dateTime>\",\n      \"end\": \"<dateTime>\"\n    }\n  }\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
+          "name": "policies",
+          "item": [
             {
-              "id": "39e70916-807a-4b19-9b5c-44d14c3a7acc",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v202505",
-                    "policies",
-                    "list"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"pagination\": {\n    \"limit\": \"<uint64>\",\n    \"offset\": \"<uint64>\",\n    \"includeTotalCount\": \"<boolean>\"\n  },\n  \"sorting\": {\n    \"fields\": [\n      {\n        \"by\": \"BY_UNSPECIFIED\",\n        \"order\": \"ORDER_UNSPECIFIED\"\n      },\n      {\n        \"by\": \"BY_UNSPECIFIED\",\n        \"order\": \"ORDER_UNSPECIFIED\"\n      }\n    ]\n  },\n  \"filters\": {\n    \"sources\": [\n      {\n        \"policyType\": \"POLICY_TYPE_UNSPECIFIED\",\n        \"id\": \"<string>\"\n      },\n      {\n        \"policyType\": \"POLICY_TYPE_UNSPECIFIED\",\n        \"id\": \"<string>\"\n      }\n    ],\n    \"userIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"createdAt\": {\n      \"start\": \"<dateTime>\",\n      \"end\": \"<dateTime>\"\n    },\n    \"modifiedAt\": {\n      \"start\": \"<dateTime>\",\n      \"end\": \"<dateTime>\"\n    }\n  }\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "list",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "List Policies",
+                  "id": "71fea96d-f62d-493c-ad1e-1f9eeea4ba8a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"pagination\": {\n    \"limit\": \"<string>\",\n    \"offset\": \"<string>\",\n    \"includeTotalCount\": \"<boolean>\"\n  },\n  \"sorting\": {\n    \"fields\": [\n      {\n        \"by\": \"BY_UNSPECIFIED\",\n        \"order\": \"ORDER_UNSPECIFIED\"\n      },\n      {\n        \"by\": \"BY_UNSPECIFIED\",\n        \"order\": \"ORDER_UNSPECIFIED\"\n      }\n    ]\n  },\n  \"filters\": {\n    \"sources\": [\n      {\n        \"policyType\": \"POLICY_TYPE_UNSPECIFIED\",\n        \"id\": \"<string>\"\n      },\n      {\n        \"policyType\": \"POLICY_TYPE_UNSPECIFIED\",\n        \"id\": \"<string>\"\n      }\n    ],\n    \"userIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"createdAt\": {\n      \"start\": \"<dateTime>\",\n      \"end\": \"<dateTime>\"\n    },\n    \"modifiedAt\": {\n      \"start\": \"<dateTime>\",\n      \"end\": \"<dateTime>\"\n    }\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v202505/policies/list",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v202505",
+                        "policies",
+                        "list"
+                      ]
+                    },
+                    "description": "Returns a list of alerting policies."
+                  },
+                  "response": [
+                    {
+                      "id": "8a205eab-490d-4705-919b-0771d9514c2e",
+                      "name": "A successful response.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-CH-Auth-Email",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"pagination\": {\n    \"limit\": \"<string>\",\n    \"offset\": \"<string>\",\n    \"includeTotalCount\": \"<boolean>\"\n  },\n  \"sorting\": {\n    \"fields\": [\n      {\n        \"by\": \"BY_UNSPECIFIED\",\n        \"order\": \"ORDER_UNSPECIFIED\"\n      },\n      {\n        \"by\": \"BY_UNSPECIFIED\",\n        \"order\": \"ORDER_UNSPECIFIED\"\n      }\n    ]\n  },\n  \"filters\": {\n    \"sources\": [\n      {\n        \"policyType\": \"POLICY_TYPE_UNSPECIFIED\",\n        \"id\": \"<string>\"\n      },\n      {\n        \"policyType\": \"POLICY_TYPE_UNSPECIFIED\",\n        \"id\": \"<string>\"\n      }\n    ],\n    \"userIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"createdAt\": {\n      \"start\": \"<dateTime>\",\n      \"end\": \"<dateTime>\"\n    },\n    \"modifiedAt\": {\n      \"start\": \"<dateTime>\",\n      \"end\": \"<dateTime>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v202505/policies/list",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v202505",
+                            "policies",
+                            "list"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"pagination\": {\n    \"totalCount\": \"<string>\",\n    \"hasMoreResults\": \"<boolean>\"\n  },\n  \"policies\": [\n    {\n      \"source\": {\n        \"policyType\": \"POLICY_TYPE_UNSPECIFIED\",\n        \"id\": \"<string>\"\n      },\n      \"createdAt\": \"<dateTime>\",\n      \"modifiedAt\": \"<dateTime>\",\n      \"createdBy\": \"<string>\",\n      \"modifiedBy\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"enabled\": \"<boolean>\",\n      \"levels\": [\n        {\n          \"severity\": \"SEVERITY_UNSPECIFIED\",\n          \"description\": \"<string>\",\n          \"ackRequired\": \"<boolean>\",\n          \"nms\": {\n            \"activate\": {\n              \"connector\": \"NMS_CONDITION_CONNECTOR_UNSPECIFIED\",\n              \"conditionGroups\": [\n                [],\n                \"commodo\"\n              ]\n            },\n            \"clearType\": \"CLEAR_TYPE_UNSPECIFIED\",\n            \"conditional\": {\n              \"connector\": \"NMS_CONDITION_CONNECTOR_UNSPECIFIED\",\n              \"conditionGroups\": [\n                null,\n                null\n              ]\n            }\n          },\n          \"flow\": {\n            \"conditions\": [\n              {\n                \"static\": {\n                  \"metric\": \"<string>\",\n                  \"operator\": \"OPERATOR_UNSPECIFIED\",\n                  \"value\": \"<double>\"\n                },\n                \"baseline\": {\n                  \"delta\": \"DELTA_TYPE_UNSPECIFIED\",\n                  \"absolute\": \"<double>\",\n                  \"percentage\": \"<int64>\",\n                  \"useLowest\": \"<boolean>\",\n                  \"useHighest\": \"<boolean>\",\n                  \"useTrigger\": \"<boolean>\",\n                  \"skip\": \"<boolean>\",\n                  \"useValue\": \"<int64>\"\n                },\n                \"topKeys\": {\n                  \"event\": \"TOP_KEYS_EVENT_UNSPECIFIED\",\n                  \"count\": \"<int64>\"\n                },\n                \"interfaceCapacity\": {\n                  \"absolute\": \"<double>\",\n                  \"percentage\": \"<int64>\"\n                },\n                \"ratio\": {\n                  \"lhsMetric\": \"<string>\",\n                  \"rhsMetric\": \"<string>\",\n                  \"lhsProportion\": \"<long>\",\n                  \"rhsProportion\": \"<long>\",\n                  \"margin\": \"<double>\",\n                  \"direction\": \"DIRECTION_UNSPECIFIED\"\n                },\n                \"forecast\": {\n                  \"operator\": \"OPERATOR_UNSPECIFIED\",\n                  \"percentageValue\": \"<int64>\"\n                }\n              },\n              {\n                \"static\": {\n                  \"metric\": \"<string>\",\n                  \"operator\": \"OPERATOR_UNSPECIFIED\",\n                  \"value\": \"<double>\"\n                },\n                \"baseline\": {\n                  \"delta\": \"DELTA_TYPE_UNSPECIFIED\",\n                  \"absolute\": \"<double>\",\n                  \"percentage\": \"<int64>\",\n                  \"useLowest\": \"<boolean>\",\n                  \"useHighest\": \"<boolean>\",\n                  \"useTrigger\": \"<boolean>\",\n                  \"skip\": \"<boolean>\",\n                  \"useValue\": \"<int64>\"\n                },\n                \"topKeys\": {\n                  \"event\": \"TOP_KEYS_EVENT_UNSPECIFIED\",\n                  \"count\": \"<int64>\"\n                },\n                \"interfaceCapacity\": {\n                  \"absolute\": \"<double>\",\n                  \"percentage\": \"<int64>\"\n                },\n                \"ratio\": {\n                  \"lhsMetric\": \"<string>\",\n                  \"rhsMetric\": \"<string>\",\n                  \"lhsProportion\": \"<long>\",\n                  \"rhsProportion\": \"<long>\",\n                  \"margin\": \"<double>\",\n                  \"direction\": \"DIRECTION_UNSPECIFIED\"\n                },\n                \"forecast\": {\n                  \"operator\": \"OPERATOR_UNSPECIFIED\",\n                  \"percentageValue\": \"<int64>\"\n                }\n              }\n            ],\n            \"activation\": {\n              \"matchTimes\": \"<int64>\",\n              \"matchWindow\": \"<string>\",\n              \"resetCountWindow\": \"<string>\"\n            },\n            \"mitigationAssociations\": [\n              {\n                \"platformId\": \"<string>\",\n                \"methodId\": \"<string>\"\n              },\n              {\n                \"platformId\": \"<string>\",\n                \"methodId\": \"<string>\"\n              }\n            ]\n          },\n          \"event\": {\n            \"filters\": {\n              \"conjunctions\": [\n                {\n                  \"entries\": [\n                    [],\n                    []\n                  ]\n                },\n                {\n                  \"entries\": [\n                    \"ex aliquip ut enim\",\n                    null\n                  ]\n                }\n              ]\n            }\n          },\n          \"notifications\": [\n            {\n              \"channelId\": \"<string>\"\n            },\n            {\n              \"channelId\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"severity\": \"SEVERITY_UNSPECIFIED\",\n          \"description\": \"<string>\",\n          \"ackRequired\": \"<boolean>\",\n          \"nms\": {\n            \"activate\": {\n              \"connector\": \"NMS_CONDITION_CONNECTOR_UNSPECIFIED\",\n              \"conditionGroups\": [\n                -88395924.72345284,\n                -98921570\n              ]\n            },\n            \"clearType\": \"CLEAR_TYPE_UNSPECIFIED\",\n            \"conditional\": {\n              \"connector\": \"NMS_CONDITION_CONNECTOR_UNSPECIFIED\",\n              \"conditionGroups\": [\n                [],\n                -60150176.75687866\n              ]\n            }\n          },\n          \"flow\": {\n            \"conditions\": [\n              {\n                \"static\": {\n                  \"metric\": \"<string>\",\n                  \"operator\": \"OPERATOR_UNSPECIFIED\",\n                  \"value\": \"<double>\"\n                },\n                \"baseline\": {\n                  \"delta\": \"DELTA_TYPE_UNSPECIFIED\",\n                  \"absolute\": \"<double>\",\n                  \"percentage\": \"<int64>\",\n                  \"useLowest\": \"<boolean>\",\n                  \"useHighest\": \"<boolean>\",\n                  \"useTrigger\": \"<boolean>\",\n                  \"skip\": \"<boolean>\",\n                  \"useValue\": \"<int64>\"\n                },\n                \"topKeys\": {\n                  \"event\": \"TOP_KEYS_EVENT_UNSPECIFIED\",\n                  \"count\": \"<int64>\"\n                },\n                \"interfaceCapacity\": {\n                  \"absolute\": \"<double>\",\n                  \"percentage\": \"<int64>\"\n                },\n                \"ratio\": {\n                  \"lhsMetric\": \"<string>\",\n                  \"rhsMetric\": \"<string>\",\n                  \"lhsProportion\": \"<long>\",\n                  \"rhsProportion\": \"<long>\",\n                  \"margin\": \"<double>\",\n                  \"direction\": \"DIRECTION_UNSPECIFIED\"\n                },\n                \"forecast\": {\n                  \"operator\": \"OPERATOR_UNSPECIFIED\",\n                  \"percentageValue\": \"<int64>\"\n                }\n              },\n              {\n                \"static\": {\n                  \"metric\": \"<string>\",\n                  \"operator\": \"OPERATOR_UNSPECIFIED\",\n                  \"value\": \"<double>\"\n                },\n                \"baseline\": {\n                  \"delta\": \"DELTA_TYPE_UNSPECIFIED\",\n                  \"absolute\": \"<double>\",\n                  \"percentage\": \"<int64>\",\n                  \"useLowest\": \"<boolean>\",\n                  \"useHighest\": \"<boolean>\",\n                  \"useTrigger\": \"<boolean>\",\n                  \"skip\": \"<boolean>\",\n                  \"useValue\": \"<int64>\"\n                },\n                \"topKeys\": {\n                  \"event\": \"TOP_KEYS_EVENT_UNSPECIFIED\",\n                  \"count\": \"<int64>\"\n                },\n                \"interfaceCapacity\": {\n                  \"absolute\": \"<double>\",\n                  \"percentage\": \"<int64>\"\n                },\n                \"ratio\": {\n                  \"lhsMetric\": \"<string>\",\n                  \"rhsMetric\": \"<string>\",\n                  \"lhsProportion\": \"<long>\",\n                  \"rhsProportion\": \"<long>\",\n                  \"margin\": \"<double>\",\n                  \"direction\": \"DIRECTION_UNSPECIFIED\"\n                },\n                \"forecast\": {\n                  \"operator\": \"OPERATOR_UNSPECIFIED\",\n                  \"percentageValue\": \"<int64>\"\n                }\n              }\n            ],\n            \"activation\": {\n              \"matchTimes\": \"<int64>\",\n              \"matchWindow\": \"<string>\",\n              \"resetCountWindow\": \"<string>\"\n            },\n            \"mitigationAssociations\": [\n              {\n                \"platformId\": \"<string>\",\n                \"methodId\": \"<string>\"\n              },\n              {\n                \"platformId\": \"<string>\",\n                \"methodId\": \"<string>\"\n              }\n            ]\n          },\n          \"event\": {\n            \"filters\": {\n              \"conjunctions\": [\n                {\n                  \"entries\": [\n                    null,\n                    \"irure dolore\"\n                  ]\n                },\n                {\n                  \"entries\": [\n                    58725185,\n                    70885389\n                  ]\n                }\n              ]\n            }\n          },\n          \"notifications\": [\n            {\n              \"channelId\": \"<string>\"\n            },\n            {\n              \"channelId\": \"<string>\"\n            }\n          ]\n        }\n      ],\n      \"flow\": {\n        \"dataset\": {\n          \"sources\": {\n            \"allDevices\": \"<boolean>\",\n            \"deviceIds\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"labelIds\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"siteIds\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"types\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"deviceTags\": [\n              {\n                \"id\": \"<string>\",\n                \"values\": [\n                  \"<string>\"\n                ]\n              },\n              {\n                \"id\": \"<string>\",\n                \"values\": [\n                  \"<string>\"\n                ]\n              }\n            ]\n          },\n          \"filters\": -71778618,\n          \"dimensions\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"metrics\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        \"evaluation\": {\n          \"frequency\": \"60s\",\n          \"keyCount\": \"25\"\n        },\n        \"baseline\": {\n          \"storedKeyCount\": \"25\",\n          \"windowLength\": \"2419200s\",\n          \"windowStartOffset\": \"86400s\",\n          \"rollupAggregation\": \"AGGREGATION_TYPE_UNSPECIFIED\",\n          \"compareMode\": \"COMPARE_MODE_UNSPECIFIED\",\n          \"neighbourhoodRadius\": \"<string>\",\n          \"neighbourhoodAggregation\": \"AGGREGATION_TYPE_UNSPECIFIED\",\n          \"finalAggregation\": \"AGGREGATION_TYPE_UNSPECIFIED\"\n        }\n      },\n      \"nms\": {\n        \"dataset\": {\n          \"sources\": {\n            \"allDevices\": \"<boolean>\",\n            \"deviceIds\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"labelIds\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"siteIds\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"types\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"deviceTags\": [\n              {\n                \"id\": \"<string>\",\n                \"values\": [\n                  \"<string>\"\n                ]\n              },\n              {\n                \"id\": \"<string>\",\n                \"values\": [\n                  \"<string>\"\n                ]\n              }\n            ]\n          },\n          \"filters\": \"reprehenderit enim\",\n          \"measurements\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"customDimensions\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        \"evaluation\": {\n          \"activationDelay\": \"<string>\",\n          \"clearanceDelay\": \"<string>\"\n        }\n      },\n      \"event\": {\n        \"type\": \"EVENT_TYPE_UNSPECIFIED\",\n        \"dimensions\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"filters\": 20993684.59700513\n      },\n      \"hasErrors\": \"<boolean>\",\n      \"lastError\": {\n        \"timestamp\": \"<dateTime>\",\n        \"description\": \"<string>\"\n      },\n      \"expireDate\": \"<dateTime>\"\n    },\n    {\n      \"source\": {\n        \"policyType\": \"POLICY_TYPE_UNSPECIFIED\",\n        \"id\": \"<string>\"\n      },\n      \"createdAt\": \"<dateTime>\",\n      \"modifiedAt\": \"<dateTime>\",\n      \"createdBy\": \"<string>\",\n      \"modifiedBy\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"enabled\": \"<boolean>\",\n      \"levels\": [\n        {\n          \"severity\": \"SEVERITY_UNSPECIFIED\",\n          \"description\": \"<string>\",\n          \"ackRequired\": \"<boolean>\",\n          \"nms\": {\n            \"activate\": {\n              \"connector\": \"NMS_CONDITION_CONNECTOR_UNSPECIFIED\",\n              \"conditionGroups\": [\n                [],\n                null\n              ]\n            },\n            \"clearType\": \"CLEAR_TYPE_UNSPECIFIED\",\n            \"conditional\": {\n              \"connector\": \"NMS_CONDITION_CONNECTOR_UNSPECIFIED\",\n              \"conditionGroups\": [\n                \"cillum\"\n              ]\n            }\n          },\n          \"flow\": {\n            \"conditions\": [\n              {\n                \"static\": {\n                  \"metric\": \"<string>\",\n                  \"operator\": \"OPERATOR_UNSPECIFIED\",\n                  \"value\": \"<double>\"\n                },\n                \"baseline\": {\n                  \"delta\": \"DELTA_TYPE_UNSPECIFIED\",\n                  \"absolute\": \"<double>\",\n                  \"percentage\": \"<int64>\",\n                  \"useLowest\": \"<boolean>\",\n                  \"useHighest\": \"<boolean>\",\n                  \"useTrigger\": \"<boolean>\",\n                  \"skip\": \"<boolean>\",\n                  \"useValue\": \"<int64>\"\n                },\n                \"topKeys\": {\n                  \"event\": \"TOP_KEYS_EVENT_UNSPECIFIED\",\n                  \"count\": \"<int64>\"\n                },\n                \"interfaceCapacity\": {\n                  \"absolute\": \"<double>\",\n                  \"percentage\": \"<int64>\"\n                },\n                \"ratio\": {\n                  \"lhsMetric\": \"<string>\",\n                  \"rhsMetric\": \"<string>\",\n                  \"lhsProportion\": \"<long>\",\n                  \"rhsProportion\": \"<long>\",\n                  \"margin\": \"<double>\",\n                  \"direction\": \"DIRECTION_UNSPECIFIED\"\n                },\n                \"forecast\": {\n                  \"operator\": \"OPERATOR_UNSPECIFIED\",\n                  \"percentageValue\": \"<int64>\"\n                }\n              },\n              {\n                \"static\": {\n                  \"metric\": \"<string>\",\n                  \"operator\": \"OPERATOR_UNSPECIFIED\",\n                  \"value\": \"<double>\"\n                },\n                \"baseline\": {\n                  \"delta\": \"DELTA_TYPE_UNSPECIFIED\",\n                  \"absolute\": \"<double>\",\n                  \"percentage\": \"<int64>\",\n                  \"useLowest\": \"<boolean>\",\n                  \"useHighest\": \"<boolean>\",\n                  \"useTrigger\": \"<boolean>\",\n                  \"skip\": \"<boolean>\",\n                  \"useValue\": \"<int64>\"\n                },\n                \"topKeys\": {\n                  \"event\": \"TOP_KEYS_EVENT_UNSPECIFIED\",\n                  \"count\": \"<int64>\"\n                },\n                \"interfaceCapacity\": {\n                  \"absolute\": \"<double>\",\n                  \"percentage\": \"<int64>\"\n                },\n                \"ratio\": {\n                  \"lhsMetric\": \"<string>\",\n                  \"rhsMetric\": \"<string>\",\n                  \"lhsProportion\": \"<long>\",\n                  \"rhsProportion\": \"<long>\",\n                  \"margin\": \"<double>\",\n                  \"direction\": \"DIRECTION_UNSPECIFIED\"\n                },\n                \"forecast\": {\n                  \"operator\": \"OPERATOR_UNSPECIFIED\",\n                  \"percentageValue\": \"<int64>\"\n                }\n              }\n            ],\n            \"activation\": {\n              \"matchTimes\": \"<int64>\",\n              \"matchWindow\": \"<string>\",\n              \"resetCountWindow\": \"<string>\"\n            },\n            \"mitigationAssociations\": [\n              {\n                \"platformId\": \"<string>\",\n                \"methodId\": \"<string>\"\n              },\n              {\n                \"platformId\": \"<string>\",\n                \"methodId\": \"<string>\"\n              }\n            ]\n          },\n          \"event\": {\n            \"filters\": {\n              \"conjunctions\": [\n                {\n                  \"entries\": [\n                    \"officia ad eiusmod reprehenderit\",\n                    null\n                  ]\n                },\n                {\n                  \"entries\": [\n                    -21905064.14413309,\n                    null\n                  ]\n                }\n              ]\n            }\n          },\n          \"notifications\": [\n            {\n              \"channelId\": \"<string>\"\n            },\n            {\n              \"channelId\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"severity\": \"SEVERITY_UNSPECIFIED\",\n          \"description\": \"<string>\",\n          \"ackRequired\": \"<boolean>\",\n          \"nms\": {\n            \"activate\": {\n              \"connector\": \"NMS_CONDITION_CONNECTOR_UNSPECIFIED\",\n              \"conditionGroups\": [\n                \"dolor sunt adipisicing eu fugiat\",\n                \"pariatur \"\n              ]\n            },\n            \"clearType\": \"CLEAR_TYPE_UNSPECIFIED\",\n            \"conditional\": {\n              \"connector\": \"NMS_CONDITION_CONNECTOR_UNSPECIFIED\",\n              \"conditionGroups\": [\n                63248175.69580844\n              ]\n            }\n          },\n          \"flow\": {\n            \"conditions\": [\n              {\n                \"static\": {\n                  \"metric\": \"<string>\",\n                  \"operator\": \"OPERATOR_UNSPECIFIED\",\n                  \"value\": \"<double>\"\n                },\n                \"baseline\": {\n                  \"delta\": \"DELTA_TYPE_UNSPECIFIED\",\n                  \"absolute\": \"<double>\",\n                  \"percentage\": \"<int64>\",\n                  \"useLowest\": \"<boolean>\",\n                  \"useHighest\": \"<boolean>\",\n                  \"useTrigger\": \"<boolean>\",\n                  \"skip\": \"<boolean>\",\n                  \"useValue\": \"<int64>\"\n                },\n                \"topKeys\": {\n                  \"event\": \"TOP_KEYS_EVENT_UNSPECIFIED\",\n                  \"count\": \"<int64>\"\n                },\n                \"interfaceCapacity\": {\n                  \"absolute\": \"<double>\",\n                  \"percentage\": \"<int64>\"\n                },\n                \"ratio\": {\n                  \"lhsMetric\": \"<string>\",\n                  \"rhsMetric\": \"<string>\",\n                  \"lhsProportion\": \"<long>\",\n                  \"rhsProportion\": \"<long>\",\n                  \"margin\": \"<double>\",\n                  \"direction\": \"DIRECTION_UNSPECIFIED\"\n                },\n                \"forecast\": {\n                  \"operator\": \"OPERATOR_UNSPECIFIED\",\n                  \"percentageValue\": \"<int64>\"\n                }\n              },\n              {\n                \"static\": {\n                  \"metric\": \"<string>\",\n                  \"operator\": \"OPERATOR_UNSPECIFIED\",\n                  \"value\": \"<double>\"\n                },\n                \"baseline\": {\n                  \"delta\": \"DELTA_TYPE_UNSPECIFIED\",\n                  \"absolute\": \"<double>\",\n                  \"percentage\": \"<int64>\",\n                  \"useLowest\": \"<boolean>\",\n                  \"useHighest\": \"<boolean>\",\n                  \"useTrigger\": \"<boolean>\",\n                  \"skip\": \"<boolean>\",\n                  \"useValue\": \"<int64>\"\n                },\n                \"topKeys\": {\n                  \"event\": \"TOP_KEYS_EVENT_UNSPECIFIED\",\n                  \"count\": \"<int64>\"\n                },\n                \"interfaceCapacity\": {\n                  \"absolute\": \"<double>\",\n                  \"percentage\": \"<int64>\"\n                },\n                \"ratio\": {\n                  \"lhsMetric\": \"<string>\",\n                  \"rhsMetric\": \"<string>\",\n                  \"lhsProportion\": \"<long>\",\n                  \"rhsProportion\": \"<long>\",\n                  \"margin\": \"<double>\",\n                  \"direction\": \"DIRECTION_UNSPECIFIED\"\n                },\n                \"forecast\": {\n                  \"operator\": \"OPERATOR_UNSPECIFIED\",\n                  \"percentageValue\": \"<int64>\"\n                }\n              }\n            ],\n            \"activation\": {\n              \"matchTimes\": \"<int64>\",\n              \"matchWindow\": \"<string>\",\n              \"resetCountWindow\": \"<string>\"\n            },\n            \"mitigationAssociations\": [\n              {\n                \"platformId\": \"<string>\",\n                \"methodId\": \"<string>\"\n              },\n              {\n                \"platformId\": \"<string>\",\n                \"methodId\": \"<string>\"\n              }\n            ]\n          },\n          \"event\": {\n            \"filters\": {\n              \"conjunctions\": [\n                {\n                  \"entries\": [\n                    -83429723,\n                    7574531\n                  ]\n                },\n                {\n                  \"entries\": [\n                    null,\n                    5417114.592954591\n                  ]\n                }\n              ]\n            }\n          },\n          \"notifications\": [\n            {\n              \"channelId\": \"<string>\"\n            },\n            {\n              \"channelId\": \"<string>\"\n            }\n          ]\n        }\n      ],\n      \"flow\": {\n        \"dataset\": {\n          \"sources\": {\n            \"allDevices\": \"<boolean>\",\n            \"deviceIds\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"labelIds\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"siteIds\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"types\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"deviceTags\": [\n              {\n                \"id\": \"<string>\",\n                \"values\": [\n                  \"<string>\"\n                ]\n              },\n              {\n                \"id\": \"<string>\",\n                \"values\": [\n                  \"<string>\"\n                ]\n              }\n            ]\n          },\n          \"filters\": null,\n          \"dimensions\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"metrics\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        \"evaluation\": {\n          \"frequency\": \"60s\",\n          \"keyCount\": \"25\"\n        },\n        \"baseline\": {\n          \"storedKeyCount\": \"25\",\n          \"windowLength\": \"2419200s\",\n          \"windowStartOffset\": \"86400s\",\n          \"rollupAggregation\": \"AGGREGATION_TYPE_UNSPECIFIED\",\n          \"compareMode\": \"COMPARE_MODE_UNSPECIFIED\",\n          \"neighbourhoodRadius\": \"<string>\",\n          \"neighbourhoodAggregation\": \"AGGREGATION_TYPE_UNSPECIFIED\",\n          \"finalAggregation\": \"AGGREGATION_TYPE_UNSPECIFIED\"\n        }\n      },\n      \"nms\": {\n        \"dataset\": {\n          \"sources\": {\n            \"allDevices\": \"<boolean>\",\n            \"deviceIds\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"labelIds\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"siteIds\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"types\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"deviceTags\": [\n              {\n                \"id\": \"<string>\",\n                \"values\": [\n                  \"<string>\"\n                ]\n              },\n              {\n                \"id\": \"<string>\",\n                \"values\": [\n                  \"<string>\"\n                ]\n              }\n            ]\n          },\n          \"filters\": null,\n          \"measurements\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"customDimensions\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        \"evaluation\": {\n          \"activationDelay\": \"<string>\",\n          \"clearanceDelay\": \"<string>\"\n        }\n      },\n      \"event\": {\n        \"type\": \"EVENT_TYPE_UNSPECIFIED\",\n        \"dimensions\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"filters\": \"quis \"\n      },\n      \"hasErrors\": \"<boolean>\",\n      \"lastError\": {\n        \"timestamp\": \"<dateTime>\",\n        \"description\": \"<string>\"\n      },\n      \"expireDate\": \"<dateTime>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-10-22T01:18:54.000Z",
+                      "updatedAt": "2026-10-22T01:18:54.000Z",
+                      "uid": "35240-8a205eab-490d-4705-919b-0771d9514c2e"
+                    },
+                    {
+                      "id": "f7f068aa-5683-4f1a-b79e-a5b582c5f174",
+                      "name": "An unexpected error response.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-CH-Auth-Email",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"pagination\": {\n    \"limit\": \"<string>\",\n    \"offset\": \"<string>\",\n    \"includeTotalCount\": \"<boolean>\"\n  },\n  \"sorting\": {\n    \"fields\": [\n      {\n        \"by\": \"BY_UNSPECIFIED\",\n        \"order\": \"ORDER_UNSPECIFIED\"\n      },\n      {\n        \"by\": \"BY_UNSPECIFIED\",\n        \"order\": \"ORDER_UNSPECIFIED\"\n      }\n    ]\n  },\n  \"filters\": {\n    \"sources\": [\n      {\n        \"policyType\": \"POLICY_TYPE_UNSPECIFIED\",\n        \"id\": \"<string>\"\n      },\n      {\n        \"policyType\": \"POLICY_TYPE_UNSPECIFIED\",\n        \"id\": \"<string>\"\n      }\n    ],\n    \"userIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"createdAt\": {\n      \"start\": \"<dateTime>\",\n      \"end\": \"<dateTime>\"\n    },\n    \"modifiedAt\": {\n      \"start\": \"<dateTime>\",\n      \"end\": \"<dateTime>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v202505/policies/list",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v202505",
+                            "policies",
+                            "list"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"proidentb25\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"officia_30\": {},\n      \"in_ca\": {},\n      \"ea3b\": {},\n      \"amet6\": {}\n    }\n  ]\n}",
+                      "createdAt": "2026-10-22T01:18:54.000Z",
+                      "updatedAt": "2026-10-22T01:18:54.000Z",
+                      "uid": "35240-f7f068aa-5683-4f1a-b79e-a5b582c5f174"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:18:54.000Z",
+                  "updatedAt": "2026-10-22T01:18:54.000Z",
+                  "uid": "35240-71fea96d-f62d-493c-ad1e-1f9eeea4ba8a"
                 }
               ],
-              "body": "{\n  \"pagination\": {\n    \"totalCount\": \"string\",\n    \"hasMoreResults\": false\n  },\n  \"policies\": [\n    {\n      \"source\": {\n        \"policyType\": \"POLICY_TYPE_UNSPECIFIED\",\n        \"id\": \"<string>\"\n      },\n      \"createdAt\": \"2004-11-26T04:15:51.175Z\",\n      \"modifiedAt\": \"2007-12-28T22:29:16.603Z\",\n      \"createdBy\": \"string\",\n      \"modifiedBy\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"enabled\": false,\n      \"levels\": [\n        {\n          \"severity\": \"SEVERITY_UNSPECIFIED\",\n          \"description\": \"string\",\n          \"ackRequired\": false,\n          \"nms\": {\n            \"activate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"clearType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"conditional\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"flow\": {\n            \"conditions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"activation\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mitigationAssociations\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"event\": {\n            \"filters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"notifications\": [\n            {\n              \"channelId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"channelId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"severity\": \"SEVERITY_UNSPECIFIED\",\n          \"description\": \"string\",\n          \"ackRequired\": false,\n          \"nms\": {\n            \"activate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"clearType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"conditional\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"flow\": {\n            \"conditions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"activation\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mitigationAssociations\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"event\": {\n            \"filters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"notifications\": [\n            {\n              \"channelId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"channelId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ],\n      \"flow\": {\n        \"dataset\": {\n          \"sources\": {\n            \"allDevices\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"deviceIds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"labelIds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"siteIds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"types\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"deviceTags\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"filters\": {\n            \"connector\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"filters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"groups\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"saved\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"dimensions\": [\n            \"string\",\n            \"string\"\n          ],\n          \"metrics\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        \"evaluation\": {\n          \"frequency\": \"60s\",\n          \"keyCount\": \"25\"\n        },\n        \"baseline\": {\n          \"storedKeyCount\": \"25\",\n          \"windowLength\": \"2419200s\",\n          \"windowStartOffset\": \"86400s\",\n          \"rollupAggregation\": \"AGGREGATION_TYPE_UNSPECIFIED\",\n          \"compareMode\": \"COMPARE_MODE_UNSPECIFIED\",\n          \"neighbourhoodRadius\": \"string\",\n          \"neighbourhoodAggregation\": \"AGGREGATION_TYPE_UNSPECIFIED\",\n          \"finalAggregation\": \"AGGREGATION_TYPE_UNSPECIFIED\"\n        }\n      },\n      \"nms\": {\n        \"dataset\": {\n          \"sources\": {\n            \"allDevices\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"deviceIds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"labelIds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"siteIds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"types\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"deviceTags\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"filters\": {\n            \"connector\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"filters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"groups\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"saved\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"measurements\": [\n            \"string\",\n            \"string\"\n          ],\n          \"customDimensions\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        \"evaluation\": {\n          \"activationDelay\": \"string\",\n          \"clearanceDelay\": \"string\"\n        }\n      },\n      \"event\": {\n        \"type\": \"EVENT_TYPE_UNSPECIFIED\",\n        \"dimensions\": [\n          \"string\",\n          \"string\"\n        ],\n        \"filters\": \"string\"\n      },\n      \"hasErrors\": false,\n      \"lastError\": {\n        \"timestamp\": \"2009-06-25T17:45:59.917Z\",\n        \"description\": \"string\"\n      },\n      \"expireDate\": \"1974-11-17T06:12:09.339Z\"\n    },\n    {\n      \"source\": {\n        \"policyType\": \"POLICY_TYPE_UNSPECIFIED\",\n        \"id\": \"<string>\"\n      },\n      \"createdAt\": \"1952-01-19T13:12:35.637Z\",\n      \"modifiedAt\": \"1953-02-25T20:47:05.115Z\",\n      \"createdBy\": \"string\",\n      \"modifiedBy\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"enabled\": false,\n      \"levels\": [\n        {\n          \"severity\": \"SEVERITY_UNSPECIFIED\",\n          \"description\": \"string\",\n          \"ackRequired\": true,\n          \"nms\": {\n            \"activate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"clearType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"conditional\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"flow\": {\n            \"conditions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"activation\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mitigationAssociations\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"event\": {\n            \"filters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"notifications\": [\n            {\n              \"channelId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"channelId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"severity\": \"SEVERITY_UNSPECIFIED\",\n          \"description\": \"string\",\n          \"ackRequired\": false,\n          \"nms\": {\n            \"activate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"clearType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"conditional\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"flow\": {\n            \"conditions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"activation\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mitigationAssociations\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"event\": {\n            \"filters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"notifications\": [\n            {\n              \"channelId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"channelId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ],\n      \"flow\": {\n        \"dataset\": {\n          \"sources\": {\n            \"allDevices\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"deviceIds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"labelIds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"siteIds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"types\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"deviceTags\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"filters\": {\n            \"connector\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"filters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"groups\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"saved\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"dimensions\": [\n            \"string\",\n            \"string\"\n          ],\n          \"metrics\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        \"evaluation\": {\n          \"frequency\": \"60s\",\n          \"keyCount\": \"25\"\n        },\n        \"baseline\": {\n          \"storedKeyCount\": \"25\",\n          \"windowLength\": \"2419200s\",\n          \"windowStartOffset\": \"86400s\",\n          \"rollupAggregation\": \"AGGREGATION_TYPE_UNSPECIFIED\",\n          \"compareMode\": \"COMPARE_MODE_UNSPECIFIED\",\n          \"neighbourhoodRadius\": \"string\",\n          \"neighbourhoodAggregation\": \"AGGREGATION_TYPE_UNSPECIFIED\",\n          \"finalAggregation\": \"AGGREGATION_TYPE_UNSPECIFIED\"\n        }\n      },\n      \"nms\": {\n        \"dataset\": {\n          \"sources\": {\n            \"allDevices\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"deviceIds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"labelIds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"siteIds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"types\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"deviceTags\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"filters\": {\n            \"connector\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"filters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"groups\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"saved\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"measurements\": [\n            \"string\",\n            \"string\"\n          ],\n          \"customDimensions\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        \"evaluation\": {\n          \"activationDelay\": \"string\",\n          \"clearanceDelay\": \"string\"\n        }\n      },\n      \"event\": {\n        \"type\": \"EVENT_TYPE_UNSPECIFIED\",\n        \"dimensions\": [\n          \"string\",\n          \"string\"\n        ],\n        \"filters\": null\n      },\n      \"hasErrors\": true,\n      \"lastError\": {\n        \"timestamp\": \"1996-10-26T09:19:30.459Z\",\n        \"description\": \"string\"\n      },\n      \"expireDate\": \"1962-04-27T14:00:40.238Z\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "30b87016-cb7a-4f92-b7fc-42b682a94313",
+              "createdAt": "2026-10-22T01:18:54.000Z",
+              "updatedAt": "2026-10-22T01:18:54.000Z",
+              "uid": "35240-30b87016-cb7a-4f92-b7fc-42b682a94313"
             },
             {
-              "id": "4f2dd78f-5b9d-44ba-bcb3-dfc8cd5cb3b0",
-              "name": "An unexpected error response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v202505",
-                    "policies",
-                    "list"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"pagination\": {\n    \"limit\": \"<uint64>\",\n    \"offset\": \"<uint64>\",\n    \"includeTotalCount\": \"<boolean>\"\n  },\n  \"sorting\": {\n    \"fields\": [\n      {\n        \"by\": \"BY_UNSPECIFIED\",\n        \"order\": \"ORDER_UNSPECIFIED\"\n      },\n      {\n        \"by\": \"BY_UNSPECIFIED\",\n        \"order\": \"ORDER_UNSPECIFIED\"\n      }\n    ]\n  },\n  \"filters\": {\n    \"sources\": [\n      {\n        \"policyType\": \"POLICY_TYPE_UNSPECIFIED\",\n        \"id\": \"<string>\"\n      },\n      {\n        \"policyType\": \"POLICY_TYPE_UNSPECIFIED\",\n        \"id\": \"<string>\"\n      }\n    ],\n    \"userIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"createdAt\": {\n      \"start\": \"<dateTime>\",\n      \"end\": \"<dateTime>\"\n    },\n    \"modifiedAt\": {\n      \"start\": \"<dateTime>\",\n      \"end\": \"<dateTime>\"\n    }\n  }\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
+              "name": "{policyType}",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "{id}",
+                  "item": [
+                    {
+                      "name": "disable",
+                      "item": [
+                        {
+                          "name": "Disable Policy",
+                          "id": "afda0985-b801-4e41-9671-3c97cee23b2c",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v202505/policies/:policyType/:id/disable",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v202505",
+                                "policies",
+                                ":policyType",
+                                ":id",
+                                "disable"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "d9b25d91-ccd1-4c5a-91e9-de582a2d2991",
+                                  "key": "policyType",
+                                  "value": "POLICY_TYPE_AGENT",
+                                  "description": "(Required) The type of policy to disable."
+                                },
+                                {
+                                  "id": "126f8ef9-b3eb-4a1d-8b73-079e3ec18632",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) The ID of the policy to disable."
+                                }
+                              ]
+                            },
+                            "description": "Disables an alerting policy."
+                          },
+                          "response": [
+                            {
+                              "id": "c4eb7937-d0f5-4fc1-bae3-e02b04e270bf",
+                              "name": "A successful response.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-CH-Auth-Email",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v202505/policies/:policyType/:id/disable",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v202505",
+                                    "policies",
+                                    ":policyType",
+                                    ":id",
+                                    "disable"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "policyType"
+                                    },
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"policy\": {\n    \"source\": {\n      \"policyType\": \"POLICY_TYPE_UNSPECIFIED\",\n      \"id\": \"<string>\"\n    },\n    \"createdAt\": \"<dateTime>\",\n    \"modifiedAt\": \"<dateTime>\",\n    \"createdBy\": \"<string>\",\n    \"modifiedBy\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"enabled\": \"<boolean>\",\n    \"levels\": [\n      {\n        \"severity\": \"SEVERITY_UNSPECIFIED\",\n        \"description\": \"<string>\",\n        \"ackRequired\": \"<boolean>\",\n        \"nms\": {\n          \"activate\": {\n            \"connector\": \"NMS_CONDITION_CONNECTOR_UNSPECIFIED\",\n            \"conditionGroups\": [\n              null,\n              -55023926.41742739\n            ]\n          },\n          \"clearType\": \"CLEAR_TYPE_UNSPECIFIED\",\n          \"conditional\": {\n            \"connector\": \"NMS_CONDITION_CONNECTOR_UNSPECIFIED\"\n          }\n        },\n        \"flow\": {\n          \"conditions\": [\n            {\n              \"static\": {\n                \"metric\": \"<string>\",\n                \"operator\": \"OPERATOR_UNSPECIFIED\",\n                \"value\": \"<double>\"\n              },\n              \"baseline\": {\n                \"delta\": \"DELTA_TYPE_UNSPECIFIED\",\n                \"absolute\": \"<double>\",\n                \"percentage\": \"<int64>\",\n                \"useLowest\": \"<boolean>\",\n                \"useHighest\": \"<boolean>\",\n                \"useTrigger\": \"<boolean>\",\n                \"skip\": \"<boolean>\",\n                \"useValue\": \"<int64>\"\n              },\n              \"topKeys\": {\n                \"event\": \"TOP_KEYS_EVENT_UNSPECIFIED\",\n                \"count\": \"<int64>\"\n              },\n              \"interfaceCapacity\": {\n                \"absolute\": \"<double>\",\n                \"percentage\": \"<int64>\"\n              },\n              \"ratio\": {\n                \"lhsMetric\": \"<string>\",\n                \"rhsMetric\": \"<string>\",\n                \"lhsProportion\": \"<long>\",\n                \"rhsProportion\": \"<long>\",\n                \"margin\": \"<double>\",\n                \"direction\": \"DIRECTION_UNSPECIFIED\"\n              },\n              \"forecast\": {\n                \"operator\": \"OPERATOR_UNSPECIFIED\",\n                \"percentageValue\": \"<int64>\"\n              }\n            },\n            {\n              \"static\": {\n                \"metric\": \"<string>\",\n                \"operator\": \"OPERATOR_UNSPECIFIED\",\n                \"value\": \"<double>\"\n              },\n              \"baseline\": {\n                \"delta\": \"DELTA_TYPE_UNSPECIFIED\",\n                \"absolute\": \"<double>\",\n                \"percentage\": \"<int64>\",\n                \"useLowest\": \"<boolean>\",\n                \"useHighest\": \"<boolean>\",\n                \"useTrigger\": \"<boolean>\",\n                \"skip\": \"<boolean>\",\n                \"useValue\": \"<int64>\"\n              },\n              \"topKeys\": {\n                \"event\": \"TOP_KEYS_EVENT_UNSPECIFIED\",\n                \"count\": \"<int64>\"\n              },\n              \"interfaceCapacity\": {\n                \"absolute\": \"<double>\",\n                \"percentage\": \"<int64>\"\n              },\n              \"ratio\": {\n                \"lhsMetric\": \"<string>\",\n                \"rhsMetric\": \"<string>\",\n                \"lhsProportion\": \"<long>\",\n                \"rhsProportion\": \"<long>\",\n                \"margin\": \"<double>\",\n                \"direction\": \"DIRECTION_UNSPECIFIED\"\n              },\n              \"forecast\": {\n                \"operator\": \"OPERATOR_UNSPECIFIED\",\n                \"percentageValue\": \"<int64>\"\n              }\n            }\n          ],\n          \"activation\": {\n            \"matchTimes\": \"<int64>\",\n            \"matchWindow\": \"<string>\",\n            \"resetCountWindow\": \"<string>\"\n          },\n          \"mitigationAssociations\": [\n            {\n              \"platformId\": \"<string>\",\n              \"methodId\": \"<string>\"\n            },\n            {\n              \"platformId\": \"<string>\",\n              \"methodId\": \"<string>\"\n            }\n          ]\n        },\n        \"event\": {\n          \"filters\": {\n            \"conjunctions\": [\n              {\n                \"entries\": [\n                  \"in\"\n                ]\n              },\n              {\n                \"entries\": [\n                  \"occaecat minim esse do\",\n                  23009175.13719316\n                ]\n              }\n            ]\n          }\n        },\n        \"notifications\": [\n          {\n            \"channelId\": \"<string>\"\n          },\n          {\n            \"channelId\": \"<string>\"\n          }\n        ]\n      },\n      {\n        \"severity\": \"SEVERITY_UNSPECIFIED\",\n        \"description\": \"<string>\",\n        \"ackRequired\": \"<boolean>\",\n        \"nms\": {\n          \"activate\": {\n            \"connector\": \"NMS_CONDITION_CONNECTOR_UNSPECIFIED\",\n            \"conditionGroups\": [\n              -10276244.146277636\n            ]\n          },\n          \"clearType\": \"CLEAR_TYPE_UNSPECIFIED\",\n          \"conditional\": {\n            \"connector\": \"NMS_CONDITION_CONNECTOR_UNSPECIFIED\",\n            \"conditionGroups\": [\n              \"velit veniam laborum et reprehenderit\",\n              null\n            ]\n          }\n        },\n        \"flow\": {\n          \"conditions\": [\n            {\n              \"static\": {\n                \"metric\": \"<string>\",\n                \"operator\": \"OPERATOR_UNSPECIFIED\",\n                \"value\": \"<double>\"\n              },\n              \"baseline\": {\n                \"delta\": \"DELTA_TYPE_UNSPECIFIED\",\n                \"absolute\": \"<double>\",\n                \"percentage\": \"<int64>\",\n                \"useLowest\": \"<boolean>\",\n                \"useHighest\": \"<boolean>\",\n                \"useTrigger\": \"<boolean>\",\n                \"skip\": \"<boolean>\",\n                \"useValue\": \"<int64>\"\n              },\n              \"topKeys\": {\n                \"event\": \"TOP_KEYS_EVENT_UNSPECIFIED\",\n                \"count\": \"<int64>\"\n              },\n              \"interfaceCapacity\": {\n                \"absolute\": \"<double>\",\n                \"percentage\": \"<int64>\"\n              },\n              \"ratio\": {\n                \"lhsMetric\": \"<string>\",\n                \"rhsMetric\": \"<string>\",\n                \"lhsProportion\": \"<long>\",\n                \"rhsProportion\": \"<long>\",\n                \"margin\": \"<double>\",\n                \"direction\": \"DIRECTION_UNSPECIFIED\"\n              },\n              \"forecast\": {\n                \"operator\": \"OPERATOR_UNSPECIFIED\",\n                \"percentageValue\": \"<int64>\"\n              }\n            },\n            {\n              \"static\": {\n                \"metric\": \"<string>\",\n                \"operator\": \"OPERATOR_UNSPECIFIED\",\n                \"value\": \"<double>\"\n              },\n              \"baseline\": {\n                \"delta\": \"DELTA_TYPE_UNSPECIFIED\",\n                \"absolute\": \"<double>\",\n                \"percentage\": \"<int64>\",\n                \"useLowest\": \"<boolean>\",\n                \"useHighest\": \"<boolean>\",\n                \"useTrigger\": \"<boolean>\",\n                \"skip\": \"<boolean>\",\n                \"useValue\": \"<int64>\"\n              },\n              \"topKeys\": {\n                \"event\": \"TOP_KEYS_EVENT_UNSPECIFIED\",\n                \"count\": \"<int64>\"\n              },\n              \"interfaceCapacity\": {\n                \"absolute\": \"<double>\",\n                \"percentage\": \"<int64>\"\n              },\n              \"ratio\": {\n                \"lhsMetric\": \"<string>\",\n                \"rhsMetric\": \"<string>\",\n                \"lhsProportion\": \"<long>\",\n                \"rhsProportion\": \"<long>\",\n                \"margin\": \"<double>\",\n                \"direction\": \"DIRECTION_UNSPECIFIED\"\n              },\n              \"forecast\": {\n                \"operator\": \"OPERATOR_UNSPECIFIED\",\n                \"percentageValue\": \"<int64>\"\n              }\n            }\n          ],\n          \"activation\": {\n            \"matchTimes\": \"<int64>\",\n            \"matchWindow\": \"<string>\",\n            \"resetCountWindow\": \"<string>\"\n          },\n          \"mitigationAssociations\": [\n            {\n              \"platformId\": \"<string>\",\n              \"methodId\": \"<string>\"\n            },\n            {\n              \"platformId\": \"<string>\",\n              \"methodId\": \"<string>\"\n            }\n          ]\n        },\n        \"event\": {\n          \"filters\": {\n            \"conjunctions\": [\n              {\n                \"entries\": [\n                  null\n                ]\n              }\n            ]\n          }\n        },\n        \"notifications\": [\n          {\n            \"channelId\": \"<string>\"\n          },\n          {\n            \"channelId\": \"<string>\"\n          }\n        ]\n      }\n    ],\n    \"flow\": {\n      \"dataset\": {\n        \"sources\": {\n          \"allDevices\": \"<boolean>\",\n          \"deviceIds\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"labelIds\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"siteIds\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"types\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"deviceTags\": [\n            {\n              \"id\": \"<string>\",\n              \"values\": [\n                \"<string>\"\n              ]\n            },\n            {\n              \"id\": \"<string>\",\n              \"values\": [\n                \"<string>\"\n              ]\n            }\n          ]\n        },\n        \"filters\": \"ex cupidatat\",\n        \"dimensions\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"metrics\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"evaluation\": {\n        \"frequency\": \"60s\",\n        \"keyCount\": \"25\"\n      },\n      \"baseline\": {\n        \"storedKeyCount\": \"25\",\n        \"windowLength\": \"2419200s\",\n        \"windowStartOffset\": \"86400s\",\n        \"rollupAggregation\": \"AGGREGATION_TYPE_UNSPECIFIED\",\n        \"compareMode\": \"COMPARE_MODE_UNSPECIFIED\",\n        \"neighbourhoodRadius\": \"<string>\",\n        \"neighbourhoodAggregation\": \"AGGREGATION_TYPE_UNSPECIFIED\",\n        \"finalAggregation\": \"AGGREGATION_TYPE_UNSPECIFIED\"\n      }\n    },\n    \"nms\": {\n      \"dataset\": {\n        \"sources\": {\n          \"allDevices\": \"<boolean>\",\n          \"deviceIds\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"labelIds\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"siteIds\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"types\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"deviceTags\": [\n            {\n              \"id\": \"<string>\",\n              \"values\": [\n                \"<string>\"\n              ]\n            },\n            {\n              \"id\": \"<string>\",\n              \"values\": [\n                \"<string>\"\n              ]\n            }\n          ]\n        },\n        \"filters\": null,\n        \"measurements\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"customDimensions\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"evaluation\": {\n        \"activationDelay\": \"<string>\",\n        \"clearanceDelay\": \"<string>\"\n      }\n    },\n    \"event\": {\n      \"type\": \"EVENT_TYPE_UNSPECIFIED\",\n      \"dimensions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"filters\": null\n    },\n    \"hasErrors\": \"<boolean>\",\n    \"lastError\": {\n      \"timestamp\": \"<dateTime>\",\n      \"description\": \"<string>\"\n    },\n    \"expireDate\": \"<dateTime>\"\n  }\n}",
+                              "createdAt": "2026-10-22T01:18:54.000Z",
+                              "updatedAt": "2026-10-22T01:18:54.000Z",
+                              "uid": "35240-c4eb7937-d0f5-4fc1-bae3-e02b04e270bf"
+                            },
+                            {
+                              "id": "49e06aa2-1665-4395-b2f4-d026e533ad65",
+                              "name": "An unexpected error response.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-CH-Auth-Email",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v202505/policies/:policyType/:id/disable",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v202505",
+                                    "policies",
+                                    ":policyType",
+                                    ":id",
+                                    "disable"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "policyType"
+                                    },
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"proidentb25\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"officia_30\": {},\n      \"in_ca\": {},\n      \"ea3b\": {},\n      \"amet6\": {}\n    }\n  ]\n}",
+                              "createdAt": "2026-10-22T01:18:54.000Z",
+                              "updatedAt": "2026-10-22T01:18:54.000Z",
+                              "uid": "35240-49e06aa2-1665-4395-b2f4-d026e533ad65"
+                            }
+                          ],
+                          "createdAt": "2026-10-22T01:18:54.000Z",
+                          "updatedAt": "2026-10-22T01:18:54.000Z",
+                          "uid": "35240-afda0985-b801-4e41-9671-3c97cee23b2c"
+                        }
+                      ],
+                      "id": "f213f256-c797-4225-a691-5dc7b2c4507a",
+                      "createdAt": "2026-10-22T01:18:54.000Z",
+                      "updatedAt": "2026-10-22T01:18:54.000Z",
+                      "uid": "35240-f213f256-c797-4225-a691-5dc7b2c4507a"
+                    },
+                    {
+                      "name": "enable",
+                      "item": [
+                        {
+                          "name": "Enable Policy",
+                          "id": "2e65d022-ddc5-45a3-8fd0-669d97990b2d",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v202505/policies/:policyType/:id/enable",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v202505",
+                                "policies",
+                                ":policyType",
+                                ":id",
+                                "enable"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "59e48e6f-c477-4657-98bd-a9b3b5c855ca",
+                                  "key": "policyType",
+                                  "value": "POLICY_TYPE_AGENT",
+                                  "description": "(Required) The type of policy to enable."
+                                },
+                                {
+                                  "id": "603baa83-0605-4f59-bd32-ffe5327d68e5",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) The ID of the policy to enable."
+                                }
+                              ]
+                            },
+                            "description": "Enables an alerting policy."
+                          },
+                          "response": [
+                            {
+                              "id": "37b2081e-43b1-4323-a97a-88e510e2ec61",
+                              "name": "A successful response.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-CH-Auth-Email",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v202505/policies/:policyType/:id/enable",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v202505",
+                                    "policies",
+                                    ":policyType",
+                                    ":id",
+                                    "enable"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "policyType"
+                                    },
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"policy\": {\n    \"source\": {\n      \"policyType\": \"POLICY_TYPE_UNSPECIFIED\",\n      \"id\": \"<string>\"\n    },\n    \"createdAt\": \"<dateTime>\",\n    \"modifiedAt\": \"<dateTime>\",\n    \"createdBy\": \"<string>\",\n    \"modifiedBy\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"enabled\": \"<boolean>\",\n    \"levels\": [\n      {\n        \"severity\": \"SEVERITY_UNSPECIFIED\",\n        \"description\": \"<string>\",\n        \"ackRequired\": \"<boolean>\",\n        \"nms\": {\n          \"activate\": {\n            \"connector\": \"NMS_CONDITION_CONNECTOR_UNSPECIFIED\",\n            \"conditionGroups\": [\n              null,\n              -55023926.41742739\n            ]\n          },\n          \"clearType\": \"CLEAR_TYPE_UNSPECIFIED\",\n          \"conditional\": {\n            \"connector\": \"NMS_CONDITION_CONNECTOR_UNSPECIFIED\"\n          }\n        },\n        \"flow\": {\n          \"conditions\": [\n            {\n              \"static\": {\n                \"metric\": \"<string>\",\n                \"operator\": \"OPERATOR_UNSPECIFIED\",\n                \"value\": \"<double>\"\n              },\n              \"baseline\": {\n                \"delta\": \"DELTA_TYPE_UNSPECIFIED\",\n                \"absolute\": \"<double>\",\n                \"percentage\": \"<int64>\",\n                \"useLowest\": \"<boolean>\",\n                \"useHighest\": \"<boolean>\",\n                \"useTrigger\": \"<boolean>\",\n                \"skip\": \"<boolean>\",\n                \"useValue\": \"<int64>\"\n              },\n              \"topKeys\": {\n                \"event\": \"TOP_KEYS_EVENT_UNSPECIFIED\",\n                \"count\": \"<int64>\"\n              },\n              \"interfaceCapacity\": {\n                \"absolute\": \"<double>\",\n                \"percentage\": \"<int64>\"\n              },\n              \"ratio\": {\n                \"lhsMetric\": \"<string>\",\n                \"rhsMetric\": \"<string>\",\n                \"lhsProportion\": \"<long>\",\n                \"rhsProportion\": \"<long>\",\n                \"margin\": \"<double>\",\n                \"direction\": \"DIRECTION_UNSPECIFIED\"\n              },\n              \"forecast\": {\n                \"operator\": \"OPERATOR_UNSPECIFIED\",\n                \"percentageValue\": \"<int64>\"\n              }\n            },\n            {\n              \"static\": {\n                \"metric\": \"<string>\",\n                \"operator\": \"OPERATOR_UNSPECIFIED\",\n                \"value\": \"<double>\"\n              },\n              \"baseline\": {\n                \"delta\": \"DELTA_TYPE_UNSPECIFIED\",\n                \"absolute\": \"<double>\",\n                \"percentage\": \"<int64>\",\n                \"useLowest\": \"<boolean>\",\n                \"useHighest\": \"<boolean>\",\n                \"useTrigger\": \"<boolean>\",\n                \"skip\": \"<boolean>\",\n                \"useValue\": \"<int64>\"\n              },\n              \"topKeys\": {\n                \"event\": \"TOP_KEYS_EVENT_UNSPECIFIED\",\n                \"count\": \"<int64>\"\n              },\n              \"interfaceCapacity\": {\n                \"absolute\": \"<double>\",\n                \"percentage\": \"<int64>\"\n              },\n              \"ratio\": {\n                \"lhsMetric\": \"<string>\",\n                \"rhsMetric\": \"<string>\",\n                \"lhsProportion\": \"<long>\",\n                \"rhsProportion\": \"<long>\",\n                \"margin\": \"<double>\",\n                \"direction\": \"DIRECTION_UNSPECIFIED\"\n              },\n              \"forecast\": {\n                \"operator\": \"OPERATOR_UNSPECIFIED\",\n                \"percentageValue\": \"<int64>\"\n              }\n            }\n          ],\n          \"activation\": {\n            \"matchTimes\": \"<int64>\",\n            \"matchWindow\": \"<string>\",\n            \"resetCountWindow\": \"<string>\"\n          },\n          \"mitigationAssociations\": [\n            {\n              \"platformId\": \"<string>\",\n              \"methodId\": \"<string>\"\n            },\n            {\n              \"platformId\": \"<string>\",\n              \"methodId\": \"<string>\"\n            }\n          ]\n        },\n        \"event\": {\n          \"filters\": {\n            \"conjunctions\": [\n              {\n                \"entries\": [\n                  \"in\"\n                ]\n              },\n              {\n                \"entries\": [\n                  \"occaecat minim esse do\",\n                  23009175.13719316\n                ]\n              }\n            ]\n          }\n        },\n        \"notifications\": [\n          {\n            \"channelId\": \"<string>\"\n          },\n          {\n            \"channelId\": \"<string>\"\n          }\n        ]\n      },\n      {\n        \"severity\": \"SEVERITY_UNSPECIFIED\",\n        \"description\": \"<string>\",\n        \"ackRequired\": \"<boolean>\",\n        \"nms\": {\n          \"activate\": {\n            \"connector\": \"NMS_CONDITION_CONNECTOR_UNSPECIFIED\",\n            \"conditionGroups\": [\n              -10276244.146277636\n            ]\n          },\n          \"clearType\": \"CLEAR_TYPE_UNSPECIFIED\",\n          \"conditional\": {\n            \"connector\": \"NMS_CONDITION_CONNECTOR_UNSPECIFIED\",\n            \"conditionGroups\": [\n              \"velit veniam laborum et reprehenderit\",\n              null\n            ]\n          }\n        },\n        \"flow\": {\n          \"conditions\": [\n            {\n              \"static\": {\n                \"metric\": \"<string>\",\n                \"operator\": \"OPERATOR_UNSPECIFIED\",\n                \"value\": \"<double>\"\n              },\n              \"baseline\": {\n                \"delta\": \"DELTA_TYPE_UNSPECIFIED\",\n                \"absolute\": \"<double>\",\n                \"percentage\": \"<int64>\",\n                \"useLowest\": \"<boolean>\",\n                \"useHighest\": \"<boolean>\",\n                \"useTrigger\": \"<boolean>\",\n                \"skip\": \"<boolean>\",\n                \"useValue\": \"<int64>\"\n              },\n              \"topKeys\": {\n                \"event\": \"TOP_KEYS_EVENT_UNSPECIFIED\",\n                \"count\": \"<int64>\"\n              },\n              \"interfaceCapacity\": {\n                \"absolute\": \"<double>\",\n                \"percentage\": \"<int64>\"\n              },\n              \"ratio\": {\n                \"lhsMetric\": \"<string>\",\n                \"rhsMetric\": \"<string>\",\n                \"lhsProportion\": \"<long>\",\n                \"rhsProportion\": \"<long>\",\n                \"margin\": \"<double>\",\n                \"direction\": \"DIRECTION_UNSPECIFIED\"\n              },\n              \"forecast\": {\n                \"operator\": \"OPERATOR_UNSPECIFIED\",\n                \"percentageValue\": \"<int64>\"\n              }\n            },\n            {\n              \"static\": {\n                \"metric\": \"<string>\",\n                \"operator\": \"OPERATOR_UNSPECIFIED\",\n                \"value\": \"<double>\"\n              },\n              \"baseline\": {\n                \"delta\": \"DELTA_TYPE_UNSPECIFIED\",\n                \"absolute\": \"<double>\",\n                \"percentage\": \"<int64>\",\n                \"useLowest\": \"<boolean>\",\n                \"useHighest\": \"<boolean>\",\n                \"useTrigger\": \"<boolean>\",\n                \"skip\": \"<boolean>\",\n                \"useValue\": \"<int64>\"\n              },\n              \"topKeys\": {\n                \"event\": \"TOP_KEYS_EVENT_UNSPECIFIED\",\n                \"count\": \"<int64>\"\n              },\n              \"interfaceCapacity\": {\n                \"absolute\": \"<double>\",\n                \"percentage\": \"<int64>\"\n              },\n              \"ratio\": {\n                \"lhsMetric\": \"<string>\",\n                \"rhsMetric\": \"<string>\",\n                \"lhsProportion\": \"<long>\",\n                \"rhsProportion\": \"<long>\",\n                \"margin\": \"<double>\",\n                \"direction\": \"DIRECTION_UNSPECIFIED\"\n              },\n              \"forecast\": {\n                \"operator\": \"OPERATOR_UNSPECIFIED\",\n                \"percentageValue\": \"<int64>\"\n              }\n            }\n          ],\n          \"activation\": {\n            \"matchTimes\": \"<int64>\",\n            \"matchWindow\": \"<string>\",\n            \"resetCountWindow\": \"<string>\"\n          },\n          \"mitigationAssociations\": [\n            {\n              \"platformId\": \"<string>\",\n              \"methodId\": \"<string>\"\n            },\n            {\n              \"platformId\": \"<string>\",\n              \"methodId\": \"<string>\"\n            }\n          ]\n        },\n        \"event\": {\n          \"filters\": {\n            \"conjunctions\": [\n              {\n                \"entries\": [\n                  null\n                ]\n              }\n            ]\n          }\n        },\n        \"notifications\": [\n          {\n            \"channelId\": \"<string>\"\n          },\n          {\n            \"channelId\": \"<string>\"\n          }\n        ]\n      }\n    ],\n    \"flow\": {\n      \"dataset\": {\n        \"sources\": {\n          \"allDevices\": \"<boolean>\",\n          \"deviceIds\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"labelIds\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"siteIds\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"types\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"deviceTags\": [\n            {\n              \"id\": \"<string>\",\n              \"values\": [\n                \"<string>\"\n              ]\n            },\n            {\n              \"id\": \"<string>\",\n              \"values\": [\n                \"<string>\"\n              ]\n            }\n          ]\n        },\n        \"filters\": \"ex cupidatat\",\n        \"dimensions\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"metrics\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"evaluation\": {\n        \"frequency\": \"60s\",\n        \"keyCount\": \"25\"\n      },\n      \"baseline\": {\n        \"storedKeyCount\": \"25\",\n        \"windowLength\": \"2419200s\",\n        \"windowStartOffset\": \"86400s\",\n        \"rollupAggregation\": \"AGGREGATION_TYPE_UNSPECIFIED\",\n        \"compareMode\": \"COMPARE_MODE_UNSPECIFIED\",\n        \"neighbourhoodRadius\": \"<string>\",\n        \"neighbourhoodAggregation\": \"AGGREGATION_TYPE_UNSPECIFIED\",\n        \"finalAggregation\": \"AGGREGATION_TYPE_UNSPECIFIED\"\n      }\n    },\n    \"nms\": {\n      \"dataset\": {\n        \"sources\": {\n          \"allDevices\": \"<boolean>\",\n          \"deviceIds\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"labelIds\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"siteIds\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"types\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"deviceTags\": [\n            {\n              \"id\": \"<string>\",\n              \"values\": [\n                \"<string>\"\n              ]\n            },\n            {\n              \"id\": \"<string>\",\n              \"values\": [\n                \"<string>\"\n              ]\n            }\n          ]\n        },\n        \"filters\": null,\n        \"measurements\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"customDimensions\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"evaluation\": {\n        \"activationDelay\": \"<string>\",\n        \"clearanceDelay\": \"<string>\"\n      }\n    },\n    \"event\": {\n      \"type\": \"EVENT_TYPE_UNSPECIFIED\",\n      \"dimensions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"filters\": null\n    },\n    \"hasErrors\": \"<boolean>\",\n    \"lastError\": {\n      \"timestamp\": \"<dateTime>\",\n      \"description\": \"<string>\"\n    },\n    \"expireDate\": \"<dateTime>\"\n  }\n}",
+                              "createdAt": "2026-10-22T01:18:54.000Z",
+                              "updatedAt": "2026-10-22T01:18:54.000Z",
+                              "uid": "35240-37b2081e-43b1-4323-a97a-88e510e2ec61"
+                            },
+                            {
+                              "id": "a2738537-8b01-4daa-986c-2a2e80793143",
+                              "name": "An unexpected error response.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-CH-Auth-Email",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v202505/policies/:policyType/:id/enable",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v202505",
+                                    "policies",
+                                    ":policyType",
+                                    ":id",
+                                    "enable"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "policyType"
+                                    },
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"proidentb25\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"officia_30\": {},\n      \"in_ca\": {},\n      \"ea3b\": {},\n      \"amet6\": {}\n    }\n  ]\n}",
+                              "createdAt": "2026-10-22T01:18:54.000Z",
+                              "updatedAt": "2026-10-22T01:18:54.000Z",
+                              "uid": "35240-a2738537-8b01-4daa-986c-2a2e80793143"
+                            }
+                          ],
+                          "createdAt": "2026-10-22T01:18:54.000Z",
+                          "updatedAt": "2026-10-22T01:18:54.000Z",
+                          "uid": "35240-2e65d022-ddc5-45a3-8fd0-669d97990b2d"
+                        }
+                      ],
+                      "id": "d6a3f03d-16ad-4dfe-8796-d6736b8235d0",
+                      "createdAt": "2026-10-22T01:18:54.000Z",
+                      "updatedAt": "2026-10-22T01:18:54.000Z",
+                      "uid": "35240-d6a3f03d-16ad-4dfe-8796-d6736b8235d0"
+                    },
+                    {
+                      "name": "Get Policy",
+                      "id": "a741002e-286e-4d2b-bd6c-258850bab2fc",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v202505/policies/:policyType/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v202505",
+                            "policies",
+                            ":policyType",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "c4b2c44f-896b-41d3-b1d6-0b3b11c3a2f6",
+                              "key": "policyType",
+                              "value": "POLICY_TYPE_AGENT",
+                              "description": "(Required) The type of policy to get."
+                            },
+                            {
+                              "id": "e98a8f27-73c6-400b-aeb1-c296c520e43e",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) The ID of the policy to get."
+                            }
+                          ]
+                        },
+                        "description": "Returns an alerting policy."
+                      },
+                      "response": [
+                        {
+                          "id": "fd7a7352-51fe-4178-8c27-4885b4ebf767",
+                          "name": "A successful response.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-CH-Auth-Email",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v202505/policies/:policyType/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v202505",
+                                "policies",
+                                ":policyType",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "policyType"
+                                },
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"policy\": {\n    \"source\": {\n      \"policyType\": \"POLICY_TYPE_UNSPECIFIED\",\n      \"id\": \"<string>\"\n    },\n    \"createdAt\": \"<dateTime>\",\n    \"modifiedAt\": \"<dateTime>\",\n    \"createdBy\": \"<string>\",\n    \"modifiedBy\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"enabled\": \"<boolean>\",\n    \"levels\": [\n      {\n        \"severity\": \"SEVERITY_UNSPECIFIED\",\n        \"description\": \"<string>\",\n        \"ackRequired\": \"<boolean>\",\n        \"nms\": {\n          \"activate\": {\n            \"connector\": \"NMS_CONDITION_CONNECTOR_UNSPECIFIED\",\n            \"conditionGroups\": [\n              null,\n              -55023926.41742739\n            ]\n          },\n          \"clearType\": \"CLEAR_TYPE_UNSPECIFIED\",\n          \"conditional\": {\n            \"connector\": \"NMS_CONDITION_CONNECTOR_UNSPECIFIED\"\n          }\n        },\n        \"flow\": {\n          \"conditions\": [\n            {\n              \"static\": {\n                \"metric\": \"<string>\",\n                \"operator\": \"OPERATOR_UNSPECIFIED\",\n                \"value\": \"<double>\"\n              },\n              \"baseline\": {\n                \"delta\": \"DELTA_TYPE_UNSPECIFIED\",\n                \"absolute\": \"<double>\",\n                \"percentage\": \"<int64>\",\n                \"useLowest\": \"<boolean>\",\n                \"useHighest\": \"<boolean>\",\n                \"useTrigger\": \"<boolean>\",\n                \"skip\": \"<boolean>\",\n                \"useValue\": \"<int64>\"\n              },\n              \"topKeys\": {\n                \"event\": \"TOP_KEYS_EVENT_UNSPECIFIED\",\n                \"count\": \"<int64>\"\n              },\n              \"interfaceCapacity\": {\n                \"absolute\": \"<double>\",\n                \"percentage\": \"<int64>\"\n              },\n              \"ratio\": {\n                \"lhsMetric\": \"<string>\",\n                \"rhsMetric\": \"<string>\",\n                \"lhsProportion\": \"<long>\",\n                \"rhsProportion\": \"<long>\",\n                \"margin\": \"<double>\",\n                \"direction\": \"DIRECTION_UNSPECIFIED\"\n              },\n              \"forecast\": {\n                \"operator\": \"OPERATOR_UNSPECIFIED\",\n                \"percentageValue\": \"<int64>\"\n              }\n            },\n            {\n              \"static\": {\n                \"metric\": \"<string>\",\n                \"operator\": \"OPERATOR_UNSPECIFIED\",\n                \"value\": \"<double>\"\n              },\n              \"baseline\": {\n                \"delta\": \"DELTA_TYPE_UNSPECIFIED\",\n                \"absolute\": \"<double>\",\n                \"percentage\": \"<int64>\",\n                \"useLowest\": \"<boolean>\",\n                \"useHighest\": \"<boolean>\",\n                \"useTrigger\": \"<boolean>\",\n                \"skip\": \"<boolean>\",\n                \"useValue\": \"<int64>\"\n              },\n              \"topKeys\": {\n                \"event\": \"TOP_KEYS_EVENT_UNSPECIFIED\",\n                \"count\": \"<int64>\"\n              },\n              \"interfaceCapacity\": {\n                \"absolute\": \"<double>\",\n                \"percentage\": \"<int64>\"\n              },\n              \"ratio\": {\n                \"lhsMetric\": \"<string>\",\n                \"rhsMetric\": \"<string>\",\n                \"lhsProportion\": \"<long>\",\n                \"rhsProportion\": \"<long>\",\n                \"margin\": \"<double>\",\n                \"direction\": \"DIRECTION_UNSPECIFIED\"\n              },\n              \"forecast\": {\n                \"operator\": \"OPERATOR_UNSPECIFIED\",\n                \"percentageValue\": \"<int64>\"\n              }\n            }\n          ],\n          \"activation\": {\n            \"matchTimes\": \"<int64>\",\n            \"matchWindow\": \"<string>\",\n            \"resetCountWindow\": \"<string>\"\n          },\n          \"mitigationAssociations\": [\n            {\n              \"platformId\": \"<string>\",\n              \"methodId\": \"<string>\"\n            },\n            {\n              \"platformId\": \"<string>\",\n              \"methodId\": \"<string>\"\n            }\n          ]\n        },\n        \"event\": {\n          \"filters\": {\n            \"conjunctions\": [\n              {\n                \"entries\": [\n                  \"in\"\n                ]\n              },\n              {\n                \"entries\": [\n                  \"occaecat minim esse do\",\n                  23009175.13719316\n                ]\n              }\n            ]\n          }\n        },\n        \"notifications\": [\n          {\n            \"channelId\": \"<string>\"\n          },\n          {\n            \"channelId\": \"<string>\"\n          }\n        ]\n      },\n      {\n        \"severity\": \"SEVERITY_UNSPECIFIED\",\n        \"description\": \"<string>\",\n        \"ackRequired\": \"<boolean>\",\n        \"nms\": {\n          \"activate\": {\n            \"connector\": \"NMS_CONDITION_CONNECTOR_UNSPECIFIED\",\n            \"conditionGroups\": [\n              -10276244.146277636\n            ]\n          },\n          \"clearType\": \"CLEAR_TYPE_UNSPECIFIED\",\n          \"conditional\": {\n            \"connector\": \"NMS_CONDITION_CONNECTOR_UNSPECIFIED\",\n            \"conditionGroups\": [\n              \"velit veniam laborum et reprehenderit\",\n              null\n            ]\n          }\n        },\n        \"flow\": {\n          \"conditions\": [\n            {\n              \"static\": {\n                \"metric\": \"<string>\",\n                \"operator\": \"OPERATOR_UNSPECIFIED\",\n                \"value\": \"<double>\"\n              },\n              \"baseline\": {\n                \"delta\": \"DELTA_TYPE_UNSPECIFIED\",\n                \"absolute\": \"<double>\",\n                \"percentage\": \"<int64>\",\n                \"useLowest\": \"<boolean>\",\n                \"useHighest\": \"<boolean>\",\n                \"useTrigger\": \"<boolean>\",\n                \"skip\": \"<boolean>\",\n                \"useValue\": \"<int64>\"\n              },\n              \"topKeys\": {\n                \"event\": \"TOP_KEYS_EVENT_UNSPECIFIED\",\n                \"count\": \"<int64>\"\n              },\n              \"interfaceCapacity\": {\n                \"absolute\": \"<double>\",\n                \"percentage\": \"<int64>\"\n              },\n              \"ratio\": {\n                \"lhsMetric\": \"<string>\",\n                \"rhsMetric\": \"<string>\",\n                \"lhsProportion\": \"<long>\",\n                \"rhsProportion\": \"<long>\",\n                \"margin\": \"<double>\",\n                \"direction\": \"DIRECTION_UNSPECIFIED\"\n              },\n              \"forecast\": {\n                \"operator\": \"OPERATOR_UNSPECIFIED\",\n                \"percentageValue\": \"<int64>\"\n              }\n            },\n            {\n              \"static\": {\n                \"metric\": \"<string>\",\n                \"operator\": \"OPERATOR_UNSPECIFIED\",\n                \"value\": \"<double>\"\n              },\n              \"baseline\": {\n                \"delta\": \"DELTA_TYPE_UNSPECIFIED\",\n                \"absolute\": \"<double>\",\n                \"percentage\": \"<int64>\",\n                \"useLowest\": \"<boolean>\",\n                \"useHighest\": \"<boolean>\",\n                \"useTrigger\": \"<boolean>\",\n                \"skip\": \"<boolean>\",\n                \"useValue\": \"<int64>\"\n              },\n              \"topKeys\": {\n                \"event\": \"TOP_KEYS_EVENT_UNSPECIFIED\",\n                \"count\": \"<int64>\"\n              },\n              \"interfaceCapacity\": {\n                \"absolute\": \"<double>\",\n                \"percentage\": \"<int64>\"\n              },\n              \"ratio\": {\n                \"lhsMetric\": \"<string>\",\n                \"rhsMetric\": \"<string>\",\n                \"lhsProportion\": \"<long>\",\n                \"rhsProportion\": \"<long>\",\n                \"margin\": \"<double>\",\n                \"direction\": \"DIRECTION_UNSPECIFIED\"\n              },\n              \"forecast\": {\n                \"operator\": \"OPERATOR_UNSPECIFIED\",\n                \"percentageValue\": \"<int64>\"\n              }\n            }\n          ],\n          \"activation\": {\n            \"matchTimes\": \"<int64>\",\n            \"matchWindow\": \"<string>\",\n            \"resetCountWindow\": \"<string>\"\n          },\n          \"mitigationAssociations\": [\n            {\n              \"platformId\": \"<string>\",\n              \"methodId\": \"<string>\"\n            },\n            {\n              \"platformId\": \"<string>\",\n              \"methodId\": \"<string>\"\n            }\n          ]\n        },\n        \"event\": {\n          \"filters\": {\n            \"conjunctions\": [\n              {\n                \"entries\": [\n                  null\n                ]\n              }\n            ]\n          }\n        },\n        \"notifications\": [\n          {\n            \"channelId\": \"<string>\"\n          },\n          {\n            \"channelId\": \"<string>\"\n          }\n        ]\n      }\n    ],\n    \"flow\": {\n      \"dataset\": {\n        \"sources\": {\n          \"allDevices\": \"<boolean>\",\n          \"deviceIds\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"labelIds\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"siteIds\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"types\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"deviceTags\": [\n            {\n              \"id\": \"<string>\",\n              \"values\": [\n                \"<string>\"\n              ]\n            },\n            {\n              \"id\": \"<string>\",\n              \"values\": [\n                \"<string>\"\n              ]\n            }\n          ]\n        },\n        \"filters\": \"ex cupidatat\",\n        \"dimensions\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"metrics\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"evaluation\": {\n        \"frequency\": \"60s\",\n        \"keyCount\": \"25\"\n      },\n      \"baseline\": {\n        \"storedKeyCount\": \"25\",\n        \"windowLength\": \"2419200s\",\n        \"windowStartOffset\": \"86400s\",\n        \"rollupAggregation\": \"AGGREGATION_TYPE_UNSPECIFIED\",\n        \"compareMode\": \"COMPARE_MODE_UNSPECIFIED\",\n        \"neighbourhoodRadius\": \"<string>\",\n        \"neighbourhoodAggregation\": \"AGGREGATION_TYPE_UNSPECIFIED\",\n        \"finalAggregation\": \"AGGREGATION_TYPE_UNSPECIFIED\"\n      }\n    },\n    \"nms\": {\n      \"dataset\": {\n        \"sources\": {\n          \"allDevices\": \"<boolean>\",\n          \"deviceIds\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"labelIds\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"siteIds\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"types\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"deviceTags\": [\n            {\n              \"id\": \"<string>\",\n              \"values\": [\n                \"<string>\"\n              ]\n            },\n            {\n              \"id\": \"<string>\",\n              \"values\": [\n                \"<string>\"\n              ]\n            }\n          ]\n        },\n        \"filters\": null,\n        \"measurements\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"customDimensions\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"evaluation\": {\n        \"activationDelay\": \"<string>\",\n        \"clearanceDelay\": \"<string>\"\n      }\n    },\n    \"event\": {\n      \"type\": \"EVENT_TYPE_UNSPECIFIED\",\n      \"dimensions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"filters\": null\n    },\n    \"hasErrors\": \"<boolean>\",\n    \"lastError\": {\n      \"timestamp\": \"<dateTime>\",\n      \"description\": \"<string>\"\n    },\n    \"expireDate\": \"<dateTime>\"\n  }\n}",
+                          "createdAt": "2026-10-22T01:18:54.000Z",
+                          "updatedAt": "2026-10-22T01:18:54.000Z",
+                          "uid": "35240-fd7a7352-51fe-4178-8c27-4885b4ebf767"
+                        },
+                        {
+                          "id": "a2dad489-9de9-4698-b9ed-9d8a277cc7ba",
+                          "name": "An unexpected error response.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-CH-Auth-Email",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v202505/policies/:policyType/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v202505",
+                                "policies",
+                                ":policyType",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "policyType"
+                                },
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"proidentb25\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"officia_30\": {},\n      \"in_ca\": {},\n      \"ea3b\": {},\n      \"amet6\": {}\n    }\n  ]\n}",
+                          "createdAt": "2026-10-22T01:18:54.000Z",
+                          "updatedAt": "2026-10-22T01:18:54.000Z",
+                          "uid": "35240-a2dad489-9de9-4698-b9ed-9d8a277cc7ba"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T01:18:54.000Z",
+                      "updatedAt": "2026-10-22T01:18:54.000Z",
+                      "uid": "35240-a741002e-286e-4d2b-bd6c-258850bab2fc"
+                    }
+                  ],
+                  "id": "683c3ca6-2327-471d-866e-ee77b98617eb",
+                  "createdAt": "2026-10-22T01:18:54.000Z",
+                  "updatedAt": "2026-10-22T01:18:54.000Z",
+                  "uid": "35240-683c3ca6-2327-471d-866e-ee77b98617eb"
                 }
               ],
-              "body": "{\n  \"code\": 8622,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "add7b42c-c84f-4b55-804d-e71d7e121844",
+              "createdAt": "2026-10-22T01:18:54.000Z",
+              "updatedAt": "2026-10-22T01:18:54.000Z",
+              "uid": "35240-add7b42c-c84f-4b55-804d-e71d7e121844"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "5b3b0270-2808-449a-a562-8775992f2c1f",
-          "name": "Get Policy",
-          "request": {
-            "name": "Get Policy",
-            "description": {
-              "content": "Returns an alerting policy.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "v202505",
-                "policies",
-                ":policyType",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "policyType",
-                  "description": "(Required) The type of policy to get."
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) The ID of the policy to get."
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "1ca7f83a-3af1-4451-9b2d-2425bd70c14c",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v202505",
-                    "policies",
-                    ":policyType",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "policyType",
-                      "description": "(Required) The type of policy to get."
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) The ID of the policy to get."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"policy\": {\n    \"source\": {\n      \"policyType\": \"POLICY_TYPE_UNSPECIFIED\",\n      \"id\": \"<string>\"\n    },\n    \"createdAt\": \"1973-01-29T22:42:49.929Z\",\n    \"modifiedAt\": \"1992-07-29T17:39:02.598Z\",\n    \"createdBy\": \"string\",\n    \"modifiedBy\": \"string\",\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"enabled\": true,\n    \"levels\": [\n      {\n        \"severity\": \"SEVERITY_UNSPECIFIED\",\n        \"description\": \"string\",\n        \"ackRequired\": false,\n        \"nms\": {\n          \"activate\": {\n            \"connector\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"conditionGroups\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"clearType\": \"CLEAR_TYPE_UNSPECIFIED\",\n          \"conditional\": {\n            \"connector\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"conditionGroups\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"flow\": {\n          \"conditions\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"activation\": {\n            \"matchTimes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"matchWindow\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"resetCountWindow\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"mitigationAssociations\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"event\": {\n          \"filters\": {\n            \"conjunctions\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"notifications\": [\n          {\n            \"channelId\": \"string\"\n          },\n          {\n            \"channelId\": \"string\"\n          }\n        ]\n      },\n      {\n        \"severity\": \"SEVERITY_UNSPECIFIED\",\n        \"description\": \"string\",\n        \"ackRequired\": false,\n        \"nms\": {\n          \"activate\": {\n            \"connector\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"conditionGroups\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"clearType\": \"CLEAR_TYPE_UNSPECIFIED\",\n          \"conditional\": {\n            \"connector\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"conditionGroups\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"flow\": {\n          \"conditions\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"activation\": {\n            \"matchTimes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"matchWindow\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"resetCountWindow\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"mitigationAssociations\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"event\": {\n          \"filters\": {\n            \"conjunctions\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"notifications\": [\n          {\n            \"channelId\": \"string\"\n          },\n          {\n            \"channelId\": \"string\"\n          }\n        ]\n      }\n    ],\n    \"flow\": {\n      \"dataset\": {\n        \"sources\": {\n          \"allDevices\": false,\n          \"deviceIds\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"labelIds\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"siteIds\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"types\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"deviceTags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"filters\": \"string\",\n        \"dimensions\": [\n          \"string\",\n          \"string\"\n        ],\n        \"metrics\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"evaluation\": {\n        \"frequency\": \"60s\",\n        \"keyCount\": \"25\"\n      },\n      \"baseline\": {\n        \"storedKeyCount\": \"25\",\n        \"windowLength\": \"2419200s\",\n        \"windowStartOffset\": \"86400s\",\n        \"rollupAggregation\": \"AGGREGATION_TYPE_UNSPECIFIED\",\n        \"compareMode\": \"COMPARE_MODE_UNSPECIFIED\",\n        \"neighbourhoodRadius\": \"string\",\n        \"neighbourhoodAggregation\": \"AGGREGATION_TYPE_UNSPECIFIED\",\n        \"finalAggregation\": \"AGGREGATION_TYPE_UNSPECIFIED\"\n      }\n    },\n    \"nms\": {\n      \"dataset\": {\n        \"sources\": {\n          \"allDevices\": false,\n          \"deviceIds\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"labelIds\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"siteIds\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"types\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"deviceTags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"measurements\": [\n          \"string\",\n          \"string\"\n        ],\n        \"customDimensions\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"evaluation\": {\n        \"activationDelay\": \"string\",\n        \"clearanceDelay\": \"string\"\n      }\n    },\n    \"event\": {\n      \"type\": \"EVENT_TYPE_UNSPECIFIED\",\n      \"dimensions\": [\n        \"string\",\n        \"string\"\n      ],\n      \"filters\": {}\n    },\n    \"hasErrors\": false,\n    \"lastError\": {\n      \"timestamp\": \"2016-02-05T15:15:29.383Z\",\n      \"description\": \"string\"\n    },\n    \"expireDate\": \"2008-03-19T10:42:29.647Z\"\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "833f55d2-b259-4432-80e1-fd6a166d9961",
-              "name": "An unexpected error response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v202505",
-                    "policies",
-                    ":policyType",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "policyType",
-                      "description": "(Required) The type of policy to get."
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) The ID of the policy to get."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 6701,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "b78c49b2-69a7-40fd-bf70-aa269462e605",
-          "name": "Disable Policy",
-          "request": {
-            "name": "Disable Policy",
-            "description": {
-              "content": "Disables an alerting policy.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "v202505",
-                "policies",
-                ":policyType",
-                ":id",
-                "disable"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "policyType",
-                  "description": "(Required) The type of policy to disable."
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) The ID of the policy to disable."
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "<object>",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "61f0164f-bd29-47f4-8b27-6242cb91d774",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v202505",
-                    "policies",
-                    ":policyType",
-                    ":id",
-                    "disable"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "policyType",
-                      "description": "(Required) The type of policy to disable."
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) The ID of the policy to disable."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "<object>",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"policy\": {\n    \"source\": {\n      \"policyType\": \"POLICY_TYPE_UNSPECIFIED\",\n      \"id\": \"<string>\"\n    },\n    \"createdAt\": \"2009-12-07T21:13:41.218Z\",\n    \"modifiedAt\": \"1965-06-10T18:12:20.422Z\",\n    \"createdBy\": \"string\",\n    \"modifiedBy\": \"string\",\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"enabled\": false,\n    \"levels\": [\n      {\n        \"severity\": \"SEVERITY_UNSPECIFIED\",\n        \"description\": \"string\",\n        \"ackRequired\": true,\n        \"nms\": {\n          \"activate\": {\n            \"connector\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"conditionGroups\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"clearType\": \"CLEAR_TYPE_UNSPECIFIED\",\n          \"conditional\": {\n            \"connector\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"conditionGroups\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"flow\": {\n          \"conditions\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"activation\": {\n            \"matchTimes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"matchWindow\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"resetCountWindow\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"mitigationAssociations\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"event\": {\n          \"filters\": {\n            \"conjunctions\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"notifications\": [\n          {\n            \"channelId\": \"string\"\n          },\n          {\n            \"channelId\": \"string\"\n          }\n        ]\n      },\n      {\n        \"severity\": \"SEVERITY_UNSPECIFIED\",\n        \"description\": \"string\",\n        \"ackRequired\": false,\n        \"nms\": {\n          \"activate\": {\n            \"connector\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"conditionGroups\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"clearType\": \"CLEAR_TYPE_UNSPECIFIED\",\n          \"conditional\": {\n            \"connector\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"conditionGroups\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"flow\": {\n          \"conditions\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"activation\": {\n            \"matchTimes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"matchWindow\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"resetCountWindow\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"mitigationAssociations\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"event\": {\n          \"filters\": {\n            \"conjunctions\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"notifications\": [\n          {\n            \"channelId\": \"string\"\n          },\n          {\n            \"channelId\": \"string\"\n          }\n        ]\n      }\n    ],\n    \"flow\": {\n      \"dataset\": {\n        \"sources\": {\n          \"allDevices\": false,\n          \"deviceIds\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"labelIds\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"siteIds\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"types\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"deviceTags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"filters\": 799.1224104143646,\n        \"dimensions\": [\n          \"string\",\n          \"string\"\n        ],\n        \"metrics\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"evaluation\": {\n        \"frequency\": \"60s\",\n        \"keyCount\": \"25\"\n      },\n      \"baseline\": {\n        \"storedKeyCount\": \"25\",\n        \"windowLength\": \"2419200s\",\n        \"windowStartOffset\": \"86400s\",\n        \"rollupAggregation\": \"AGGREGATION_TYPE_UNSPECIFIED\",\n        \"compareMode\": \"COMPARE_MODE_UNSPECIFIED\",\n        \"neighbourhoodRadius\": \"string\",\n        \"neighbourhoodAggregation\": \"AGGREGATION_TYPE_UNSPECIFIED\",\n        \"finalAggregation\": \"AGGREGATION_TYPE_UNSPECIFIED\"\n      }\n    },\n    \"nms\": {\n      \"dataset\": {\n        \"sources\": {\n          \"allDevices\": false,\n          \"deviceIds\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"labelIds\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"siteIds\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"types\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"deviceTags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"filters\": \"string\",\n        \"measurements\": [\n          \"string\",\n          \"string\"\n        ],\n        \"customDimensions\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"evaluation\": {\n        \"activationDelay\": \"string\",\n        \"clearanceDelay\": \"string\"\n      }\n    },\n    \"event\": {\n      \"type\": \"EVENT_TYPE_UNSPECIFIED\",\n      \"dimensions\": [\n        \"string\",\n        \"string\"\n      ],\n      \"filters\": \"string\"\n    },\n    \"hasErrors\": true,\n    \"lastError\": {\n      \"timestamp\": \"1955-11-04T20:00:42.705Z\",\n      \"description\": \"string\"\n    },\n    \"expireDate\": \"1983-07-30T02:00:59.296Z\"\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "fd621563-9a19-4beb-b1a7-8f9dd55b2448",
-              "name": "An unexpected error response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v202505",
-                    "policies",
-                    ":policyType",
-                    ":id",
-                    "disable"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "policyType",
-                      "description": "(Required) The type of policy to disable."
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) The ID of the policy to disable."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "<object>",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 6701,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "8bb2caf2-a77f-48b6-88b2-faa29867060a",
-          "name": "Enable Policy",
-          "request": {
-            "name": "Enable Policy",
-            "description": {
-              "content": "Enables an alerting policy.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "v202505",
-                "policies",
-                ":policyType",
-                ":id",
-                "enable"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "policyType",
-                  "description": "(Required) The type of policy to enable."
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) The ID of the policy to enable."
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "<object>",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "236ba97f-9e5a-4344-aabb-ab6ec7f0575a",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v202505",
-                    "policies",
-                    ":policyType",
-                    ":id",
-                    "enable"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "policyType",
-                      "description": "(Required) The type of policy to enable."
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) The ID of the policy to enable."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "<object>",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"policy\": {\n    \"source\": {\n      \"policyType\": \"POLICY_TYPE_UNSPECIFIED\",\n      \"id\": \"<string>\"\n    },\n    \"createdAt\": \"2009-12-07T21:13:41.218Z\",\n    \"modifiedAt\": \"1965-06-10T18:12:20.422Z\",\n    \"createdBy\": \"string\",\n    \"modifiedBy\": \"string\",\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"enabled\": false,\n    \"levels\": [\n      {\n        \"severity\": \"SEVERITY_UNSPECIFIED\",\n        \"description\": \"string\",\n        \"ackRequired\": true,\n        \"nms\": {\n          \"activate\": {\n            \"connector\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"conditionGroups\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"clearType\": \"CLEAR_TYPE_UNSPECIFIED\",\n          \"conditional\": {\n            \"connector\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"conditionGroups\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"flow\": {\n          \"conditions\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"activation\": {\n            \"matchTimes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"matchWindow\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"resetCountWindow\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"mitigationAssociations\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"event\": {\n          \"filters\": {\n            \"conjunctions\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"notifications\": [\n          {\n            \"channelId\": \"string\"\n          },\n          {\n            \"channelId\": \"string\"\n          }\n        ]\n      },\n      {\n        \"severity\": \"SEVERITY_UNSPECIFIED\",\n        \"description\": \"string\",\n        \"ackRequired\": false,\n        \"nms\": {\n          \"activate\": {\n            \"connector\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"conditionGroups\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"clearType\": \"CLEAR_TYPE_UNSPECIFIED\",\n          \"conditional\": {\n            \"connector\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"conditionGroups\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"flow\": {\n          \"conditions\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"activation\": {\n            \"matchTimes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"matchWindow\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"resetCountWindow\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"mitigationAssociations\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"event\": {\n          \"filters\": {\n            \"conjunctions\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"notifications\": [\n          {\n            \"channelId\": \"string\"\n          },\n          {\n            \"channelId\": \"string\"\n          }\n        ]\n      }\n    ],\n    \"flow\": {\n      \"dataset\": {\n        \"sources\": {\n          \"allDevices\": false,\n          \"deviceIds\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"labelIds\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"siteIds\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"types\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"deviceTags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"filters\": 799.1224104143646,\n        \"dimensions\": [\n          \"string\",\n          \"string\"\n        ],\n        \"metrics\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"evaluation\": {\n        \"frequency\": \"60s\",\n        \"keyCount\": \"25\"\n      },\n      \"baseline\": {\n        \"storedKeyCount\": \"25\",\n        \"windowLength\": \"2419200s\",\n        \"windowStartOffset\": \"86400s\",\n        \"rollupAggregation\": \"AGGREGATION_TYPE_UNSPECIFIED\",\n        \"compareMode\": \"COMPARE_MODE_UNSPECIFIED\",\n        \"neighbourhoodRadius\": \"string\",\n        \"neighbourhoodAggregation\": \"AGGREGATION_TYPE_UNSPECIFIED\",\n        \"finalAggregation\": \"AGGREGATION_TYPE_UNSPECIFIED\"\n      }\n    },\n    \"nms\": {\n      \"dataset\": {\n        \"sources\": {\n          \"allDevices\": false,\n          \"deviceIds\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"labelIds\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"siteIds\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"types\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"deviceTags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"filters\": \"string\",\n        \"measurements\": [\n          \"string\",\n          \"string\"\n        ],\n        \"customDimensions\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"evaluation\": {\n        \"activationDelay\": \"string\",\n        \"clearanceDelay\": \"string\"\n      }\n    },\n    \"event\": {\n      \"type\": \"EVENT_TYPE_UNSPECIFIED\",\n      \"dimensions\": [\n        \"string\",\n        \"string\"\n      ],\n      \"filters\": \"string\"\n    },\n    \"hasErrors\": true,\n    \"lastError\": {\n      \"timestamp\": \"1955-11-04T20:00:42.705Z\",\n      \"description\": \"string\"\n    },\n    \"expireDate\": \"1983-07-30T02:00:59.296Z\"\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "b3152042-bfb4-4a17-838f-c384d9a90235",
-              "name": "An unexpected error response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v202505",
-                    "policies",
-                    ":policyType",
-                    ":id",
-                    "enable"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "policyType",
-                      "description": "(Required) The type of policy to enable."
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) The ID of the policy to enable."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "<object>",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 6701,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "19608f05-ba06-43be-a987-bfe8486e6832",
+          "createdAt": "2026-10-22T01:18:54.000Z",
+          "updatedAt": "2026-10-22T01:18:54.000Z",
+          "uid": "35240-19608f05-ba06-43be-a987-bfe8486e6832"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "/",
-      "key": "baseUrl"
+      "id": "ee61ec76-6be2-4f59-8342-1847fac37547",
+      "createdAt": "2026-10-22T01:18:54.000Z",
+      "updatedAt": "2026-10-22T01:18:54.000Z",
+      "uid": "35240-ee61ec76-6be2-4f59-8342-1847fac37547"
     }
   ],
   "auth": {
@@ -770,25 +794,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "X-CH-Auth-Email"
+        "value": "X-CH-Auth-Email",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "ed76c8fc-f299-4dc1-a2c8-e0bfb1696267",
-    "name": "AI Advisor AiAdvisorDataService PolicyService API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "# Overview\nProvides programmatic access to AI Advisor.\n\nContact Support:\n Name: Kentik API Engineering",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
     }
-  }
+  ]
 }

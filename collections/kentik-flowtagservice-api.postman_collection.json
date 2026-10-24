@@ -1,898 +1,905 @@
 {
+  "info": {
+    "_postman_id": "3517f1aa-2552-4e4d-8e08-1cba8096dbd3",
+    "name": "Flow Tag Service API",
+    "description": "# Overview\nThe Flow Tag API enables programmatic creation and management of flow tags.\n\nContact Support:\n Name: Kentik API Engineering",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:18:13.000Z",
+    "updatedAt": "2026-10-22T01:18:13.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-3517f1aa-2552-4e4d-8e08-1cba8096dbd3"
+  },
   "item": [
     {
-      "id": "2f877169-fac7-4897-88f4-bdb7c51963ae",
-      "name": "FlowTagService",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "flow_tag",
       "item": [
         {
-          "id": "ba03eca4-59c0-4728-af17-c1828e00ee4a",
-          "name": "Search flow tag configuration.",
-          "request": {
-            "name": "Search flow tag configuration.",
-            "description": {
-              "content": "Returns configuration of flow tag with search parameters.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "flow_tag",
-                "v202404alpha1",
-                "tag"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "search.limit",
-                  "value": "<integer>",
-                  "description": "Limit the number of rows to fetch"
-                },
-                {
-                  "disabled": false,
-                  "key": "search.offset",
-                  "value": "<integer>",
-                  "description": "The number rows to skip before returning"
-                },
-                {
-                  "disabled": false,
-                  "key": "search.lookupFields",
-                  "value": "<string>",
-                  "description": "List of lookup fields\n\n - LOOKUP_FIELD_UNSPECIFIED: Invalid value\n - LOOKUP_FIELD_VALUE: Lookup by name of tag"
-                },
-                {
-                  "disabled": false,
-                  "key": "search.lookupFields",
-                  "value": "<string>",
-                  "description": "List of lookup fields\n\n - LOOKUP_FIELD_UNSPECIFIED: Invalid value\n - LOOKUP_FIELD_VALUE: Lookup by name of tag"
-                },
-                {
-                  "disabled": false,
-                  "key": "search.lookupValues",
-                  "value": "<string>",
-                  "description": "List of lookup values"
-                },
-                {
-                  "disabled": false,
-                  "key": "search.lookupValues",
-                  "value": "<string>",
-                  "description": "List of lookup values"
-                },
-                {
-                  "disabled": false,
-                  "key": "search.fieldLimit",
-                  "value": "<integer>",
-                  "description": "Limit the number of record to return for nested fields"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "v202404alpha1",
+          "item": [
             {
-              "id": "d35db045-8660-45f5-b41e-afe9bb19df67",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "flow_tag",
-                    "v202404alpha1",
-                    "tag"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+              "name": "tag",
+              "item": [
+                {
+                  "name": "{flowTag.id}",
+                  "item": [
                     {
-                      "key": "search.limit",
-                      "value": "<integer>"
+                      "name": "Update flow tag configuration",
+                      "id": "302b9dfb-ba13-4bc8-83a5-8dd87debab2a",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"flowTag\": {\n    \"name\": \"<string>\",\n    \"editedBy\": \"<string>\",\n    \"createdBy\": \"<string>\",\n    \"cdate\": \"<dateTime>\",\n    \"edate\": \"<dateTime>\",\n    \"ip\": {\n      \"addresses\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"totalCount\": \"<integer>\"\n    },\n    \"port\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"tcpFlags\": \"<long>\",\n    \"protocol\": [\n      \"<long>\",\n      \"<long>\"\n    ],\n    \"deviceName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"deviceType\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"site\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"interfaceName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"asn\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"lasthopAsName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nexthopAsn\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nexthopAsName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nexthop\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"bgpAspath\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"bgpCommunity\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"mac\": {\n      \"addresses\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"totalCount\": \"<integer>\"\n    },\n    \"country\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"vlans\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/flow_tag/v202404alpha1/tag/:flowTag.id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "flow_tag",
+                            "v202404alpha1",
+                            "tag",
+                            ":flowTag.id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "f23659e7-082e-4ada-a0a6-3e9075cb3622",
+                              "key": "flowTag"
+                            },
+                            {
+                              "id": "3080625f-5381-4315-9f55-0cfef5e73e66",
+                              "key": "flowTag.id",
+                              "value": "<string>",
+                              "description": "(Required) Unique system assigned identifier of the flow tag"
+                            }
+                          ]
+                        },
+                        "description": "Update a flow tag configuration."
+                      },
+                      "response": [
+                        {
+                          "id": "ff9c6816-ab70-4039-a7ce-ae493ae0f565",
+                          "name": "A successful response.",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-CH-Auth-Email",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"flowTag\": {\n    \"name\": \"<string>\",\n    \"editedBy\": \"<string>\",\n    \"createdBy\": \"<string>\",\n    \"cdate\": \"<dateTime>\",\n    \"edate\": \"<dateTime>\",\n    \"ip\": {\n      \"addresses\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"totalCount\": \"<integer>\"\n    },\n    \"port\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"tcpFlags\": \"<long>\",\n    \"protocol\": [\n      \"<long>\",\n      \"<long>\"\n    ],\n    \"deviceName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"deviceType\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"site\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"interfaceName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"asn\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"lasthopAsName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nexthopAsn\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nexthopAsName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nexthop\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"bgpAspath\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"bgpCommunity\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"mac\": {\n      \"addresses\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"totalCount\": \"<integer>\"\n    },\n    \"country\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"vlans\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/flow_tag/v202404alpha1/tag/:flowTag.id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "flow_tag",
+                                "v202404alpha1",
+                                "tag",
+                                ":flowTag.id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "flowTag.id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"flowTag\": {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"editedBy\": \"<string>\",\n    \"createdBy\": \"<string>\",\n    \"cdate\": \"<dateTime>\",\n    \"edate\": \"<dateTime>\",\n    \"ip\": {\n      \"addresses\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"totalCount\": \"<integer>\"\n    },\n    \"port\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"tcpFlags\": \"<long>\",\n    \"protocol\": [\n      \"<long>\",\n      \"<long>\"\n    ],\n    \"deviceName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"deviceType\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"site\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"interfaceName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"asn\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"lasthopAsName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nexthopAsn\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nexthopAsName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nexthop\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"bgpAspath\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"bgpCommunity\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"mac\": {\n      \"addresses\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"totalCount\": \"<integer>\"\n    },\n    \"country\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"vlans\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                          "createdAt": "2026-10-22T01:18:13.000Z",
+                          "updatedAt": "2026-10-22T01:18:13.000Z",
+                          "uid": "35240-ff9c6816-ab70-4039-a7ce-ae493ae0f565"
+                        },
+                        {
+                          "id": "c606a569-fae1-46dd-b1fb-b346cd3b8bfc",
+                          "name": "An unexpected error response.",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-CH-Auth-Email",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"flowTag\": {\n    \"name\": \"<string>\",\n    \"editedBy\": \"<string>\",\n    \"createdBy\": \"<string>\",\n    \"cdate\": \"<dateTime>\",\n    \"edate\": \"<dateTime>\",\n    \"ip\": {\n      \"addresses\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"totalCount\": \"<integer>\"\n    },\n    \"port\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"tcpFlags\": \"<long>\",\n    \"protocol\": [\n      \"<long>\",\n      \"<long>\"\n    ],\n    \"deviceName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"deviceType\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"site\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"interfaceName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"asn\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"lasthopAsName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nexthopAsn\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nexthopAsName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nexthop\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"bgpAspath\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"bgpCommunity\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"mac\": {\n      \"addresses\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"totalCount\": \"<integer>\"\n    },\n    \"country\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"vlans\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/flow_tag/v202404alpha1/tag/:flowTag.id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "flow_tag",
+                                "v202404alpha1",
+                                "tag",
+                                ":flowTag.id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "flowTag.id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"dolora3\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"sint9b8\": {}\n    }\n  ]\n}",
+                          "createdAt": "2026-10-22T01:18:13.000Z",
+                          "updatedAt": "2026-10-22T01:18:13.000Z",
+                          "uid": "35240-c606a569-fae1-46dd-b1fb-b346cd3b8bfc"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T01:18:13.000Z",
+                      "updatedAt": "2026-10-22T01:18:13.000Z",
+                      "uid": "35240-302b9dfb-ba13-4bc8-83a5-8dd87debab2a"
                     },
                     {
-                      "key": "search.offset",
-                      "value": "<integer>"
+                      "name": "Get flow tag configuration",
+                      "id": "62237966-b4de-436f-9ad2-7960375c8f4d",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/flow_tag/v202404alpha1/tag/:flowTag.id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "flow_tag",
+                            "v202404alpha1",
+                            "tag",
+                            ":flowTag.id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "bbf1d9d4-333e-4118-b235-e3bea38f5c30",
+                              "key": "flowTag"
+                            },
+                            {
+                              "id": "fd02758e-0143-4305-b822-0511709913c9",
+                              "key": "flowTag.id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Returns configuration of flow tag with specified ID."
+                      },
+                      "response": [
+                        {
+                          "id": "487c99e7-db57-4333-8ecc-6f42d9902d51",
+                          "name": "A successful response.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-CH-Auth-Email",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/flow_tag/v202404alpha1/tag/:flowTag.id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "flow_tag",
+                                "v202404alpha1",
+                                "tag",
+                                ":flowTag.id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "flowTag.id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"flowTag\": {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"editedBy\": \"<string>\",\n    \"createdBy\": \"<string>\",\n    \"cdate\": \"<dateTime>\",\n    \"edate\": \"<dateTime>\",\n    \"ip\": {\n      \"addresses\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"totalCount\": \"<integer>\"\n    },\n    \"port\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"tcpFlags\": \"<long>\",\n    \"protocol\": [\n      \"<long>\",\n      \"<long>\"\n    ],\n    \"deviceName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"deviceType\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"site\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"interfaceName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"asn\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"lasthopAsName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nexthopAsn\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nexthopAsName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nexthop\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"bgpAspath\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"bgpCommunity\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"mac\": {\n      \"addresses\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"totalCount\": \"<integer>\"\n    },\n    \"country\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"vlans\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                          "createdAt": "2026-10-22T01:18:13.000Z",
+                          "updatedAt": "2026-10-22T01:18:13.000Z",
+                          "uid": "35240-487c99e7-db57-4333-8ecc-6f42d9902d51"
+                        },
+                        {
+                          "id": "d12e1c2f-90f9-4d0f-b6a4-1141633ba11f",
+                          "name": "An unexpected error response.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-CH-Auth-Email",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/flow_tag/v202404alpha1/tag/:flowTag.id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "flow_tag",
+                                "v202404alpha1",
+                                "tag",
+                                ":flowTag.id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "flowTag.id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"dolora3\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"sint9b8\": {}\n    }\n  ]\n}",
+                          "createdAt": "2026-10-22T01:18:13.000Z",
+                          "updatedAt": "2026-10-22T01:18:13.000Z",
+                          "uid": "35240-d12e1c2f-90f9-4d0f-b6a4-1141633ba11f"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T01:18:13.000Z",
+                      "updatedAt": "2026-10-22T01:18:13.000Z",
+                      "uid": "35240-62237966-b4de-436f-9ad2-7960375c8f4d"
                     },
                     {
-                      "key": "search.lookupFields",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "search.lookupFields",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "search.lookupValues",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "search.lookupValues",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "search.fieldLimit",
-                      "value": "<integer>"
+                      "name": "Delete flow tag configuration",
+                      "id": "2d4787e1-395d-4e4d-9e3c-adf8add93107",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/flow_tag/v202404alpha1/tag/:flowTag.id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "flow_tag",
+                            "v202404alpha1",
+                            "tag",
+                            ":flowTag.id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "8fef017c-4f8a-4a48-b1e1-8fb5a2acf926",
+                              "key": "flowTag"
+                            },
+                            {
+                              "id": "ba92db5e-53e1-4009-b624-600924169337",
+                              "key": "flowTag.id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Delete a flow tag configuration with id."
+                      },
+                      "response": [
+                        {
+                          "id": "b892de63-e3e1-427e-9e95-5e842e669188",
+                          "name": "A successful response.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-CH-Auth-Email",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/flow_tag/v202404alpha1/tag/:flowTag.id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "flow_tag",
+                                "v202404alpha1",
+                                "tag",
+                                ":flowTag.id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "flowTag.id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{}",
+                          "createdAt": "2026-10-22T01:18:13.000Z",
+                          "updatedAt": "2026-10-22T01:18:13.000Z",
+                          "uid": "35240-b892de63-e3e1-427e-9e95-5e842e669188"
+                        },
+                        {
+                          "id": "532e7ce0-817f-4332-abc5-5922c8a5d159",
+                          "name": "An unexpected error response.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-CH-Auth-Email",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/flow_tag/v202404alpha1/tag/:flowTag.id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "flow_tag",
+                                "v202404alpha1",
+                                "tag",
+                                ":flowTag.id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "flowTag.id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"dolora3\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"sint9b8\": {}\n    }\n  ]\n}",
+                          "createdAt": "2026-10-22T01:18:13.000Z",
+                          "updatedAt": "2026-10-22T01:18:13.000Z",
+                          "uid": "35240-532e7ce0-817f-4332-abc5-5922c8a5d159"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T01:18:13.000Z",
+                      "updatedAt": "2026-10-22T01:18:13.000Z",
+                      "uid": "35240-2d4787e1-395d-4e4d-9e3c-adf8add93107"
                     }
                   ],
-                  "variable": []
+                  "id": "dc77d755-1833-4d60-b68e-1932f47ee372",
+                  "createdAt": "2026-10-22T01:18:13.000Z",
+                  "updatedAt": "2026-10-22T01:18:13.000Z",
+                  "uid": "35240-dc77d755-1833-4d60-b68e-1932f47ee372"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"flowTags\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"editedBy\": \"string\",\n      \"createdBy\": \"string\",\n      \"cdate\": \"1987-06-10T08:47:53.513Z\",\n      \"edate\": \"1973-06-28T18:51:15.807Z\",\n      \"ip\": {\n        \"addresses\": [\n          \"string\",\n          \"string\"\n        ],\n        \"totalCount\": 1074\n      },\n      \"port\": [\n        \"string\",\n        \"string\"\n      ],\n      \"tcpFlags\": 9772,\n      \"protocol\": [\n        341,\n        6005\n      ],\n      \"deviceName\": [\n        \"string\",\n        \"string\"\n      ],\n      \"deviceType\": [\n        \"string\",\n        \"string\"\n      ],\n      \"site\": [\n        \"string\",\n        \"string\"\n      ],\n      \"interfaceName\": [\n        \"string\",\n        \"string\"\n      ],\n      \"asn\": [\n        \"string\",\n        \"string\"\n      ],\n      \"lasthopAsName\": [\n        \"string\",\n        \"string\"\n      ],\n      \"nexthopAsn\": [\n        \"string\",\n        \"string\"\n      ],\n      \"nexthopAsName\": [\n        \"string\",\n        \"string\"\n      ],\n      \"nexthop\": [\n        \"string\",\n        \"string\"\n      ],\n      \"bgpAspath\": [\n        \"string\",\n        \"string\"\n      ],\n      \"bgpCommunity\": [\n        \"string\",\n        \"string\"\n      ],\n      \"mac\": {\n        \"addresses\": [\n          \"string\",\n          \"string\"\n        ],\n        \"totalCount\": 7794\n      },\n      \"country\": [\n        \"string\",\n        \"string\"\n      ],\n      \"vlans\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"editedBy\": \"string\",\n      \"createdBy\": \"string\",\n      \"cdate\": \"1989-08-27T03:49:01.928Z\",\n      \"edate\": \"1962-08-31T15:36:27.157Z\",\n      \"ip\": {\n        \"addresses\": [\n          \"string\",\n          \"string\"\n        ],\n        \"totalCount\": 8727\n      },\n      \"port\": [\n        \"string\",\n        \"string\"\n      ],\n      \"tcpFlags\": 7884,\n      \"protocol\": [\n        1089,\n        6210\n      ],\n      \"deviceName\": [\n        \"string\",\n        \"string\"\n      ],\n      \"deviceType\": [\n        \"string\",\n        \"string\"\n      ],\n      \"site\": [\n        \"string\",\n        \"string\"\n      ],\n      \"interfaceName\": [\n        \"string\",\n        \"string\"\n      ],\n      \"asn\": [\n        \"string\",\n        \"string\"\n      ],\n      \"lasthopAsName\": [\n        \"string\",\n        \"string\"\n      ],\n      \"nexthopAsn\": [\n        \"string\",\n        \"string\"\n      ],\n      \"nexthopAsName\": [\n        \"string\",\n        \"string\"\n      ],\n      \"nexthop\": [\n        \"string\",\n        \"string\"\n      ],\n      \"bgpAspath\": [\n        \"string\",\n        \"string\"\n      ],\n      \"bgpCommunity\": [\n        \"string\",\n        \"string\"\n      ],\n      \"mac\": {\n        \"addresses\": [\n          \"string\",\n          \"string\"\n        ],\n        \"totalCount\": 8499\n      },\n      \"country\": [\n        \"string\",\n        \"string\"\n      ],\n      \"vlans\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ],\n  \"totalCount\": 669,\n  \"invalidCount\": 1463\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "20f88733-d55f-4e5c-8174-26cc0d8f69ac",
-              "name": "An unexpected error response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "flow_tag",
-                    "v202404alpha1",
-                    "tag"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+                  "name": "Search flow tag configuration",
+                  "id": "973a123b-6d60-4101-9b95-efef1a3f6339",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/flow_tag/v202404alpha1/tag?search.limit=<integer>&search.offset=<integer>&search.lookupFields=LOOKUP_FIELD_VALUE&search.lookupFields=LOOKUP_FIELD_VALUE&search.lookupValues=<string>&search.lookupValues=<string>&search.fieldLimit=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "flow_tag",
+                        "v202404alpha1",
+                        "tag"
+                      ],
+                      "query": [
+                        {
+                          "description": "Limit the number of rows to fetch",
+                          "key": "search.limit",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "The number rows to skip before returning",
+                          "key": "search.offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "List of lookup fields\n\n - LOOKUP_FIELD_UNSPECIFIED: Invalid value\n - LOOKUP_FIELD_VALUE: Lookup by name of tag",
+                          "key": "search.lookupFields",
+                          "value": "LOOKUP_FIELD_VALUE"
+                        },
+                        {
+                          "description": "List of lookup fields\n\n - LOOKUP_FIELD_UNSPECIFIED: Invalid value\n - LOOKUP_FIELD_VALUE: Lookup by name of tag",
+                          "key": "search.lookupFields",
+                          "value": "LOOKUP_FIELD_VALUE"
+                        },
+                        {
+                          "description": "List of lookup values",
+                          "key": "search.lookupValues",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "List of lookup values",
+                          "key": "search.lookupValues",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Limit the number of record to return for nested fields",
+                          "key": "search.fieldLimit",
+                          "value": "<integer>"
+                        }
+                      ]
+                    },
+                    "description": "Returns configuration of flow tag with search parameters."
+                  },
+                  "response": [
                     {
-                      "key": "search.limit",
-                      "value": "<integer>"
+                      "id": "5a9ca477-6ece-4896-aedd-6d4e63935fd8",
+                      "name": "A successful response.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-CH-Auth-Email",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/flow_tag/v202404alpha1/tag?search.limit=<integer>&search.offset=<integer>&search.lookupFields=LOOKUP_FIELD_VALUE&search.lookupValues=<string>&search.fieldLimit=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "flow_tag",
+                            "v202404alpha1",
+                            "tag"
+                          ],
+                          "query": [
+                            {
+                              "description": "Limit the number of rows to fetch",
+                              "key": "search.limit",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "The number rows to skip before returning",
+                              "key": "search.offset",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "List of lookup fields\n\n - LOOKUP_FIELD_UNSPECIFIED: Invalid value\n - LOOKUP_FIELD_VALUE: Lookup by name of tag",
+                              "key": "search.lookupFields",
+                              "value": "LOOKUP_FIELD_VALUE"
+                            },
+                            {
+                              "description": "List of lookup values",
+                              "key": "search.lookupValues",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Limit the number of record to return for nested fields",
+                              "key": "search.fieldLimit",
+                              "value": "<integer>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"flowTags\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"editedBy\": \"<string>\",\n      \"createdBy\": \"<string>\",\n      \"cdate\": \"<dateTime>\",\n      \"edate\": \"<dateTime>\",\n      \"ip\": {\n        \"addresses\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"totalCount\": \"<integer>\"\n      },\n      \"port\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"tcpFlags\": \"<long>\",\n      \"protocol\": [\n        \"<long>\",\n        \"<long>\"\n      ],\n      \"deviceName\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"deviceType\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"site\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"interfaceName\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"asn\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"lasthopAsName\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"nexthopAsn\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"nexthopAsName\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"nexthop\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"bgpAspath\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"bgpCommunity\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mac\": {\n        \"addresses\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"totalCount\": \"<integer>\"\n      },\n      \"country\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"vlans\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"editedBy\": \"<string>\",\n      \"createdBy\": \"<string>\",\n      \"cdate\": \"<dateTime>\",\n      \"edate\": \"<dateTime>\",\n      \"ip\": {\n        \"addresses\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"totalCount\": \"<integer>\"\n      },\n      \"port\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"tcpFlags\": \"<long>\",\n      \"protocol\": [\n        \"<long>\",\n        \"<long>\"\n      ],\n      \"deviceName\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"deviceType\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"site\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"interfaceName\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"asn\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"lasthopAsName\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"nexthopAsn\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"nexthopAsName\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"nexthop\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"bgpAspath\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"bgpCommunity\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mac\": {\n        \"addresses\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"totalCount\": \"<integer>\"\n      },\n      \"country\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"vlans\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"totalCount\": \"<long>\",\n  \"invalidCount\": \"<long>\"\n}",
+                      "createdAt": "2026-10-22T01:18:13.000Z",
+                      "updatedAt": "2026-10-22T01:18:13.000Z",
+                      "uid": "35240-5a9ca477-6ece-4896-aedd-6d4e63935fd8"
                     },
                     {
-                      "key": "search.offset",
-                      "value": "<integer>"
-                    },
-                    {
-                      "key": "search.lookupFields",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "search.lookupFields",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "search.lookupValues",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "search.lookupValues",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "search.fieldLimit",
-                      "value": "<integer>"
+                      "id": "d98ffd07-a97e-46b0-a3a2-02da1b2c8e0c",
+                      "name": "An unexpected error response.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-CH-Auth-Email",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/flow_tag/v202404alpha1/tag?search.limit=<integer>&search.offset=<integer>&search.lookupFields=LOOKUP_FIELD_VALUE&search.lookupValues=<string>&search.fieldLimit=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "flow_tag",
+                            "v202404alpha1",
+                            "tag"
+                          ],
+                          "query": [
+                            {
+                              "description": "Limit the number of rows to fetch",
+                              "key": "search.limit",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "The number rows to skip before returning",
+                              "key": "search.offset",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "List of lookup fields\n\n - LOOKUP_FIELD_UNSPECIFIED: Invalid value\n - LOOKUP_FIELD_VALUE: Lookup by name of tag",
+                              "key": "search.lookupFields",
+                              "value": "LOOKUP_FIELD_VALUE"
+                            },
+                            {
+                              "description": "List of lookup values",
+                              "key": "search.lookupValues",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Limit the number of record to return for nested fields",
+                              "key": "search.fieldLimit",
+                              "value": "<integer>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"dolora3\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"sint9b8\": {}\n    }\n  ]\n}",
+                      "createdAt": "2026-10-22T01:18:13.000Z",
+                      "updatedAt": "2026-10-22T01:18:13.000Z",
+                      "uid": "35240-d98ffd07-a97e-46b0-a3a2-02da1b2c8e0c"
                     }
                   ],
-                  "variable": []
+                  "createdAt": "2026-10-22T01:18:13.000Z",
+                  "updatedAt": "2026-10-22T01:18:13.000Z",
+                  "uid": "35240-973a123b-6d60-4101-9b95-efef1a3f6339"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "Create flow tag configuration",
+                  "id": "3905bdca-0c0a-492b-9450-4d2db7b2549b",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"flowTag\": {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"editedBy\": \"<string>\",\n    \"createdBy\": \"<string>\",\n    \"cdate\": \"<dateTime>\",\n    \"edate\": \"<dateTime>\",\n    \"ip\": {\n      \"addresses\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"totalCount\": \"<integer>\"\n    },\n    \"port\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"tcpFlags\": \"<long>\",\n    \"protocol\": [\n      \"<long>\",\n      \"<long>\"\n    ],\n    \"deviceName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"deviceType\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"site\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"interfaceName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"asn\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"lasthopAsName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nexthopAsn\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nexthopAsName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nexthop\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"bgpAspath\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"bgpCommunity\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"mac\": {\n      \"addresses\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"totalCount\": \"<integer>\"\n    },\n    \"country\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"vlans\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/flow_tag/v202404alpha1/tag",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "flow_tag",
+                        "v202404alpha1",
+                        "tag"
+                      ]
+                    },
+                    "description": "Create a flow tag configuration."
+                  },
+                  "response": [
+                    {
+                      "id": "67f157e6-83e2-42fc-a48c-3796955d0720",
+                      "name": "A successful response.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-CH-Auth-Email",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"flowTag\": {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"editedBy\": \"<string>\",\n    \"createdBy\": \"<string>\",\n    \"cdate\": \"<dateTime>\",\n    \"edate\": \"<dateTime>\",\n    \"ip\": {\n      \"addresses\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"totalCount\": \"<integer>\"\n    },\n    \"port\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"tcpFlags\": \"<long>\",\n    \"protocol\": [\n      \"<long>\",\n      \"<long>\"\n    ],\n    \"deviceName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"deviceType\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"site\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"interfaceName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"asn\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"lasthopAsName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nexthopAsn\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nexthopAsName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nexthop\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"bgpAspath\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"bgpCommunity\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"mac\": {\n      \"addresses\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"totalCount\": \"<integer>\"\n    },\n    \"country\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"vlans\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/flow_tag/v202404alpha1/tag",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "flow_tag",
+                            "v202404alpha1",
+                            "tag"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"flowTag\": {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"editedBy\": \"<string>\",\n    \"createdBy\": \"<string>\",\n    \"cdate\": \"<dateTime>\",\n    \"edate\": \"<dateTime>\",\n    \"ip\": {\n      \"addresses\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"totalCount\": \"<integer>\"\n    },\n    \"port\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"tcpFlags\": \"<long>\",\n    \"protocol\": [\n      \"<long>\",\n      \"<long>\"\n    ],\n    \"deviceName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"deviceType\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"site\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"interfaceName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"asn\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"lasthopAsName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nexthopAsn\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nexthopAsName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nexthop\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"bgpAspath\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"bgpCommunity\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"mac\": {\n      \"addresses\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"totalCount\": \"<integer>\"\n    },\n    \"country\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"vlans\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                      "createdAt": "2026-10-22T01:18:13.000Z",
+                      "updatedAt": "2026-10-22T01:18:13.000Z",
+                      "uid": "35240-67f157e6-83e2-42fc-a48c-3796955d0720"
+                    },
+                    {
+                      "id": "6668003e-1079-4dc7-8095-a70b5a0cf84f",
+                      "name": "An unexpected error response.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-CH-Auth-Email",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"flowTag\": {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"editedBy\": \"<string>\",\n    \"createdBy\": \"<string>\",\n    \"cdate\": \"<dateTime>\",\n    \"edate\": \"<dateTime>\",\n    \"ip\": {\n      \"addresses\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"totalCount\": \"<integer>\"\n    },\n    \"port\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"tcpFlags\": \"<long>\",\n    \"protocol\": [\n      \"<long>\",\n      \"<long>\"\n    ],\n    \"deviceName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"deviceType\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"site\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"interfaceName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"asn\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"lasthopAsName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nexthopAsn\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nexthopAsName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nexthop\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"bgpAspath\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"bgpCommunity\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"mac\": {\n      \"addresses\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"totalCount\": \"<integer>\"\n    },\n    \"country\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"vlans\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/flow_tag/v202404alpha1/tag",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "flow_tag",
+                            "v202404alpha1",
+                            "tag"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"dolora3\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"sint9b8\": {}\n    }\n  ]\n}",
+                      "createdAt": "2026-10-22T01:18:13.000Z",
+                      "updatedAt": "2026-10-22T01:18:13.000Z",
+                      "uid": "35240-6668003e-1079-4dc7-8095-a70b5a0cf84f"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:18:13.000Z",
+                  "updatedAt": "2026-10-22T01:18:13.000Z",
+                  "uid": "35240-3905bdca-0c0a-492b-9450-4d2db7b2549b"
                 }
               ],
-              "body": "{\n  \"code\": 2660,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "af9f24e4-899d-4e0a-9597-0f0d489414d4",
+              "createdAt": "2026-10-22T01:18:13.000Z",
+              "updatedAt": "2026-10-22T01:18:13.000Z",
+              "uid": "35240-af9f24e4-899d-4e0a-9597-0f0d489414d4"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "fdbb2a96-2540-4dd8-a90a-b8184b45f824",
-          "name": "Create flow tag configuration.",
-          "request": {
-            "name": "Create flow tag configuration.",
-            "description": {
-              "content": "Create a flow tag configuration.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "flow_tag",
-                "v202404alpha1",
-                "tag"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"flowTag\": {\n    \"ip\": {\n      \"addresses\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"totalCount\": \"<integer>\"\n    },\n    \"port\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"tcpFlags\": \"<long>\",\n    \"protocol\": [\n      \"<long>\",\n      \"<long>\"\n    ],\n    \"deviceName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"deviceType\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"site\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"interfaceName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"asn\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"lasthopAsName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nexthopAsn\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nexthopAsName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nexthop\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"bgpAspath\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"bgpCommunity\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"mac\": {\n      \"addresses\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"totalCount\": \"<integer>\"\n    },\n    \"country\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"vlans\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "51a37da6-ae2b-43e2-8752-d3b83883cfeb",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "flow_tag",
-                    "v202404alpha1",
-                    "tag"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"flowTag\": {\n    \"ip\": {\n      \"addresses\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"totalCount\": \"<integer>\"\n    },\n    \"port\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"tcpFlags\": \"<long>\",\n    \"protocol\": [\n      \"<long>\",\n      \"<long>\"\n    ],\n    \"deviceName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"deviceType\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"site\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"interfaceName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"asn\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"lasthopAsName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nexthopAsn\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nexthopAsName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nexthop\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"bgpAspath\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"bgpCommunity\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"mac\": {\n      \"addresses\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"totalCount\": \"<integer>\"\n    },\n    \"country\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"vlans\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"flowTag\": {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"editedBy\": \"string\",\n    \"createdBy\": \"string\",\n    \"cdate\": \"1970-07-12T09:52:42.038Z\",\n    \"edate\": \"1951-08-27T10:41:14.823Z\",\n    \"ip\": {\n      \"addresses\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"totalCount\": \"<integer>\"\n    },\n    \"port\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"tcpFlags\": \"<long>\",\n    \"protocol\": [\n      \"<long>\",\n      \"<long>\"\n    ],\n    \"deviceName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"deviceType\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"site\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"interfaceName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"asn\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"lasthopAsName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nexthopAsn\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nexthopAsName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nexthop\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"bgpAspath\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"bgpCommunity\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"mac\": {\n      \"addresses\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"totalCount\": \"<integer>\"\n    },\n    \"country\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"vlans\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "4aa9cc40-1e4b-485f-8d6c-588a627a2927",
-              "name": "An unexpected error response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "flow_tag",
-                    "v202404alpha1",
-                    "tag"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"flowTag\": {\n    \"ip\": {\n      \"addresses\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"totalCount\": \"<integer>\"\n    },\n    \"port\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"tcpFlags\": \"<long>\",\n    \"protocol\": [\n      \"<long>\",\n      \"<long>\"\n    ],\n    \"deviceName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"deviceType\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"site\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"interfaceName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"asn\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"lasthopAsName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nexthopAsn\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nexthopAsName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nexthop\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"bgpAspath\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"bgpCommunity\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"mac\": {\n      \"addresses\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"totalCount\": \"<integer>\"\n    },\n    \"country\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"vlans\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 7371,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "94927c45-62b7-42d8-8945-a2784861a2a0",
-          "name": "Update flow tag configuration.",
-          "request": {
-            "name": "Update flow tag configuration.",
-            "description": {
-              "content": "Update a flow tag configuration.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "flow_tag",
-                "v202404alpha1",
-                "tag",
-                ":flowTag.id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "flowTag.id",
-                  "description": "(Required) Unique system assigned identifier of the flow tag"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PUT",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"flowTag\": {\n    \"ip\": {\n      \"addresses\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"totalCount\": \"<integer>\"\n    },\n    \"port\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"tcpFlags\": \"<long>\",\n    \"protocol\": [\n      \"<long>\",\n      \"<long>\"\n    ],\n    \"deviceName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"deviceType\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"site\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"interfaceName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"asn\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"lasthopAsName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nexthopAsn\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nexthopAsName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nexthop\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"bgpAspath\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"bgpCommunity\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"mac\": {\n      \"addresses\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"totalCount\": \"<integer>\"\n    },\n    \"country\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"vlans\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "9bacfd3b-7f15-4a1e-8e5e-9dbd2636bc64",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "flow_tag",
-                    "v202404alpha1",
-                    "tag",
-                    ":flowTag.id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "flowTag.id",
-                      "description": "(Required) Unique system assigned identifier of the flow tag"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"flowTag\": {\n    \"ip\": {\n      \"addresses\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"totalCount\": \"<integer>\"\n    },\n    \"port\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"tcpFlags\": \"<long>\",\n    \"protocol\": [\n      \"<long>\",\n      \"<long>\"\n    ],\n    \"deviceName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"deviceType\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"site\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"interfaceName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"asn\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"lasthopAsName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nexthopAsn\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nexthopAsName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nexthop\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"bgpAspath\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"bgpCommunity\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"mac\": {\n      \"addresses\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"totalCount\": \"<integer>\"\n    },\n    \"country\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"vlans\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"flowTag\": {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"editedBy\": \"string\",\n    \"createdBy\": \"string\",\n    \"cdate\": \"1954-04-25T15:07:18.001Z\",\n    \"edate\": \"1984-09-06T14:05:44.267Z\",\n    \"ip\": {\n      \"addresses\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"totalCount\": \"<integer>\"\n    },\n    \"port\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"tcpFlags\": \"<long>\",\n    \"protocol\": [\n      \"<long>\",\n      \"<long>\"\n    ],\n    \"deviceName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"deviceType\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"site\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"interfaceName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"asn\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"lasthopAsName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nexthopAsn\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nexthopAsName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nexthop\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"bgpAspath\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"bgpCommunity\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"mac\": {\n      \"addresses\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"totalCount\": \"<integer>\"\n    },\n    \"country\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"vlans\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "1b64b25d-66c6-4b9b-8655-18d8430d9a01",
-              "name": "An unexpected error response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "flow_tag",
-                    "v202404alpha1",
-                    "tag",
-                    ":flowTag.id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "flowTag.id",
-                      "description": "(Required) Unique system assigned identifier of the flow tag"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"flowTag\": {\n    \"ip\": {\n      \"addresses\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"totalCount\": \"<integer>\"\n    },\n    \"port\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"tcpFlags\": \"<long>\",\n    \"protocol\": [\n      \"<long>\",\n      \"<long>\"\n    ],\n    \"deviceName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"deviceType\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"site\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"interfaceName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"asn\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"lasthopAsName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nexthopAsn\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nexthopAsName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nexthop\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"bgpAspath\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"bgpCommunity\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"mac\": {\n      \"addresses\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"totalCount\": \"<integer>\"\n    },\n    \"country\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"vlans\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 7371,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "93a8779f-2ec0-45bc-ae03-a6ce0428cc55",
-          "name": "Get flow tag configuration.",
-          "request": {
-            "name": "Get flow tag configuration.",
-            "description": {
-              "content": "Returns configuration of flow tag with specified ID.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "flow_tag",
-                "v202404alpha1",
-                "tag",
-                ":flowTag.id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "flowTag.id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "d65e5689-eeac-4fc8-bbb1-6037fef73819",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "flow_tag",
-                    "v202404alpha1",
-                    "tag",
-                    ":flowTag.id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "flowTag.id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"flowTag\": {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"editedBy\": \"string\",\n    \"createdBy\": \"string\",\n    \"cdate\": \"2025-02-26T14:48:07.681Z\",\n    \"edate\": \"2017-12-06T13:18:32.287Z\",\n    \"ip\": {\n      \"addresses\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"totalCount\": \"<integer>\"\n    },\n    \"port\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"tcpFlags\": \"<long>\",\n    \"protocol\": [\n      \"<long>\",\n      \"<long>\"\n    ],\n    \"deviceName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"deviceType\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"site\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"interfaceName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"asn\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"lasthopAsName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nexthopAsn\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nexthopAsName\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nexthop\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"bgpAspath\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"bgpCommunity\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"mac\": {\n      \"addresses\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"totalCount\": \"<integer>\"\n    },\n    \"country\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"vlans\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "460b5caf-4d8d-4beb-8f81-462baf8b73cf",
-              "name": "An unexpected error response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "flow_tag",
-                    "v202404alpha1",
-                    "tag",
-                    ":flowTag.id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "flowTag.id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 7371,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "09e4109d-d962-4061-a7d8-22d7bd1d92a6",
-          "name": "Delete flow tag configuration.",
-          "request": {
-            "name": "Delete flow tag configuration.",
-            "description": {
-              "content": "Delete a flow tag configuration with id.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "flow_tag",
-                "v202404alpha1",
-                "tag",
-                ":flowTag.id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "flowTag.id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "cadc8aa8-23cc-473c-ba66-72f4f43a3bf6",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "flow_tag",
-                    "v202404alpha1",
-                    "tag",
-                    ":flowTag.id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "flowTag.id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "bffad308-b37d-4f41-a2a0-cf1270ed9225",
-              "name": "An unexpected error response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "flow_tag",
-                    "v202404alpha1",
-                    "tag",
-                    ":flowTag.id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "flowTag.id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 7371,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "8370642b-387b-4cc4-a4ea-d5660cf6753b",
+          "createdAt": "2026-10-22T01:18:13.000Z",
+          "updatedAt": "2026-10-22T01:18:13.000Z",
+          "uid": "35240-8370642b-387b-4cc4-a4ea-d5660cf6753b"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "/",
-      "key": "baseUrl"
+      "id": "2bddbfe6-a464-45b5-92bd-1afc61155f86",
+      "createdAt": "2026-10-22T01:18:13.000Z",
+      "updatedAt": "2026-10-22T01:18:13.000Z",
+      "uid": "35240-2bddbfe6-a464-45b5-92bd-1afc61155f86"
     }
   ],
   "auth": {
@@ -900,25 +907,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "X-CH-Auth-Email"
+        "value": "X-CH-Auth-Email",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "46989049-029b-4b15-b3ce-ccf536305741",
-    "name": "AI Advisor AiAdvisorDataService FlowTagService API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "# Overview\nProvides programmatic access to AI Advisor.\n\nContact Support:\n Name: Kentik API Engineering",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
     }
-  }
+  ]
 }

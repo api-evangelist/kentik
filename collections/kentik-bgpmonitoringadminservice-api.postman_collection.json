@@ -1,983 +1,998 @@
 {
+  "info": {
+    "_postman_id": "02a86cdb-e5bf-4b58-aa94-f181c0a87b1f",
+    "name": "Bgp Monitoring Admin Service API",
+    "description": "# Overview\nThe BGP Monitoring API provides programmatic access to Kentik's BGP monitoring system.\n\nContact Support:\n Name: Kentik API Engineering",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:17:30.000Z",
+    "updatedAt": "2026-10-22T01:17:30.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-02a86cdb-e5bf-4b58-aa94-f181c0a87b1f"
+  },
   "item": [
     {
-      "id": "a5aa189c-5238-4856-a8a9-b8bca4c59c3b",
-      "name": "BgpMonitoringAdminService",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "bgp_monitoring",
       "item": [
         {
-          "id": "0fccffa4-a7ef-4605-bc81-4bc1a6f6490b",
-          "name": "List BGP Monitors.",
-          "request": {
-            "name": "List BGP Monitors.",
-            "description": {
-              "content": "Returns list of all BGP monitors present in the account.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "bgp_monitoring",
-                "v202210",
-                "monitors"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "v202210",
+          "item": [
             {
-              "id": "de4b83c4-0ead-4ce3-9cb2-8d32d728e0f5",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "bgp_monitoring",
-                    "v202210",
-                    "monitors"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "monitors",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "{id}",
+                  "item": [
+                    {
+                      "name": "status",
+                      "item": [
+                        {
+                          "name": "Sets administrative status of a BGP monitor",
+                          "id": "9cd584a3-3501-417e-9429-b65ba1c0827f",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"status\": \"BGP_MONITOR_STATUS_UNSPECIFIED\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/bgp_monitoring/v202210/monitors/:id/status",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "bgp_monitoring",
+                                "v202210",
+                                "monitors",
+                                ":id",
+                                "status"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "7b345f68-4e46-403c-9ffb-85d613115610",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) ID of the BGP monitor whose status is to be modified"
+                                }
+                              ]
+                            },
+                            "description": "Sets administrative status of BGP monitor with specific ID."
+                          },
+                          "response": [
+                            {
+                              "id": "dfb81ea2-7394-42ad-82be-0a889c566178",
+                              "name": "A successful response.",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-CH-Auth-Email",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"status\": \"BGP_MONITOR_STATUS_UNSPECIFIED\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/bgp_monitoring/v202210/monitors/:id/status",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "bgp_monitoring",
+                                    "v202210",
+                                    "monitors",
+                                    ":id",
+                                    "status"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{}",
+                              "createdAt": "2026-10-22T01:17:30.000Z",
+                              "updatedAt": "2026-10-22T01:17:30.000Z",
+                              "uid": "35240-dfb81ea2-7394-42ad-82be-0a889c566178"
+                            },
+                            {
+                              "id": "64464680-3b8e-4a0f-bcce-e344f18553de",
+                              "name": "An unexpected error response.",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-CH-Auth-Email",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"status\": \"BGP_MONITOR_STATUS_UNSPECIFIED\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/bgp_monitoring/v202210/monitors/:id/status",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "bgp_monitoring",
+                                    "v202210",
+                                    "monitors",
+                                    ":id",
+                                    "status"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"dolor_c00\": {},\n      \"in_9\": {}\n    },\n    {\n      \"@type\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-10-22T01:17:30.000Z",
+                              "updatedAt": "2026-10-22T01:17:30.000Z",
+                              "uid": "35240-64464680-3b8e-4a0f-bcce-e344f18553de"
+                            }
+                          ],
+                          "createdAt": "2026-10-22T01:17:30.000Z",
+                          "updatedAt": "2026-10-22T01:17:30.000Z",
+                          "uid": "35240-9cd584a3-3501-417e-9429-b65ba1c0827f"
+                        }
+                      ],
+                      "id": "ab1b5ab8-bbe5-4a8b-bffe-fd857f8394e3",
+                      "createdAt": "2026-10-22T01:17:30.000Z",
+                      "updatedAt": "2026-10-22T01:17:30.000Z",
+                      "uid": "35240-ab1b5ab8-bbe5-4a8b-bffe-fd857f8394e3"
+                    },
+                    {
+                      "name": "Get BGP Monitor configuration",
+                      "id": "26baa0a9-8038-4f37-b8de-6c887b97f415",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/bgp_monitoring/v202210/monitors/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "bgp_monitoring",
+                            "v202210",
+                            "monitors",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "fd38eec3-65af-4fd8-a3f8-995e7cb27df2",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) ID of the BGP monitor to be retrieved"
+                            }
+                          ]
+                        },
+                        "description": "Returns configuration of existing BGP monitor with specific ID."
+                      },
+                      "response": [
+                        {
+                          "id": "be78f141-4c87-4339-9766-5e7e2009dd59",
+                          "name": "A successful response.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-CH-Auth-Email",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/bgp_monitoring/v202210/monitors/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "bgp_monitoring",
+                                "v202210",
+                                "monitors",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"monitor\": {\n    \"name\": \"<string>\",\n    \"id\": \"<string>\",\n    \"status\": \"BGP_MONITOR_STATUS_UNSPECIFIED\",\n    \"settings\": {\n      \"targets\": [\n        {\n          \"afi\": \"AFI_UNSPECIFIED\",\n          \"safi\": \"SAFI_UNSPECIFIED\",\n          \"prefix\": \"<string>\"\n        },\n        {\n          \"afi\": \"AFI_UNSPECIFIED\",\n          \"safi\": \"SAFI_UNSPECIFIED\",\n          \"prefix\": \"<string>\"\n        }\n      ],\n      \"allowedAsns\": [\n        \"<long>\",\n        \"<long>\"\n      ],\n      \"checkRpki\": \"<boolean>\",\n      \"includeCoveredPrefixes\": \"<boolean>\",\n      \"healthSettings\": {\n        \"reachabilityWarning\": \"<float>\",\n        \"reachabilityCritical\": \"<float>\"\n      },\n      \"notificationChannels\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"notes\": \"<string>\",\n      \"allowedUpstreams\": [\n        \"<long>\",\n        \"<long>\"\n      ]\n    },\n    \"cdate\": \"<dateTime>\",\n    \"edate\": \"<dateTime>\",\n    \"createdBy\": {\n      \"id\": \"<string>\",\n      \"email\": \"<string>\",\n      \"fullName\": \"<string>\"\n    },\n    \"lastUpdatedBy\": {\n      \"id\": \"<string>\",\n      \"email\": \"<string>\",\n      \"fullName\": \"<string>\"\n    },\n    \"labels\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                          "createdAt": "2026-10-22T01:17:30.000Z",
+                          "updatedAt": "2026-10-22T01:17:30.000Z",
+                          "uid": "35240-be78f141-4c87-4339-9766-5e7e2009dd59"
+                        },
+                        {
+                          "id": "2cde0553-129b-466e-b1b3-c32a979cdb66",
+                          "name": "An unexpected error response.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-CH-Auth-Email",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/bgp_monitoring/v202210/monitors/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "bgp_monitoring",
+                                "v202210",
+                                "monitors",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"dolor_c00\": {},\n      \"in_9\": {}\n    },\n    {\n      \"@type\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-10-22T01:17:30.000Z",
+                          "updatedAt": "2026-10-22T01:17:30.000Z",
+                          "uid": "35240-2cde0553-129b-466e-b1b3-c32a979cdb66"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T01:17:30.000Z",
+                      "updatedAt": "2026-10-22T01:17:30.000Z",
+                      "uid": "35240-26baa0a9-8038-4f37-b8de-6c887b97f415"
+                    },
+                    {
+                      "name": "Delete existing BGP Monitor",
+                      "id": "ddac858d-4742-412d-8a91-0e6403090604",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/bgp_monitoring/v202210/monitors/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "bgp_monitoring",
+                            "v202210",
+                            "monitors",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "dcf18f1f-8bac-4b8e-9c67-354ea3e908ca",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) ID of the BGP monitor to be deleted"
+                            }
+                          ]
+                        },
+                        "description": "Delete BGP monitor with with specific ID."
+                      },
+                      "response": [
+                        {
+                          "id": "8454bac9-418b-487c-b6df-02c3c0a5813e",
+                          "name": "A successful response.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-CH-Auth-Email",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/bgp_monitoring/v202210/monitors/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "bgp_monitoring",
+                                "v202210",
+                                "monitors",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{}",
+                          "createdAt": "2026-10-22T01:17:30.000Z",
+                          "updatedAt": "2026-10-22T01:17:30.000Z",
+                          "uid": "35240-8454bac9-418b-487c-b6df-02c3c0a5813e"
+                        },
+                        {
+                          "id": "7b2bde43-2f07-4a17-b720-59657e59b4c9",
+                          "name": "An unexpected error response.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-CH-Auth-Email",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/bgp_monitoring/v202210/monitors/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "bgp_monitoring",
+                                "v202210",
+                                "monitors",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"dolor_c00\": {},\n      \"in_9\": {}\n    },\n    {\n      \"@type\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-10-22T01:17:30.000Z",
+                          "updatedAt": "2026-10-22T01:17:30.000Z",
+                          "uid": "35240-7b2bde43-2f07-4a17-b720-59657e59b4c9"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T01:17:30.000Z",
+                      "updatedAt": "2026-10-22T01:17:30.000Z",
+                      "uid": "35240-ddac858d-4742-412d-8a91-0e6403090604"
+                    },
+                    {
+                      "name": "Update configuration of a BGP monitor",
+                      "id": "a56bc32f-b0ef-43e8-9336-0a6d52ceb95d",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"monitor\": {\n    \"name\": \"<string>\",\n    \"status\": \"BGP_MONITOR_STATUS_UNSPECIFIED\",\n    \"settings\": {\n      \"targets\": [\n        {\n          \"afi\": \"AFI_UNSPECIFIED\",\n          \"safi\": \"SAFI_UNSPECIFIED\",\n          \"prefix\": \"<string>\"\n        },\n        {\n          \"afi\": \"AFI_UNSPECIFIED\",\n          \"safi\": \"SAFI_UNSPECIFIED\",\n          \"prefix\": \"<string>\"\n        }\n      ],\n      \"allowedAsns\": [\n        \"<long>\",\n        \"<long>\"\n      ],\n      \"checkRpki\": \"<boolean>\",\n      \"includeCoveredPrefixes\": \"<boolean>\",\n      \"healthSettings\": {\n        \"reachabilityWarning\": \"<float>\",\n        \"reachabilityCritical\": \"<float>\"\n      },\n      \"notificationChannels\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"notes\": \"<string>\",\n      \"allowedUpstreams\": [\n        \"<long>\",\n        \"<long>\"\n      ]\n    },\n    \"cdate\": \"<dateTime>\",\n    \"edate\": \"<dateTime>\",\n    \"createdBy\": {\n      \"id\": \"<string>\",\n      \"email\": \"<string>\",\n      \"fullName\": \"<string>\"\n    },\n    \"lastUpdatedBy\": {\n      \"id\": \"<string>\",\n      \"email\": \"<string>\",\n      \"fullName\": \"<string>\"\n    },\n    \"labels\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"name\": -3753295\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/bgp_monitoring/v202210/monitors/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "bgp_monitoring",
+                            "v202210",
+                            "monitors",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "c19ff9dc-ac6c-4d26-99dc-c27145b3f520",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) System generated unique identifier"
+                            }
+                          ]
+                        },
+                        "description": "Updates configuration of BGP monitor with specific ID and returns updated configuration."
+                      },
+                      "response": [
+                        {
+                          "id": "02166ab8-5354-4583-be3d-9bd03f58f849",
+                          "name": "A successful response.",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-CH-Auth-Email",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"monitor\": {\n    \"name\": \"<string>\",\n    \"status\": \"BGP_MONITOR_STATUS_UNSPECIFIED\",\n    \"settings\": {\n      \"targets\": [\n        {\n          \"afi\": \"AFI_UNSPECIFIED\",\n          \"safi\": \"SAFI_UNSPECIFIED\",\n          \"prefix\": \"<string>\"\n        },\n        {\n          \"afi\": \"AFI_UNSPECIFIED\",\n          \"safi\": \"SAFI_UNSPECIFIED\",\n          \"prefix\": \"<string>\"\n        }\n      ],\n      \"allowedAsns\": [\n        \"<long>\",\n        \"<long>\"\n      ],\n      \"checkRpki\": \"<boolean>\",\n      \"includeCoveredPrefixes\": \"<boolean>\",\n      \"healthSettings\": {\n        \"reachabilityWarning\": \"<float>\",\n        \"reachabilityCritical\": \"<float>\"\n      },\n      \"notificationChannels\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"notes\": \"<string>\",\n      \"allowedUpstreams\": [\n        \"<long>\",\n        \"<long>\"\n      ]\n    },\n    \"cdate\": \"<dateTime>\",\n    \"edate\": \"<dateTime>\",\n    \"createdBy\": {\n      \"id\": \"<string>\",\n      \"email\": \"<string>\",\n      \"fullName\": \"<string>\"\n    },\n    \"lastUpdatedBy\": {\n      \"id\": \"<string>\",\n      \"email\": \"<string>\",\n      \"fullName\": \"<string>\"\n    },\n    \"labels\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"name\": -3753295\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/bgp_monitoring/v202210/monitors/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "bgp_monitoring",
+                                "v202210",
+                                "monitors",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"monitor\": {\n    \"name\": \"<string>\",\n    \"id\": \"<string>\",\n    \"status\": \"BGP_MONITOR_STATUS_UNSPECIFIED\",\n    \"settings\": {\n      \"targets\": [\n        {\n          \"afi\": \"AFI_UNSPECIFIED\",\n          \"safi\": \"SAFI_UNSPECIFIED\",\n          \"prefix\": \"<string>\"\n        },\n        {\n          \"afi\": \"AFI_UNSPECIFIED\",\n          \"safi\": \"SAFI_UNSPECIFIED\",\n          \"prefix\": \"<string>\"\n        }\n      ],\n      \"allowedAsns\": [\n        \"<long>\",\n        \"<long>\"\n      ],\n      \"checkRpki\": \"<boolean>\",\n      \"includeCoveredPrefixes\": \"<boolean>\",\n      \"healthSettings\": {\n        \"reachabilityWarning\": \"<float>\",\n        \"reachabilityCritical\": \"<float>\"\n      },\n      \"notificationChannels\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"notes\": \"<string>\",\n      \"allowedUpstreams\": [\n        \"<long>\",\n        \"<long>\"\n      ]\n    },\n    \"cdate\": \"<dateTime>\",\n    \"edate\": \"<dateTime>\",\n    \"createdBy\": {\n      \"id\": \"<string>\",\n      \"email\": \"<string>\",\n      \"fullName\": \"<string>\"\n    },\n    \"lastUpdatedBy\": {\n      \"id\": \"<string>\",\n      \"email\": \"<string>\",\n      \"fullName\": \"<string>\"\n    },\n    \"labels\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                          "createdAt": "2026-10-22T01:17:30.000Z",
+                          "updatedAt": "2026-10-22T01:17:30.000Z",
+                          "uid": "35240-02166ab8-5354-4583-be3d-9bd03f58f849"
+                        },
+                        {
+                          "id": "d061bbc3-969d-4234-b793-b679aae5d270",
+                          "name": "An unexpected error response.",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-CH-Auth-Email",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"monitor\": {\n    \"name\": \"<string>\",\n    \"status\": \"BGP_MONITOR_STATUS_UNSPECIFIED\",\n    \"settings\": {\n      \"targets\": [\n        {\n          \"afi\": \"AFI_UNSPECIFIED\",\n          \"safi\": \"SAFI_UNSPECIFIED\",\n          \"prefix\": \"<string>\"\n        },\n        {\n          \"afi\": \"AFI_UNSPECIFIED\",\n          \"safi\": \"SAFI_UNSPECIFIED\",\n          \"prefix\": \"<string>\"\n        }\n      ],\n      \"allowedAsns\": [\n        \"<long>\",\n        \"<long>\"\n      ],\n      \"checkRpki\": \"<boolean>\",\n      \"includeCoveredPrefixes\": \"<boolean>\",\n      \"healthSettings\": {\n        \"reachabilityWarning\": \"<float>\",\n        \"reachabilityCritical\": \"<float>\"\n      },\n      \"notificationChannels\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"notes\": \"<string>\",\n      \"allowedUpstreams\": [\n        \"<long>\",\n        \"<long>\"\n      ]\n    },\n    \"cdate\": \"<dateTime>\",\n    \"edate\": \"<dateTime>\",\n    \"createdBy\": {\n      \"id\": \"<string>\",\n      \"email\": \"<string>\",\n      \"fullName\": \"<string>\"\n    },\n    \"lastUpdatedBy\": {\n      \"id\": \"<string>\",\n      \"email\": \"<string>\",\n      \"fullName\": \"<string>\"\n    },\n    \"labels\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"name\": -3753295\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/bgp_monitoring/v202210/monitors/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "bgp_monitoring",
+                                "v202210",
+                                "monitors",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"dolor_c00\": {},\n      \"in_9\": {}\n    },\n    {\n      \"@type\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-10-22T01:17:30.000Z",
+                          "updatedAt": "2026-10-22T01:17:30.000Z",
+                          "uid": "35240-d061bbc3-969d-4234-b793-b679aae5d270"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T01:17:30.000Z",
+                      "updatedAt": "2026-10-22T01:17:30.000Z",
+                      "uid": "35240-a56bc32f-b0ef-43e8-9336-0a6d52ceb95d"
+                    }
+                  ],
+                  "id": "4c7834aa-bbc0-46e1-bb83-5bed672b53c3",
+                  "createdAt": "2026-10-22T01:17:30.000Z",
+                  "updatedAt": "2026-10-22T01:17:30.000Z",
+                  "uid": "35240-4c7834aa-bbc0-46e1-bb83-5bed672b53c3"
+                },
+                {
+                  "name": "List BGP Monitors",
+                  "id": "2d411b39-7896-4f42-b6e5-d019aa1a4cdb",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/bgp_monitoring/v202210/monitors",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "bgp_monitoring",
+                        "v202210",
+                        "monitors"
+                      ]
+                    },
+                    "description": "Returns list of all BGP monitors present in the account."
+                  },
+                  "response": [
+                    {
+                      "id": "d4166910-51d0-4557-9593-8f08a42bf5a3",
+                      "name": "A successful response.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-CH-Auth-Email",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/bgp_monitoring/v202210/monitors",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "bgp_monitoring",
+                            "v202210",
+                            "monitors"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"monitors\": [\n    {\n      \"name\": \"<string>\",\n      \"id\": \"<string>\",\n      \"status\": \"BGP_MONITOR_STATUS_UNSPECIFIED\",\n      \"settings\": {\n        \"targets\": [\n          {\n            \"afi\": \"AFI_UNSPECIFIED\",\n            \"safi\": \"SAFI_UNSPECIFIED\",\n            \"prefix\": \"<string>\"\n          },\n          {\n            \"afi\": \"AFI_UNSPECIFIED\",\n            \"safi\": \"SAFI_UNSPECIFIED\",\n            \"prefix\": \"<string>\"\n          }\n        ],\n        \"allowedAsns\": [\n          \"<long>\",\n          \"<long>\"\n        ],\n        \"checkRpki\": \"<boolean>\",\n        \"includeCoveredPrefixes\": \"<boolean>\",\n        \"healthSettings\": {\n          \"reachabilityWarning\": \"<float>\",\n          \"reachabilityCritical\": \"<float>\"\n        },\n        \"notificationChannels\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"notes\": \"<string>\",\n        \"allowedUpstreams\": [\n          \"<long>\",\n          \"<long>\"\n        ]\n      },\n      \"cdate\": \"<dateTime>\",\n      \"edate\": \"<dateTime>\",\n      \"createdBy\": {\n        \"id\": \"<string>\",\n        \"email\": \"<string>\",\n        \"fullName\": \"<string>\"\n      },\n      \"lastUpdatedBy\": {\n        \"id\": \"<string>\",\n        \"email\": \"<string>\",\n        \"fullName\": \"<string>\"\n      },\n      \"labels\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"name\": \"<string>\",\n      \"id\": \"<string>\",\n      \"status\": \"BGP_MONITOR_STATUS_UNSPECIFIED\",\n      \"settings\": {\n        \"targets\": [\n          {\n            \"afi\": \"AFI_UNSPECIFIED\",\n            \"safi\": \"SAFI_UNSPECIFIED\",\n            \"prefix\": \"<string>\"\n          },\n          {\n            \"afi\": \"AFI_UNSPECIFIED\",\n            \"safi\": \"SAFI_UNSPECIFIED\",\n            \"prefix\": \"<string>\"\n          }\n        ],\n        \"allowedAsns\": [\n          \"<long>\",\n          \"<long>\"\n        ],\n        \"checkRpki\": \"<boolean>\",\n        \"includeCoveredPrefixes\": \"<boolean>\",\n        \"healthSettings\": {\n          \"reachabilityWarning\": \"<float>\",\n          \"reachabilityCritical\": \"<float>\"\n        },\n        \"notificationChannels\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"notes\": \"<string>\",\n        \"allowedUpstreams\": [\n          \"<long>\",\n          \"<long>\"\n        ]\n      },\n      \"cdate\": \"<dateTime>\",\n      \"edate\": \"<dateTime>\",\n      \"createdBy\": {\n        \"id\": \"<string>\",\n        \"email\": \"<string>\",\n        \"fullName\": \"<string>\"\n      },\n      \"lastUpdatedBy\": {\n        \"id\": \"<string>\",\n        \"email\": \"<string>\",\n        \"fullName\": \"<string>\"\n      },\n      \"labels\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"invalidCount\": \"<long>\"\n}",
+                      "createdAt": "2026-10-22T01:17:30.000Z",
+                      "updatedAt": "2026-10-22T01:17:30.000Z",
+                      "uid": "35240-d4166910-51d0-4557-9593-8f08a42bf5a3"
+                    },
+                    {
+                      "id": "8ae52204-c0ee-4532-9980-4e9b97b7d84a",
+                      "name": "An unexpected error response.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-CH-Auth-Email",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/bgp_monitoring/v202210/monitors",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "bgp_monitoring",
+                            "v202210",
+                            "monitors"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"dolor_c00\": {},\n      \"in_9\": {}\n    },\n    {\n      \"@type\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-10-22T01:17:30.000Z",
+                      "updatedAt": "2026-10-22T01:17:30.000Z",
+                      "uid": "35240-8ae52204-c0ee-4532-9980-4e9b97b7d84a"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:17:30.000Z",
+                  "updatedAt": "2026-10-22T01:17:30.000Z",
+                  "uid": "35240-2d411b39-7896-4f42-b6e5-d019aa1a4cdb"
+                },
+                {
+                  "name": "Create new BGP Monitor instance",
+                  "id": "39350997-780c-430d-8828-2648e2369f30",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"monitor\": {\n    \"name\": \"<string>\",\n    \"id\": \"<string>\",\n    \"status\": \"BGP_MONITOR_STATUS_UNSPECIFIED\",\n    \"settings\": {\n      \"targets\": [\n        {\n          \"afi\": \"AFI_UNSPECIFIED\",\n          \"safi\": \"SAFI_UNSPECIFIED\",\n          \"prefix\": \"<string>\"\n        },\n        {\n          \"afi\": \"AFI_UNSPECIFIED\",\n          \"safi\": \"SAFI_UNSPECIFIED\",\n          \"prefix\": \"<string>\"\n        }\n      ],\n      \"allowedAsns\": [\n        \"<long>\",\n        \"<long>\"\n      ],\n      \"checkRpki\": \"<boolean>\",\n      \"includeCoveredPrefixes\": \"<boolean>\",\n      \"healthSettings\": {\n        \"reachabilityWarning\": \"<float>\",\n        \"reachabilityCritical\": \"<float>\"\n      },\n      \"notificationChannels\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"notes\": \"<string>\",\n      \"allowedUpstreams\": [\n        \"<long>\",\n        \"<long>\"\n      ]\n    },\n    \"cdate\": \"<dateTime>\",\n    \"edate\": \"<dateTime>\",\n    \"createdBy\": {\n      \"id\": \"<string>\",\n      \"email\": \"<string>\",\n      \"fullName\": \"<string>\"\n    },\n    \"lastUpdatedBy\": {\n      \"id\": \"<string>\",\n      \"email\": \"<string>\",\n      \"fullName\": \"<string>\"\n    },\n    \"labels\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/bgp_monitoring/v202210/monitors",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "bgp_monitoring",
+                        "v202210",
+                        "monitors"
+                      ]
+                    },
+                    "description": "Creates new BGP Monitor and if successful returns its configuration."
+                  },
+                  "response": [
+                    {
+                      "id": "32e82ed3-6b80-4e8a-adb4-15c856f30afb",
+                      "name": "A successful response.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-CH-Auth-Email",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"monitor\": {\n    \"name\": \"<string>\",\n    \"id\": \"<string>\",\n    \"status\": \"BGP_MONITOR_STATUS_UNSPECIFIED\",\n    \"settings\": {\n      \"targets\": [\n        {\n          \"afi\": \"AFI_UNSPECIFIED\",\n          \"safi\": \"SAFI_UNSPECIFIED\",\n          \"prefix\": \"<string>\"\n        },\n        {\n          \"afi\": \"AFI_UNSPECIFIED\",\n          \"safi\": \"SAFI_UNSPECIFIED\",\n          \"prefix\": \"<string>\"\n        }\n      ],\n      \"allowedAsns\": [\n        \"<long>\",\n        \"<long>\"\n      ],\n      \"checkRpki\": \"<boolean>\",\n      \"includeCoveredPrefixes\": \"<boolean>\",\n      \"healthSettings\": {\n        \"reachabilityWarning\": \"<float>\",\n        \"reachabilityCritical\": \"<float>\"\n      },\n      \"notificationChannels\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"notes\": \"<string>\",\n      \"allowedUpstreams\": [\n        \"<long>\",\n        \"<long>\"\n      ]\n    },\n    \"cdate\": \"<dateTime>\",\n    \"edate\": \"<dateTime>\",\n    \"createdBy\": {\n      \"id\": \"<string>\",\n      \"email\": \"<string>\",\n      \"fullName\": \"<string>\"\n    },\n    \"lastUpdatedBy\": {\n      \"id\": \"<string>\",\n      \"email\": \"<string>\",\n      \"fullName\": \"<string>\"\n    },\n    \"labels\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/bgp_monitoring/v202210/monitors",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "bgp_monitoring",
+                            "v202210",
+                            "monitors"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"monitor\": {\n    \"name\": \"<string>\",\n    \"id\": \"<string>\",\n    \"status\": \"BGP_MONITOR_STATUS_UNSPECIFIED\",\n    \"settings\": {\n      \"targets\": [\n        {\n          \"afi\": \"AFI_UNSPECIFIED\",\n          \"safi\": \"SAFI_UNSPECIFIED\",\n          \"prefix\": \"<string>\"\n        },\n        {\n          \"afi\": \"AFI_UNSPECIFIED\",\n          \"safi\": \"SAFI_UNSPECIFIED\",\n          \"prefix\": \"<string>\"\n        }\n      ],\n      \"allowedAsns\": [\n        \"<long>\",\n        \"<long>\"\n      ],\n      \"checkRpki\": \"<boolean>\",\n      \"includeCoveredPrefixes\": \"<boolean>\",\n      \"healthSettings\": {\n        \"reachabilityWarning\": \"<float>\",\n        \"reachabilityCritical\": \"<float>\"\n      },\n      \"notificationChannels\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"notes\": \"<string>\",\n      \"allowedUpstreams\": [\n        \"<long>\",\n        \"<long>\"\n      ]\n    },\n    \"cdate\": \"<dateTime>\",\n    \"edate\": \"<dateTime>\",\n    \"createdBy\": {\n      \"id\": \"<string>\",\n      \"email\": \"<string>\",\n      \"fullName\": \"<string>\"\n    },\n    \"lastUpdatedBy\": {\n      \"id\": \"<string>\",\n      \"email\": \"<string>\",\n      \"fullName\": \"<string>\"\n    },\n    \"labels\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                      "createdAt": "2026-10-22T01:17:30.000Z",
+                      "updatedAt": "2026-10-22T01:17:30.000Z",
+                      "uid": "35240-32e82ed3-6b80-4e8a-adb4-15c856f30afb"
+                    },
+                    {
+                      "id": "22157a5f-2599-4644-9aed-4e46e4bfe28e",
+                      "name": "An unexpected error response.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-CH-Auth-Email",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"monitor\": {\n    \"name\": \"<string>\",\n    \"id\": \"<string>\",\n    \"status\": \"BGP_MONITOR_STATUS_UNSPECIFIED\",\n    \"settings\": {\n      \"targets\": [\n        {\n          \"afi\": \"AFI_UNSPECIFIED\",\n          \"safi\": \"SAFI_UNSPECIFIED\",\n          \"prefix\": \"<string>\"\n        },\n        {\n          \"afi\": \"AFI_UNSPECIFIED\",\n          \"safi\": \"SAFI_UNSPECIFIED\",\n          \"prefix\": \"<string>\"\n        }\n      ],\n      \"allowedAsns\": [\n        \"<long>\",\n        \"<long>\"\n      ],\n      \"checkRpki\": \"<boolean>\",\n      \"includeCoveredPrefixes\": \"<boolean>\",\n      \"healthSettings\": {\n        \"reachabilityWarning\": \"<float>\",\n        \"reachabilityCritical\": \"<float>\"\n      },\n      \"notificationChannels\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"notes\": \"<string>\",\n      \"allowedUpstreams\": [\n        \"<long>\",\n        \"<long>\"\n      ]\n    },\n    \"cdate\": \"<dateTime>\",\n    \"edate\": \"<dateTime>\",\n    \"createdBy\": {\n      \"id\": \"<string>\",\n      \"email\": \"<string>\",\n      \"fullName\": \"<string>\"\n    },\n    \"lastUpdatedBy\": {\n      \"id\": \"<string>\",\n      \"email\": \"<string>\",\n      \"fullName\": \"<string>\"\n    },\n    \"labels\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/bgp_monitoring/v202210/monitors",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "bgp_monitoring",
+                            "v202210",
+                            "monitors"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"dolor_c00\": {},\n      \"in_9\": {}\n    },\n    {\n      \"@type\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-10-22T01:17:30.000Z",
+                      "updatedAt": "2026-10-22T01:17:30.000Z",
+                      "uid": "35240-22157a5f-2599-4644-9aed-4e46e4bfe28e"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:17:30.000Z",
+                  "updatedAt": "2026-10-22T01:17:30.000Z",
+                  "uid": "35240-39350997-780c-430d-8828-2648e2369f30"
                 }
               ],
-              "body": "{\n  \"monitors\": [\n    {\n      \"name\": \"string\",\n      \"id\": \"string\",\n      \"status\": \"BGP_MONITOR_STATUS_UNSPECIFIED\",\n      \"settings\": {\n        \"targets\": [\n          {\n            \"afi\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"safi\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"prefix\": \"string\"\n          },\n          {\n            \"afi\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"safi\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"prefix\": \"string\"\n          }\n        ],\n        \"allowedAsns\": [\n          8689,\n          5667\n        ],\n        \"checkRpki\": true,\n        \"includeCoveredPrefixes\": false,\n        \"healthSettings\": {\n          \"reachabilityWarning\": 7430.404503063546,\n          \"reachabilityCritical\": 8733.051916641465\n        },\n        \"notificationChannels\": [\n          \"string\",\n          \"string\"\n        ],\n        \"notes\": \"string\",\n        \"allowedUpstreams\": [\n          9158,\n          8470\n        ]\n      },\n      \"cdate\": \"1952-03-12T23:35:34.024Z\",\n      \"edate\": \"1966-07-23T08:19:12.541Z\",\n      \"createdBy\": {\n        \"id\": \"string\",\n        \"email\": \"string\",\n        \"fullName\": \"string\"\n      },\n      \"lastUpdatedBy\": {\n        \"id\": \"string\",\n        \"email\": \"string\",\n        \"fullName\": \"string\"\n      },\n      \"labels\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"name\": \"string\",\n      \"id\": \"string\",\n      \"status\": \"BGP_MONITOR_STATUS_UNSPECIFIED\",\n      \"settings\": {\n        \"targets\": [\n          {\n            \"afi\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"safi\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"prefix\": \"string\"\n          },\n          {\n            \"afi\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"safi\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"prefix\": \"string\"\n          }\n        ],\n        \"allowedAsns\": [\n          2237,\n          6611\n        ],\n        \"checkRpki\": false,\n        \"includeCoveredPrefixes\": false,\n        \"healthSettings\": {\n          \"reachabilityWarning\": 1832.542944803155,\n          \"reachabilityCritical\": 3318.059177375735\n        },\n        \"notificationChannels\": [\n          \"string\",\n          \"string\"\n        ],\n        \"notes\": \"string\",\n        \"allowedUpstreams\": [\n          9694,\n          2077\n        ]\n      },\n      \"cdate\": \"1984-06-14T16:32:41.363Z\",\n      \"edate\": \"2020-09-03T22:37:13.646Z\",\n      \"createdBy\": {\n        \"id\": \"string\",\n        \"email\": \"string\",\n        \"fullName\": \"string\"\n      },\n      \"lastUpdatedBy\": {\n        \"id\": \"string\",\n        \"email\": \"string\",\n        \"fullName\": \"string\"\n      },\n      \"labels\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ],\n  \"invalidCount\": 6062\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "cecedc81-dc0c-483d-8581-f7a917c6db73",
-              "name": "An unexpected error response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "bgp_monitoring",
-                    "v202210",
-                    "monitors"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 349,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "9c5ecae2-fced-4d3b-9ff5-c6658fa71481",
+              "createdAt": "2026-10-22T01:17:30.000Z",
+              "updatedAt": "2026-10-22T01:17:30.000Z",
+              "uid": "35240-9c5ecae2-fced-4d3b-9ff5-c6658fa71481"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "5dec3af2-a4c3-433a-801e-5f1c1496af7a",
-          "name": "Create new BGP Monitor instance.",
-          "request": {
-            "name": "Create new BGP Monitor instance.",
-            "description": {
-              "content": "Creates new BGP Monitor and if successful returns its configuration.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "bgp_monitoring",
-                "v202210",
-                "monitors"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"monitor\": {\n    \"name\": \"<string>\",\n    \"status\": \"BGP_MONITOR_STATUS_UNSPECIFIED\",\n    \"settings\": {\n      \"targets\": [\n        {\n          \"afi\": \"AFI_UNSPECIFIED\",\n          \"safi\": \"SAFI_UNSPECIFIED\",\n          \"prefix\": \"<string>\"\n        },\n        {\n          \"afi\": \"AFI_UNSPECIFIED\",\n          \"safi\": \"SAFI_UNSPECIFIED\",\n          \"prefix\": \"<string>\"\n        }\n      ],\n      \"allowedAsns\": [\n        \"<long>\",\n        \"<long>\"\n      ],\n      \"checkRpki\": \"<boolean>\",\n      \"includeCoveredPrefixes\": \"<boolean>\",\n      \"healthSettings\": {\n        \"reachabilityWarning\": \"<float>\",\n        \"reachabilityCritical\": \"<float>\"\n      },\n      \"notificationChannels\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"notes\": \"<string>\",\n      \"allowedUpstreams\": [\n        \"<long>\",\n        \"<long>\"\n      ]\n    },\n    \"createdBy\": {},\n    \"lastUpdatedBy\": {},\n    \"labels\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "8dce6de1-773b-469d-a94c-66deb0027496",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "bgp_monitoring",
-                    "v202210",
-                    "monitors"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"monitor\": {\n    \"name\": \"<string>\",\n    \"status\": \"BGP_MONITOR_STATUS_UNSPECIFIED\",\n    \"settings\": {\n      \"targets\": [\n        {\n          \"afi\": \"AFI_UNSPECIFIED\",\n          \"safi\": \"SAFI_UNSPECIFIED\",\n          \"prefix\": \"<string>\"\n        },\n        {\n          \"afi\": \"AFI_UNSPECIFIED\",\n          \"safi\": \"SAFI_UNSPECIFIED\",\n          \"prefix\": \"<string>\"\n        }\n      ],\n      \"allowedAsns\": [\n        \"<long>\",\n        \"<long>\"\n      ],\n      \"checkRpki\": \"<boolean>\",\n      \"includeCoveredPrefixes\": \"<boolean>\",\n      \"healthSettings\": {\n        \"reachabilityWarning\": \"<float>\",\n        \"reachabilityCritical\": \"<float>\"\n      },\n      \"notificationChannels\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"notes\": \"<string>\",\n      \"allowedUpstreams\": [\n        \"<long>\",\n        \"<long>\"\n      ]\n    },\n    \"createdBy\": {},\n    \"lastUpdatedBy\": {},\n    \"labels\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"monitor\": {\n    \"name\": \"<string>\",\n    \"id\": \"string\",\n    \"status\": \"BGP_MONITOR_STATUS_UNSPECIFIED\",\n    \"settings\": {\n      \"targets\": [\n        {\n          \"afi\": \"AFI_UNSPECIFIED\",\n          \"safi\": \"SAFI_UNSPECIFIED\",\n          \"prefix\": \"<string>\"\n        },\n        {\n          \"afi\": \"AFI_UNSPECIFIED\",\n          \"safi\": \"SAFI_UNSPECIFIED\",\n          \"prefix\": \"<string>\"\n        }\n      ],\n      \"allowedAsns\": [\n        \"<long>\",\n        \"<long>\"\n      ],\n      \"checkRpki\": \"<boolean>\",\n      \"includeCoveredPrefixes\": \"<boolean>\",\n      \"healthSettings\": {\n        \"reachabilityWarning\": \"<float>\",\n        \"reachabilityCritical\": \"<float>\"\n      },\n      \"notificationChannels\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"notes\": \"<string>\",\n      \"allowedUpstreams\": [\n        \"<long>\",\n        \"<long>\"\n      ]\n    },\n    \"cdate\": \"1983-10-30T05:39:38.967Z\",\n    \"edate\": \"2008-06-01T00:25:14.810Z\",\n    \"createdBy\": {\n      \"id\": \"string\",\n      \"email\": \"string\",\n      \"fullName\": \"string\"\n    },\n    \"lastUpdatedBy\": {\n      \"id\": \"string\",\n      \"email\": \"string\",\n      \"fullName\": \"string\"\n    },\n    \"labels\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "56d8d50f-bfd8-4132-8472-e3ee0c2155ed",
-              "name": "An unexpected error response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "bgp_monitoring",
-                    "v202210",
-                    "monitors"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"monitor\": {\n    \"name\": \"<string>\",\n    \"status\": \"BGP_MONITOR_STATUS_UNSPECIFIED\",\n    \"settings\": {\n      \"targets\": [\n        {\n          \"afi\": \"AFI_UNSPECIFIED\",\n          \"safi\": \"SAFI_UNSPECIFIED\",\n          \"prefix\": \"<string>\"\n        },\n        {\n          \"afi\": \"AFI_UNSPECIFIED\",\n          \"safi\": \"SAFI_UNSPECIFIED\",\n          \"prefix\": \"<string>\"\n        }\n      ],\n      \"allowedAsns\": [\n        \"<long>\",\n        \"<long>\"\n      ],\n      \"checkRpki\": \"<boolean>\",\n      \"includeCoveredPrefixes\": \"<boolean>\",\n      \"healthSettings\": {\n        \"reachabilityWarning\": \"<float>\",\n        \"reachabilityCritical\": \"<float>\"\n      },\n      \"notificationChannels\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"notes\": \"<string>\",\n      \"allowedUpstreams\": [\n        \"<long>\",\n        \"<long>\"\n      ]\n    },\n    \"createdBy\": {},\n    \"lastUpdatedBy\": {},\n    \"labels\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 7444,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "165f3309-1511-473d-b16d-386c47e16bf5",
-          "name": "Get BGP Monitor configuration.",
-          "request": {
-            "name": "Get BGP Monitor configuration.",
-            "description": {
-              "content": "Returns configuration of existing BGP monitor with specific ID.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "bgp_monitoring",
-                "v202210",
-                "monitors",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) ID of the BGP monitor to be retrieved"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "206fcd6c-ec72-4c77-ab9f-597e42b7fd56",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "bgp_monitoring",
-                    "v202210",
-                    "monitors",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) ID of the BGP monitor to be retrieved"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"monitor\": {\n    \"name\": \"<string>\",\n    \"id\": \"string\",\n    \"status\": \"BGP_MONITOR_STATUS_UNSPECIFIED\",\n    \"settings\": {\n      \"targets\": [\n        {\n          \"afi\": \"AFI_UNSPECIFIED\",\n          \"safi\": \"SAFI_UNSPECIFIED\",\n          \"prefix\": \"<string>\"\n        },\n        {\n          \"afi\": \"AFI_UNSPECIFIED\",\n          \"safi\": \"SAFI_UNSPECIFIED\",\n          \"prefix\": \"<string>\"\n        }\n      ],\n      \"allowedAsns\": [\n        \"<long>\",\n        \"<long>\"\n      ],\n      \"checkRpki\": \"<boolean>\",\n      \"includeCoveredPrefixes\": \"<boolean>\",\n      \"healthSettings\": {\n        \"reachabilityWarning\": \"<float>\",\n        \"reachabilityCritical\": \"<float>\"\n      },\n      \"notificationChannels\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"notes\": \"<string>\",\n      \"allowedUpstreams\": [\n        \"<long>\",\n        \"<long>\"\n      ]\n    },\n    \"cdate\": \"1999-09-11T05:44:58.686Z\",\n    \"edate\": \"2004-06-26T20:42:00.259Z\",\n    \"createdBy\": {\n      \"id\": \"string\",\n      \"email\": \"string\",\n      \"fullName\": \"string\"\n    },\n    \"lastUpdatedBy\": {\n      \"id\": \"string\",\n      \"email\": \"string\",\n      \"fullName\": \"string\"\n    },\n    \"labels\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "4e623592-88f5-4db1-842a-cb295ff97676",
-              "name": "An unexpected error response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "bgp_monitoring",
-                    "v202210",
-                    "monitors",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) ID of the BGP monitor to be retrieved"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 7444,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "31b3d598-8102-44af-82cb-bbbcd18bd919",
-          "name": "Delete existing BGP Monitor.",
-          "request": {
-            "name": "Delete existing BGP Monitor.",
-            "description": {
-              "content": "Delete BGP monitor with with specific ID.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "bgp_monitoring",
-                "v202210",
-                "monitors",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) ID of the BGP monitor to be deleted"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "7794843f-b392-42f2-b767-f09ce1e376af",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "bgp_monitoring",
-                    "v202210",
-                    "monitors",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) ID of the BGP monitor to be deleted"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "8ea0027e-1965-4364-a3c7-c6f232ea56df",
-              "name": "An unexpected error response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "bgp_monitoring",
-                    "v202210",
-                    "monitors",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) ID of the BGP monitor to be deleted"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 7444,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "62b17167-8238-4254-97ea-032ae66fd741",
-          "name": "Update configuration of a BGP monitor.",
-          "request": {
-            "name": "Update configuration of a BGP monitor.",
-            "description": {
-              "content": "Updates configuration of BGP monitor with specific ID and returns updated  configuration.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "bgp_monitoring",
-                "v202210",
-                "monitors",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) System generated unique identifier"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PUT",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"monitor\": {\n    \"name\": \"<string>\",\n    \"status\": \"BGP_MONITOR_STATUS_UNSPECIFIED\",\n    \"settings\": {\n      \"targets\": [\n        {\n          \"afi\": \"AFI_UNSPECIFIED\",\n          \"safi\": \"SAFI_UNSPECIFIED\",\n          \"prefix\": \"<string>\"\n        },\n        {\n          \"afi\": \"AFI_UNSPECIFIED\",\n          \"safi\": \"SAFI_UNSPECIFIED\",\n          \"prefix\": \"<string>\"\n        }\n      ],\n      \"allowedAsns\": [\n        \"<long>\",\n        \"<long>\"\n      ],\n      \"checkRpki\": \"<boolean>\",\n      \"includeCoveredPrefixes\": \"<boolean>\",\n      \"healthSettings\": {\n        \"reachabilityWarning\": \"<float>\",\n        \"reachabilityCritical\": \"<float>\"\n      },\n      \"notificationChannels\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"notes\": \"<string>\",\n      \"allowedUpstreams\": [\n        \"<long>\",\n        \"<long>\"\n      ]\n    },\n    \"createdBy\": {},\n    \"lastUpdatedBy\": {},\n    \"labels\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"name\": 5847\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "f916e7f8-c3e8-4291-9281-cd62b6771cda",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "bgp_monitoring",
-                    "v202210",
-                    "monitors",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) System generated unique identifier"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"monitor\": {\n    \"name\": \"<string>\",\n    \"status\": \"BGP_MONITOR_STATUS_UNSPECIFIED\",\n    \"settings\": {\n      \"targets\": [\n        {\n          \"afi\": \"AFI_UNSPECIFIED\",\n          \"safi\": \"SAFI_UNSPECIFIED\",\n          \"prefix\": \"<string>\"\n        },\n        {\n          \"afi\": \"AFI_UNSPECIFIED\",\n          \"safi\": \"SAFI_UNSPECIFIED\",\n          \"prefix\": \"<string>\"\n        }\n      ],\n      \"allowedAsns\": [\n        \"<long>\",\n        \"<long>\"\n      ],\n      \"checkRpki\": \"<boolean>\",\n      \"includeCoveredPrefixes\": \"<boolean>\",\n      \"healthSettings\": {\n        \"reachabilityWarning\": \"<float>\",\n        \"reachabilityCritical\": \"<float>\"\n      },\n      \"notificationChannels\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"notes\": \"<string>\",\n      \"allowedUpstreams\": [\n        \"<long>\",\n        \"<long>\"\n      ]\n    },\n    \"createdBy\": {},\n    \"lastUpdatedBy\": {},\n    \"labels\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"name\": \"string\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"monitor\": {\n    \"name\": \"<string>\",\n    \"id\": \"string\",\n    \"status\": \"BGP_MONITOR_STATUS_UNSPECIFIED\",\n    \"settings\": {\n      \"targets\": [\n        {\n          \"afi\": \"AFI_UNSPECIFIED\",\n          \"safi\": \"SAFI_UNSPECIFIED\",\n          \"prefix\": \"<string>\"\n        },\n        {\n          \"afi\": \"AFI_UNSPECIFIED\",\n          \"safi\": \"SAFI_UNSPECIFIED\",\n          \"prefix\": \"<string>\"\n        }\n      ],\n      \"allowedAsns\": [\n        \"<long>\",\n        \"<long>\"\n      ],\n      \"checkRpki\": \"<boolean>\",\n      \"includeCoveredPrefixes\": \"<boolean>\",\n      \"healthSettings\": {\n        \"reachabilityWarning\": \"<float>\",\n        \"reachabilityCritical\": \"<float>\"\n      },\n      \"notificationChannels\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"notes\": \"<string>\",\n      \"allowedUpstreams\": [\n        \"<long>\",\n        \"<long>\"\n      ]\n    },\n    \"cdate\": \"1961-10-03T12:41:01.860Z\",\n    \"edate\": \"2012-03-16T18:31:16.189Z\",\n    \"createdBy\": {\n      \"id\": \"string\",\n      \"email\": \"string\",\n      \"fullName\": \"string\"\n    },\n    \"lastUpdatedBy\": {\n      \"id\": \"string\",\n      \"email\": \"string\",\n      \"fullName\": \"string\"\n    },\n    \"labels\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "641be3bf-ffab-4795-b28a-5ff4178ca3db",
-              "name": "An unexpected error response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "bgp_monitoring",
-                    "v202210",
-                    "monitors",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) System generated unique identifier"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"monitor\": {\n    \"name\": \"<string>\",\n    \"status\": \"BGP_MONITOR_STATUS_UNSPECIFIED\",\n    \"settings\": {\n      \"targets\": [\n        {\n          \"afi\": \"AFI_UNSPECIFIED\",\n          \"safi\": \"SAFI_UNSPECIFIED\",\n          \"prefix\": \"<string>\"\n        },\n        {\n          \"afi\": \"AFI_UNSPECIFIED\",\n          \"safi\": \"SAFI_UNSPECIFIED\",\n          \"prefix\": \"<string>\"\n        }\n      ],\n      \"allowedAsns\": [\n        \"<long>\",\n        \"<long>\"\n      ],\n      \"checkRpki\": \"<boolean>\",\n      \"includeCoveredPrefixes\": \"<boolean>\",\n      \"healthSettings\": {\n        \"reachabilityWarning\": \"<float>\",\n        \"reachabilityCritical\": \"<float>\"\n      },\n      \"notificationChannels\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"notes\": \"<string>\",\n      \"allowedUpstreams\": [\n        \"<long>\",\n        \"<long>\"\n      ]\n    },\n    \"createdBy\": {},\n    \"lastUpdatedBy\": {},\n    \"labels\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"name\": \"string\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 7444,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "63ab98fb-c416-46c0-82d8-da1c350ef7ae",
-          "name": "Sets administrative status of a BGP monitor.",
-          "request": {
-            "name": "Sets administrative status of a BGP monitor.",
-            "description": {
-              "content": "Sets administrative status of BGP monitor with specific ID.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "bgp_monitoring",
-                "v202210",
-                "monitors",
-                ":id",
-                "status"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) ID of the BGP monitor whose status is to be modified"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PUT",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"status\": \"BGP_MONITOR_STATUS_UNSPECIFIED\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "244d80bf-7415-470c-9189-ddfba5622afd",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "bgp_monitoring",
-                    "v202210",
-                    "monitors",
-                    ":id",
-                    "status"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) ID of the BGP monitor whose status is to be modified"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"status\": \"BGP_MONITOR_STATUS_UNSPECIFIED\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "32b36bf0-30d6-44cf-9e81-e6922709f04a",
-              "name": "An unexpected error response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "bgp_monitoring",
-                    "v202210",
-                    "monitors",
-                    ":id",
-                    "status"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) ID of the BGP monitor whose status is to be modified"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"status\": \"BGP_MONITOR_STATUS_UNSPECIFIED\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 7444,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "8daa187b-7357-4427-922f-e3e94bbcb54f",
+          "createdAt": "2026-10-22T01:17:30.000Z",
+          "updatedAt": "2026-10-22T01:17:30.000Z",
+          "uid": "35240-8daa187b-7357-4427-922f-e3e94bbcb54f"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "/",
-      "key": "baseUrl"
+      "id": "f269aefe-d612-46d1-a52a-3261cc426b73",
+      "createdAt": "2026-10-22T01:17:30.000Z",
+      "updatedAt": "2026-10-22T01:17:30.000Z",
+      "uid": "35240-f269aefe-d612-46d1-a52a-3261cc426b73"
     }
   ],
   "auth": {
@@ -985,25 +1000,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "X-CH-Auth-Email"
+        "value": "X-CH-Auth-Email",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "46d88794-b990-4ccc-8fd4-979f02172d66",
-    "name": "AI Advisor AiAdvisorDataService BgpMonitoringAdminService API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "# Overview\nProvides programmatic access to AI Advisor.\n\nContact Support:\n Name: Kentik API Engineering",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
     }
-  }
+  ]
 }

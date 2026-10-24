@@ -1,474 +1,503 @@
 {
+  "info": {
+    "_postman_id": "abcc9207-ee8f-4c06-8bf8-f4af68bb0f5f",
+    "name": "Connectivity Cost Configuration Cost Service API",
+    "description": "# Overview\nThe Connectivity Cost Configuration API provides programmatic access to configuration of Connectivity Costs\n\nContact Support:\n Name: Kentik API Engineering",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:17:52.000Z",
+    "updatedAt": "2026-10-22T01:17:53.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-abcc9207-ee8f-4c06-8bf8-f4af68bb0f5f"
+  },
   "item": [
     {
-      "id": "6d0da8a1-29e5-458c-b5b4-b4ce5309fc85",
-      "name": "CostService",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "cost",
       "item": [
         {
-          "id": "738f6319-ee80-4676-810a-46721fd1ed98",
-          "name": "List all cost providers.",
-          "request": {
-            "name": "List all cost providers.",
-            "description": {
-              "content": "Returns list of configured cost providers.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "cost",
-                "v202308",
-                "cost",
-                "providers"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "v202308",
+          "item": [
             {
-              "id": "acfb3d01-a09e-49ef-ab4d-1e5f5b66630f",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "cost",
-                    "v202308",
-                    "cost",
-                    "providers"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "cost",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "providers",
+                  "item": [
+                    {
+                      "name": "List all cost providers",
+                      "id": "aa7953e3-58e8-48e2-8fac-47566ad79ecc",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/cost/v202308/cost/providers",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "cost",
+                            "v202308",
+                            "cost",
+                            "providers"
+                          ]
+                        },
+                        "description": "Returns list of configured cost providers."
+                      },
+                      "response": [
+                        {
+                          "id": "8981fc5e-0472-4f89-85c4-8e086bb35fb3",
+                          "name": "A successful response.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-CH-Auth-Email",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/cost/v202308/cost/providers",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "cost",
+                                "v202308",
+                                "cost",
+                                "providers"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"providers\": [\n    {\n      \"name\": \"<string>\",\n      \"id\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"id\": \"<string>\"\n    }\n  ],\n  \"invalidCount\": \"<long>\"\n}",
+                          "createdAt": "2026-10-22T01:17:53.000Z",
+                          "updatedAt": "2026-10-22T01:17:53.000Z",
+                          "uid": "35240-8981fc5e-0472-4f89-85c4-8e086bb35fb3"
+                        },
+                        {
+                          "id": "db05fddc-7e84-44b1-907d-b8114217386a",
+                          "name": "An unexpected error response.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-CH-Auth-Email",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/cost/v202308/cost/providers",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "cost",
+                                "v202308",
+                                "cost",
+                                "providers"
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\"\n    },\n    {\n      \"@type\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-10-22T01:17:53.000Z",
+                          "updatedAt": "2026-10-22T01:17:53.000Z",
+                          "uid": "35240-db05fddc-7e84-44b1-907d-b8114217386a"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T01:17:53.000Z",
+                      "updatedAt": "2026-10-22T01:17:53.000Z",
+                      "uid": "35240-aa7953e3-58e8-48e2-8fac-47566ad79ecc"
+                    }
+                  ],
+                  "id": "ef81d46b-91bc-4105-917d-0a14906f6a1f",
+                  "createdAt": "2026-10-22T01:17:53.000Z",
+                  "updatedAt": "2026-10-22T01:17:53.000Z",
+                  "uid": "35240-ef81d46b-91bc-4105-917d-0a14906f6a1f"
+                },
+                {
+                  "name": "summary",
+                  "item": [
+                    {
+                      "name": "{id}",
+                      "item": [
+                        {
+                          "name": "Get cost provider summary",
+                          "id": "4b8ce05e-ba69-4e70-8c93-4d3de64e15af",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/cost/v202308/cost/summary/:id?date=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "cost",
+                                "v202308",
+                                "cost",
+                                "summary",
+                                ":id"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Date of the cost provider summary (YYYY-MM)",
+                                  "key": "date",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "fffb437e-cc36-49b4-b1c4-48b7c9caabf3",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) ID of the cost provider (can be found using ListCostProviders RPC)"
+                                }
+                              ]
+                            },
+                            "description": "Returns summary of configured cost provider."
+                          },
+                          "response": [
+                            {
+                              "id": "e6cc3c40-fbb2-4686-98d0-72788f636f5d",
+                              "name": "A successful response.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-CH-Auth-Email",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/cost/v202308/cost/summary/:id?date=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "cost",
+                                    "v202308",
+                                    "cost",
+                                    "summary",
+                                    ":id"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Date of the cost provider summary (YYYY-MM)",
+                                      "key": "date",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"providers\": [\n    {\n      \"date\": \"<string>\",\n      \"status\": \"STATUS_UNSPECIFIED\",\n      \"totalCost\": \"<float>\",\n      \"totalCostVariation\": \"<string>\",\n      \"totalCostGroupAdditionalCost\": \"<float>\",\n      \"totalCostGroupAdditionalInterfaceCost\": \"<float>\",\n      \"currency\": \"<string>\",\n      \"costPerMbps\": \"<float>\",\n      \"costPerMbpsVariation\": \"<string>\",\n      \"providerName\": \"<string>\",\n      \"costGroupName\": \"<string>\",\n      \"costGroupConnType\": \"<string>\",\n      \"siteName\": \"<string>\",\n      \"siteMarket\": \"<string>\",\n      \"ingressTrafficMbps\": \"<float>\",\n      \"ingressTrafficVariation\": \"<string>\",\n      \"egressTrafficMbps\": \"<float>\",\n      \"egressTrafficVariation\": \"<string>\"\n    },\n    {\n      \"date\": \"<string>\",\n      \"status\": \"STATUS_UNSPECIFIED\",\n      \"totalCost\": \"<float>\",\n      \"totalCostVariation\": \"<string>\",\n      \"totalCostGroupAdditionalCost\": \"<float>\",\n      \"totalCostGroupAdditionalInterfaceCost\": \"<float>\",\n      \"currency\": \"<string>\",\n      \"costPerMbps\": \"<float>\",\n      \"costPerMbpsVariation\": \"<string>\",\n      \"providerName\": \"<string>\",\n      \"costGroupName\": \"<string>\",\n      \"costGroupConnType\": \"<string>\",\n      \"siteName\": \"<string>\",\n      \"siteMarket\": \"<string>\",\n      \"ingressTrafficMbps\": \"<float>\",\n      \"ingressTrafficVariation\": \"<string>\",\n      \"egressTrafficMbps\": \"<float>\",\n      \"egressTrafficVariation\": \"<string>\"\n    }\n  ],\n  \"invalidCount\": \"<long>\"\n}",
+                              "createdAt": "2026-10-22T01:17:53.000Z",
+                              "updatedAt": "2026-10-22T01:17:53.000Z",
+                              "uid": "35240-e6cc3c40-fbb2-4686-98d0-72788f636f5d"
+                            },
+                            {
+                              "id": "f0c6eeec-5733-4d63-8767-ec1d91d7fb9f",
+                              "name": "An unexpected error response.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-CH-Auth-Email",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/cost/v202308/cost/summary/:id?date=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "cost",
+                                    "v202308",
+                                    "cost",
+                                    "summary",
+                                    ":id"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Date of the cost provider summary (YYYY-MM)",
+                                      "key": "date",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\"\n    },\n    {\n      \"@type\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-10-22T01:17:53.000Z",
+                              "updatedAt": "2026-10-22T01:17:53.000Z",
+                              "uid": "35240-f0c6eeec-5733-4d63-8767-ec1d91d7fb9f"
+                            }
+                          ],
+                          "createdAt": "2026-10-22T01:17:53.000Z",
+                          "updatedAt": "2026-10-22T01:17:53.000Z",
+                          "uid": "35240-4b8ce05e-ba69-4e70-8c93-4d3de64e15af"
+                        }
+                      ],
+                      "id": "abb3f4d6-8591-4a56-92e9-791dfca302a8",
+                      "createdAt": "2026-10-22T01:17:53.000Z",
+                      "updatedAt": "2026-10-22T01:17:53.000Z",
+                      "uid": "35240-abb3f4d6-8591-4a56-92e9-791dfca302a8"
+                    },
+                    {
+                      "name": "List all cost provider summaries",
+                      "id": "457cd4d4-6fb7-41ff-94d0-1d6ae7290c0c",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/cost/v202308/cost/summary?date=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "cost",
+                            "v202308",
+                            "cost",
+                            "summary"
+                          ],
+                          "query": [
+                            {
+                              "description": "Date of the cost provider summary (YYYY-MM)",
+                              "key": "date",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "description": "Returns list of summaries of configured cost providers."
+                      },
+                      "response": [
+                        {
+                          "id": "29b4baa6-8c0c-4b9b-8845-72929dbf12a6",
+                          "name": "A successful response.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-CH-Auth-Email",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/cost/v202308/cost/summary?date=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "cost",
+                                "v202308",
+                                "cost",
+                                "summary"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Date of the cost provider summary (YYYY-MM)",
+                                  "key": "date",
+                                  "value": "<string>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"providers\": [\n    {\n      \"date\": \"<string>\",\n      \"status\": \"STATUS_UNSPECIFIED\",\n      \"totalCost\": \"<float>\",\n      \"totalCostVariation\": \"<string>\",\n      \"totalCostGroupAdditionalCost\": \"<float>\",\n      \"totalCostGroupAdditionalInterfaceCost\": \"<float>\",\n      \"currency\": \"<string>\",\n      \"costPerMbps\": \"<float>\",\n      \"costPerMbpsVariation\": \"<string>\",\n      \"providerName\": \"<string>\",\n      \"costGroupName\": \"<string>\",\n      \"costGroupConnType\": \"<string>\",\n      \"siteName\": \"<string>\",\n      \"siteMarket\": \"<string>\",\n      \"ingressTrafficMbps\": \"<float>\",\n      \"ingressTrafficVariation\": \"<string>\",\n      \"egressTrafficMbps\": \"<float>\",\n      \"egressTrafficVariation\": \"<string>\"\n    },\n    {\n      \"date\": \"<string>\",\n      \"status\": \"STATUS_UNSPECIFIED\",\n      \"totalCost\": \"<float>\",\n      \"totalCostVariation\": \"<string>\",\n      \"totalCostGroupAdditionalCost\": \"<float>\",\n      \"totalCostGroupAdditionalInterfaceCost\": \"<float>\",\n      \"currency\": \"<string>\",\n      \"costPerMbps\": \"<float>\",\n      \"costPerMbpsVariation\": \"<string>\",\n      \"providerName\": \"<string>\",\n      \"costGroupName\": \"<string>\",\n      \"costGroupConnType\": \"<string>\",\n      \"siteName\": \"<string>\",\n      \"siteMarket\": \"<string>\",\n      \"ingressTrafficMbps\": \"<float>\",\n      \"ingressTrafficVariation\": \"<string>\",\n      \"egressTrafficMbps\": \"<float>\",\n      \"egressTrafficVariation\": \"<string>\"\n    }\n  ],\n  \"invalidCount\": \"<long>\"\n}",
+                          "createdAt": "2026-10-22T01:17:53.000Z",
+                          "updatedAt": "2026-10-22T01:17:53.000Z",
+                          "uid": "35240-29b4baa6-8c0c-4b9b-8845-72929dbf12a6"
+                        },
+                        {
+                          "id": "47b79b65-f371-41c8-b550-4748bff4cb1c",
+                          "name": "An unexpected error response.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-CH-Auth-Email",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/cost/v202308/cost/summary?date=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "cost",
+                                "v202308",
+                                "cost",
+                                "summary"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Date of the cost provider summary (YYYY-MM)",
+                                  "key": "date",
+                                  "value": "<string>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\"\n    },\n    {\n      \"@type\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-10-22T01:17:53.000Z",
+                          "updatedAt": "2026-10-22T01:17:53.000Z",
+                          "uid": "35240-47b79b65-f371-41c8-b550-4748bff4cb1c"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T01:17:53.000Z",
+                      "updatedAt": "2026-10-22T01:17:53.000Z",
+                      "uid": "35240-457cd4d4-6fb7-41ff-94d0-1d6ae7290c0c"
+                    }
+                  ],
+                  "id": "65433e61-2ec0-4d14-afc3-d755dd913023",
+                  "createdAt": "2026-10-22T01:17:53.000Z",
+                  "updatedAt": "2026-10-22T01:17:53.000Z",
+                  "uid": "35240-65433e61-2ec0-4d14-afc3-d755dd913023"
                 }
               ],
-              "body": "{\n  \"providers\": [\n    {\n      \"name\": \"string\",\n      \"id\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"id\": \"string\"\n    }\n  ],\n  \"invalidCount\": 9204\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "41d2614e-cca0-466f-aaf8-9b6519084640",
-              "name": "An unexpected error response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "cost",
-                    "v202308",
-                    "cost",
-                    "providers"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 3623,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "9d8e00ab-0553-412e-8808-986245c2d8ec",
+              "createdAt": "2026-10-22T01:17:53.000Z",
+              "updatedAt": "2026-10-22T01:17:53.000Z",
+              "uid": "35240-9d8e00ab-0553-412e-8808-986245c2d8ec"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "696497a2-6c79-4d5a-ab18-e1b6fcbab390",
-          "name": "List all cost provider summaries.",
-          "request": {
-            "name": "List all cost provider summaries.",
-            "description": {
-              "content": "Returns list of summaries of configured cost providers.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "cost",
-                "v202308",
-                "cost",
-                "summary"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "date",
-                  "value": "<string>",
-                  "description": "Date of the cost provider summary (YYYY-MM)"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "4d2e3435-06f8-4420-adf9-0b580b16b85b",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "cost",
-                    "v202308",
-                    "cost",
-                    "summary"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "date",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"providers\": [\n    {\n      \"date\": \"string\",\n      \"status\": \"STATUS_UNSPECIFIED\",\n      \"totalCost\": 9601.37573444508,\n      \"totalCostVariation\": \"string\",\n      \"totalCostGroupAdditionalCost\": 4524.861615283764,\n      \"totalCostGroupAdditionalInterfaceCost\": 208.46586470211204,\n      \"currency\": \"string\",\n      \"costPerMbps\": 3432.1713349997153,\n      \"costPerMbpsVariation\": \"string\",\n      \"providerName\": \"string\",\n      \"costGroupName\": \"string\",\n      \"costGroupConnType\": \"string\",\n      \"siteName\": \"string\",\n      \"siteMarket\": \"string\",\n      \"ingressTrafficMbps\": 7113.608927648996,\n      \"ingressTrafficVariation\": \"string\",\n      \"egressTrafficMbps\": 9747.526240879424,\n      \"egressTrafficVariation\": \"string\"\n    },\n    {\n      \"date\": \"string\",\n      \"status\": \"STATUS_UNSPECIFIED\",\n      \"totalCost\": 1168.4594708220775,\n      \"totalCostVariation\": \"string\",\n      \"totalCostGroupAdditionalCost\": 4271.127431780407,\n      \"totalCostGroupAdditionalInterfaceCost\": 877.8159985399303,\n      \"currency\": \"string\",\n      \"costPerMbps\": 1265.8141537958945,\n      \"costPerMbpsVariation\": \"string\",\n      \"providerName\": \"string\",\n      \"costGroupName\": \"string\",\n      \"costGroupConnType\": \"string\",\n      \"siteName\": \"string\",\n      \"siteMarket\": \"string\",\n      \"ingressTrafficMbps\": 608.7969412460093,\n      \"ingressTrafficVariation\": \"string\",\n      \"egressTrafficMbps\": 8454.810877483445,\n      \"egressTrafficVariation\": \"string\"\n    }\n  ],\n  \"invalidCount\": 4109\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "dc1d1bfe-ef4f-4b23-a4e5-ecf6b1cd1423",
-              "name": "An unexpected error response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "cost",
-                    "v202308",
-                    "cost",
-                    "summary"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "date",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 1452,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "80214cf3-3f51-41bd-ab3d-5105faf55717",
-          "name": "Get cost provider summary.",
-          "request": {
-            "name": "Get cost provider summary.",
-            "description": {
-              "content": "Returns summary of configured cost provider.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "cost",
-                "v202308",
-                "cost",
-                "summary",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "date",
-                  "value": "<string>",
-                  "description": "Date of the cost provider summary (YYYY-MM)"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) ID of the cost provider (can be found using ListCostProviders RPC)"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "f4bc45f7-8544-4250-b0b5-b33caa605c2c",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "cost",
-                    "v202308",
-                    "cost",
-                    "summary",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "date",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) ID of the cost provider (can be found using ListCostProviders RPC)"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"providers\": [\n    {\n      \"date\": \"string\",\n      \"status\": \"STATUS_UNSPECIFIED\",\n      \"totalCost\": 4825.966773623408,\n      \"totalCostVariation\": \"string\",\n      \"totalCostGroupAdditionalCost\": 2004.5141859382675,\n      \"totalCostGroupAdditionalInterfaceCost\": 7476.181616960484,\n      \"currency\": \"string\",\n      \"costPerMbps\": 676.1117673547878,\n      \"costPerMbpsVariation\": \"string\",\n      \"providerName\": \"string\",\n      \"costGroupName\": \"string\",\n      \"costGroupConnType\": \"string\",\n      \"siteName\": \"string\",\n      \"siteMarket\": \"string\",\n      \"ingressTrafficMbps\": 960.3982669469179,\n      \"ingressTrafficVariation\": \"string\",\n      \"egressTrafficMbps\": 4738.015571065233,\n      \"egressTrafficVariation\": \"string\"\n    },\n    {\n      \"date\": \"string\",\n      \"status\": \"STATUS_UNSPECIFIED\",\n      \"totalCost\": 178.91874695048494,\n      \"totalCostVariation\": \"string\",\n      \"totalCostGroupAdditionalCost\": 4742.865343174495,\n      \"totalCostGroupAdditionalInterfaceCost\": 4536.145512984506,\n      \"currency\": \"string\",\n      \"costPerMbps\": 1114.0938011111068,\n      \"costPerMbpsVariation\": \"string\",\n      \"providerName\": \"string\",\n      \"costGroupName\": \"string\",\n      \"costGroupConnType\": \"string\",\n      \"siteName\": \"string\",\n      \"siteMarket\": \"string\",\n      \"ingressTrafficMbps\": 2034.433237247526,\n      \"ingressTrafficVariation\": \"string\",\n      \"egressTrafficMbps\": 7063.872363902179,\n      \"egressTrafficVariation\": \"string\"\n    }\n  ],\n  \"invalidCount\": 6704\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "867e3f19-13d0-4369-9908-3f06552126d5",
-              "name": "An unexpected error response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "cost",
-                    "v202308",
-                    "cost",
-                    "summary",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "date",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) ID of the cost provider (can be found using ListCostProviders RPC)"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 1452,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "627844a2-5ad6-403c-b2e6-2d0a638389d6",
+          "createdAt": "2026-10-22T01:17:53.000Z",
+          "updatedAt": "2026-10-22T01:17:53.000Z",
+          "uid": "35240-627844a2-5ad6-403c-b2e6-2d0a638389d6"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "/",
-      "key": "baseUrl"
+      "id": "a3d93a04-496d-4fed-aa73-e90a4f33699d",
+      "createdAt": "2026-10-22T01:17:53.000Z",
+      "updatedAt": "2026-10-22T01:17:53.000Z",
+      "uid": "35240-a3d93a04-496d-4fed-aa73-e90a4f33699d"
     }
   ],
   "auth": {
@@ -476,25 +505,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "X-CH-Auth-Email"
+        "value": "X-CH-Auth-Email",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "584c8cac-b81c-4596-accc-a9d53f76d9c9",
-    "name": "AI Advisor AiAdvisorDataService CostService API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "# Overview\nProvides programmatic access to AI Advisor.\n\nContact Support:\n Name: Kentik API Engineering",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
     }
-  }
+  ]
 }

@@ -1,1104 +1,1163 @@
 {
+  "info": {
+    "_postman_id": "ec62e62d-5fe6-46fd-abfd-108417dfedd1",
+    "name": "Kentik Market Intelligence (KMI) Kmi Service API",
+    "description": "# Overview\nThe Kentik Market Intelligence (KMI) API provides programmatic access to information related to KMI rankings, KMI markets, and the customers, providers, and peers of individual Autonomous Systems (ASes).\n\nContact Support:\n Name: Kentik API Engineering",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:18:20.000Z",
+    "updatedAt": "2026-10-22T01:18:21.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ec62e62d-5fe6-46fd-abfd-108417dfedd1"
+  },
   "item": [
     {
-      "id": "bd10839e-2ac2-4533-b288-4e73a15a5449",
-      "name": "KmiService",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "kmi",
       "item": [
         {
-          "id": "34e3d881-cb5d-402b-94f8-64e251170d90",
-          "name": "List global KMI insights.",
-          "request": {
-            "name": "List global KMI insights.",
-            "description": {
-              "content": "Returns list of global KMI insights.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "kmi",
-                "v202212",
-                "insights"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "limit",
-                  "value": "<long>",
-                  "description": "Maximum number of insights to return. Defaults to 100."
-                },
-                {
-                  "disabled": false,
-                  "key": "marketId",
-                  "value": "<string>",
-                  "description": "Geo Market identifier (e.g., 'planet$earth'). If omitted, defaults to global market."
-                },
-                {
-                  "disabled": false,
-                  "key": "ip",
-                  "value": "<string>",
-                  "description": "IP Address Family ('v4' or 'v6'). Defaults to 'v4'."
-                },
-                {
-                  "disabled": false,
-                  "key": "lookback",
-                  "value": "<long>",
-                  "description": "Lookback in days. Allowed values: 1, 7, 30. Defaults to 1."
-                },
-                {
-                  "disabled": false,
-                  "key": "types",
-                  "value": "<string>",
-                  "description": "Insight types to include. Provide as repeated query params, e.g., types=market_entrance&types=market_exit. Allowed: market_entrance, market_exit, ranking_gain, ranking_loss, start_prefix_origination, stop_prefix_origination, increase_prefix_origination, decrease_prefix_origination, customer_gain, customer_loss, customer_routing_gain, customer_routing_loss, provider_gain, provider_loss, provider_routing_gain, provider_routing_loss."
-                },
-                {
-                  "disabled": false,
-                  "key": "types",
-                  "value": "<string>",
-                  "description": "Insight types to include. Provide as repeated query params, e.g., types=market_entrance&types=market_exit. Allowed: market_entrance, market_exit, ranking_gain, ranking_loss, start_prefix_origination, stop_prefix_origination, increase_prefix_origination, decrease_prefix_origination, customer_gain, customer_loss, customer_routing_gain, customer_routing_loss, provider_gain, provider_loss, provider_routing_gain, provider_routing_loss."
-                },
-                {
-                  "disabled": false,
-                  "key": "magnitude",
-                  "value": "<long>",
-                  "description": "Minimum magnitude (severity) threshold, integer 1–5. Defaults to 1."
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "v202212",
+          "item": [
             {
-              "id": "05fd8b85-999c-4c0a-b63a-cc0e21ab1b21",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "kmi",
-                    "v202212",
-                    "insights"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+              "name": "insights",
+              "item": [
+                {
+                  "name": "{asn}",
+                  "item": [
                     {
-                      "key": "limit",
-                      "value": "<long>"
-                    },
-                    {
-                      "key": "marketId",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "ip",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "lookback",
-                      "value": "<long>"
-                    },
-                    {
-                      "key": "types",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "types",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "magnitude",
-                      "value": "<long>"
+                      "name": "List ASN-specific KMI insights",
+                      "id": "13bf9ee3-29b5-408c-8d94-2d2de88f7ed3",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/kmi/v202212/insights/:asn?limit=<long>&marketId=<string>&ip=<string>&lookback=<long>&types=<string>&types=<string>&magnitude=<long>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "kmi",
+                            "v202212",
+                            "insights",
+                            ":asn"
+                          ],
+                          "query": [
+                            {
+                              "description": "Maximum number of insights to return. Defaults to 100.",
+                              "key": "limit",
+                              "value": "<long>"
+                            },
+                            {
+                              "description": "Geo Market identifier (e.g., 'planet$earth'). If omitted, defaults to global market.",
+                              "key": "marketId",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "IP Address Family ('v4' or 'v6'). Defaults to 'v4'.",
+                              "key": "ip",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Lookback in days. Allowed values: 1, 7, 30. Defaults to 1.",
+                              "key": "lookback",
+                              "value": "<long>"
+                            },
+                            {
+                              "description": "Insight types to include. Allowed: market_entrance, market_exit, ranking_gain, ranking_loss, start_prefix_origination, stop_prefix_origination, increase_prefix_origination, decrease_prefix_origination, customer_gain, customer_loss, customer_routing_gain, customer_routing_loss, provider_gain, provider_loss, provider_routing_gain, provider_routing_loss.",
+                              "key": "types",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Insight types to include. Allowed: market_entrance, market_exit, ranking_gain, ranking_loss, start_prefix_origination, stop_prefix_origination, increase_prefix_origination, decrease_prefix_origination, customer_gain, customer_loss, customer_routing_gain, customer_routing_loss, provider_gain, provider_loss, provider_routing_gain, provider_routing_loss.",
+                              "key": "types",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Minimum magnitude (severity) threshold, integer 1\u20135. Defaults to 1.",
+                              "key": "magnitude",
+                              "value": "<long>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "c7dbbc8e-5b0f-4da7-92a2-01a2b64c35d3",
+                              "key": "asn",
+                              "value": "<string>",
+                              "description": "(Required) Autonomous System Number (ASN)"
+                            }
+                          ]
+                        },
+                        "description": "Returns list of KMI insights for a specific Autonomous System."
+                      },
+                      "response": [
+                        {
+                          "id": "13c99f5f-4bae-4fd7-82ea-6c980170cb3c",
+                          "name": "A successful response.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-CH-Auth-Email",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/kmi/v202212/insights/:asn?limit=<long>&marketId=<string>&ip=<string>&lookback=<long>&types=<string>&magnitude=<long>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "kmi",
+                                "v202212",
+                                "insights",
+                                ":asn"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Maximum number of insights to return. Defaults to 100.",
+                                  "key": "limit",
+                                  "value": "<long>"
+                                },
+                                {
+                                  "description": "Geo Market identifier (e.g., 'planet$earth'). If omitted, defaults to global market.",
+                                  "key": "marketId",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "IP Address Family ('v4' or 'v6'). Defaults to 'v4'.",
+                                  "key": "ip",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Lookback in days. Allowed values: 1, 7, 30. Defaults to 1.",
+                                  "key": "lookback",
+                                  "value": "<long>"
+                                },
+                                {
+                                  "description": "Insight types to include. Allowed: market_entrance, market_exit, ranking_gain, ranking_loss, start_prefix_origination, stop_prefix_origination, increase_prefix_origination, decrease_prefix_origination, customer_gain, customer_loss, customer_routing_gain, customer_routing_loss, provider_gain, provider_loss, provider_routing_gain, provider_routing_loss.",
+                                  "key": "types",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Minimum magnitude (severity) threshold, integer 1\u20135. Defaults to 1.",
+                                  "key": "magnitude",
+                                  "value": "<long>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "asn"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"insights\": [\n    {\n      \"asn\": \"<long>\",\n      \"name\": \"<string>\",\n      \"type\": \"<long>\",\n      \"message\": \"<string>\",\n      \"createdAt\": \"<string>\"\n    },\n    {\n      \"asn\": \"<long>\",\n      \"name\": \"<string>\",\n      \"type\": \"<long>\",\n      \"message\": \"<string>\",\n      \"createdAt\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-10-22T01:18:21.000Z",
+                          "updatedAt": "2026-10-22T01:18:21.000Z",
+                          "uid": "35240-13c99f5f-4bae-4fd7-82ea-6c980170cb3c"
+                        },
+                        {
+                          "id": "400cc6ef-831d-4fcf-8ae0-f23201780e32",
+                          "name": "An unexpected error response.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-CH-Auth-Email",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/kmi/v202212/insights/:asn?limit=<long>&marketId=<string>&ip=<string>&lookback=<long>&types=<string>&magnitude=<long>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "kmi",
+                                "v202212",
+                                "insights",
+                                ":asn"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Maximum number of insights to return. Defaults to 100.",
+                                  "key": "limit",
+                                  "value": "<long>"
+                                },
+                                {
+                                  "description": "Geo Market identifier (e.g., 'planet$earth'). If omitted, defaults to global market.",
+                                  "key": "marketId",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "IP Address Family ('v4' or 'v6'). Defaults to 'v4'.",
+                                  "key": "ip",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Lookback in days. Allowed values: 1, 7, 30. Defaults to 1.",
+                                  "key": "lookback",
+                                  "value": "<long>"
+                                },
+                                {
+                                  "description": "Insight types to include. Allowed: market_entrance, market_exit, ranking_gain, ranking_loss, start_prefix_origination, stop_prefix_origination, increase_prefix_origination, decrease_prefix_origination, customer_gain, customer_loss, customer_routing_gain, customer_routing_loss, provider_gain, provider_loss, provider_routing_gain, provider_routing_loss.",
+                                  "key": "types",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Minimum magnitude (severity) threshold, integer 1\u20135. Defaults to 1.",
+                                  "key": "magnitude",
+                                  "value": "<long>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "asn"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"ea_d9\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"sed_333\": {},\n      \"amet_c\": {},\n      \"commodo_ca\": {}\n    }\n  ]\n}",
+                          "createdAt": "2026-10-22T01:18:21.000Z",
+                          "updatedAt": "2026-10-22T01:18:21.000Z",
+                          "uid": "35240-400cc6ef-831d-4fcf-8ae0-f23201780e32"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T01:18:21.000Z",
+                      "updatedAt": "2026-10-22T01:18:21.000Z",
+                      "uid": "35240-13bf9ee3-29b5-408c-8d94-2d2de88f7ed3"
                     }
                   ],
-                  "variable": []
+                  "id": "6fcda371-253f-43c3-9eeb-4e760fcb6b5d",
+                  "createdAt": "2026-10-22T01:18:21.000Z",
+                  "updatedAt": "2026-10-22T01:18:21.000Z",
+                  "uid": "35240-6fcda371-253f-43c3-9eeb-4e760fcb6b5d"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"insights\": [\n    {\n      \"asn\": 4615,\n      \"name\": \"string\",\n      \"type\": 4663,\n      \"message\": \"string\",\n      \"createdAt\": \"string\"\n    },\n    {\n      \"asn\": 854,\n      \"name\": \"string\",\n      \"type\": 9855,\n      \"message\": \"string\",\n      \"createdAt\": \"string\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "94f5355d-b7bd-4f79-a13b-562bf640ba61",
-              "name": "An unexpected error response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "kmi",
-                    "v202212",
-                    "insights"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+                  "name": "List global KMI insights",
+                  "id": "d23e47f4-7a13-4a97-8457-444d57774473",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/kmi/v202212/insights?limit=<long>&marketId=<string>&ip=<string>&lookback=<long>&types=<string>&types=<string>&magnitude=<long>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "kmi",
+                        "v202212",
+                        "insights"
+                      ],
+                      "query": [
+                        {
+                          "description": "Maximum number of insights to return. Defaults to 100.",
+                          "key": "limit",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "Geo Market identifier (e.g., 'planet$earth'). If omitted, defaults to global market.",
+                          "key": "marketId",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "IP Address Family ('v4' or 'v6'). Defaults to 'v4'.",
+                          "key": "ip",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Lookback in days. Allowed values: 1, 7, 30. Defaults to 1.",
+                          "key": "lookback",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "Insight types to include. Provide as repeated query params, e.g., types=market_entrance&types=market_exit. Allowed: market_entrance, market_exit, ranking_gain, ranking_loss, start_prefix_origination, stop_prefix_origination, increase_prefix_origination, decrease_prefix_origination, customer_gain, customer_loss, customer_routing_gain, customer_routing_loss, provider_gain, provider_loss, provider_routing_gain, provider_routing_loss.",
+                          "key": "types",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Insight types to include. Provide as repeated query params, e.g., types=market_entrance&types=market_exit. Allowed: market_entrance, market_exit, ranking_gain, ranking_loss, start_prefix_origination, stop_prefix_origination, increase_prefix_origination, decrease_prefix_origination, customer_gain, customer_loss, customer_routing_gain, customer_routing_loss, provider_gain, provider_loss, provider_routing_gain, provider_routing_loss.",
+                          "key": "types",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Minimum magnitude (severity) threshold, integer 1\u20135. Defaults to 1.",
+                          "key": "magnitude",
+                          "value": "<long>"
+                        }
+                      ]
+                    },
+                    "description": "Returns list of global KMI insights."
+                  },
+                  "response": [
                     {
-                      "key": "limit",
-                      "value": "<long>"
+                      "id": "87aa0157-cfdd-4e14-bcc4-e9828fccdc24",
+                      "name": "A successful response.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-CH-Auth-Email",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/kmi/v202212/insights?limit=<long>&marketId=<string>&ip=<string>&lookback=<long>&types=<string>&magnitude=<long>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "kmi",
+                            "v202212",
+                            "insights"
+                          ],
+                          "query": [
+                            {
+                              "description": "Maximum number of insights to return. Defaults to 100.",
+                              "key": "limit",
+                              "value": "<long>"
+                            },
+                            {
+                              "description": "Geo Market identifier (e.g., 'planet$earth'). If omitted, defaults to global market.",
+                              "key": "marketId",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "IP Address Family ('v4' or 'v6'). Defaults to 'v4'.",
+                              "key": "ip",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Lookback in days. Allowed values: 1, 7, 30. Defaults to 1.",
+                              "key": "lookback",
+                              "value": "<long>"
+                            },
+                            {
+                              "description": "Insight types to include. Provide as repeated query params, e.g., types=market_entrance&types=market_exit. Allowed: market_entrance, market_exit, ranking_gain, ranking_loss, start_prefix_origination, stop_prefix_origination, increase_prefix_origination, decrease_prefix_origination, customer_gain, customer_loss, customer_routing_gain, customer_routing_loss, provider_gain, provider_loss, provider_routing_gain, provider_routing_loss.",
+                              "key": "types",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Minimum magnitude (severity) threshold, integer 1\u20135. Defaults to 1.",
+                              "key": "magnitude",
+                              "value": "<long>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"insights\": [\n    {\n      \"asn\": \"<long>\",\n      \"name\": \"<string>\",\n      \"type\": \"<long>\",\n      \"message\": \"<string>\",\n      \"createdAt\": \"<string>\"\n    },\n    {\n      \"asn\": \"<long>\",\n      \"name\": \"<string>\",\n      \"type\": \"<long>\",\n      \"message\": \"<string>\",\n      \"createdAt\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-10-22T01:18:21.000Z",
+                      "updatedAt": "2026-10-22T01:18:21.000Z",
+                      "uid": "35240-87aa0157-cfdd-4e14-bcc4-e9828fccdc24"
                     },
                     {
-                      "key": "marketId",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "ip",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "lookback",
-                      "value": "<long>"
-                    },
-                    {
-                      "key": "types",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "types",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "magnitude",
-                      "value": "<long>"
+                      "id": "d489eb83-41b7-4eef-a43f-f5301074f5f6",
+                      "name": "An unexpected error response.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-CH-Auth-Email",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/kmi/v202212/insights?limit=<long>&marketId=<string>&ip=<string>&lookback=<long>&types=<string>&magnitude=<long>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "kmi",
+                            "v202212",
+                            "insights"
+                          ],
+                          "query": [
+                            {
+                              "description": "Maximum number of insights to return. Defaults to 100.",
+                              "key": "limit",
+                              "value": "<long>"
+                            },
+                            {
+                              "description": "Geo Market identifier (e.g., 'planet$earth'). If omitted, defaults to global market.",
+                              "key": "marketId",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "IP Address Family ('v4' or 'v6'). Defaults to 'v4'.",
+                              "key": "ip",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Lookback in days. Allowed values: 1, 7, 30. Defaults to 1.",
+                              "key": "lookback",
+                              "value": "<long>"
+                            },
+                            {
+                              "description": "Insight types to include. Provide as repeated query params, e.g., types=market_entrance&types=market_exit. Allowed: market_entrance, market_exit, ranking_gain, ranking_loss, start_prefix_origination, stop_prefix_origination, increase_prefix_origination, decrease_prefix_origination, customer_gain, customer_loss, customer_routing_gain, customer_routing_loss, provider_gain, provider_loss, provider_routing_gain, provider_routing_loss.",
+                              "key": "types",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Minimum magnitude (severity) threshold, integer 1\u20135. Defaults to 1.",
+                              "key": "magnitude",
+                              "value": "<long>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"ea_d9\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"sed_333\": {},\n      \"amet_c\": {},\n      \"commodo_ca\": {}\n    }\n  ]\n}",
+                      "createdAt": "2026-10-22T01:18:21.000Z",
+                      "updatedAt": "2026-10-22T01:18:21.000Z",
+                      "uid": "35240-d489eb83-41b7-4eef-a43f-f5301074f5f6"
                     }
                   ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "createdAt": "2026-10-22T01:18:21.000Z",
+                  "updatedAt": "2026-10-22T01:18:21.000Z",
+                  "uid": "35240-d23e47f4-7a13-4a97-8457-444d57774473"
                 }
               ],
-              "body": "{\n  \"code\": 9719,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "da0da768-18f8-433f-8dd6-26f50391a300",
+              "createdAt": "2026-10-22T01:18:21.000Z",
+              "updatedAt": "2026-10-22T01:18:21.000Z",
+              "uid": "35240-da0da768-18f8-433f-8dd6-26f50391a300"
+            },
+            {
+              "name": "market",
+              "item": [
+                {
+                  "name": "{marketId}",
+                  "item": [
+                    {
+                      "name": "network",
+                      "item": [
+                        {
+                          "name": "{asn}",
+                          "item": [
+                            {
+                              "name": "{type}",
+                              "item": [
+                                {
+                                  "name": "List metadata and list of customers, providers, and peers for an Autonomous\u2026",
+                                  "id": "4b28c9c6-be88-4ed7-8421-d1c06730d4d6",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"ip\": \"v4\",\n  \"mutualProvider\": \"all\",\n  \"mutualCustomer\": \"all\",\n  \"singlehomedCustomer\": \"all\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/kmi/v202212/market/:marketId/network/:asn/:type",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "kmi",
+                                        "v202212",
+                                        "market",
+                                        ":marketId",
+                                        "network",
+                                        ":asn",
+                                        ":type"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "b34a2fd2-b4af-4f13-9cdf-52d0d763c876",
+                                          "key": "marketId",
+                                          "value": "<string>",
+                                          "description": "(Required) Unique Geo Market identifier (as provided by the ListMarkets RPC)"
+                                        },
+                                        {
+                                          "id": "0e021a60-1b30-454a-b15a-4ab20fb58b9f",
+                                          "key": "asn",
+                                          "value": "<string>",
+                                          "description": "(Required) Autonomous System Number (ASN)"
+                                        },
+                                        {
+                                          "id": "e0bf2468-7b95-48ac-a5d5-4a15fd07ff0f",
+                                          "key": "type",
+                                          "value": "all",
+                                          "description": "(Required) Type of the requested ASN ('all', 'customers', 'providers', 'peers'). Defaults to 'all'."
+                                        }
+                                      ]
+                                    },
+                                    "description": "Returns metadata and list of customers, providers, and peers for an Autonomous System."
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "b502d59c-66d9-4b30-9125-156174fc805c",
+                                      "name": "A successful response.",
+                                      "originalRequest": {
+                                        "method": "POST",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "X-CH-Auth-Email",
+                                            "value": "<API Key>"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"ip\": \"v4\",\n  \"mutualProvider\": \"all\",\n  \"mutualCustomer\": \"all\",\n  \"singlehomedCustomer\": \"all\"\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/kmi/v202212/market/:marketId/network/:asn/:type",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "kmi",
+                                            "v202212",
+                                            "market",
+                                            ":marketId",
+                                            "network",
+                                            ":asn",
+                                            ":type"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "marketId"
+                                            },
+                                            {
+                                              "key": "asn"
+                                            },
+                                            {
+                                              "key": "type"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"asnDetails\": {\n    \"asn\": \"<long>\",\n    \"name\": \"<string>\",\n    \"countryName\": \"<string>\",\n    \"customers\": [\n      {\n        \"asn\": \"<long>\",\n        \"name\": \"<string>\",\n        \"score\": \"<long>\",\n        \"singlehomedCustomer\": \"<boolean>\",\n        \"mutualCustomer\": \"<boolean>\",\n        \"mutualProvider\": \"<boolean>\"\n      },\n      {\n        \"asn\": \"<long>\",\n        \"name\": \"<string>\",\n        \"score\": \"<long>\",\n        \"singlehomedCustomer\": \"<boolean>\",\n        \"mutualCustomer\": \"<boolean>\",\n        \"mutualProvider\": \"<boolean>\"\n      }\n    ],\n    \"providers\": [\n      {\n        \"asn\": \"<long>\",\n        \"name\": \"<string>\",\n        \"score\": \"<long>\",\n        \"singlehomedCustomer\": \"<boolean>\",\n        \"mutualCustomer\": \"<boolean>\",\n        \"mutualProvider\": \"<boolean>\"\n      },\n      {\n        \"asn\": \"<long>\",\n        \"name\": \"<string>\",\n        \"score\": \"<long>\",\n        \"singlehomedCustomer\": \"<boolean>\",\n        \"mutualCustomer\": \"<boolean>\",\n        \"mutualProvider\": \"<boolean>\"\n      }\n    ],\n    \"peers\": [\n      {\n        \"asn\": \"<long>\",\n        \"name\": \"<string>\",\n        \"pfxCount\": \"<long>\"\n      },\n      {\n        \"asn\": \"<long>\",\n        \"name\": \"<string>\",\n        \"pfxCount\": \"<long>\"\n      }\n    ]\n  }\n}",
+                                      "createdAt": "2026-10-22T01:18:21.000Z",
+                                      "updatedAt": "2026-10-22T01:18:21.000Z",
+                                      "uid": "35240-b502d59c-66d9-4b30-9125-156174fc805c"
+                                    },
+                                    {
+                                      "id": "c3440189-6017-4511-9bf0-a115cfa3867a",
+                                      "name": "An unexpected error response.",
+                                      "originalRequest": {
+                                        "method": "POST",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "X-CH-Auth-Email",
+                                            "value": "<API Key>"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"ip\": \"v4\",\n  \"mutualProvider\": \"all\",\n  \"mutualCustomer\": \"all\",\n  \"singlehomedCustomer\": \"all\"\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/kmi/v202212/market/:marketId/network/:asn/:type",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "kmi",
+                                            "v202212",
+                                            "market",
+                                            ":marketId",
+                                            "network",
+                                            ":asn",
+                                            ":type"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "marketId"
+                                            },
+                                            {
+                                              "key": "asn"
+                                            },
+                                            {
+                                              "key": "type"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Internal Server Error",
+                                      "code": 500,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"ea_d9\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"sed_333\": {},\n      \"amet_c\": {},\n      \"commodo_ca\": {}\n    }\n  ]\n}",
+                                      "createdAt": "2026-10-22T01:18:21.000Z",
+                                      "updatedAt": "2026-10-22T01:18:21.000Z",
+                                      "uid": "35240-c3440189-6017-4511-9bf0-a115cfa3867a"
+                                    }
+                                  ],
+                                  "createdAt": "2026-10-22T01:18:21.000Z",
+                                  "updatedAt": "2026-10-22T01:18:21.000Z",
+                                  "uid": "35240-4b28c9c6-be88-4ed7-8421-d1c06730d4d6"
+                                }
+                              ],
+                              "id": "5a29b1da-6ef3-443e-8676-98d0abaa84f2",
+                              "createdAt": "2026-10-22T01:18:21.000Z",
+                              "updatedAt": "2026-10-22T01:18:21.000Z",
+                              "uid": "35240-5a29b1da-6ef3-443e-8676-98d0abaa84f2"
+                            }
+                          ],
+                          "id": "d0592490-8a27-4fa5-9986-3ff65a28ec1f",
+                          "createdAt": "2026-10-22T01:18:21.000Z",
+                          "updatedAt": "2026-10-22T01:18:21.000Z",
+                          "uid": "35240-d0592490-8a27-4fa5-9986-3ff65a28ec1f"
+                        }
+                      ],
+                      "id": "e62bb0b4-6d5a-4576-bbe7-329916f17470",
+                      "createdAt": "2026-10-22T01:18:21.000Z",
+                      "updatedAt": "2026-10-22T01:18:21.000Z",
+                      "uid": "35240-e62bb0b4-6d5a-4576-bbe7-329916f17470"
+                    },
+                    {
+                      "name": "rankings",
+                      "item": [
+                        {
+                          "name": "{rankType}",
+                          "item": [
+                            {
+                              "name": "ip",
+                              "item": [
+                                {
+                                  "name": "{ip}",
+                                  "item": [
+                                    {
+                                      "name": "List KMI rankings by geo market and rank type",
+                                      "id": "b8805aef-eb68-4ac0-a5be-72d6856e998d",
+                                      "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                      },
+                                      "request": {
+                                        "method": "POST",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"limit\": \"<long>\"\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/kmi/v202212/market/:marketId/rankings/:rankType/ip/:ip",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "kmi",
+                                            "v202212",
+                                            "market",
+                                            ":marketId",
+                                            "rankings",
+                                            ":rankType",
+                                            "ip",
+                                            ":ip"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "id": "615fcee2-6de8-4bf1-af7f-51d6da9f89c5",
+                                              "key": "marketId",
+                                              "value": "<string>",
+                                              "description": "(Required) Unique Geo Market identifier (as provided by the ListMarkets RPC)"
+                                            },
+                                            {
+                                              "id": "a830ea55-6cd8-43dc-98bc-a0ac4e6dd0bd",
+                                              "key": "rankType",
+                                              "value": "customer_base",
+                                              "description": "(Required) Type of the requested ranking ('customer_base', 'customer_base_retail', 'customer_base_wholesome', 'customer_base_backbone', 'customer_growth', 'peering_base'). Defaults to 'customer_base'."
+                                            },
+                                            {
+                                              "id": "7b3a61a4-7644-47ec-ab6a-06e1c4eb6c86",
+                                              "key": "ip",
+                                              "value": "v4",
+                                              "description": "(Required) IP Address Family ('v4' or 'v6') of requested ranking. Defaults to 'v4'."
+                                            }
+                                          ]
+                                        },
+                                        "description": "Returns list of KMI rankings."
+                                      },
+                                      "response": [
+                                        {
+                                          "id": "d02d5be4-5822-41f9-802a-994b9ed34551",
+                                          "name": "A successful response.",
+                                          "originalRequest": {
+                                            "method": "POST",
+                                            "header": [
+                                              {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: apikey",
+                                                "key": "X-CH-Auth-Email",
+                                                "value": "<API Key>"
+                                              }
+                                            ],
+                                            "body": {
+                                              "mode": "raw",
+                                              "raw": "{\n  \"limit\": \"<long>\"\n}",
+                                              "options": {
+                                                "raw": {
+                                                  "headerFamily": "json",
+                                                  "language": "json"
+                                                }
+                                              }
+                                            },
+                                            "url": {
+                                              "raw": "{{baseUrl}}/kmi/v202212/market/:marketId/rankings/:rankType/ip/:ip",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "kmi",
+                                                "v202212",
+                                                "market",
+                                                ":marketId",
+                                                "rankings",
+                                                ":rankType",
+                                                "ip",
+                                                ":ip"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "marketId"
+                                                },
+                                                {
+                                                  "key": "rankType"
+                                                },
+                                                {
+                                                  "key": "ip"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "OK",
+                                          "code": 200,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "{\n  \"rankings\": [\n    {\n      \"asn\": \"<long>\",\n      \"name\": \"<string>\",\n      \"rank\": \"<long>\",\n      \"rankChange\": \"<long>\",\n      \"score\": \"<long>\",\n      \"scoreChange\": \"<long>\"\n    },\n    {\n      \"asn\": \"<long>\",\n      \"name\": \"<string>\",\n      \"rank\": \"<long>\",\n      \"rankChange\": \"<long>\",\n      \"score\": \"<long>\",\n      \"scoreChange\": \"<long>\"\n    }\n  ],\n  \"invalidCount\": \"<long>\"\n}",
+                                          "createdAt": "2026-10-22T01:18:21.000Z",
+                                          "updatedAt": "2026-10-22T01:18:21.000Z",
+                                          "uid": "35240-d02d5be4-5822-41f9-802a-994b9ed34551"
+                                        },
+                                        {
+                                          "id": "0ae572e3-daaa-469b-b49c-5e34ec147785",
+                                          "name": "An unexpected error response.",
+                                          "originalRequest": {
+                                            "method": "POST",
+                                            "header": [
+                                              {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: apikey",
+                                                "key": "X-CH-Auth-Email",
+                                                "value": "<API Key>"
+                                              }
+                                            ],
+                                            "body": {
+                                              "mode": "raw",
+                                              "raw": "{\n  \"limit\": \"<long>\"\n}",
+                                              "options": {
+                                                "raw": {
+                                                  "headerFamily": "json",
+                                                  "language": "json"
+                                                }
+                                              }
+                                            },
+                                            "url": {
+                                              "raw": "{{baseUrl}}/kmi/v202212/market/:marketId/rankings/:rankType/ip/:ip",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "kmi",
+                                                "v202212",
+                                                "market",
+                                                ":marketId",
+                                                "rankings",
+                                                ":rankType",
+                                                "ip",
+                                                ":ip"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "marketId"
+                                                },
+                                                {
+                                                  "key": "rankType"
+                                                },
+                                                {
+                                                  "key": "ip"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "Internal Server Error",
+                                          "code": 500,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"ea_d9\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"sed_333\": {},\n      \"amet_c\": {},\n      \"commodo_ca\": {}\n    }\n  ]\n}",
+                                          "createdAt": "2026-10-22T01:18:21.000Z",
+                                          "updatedAt": "2026-10-22T01:18:21.000Z",
+                                          "uid": "35240-0ae572e3-daaa-469b-b49c-5e34ec147785"
+                                        }
+                                      ],
+                                      "createdAt": "2026-10-22T01:18:21.000Z",
+                                      "updatedAt": "2026-10-22T01:18:21.000Z",
+                                      "uid": "35240-b8805aef-eb68-4ac0-a5be-72d6856e998d"
+                                    }
+                                  ],
+                                  "id": "98d56c3a-9b5a-4877-9e71-23d5007e1725",
+                                  "createdAt": "2026-10-22T01:18:21.000Z",
+                                  "updatedAt": "2026-10-22T01:18:21.000Z",
+                                  "uid": "35240-98d56c3a-9b5a-4877-9e71-23d5007e1725"
+                                }
+                              ],
+                              "id": "02689057-679c-45e7-baf6-2f58ca5c05ab",
+                              "createdAt": "2026-10-22T01:18:21.000Z",
+                              "updatedAt": "2026-10-22T01:18:21.000Z",
+                              "uid": "35240-02689057-679c-45e7-baf6-2f58ca5c05ab"
+                            }
+                          ],
+                          "id": "296f169f-4cc5-45cd-89d1-0cfeb26bd62f",
+                          "createdAt": "2026-10-22T01:18:21.000Z",
+                          "updatedAt": "2026-10-22T01:18:21.000Z",
+                          "uid": "35240-296f169f-4cc5-45cd-89d1-0cfeb26bd62f"
+                        }
+                      ],
+                      "id": "e9c14459-aba4-4bbc-ba73-b1be9ef22442",
+                      "createdAt": "2026-10-22T01:18:21.000Z",
+                      "updatedAt": "2026-10-22T01:18:21.000Z",
+                      "uid": "35240-e9c14459-aba4-4bbc-ba73-b1be9ef22442"
+                    }
+                  ],
+                  "id": "b9763f39-4b67-4174-ba27-c78a35a428bb",
+                  "createdAt": "2026-10-22T01:18:21.000Z",
+                  "updatedAt": "2026-10-22T01:18:21.000Z",
+                  "uid": "35240-b9763f39-4b67-4174-ba27-c78a35a428bb"
+                }
+              ],
+              "id": "b28a0296-21f9-4dad-87ca-58dea9ae1ff9",
+              "createdAt": "2026-10-22T01:18:21.000Z",
+              "updatedAt": "2026-10-22T01:18:21.000Z",
+              "uid": "35240-b28a0296-21f9-4dad-87ca-58dea9ae1ff9"
+            },
+            {
+              "name": "markets",
+              "item": [
+                {
+                  "name": "List all geo markets for KMI",
+                  "id": "1d5669b7-615d-40a0-b467-efeafb88209e",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/kmi/v202212/markets",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "kmi",
+                        "v202212",
+                        "markets"
+                      ]
+                    },
+                    "description": "Returns list of geo markets for KMI."
+                  },
+                  "response": [
+                    {
+                      "id": "1f4037f8-d25b-48df-9de0-4fafe9cf0e39",
+                      "name": "A successful response.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-CH-Auth-Email",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/kmi/v202212/markets",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "kmi",
+                            "v202212",
+                            "markets"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"markets\": [\n    {\n      \"marketId\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"marketId\": \"<string>\",\n      \"name\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-10-22T01:18:21.000Z",
+                      "updatedAt": "2026-10-22T01:18:21.000Z",
+                      "uid": "35240-1f4037f8-d25b-48df-9de0-4fafe9cf0e39"
+                    },
+                    {
+                      "id": "546cffbf-ea60-423b-966a-3db34a6bea55",
+                      "name": "An unexpected error response.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-CH-Auth-Email",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/kmi/v202212/markets",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "kmi",
+                            "v202212",
+                            "markets"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"ea_d9\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"sed_333\": {},\n      \"amet_c\": {},\n      \"commodo_ca\": {}\n    }\n  ]\n}",
+                      "createdAt": "2026-10-22T01:18:21.000Z",
+                      "updatedAt": "2026-10-22T01:18:21.000Z",
+                      "uid": "35240-546cffbf-ea60-423b-966a-3db34a6bea55"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:18:21.000Z",
+                  "updatedAt": "2026-10-22T01:18:21.000Z",
+                  "uid": "35240-1d5669b7-615d-40a0-b467-efeafb88209e"
+                }
+              ],
+              "id": "3ed82b7f-bd28-421a-9039-9d7f2e52026c",
+              "createdAt": "2026-10-22T01:18:21.000Z",
+              "updatedAt": "2026-10-22T01:18:21.000Z",
+              "uid": "35240-3ed82b7f-bd28-421a-9039-9d7f2e52026c"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "46246113-fff0-4914-b153-7a6f63ae13f0",
-          "name": "List ASN-specific KMI insights.",
-          "request": {
-            "name": "List ASN-specific KMI insights.",
-            "description": {
-              "content": "Returns list of KMI insights for a specific Autonomous System.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "kmi",
-                "v202212",
-                "insights",
-                ":asn"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "limit",
-                  "value": "<long>",
-                  "description": "Maximum number of insights to return. Defaults to 100."
-                },
-                {
-                  "disabled": false,
-                  "key": "marketId",
-                  "value": "<string>",
-                  "description": "Geo Market identifier (e.g., 'planet$earth'). If omitted, defaults to global market."
-                },
-                {
-                  "disabled": false,
-                  "key": "ip",
-                  "value": "<string>",
-                  "description": "IP Address Family ('v4' or 'v6'). Defaults to 'v4'."
-                },
-                {
-                  "disabled": false,
-                  "key": "lookback",
-                  "value": "<long>",
-                  "description": "Lookback in days. Allowed values: 1, 7, 30. Defaults to 1."
-                },
-                {
-                  "disabled": false,
-                  "key": "types",
-                  "value": "<string>",
-                  "description": "Insight types to include. Allowed: market_entrance, market_exit, ranking_gain, ranking_loss, start_prefix_origination, stop_prefix_origination, increase_prefix_origination, decrease_prefix_origination, customer_gain, customer_loss, customer_routing_gain, customer_routing_loss, provider_gain, provider_loss, provider_routing_gain, provider_routing_loss."
-                },
-                {
-                  "disabled": false,
-                  "key": "types",
-                  "value": "<string>",
-                  "description": "Insight types to include. Allowed: market_entrance, market_exit, ranking_gain, ranking_loss, start_prefix_origination, stop_prefix_origination, increase_prefix_origination, decrease_prefix_origination, customer_gain, customer_loss, customer_routing_gain, customer_routing_loss, provider_gain, provider_loss, provider_routing_gain, provider_routing_loss."
-                },
-                {
-                  "disabled": false,
-                  "key": "magnitude",
-                  "value": "<long>",
-                  "description": "Minimum magnitude (severity) threshold, integer 1–5. Defaults to 1."
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "asn",
-                  "description": "(Required) Autonomous System Number (ASN)"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "8f5a053c-70d3-495f-9d0c-bba7ede3caa0",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "kmi",
-                    "v202212",
-                    "insights",
-                    ":asn"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "limit",
-                      "value": "<long>"
-                    },
-                    {
-                      "key": "marketId",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "ip",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "lookback",
-                      "value": "<long>"
-                    },
-                    {
-                      "key": "types",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "types",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "magnitude",
-                      "value": "<long>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "asn",
-                      "description": "(Required) Autonomous System Number (ASN)"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"insights\": [\n    {\n      \"asn\": 4683,\n      \"name\": \"string\",\n      \"type\": 8235,\n      \"message\": \"string\",\n      \"createdAt\": \"string\"\n    },\n    {\n      \"asn\": 9292,\n      \"name\": \"string\",\n      \"type\": 4787,\n      \"message\": \"string\",\n      \"createdAt\": \"string\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "272b4dee-b73d-4dc2-bde5-fbf9a8992930",
-              "name": "An unexpected error response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "kmi",
-                    "v202212",
-                    "insights",
-                    ":asn"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "limit",
-                      "value": "<long>"
-                    },
-                    {
-                      "key": "marketId",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "ip",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "lookback",
-                      "value": "<long>"
-                    },
-                    {
-                      "key": "types",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "types",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "magnitude",
-                      "value": "<long>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "asn",
-                      "description": "(Required) Autonomous System Number (ASN)"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 7117,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "de3068c3-5aa4-49d4-ae67-21f37354e15e",
-          "name": "List metadata and list of customers, providers, and peers for an Autonomous System.",
-          "request": {
-            "name": "List metadata and list of customers, providers, and peers for an Autonomous System.",
-            "description": {
-              "content": "Returns metadata and list of customers, providers, and peers for an Autonomous System.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "kmi",
-                "v202212",
-                "market",
-                ":marketId",
-                "network",
-                ":asn",
-                ":type"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "marketId",
-                  "description": "(Required) Unique Geo Market identifier (as provided by the ListMarkets RPC)"
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "asn",
-                  "description": "(Required) Autonomous System Number (ASN)"
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "all",
-                  "key": "type",
-                  "description": "(Required) Type of the requested ASN ('all', 'customers', 'providers', 'peers'). Defaults to 'all'."
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"ip\": \"v4\",\n  \"mutualProvider\": \"all\",\n  \"mutualCustomer\": \"all\",\n  \"singlehomedCustomer\": \"all\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "be5f7cfd-5283-4e03-a6bc-36b5dbe9b755",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "kmi",
-                    "v202212",
-                    "market",
-                    ":marketId",
-                    "network",
-                    ":asn",
-                    ":type"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "marketId",
-                      "description": "(Required) Unique Geo Market identifier (as provided by the ListMarkets RPC)"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "asn",
-                      "description": "(Required) Autonomous System Number (ASN)"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "all",
-                      "key": "type",
-                      "description": "(Required) Type of the requested ASN ('all', 'customers', 'providers', 'peers'). Defaults to 'all'."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"ip\": \"v4\",\n  \"mutualProvider\": \"all\",\n  \"mutualCustomer\": \"all\",\n  \"singlehomedCustomer\": \"all\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"asnDetails\": {\n    \"asn\": 1508,\n    \"name\": \"string\",\n    \"countryName\": \"string\",\n    \"customers\": [\n      {\n        \"asn\": 1282,\n        \"name\": \"string\",\n        \"score\": 3440,\n        \"singlehomedCustomer\": false,\n        \"mutualCustomer\": true,\n        \"mutualProvider\": false\n      },\n      {\n        \"asn\": 5612,\n        \"name\": \"string\",\n        \"score\": 7778,\n        \"singlehomedCustomer\": false,\n        \"mutualCustomer\": false,\n        \"mutualProvider\": true\n      }\n    ],\n    \"providers\": [\n      {\n        \"asn\": 545,\n        \"name\": \"string\",\n        \"score\": 1428,\n        \"singlehomedCustomer\": true,\n        \"mutualCustomer\": false,\n        \"mutualProvider\": false\n      },\n      {\n        \"asn\": 1319,\n        \"name\": \"string\",\n        \"score\": 5441,\n        \"singlehomedCustomer\": true,\n        \"mutualCustomer\": false,\n        \"mutualProvider\": false\n      }\n    ],\n    \"peers\": [\n      {\n        \"asn\": 6333,\n        \"name\": \"string\",\n        \"pfxCount\": 879\n      },\n      {\n        \"asn\": 462,\n        \"name\": \"string\",\n        \"pfxCount\": 6754\n      }\n    ]\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "54c5ab4a-5c0a-4282-a267-ff644cec373d",
-              "name": "An unexpected error response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "kmi",
-                    "v202212",
-                    "market",
-                    ":marketId",
-                    "network",
-                    ":asn",
-                    ":type"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "marketId",
-                      "description": "(Required) Unique Geo Market identifier (as provided by the ListMarkets RPC)"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "asn",
-                      "description": "(Required) Autonomous System Number (ASN)"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "all",
-                      "key": "type",
-                      "description": "(Required) Type of the requested ASN ('all', 'customers', 'providers', 'peers'). Defaults to 'all'."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"ip\": \"v4\",\n  \"mutualProvider\": \"all\",\n  \"mutualCustomer\": \"all\",\n  \"singlehomedCustomer\": \"all\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 7117,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "7c31b31b-6462-4bf0-9f30-6a245adcb2f5",
-          "name": "List KMI rankings by geo market and rank type.",
-          "request": {
-            "name": "List KMI rankings by geo market and rank type.",
-            "description": {
-              "content": "Returns list of KMI rankings.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "kmi",
-                "v202212",
-                "market",
-                ":marketId",
-                "rankings",
-                ":rankType",
-                "ip",
-                ":ip"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "marketId",
-                  "description": "(Required) Unique Geo Market identifier (as provided by the ListMarkets RPC)"
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "customer_base",
-                  "key": "rankType",
-                  "description": "(Required) Type of the requested ranking ('customer_base', 'customer_base_retail', 'customer_base_wholesome', 'customer_base_backbone', 'customer_growth', 'peering_base'). Defaults to 'customer_base'."
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "v4",
-                  "key": "ip",
-                  "description": "(Required) IP Address Family ('v4' or 'v6') of requested ranking. Defaults to 'v4'."
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"limit\": \"<long>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "a44e03f4-661f-4d16-a4ff-9bf749242e5d",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "kmi",
-                    "v202212",
-                    "market",
-                    ":marketId",
-                    "rankings",
-                    ":rankType",
-                    "ip",
-                    ":ip"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "marketId",
-                      "description": "(Required) Unique Geo Market identifier (as provided by the ListMarkets RPC)"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "customer_base",
-                      "key": "rankType",
-                      "description": "(Required) Type of the requested ranking ('customer_base', 'customer_base_retail', 'customer_base_wholesome', 'customer_base_backbone', 'customer_growth', 'peering_base'). Defaults to 'customer_base'."
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "v4",
-                      "key": "ip",
-                      "description": "(Required) IP Address Family ('v4' or 'v6') of requested ranking. Defaults to 'v4'."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"limit\": \"<long>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"rankings\": [\n    {\n      \"asn\": 3180,\n      \"name\": \"string\",\n      \"rank\": 6278,\n      \"rankChange\": 8198,\n      \"score\": 1542,\n      \"scoreChange\": 6495\n    },\n    {\n      \"asn\": 5149,\n      \"name\": \"string\",\n      \"rank\": 9833,\n      \"rankChange\": 1680,\n      \"score\": 7877,\n      \"scoreChange\": 7901\n    }\n  ],\n  \"invalidCount\": 1550\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "ca91e769-6165-441e-9246-9602ae423456",
-              "name": "An unexpected error response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "kmi",
-                    "v202212",
-                    "market",
-                    ":marketId",
-                    "rankings",
-                    ":rankType",
-                    "ip",
-                    ":ip"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "marketId",
-                      "description": "(Required) Unique Geo Market identifier (as provided by the ListMarkets RPC)"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "customer_base",
-                      "key": "rankType",
-                      "description": "(Required) Type of the requested ranking ('customer_base', 'customer_base_retail', 'customer_base_wholesome', 'customer_base_backbone', 'customer_growth', 'peering_base'). Defaults to 'customer_base'."
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "v4",
-                      "key": "ip",
-                      "description": "(Required) IP Address Family ('v4' or 'v6') of requested ranking. Defaults to 'v4'."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"limit\": \"<long>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 7117,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "c8abb736-9e68-4a22-a61e-4beab5666e38",
-          "name": "List all geo markets for KMI.",
-          "request": {
-            "name": "List all geo markets for KMI.",
-            "description": {
-              "content": "Returns list of geo markets for KMI.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "kmi",
-                "v202212",
-                "markets"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "28a60819-e258-4899-a68d-5c144eb24f7f",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "kmi",
-                    "v202212",
-                    "markets"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"markets\": [\n    {\n      \"marketId\": \"string\",\n      \"name\": \"string\"\n    },\n    {\n      \"marketId\": \"string\",\n      \"name\": \"string\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "e853c4af-1789-498b-8189-1b80bf611504",
-              "name": "An unexpected error response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "kmi",
-                    "v202212",
-                    "markets"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 7117,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "4a7d4cd7-b880-4dc3-a2dc-298c79823a27",
+          "createdAt": "2026-10-22T01:18:21.000Z",
+          "updatedAt": "2026-10-22T01:18:21.000Z",
+          "uid": "35240-4a7d4cd7-b880-4dc3-a2dc-298c79823a27"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "/",
-      "key": "baseUrl"
+      "id": "b3ae4f19-bb8f-4b86-bbd7-8a2cdb87ef11",
+      "createdAt": "2026-10-22T01:18:21.000Z",
+      "updatedAt": "2026-10-22T01:18:21.000Z",
+      "uid": "35240-b3ae4f19-bb8f-4b86-bbd7-8a2cdb87ef11"
     }
   ],
   "auth": {
@@ -1106,25 +1165,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "X-CH-Auth-Email"
+        "value": "X-CH-Auth-Email",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "e5f6e325-3f60-4d52-ba27-cbf202d1cbed",
-    "name": "AI Advisor AiAdvisorDataService KmiService API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "# Overview\nProvides programmatic access to AI Advisor.\n\nContact Support:\n Name: Kentik API Engineering",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
     }
-  }
+  ]
 }

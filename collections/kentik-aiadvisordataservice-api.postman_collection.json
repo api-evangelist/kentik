@@ -1,489 +1,518 @@
 {
+  "info": {
+    "_postman_id": "b0b16ce4-aeb6-4058-84db-4912b82e734e",
+    "name": "AI Advisor Data Service API",
+    "description": "# Overview\nProvides programmatic access to AI Advisor.\n\nContact Support:\n Name: Kentik API Engineering",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:17:09.000Z",
+    "updatedAt": "2026-10-22T01:17:10.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-b0b16ce4-aeb6-4058-84db-4912b82e734e"
+  },
   "item": [
     {
-      "id": "00d41913-06cd-468f-8580-ccb5f2511dc4",
-      "name": "AiAdvisorDataService",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "ai_advisor",
       "item": [
         {
-          "id": "41951362-5ca9-4f55-a8f8-b0d2a23c602b",
-          "name": "Create AI Advisor Chat Session",
-          "request": {
-            "name": "Create AI Advisor Chat Session",
-            "description": {
-              "content": "Create a new AI Advisor Chat session with a prompt",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "ai_advisor",
-                "v202511",
-                "chat"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"prompt\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
+          "name": "v202511",
+          "item": [
             {
-              "id": "70f9b32a-2998-48d4-86b0-3b5a5be8471f",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "ai_advisor",
-                    "v202511",
-                    "chat"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"prompt\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "chat",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"id\": \"string\",\n  \"status\": \"SESSION_STATUS_UNSPECIFIED\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "684d4e14-297d-4b40-9fdc-7a217440eddb",
-              "name": "An unexpected error response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "ai_advisor",
-                    "v202511",
-                    "chat"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"prompt\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 9721,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "56c73f01-322c-4403-bdd3-8688c34930d5",
-          "name": "Update AI Advisor Chat Session",
-          "request": {
-            "name": "Update AI Advisor Chat Session",
-            "description": {
-              "content": "Update AI Advisor Chat session with a prompt",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "ai_advisor",
-                "v202511",
-                "chat"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PUT",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"prompt\": \"<string>\",\n  \"id\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "4961f0e4-ede9-42ed-85bc-e513b881509e",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "ai_advisor",
-                    "v202511",
-                    "chat"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"prompt\": \"<string>\",\n  \"id\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"id\": \"string\",\n  \"status\": \"SESSION_STATUS_UNSPECIFIED\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "9b7a3dca-5107-45bb-9054-817a99302e69",
-              "name": "An unexpected error response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "ai_advisor",
-                    "v202511",
-                    "chat"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"prompt\": \"<string>\",\n  \"id\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 4470,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "55676cdb-cf7d-4ae7-8447-282fb3c03aa6",
-          "name": "Get AI Advisor Chat Session",
-          "request": {
-            "name": "Get AI Advisor Chat Session",
-            "description": {
-              "content": "Retrieve the status and results of an AI Advisor chat session",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "ai_advisor",
-                "v202511",
-                "chat",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) The unique identifier (UUID) for the chat session"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "295410ea-e065-497f-a2e9-44fa6034997f",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "ai_advisor",
-                    "v202511",
-                    "chat",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
+                  "name": "{id}",
+                  "item": [
                     {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier (UUID) for the chat session"
+                      "name": "Get AI Advisor Chat Session",
+                      "id": "80378ede-021a-4ac0-b6d9-76a8e40a6715",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/ai_advisor/v202511/chat/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "ai_advisor",
+                            "v202511",
+                            "chat",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "6d665625-5d7c-4af6-83e1-8f4fa6d1ec5e",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) The unique identifier (UUID) for the chat session"
+                            }
+                          ]
+                        },
+                        "description": "Retrieve the status and results of an AI Advisor chat session"
+                      },
+                      "response": [
+                        {
+                          "id": "b7a60d1d-7024-4ad5-ab38-16d381651753",
+                          "name": "A successful response.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-CH-Auth-Email",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/ai_advisor/v202511/chat/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "ai_advisor",
+                                "v202511",
+                                "chat",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"status\": \"SESSION_STATUS_UNSPECIFIED\",\n  \"messages\": [\n    {\n      \"id\": \"<string>\",\n      \"status\": \"SESSION_STATUS_UNSPECIFIED\",\n      \"finalAnswer\": \"<string>\",\n      \"reasoning\": \"<string>\",\n      \"data\": \"<string>\",\n      \"errorMessage\": \"<string>\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\",\n      \"prompt\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"status\": \"SESSION_STATUS_UNSPECIFIED\",\n      \"finalAnswer\": \"<string>\",\n      \"reasoning\": \"<string>\",\n      \"data\": \"<string>\",\n      \"errorMessage\": \"<string>\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\",\n      \"prompt\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-10-22T01:17:10.000Z",
+                          "updatedAt": "2026-10-22T01:17:10.000Z",
+                          "uid": "35240-b7a60d1d-7024-4ad5-ab38-16d381651753"
+                        },
+                        {
+                          "id": "3577a2fa-df6c-4d7a-b233-c2de4c565e43",
+                          "name": "An unexpected error response.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-CH-Auth-Email",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/ai_advisor/v202511/chat/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "ai_advisor",
+                                "v202511",
+                                "chat",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\"\n    },\n    {\n      \"@type\": \"<string>\",\n      \"adipisicingd\": {}\n    }\n  ]\n}",
+                          "createdAt": "2026-10-22T01:17:10.000Z",
+                          "updatedAt": "2026-10-22T01:17:10.000Z",
+                          "uid": "35240-3577a2fa-df6c-4d7a-b233-c2de4c565e43"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T01:17:10.000Z",
+                      "updatedAt": "2026-10-22T01:17:10.000Z",
+                      "uid": "35240-80378ede-021a-4ac0-b6d9-76a8e40a6715"
                     }
-                  ]
+                  ],
+                  "id": "071a7470-d08f-4807-9112-fc4187b7d5f5",
+                  "createdAt": "2026-10-22T01:17:10.000Z",
+                  "updatedAt": "2026-10-22T01:17:10.000Z",
+                  "uid": "35240-071a7470-d08f-4807-9112-fc4187b7d5f5"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"id\": \"string\",\n  \"status\": \"SESSION_STATUS_UNSPECIFIED\",\n  \"messages\": [\n    {\n      \"id\": \"string\",\n      \"status\": \"SESSION_STATUS_UNSPECIFIED\",\n      \"finalAnswer\": \"string\",\n      \"reasoning\": \"string\",\n      \"data\": \"string\",\n      \"errorMessage\": \"string\",\n      \"createdAt\": \"1971-05-29T19:47:56.976Z\",\n      \"updatedAt\": \"1960-01-31T16:25:05.429Z\",\n      \"prompt\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"status\": \"SESSION_STATUS_UNSPECIFIED\",\n      \"finalAnswer\": \"string\",\n      \"reasoning\": \"string\",\n      \"data\": \"string\",\n      \"errorMessage\": \"string\",\n      \"createdAt\": \"2013-04-12T23:46:47.983Z\",\n      \"updatedAt\": \"1985-04-28T09:36:31.237Z\",\n      \"prompt\": \"string\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "fd9e3536-ca0b-4dc1-ac68-426877900002",
-              "name": "An unexpected error response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "ai_advisor",
-                    "v202511",
-                    "chat",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
+                  "name": "Create AI Advisor Chat Session",
+                  "id": "88722506-c12f-4709-bb74-01ccef48d02b",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"prompt\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/ai_advisor/v202511/chat",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "ai_advisor",
+                        "v202511",
+                        "chat"
+                      ]
+                    },
+                    "description": "Create a new AI Advisor Chat session with a prompt"
+                  },
+                  "response": [
                     {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier (UUID) for the chat session"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
+                      "id": "2e5f0c0b-14a2-4198-8cfa-63ae19b544ef",
+                      "name": "A successful response.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-CH-Auth-Email",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"prompt\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/ai_advisor/v202511/chat",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "ai_advisor",
+                            "v202511",
+                            "chat"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"status\": \"SESSION_STATUS_UNSPECIFIED\"\n}",
+                      "createdAt": "2026-10-22T01:17:10.000Z",
+                      "updatedAt": "2026-10-22T01:17:10.000Z",
+                      "uid": "35240-2e5f0c0b-14a2-4198-8cfa-63ae19b544ef"
                     },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
+                    {
+                      "id": "c2687db5-d61d-4e92-b287-d1319a5692b2",
+                      "name": "An unexpected error response.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-CH-Auth-Email",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"prompt\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/ai_advisor/v202511/chat",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "ai_advisor",
+                            "v202511",
+                            "chat"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\"\n    },\n    {\n      \"@type\": \"<string>\",\n      \"adipisicingd\": {}\n    }\n  ]\n}",
+                      "createdAt": "2026-10-22T01:17:10.000Z",
+                      "updatedAt": "2026-10-22T01:17:10.000Z",
+                      "uid": "35240-c2687db5-d61d-4e92-b287-d1319a5692b2"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:17:10.000Z",
+                  "updatedAt": "2026-10-22T01:17:10.000Z",
+                  "uid": "35240-88722506-c12f-4709-bb74-01ccef48d02b"
+                },
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "Update AI Advisor Chat Session",
+                  "id": "c65f54ee-1927-426d-949b-b484f832817e",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"prompt\": \"<string>\",\n  \"id\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/ai_advisor/v202511/chat",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "ai_advisor",
+                        "v202511",
+                        "chat"
+                      ]
+                    },
+                    "description": "Update AI Advisor Chat session with a prompt"
+                  },
+                  "response": [
+                    {
+                      "id": "e9b9eb54-ebe8-4f36-a120-eed3c326e094",
+                      "name": "A successful response.",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-CH-Auth-Email",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"prompt\": \"<string>\",\n  \"id\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/ai_advisor/v202511/chat",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "ai_advisor",
+                            "v202511",
+                            "chat"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"status\": \"SESSION_STATUS_UNSPECIFIED\"\n}",
+                      "createdAt": "2026-10-22T01:17:10.000Z",
+                      "updatedAt": "2026-10-22T01:17:10.000Z",
+                      "uid": "35240-e9b9eb54-ebe8-4f36-a120-eed3c326e094"
+                    },
+                    {
+                      "id": "a5333a7d-3a14-4b51-bd9d-c29f14ce7d6d",
+                      "name": "An unexpected error response.",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-CH-Auth-Email",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"prompt\": \"<string>\",\n  \"id\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/ai_advisor/v202511/chat",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "ai_advisor",
+                            "v202511",
+                            "chat"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\"\n    },\n    {\n      \"@type\": \"<string>\",\n      \"adipisicingd\": {}\n    }\n  ]\n}",
+                      "createdAt": "2026-10-22T01:17:10.000Z",
+                      "updatedAt": "2026-10-22T01:17:10.000Z",
+                      "uid": "35240-a5333a7d-3a14-4b51-bd9d-c29f14ce7d6d"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:17:10.000Z",
+                  "updatedAt": "2026-10-22T01:17:10.000Z",
+                  "uid": "35240-c65f54ee-1927-426d-949b-b484f832817e"
                 }
               ],
-              "body": "{\n  \"code\": 4470,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "b36af221-c6c2-44e6-9d5e-aa0a0cacc158",
+              "createdAt": "2026-10-22T01:17:10.000Z",
+              "updatedAt": "2026-10-22T01:17:10.000Z",
+              "uid": "35240-b36af221-c6c2-44e6-9d5e-aa0a0cacc158"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "349f019c-dcea-498e-a37d-adb97f817688",
+          "createdAt": "2026-10-22T01:17:10.000Z",
+          "updatedAt": "2026-10-22T01:17:10.000Z",
+          "uid": "35240-349f019c-dcea-498e-a37d-adb97f817688"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "/",
-      "key": "baseUrl"
+      "id": "8879e7c5-c2be-435e-824c-4b2c42f226dc",
+      "createdAt": "2026-10-22T01:17:10.000Z",
+      "updatedAt": "2026-10-22T01:17:10.000Z",
+      "uid": "35240-8879e7c5-c2be-435e-824c-4b2c42f226dc"
     }
   ],
   "auth": {
@@ -491,25 +520,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "X-CH-Auth-Email"
+        "value": "X-CH-Auth-Email",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "5840c6b1-8a1d-4efa-a8e7-441a4896bde0",
-    "name": "AI Advisor AiAdvisorDataService API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "# Overview\nProvides programmatic access to AI Advisor.\n\nContact Support:\n Name: Kentik API Engineering",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
     }
-  }
+  ]
 }

@@ -1,0 +1,583 @@
+{
+  "info": {
+    "_postman_id": "61b63c1d-086d-4d65-88ef-145315e97475",
+    "name": "Audit Service API",
+    "description": "Contact Support:\n Name: Kentik API Engineering",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:19:47.000Z",
+    "updatedAt": "2026-10-22T01:19:47.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-61b63c1d-086d-4d65-88ef-145315e97475"
+  },
+  "item": [
+    {
+      "name": "audit",
+      "item": [
+        {
+          "name": "v202601",
+          "item": [
+            {
+              "name": "events",
+              "item": [
+                {
+                  "name": "{id}",
+                  "item": [
+                    {
+                      "name": "{ctime}",
+                      "item": [
+                        {
+                          "name": "Get an Audit Event",
+                          "id": "98ab0af2-c79a-402b-9238-9d73e59a4617",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/audit/v202601/events/:id/:ctime",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "audit",
+                                "v202601",
+                                "events",
+                                ":id",
+                                ":ctime"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "18d60efe-1c77-4775-9c4e-71d610dc10a1",
+                                  "key": "id",
+                                  "value": "<int64>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "aa7a7b39-0e59-4ddf-b7e4-a7108d879dcb",
+                                  "key": "ctime",
+                                  "value": "<dateTime>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Return a specific audit event."
+                          },
+                          "response": [
+                            {
+                              "id": "938ee724-052d-45bc-b86e-7598691712a2",
+                              "name": "A successful response.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-CH-Auth-Email",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/audit/v202601/events/:id/:ctime",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "audit",
+                                    "v202601",
+                                    "events",
+                                    ":id",
+                                    ":ctime"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    },
+                                    {
+                                      "key": "ctime"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"event\": {\n    \"userId\": \"<string>\",\n    \"id\": \"<string>\",\n    \"ctime\": \"<dateTime>\",\n    \"apiMethod\": \"<string>\",\n    \"apiPath\": \"<string>\",\n    \"ipAddress\": \"<string>\",\n    \"authority\": \"<string>\",\n    \"kentikUserId\": \"<string>\",\n    \"kentikUserEmail\": \"<string>\",\n    \"objectType\": \"<string>\",\n    \"objectName\": \"<string>\",\n    \"apiAction\": \"<string>\",\n    \"source\": \"<string>\",\n    \"objectId\": \"<string>\",\n    \"parentId\": \"<string>\",\n    \"portalPath\": \"<string>\",\n    \"generic\": {\n      \"eventSource\": \"<string>\",\n      \"action\": \"<string>\",\n      \"eventType\": \"<string>\",\n      \"owner\": \"<string>\",\n      \"metadata\": {\n        \"commodo_863\": \"<string>\"\n      }\n    },\n    \"titleField\": \"<string>\",\n    \"eventPayload\": \"<string>\",\n    \"userAgent\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-10-22T01:19:48.000Z",
+                              "updatedAt": "2026-10-22T01:19:48.000Z",
+                              "uid": "35240-938ee724-052d-45bc-b86e-7598691712a2"
+                            },
+                            {
+                              "id": "dff21b99-9218-4ab9-8e04-7af5bf10088c",
+                              "name": "An unexpected error response.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-CH-Auth-Email",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/audit/v202601/events/:id/:ctime",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "audit",
+                                    "v202601",
+                                    "events",
+                                    ":id",
+                                    ":ctime"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    },
+                                    {
+                                      "key": "ctime"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"velit_20\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"id_883\": {}\n    }\n  ]\n}",
+                              "createdAt": "2026-10-22T01:19:48.000Z",
+                              "updatedAt": "2026-10-22T01:19:48.000Z",
+                              "uid": "35240-dff21b99-9218-4ab9-8e04-7af5bf10088c"
+                            }
+                          ],
+                          "createdAt": "2026-10-22T01:19:48.000Z",
+                          "updatedAt": "2026-10-22T01:19:48.000Z",
+                          "uid": "35240-98ab0af2-c79a-402b-9238-9d73e59a4617"
+                        }
+                      ],
+                      "id": "bfc69480-338e-44b5-b279-fc5eb9e87866",
+                      "createdAt": "2026-10-22T01:19:48.000Z",
+                      "updatedAt": "2026-10-22T01:19:48.000Z",
+                      "uid": "35240-bfc69480-338e-44b5-b279-fc5eb9e87866"
+                    },
+                    {
+                      "name": "Get an Audit Event",
+                      "id": "79bcf390-748c-4396-8001-5b4a4ebfc4c7",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/audit/v202601/events/:id?ctime=<dateTime>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "audit",
+                            "v202601",
+                            "events",
+                            ":id"
+                          ],
+                          "query": [
+                            {
+                              "key": "ctime",
+                              "value": "<dateTime>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "69d7c930-2b12-48ee-8f39-5864f7c3ca2f",
+                              "key": "id",
+                              "value": "<int64>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Return a specific audit event."
+                      },
+                      "response": [
+                        {
+                          "id": "8ddaecce-b2ce-4f61-b1e8-3cc06c055d35",
+                          "name": "A successful response.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-CH-Auth-Email",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/audit/v202601/events/:id?ctime=<dateTime>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "audit",
+                                "v202601",
+                                "events",
+                                ":id"
+                              ],
+                              "query": [
+                                {
+                                  "key": "ctime",
+                                  "value": "<dateTime>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"event\": {\n    \"userId\": \"<string>\",\n    \"id\": \"<string>\",\n    \"ctime\": \"<dateTime>\",\n    \"apiMethod\": \"<string>\",\n    \"apiPath\": \"<string>\",\n    \"ipAddress\": \"<string>\",\n    \"authority\": \"<string>\",\n    \"kentikUserId\": \"<string>\",\n    \"kentikUserEmail\": \"<string>\",\n    \"objectType\": \"<string>\",\n    \"objectName\": \"<string>\",\n    \"apiAction\": \"<string>\",\n    \"source\": \"<string>\",\n    \"objectId\": \"<string>\",\n    \"parentId\": \"<string>\",\n    \"portalPath\": \"<string>\",\n    \"generic\": {\n      \"eventSource\": \"<string>\",\n      \"action\": \"<string>\",\n      \"eventType\": \"<string>\",\n      \"owner\": \"<string>\",\n      \"metadata\": {\n        \"commodo_863\": \"<string>\"\n      }\n    },\n    \"titleField\": \"<string>\",\n    \"eventPayload\": \"<string>\",\n    \"userAgent\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-10-22T01:19:48.000Z",
+                          "updatedAt": "2026-10-22T01:19:48.000Z",
+                          "uid": "35240-8ddaecce-b2ce-4f61-b1e8-3cc06c055d35"
+                        },
+                        {
+                          "id": "71e5edad-5538-4e55-a08a-8818cae6d857",
+                          "name": "An unexpected error response.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-CH-Auth-Email",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/audit/v202601/events/:id?ctime=<dateTime>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "audit",
+                                "v202601",
+                                "events",
+                                ":id"
+                              ],
+                              "query": [
+                                {
+                                  "key": "ctime",
+                                  "value": "<dateTime>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"velit_20\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"id_883\": {}\n    }\n  ]\n}",
+                          "createdAt": "2026-10-22T01:19:48.000Z",
+                          "updatedAt": "2026-10-22T01:19:48.000Z",
+                          "uid": "35240-71e5edad-5538-4e55-a08a-8818cae6d857"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T01:19:48.000Z",
+                      "updatedAt": "2026-10-22T01:19:48.000Z",
+                      "uid": "35240-79bcf390-748c-4396-8001-5b4a4ebfc4c7"
+                    }
+                  ],
+                  "id": "dc8deba7-4f15-4952-96bc-75d0f4679f9c",
+                  "createdAt": "2026-10-22T01:19:48.000Z",
+                  "updatedAt": "2026-10-22T01:19:48.000Z",
+                  "uid": "35240-dc8deba7-4f15-4952-96bc-75d0f4679f9c"
+                },
+                {
+                  "name": "List Audit Events",
+                  "id": "c1dd4552-c83c-49e0-a4ee-b9bd83ba4f20",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/audit/v202601/events?startTime=<string>&endTime=<string>&offset=0&limit=100",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "audit",
+                        "v202601",
+                        "events"
+                      ],
+                      "query": [
+                        {
+                          "description": "Date time in UTC. Defaults to 30 days before end_time if not provided.",
+                          "key": "startTime",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Date time in UTC. Defaults to current date/time if not provided.",
+                          "key": "endTime",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "offset",
+                          "value": "0"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "100"
+                        }
+                      ]
+                    },
+                    "description": "Returns a list of audit events."
+                  },
+                  "response": [
+                    {
+                      "id": "70aaeab7-4987-47b2-a452-3ba583c488b2",
+                      "name": "A successful response.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-CH-Auth-Email",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/audit/v202601/events?startTime=<string>&endTime=<string>&offset=0&limit=100",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "audit",
+                            "v202601",
+                            "events"
+                          ],
+                          "query": [
+                            {
+                              "description": "Date time in UTC. Defaults to 30 days before end_time if not provided.",
+                              "key": "startTime",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Date time in UTC. Defaults to current date/time if not provided.",
+                              "key": "endTime",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "offset",
+                              "value": "0"
+                            },
+                            {
+                              "key": "limit",
+                              "value": "100"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"events\": [\n    {\n      \"userId\": \"<string>\",\n      \"id\": \"<string>\",\n      \"ctime\": \"<dateTime>\",\n      \"apiMethod\": \"<string>\",\n      \"apiPath\": \"<string>\",\n      \"ipAddress\": \"<string>\",\n      \"authority\": \"<string>\",\n      \"kentikUserId\": \"<string>\",\n      \"kentikUserEmail\": \"<string>\",\n      \"objectType\": \"<string>\",\n      \"objectName\": \"<string>\",\n      \"apiAction\": \"<string>\",\n      \"source\": \"<string>\",\n      \"objectId\": \"<string>\",\n      \"parentId\": \"<string>\",\n      \"portalPath\": \"<string>\",\n      \"generic\": {\n        \"eventSource\": \"<string>\",\n        \"action\": \"<string>\",\n        \"eventType\": \"<string>\",\n        \"owner\": \"<string>\",\n        \"metadata\": {\n          \"ea_6d\": \"<string>\",\n          \"nulla_8\": \"<string>\",\n          \"nisif4\": \"<string>\"\n        }\n      },\n      \"titleField\": \"<string>\",\n      \"eventPayload\": \"<string>\",\n      \"userAgent\": \"<string>\"\n    },\n    {\n      \"userId\": \"<string>\",\n      \"id\": \"<string>\",\n      \"ctime\": \"<dateTime>\",\n      \"apiMethod\": \"<string>\",\n      \"apiPath\": \"<string>\",\n      \"ipAddress\": \"<string>\",\n      \"authority\": \"<string>\",\n      \"kentikUserId\": \"<string>\",\n      \"kentikUserEmail\": \"<string>\",\n      \"objectType\": \"<string>\",\n      \"objectName\": \"<string>\",\n      \"apiAction\": \"<string>\",\n      \"source\": \"<string>\",\n      \"objectId\": \"<string>\",\n      \"parentId\": \"<string>\",\n      \"portalPath\": \"<string>\",\n      \"generic\": {\n        \"eventSource\": \"<string>\",\n        \"action\": \"<string>\",\n        \"eventType\": \"<string>\",\n        \"owner\": \"<string>\",\n        \"metadata\": {\n          \"enim_4c5\": \"<string>\"\n        }\n      },\n      \"titleField\": \"<string>\",\n      \"eventPayload\": \"<string>\",\n      \"userAgent\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-10-22T01:19:48.000Z",
+                      "updatedAt": "2026-10-22T01:19:48.000Z",
+                      "uid": "35240-70aaeab7-4987-47b2-a452-3ba583c488b2"
+                    },
+                    {
+                      "id": "4a9bc6bb-a7f9-40c6-9065-3c78bee515a1",
+                      "name": "An unexpected error response.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-CH-Auth-Email",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/audit/v202601/events?startTime=<string>&endTime=<string>&offset=0&limit=100",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "audit",
+                            "v202601",
+                            "events"
+                          ],
+                          "query": [
+                            {
+                              "description": "Date time in UTC. Defaults to 30 days before end_time if not provided.",
+                              "key": "startTime",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Date time in UTC. Defaults to current date/time if not provided.",
+                              "key": "endTime",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "offset",
+                              "value": "0"
+                            },
+                            {
+                              "key": "limit",
+                              "value": "100"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"velit_20\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"id_883\": {}\n    }\n  ]\n}",
+                      "createdAt": "2026-10-22T01:19:48.000Z",
+                      "updatedAt": "2026-10-22T01:19:48.000Z",
+                      "uid": "35240-4a9bc6bb-a7f9-40c6-9065-3c78bee515a1"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:19:48.000Z",
+                  "updatedAt": "2026-10-22T01:19:48.000Z",
+                  "uid": "35240-c1dd4552-c83c-49e0-a4ee-b9bd83ba4f20"
+                }
+              ],
+              "id": "7321b889-a25b-4d3d-9afe-50ed5ceeb4d2",
+              "createdAt": "2026-10-22T01:19:48.000Z",
+              "updatedAt": "2026-10-22T01:19:48.000Z",
+              "uid": "35240-7321b889-a25b-4d3d-9afe-50ed5ceeb4d2"
+            }
+          ],
+          "id": "27672adf-b122-42bc-86d3-878c498da8c2",
+          "createdAt": "2026-10-22T01:19:48.000Z",
+          "updatedAt": "2026-10-22T01:19:48.000Z",
+          "uid": "35240-27672adf-b122-42bc-86d3-878c498da8c2"
+        }
+      ],
+      "id": "43687787-a037-4c02-a4d4-f5ef01872976",
+      "createdAt": "2026-10-22T01:19:48.000Z",
+      "updatedAt": "2026-10-22T01:19:48.000Z",
+      "uid": "35240-43687787-a037-4c02-a4d4-f5ef01872976"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-CH-Auth-Email",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

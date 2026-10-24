@@ -1,1111 +1,1110 @@
 {
+  "info": {
+    "_postman_id": "650344b1-c400-40e2-98de-600f034ba0ee",
+    "name": "User Management User Service API",
+    "description": "# Overview\nThe User Management API enables programmatic administration of users within your organization.\n\nContact Support:\n Name: Kentik API Engineering",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:19:42.000Z",
+    "updatedAt": "2026-10-22T01:19:42.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-650344b1-c400-40e2-98de-600f034ba0ee"
+  },
   "item": [
     {
-      "id": "40272560-9b81-497c-8b2f-2a3166cd0f1f",
-      "name": "UserService",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "user",
       "item": [
         {
-          "id": "e061df3e-727f-4f82-bf86-da6a35313d36",
-          "name": "List all users.",
-          "request": {
-            "name": "List all users.",
-            "description": {
-              "content": "Returns a list of all user accounts in the company.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "user",
-                "v202211",
-                "users"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "v202211",
+          "item": [
             {
-              "id": "f42ce601-13cf-4f31-86e9-418c7467b3e1",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "user",
-                    "v202211",
-                    "users"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "users",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "{id}",
+                  "item": [
+                    {
+                      "name": "reset_active_sessions",
+                      "item": [
+                        {
+                          "name": "Resets active sessions for a user",
+                          "id": "278502f0-be3f-45cb-8f2f-71f1fd3787bf",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/user/v202211/users/:id/reset_active_sessions",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                "v202211",
+                                "users",
+                                ":id",
+                                "reset_active_sessions"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "32e7456b-0b7d-484c-9998-4625abbc965f",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) ID of the the user whose sessions should be reset"
+                                }
+                              ]
+                            },
+                            "description": "Resets active sessions for a user specified by ID."
+                          },
+                          "response": [
+                            {
+                              "id": "32282457-085b-4371-a1f3-0d0cfb10cc56",
+                              "name": "A successful response.",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-CH-Auth-Email",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/user/v202211/users/:id/reset_active_sessions",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "user",
+                                    "v202211",
+                                    "users",
+                                    ":id",
+                                    "reset_active_sessions"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{}",
+                              "createdAt": "2026-10-22T01:19:42.000Z",
+                              "updatedAt": "2026-10-22T01:19:42.000Z",
+                              "uid": "35240-32282457-085b-4371-a1f3-0d0cfb10cc56"
+                            },
+                            {
+                              "id": "9bd8554b-bd63-4b0b-a4f9-699a35f8ac2a",
+                              "name": "An unexpected error response.",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-CH-Auth-Email",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/user/v202211/users/:id/reset_active_sessions",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "user",
+                                    "v202211",
+                                    "users",
+                                    ":id",
+                                    "reset_active_sessions"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"doa\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"est_bd0\": {},\n      \"aliquip5\": {}\n    }\n  ]\n}",
+                              "createdAt": "2026-10-22T01:19:42.000Z",
+                              "updatedAt": "2026-10-22T01:19:42.000Z",
+                              "uid": "35240-9bd8554b-bd63-4b0b-a4f9-699a35f8ac2a"
+                            }
+                          ],
+                          "createdAt": "2026-10-22T01:19:42.000Z",
+                          "updatedAt": "2026-10-22T01:19:42.000Z",
+                          "uid": "35240-278502f0-be3f-45cb-8f2f-71f1fd3787bf"
+                        }
+                      ],
+                      "id": "0c96dff8-2fd0-412d-bbd4-bf083f7c17b6",
+                      "createdAt": "2026-10-22T01:19:42.000Z",
+                      "updatedAt": "2026-10-22T01:19:42.000Z",
+                      "uid": "35240-0c96dff8-2fd0-412d-bbd4-bf083f7c17b6"
+                    },
+                    {
+                      "name": "reset_api_token",
+                      "item": [
+                        {
+                          "name": "Reset API token for a user",
+                          "id": "8fdb5ffc-a906-4985-8df0-e0e375f3942a",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/user/v202211/users/:id/reset_api_token",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                "v202211",
+                                "users",
+                                ":id",
+                                "reset_api_token"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "d88c3898-0373-4be9-b180-a9a08997b265",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) ID of the the user whose API token should be reset"
+                                }
+                              ]
+                            },
+                            "description": "Resets API token for a user specified by ID."
+                          },
+                          "response": [
+                            {
+                              "id": "aaa70365-2444-4343-bd10-68036c37379a",
+                              "name": "A successful response.",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-CH-Auth-Email",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/user/v202211/users/:id/reset_api_token",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "user",
+                                    "v202211",
+                                    "users",
+                                    ":id",
+                                    "reset_api_token"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{}",
+                              "createdAt": "2026-10-22T01:19:42.000Z",
+                              "updatedAt": "2026-10-22T01:19:42.000Z",
+                              "uid": "35240-aaa70365-2444-4343-bd10-68036c37379a"
+                            },
+                            {
+                              "id": "34c79596-6dca-498b-9318-56234e11587e",
+                              "name": "An unexpected error response.",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-CH-Auth-Email",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/user/v202211/users/:id/reset_api_token",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "user",
+                                    "v202211",
+                                    "users",
+                                    ":id",
+                                    "reset_api_token"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"doa\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"est_bd0\": {},\n      \"aliquip5\": {}\n    }\n  ]\n}",
+                              "createdAt": "2026-10-22T01:19:42.000Z",
+                              "updatedAt": "2026-10-22T01:19:42.000Z",
+                              "uid": "35240-34c79596-6dca-498b-9318-56234e11587e"
+                            }
+                          ],
+                          "createdAt": "2026-10-22T01:19:42.000Z",
+                          "updatedAt": "2026-10-22T01:19:42.000Z",
+                          "uid": "35240-8fdb5ffc-a906-4985-8df0-e0e375f3942a"
+                        }
+                      ],
+                      "id": "838c8435-e318-4b0d-9886-bd58036b172f",
+                      "createdAt": "2026-10-22T01:19:42.000Z",
+                      "updatedAt": "2026-10-22T01:19:42.000Z",
+                      "uid": "35240-838c8435-e318-4b0d-9886-bd58036b172f"
+                    },
+                    {
+                      "name": "Get attributes of a user account",
+                      "id": "7cc72b29-6ee6-4b79-9782-cb1b6be27efe",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/user/v202211/users/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "user",
+                            "v202211",
+                            "users",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "93d91953-d5c8-4936-b8d0-9edce1de0800",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) ID of the requested user"
+                            }
+                          ]
+                        },
+                        "description": "Returns attributes of a user account specified by ID."
+                      },
+                      "response": [
+                        {
+                          "id": "1109d22a-c357-4faf-bfa8-deff55caf833",
+                          "name": "A successful response.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-CH-Auth-Email",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/user/v202211/users/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                "v202211",
+                                "users",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"user\": {\n    \"userEmail\": \"<string>\",\n    \"userFullName\": \"<string>\",\n    \"role\": \"ROLE_UNSPECIFIED\",\n    \"id\": \"<string>\",\n    \"permissions\": [\n      {\n        \"capability\": \"<string>\",\n        \"allowed\": \"<boolean>\"\n      },\n      {\n        \"capability\": \"<string>\",\n        \"allowed\": \"<boolean>\"\n      }\n    ],\n    \"filter\": \"<string>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"cdate\": \"<dateTime>\",\n    \"edate\": \"<dateTime>\",\n    \"defaultLandingPageType\": \"LANDING_TYPE_UNSPECIFIED\",\n    \"defaultLandingPageValue\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"roleSets\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                          "createdAt": "2026-10-22T01:19:42.000Z",
+                          "updatedAt": "2026-10-22T01:19:42.000Z",
+                          "uid": "35240-1109d22a-c357-4faf-bfa8-deff55caf833"
+                        },
+                        {
+                          "id": "ed23df32-50e6-4c49-bff5-b1a92afc36e4",
+                          "name": "An unexpected error response.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-CH-Auth-Email",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/user/v202211/users/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                "v202211",
+                                "users",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"doa\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"est_bd0\": {},\n      \"aliquip5\": {}\n    }\n  ]\n}",
+                          "createdAt": "2026-10-22T01:19:42.000Z",
+                          "updatedAt": "2026-10-22T01:19:42.000Z",
+                          "uid": "35240-ed23df32-50e6-4c49-bff5-b1a92afc36e4"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T01:19:42.000Z",
+                      "updatedAt": "2026-10-22T01:19:42.000Z",
+                      "uid": "35240-7cc72b29-6ee6-4b79-9782-cb1b6be27efe"
+                    },
+                    {
+                      "name": "Delete a user account",
+                      "id": "eed5534f-58ee-4b49-bf89-03c807e1052e",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/user/v202211/users/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "user",
+                            "v202211",
+                            "users",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "7dd316b4-c9a4-44d0-83cd-61acc33a777d",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) ID of the the user account to be deleted"
+                            }
+                          ]
+                        },
+                        "description": "Deletes user account specified by ID."
+                      },
+                      "response": [
+                        {
+                          "id": "21ebac7b-834a-4a76-bd5c-b143b9cd9bed",
+                          "name": "A successful response.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-CH-Auth-Email",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/user/v202211/users/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                "v202211",
+                                "users",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{}",
+                          "createdAt": "2026-10-22T01:19:42.000Z",
+                          "updatedAt": "2026-10-22T01:19:42.000Z",
+                          "uid": "35240-21ebac7b-834a-4a76-bd5c-b143b9cd9bed"
+                        },
+                        {
+                          "id": "1480fcd8-f8cb-4b8c-b48d-ab62fb01a3eb",
+                          "name": "An unexpected error response.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-CH-Auth-Email",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/user/v202211/users/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                "v202211",
+                                "users",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"doa\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"est_bd0\": {},\n      \"aliquip5\": {}\n    }\n  ]\n}",
+                          "createdAt": "2026-10-22T01:19:42.000Z",
+                          "updatedAt": "2026-10-22T01:19:42.000Z",
+                          "uid": "35240-1480fcd8-f8cb-4b8c-b48d-ab62fb01a3eb"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T01:19:42.000Z",
+                      "updatedAt": "2026-10-22T01:19:42.000Z",
+                      "uid": "35240-eed5534f-58ee-4b49-bf89-03c807e1052e"
+                    },
+                    {
+                      "name": "Update attributes of a user account",
+                      "id": "2ace23b9-279e-4c74-b445-e53ebe4d15af",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"user\": {\n    \"userEmail\": \"<string>\",\n    \"userFullName\": \"<string>\",\n    \"role\": \"ROLE_UNSPECIFIED\",\n    \"permissions\": [\n      {\n        \"capability\": \"<string>\",\n        \"allowed\": \"<boolean>\"\n      },\n      {\n        \"capability\": \"<string>\",\n        \"allowed\": \"<boolean>\"\n      }\n    ],\n    \"filter\": \"<string>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"cdate\": \"<dateTime>\",\n    \"edate\": \"<dateTime>\",\n    \"defaultLandingPageType\": \"LANDING_TYPE_UNSPECIFIED\",\n    \"defaultLandingPageValue\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"roleSets\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"userEmail\": true,\n  \"userFullName\": -17540412.27659595,\n  \"role\": 24853931.752644166\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/user/v202211/users/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "user",
+                            "v202211",
+                            "users",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "7cb6a741-fa15-4338-b3a8-83cdced6f034",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) System generated unique identifier"
+                            }
+                          ]
+                        },
+                        "description": "Replaces all attributes of a user account specified by ID with attributes in the request. Returns updated attributes."
+                      },
+                      "response": [
+                        {
+                          "id": "5dde022d-71be-4a5f-8d5a-0e91eee01bf7",
+                          "name": "A successful response.",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-CH-Auth-Email",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"user\": {\n    \"userEmail\": \"<string>\",\n    \"userFullName\": \"<string>\",\n    \"role\": \"ROLE_UNSPECIFIED\",\n    \"permissions\": [\n      {\n        \"capability\": \"<string>\",\n        \"allowed\": \"<boolean>\"\n      },\n      {\n        \"capability\": \"<string>\",\n        \"allowed\": \"<boolean>\"\n      }\n    ],\n    \"filter\": \"<string>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"cdate\": \"<dateTime>\",\n    \"edate\": \"<dateTime>\",\n    \"defaultLandingPageType\": \"LANDING_TYPE_UNSPECIFIED\",\n    \"defaultLandingPageValue\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"roleSets\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"userEmail\": true,\n  \"userFullName\": -17540412.27659595,\n  \"role\": 24853931.752644166\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/user/v202211/users/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                "v202211",
+                                "users",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"user\": {\n    \"userEmail\": \"<string>\",\n    \"userFullName\": \"<string>\",\n    \"role\": \"ROLE_UNSPECIFIED\",\n    \"id\": \"<string>\",\n    \"permissions\": [\n      {\n        \"capability\": \"<string>\",\n        \"allowed\": \"<boolean>\"\n      },\n      {\n        \"capability\": \"<string>\",\n        \"allowed\": \"<boolean>\"\n      }\n    ],\n    \"filter\": \"<string>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"cdate\": \"<dateTime>\",\n    \"edate\": \"<dateTime>\",\n    \"defaultLandingPageType\": \"LANDING_TYPE_UNSPECIFIED\",\n    \"defaultLandingPageValue\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"roleSets\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                          "createdAt": "2026-10-22T01:19:42.000Z",
+                          "updatedAt": "2026-10-22T01:19:42.000Z",
+                          "uid": "35240-5dde022d-71be-4a5f-8d5a-0e91eee01bf7"
+                        },
+                        {
+                          "id": "56945c65-1966-43d1-9588-f2d56d3daf0c",
+                          "name": "An unexpected error response.",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-CH-Auth-Email",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"user\": {\n    \"userEmail\": \"<string>\",\n    \"userFullName\": \"<string>\",\n    \"role\": \"ROLE_UNSPECIFIED\",\n    \"permissions\": [\n      {\n        \"capability\": \"<string>\",\n        \"allowed\": \"<boolean>\"\n      },\n      {\n        \"capability\": \"<string>\",\n        \"allowed\": \"<boolean>\"\n      }\n    ],\n    \"filter\": \"<string>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"cdate\": \"<dateTime>\",\n    \"edate\": \"<dateTime>\",\n    \"defaultLandingPageType\": \"LANDING_TYPE_UNSPECIFIED\",\n    \"defaultLandingPageValue\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"roleSets\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"userEmail\": true,\n  \"userFullName\": -17540412.27659595,\n  \"role\": 24853931.752644166\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/user/v202211/users/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                "v202211",
+                                "users",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"doa\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"est_bd0\": {},\n      \"aliquip5\": {}\n    }\n  ]\n}",
+                          "createdAt": "2026-10-22T01:19:42.000Z",
+                          "updatedAt": "2026-10-22T01:19:42.000Z",
+                          "uid": "35240-56945c65-1966-43d1-9588-f2d56d3daf0c"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T01:19:42.000Z",
+                      "updatedAt": "2026-10-22T01:19:42.000Z",
+                      "uid": "35240-2ace23b9-279e-4c74-b445-e53ebe4d15af"
+                    }
+                  ],
+                  "id": "959557ac-a7a2-4208-9a9c-e008c6f91eba",
+                  "createdAt": "2026-10-22T01:19:42.000Z",
+                  "updatedAt": "2026-10-22T01:19:42.000Z",
+                  "uid": "35240-959557ac-a7a2-4208-9a9c-e008c6f91eba"
+                },
+                {
+                  "name": "List all users",
+                  "id": "1aa2b158-4bf2-444e-90ea-38f00b6e42c2",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/user/v202211/users",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "user",
+                        "v202211",
+                        "users"
+                      ]
+                    },
+                    "description": "Returns a list of all user accounts in the company."
+                  },
+                  "response": [
+                    {
+                      "id": "90dd48ad-e802-4c2a-b850-0e653a14e29a",
+                      "name": "A successful response.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-CH-Auth-Email",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/user/v202211/users",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "user",
+                            "v202211",
+                            "users"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"users\": [\n    {\n      \"userEmail\": \"<string>\",\n      \"userFullName\": \"<string>\",\n      \"role\": \"ROLE_UNSPECIFIED\",\n      \"id\": \"<string>\",\n      \"permissions\": [\n        {\n          \"capability\": \"<string>\",\n          \"allowed\": \"<boolean>\"\n        },\n        {\n          \"capability\": \"<string>\",\n          \"allowed\": \"<boolean>\"\n        }\n      ],\n      \"filter\": \"<string>\",\n      \"lastLogin\": \"<dateTime>\",\n      \"cdate\": \"<dateTime>\",\n      \"edate\": \"<dateTime>\",\n      \"defaultLandingPageType\": \"LANDING_TYPE_UNSPECIFIED\",\n      \"defaultLandingPageValue\": \"<string>\",\n      \"roles\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"roleSets\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"userEmail\": \"<string>\",\n      \"userFullName\": \"<string>\",\n      \"role\": \"ROLE_UNSPECIFIED\",\n      \"id\": \"<string>\",\n      \"permissions\": [\n        {\n          \"capability\": \"<string>\",\n          \"allowed\": \"<boolean>\"\n        },\n        {\n          \"capability\": \"<string>\",\n          \"allowed\": \"<boolean>\"\n        }\n      ],\n      \"filter\": \"<string>\",\n      \"lastLogin\": \"<dateTime>\",\n      \"cdate\": \"<dateTime>\",\n      \"edate\": \"<dateTime>\",\n      \"defaultLandingPageType\": \"LANDING_TYPE_UNSPECIFIED\",\n      \"defaultLandingPageValue\": \"<string>\",\n      \"roles\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"roleSets\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"invalidCount\": \"<long>\"\n}",
+                      "createdAt": "2026-10-22T01:19:42.000Z",
+                      "updatedAt": "2026-10-22T01:19:42.000Z",
+                      "uid": "35240-90dd48ad-e802-4c2a-b850-0e653a14e29a"
+                    },
+                    {
+                      "id": "f27807a5-c9c9-4e65-9ed9-0dc6d7922b9e",
+                      "name": "An unexpected error response.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-CH-Auth-Email",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/user/v202211/users",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "user",
+                            "v202211",
+                            "users"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"doa\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"est_bd0\": {},\n      \"aliquip5\": {}\n    }\n  ]\n}",
+                      "createdAt": "2026-10-22T01:19:42.000Z",
+                      "updatedAt": "2026-10-22T01:19:42.000Z",
+                      "uid": "35240-f27807a5-c9c9-4e65-9ed9-0dc6d7922b9e"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:19:42.000Z",
+                  "updatedAt": "2026-10-22T01:19:42.000Z",
+                  "uid": "35240-1aa2b158-4bf2-444e-90ea-38f00b6e42c2"
+                },
+                {
+                  "name": "Create new user account",
+                  "id": "0eddb125-ea04-4eb4-b35b-b8338c03eed0",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"user\": {\n    \"userEmail\": \"<string>\",\n    \"userFullName\": \"<string>\",\n    \"role\": \"ROLE_UNSPECIFIED\",\n    \"id\": \"<string>\",\n    \"permissions\": [\n      {\n        \"capability\": \"<string>\",\n        \"allowed\": \"<boolean>\"\n      },\n      {\n        \"capability\": \"<string>\",\n        \"allowed\": \"<boolean>\"\n      }\n    ],\n    \"filter\": \"<string>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"cdate\": \"<dateTime>\",\n    \"edate\": \"<dateTime>\",\n    \"defaultLandingPageType\": \"LANDING_TYPE_UNSPECIFIED\",\n    \"defaultLandingPageValue\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"roleSets\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/user/v202211/users",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "user",
+                        "v202211",
+                        "users"
+                      ]
+                    },
+                    "description": "Creates new user account based on attributes in the request. Returns attributes of the newly created account."
+                  },
+                  "response": [
+                    {
+                      "id": "91580b56-2c58-4971-9321-fce9f94eeda1",
+                      "name": "A successful response.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-CH-Auth-Email",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"user\": {\n    \"userEmail\": \"<string>\",\n    \"userFullName\": \"<string>\",\n    \"role\": \"ROLE_UNSPECIFIED\",\n    \"id\": \"<string>\",\n    \"permissions\": [\n      {\n        \"capability\": \"<string>\",\n        \"allowed\": \"<boolean>\"\n      },\n      {\n        \"capability\": \"<string>\",\n        \"allowed\": \"<boolean>\"\n      }\n    ],\n    \"filter\": \"<string>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"cdate\": \"<dateTime>\",\n    \"edate\": \"<dateTime>\",\n    \"defaultLandingPageType\": \"LANDING_TYPE_UNSPECIFIED\",\n    \"defaultLandingPageValue\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"roleSets\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/user/v202211/users",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "user",
+                            "v202211",
+                            "users"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"user\": {\n    \"userEmail\": \"<string>\",\n    \"userFullName\": \"<string>\",\n    \"role\": \"ROLE_UNSPECIFIED\",\n    \"id\": \"<string>\",\n    \"permissions\": [\n      {\n        \"capability\": \"<string>\",\n        \"allowed\": \"<boolean>\"\n      },\n      {\n        \"capability\": \"<string>\",\n        \"allowed\": \"<boolean>\"\n      }\n    ],\n    \"filter\": \"<string>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"cdate\": \"<dateTime>\",\n    \"edate\": \"<dateTime>\",\n    \"defaultLandingPageType\": \"LANDING_TYPE_UNSPECIFIED\",\n    \"defaultLandingPageValue\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"roleSets\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                      "createdAt": "2026-10-22T01:19:42.000Z",
+                      "updatedAt": "2026-10-22T01:19:42.000Z",
+                      "uid": "35240-91580b56-2c58-4971-9321-fce9f94eeda1"
+                    },
+                    {
+                      "id": "13153bd9-ac49-4da7-a7cd-1e3a40410f1a",
+                      "name": "An unexpected error response.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-CH-Auth-Email",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"user\": {\n    \"userEmail\": \"<string>\",\n    \"userFullName\": \"<string>\",\n    \"role\": \"ROLE_UNSPECIFIED\",\n    \"id\": \"<string>\",\n    \"permissions\": [\n      {\n        \"capability\": \"<string>\",\n        \"allowed\": \"<boolean>\"\n      },\n      {\n        \"capability\": \"<string>\",\n        \"allowed\": \"<boolean>\"\n      }\n    ],\n    \"filter\": \"<string>\",\n    \"lastLogin\": \"<dateTime>\",\n    \"cdate\": \"<dateTime>\",\n    \"edate\": \"<dateTime>\",\n    \"defaultLandingPageType\": \"LANDING_TYPE_UNSPECIFIED\",\n    \"defaultLandingPageValue\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"roleSets\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/user/v202211/users",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "user",
+                            "v202211",
+                            "users"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"doa\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"est_bd0\": {},\n      \"aliquip5\": {}\n    }\n  ]\n}",
+                      "createdAt": "2026-10-22T01:19:42.000Z",
+                      "updatedAt": "2026-10-22T01:19:42.000Z",
+                      "uid": "35240-13153bd9-ac49-4da7-a7cd-1e3a40410f1a"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:19:42.000Z",
+                  "updatedAt": "2026-10-22T01:19:42.000Z",
+                  "uid": "35240-0eddb125-ea04-4eb4-b35b-b8338c03eed0"
                 }
               ],
-              "body": "{\n  \"users\": [\n    {\n      \"userEmail\": \"string\",\n      \"userFullName\": \"string\",\n      \"role\": \"ROLE_UNSPECIFIED\",\n      \"id\": \"string\",\n      \"permissions\": [\n        {\n          \"capability\": \"string\",\n          \"allowed\": true\n        },\n        {\n          \"capability\": \"string\",\n          \"allowed\": false\n        }\n      ],\n      \"filter\": \"string\",\n      \"lastLogin\": \"2003-07-31T05:40:04.936Z\",\n      \"cdate\": \"2000-02-03T10:09:10.249Z\",\n      \"edate\": \"1948-01-17T02:06:59.104Z\",\n      \"defaultLandingPageType\": \"LANDING_TYPE_UNSPECIFIED\",\n      \"defaultLandingPageValue\": \"string\",\n      \"roles\": [\n        \"string\",\n        \"string\"\n      ],\n      \"roleSets\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"userEmail\": \"string\",\n      \"userFullName\": \"string\",\n      \"role\": \"ROLE_UNSPECIFIED\",\n      \"id\": \"string\",\n      \"permissions\": [\n        {\n          \"capability\": \"string\",\n          \"allowed\": false\n        },\n        {\n          \"capability\": \"string\",\n          \"allowed\": true\n        }\n      ],\n      \"filter\": \"string\",\n      \"lastLogin\": \"2000-02-16T18:33:45.649Z\",\n      \"cdate\": \"1975-10-15T08:25:49.669Z\",\n      \"edate\": \"2025-02-27T00:54:06.393Z\",\n      \"defaultLandingPageType\": \"LANDING_TYPE_UNSPECIFIED\",\n      \"defaultLandingPageValue\": \"string\",\n      \"roles\": [\n        \"string\",\n        \"string\"\n      ],\n      \"roleSets\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ],\n  \"invalidCount\": 2759\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "b1080571-1829-40dc-adb9-c0f079a73df6",
-              "name": "An unexpected error response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "user",
-                    "v202211",
-                    "users"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 25,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "38c4bf90-f691-478e-8bb2-2a6c06776295",
+              "createdAt": "2026-10-22T01:19:42.000Z",
+              "updatedAt": "2026-10-22T01:19:42.000Z",
+              "uid": "35240-38c4bf90-f691-478e-8bb2-2a6c06776295"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "3b188286-d000-4952-a8dc-b9f778a8679f",
-          "name": "Create new user account.",
-          "request": {
-            "name": "Create new user account.",
-            "description": {
-              "content": "Creates new user account based on attributes in the request. Returns attributes of the newly created account.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "user",
-                "v202211",
-                "users"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"user\": {\n    \"userEmail\": \"<string>\",\n    \"userFullName\": \"<string>\",\n    \"role\": \"ROLE_UNSPECIFIED\",\n    \"filter\": \"<string>\",\n    \"defaultLandingPageType\": \"LANDING_TYPE_UNSPECIFIED\",\n    \"defaultLandingPageValue\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"roleSets\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "22ae8221-366b-4ccf-90f3-69ecfa2d525c",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "user",
-                    "v202211",
-                    "users"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"user\": {\n    \"userEmail\": \"<string>\",\n    \"userFullName\": \"<string>\",\n    \"role\": \"ROLE_UNSPECIFIED\",\n    \"filter\": \"<string>\",\n    \"defaultLandingPageType\": \"LANDING_TYPE_UNSPECIFIED\",\n    \"defaultLandingPageValue\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"roleSets\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"user\": {\n    \"userEmail\": \"<string>\",\n    \"userFullName\": \"<string>\",\n    \"role\": \"ROLE_UNSPECIFIED\",\n    \"id\": \"string\",\n    \"permissions\": [\n      {\n        \"capability\": \"string\",\n        \"allowed\": false\n      },\n      {\n        \"capability\": \"string\",\n        \"allowed\": false\n      }\n    ],\n    \"filter\": \"<string>\",\n    \"lastLogin\": \"1989-08-04T13:46:59.360Z\",\n    \"cdate\": \"1986-03-29T02:04:06.639Z\",\n    \"edate\": \"1955-11-25T21:06:11.134Z\",\n    \"defaultLandingPageType\": \"LANDING_TYPE_UNSPECIFIED\",\n    \"defaultLandingPageValue\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"roleSets\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "3929a87f-5ed8-4910-993c-e91c768a48ba",
-              "name": "An unexpected error response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "user",
-                    "v202211",
-                    "users"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"user\": {\n    \"userEmail\": \"<string>\",\n    \"userFullName\": \"<string>\",\n    \"role\": \"ROLE_UNSPECIFIED\",\n    \"filter\": \"<string>\",\n    \"defaultLandingPageType\": \"LANDING_TYPE_UNSPECIFIED\",\n    \"defaultLandingPageValue\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"roleSets\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 9871,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "bf3037f8-b1a6-47b2-b1bc-5350d387e87a",
-          "name": "Get attributes of a user account.",
-          "request": {
-            "name": "Get attributes of a user account.",
-            "description": {
-              "content": "Returns attributes of a user account specified by ID.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "user",
-                "v202211",
-                "users",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) ID of the requested user"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "9439d318-7d2f-4493-b111-28a36a27e53b",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "user",
-                    "v202211",
-                    "users",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) ID of the requested user"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"user\": {\n    \"userEmail\": \"<string>\",\n    \"userFullName\": \"<string>\",\n    \"role\": \"ROLE_UNSPECIFIED\",\n    \"id\": \"string\",\n    \"permissions\": [\n      {\n        \"capability\": \"string\",\n        \"allowed\": false\n      },\n      {\n        \"capability\": \"string\",\n        \"allowed\": true\n      }\n    ],\n    \"filter\": \"<string>\",\n    \"lastLogin\": \"2001-09-23T16:06:10.562Z\",\n    \"cdate\": \"1964-04-16T00:39:42.318Z\",\n    \"edate\": \"2008-05-10T02:55:28.743Z\",\n    \"defaultLandingPageType\": \"LANDING_TYPE_UNSPECIFIED\",\n    \"defaultLandingPageValue\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"roleSets\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "8ace1d5a-3194-4904-b298-11b0e1d900ff",
-              "name": "An unexpected error response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "user",
-                    "v202211",
-                    "users",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) ID of the requested user"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 9871,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "de5583ac-0fe8-41f3-a7c6-950fbff99961",
-          "name": "Delete a user account.",
-          "request": {
-            "name": "Delete a user account.",
-            "description": {
-              "content": "Deletes user account specified by ID.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "user",
-                "v202211",
-                "users",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) ID of the the user account to be deleted"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "1d52e1c6-2e2b-420b-87d2-8bc9e1dca458",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "user",
-                    "v202211",
-                    "users",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) ID of the the user account to be deleted"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "450dce46-3337-49d9-b8bd-c09b1b058e48",
-              "name": "An unexpected error response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "user",
-                    "v202211",
-                    "users",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) ID of the the user account to be deleted"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 9871,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "a3792b01-e1bb-4f50-b861-bc3681296447",
-          "name": "Update attributes of a user account.",
-          "request": {
-            "name": "Update attributes of a user account.",
-            "description": {
-              "content": "Replaces all attributes of a user account specified by ID with attributes in the request. Returns updated attributes.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "user",
-                "v202211",
-                "users",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) System generated unique identifier"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PUT",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"user\": {\n    \"userEmail\": \"<string>\",\n    \"userFullName\": \"<string>\",\n    \"role\": \"ROLE_UNSPECIFIED\",\n    \"filter\": \"<string>\",\n    \"defaultLandingPageType\": \"LANDING_TYPE_UNSPECIFIED\",\n    \"defaultLandingPageValue\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"roleSets\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"userEmail\": 5154.624740506686,\n  \"userFullName\": \"string\",\n  \"role\": 4551.013080845941\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "5f9c9a54-09e2-4335-a690-22b0e9a14ec4",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "user",
-                    "v202211",
-                    "users",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) System generated unique identifier"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"user\": {\n    \"userEmail\": \"<string>\",\n    \"userFullName\": \"<string>\",\n    \"role\": \"ROLE_UNSPECIFIED\",\n    \"filter\": \"<string>\",\n    \"defaultLandingPageType\": \"LANDING_TYPE_UNSPECIFIED\",\n    \"defaultLandingPageValue\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"roleSets\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"userEmail\": 6003.690101754025,\n  \"userFullName\": \"string\",\n  \"role\": false\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"user\": {\n    \"userEmail\": \"<string>\",\n    \"userFullName\": \"<string>\",\n    \"role\": \"ROLE_UNSPECIFIED\",\n    \"id\": \"string\",\n    \"permissions\": [\n      {\n        \"capability\": \"string\",\n        \"allowed\": false\n      },\n      {\n        \"capability\": \"string\",\n        \"allowed\": false\n      }\n    ],\n    \"filter\": \"<string>\",\n    \"lastLogin\": \"1950-05-27T15:52:43.635Z\",\n    \"cdate\": \"1984-11-22T01:09:22.951Z\",\n    \"edate\": \"1980-06-24T20:28:54.008Z\",\n    \"defaultLandingPageType\": \"LANDING_TYPE_UNSPECIFIED\",\n    \"defaultLandingPageValue\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"roleSets\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "0d9399b8-e502-4918-9053-b52f1767c460",
-              "name": "An unexpected error response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "user",
-                    "v202211",
-                    "users",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) System generated unique identifier"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"user\": {\n    \"userEmail\": \"<string>\",\n    \"userFullName\": \"<string>\",\n    \"role\": \"ROLE_UNSPECIFIED\",\n    \"filter\": \"<string>\",\n    \"defaultLandingPageType\": \"LANDING_TYPE_UNSPECIFIED\",\n    \"defaultLandingPageValue\": \"<string>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"roleSets\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"userEmail\": 6003.690101754025,\n  \"userFullName\": \"string\",\n  \"role\": false\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 9871,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "b367f03f-e194-44c8-8e08-23e1b1e7d12b",
-          "name": "Resets active sessions for a user.",
-          "request": {
-            "name": "Resets active sessions for a user.",
-            "description": {
-              "content": "Resets active sessions for a user specified by ID.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "user",
-                "v202211",
-                "users",
-                ":id",
-                "reset_active_sessions"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) ID of the the user whose sessions should be reset"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PUT",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "824960f6-7de3-453b-bc06-f64716565e04",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "user",
-                    "v202211",
-                    "users",
-                    ":id",
-                    "reset_active_sessions"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) ID of the the user whose sessions should be reset"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "3a8d09bb-2d05-4352-a660-aa633c4b930d",
-              "name": "An unexpected error response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "user",
-                    "v202211",
-                    "users",
-                    ":id",
-                    "reset_active_sessions"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) ID of the the user whose sessions should be reset"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {}
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 9871,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "039dd6be-70a7-472e-90ea-f0f785f82fd2",
-          "name": "Reset API token for a user.",
-          "request": {
-            "name": "Reset API token for a user.",
-            "description": {
-              "content": "Resets API token for a user specified by ID.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "user",
-                "v202211",
-                "users",
-                ":id",
-                "reset_api_token"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) ID of the the user whose API token should be reset"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PUT",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "53fc3d64-7195-4b29-a2aa-de9601b7b833",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "user",
-                    "v202211",
-                    "users",
-                    ":id",
-                    "reset_api_token"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) ID of the the user whose API token should be reset"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "202f6077-fdcd-4638-a697-4769020d8aa5",
-              "name": "An unexpected error response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "user",
-                    "v202211",
-                    "users",
-                    ":id",
-                    "reset_api_token"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) ID of the the user whose API token should be reset"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {}
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 9871,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "16acd7d8-1568-4d42-a4ad-15e291b18654",
+          "createdAt": "2026-10-22T01:19:42.000Z",
+          "updatedAt": "2026-10-22T01:19:42.000Z",
+          "uid": "35240-16acd7d8-1568-4d42-a4ad-15e291b18654"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "/",
-      "key": "baseUrl"
+      "id": "11446791-7632-41cb-92aa-25c513743a52",
+      "createdAt": "2026-10-22T01:19:42.000Z",
+      "updatedAt": "2026-10-22T01:19:42.000Z",
+      "uid": "35240-11446791-7632-41cb-92aa-25c513743a52"
     }
   ],
   "auth": {
@@ -1113,25 +1112,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "X-CH-Auth-Email"
+        "value": "X-CH-Auth-Email",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "454bcda9-7dee-46cb-8eff-1189b82e5982",
-    "name": "AI Advisor AiAdvisorDataService UserService API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "# Overview\nProvides programmatic access to AI Advisor.\n\nContact Support:\n Name: Kentik API Engineering",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
     }
-  }
+  ]
 }

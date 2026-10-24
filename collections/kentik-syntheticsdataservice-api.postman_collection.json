@@ -1,494 +1,551 @@
 {
+  "info": {
+    "_postman_id": "ccfb9bb0-7f91-41db-a0db-5f2cb1c0ec71",
+    "name": "Synthetics Monitoring Synthetics Data Service API",
+    "description": "# Overview\nThe Synthetics Monitoring API provides programmatic access to Kentik's synthetic monitoring system.\n\nContact Support:\n Name: Kentik API Engineering",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:19:20.000Z",
+    "updatedAt": "2026-10-22T01:19:20.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ccfb9bb0-7f91-41db-a0db-5f2cb1c0ec71"
+  },
   "item": [
     {
-      "id": "306f3c8a-be04-4e4e-b88a-76639310b9f2",
-      "name": "SyntheticsDataService",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "synthetics",
       "item": [
         {
-          "id": "dae04591-1168-47b0-ba32-04e7e223f4e3",
-          "name": "Get results for tests",
-          "request": {
-            "name": "Get results for tests",
-            "description": {
-              "content": "Returns probe results for a set of tests for specified period of time.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "synthetics",
-                "v202309",
-                "results"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"startTime\": \"<dateTime>\",\n  \"endTime\": \"<dateTime>\",\n  \"agentIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"targets\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"aggregate\": \"<boolean>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
+          "name": "v202309",
+          "item": [
             {
-              "id": "934fbc6c-f52f-4465-bdec-46a82dccb161",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "synthetics",
-                    "v202309",
-                    "results"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"startTime\": \"<dateTime>\",\n  \"endTime\": \"<dateTime>\",\n  \"agentIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"targets\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"aggregate\": \"<boolean>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "results",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "csv",
+                  "item": [
+                    {
+                      "name": "Get test results in CSV format",
+                      "id": "c2ec9fd9-ba19-4b92-a88a-487936d8e36b",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"startTime\": \"<dateTime>\",\n  \"endTime\": \"<dateTime>\",\n  \"agentIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"aggregate\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/synthetics/v202309/results/csv",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "synthetics",
+                            "v202309",
+                            "results",
+                            "csv"
+                          ]
+                        },
+                        "description": "Returns probe results for tests in CSV format."
+                      },
+                      "response": [
+                        {
+                          "id": "360a3fe2-f7f1-4fac-a3e4-02ceeeaac5b5",
+                          "name": "A successful response.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-CH-Auth-Email",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"startTime\": \"<dateTime>\",\n  \"endTime\": \"<dateTime>\",\n  \"agentIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"aggregate\": \"<boolean>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/synthetics/v202309/results/csv",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "synthetics",
+                                "v202309",
+                                "results",
+                                "csv"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"contentType\": \"<string>\",\n  \"data\": \"<string>\"\n}",
+                          "createdAt": "2026-10-22T01:19:20.000Z",
+                          "updatedAt": "2026-10-22T01:19:20.000Z",
+                          "uid": "35240-360a3fe2-f7f1-4fac-a3e4-02ceeeaac5b5"
+                        },
+                        {
+                          "id": "7cda8a7c-447c-4dd4-ac0b-146454a79442",
+                          "name": "An unexpected error response.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-CH-Auth-Email",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"startTime\": \"<dateTime>\",\n  \"endTime\": \"<dateTime>\",\n  \"agentIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"aggregate\": \"<boolean>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/synthetics/v202309/results/csv",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "synthetics",
+                                "v202309",
+                                "results",
+                                "csv"
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\"\n    },\n    {\n      \"@type\": \"<string>\",\n      \"ea_f\": {}\n    }\n  ]\n}",
+                          "createdAt": "2026-10-22T01:19:20.000Z",
+                          "updatedAt": "2026-10-22T01:19:20.000Z",
+                          "uid": "35240-7cda8a7c-447c-4dd4-ac0b-146454a79442"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T01:19:20.000Z",
+                      "updatedAt": "2026-10-22T01:19:20.000Z",
+                      "uid": "35240-c2ec9fd9-ba19-4b92-a88a-487936d8e36b"
+                    }
+                  ],
+                  "id": "e320647d-7dcc-4062-8e7b-eff3efff3341",
+                  "createdAt": "2026-10-22T01:19:20.000Z",
+                  "updatedAt": "2026-10-22T01:19:20.000Z",
+                  "uid": "35240-e320647d-7dcc-4062-8e7b-eff3efff3341"
+                },
+                {
+                  "name": "Get results for tests",
+                  "id": "6d43ff63-f267-4d66-8b8c-c9d298ca88ba",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"startTime\": \"<dateTime>\",\n  \"endTime\": \"<dateTime>\",\n  \"agentIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"targets\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"aggregate\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/synthetics/v202309/results",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "synthetics",
+                        "v202309",
+                        "results"
+                      ]
+                    },
+                    "description": "Returns probe results for a set of tests for specified period of time."
+                  },
+                  "response": [
+                    {
+                      "id": "f48e3680-37e0-46e6-9788-bf1301d40980",
+                      "name": "A successful response.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-CH-Auth-Email",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"startTime\": \"<dateTime>\",\n  \"endTime\": \"<dateTime>\",\n  \"agentIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"targets\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"aggregate\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/synthetics/v202309/results",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "synthetics",
+                            "v202309",
+                            "results"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"results\": [\n    {\n      \"testId\": \"<string>\",\n      \"time\": \"<dateTime>\",\n      \"health\": \"<string>\",\n      \"agents\": [\n        {\n          \"agentId\": \"<string>\",\n          \"health\": \"<string>\",\n          \"tasks\": [\n            {\n              \"ping\": {\n                \"target\": \"<string>\",\n                \"packetLoss\": {\n                  \"current\": \"<double>\",\n                  \"health\": \"<string>\"\n                },\n                \"latency\": {\n                  \"current\": \"<long>\",\n                  \"rollingAvg\": \"<long>\",\n                  \"rollingStddev\": \"<long>\",\n                  \"health\": \"<string>\"\n                },\n                \"jitter\": {\n                  \"current\": \"<long>\",\n                  \"rollingAvg\": \"<long>\",\n                  \"rollingStddev\": \"<long>\",\n                  \"health\": \"<string>\"\n                },\n                \"dstIp\": \"<string>\"\n              },\n              \"http\": {\n                \"target\": \"<string>\",\n                \"latency\": {\n                  \"current\": \"<long>\",\n                  \"rollingAvg\": \"<long>\",\n                  \"rollingStddev\": \"<long>\",\n                  \"health\": \"<string>\"\n                },\n                \"response\": {\n                  \"status\": \"<long>\",\n                  \"size\": \"<long>\",\n                  \"data\": \"<string>\"\n                },\n                \"dstIp\": \"<string>\"\n              },\n              \"dns\": {\n                \"target\": \"<string>\",\n                \"server\": \"<string>\",\n                \"latency\": {\n                  \"current\": \"<long>\",\n                  \"rollingAvg\": \"<long>\",\n                  \"rollingStddev\": \"<long>\",\n                  \"health\": \"<string>\"\n                },\n                \"response\": {\n                  \"status\": \"<long>\",\n                  \"data\": \"<string>\"\n                }\n              },\n              \"health\": \"<string>\"\n            },\n            {\n              \"ping\": {\n                \"target\": \"<string>\",\n                \"packetLoss\": {\n                  \"current\": \"<double>\",\n                  \"health\": \"<string>\"\n                },\n                \"latency\": {\n                  \"current\": \"<long>\",\n                  \"rollingAvg\": \"<long>\",\n                  \"rollingStddev\": \"<long>\",\n                  \"health\": \"<string>\"\n                },\n                \"jitter\": {\n                  \"current\": \"<long>\",\n                  \"rollingAvg\": \"<long>\",\n                  \"rollingStddev\": \"<long>\",\n                  \"health\": \"<string>\"\n                },\n                \"dstIp\": \"<string>\"\n              },\n              \"http\": {\n                \"target\": \"<string>\",\n                \"latency\": {\n                  \"current\": \"<long>\",\n                  \"rollingAvg\": \"<long>\",\n                  \"rollingStddev\": \"<long>\",\n                  \"health\": \"<string>\"\n                },\n                \"response\": {\n                  \"status\": \"<long>\",\n                  \"size\": \"<long>\",\n                  \"data\": \"<string>\"\n                },\n                \"dstIp\": \"<string>\"\n              },\n              \"dns\": {\n                \"target\": \"<string>\",\n                \"server\": \"<string>\",\n                \"latency\": {\n                  \"current\": \"<long>\",\n                  \"rollingAvg\": \"<long>\",\n                  \"rollingStddev\": \"<long>\",\n                  \"health\": \"<string>\"\n                },\n                \"response\": {\n                  \"status\": \"<long>\",\n                  \"data\": \"<string>\"\n                }\n              },\n              \"health\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"agentId\": \"<string>\",\n          \"health\": \"<string>\",\n          \"tasks\": [\n            {\n              \"ping\": {\n                \"target\": \"<string>\",\n                \"packetLoss\": {\n                  \"current\": \"<double>\",\n                  \"health\": \"<string>\"\n                },\n                \"latency\": {\n                  \"current\": \"<long>\",\n                  \"rollingAvg\": \"<long>\",\n                  \"rollingStddev\": \"<long>\",\n                  \"health\": \"<string>\"\n                },\n                \"jitter\": {\n                  \"current\": \"<long>\",\n                  \"rollingAvg\": \"<long>\",\n                  \"rollingStddev\": \"<long>\",\n                  \"health\": \"<string>\"\n                },\n                \"dstIp\": \"<string>\"\n              },\n              \"http\": {\n                \"target\": \"<string>\",\n                \"latency\": {\n                  \"current\": \"<long>\",\n                  \"rollingAvg\": \"<long>\",\n                  \"rollingStddev\": \"<long>\",\n                  \"health\": \"<string>\"\n                },\n                \"response\": {\n                  \"status\": \"<long>\",\n                  \"size\": \"<long>\",\n                  \"data\": \"<string>\"\n                },\n                \"dstIp\": \"<string>\"\n              },\n              \"dns\": {\n                \"target\": \"<string>\",\n                \"server\": \"<string>\",\n                \"latency\": {\n                  \"current\": \"<long>\",\n                  \"rollingAvg\": \"<long>\",\n                  \"rollingStddev\": \"<long>\",\n                  \"health\": \"<string>\"\n                },\n                \"response\": {\n                  \"status\": \"<long>\",\n                  \"data\": \"<string>\"\n                }\n              },\n              \"health\": \"<string>\"\n            },\n            {\n              \"ping\": {\n                \"target\": \"<string>\",\n                \"packetLoss\": {\n                  \"current\": \"<double>\",\n                  \"health\": \"<string>\"\n                },\n                \"latency\": {\n                  \"current\": \"<long>\",\n                  \"rollingAvg\": \"<long>\",\n                  \"rollingStddev\": \"<long>\",\n                  \"health\": \"<string>\"\n                },\n                \"jitter\": {\n                  \"current\": \"<long>\",\n                  \"rollingAvg\": \"<long>\",\n                  \"rollingStddev\": \"<long>\",\n                  \"health\": \"<string>\"\n                },\n                \"dstIp\": \"<string>\"\n              },\n              \"http\": {\n                \"target\": \"<string>\",\n                \"latency\": {\n                  \"current\": \"<long>\",\n                  \"rollingAvg\": \"<long>\",\n                  \"rollingStddev\": \"<long>\",\n                  \"health\": \"<string>\"\n                },\n                \"response\": {\n                  \"status\": \"<long>\",\n                  \"size\": \"<long>\",\n                  \"data\": \"<string>\"\n                },\n                \"dstIp\": \"<string>\"\n              },\n              \"dns\": {\n                \"target\": \"<string>\",\n                \"server\": \"<string>\",\n                \"latency\": {\n                  \"current\": \"<long>\",\n                  \"rollingAvg\": \"<long>\",\n                  \"rollingStddev\": \"<long>\",\n                  \"health\": \"<string>\"\n                },\n                \"response\": {\n                  \"status\": \"<long>\",\n                  \"data\": \"<string>\"\n                }\n              },\n              \"health\": \"<string>\"\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"testId\": \"<string>\",\n      \"time\": \"<dateTime>\",\n      \"health\": \"<string>\",\n      \"agents\": [\n        {\n          \"agentId\": \"<string>\",\n          \"health\": \"<string>\",\n          \"tasks\": [\n            {\n              \"ping\": {\n                \"target\": \"<string>\",\n                \"packetLoss\": {\n                  \"current\": \"<double>\",\n                  \"health\": \"<string>\"\n                },\n                \"latency\": {\n                  \"current\": \"<long>\",\n                  \"rollingAvg\": \"<long>\",\n                  \"rollingStddev\": \"<long>\",\n                  \"health\": \"<string>\"\n                },\n                \"jitter\": {\n                  \"current\": \"<long>\",\n                  \"rollingAvg\": \"<long>\",\n                  \"rollingStddev\": \"<long>\",\n                  \"health\": \"<string>\"\n                },\n                \"dstIp\": \"<string>\"\n              },\n              \"http\": {\n                \"target\": \"<string>\",\n                \"latency\": {\n                  \"current\": \"<long>\",\n                  \"rollingAvg\": \"<long>\",\n                  \"rollingStddev\": \"<long>\",\n                  \"health\": \"<string>\"\n                },\n                \"response\": {\n                  \"status\": \"<long>\",\n                  \"size\": \"<long>\",\n                  \"data\": \"<string>\"\n                },\n                \"dstIp\": \"<string>\"\n              },\n              \"dns\": {\n                \"target\": \"<string>\",\n                \"server\": \"<string>\",\n                \"latency\": {\n                  \"current\": \"<long>\",\n                  \"rollingAvg\": \"<long>\",\n                  \"rollingStddev\": \"<long>\",\n                  \"health\": \"<string>\"\n                },\n                \"response\": {\n                  \"status\": \"<long>\",\n                  \"data\": \"<string>\"\n                }\n              },\n              \"health\": \"<string>\"\n            },\n            {\n              \"ping\": {\n                \"target\": \"<string>\",\n                \"packetLoss\": {\n                  \"current\": \"<double>\",\n                  \"health\": \"<string>\"\n                },\n                \"latency\": {\n                  \"current\": \"<long>\",\n                  \"rollingAvg\": \"<long>\",\n                  \"rollingStddev\": \"<long>\",\n                  \"health\": \"<string>\"\n                },\n                \"jitter\": {\n                  \"current\": \"<long>\",\n                  \"rollingAvg\": \"<long>\",\n                  \"rollingStddev\": \"<long>\",\n                  \"health\": \"<string>\"\n                },\n                \"dstIp\": \"<string>\"\n              },\n              \"http\": {\n                \"target\": \"<string>\",\n                \"latency\": {\n                  \"current\": \"<long>\",\n                  \"rollingAvg\": \"<long>\",\n                  \"rollingStddev\": \"<long>\",\n                  \"health\": \"<string>\"\n                },\n                \"response\": {\n                  \"status\": \"<long>\",\n                  \"size\": \"<long>\",\n                  \"data\": \"<string>\"\n                },\n                \"dstIp\": \"<string>\"\n              },\n              \"dns\": {\n                \"target\": \"<string>\",\n                \"server\": \"<string>\",\n                \"latency\": {\n                  \"current\": \"<long>\",\n                  \"rollingAvg\": \"<long>\",\n                  \"rollingStddev\": \"<long>\",\n                  \"health\": \"<string>\"\n                },\n                \"response\": {\n                  \"status\": \"<long>\",\n                  \"data\": \"<string>\"\n                }\n              },\n              \"health\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"agentId\": \"<string>\",\n          \"health\": \"<string>\",\n          \"tasks\": [\n            {\n              \"ping\": {\n                \"target\": \"<string>\",\n                \"packetLoss\": {\n                  \"current\": \"<double>\",\n                  \"health\": \"<string>\"\n                },\n                \"latency\": {\n                  \"current\": \"<long>\",\n                  \"rollingAvg\": \"<long>\",\n                  \"rollingStddev\": \"<long>\",\n                  \"health\": \"<string>\"\n                },\n                \"jitter\": {\n                  \"current\": \"<long>\",\n                  \"rollingAvg\": \"<long>\",\n                  \"rollingStddev\": \"<long>\",\n                  \"health\": \"<string>\"\n                },\n                \"dstIp\": \"<string>\"\n              },\n              \"http\": {\n                \"target\": \"<string>\",\n                \"latency\": {\n                  \"current\": \"<long>\",\n                  \"rollingAvg\": \"<long>\",\n                  \"rollingStddev\": \"<long>\",\n                  \"health\": \"<string>\"\n                },\n                \"response\": {\n                  \"status\": \"<long>\",\n                  \"size\": \"<long>\",\n                  \"data\": \"<string>\"\n                },\n                \"dstIp\": \"<string>\"\n              },\n              \"dns\": {\n                \"target\": \"<string>\",\n                \"server\": \"<string>\",\n                \"latency\": {\n                  \"current\": \"<long>\",\n                  \"rollingAvg\": \"<long>\",\n                  \"rollingStddev\": \"<long>\",\n                  \"health\": \"<string>\"\n                },\n                \"response\": {\n                  \"status\": \"<long>\",\n                  \"data\": \"<string>\"\n                }\n              },\n              \"health\": \"<string>\"\n            },\n            {\n              \"ping\": {\n                \"target\": \"<string>\",\n                \"packetLoss\": {\n                  \"current\": \"<double>\",\n                  \"health\": \"<string>\"\n                },\n                \"latency\": {\n                  \"current\": \"<long>\",\n                  \"rollingAvg\": \"<long>\",\n                  \"rollingStddev\": \"<long>\",\n                  \"health\": \"<string>\"\n                },\n                \"jitter\": {\n                  \"current\": \"<long>\",\n                  \"rollingAvg\": \"<long>\",\n                  \"rollingStddev\": \"<long>\",\n                  \"health\": \"<string>\"\n                },\n                \"dstIp\": \"<string>\"\n              },\n              \"http\": {\n                \"target\": \"<string>\",\n                \"latency\": {\n                  \"current\": \"<long>\",\n                  \"rollingAvg\": \"<long>\",\n                  \"rollingStddev\": \"<long>\",\n                  \"health\": \"<string>\"\n                },\n                \"response\": {\n                  \"status\": \"<long>\",\n                  \"size\": \"<long>\",\n                  \"data\": \"<string>\"\n                },\n                \"dstIp\": \"<string>\"\n              },\n              \"dns\": {\n                \"target\": \"<string>\",\n                \"server\": \"<string>\",\n                \"latency\": {\n                  \"current\": \"<long>\",\n                  \"rollingAvg\": \"<long>\",\n                  \"rollingStddev\": \"<long>\",\n                  \"health\": \"<string>\"\n                },\n                \"response\": {\n                  \"status\": \"<long>\",\n                  \"data\": \"<string>\"\n                }\n              },\n              \"health\": \"<string>\"\n            }\n          ]\n        }\n      ]\n    }\n  ]\n}",
+                      "createdAt": "2026-10-22T01:19:20.000Z",
+                      "updatedAt": "2026-10-22T01:19:20.000Z",
+                      "uid": "35240-f48e3680-37e0-46e6-9788-bf1301d40980"
+                    },
+                    {
+                      "id": "66964b98-b878-4b3e-8429-dab9f49355a4",
+                      "name": "An unexpected error response.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-CH-Auth-Email",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"startTime\": \"<dateTime>\",\n  \"endTime\": \"<dateTime>\",\n  \"agentIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"targets\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"aggregate\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/synthetics/v202309/results",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "synthetics",
+                            "v202309",
+                            "results"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\"\n    },\n    {\n      \"@type\": \"<string>\",\n      \"ea_f\": {}\n    }\n  ]\n}",
+                      "createdAt": "2026-10-22T01:19:20.000Z",
+                      "updatedAt": "2026-10-22T01:19:20.000Z",
+                      "uid": "35240-66964b98-b878-4b3e-8429-dab9f49355a4"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:19:20.000Z",
+                  "updatedAt": "2026-10-22T01:19:20.000Z",
+                  "uid": "35240-6d43ff63-f267-4d66-8b8c-c9d298ca88ba"
                 }
               ],
-              "body": "{\n  \"results\": [\n    {\n      \"testId\": \"string\",\n      \"time\": \"1978-12-18T17:43:08.588Z\",\n      \"health\": \"string\",\n      \"agents\": [\n        {\n          \"agentId\": \"string\",\n          \"health\": \"string\",\n          \"tasks\": [\n            {\n              \"ping\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"http\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dns\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"health\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"ping\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"http\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dns\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"health\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"agentId\": \"string\",\n          \"health\": \"string\",\n          \"tasks\": [\n            {\n              \"ping\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"http\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dns\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"health\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"ping\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"http\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dns\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"health\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"testId\": \"string\",\n      \"time\": \"2001-08-27T13:04:38.033Z\",\n      \"health\": \"string\",\n      \"agents\": [\n        {\n          \"agentId\": \"string\",\n          \"health\": \"string\",\n          \"tasks\": [\n            {\n              \"ping\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"http\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dns\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"health\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"ping\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"http\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dns\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"health\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"agentId\": \"string\",\n          \"health\": \"string\",\n          \"tasks\": [\n            {\n              \"ping\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"http\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dns\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"health\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"ping\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"http\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dns\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"health\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ]\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "f7d60e1d-29e1-4b89-a91f-740080d45510",
+              "createdAt": "2026-10-22T01:19:20.000Z",
+              "updatedAt": "2026-10-22T01:19:20.000Z",
+              "uid": "35240-f7d60e1d-29e1-4b89-a91f-740080d45510"
             },
             {
-              "id": "ecd7e3f3-7506-42fc-a9ba-43a07b782de7",
-              "name": "An unexpected error response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "synthetics",
-                    "v202309",
-                    "results"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"startTime\": \"<dateTime>\",\n  \"endTime\": \"<dateTime>\",\n  \"agentIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"targets\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"aggregate\": \"<boolean>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
+              "name": "trace",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "Get network trace data for a test",
+                  "id": "328482c0-7f1d-440b-a70d-f61550355360",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"startTime\": \"<dateTime>\",\n  \"endTime\": \"<dateTime>\",\n  \"id\": \"<string>\",\n  \"agentIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"targetIps\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/synthetics/v202309/trace",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "synthetics",
+                        "v202309",
+                        "trace"
+                      ]
+                    },
+                    "description": "Get network trace data for a specific synthetic test. The test must have traceroute task configured."
+                  },
+                  "response": [
+                    {
+                      "id": "5ec74117-bd99-4e7c-ba4d-7db857dd4b35",
+                      "name": "A successful response.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-CH-Auth-Email",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"startTime\": \"<dateTime>\",\n  \"endTime\": \"<dateTime>\",\n  \"id\": \"<string>\",\n  \"agentIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"targetIps\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/synthetics/v202309/trace",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "synthetics",
+                            "v202309",
+                            "trace"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"nodes\": {\n    \"ut_3f\": {\n      \"ip\": \"<string>\",\n      \"asn\": \"<long>\",\n      \"asName\": \"<string>\",\n      \"location\": {\n        \"latitude\": \"<double>\",\n        \"longitude\": \"<double>\",\n        \"country\": \"<string>\",\n        \"region\": \"<string>\",\n        \"city\": \"<string>\"\n      },\n      \"dnsName\": \"<string>\",\n      \"deviceId\": \"<string>\",\n      \"siteId\": \"<string>\"\n    },\n    \"amet_bd\": {\n      \"ip\": \"<string>\",\n      \"asn\": \"<long>\",\n      \"asName\": \"<string>\",\n      \"location\": {\n        \"latitude\": \"<double>\",\n        \"longitude\": \"<double>\",\n        \"country\": \"<string>\",\n        \"region\": \"<string>\",\n        \"city\": \"<string>\"\n      },\n      \"dnsName\": \"<string>\",\n      \"deviceId\": \"<string>\",\n      \"siteId\": \"<string>\"\n    }\n  },\n  \"paths\": [\n    {\n      \"agentId\": \"<string>\",\n      \"targetIp\": \"<string>\",\n      \"hopCount\": {\n        \"average\": \"<integer>\",\n        \"min\": \"<integer>\",\n        \"max\": \"<integer>\"\n      },\n      \"maxAsPathLength\": \"<integer>\",\n      \"traces\": [\n        {\n          \"asPath\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"isComplete\": \"<boolean>\",\n          \"hops\": [\n            {\n              \"latency\": \"<integer>\",\n              \"nodeId\": \"<string>\"\n            },\n            {\n              \"latency\": \"<integer>\",\n              \"nodeId\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"asPath\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"isComplete\": \"<boolean>\",\n          \"hops\": [\n            {\n              \"latency\": \"<integer>\",\n              \"nodeId\": \"<string>\"\n            },\n            {\n              \"latency\": \"<integer>\",\n              \"nodeId\": \"<string>\"\n            }\n          ]\n        }\n      ],\n      \"time\": \"<dateTime>\"\n    },\n    {\n      \"agentId\": \"<string>\",\n      \"targetIp\": \"<string>\",\n      \"hopCount\": {\n        \"average\": \"<integer>\",\n        \"min\": \"<integer>\",\n        \"max\": \"<integer>\"\n      },\n      \"maxAsPathLength\": \"<integer>\",\n      \"traces\": [\n        {\n          \"asPath\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"isComplete\": \"<boolean>\",\n          \"hops\": [\n            {\n              \"latency\": \"<integer>\",\n              \"nodeId\": \"<string>\"\n            },\n            {\n              \"latency\": \"<integer>\",\n              \"nodeId\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"asPath\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"isComplete\": \"<boolean>\",\n          \"hops\": [\n            {\n              \"latency\": \"<integer>\",\n              \"nodeId\": \"<string>\"\n            },\n            {\n              \"latency\": \"<integer>\",\n              \"nodeId\": \"<string>\"\n            }\n          ]\n        }\n      ],\n      \"time\": \"<dateTime>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-10-22T01:19:20.000Z",
+                      "updatedAt": "2026-10-22T01:19:20.000Z",
+                      "uid": "35240-5ec74117-bd99-4e7c-ba4d-7db857dd4b35"
+                    },
+                    {
+                      "id": "861af6a5-9124-42a2-aa41-102b7ea20376",
+                      "name": "An unexpected error response.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-CH-Auth-Email",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"startTime\": \"<dateTime>\",\n  \"endTime\": \"<dateTime>\",\n  \"id\": \"<string>\",\n  \"agentIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"targetIps\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/synthetics/v202309/trace",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "synthetics",
+                            "v202309",
+                            "trace"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\"\n    },\n    {\n      \"@type\": \"<string>\",\n      \"ea_f\": {}\n    }\n  ]\n}",
+                      "createdAt": "2026-10-22T01:19:20.000Z",
+                      "updatedAt": "2026-10-22T01:19:20.000Z",
+                      "uid": "35240-861af6a5-9124-42a2-aa41-102b7ea20376"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:19:20.000Z",
+                  "updatedAt": "2026-10-22T01:19:20.000Z",
+                  "uid": "35240-328482c0-7f1d-440b-a70d-f61550355360"
                 }
               ],
-              "body": "{\n  \"code\": 7471,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "02daabb3-87f3-417a-9422-e3ef45e84f48",
+              "createdAt": "2026-10-22T01:19:20.000Z",
+              "updatedAt": "2026-10-22T01:19:20.000Z",
+              "uid": "35240-02daabb3-87f3-417a-9422-e3ef45e84f48"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "66c4f76d-fb35-4059-a354-4f76a57bfb40",
-          "name": "Get test results in CSV format",
-          "request": {
-            "name": "Get test results in CSV format",
-            "description": {
-              "content": "Returns probe results for tests in CSV format.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "synthetics",
-                "v202309",
-                "results",
-                "csv"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"startTime\": \"<dateTime>\",\n  \"endTime\": \"<dateTime>\",\n  \"agentIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"aggregate\": \"<boolean>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "f7840168-9f88-4e5d-9fe0-ec08bcac627a",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "synthetics",
-                    "v202309",
-                    "results",
-                    "csv"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"startTime\": \"<dateTime>\",\n  \"endTime\": \"<dateTime>\",\n  \"agentIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"aggregate\": \"<boolean>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"contentType\": \"string\",\n  \"data\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "36c6e7d8-4d01-4ec7-9eed-1799a1fc8881",
-              "name": "An unexpected error response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "synthetics",
-                    "v202309",
-                    "results",
-                    "csv"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"startTime\": \"<dateTime>\",\n  \"endTime\": \"<dateTime>\",\n  \"agentIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"aggregate\": \"<boolean>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 6258,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "47440122-84b7-4484-9cb6-c119f09b09cd",
-          "name": "Get network trace data for a test",
-          "request": {
-            "name": "Get network trace data for a test",
-            "description": {
-              "content": "Get network trace data for a specific synthetic test. The test must have traceroute task configured.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "synthetics",
-                "v202309",
-                "trace"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"startTime\": \"<dateTime>\",\n  \"endTime\": \"<dateTime>\",\n  \"id\": \"<string>\",\n  \"agentIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"targetIps\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "4b9c2572-f838-4f4b-afc8-921d520472be",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "synthetics",
-                    "v202309",
-                    "trace"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"startTime\": \"<dateTime>\",\n  \"endTime\": \"<dateTime>\",\n  \"id\": \"<string>\",\n  \"agentIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"targetIps\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"nodes\": {\n    \"key_0\": {\n      \"ip\": \"string\",\n      \"asn\": 1195,\n      \"asName\": \"string\",\n      \"location\": {\n        \"latitude\": 2261.958630597588,\n        \"longitude\": 9050.136087534984,\n        \"country\": \"string\",\n        \"region\": \"string\",\n        \"city\": \"string\"\n      },\n      \"dnsName\": \"string\",\n      \"deviceId\": \"string\",\n      \"siteId\": \"string\"\n    }\n  },\n  \"paths\": [\n    {\n      \"agentId\": \"string\",\n      \"targetIp\": \"string\",\n      \"hopCount\": {\n        \"average\": 7187,\n        \"min\": 8375,\n        \"max\": 516\n      },\n      \"maxAsPathLength\": 9040,\n      \"traces\": [\n        {\n          \"asPath\": [\n            9544,\n            1169\n          ],\n          \"isComplete\": true,\n          \"hops\": [\n            {\n              \"latency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"nodeId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"latency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"nodeId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"asPath\": [\n            4594,\n            3298\n          ],\n          \"isComplete\": true,\n          \"hops\": [\n            {\n              \"latency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"nodeId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"latency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"nodeId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ],\n      \"time\": \"1947-08-27T22:16:18.233Z\"\n    },\n    {\n      \"agentId\": \"string\",\n      \"targetIp\": \"string\",\n      \"hopCount\": {\n        \"average\": 2207,\n        \"min\": 7944,\n        \"max\": 9533\n      },\n      \"maxAsPathLength\": 7670,\n      \"traces\": [\n        {\n          \"asPath\": [\n            7957,\n            7782\n          ],\n          \"isComplete\": false,\n          \"hops\": [\n            {\n              \"latency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"nodeId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"latency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"nodeId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"asPath\": [\n            4766,\n            7884\n          ],\n          \"isComplete\": true,\n          \"hops\": [\n            {\n              \"latency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"nodeId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"latency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"nodeId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ],\n      \"time\": \"1977-10-19T06:15:42.776Z\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "5deefc36-271a-4ceb-b4c5-c95cffed944d",
-              "name": "An unexpected error response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "synthetics",
-                    "v202309",
-                    "trace"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"startTime\": \"<dateTime>\",\n  \"endTime\": \"<dateTime>\",\n  \"id\": \"<string>\",\n  \"agentIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"targetIps\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 6258,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "0f56ecd3-0b76-4927-8c46-77bb75244302",
+          "createdAt": "2026-10-22T01:19:20.000Z",
+          "updatedAt": "2026-10-22T01:19:20.000Z",
+          "uid": "35240-0f56ecd3-0b76-4927-8c46-77bb75244302"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "/",
-      "key": "baseUrl"
+      "id": "4c2adf0f-23d0-4f2a-a171-44053e43a998",
+      "createdAt": "2026-10-22T01:19:20.000Z",
+      "updatedAt": "2026-10-22T01:19:20.000Z",
+      "uid": "35240-4c2adf0f-23d0-4f2a-a171-44053e43a998"
     }
   ],
   "auth": {
@@ -496,25 +553,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "X-CH-Auth-Email"
+        "value": "X-CH-Auth-Email",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "bd6cdc12-00b2-423e-9489-131bc258e054",
-    "name": "AI Advisor AiAdvisorDataService SyntheticsDataService API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "# Overview\nProvides programmatic access to AI Advisor.\n\nContact Support:\n Name: Kentik API Engineering",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
     }
-  }
+  ]
 }

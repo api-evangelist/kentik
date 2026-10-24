@@ -1,643 +1,660 @@
 {
+  "info": {
+    "_postman_id": "55925571-2a37-41c3-896e-b39f568b394e",
+    "name": "Label Management Label Service API",
+    "description": "# Overview\nThe Label API enables programmatic creation and management of labels, which are tags that can be applied to objects such as devices, synthetic tests, and ksynth agents in order to create logical groups.\n\nContact Support:\n Name: Kentik API Engineering",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:18:26.000Z",
+    "updatedAt": "2026-10-22T01:18:27.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-55925571-2a37-41c3-896e-b39f568b394e"
+  },
   "item": [
     {
-      "id": "72289997-09a6-4070-ab05-c4803cedd05c",
-      "name": "LabelService",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "label",
       "item": [
         {
-          "id": "39a4d06e-f615-405c-95bd-5bfd928de3ec",
-          "name": "List all configured labels",
-          "request": {
-            "name": "List all configured labels",
-            "description": {
-              "content": "Returns list of all labels configured in the account.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "label",
-                "v202210",
-                "labels"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "v202210",
+          "item": [
             {
-              "id": "dfb7e452-82d1-4280-b524-2f7058108a66",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "label",
-                    "v202210",
-                    "labels"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "labels",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "{id}",
+                  "item": [
+                    {
+                      "name": "Delete a label",
+                      "id": "b44320a6-d5d0-451f-9e61-115ebbcd94b1",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/label/v202210/labels/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "label",
+                            "v202210",
+                            "labels",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "d5150458-de4c-4ef4-8188-f58793ffeb5f",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) ID of the label to be deleted"
+                            }
+                          ]
+                        },
+                        "description": "Deletes label with specified with id."
+                      },
+                      "response": [
+                        {
+                          "id": "2dfba6d8-e4fd-4f10-8bf9-31744b6f57ee",
+                          "name": "A successful response.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-CH-Auth-Email",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/label/v202210/labels/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "label",
+                                "v202210",
+                                "labels",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{}",
+                          "createdAt": "2026-10-22T01:18:27.000Z",
+                          "updatedAt": "2026-10-22T01:18:27.000Z",
+                          "uid": "35240-2dfba6d8-e4fd-4f10-8bf9-31744b6f57ee"
+                        },
+                        {
+                          "id": "2a1730a4-b2d8-4338-83cb-90e6357a7e8e",
+                          "name": "An unexpected error response.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-CH-Auth-Email",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/label/v202210/labels/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "label",
+                                "v202210",
+                                "labels",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\"\n    },\n    {\n      \"@type\": \"<string>\",\n      \"non_a8f\": {},\n      \"Duis9ee\": {},\n      \"etbe\": {}\n    }\n  ]\n}",
+                          "createdAt": "2026-10-22T01:18:27.000Z",
+                          "updatedAt": "2026-10-22T01:18:27.000Z",
+                          "uid": "35240-2a1730a4-b2d8-4338-83cb-90e6357a7e8e"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T01:18:27.000Z",
+                      "updatedAt": "2026-10-22T01:18:27.000Z",
+                      "uid": "35240-b44320a6-d5d0-451f-9e61-115ebbcd94b1"
+                    },
+                    {
+                      "name": "Update an existing label",
+                      "id": "0b7f0fb8-b7f6-4db6-9c01-22f279e87b79",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"label\": {\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"color\": \"<string>\",\n    \"cdate\": \"<dateTime>\",\n    \"edate\": \"<dateTime>\"\n  },\n  \"name\": 13359292.237175912\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/label/v202210/labels/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "label",
+                            "v202210",
+                            "labels",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "3fb22d7b-4701-4e9d-b625-5f270ff563e4",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) Unique system assigned identifier of the label"
+                            }
+                          ]
+                        },
+                        "description": "Updates configuration of a label."
+                      },
+                      "response": [
+                        {
+                          "id": "0f8c79bc-3698-4d58-a5b6-3fe18dd1e710",
+                          "name": "A successful response.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-CH-Auth-Email",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"label\": {\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"color\": \"<string>\",\n    \"cdate\": \"<dateTime>\",\n    \"edate\": \"<dateTime>\"\n  },\n  \"name\": 13359292.237175912\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/label/v202210/labels/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "label",
+                                "v202210",
+                                "labels",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"label\": {\n    \"name\": \"<string>\",\n    \"id\": \"<string>\",\n    \"description\": \"<string>\",\n    \"color\": \"<string>\",\n    \"cdate\": \"<dateTime>\",\n    \"edate\": \"<dateTime>\"\n  }\n}",
+                          "createdAt": "2026-10-22T01:18:27.000Z",
+                          "updatedAt": "2026-10-22T01:18:27.000Z",
+                          "uid": "35240-0f8c79bc-3698-4d58-a5b6-3fe18dd1e710"
+                        },
+                        {
+                          "id": "c1d9d783-1dfd-419b-8a49-3aaceadd8db4",
+                          "name": "An unexpected error response.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-CH-Auth-Email",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"label\": {\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"color\": \"<string>\",\n    \"cdate\": \"<dateTime>\",\n    \"edate\": \"<dateTime>\"\n  },\n  \"name\": 13359292.237175912\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/label/v202210/labels/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "label",
+                                "v202210",
+                                "labels",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\"\n    },\n    {\n      \"@type\": \"<string>\",\n      \"non_a8f\": {},\n      \"Duis9ee\": {},\n      \"etbe\": {}\n    }\n  ]\n}",
+                          "createdAt": "2026-10-22T01:18:27.000Z",
+                          "updatedAt": "2026-10-22T01:18:27.000Z",
+                          "uid": "35240-c1d9d783-1dfd-419b-8a49-3aaceadd8db4"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T01:18:27.000Z",
+                      "updatedAt": "2026-10-22T01:18:27.000Z",
+                      "uid": "35240-0b7f0fb8-b7f6-4db6-9c01-22f279e87b79"
+                    }
+                  ],
+                  "id": "e8033e63-08ac-4d4c-baa2-023248829674",
+                  "createdAt": "2026-10-22T01:18:27.000Z",
+                  "updatedAt": "2026-10-22T01:18:27.000Z",
+                  "uid": "35240-e8033e63-08ac-4d4c-baa2-023248829674"
+                },
+                {
+                  "name": "List all configured labels",
+                  "id": "8996e1e2-7b2a-4d1c-8f26-c8f9121ddfe8",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/label/v202210/labels",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "label",
+                        "v202210",
+                        "labels"
+                      ]
+                    },
+                    "description": "Returns list of all labels configured in the account."
+                  },
+                  "response": [
+                    {
+                      "id": "8a148d70-59c3-4ad6-b2b2-4fb3f24d40ea",
+                      "name": "A successful response.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-CH-Auth-Email",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/label/v202210/labels",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "label",
+                            "v202210",
+                            "labels"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"labels\": [\n    {\n      \"name\": \"<string>\",\n      \"id\": \"<string>\",\n      \"description\": \"<string>\",\n      \"color\": \"<string>\",\n      \"cdate\": \"<dateTime>\",\n      \"edate\": \"<dateTime>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"id\": \"<string>\",\n      \"description\": \"<string>\",\n      \"color\": \"<string>\",\n      \"cdate\": \"<dateTime>\",\n      \"edate\": \"<dateTime>\"\n    }\n  ],\n  \"invalidCount\": \"<integer>\"\n}",
+                      "createdAt": "2026-10-22T01:18:27.000Z",
+                      "updatedAt": "2026-10-22T01:18:27.000Z",
+                      "uid": "35240-8a148d70-59c3-4ad6-b2b2-4fb3f24d40ea"
+                    },
+                    {
+                      "id": "44f61575-55c3-445c-a36b-a6a9803020b2",
+                      "name": "An unexpected error response.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-CH-Auth-Email",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/label/v202210/labels",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "label",
+                            "v202210",
+                            "labels"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\"\n    },\n    {\n      \"@type\": \"<string>\",\n      \"non_a8f\": {},\n      \"Duis9ee\": {},\n      \"etbe\": {}\n    }\n  ]\n}",
+                      "createdAt": "2026-10-22T01:18:27.000Z",
+                      "updatedAt": "2026-10-22T01:18:27.000Z",
+                      "uid": "35240-44f61575-55c3-445c-a36b-a6a9803020b2"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:18:27.000Z",
+                  "updatedAt": "2026-10-22T01:18:27.000Z",
+                  "uid": "35240-8996e1e2-7b2a-4d1c-8f26-c8f9121ddfe8"
+                },
+                {
+                  "name": "Create a new label",
+                  "id": "d1958016-ac65-4d7d-85e5-74fd1dc7d36f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"label\": {\n    \"name\": \"<string>\",\n    \"id\": \"<string>\",\n    \"description\": \"<string>\",\n    \"color\": \"<string>\",\n    \"cdate\": \"<dateTime>\",\n    \"edate\": \"<dateTime>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/label/v202210/labels",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "label",
+                        "v202210",
+                        "labels"
+                      ]
+                    },
+                    "description": "Creates a new label based on data in the request."
+                  },
+                  "response": [
+                    {
+                      "id": "da924391-54a7-490e-975f-b3ddd3145625",
+                      "name": "A successful response.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-CH-Auth-Email",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"label\": {\n    \"name\": \"<string>\",\n    \"id\": \"<string>\",\n    \"description\": \"<string>\",\n    \"color\": \"<string>\",\n    \"cdate\": \"<dateTime>\",\n    \"edate\": \"<dateTime>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/label/v202210/labels",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "label",
+                            "v202210",
+                            "labels"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"label\": {\n    \"name\": \"<string>\",\n    \"id\": \"<string>\",\n    \"description\": \"<string>\",\n    \"color\": \"<string>\",\n    \"cdate\": \"<dateTime>\",\n    \"edate\": \"<dateTime>\"\n  }\n}",
+                      "createdAt": "2026-10-22T01:18:27.000Z",
+                      "updatedAt": "2026-10-22T01:18:27.000Z",
+                      "uid": "35240-da924391-54a7-490e-975f-b3ddd3145625"
+                    },
+                    {
+                      "id": "e264b5e5-f067-468f-82f6-f99faba52ea2",
+                      "name": "An unexpected error response.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-CH-Auth-Email",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"label\": {\n    \"name\": \"<string>\",\n    \"id\": \"<string>\",\n    \"description\": \"<string>\",\n    \"color\": \"<string>\",\n    \"cdate\": \"<dateTime>\",\n    \"edate\": \"<dateTime>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/label/v202210/labels",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "label",
+                            "v202210",
+                            "labels"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\"\n    },\n    {\n      \"@type\": \"<string>\",\n      \"non_a8f\": {},\n      \"Duis9ee\": {},\n      \"etbe\": {}\n    }\n  ]\n}",
+                      "createdAt": "2026-10-22T01:18:27.000Z",
+                      "updatedAt": "2026-10-22T01:18:27.000Z",
+                      "uid": "35240-e264b5e5-f067-468f-82f6-f99faba52ea2"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:18:27.000Z",
+                  "updatedAt": "2026-10-22T01:18:27.000Z",
+                  "uid": "35240-d1958016-ac65-4d7d-85e5-74fd1dc7d36f"
                 }
               ],
-              "body": "{\n  \"labels\": [\n    {\n      \"name\": \"string\",\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"color\": \"string\",\n      \"cdate\": \"1996-01-24T02:46:16.327Z\",\n      \"edate\": \"1952-10-26T03:55:49.944Z\"\n    },\n    {\n      \"name\": \"string\",\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"color\": \"string\",\n      \"cdate\": \"1981-03-05T23:55:20.275Z\",\n      \"edate\": \"1980-12-02T08:13:30.790Z\"\n    }\n  ],\n  \"invalidCount\": 1056\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "1030c9dc-6fb1-4d57-9eca-2b621831e5a8",
-              "name": "An unexpected error response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "label",
-                    "v202210",
-                    "labels"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 6296,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "e142a437-c79e-4685-8179-59121981d3b1",
+              "createdAt": "2026-10-22T01:18:27.000Z",
+              "updatedAt": "2026-10-22T01:18:27.000Z",
+              "uid": "35240-e142a437-c79e-4685-8179-59121981d3b1"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "a9176db7-3f9f-458f-9847-ba7092fbdb7e",
-          "name": "Create a new label.",
-          "request": {
-            "name": "Create a new label.",
-            "description": {
-              "content": "Creates a new label based on data in the request.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "label",
-                "v202210",
-                "labels"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"label\": {\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"color\": \"<string>\"\n  }\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "68ae0822-c873-498c-80ac-180958933426",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "label",
-                    "v202210",
-                    "labels"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"label\": {\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"color\": \"<string>\"\n  }\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"label\": {\n    \"name\": \"<string>\",\n    \"id\": \"string\",\n    \"description\": \"<string>\",\n    \"color\": \"<string>\",\n    \"cdate\": \"1950-06-03T22:15:49.648Z\",\n    \"edate\": \"1965-01-10T05:55:06.304Z\"\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "5d797ea0-9b57-4cd1-917b-5cab453f36b1",
-              "name": "An unexpected error response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "label",
-                    "v202210",
-                    "labels"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"label\": {\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"color\": \"<string>\"\n  }\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 8946,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "6c7aad04-36a1-4e28-854a-5a2967497943",
-          "name": "Delete a label.",
-          "request": {
-            "name": "Delete a label.",
-            "description": {
-              "content": "Deletes label with specified with id.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "label",
-                "v202210",
-                "labels",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) ID of the label to be deleted"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "9e6bdca4-49e9-4ce6-b2a8-a9ac6741393c",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "label",
-                    "v202210",
-                    "labels",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) ID of the label to be deleted"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "178a0c33-238f-4fb0-a917-33066e7691d7",
-              "name": "An unexpected error response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "label",
-                    "v202210",
-                    "labels",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) ID of the label to be deleted"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 8946,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "dfae221e-0fc5-4fb1-b5e7-f33ad141c454",
-          "name": "Update an existing label.",
-          "request": {
-            "name": "Update an existing label.",
-            "description": {
-              "content": "Updates configuration of a label.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "label",
-                "v202210",
-                "labels",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) Unique system assigned identifier of the label"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"label\": {\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"color\": \"<string>\"\n  },\n  \"name\": true\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "a0301881-c406-4603-9e3c-345b566a4f8d",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "label",
-                    "v202210",
-                    "labels",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) Unique system assigned identifier of the label"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"label\": {\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"color\": \"<string>\"\n  },\n  \"name\": 380.99446206693585\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"label\": {\n    \"name\": \"<string>\",\n    \"id\": \"string\",\n    \"description\": \"<string>\",\n    \"color\": \"<string>\",\n    \"cdate\": \"2002-08-05T09:20:15.223Z\",\n    \"edate\": \"1972-10-23T22:20:18.668Z\"\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "ec388cd6-21b7-427c-91d1-cc2f10bc70c4",
-              "name": "An unexpected error response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "label",
-                    "v202210",
-                    "labels",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) Unique system assigned identifier of the label"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"label\": {\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"color\": \"<string>\"\n  },\n  \"name\": 380.99446206693585\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 8946,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "455069c3-4bfa-45a9-8e98-d62648948750",
+          "createdAt": "2026-10-22T01:18:27.000Z",
+          "updatedAt": "2026-10-22T01:18:27.000Z",
+          "uid": "35240-455069c3-4bfa-45a9-8e98-d62648948750"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "/",
-      "key": "baseUrl"
+      "id": "9a635d1d-0380-4350-b940-92e8583dcd9a",
+      "createdAt": "2026-10-22T01:18:27.000Z",
+      "updatedAt": "2026-10-22T01:18:27.000Z",
+      "uid": "35240-9a635d1d-0380-4350-b940-92e8583dcd9a"
     }
   ],
   "auth": {
@@ -645,25 +662,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "X-CH-Auth-Email"
+        "value": "X-CH-Auth-Email",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "74ef0f95-520a-4d19-ad4e-6789f6e1e837",
-    "name": "AI Advisor AiAdvisorDataService LabelService API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "# Overview\nProvides programmatic access to AI Advisor.\n\nContact Support:\n Name: Kentik API Engineering",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
     }
-  }
+  ]
 }

@@ -1,797 +1,814 @@
 {
+  "info": {
+    "_postman_id": "48920714-94ef-40a4-89a9-8562edce2fa0",
+    "name": "AS Group Configuration AS Group Service API",
+    "description": "# Overview\nThe AS Group Configuration API provides programmatic access to configuration of AS Groups:\n\n* **AS Group**: ASNs can be logically grouped into an AS group.\n\nContact Support:\n Name: Kentik API Engineering",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:17:22.000Z",
+    "updatedAt": "2026-10-22T01:17:23.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-48920714-94ef-40a4-89a9-8562edce2fa0"
+  },
   "item": [
     {
-      "id": "8751cb59-43da-4a27-9c00-99bd2543e4fa",
-      "name": "ASGroupService",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "as_group",
       "item": [
         {
-          "id": "771ae502-9240-45c2-a78e-abea0240aa1b",
-          "name": "List all AS groups.",
-          "request": {
-            "name": "List all AS groups.",
-            "description": {
-              "content": "Returns list of configured AS groups.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "as_group",
-                "v202212",
-                "as_group"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "v202212",
+          "item": [
             {
-              "id": "36625e94-a89f-4ffb-a778-c0ba326ed0a3",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "as_group",
-                    "v202212",
-                    "as_group"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "as_group",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "{asGroup.id}",
+                  "item": [
+                    {
+                      "name": "Updates configuration of a AS group",
+                      "id": "f3e06c56-3d82-4134-bb2d-010212bce7dc",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"asGroup\": {\n    \"name\": \"<string>\",\n    \"asn\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"createdDate\": \"<dateTime>\",\n    \"updatedDate\": \"<dateTime>\"\n  },\n  \"name\": 70893418.79173818\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/as_group/v202212/as_group/:asGroup.id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "as_group",
+                            "v202212",
+                            "as_group",
+                            ":asGroup.id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "c9d402c1-00c1-4ac1-ab80-3b8edf1055eb",
+                              "key": "asGroup"
+                            },
+                            {
+                              "id": "beca980e-62d2-4cc7-aed8-75dab6d3c202",
+                              "key": "asGroup.id",
+                              "value": "<string>",
+                              "description": "(Required) System generated unique identifier"
+                            }
+                          ]
+                        },
+                        "description": "Replaces configuration of a AS group with attributes in the request. Returns the updated configuration."
+                      },
+                      "response": [
+                        {
+                          "id": "7db8ed79-3257-4cd7-ac32-6775e0afce7a",
+                          "name": "A successful response.",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-CH-Auth-Email",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"asGroup\": {\n    \"name\": \"<string>\",\n    \"asn\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"createdDate\": \"<dateTime>\",\n    \"updatedDate\": \"<dateTime>\"\n  },\n  \"name\": 70893418.79173818\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/as_group/v202212/as_group/:asGroup.id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "as_group",
+                                "v202212",
+                                "as_group",
+                                ":asGroup.id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "asGroup.id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"asGroup\": {\n    \"name\": \"<string>\",\n    \"id\": \"<string>\",\n    \"asn\": [\n      {\n        \"asn\": \"<long>\",\n        \"name\": \"<string>\"\n      },\n      {\n        \"asn\": \"<long>\",\n        \"name\": \"<string>\"\n      }\n    ],\n    \"createdDate\": \"<dateTime>\",\n    \"updatedDate\": \"<dateTime>\"\n  }\n}",
+                          "createdAt": "2026-10-22T01:17:23.000Z",
+                          "updatedAt": "2026-10-22T01:17:23.000Z",
+                          "uid": "35240-7db8ed79-3257-4cd7-ac32-6775e0afce7a"
+                        },
+                        {
+                          "id": "8bfb6693-032d-4773-b45d-d078d1b393b9",
+                          "name": "An unexpected error response.",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-CH-Auth-Email",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"asGroup\": {\n    \"name\": \"<string>\",\n    \"asn\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"createdDate\": \"<dateTime>\",\n    \"updatedDate\": \"<dateTime>\"\n  },\n  \"name\": 70893418.79173818\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/as_group/v202212/as_group/:asGroup.id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "as_group",
+                                "v202212",
+                                "as_group",
+                                ":asGroup.id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "asGroup.id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"culpa_a\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"sedbd\": {},\n      \"dolor_f\": {},\n      \"doloree6\": {},\n      \"sit_0f3\": {}\n    }\n  ]\n}",
+                          "createdAt": "2026-10-22T01:17:23.000Z",
+                          "updatedAt": "2026-10-22T01:17:23.000Z",
+                          "uid": "35240-8bfb6693-032d-4773-b45d-d078d1b393b9"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T01:17:23.000Z",
+                      "updatedAt": "2026-10-22T01:17:23.000Z",
+                      "uid": "35240-f3e06c56-3d82-4134-bb2d-010212bce7dc"
+                    },
+                    {
+                      "name": "Retrieve configuration of a AS group",
+                      "id": "9fdb9861-f5ea-4dde-a0d2-981cf32025f5",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/as_group/v202212/as_group/:asGroup.id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "as_group",
+                            "v202212",
+                            "as_group",
+                            ":asGroup.id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "db199293-d179-4e00-b9cc-1942fa432a5f",
+                              "key": "asGroup"
+                            },
+                            {
+                              "id": "707723a3-5b76-47dd-bf1f-384891908855",
+                              "key": "asGroup.id",
+                              "value": "<string>",
+                              "description": "(Required) ID of the requested AS group"
+                            }
+                          ]
+                        },
+                        "description": "Returns configuration of a AS group specified by ID."
+                      },
+                      "response": [
+                        {
+                          "id": "94cfbfd5-0b4c-4242-9c8b-56e6db44210d",
+                          "name": "A successful response.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-CH-Auth-Email",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/as_group/v202212/as_group/:asGroup.id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "as_group",
+                                "v202212",
+                                "as_group",
+                                ":asGroup.id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "asGroup.id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"asGroup\": {\n    \"name\": \"<string>\",\n    \"id\": \"<string>\",\n    \"asn\": [\n      {\n        \"asn\": \"<long>\",\n        \"name\": \"<string>\"\n      },\n      {\n        \"asn\": \"<long>\",\n        \"name\": \"<string>\"\n      }\n    ],\n    \"createdDate\": \"<dateTime>\",\n    \"updatedDate\": \"<dateTime>\"\n  }\n}",
+                          "createdAt": "2026-10-22T01:17:23.000Z",
+                          "updatedAt": "2026-10-22T01:17:23.000Z",
+                          "uid": "35240-94cfbfd5-0b4c-4242-9c8b-56e6db44210d"
+                        },
+                        {
+                          "id": "5ca0eb99-420b-4ada-9b5b-4379217b6529",
+                          "name": "An unexpected error response.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-CH-Auth-Email",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/as_group/v202212/as_group/:asGroup.id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "as_group",
+                                "v202212",
+                                "as_group",
+                                ":asGroup.id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "asGroup.id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"culpa_a\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"sedbd\": {},\n      \"dolor_f\": {},\n      \"doloree6\": {},\n      \"sit_0f3\": {}\n    }\n  ]\n}",
+                          "createdAt": "2026-10-22T01:17:23.000Z",
+                          "updatedAt": "2026-10-22T01:17:23.000Z",
+                          "uid": "35240-5ca0eb99-420b-4ada-9b5b-4379217b6529"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T01:17:23.000Z",
+                      "updatedAt": "2026-10-22T01:17:23.000Z",
+                      "uid": "35240-9fdb9861-f5ea-4dde-a0d2-981cf32025f5"
+                    },
+                    {
+                      "name": "Delete configuration of a AS group",
+                      "id": "e8450dc5-d8e6-49e5-b9e8-d72a4fe3ea08",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/as_group/v202212/as_group/:asGroup.id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "as_group",
+                            "v202212",
+                            "as_group",
+                            ":asGroup.id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "0c1eb189-f7e5-4601-87bd-8f90649e8b06",
+                              "key": "asGroup"
+                            },
+                            {
+                              "id": "0e0ea887-61e5-4327-a98d-79d67c13875f",
+                              "key": "asGroup.id",
+                              "value": "<string>",
+                              "description": "(Required) ID of the AS group to be deleted"
+                            }
+                          ]
+                        },
+                        "description": "Deletes configuration of a AS group with specific ID."
+                      },
+                      "response": [
+                        {
+                          "id": "59dfa069-8f1f-480b-950f-7015cf80632f",
+                          "name": "A successful response.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-CH-Auth-Email",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/as_group/v202212/as_group/:asGroup.id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "as_group",
+                                "v202212",
+                                "as_group",
+                                ":asGroup.id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "asGroup.id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{}",
+                          "createdAt": "2026-10-22T01:17:23.000Z",
+                          "updatedAt": "2026-10-22T01:17:23.000Z",
+                          "uid": "35240-59dfa069-8f1f-480b-950f-7015cf80632f"
+                        },
+                        {
+                          "id": "db5b7ec2-1c87-4339-9d56-4c385a4a0735",
+                          "name": "An unexpected error response.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-CH-Auth-Email",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/as_group/v202212/as_group/:asGroup.id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "as_group",
+                                "v202212",
+                                "as_group",
+                                ":asGroup.id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "asGroup.id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"culpa_a\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"sedbd\": {},\n      \"dolor_f\": {},\n      \"doloree6\": {},\n      \"sit_0f3\": {}\n    }\n  ]\n}",
+                          "createdAt": "2026-10-22T01:17:23.000Z",
+                          "updatedAt": "2026-10-22T01:17:23.000Z",
+                          "uid": "35240-db5b7ec2-1c87-4339-9d56-4c385a4a0735"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T01:17:23.000Z",
+                      "updatedAt": "2026-10-22T01:17:23.000Z",
+                      "uid": "35240-e8450dc5-d8e6-49e5-b9e8-d72a4fe3ea08"
+                    }
+                  ],
+                  "id": "acfefe15-22aa-47b9-96e0-b1df1a0a38d7",
+                  "createdAt": "2026-10-22T01:17:23.000Z",
+                  "updatedAt": "2026-10-22T01:17:23.000Z",
+                  "uid": "35240-acfefe15-22aa-47b9-96e0-b1df1a0a38d7"
+                },
+                {
+                  "name": "List all AS groups",
+                  "id": "15d1ebd1-e442-45dc-9ec5-7208d5111dd0",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/as_group/v202212/as_group",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "as_group",
+                        "v202212",
+                        "as_group"
+                      ]
+                    },
+                    "description": "Returns list of configured AS groups."
+                  },
+                  "response": [
+                    {
+                      "id": "e25757cb-b02d-4d38-beae-96f5f5b7ca1c",
+                      "name": "A successful response.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-CH-Auth-Email",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/as_group/v202212/as_group",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "as_group",
+                            "v202212",
+                            "as_group"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"asGroups\": [\n    {\n      \"name\": \"<string>\",\n      \"id\": \"<string>\",\n      \"asn\": [\n        {\n          \"asn\": \"<long>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"asn\": \"<long>\",\n          \"name\": \"<string>\"\n        }\n      ],\n      \"createdDate\": \"<dateTime>\",\n      \"updatedDate\": \"<dateTime>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"id\": \"<string>\",\n      \"asn\": [\n        {\n          \"asn\": \"<long>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"asn\": \"<long>\",\n          \"name\": \"<string>\"\n        }\n      ],\n      \"createdDate\": \"<dateTime>\",\n      \"updatedDate\": \"<dateTime>\"\n    }\n  ],\n  \"invalidCount\": \"<long>\"\n}",
+                      "createdAt": "2026-10-22T01:17:23.000Z",
+                      "updatedAt": "2026-10-22T01:17:23.000Z",
+                      "uid": "35240-e25757cb-b02d-4d38-beae-96f5f5b7ca1c"
+                    },
+                    {
+                      "id": "cc25f837-dfc2-44b6-891c-c701bd1d72ac",
+                      "name": "An unexpected error response.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-CH-Auth-Email",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/as_group/v202212/as_group",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "as_group",
+                            "v202212",
+                            "as_group"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"culpa_a\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"sedbd\": {},\n      \"dolor_f\": {},\n      \"doloree6\": {},\n      \"sit_0f3\": {}\n    }\n  ]\n}",
+                      "createdAt": "2026-10-22T01:17:23.000Z",
+                      "updatedAt": "2026-10-22T01:17:23.000Z",
+                      "uid": "35240-cc25f837-dfc2-44b6-891c-c701bd1d72ac"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:17:23.000Z",
+                  "updatedAt": "2026-10-22T01:17:23.000Z",
+                  "uid": "35240-15d1ebd1-e442-45dc-9ec5-7208d5111dd0"
+                },
+                {
+                  "name": "Configure a new AS group",
+                  "id": "48635013-0e3a-46d4-9cb8-ce4e4a9ba3b7",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"asGroup\": {\n    \"name\": \"<string>\",\n    \"id\": \"<string>\",\n    \"asn\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"createdDate\": \"<dateTime>\",\n    \"updatedDate\": \"<dateTime>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/as_group/v202212/as_group",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "as_group",
+                        "v202212",
+                        "as_group"
+                      ]
+                    },
+                    "description": "Create configuration for a new AS group. Returns the newly created configuration."
+                  },
+                  "response": [
+                    {
+                      "id": "6d9a986b-2569-4fd5-9723-b39b1de52dda",
+                      "name": "A successful response.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-CH-Auth-Email",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"asGroup\": {\n    \"name\": \"<string>\",\n    \"id\": \"<string>\",\n    \"asn\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"createdDate\": \"<dateTime>\",\n    \"updatedDate\": \"<dateTime>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/as_group/v202212/as_group",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "as_group",
+                            "v202212",
+                            "as_group"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"asGroup\": {\n    \"name\": \"<string>\",\n    \"id\": \"<string>\",\n    \"asn\": [\n      {\n        \"asn\": \"<long>\",\n        \"name\": \"<string>\"\n      },\n      {\n        \"asn\": \"<long>\",\n        \"name\": \"<string>\"\n      }\n    ],\n    \"createdDate\": \"<dateTime>\",\n    \"updatedDate\": \"<dateTime>\"\n  }\n}",
+                      "createdAt": "2026-10-22T01:17:23.000Z",
+                      "updatedAt": "2026-10-22T01:17:23.000Z",
+                      "uid": "35240-6d9a986b-2569-4fd5-9723-b39b1de52dda"
+                    },
+                    {
+                      "id": "844d1a14-0f17-4aa2-b10b-1aa65b9ea9d2",
+                      "name": "An unexpected error response.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-CH-Auth-Email",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"asGroup\": {\n    \"name\": \"<string>\",\n    \"id\": \"<string>\",\n    \"asn\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"createdDate\": \"<dateTime>\",\n    \"updatedDate\": \"<dateTime>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/as_group/v202212/as_group",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "as_group",
+                            "v202212",
+                            "as_group"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"culpa_a\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"sedbd\": {},\n      \"dolor_f\": {},\n      \"doloree6\": {},\n      \"sit_0f3\": {}\n    }\n  ]\n}",
+                      "createdAt": "2026-10-22T01:17:23.000Z",
+                      "updatedAt": "2026-10-22T01:17:23.000Z",
+                      "uid": "35240-844d1a14-0f17-4aa2-b10b-1aa65b9ea9d2"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:17:23.000Z",
+                  "updatedAt": "2026-10-22T01:17:23.000Z",
+                  "uid": "35240-48635013-0e3a-46d4-9cb8-ce4e4a9ba3b7"
                 }
               ],
-              "body": "{\n  \"asGroups\": [\n    {\n      \"name\": \"string\",\n      \"id\": \"string\",\n      \"asn\": [\n        {\n          \"asn\": 173,\n          \"name\": \"string\"\n        },\n        {\n          \"asn\": 6274,\n          \"name\": \"string\"\n        }\n      ],\n      \"createdDate\": \"2004-04-08T21:16:07.400Z\",\n      \"updatedDate\": \"1965-09-20T01:57:08.685Z\"\n    },\n    {\n      \"name\": \"string\",\n      \"id\": \"string\",\n      \"asn\": [\n        {\n          \"asn\": 22,\n          \"name\": \"string\"\n        },\n        {\n          \"asn\": 9463,\n          \"name\": \"string\"\n        }\n      ],\n      \"createdDate\": \"1953-08-13T20:33:13.666Z\",\n      \"updatedDate\": \"1949-12-01T09:57:37.944Z\"\n    }\n  ],\n  \"invalidCount\": 3909\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "f788ca13-4319-4bb8-87b7-917f217ba30c",
-              "name": "An unexpected error response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "as_group",
-                    "v202212",
-                    "as_group"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 2120,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "1e11c507-cf69-4a06-acc7-83e56e13fcb9",
+              "createdAt": "2026-10-22T01:17:23.000Z",
+              "updatedAt": "2026-10-22T01:17:23.000Z",
+              "uid": "35240-1e11c507-cf69-4a06-acc7-83e56e13fcb9"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "20395980-ea8e-477e-9e3d-5af4a577d58f",
-          "name": "Configure a new AS group.",
-          "request": {
-            "name": "Configure a new AS group.",
-            "description": {
-              "content": "Create configuration for a new AS group. Returns the newly created configuration.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "as_group",
-                "v202212",
-                "as_group"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"asGroup\": {\n    \"name\": \"<string>\",\n    \"asn\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "4727dfa6-c92f-42df-a629-502834accbd6",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "as_group",
-                    "v202212",
-                    "as_group"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"asGroup\": {\n    \"name\": \"<string>\",\n    \"asn\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"asGroup\": {\n    \"name\": \"string\",\n    \"id\": \"string\",\n    \"asn\": [\n      {\n        \"asn\": 9393,\n        \"name\": \"string\"\n      },\n      {\n        \"asn\": 8097,\n        \"name\": \"string\"\n      }\n    ],\n    \"createdDate\": \"1987-01-08T01:52:10.456Z\",\n    \"updatedDate\": \"2018-02-09T10:24:40.446Z\"\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "66c6b878-9f95-4eb3-a6c3-7a1ce351d1b8",
-              "name": "An unexpected error response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "as_group",
-                    "v202212",
-                    "as_group"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"asGroup\": {\n    \"name\": \"<string>\",\n    \"asn\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 323,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "0adc8124-093a-4a60-83ad-bb49ae747fd5",
-          "name": "Updates configuration of a AS group.",
-          "request": {
-            "name": "Updates configuration of a AS group.",
-            "description": {
-              "content": "Replaces configuration of a AS group with attributes in the request. Returns the updated configuration.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "as_group",
-                "v202212",
-                "as_group",
-                ":asGroup.id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "asGroup.id",
-                  "description": "(Required) System generated unique identifier"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PUT",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"asGroup\": {\n    \"name\": \"<string>\",\n    \"asn\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"name\": 8599\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "9612268f-a9eb-4eed-98fc-2b67108942d2",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "as_group",
-                    "v202212",
-                    "as_group",
-                    ":asGroup.id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "asGroup.id",
-                      "description": "(Required) System generated unique identifier"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"asGroup\": {\n    \"name\": \"<string>\",\n    \"asn\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"name\": 4678\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"asGroup\": {\n    \"name\": \"string\",\n    \"id\": \"string\",\n    \"asn\": [\n      {\n        \"asn\": 5199,\n        \"name\": \"string\"\n      },\n      {\n        \"asn\": 9628,\n        \"name\": \"string\"\n      }\n    ],\n    \"createdDate\": \"1961-03-26T05:25:06.826Z\",\n    \"updatedDate\": \"1963-11-05T00:03:59.696Z\"\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "9035daf1-75d8-47ff-818f-5e415baa32c2",
-              "name": "An unexpected error response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "as_group",
-                    "v202212",
-                    "as_group",
-                    ":asGroup.id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "asGroup.id",
-                      "description": "(Required) System generated unique identifier"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"asGroup\": {\n    \"name\": \"<string>\",\n    \"asn\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"name\": 4678\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 323,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "354dc497-1f0a-402f-9106-9e0ab530a37f",
-          "name": "Retrieve configuration of a AS group.",
-          "request": {
-            "name": "Retrieve configuration of a AS group.",
-            "description": {
-              "content": "Returns configuration of a AS group specified by ID.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "as_group",
-                "v202212",
-                "as_group",
-                ":asGroup.id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "asGroup.id",
-                  "description": "(Required) ID of the requested AS group"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "d4570980-7bd7-40b1-9d30-7d8a9394499d",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "as_group",
-                    "v202212",
-                    "as_group",
-                    ":asGroup.id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "asGroup.id",
-                      "description": "(Required) ID of the requested AS group"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"asGroup\": {\n    \"name\": \"string\",\n    \"id\": \"string\",\n    \"asn\": [\n      {\n        \"asn\": 9856,\n        \"name\": \"string\"\n      },\n      {\n        \"asn\": 1076,\n        \"name\": \"string\"\n      }\n    ],\n    \"createdDate\": \"1962-10-27T16:30:58.085Z\",\n    \"updatedDate\": \"1979-10-03T04:25:49.387Z\"\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "20908bda-3617-4895-884e-127455dbc291",
-              "name": "An unexpected error response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "as_group",
-                    "v202212",
-                    "as_group",
-                    ":asGroup.id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "asGroup.id",
-                      "description": "(Required) ID of the requested AS group"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 323,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "d333d972-f484-491e-abeb-85be4590487b",
-          "name": "Delete configuration of a AS group.",
-          "request": {
-            "name": "Delete configuration of a AS group.",
-            "description": {
-              "content": "Deletes configuration of a AS group with specific ID.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "as_group",
-                "v202212",
-                "as_group",
-                ":asGroup.id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "asGroup.id",
-                  "description": "(Required) ID of the AS group to be deleted"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "6ae7309b-178e-4e29-bc01-c7ff1835a17b",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "as_group",
-                    "v202212",
-                    "as_group",
-                    ":asGroup.id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "asGroup.id",
-                      "description": "(Required) ID of the AS group to be deleted"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "25fb084b-97c3-4fdb-8af4-39d0383d1997",
-              "name": "An unexpected error response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "as_group",
-                    "v202212",
-                    "as_group",
-                    ":asGroup.id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "asGroup.id",
-                      "description": "(Required) ID of the AS group to be deleted"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-CH-Auth-Email",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 323,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "bb57b025-f874-4bf1-b2df-0a2ad3451859",
+          "createdAt": "2026-10-22T01:17:23.000Z",
+          "updatedAt": "2026-10-22T01:17:23.000Z",
+          "uid": "35240-bb57b025-f874-4bf1-b2df-0a2ad3451859"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "/",
-      "key": "baseUrl"
+      "id": "de1e00c5-59c2-42a8-bbbb-c8c91dccb8f3",
+      "createdAt": "2026-10-22T01:17:23.000Z",
+      "updatedAt": "2026-10-22T01:17:23.000Z",
+      "uid": "35240-de1e00c5-59c2-42a8-bbbb-c8c91dccb8f3"
     }
   ],
   "auth": {
@@ -799,25 +816,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "X-CH-Auth-Email"
+        "value": "X-CH-Auth-Email",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "61178832-d799-4a9f-a998-3d29ee3d6be6",
-    "name": "AI Advisor AiAdvisorDataService ASGroupService API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "# Overview\nProvides programmatic access to AI Advisor.\n\nContact Support:\n Name: Kentik API Engineering",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
     }
-  }
+  ]
 }
