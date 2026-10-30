@@ -64,6 +64,177 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Kentik is a company surfaced as a portfolio company of dcvc and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+Kentik is a network observability company whose SaaS platform (the Kentik Portal) unifies network flow records, BGP routing, SNMP and streaming telemetry, synthetic tests, and cloud VPC/flow logs into one analytics engine for network performance monitoring, capacity planning, DDoS detection and mitigation, cloud and container visibility, service-provider peering and OTT analytics, and AI-driven network intelligence. The Kentik V6 API is a gRPC-first platform with REST/JSON transcoding that exposes dozens of services — devices, sites, labels, users, alert policies, mitigations, synthetics, cloud export, notification channels, capacity plans, and an AI Advisor MCP server — authenticated with X-CH-Auth-Email plus X-CH-Auth-API-Token headers.
 
-Backed by: dcvc
+**Areas:** Network Observability · Network Monitoring · Flow Analytics · BGP · Synthetics · DDoS · Cloud · Telemetry · NMS · gRPC · AIOps · Observability
+
+## Kentik on APIs.io
+
+Everything profiled for Kentik is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/kentik/](https://apis.io/providers/kentik/)** — or go straight to one of the APIs or properties below.
+
+### APIs (24)
+
+- [Kentik AiAdvisorDataService API](https://apis.io/apis/kentik/kentik-aiadvisordataservice-api/) — The AiAdvisorDataService API from Kentik — 2 operation(s) for aiadvisordataservice.
+- [Kentik AlertService API](https://apis.io/apis/kentik/kentik-alertservice-api/) — The AlertService API from Kentik — 7 operation(s) for alertservice.
+- [Kentik ASGroupService API](https://apis.io/apis/kentik/kentik-asgroupservice-api/) — The ASGroupService API from Kentik — 2 operation(s) for asgroupservice.
+- [Kentik BgpMonitoringAdminService API](https://apis.io/apis/kentik/kentik-bgpmonitoringadminservice-api/) — The BgpMonitoringAdminService API from Kentik — 3 operation(s) for bgpmonitoringadminservice.
+- [Kentik BgpMonitoringDataService API](https://apis.io/apis/kentik/kentik-bgpmonitoringdataservice-api/) — The BgpMonitoringDataService API from Kentik — 2 operation(s) for bgpmonitoringdataservice.
+- [Kentik CapacityPlanService API](https://apis.io/apis/kentik/kentik-capacityplanservice-api/) — The CapacityPlanService API from Kentik — 4 operation(s) for capacityplanservice.
+- [Kentik CloudExportAdminService API](https://apis.io/apis/kentik/kentik-cloudexportadminservice-api/) — The CloudExportAdminService API from Kentik — 2 operation(s) for cloudexportadminservice.
+- [Kentik CostService API](https://apis.io/apis/kentik/kentik-costservice-api/) — The CostService API from Kentik — 3 operation(s) for costservice.
+- [Kentik CustomDimensionService API](https://apis.io/apis/kentik/kentik-customdimensionservice-api/) — The CustomDimensionService API from Kentik — 6 operation(s) for customdimensionservice.
+- [Kentik DeviceService API](https://apis.io/apis/kentik/kentik-deviceservice-api/) — The DeviceService API from Kentik — 7 operation(s) for deviceservice.
+- [Kentik FlowTagService API](https://apis.io/apis/kentik/kentik-flowtagservice-api/) — The FlowTagService API from Kentik — 2 operation(s) for flowtagservice.
+- [Kentik KmiService API](https://apis.io/apis/kentik/kentik-kmiservice-api/) — The KmiService API from Kentik — 5 operation(s) for kmiservice.
+- [Kentik LabelService API](https://apis.io/apis/kentik/kentik-labelservice-api/) — The LabelService API from Kentik — 2 operation(s) for labelservice.
+- [Kentik MitigationsService API](https://apis.io/apis/kentik/kentik-mitigationsservice-api/) — The MitigationsService API from Kentik — 4 operation(s) for mitigationsservice.
+- [Kentik NotificationChannelService API](https://apis.io/apis/kentik/kentik-notificationchannelservice-api/) — The NotificationChannelService API from Kentik — 3 operation(s) for notificationchannelservice.
+- [Kentik PackageService API](https://apis.io/apis/kentik/kentik-packageservice-api/) — The PackageService API from Kentik — 2 operation(s) for packageservice.
+- [Kentik PolicyService API](https://apis.io/apis/kentik/kentik-policyservice-api/) — The PolicyService API from Kentik — 4 operation(s) for policyservice.
+- [Kentik SiteService API](https://apis.io/apis/kentik/kentik-siteservice-api/) — The SiteService API from Kentik — 4 operation(s) for siteservice.
+- [Kentik SyntheticsAdminService API](https://apis.io/apis/kentik/kentik-syntheticsadminservice-api/) — The SyntheticsAdminService API from Kentik — 7 operation(s) for syntheticsadminservice.
+- [Kentik SyntheticsDataService API](https://apis.io/apis/kentik/kentik-syntheticsdataservice-api/) — The SyntheticsDataService API from Kentik — 3 operation(s) for syntheticsdataservice.
+- [Kentik TenantService API](https://apis.io/apis/kentik/kentik-tenantservice-api/) — The TenantService API from Kentik — 2 operation(s) for tenantservice.
+- [Kentik TenantUserService API](https://apis.io/apis/kentik/kentik-tenantuserservice-api/) — The TenantUserService API from Kentik — 2 operation(s) for tenantuserservice.
+- [Kentik UserService API](https://apis.io/apis/kentik/kentik-userservice-api/) — The UserService API from Kentik — 4 operation(s) for userservice.
+- [Kentik Audit Service API](https://apis.io/apis/kentik/kentik-audit-service-api/) — The Audit Service API from Kentik — 3 operation(s) for audit service.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### AsyncAPI (1)
+
+Event-driven and webhook contracts.
+
+- [Kentik Webhooks](https://apis.io/asyncapis/kentik/kentik-webhooks/)
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [Kentik AI Advisor MCP Server](https://apis.io/servers/kentik/kentik-ai-advisor-mcp-server/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Kentik Agentic Access](https://apis.io/agentic-access/kentik/kentik-agentic-access/)
+
+#### Collections (24)
+
+Postman and Open Collection request collections.
+
+- [AI Advisor AiAdvisorDataService API](https://apis.io/collections/kentik/open-kentik-aiadvisordataservice-api/)
+- [AI Advisor AiAdvisorDataService AlertService API](https://apis.io/collections/kentik/open-kentik-alertservice-api/)
+- [AI Advisor AiAdvisorDataService ASGroupService API](https://apis.io/collections/kentik/open-kentik-asgroupservice-api/)
+- [AI Advisor AiAdvisorDataService AuditService API](https://apis.io/collections/kentik/open-kentik-auditservice-api/)
+- [AI Advisor AiAdvisorDataService BgpMonitoringAdminService API](https://apis.io/collections/kentik/open-kentik-bgpmonitoringadminservice-api/)
+- [AI Advisor AiAdvisorDataService BgpMonitoringDataService API](https://apis.io/collections/kentik/open-kentik-bgpmonitoringdataservice-api/)
+- [AI Advisor AiAdvisorDataService CapacityPlanService API](https://apis.io/collections/kentik/open-kentik-capacityplanservice-api/)
+- [AI Advisor AiAdvisorDataService CloudExportAdminService API](https://apis.io/collections/kentik/open-kentik-cloudexportadminservice-api/)
+- [AI Advisor AiAdvisorDataService CostService API](https://apis.io/collections/kentik/open-kentik-costservice-api/)
+- [AI Advisor AiAdvisorDataService CustomDimensionService API](https://apis.io/collections/kentik/open-kentik-customdimensionservice-api/)
+- [AI Advisor AiAdvisorDataService DeviceService API](https://apis.io/collections/kentik/open-kentik-deviceservice-api/)
+- [AI Advisor AiAdvisorDataService FlowTagService API](https://apis.io/collections/kentik/open-kentik-flowtagservice-api/)
+- [AI Advisor AiAdvisorDataService KmiService API](https://apis.io/collections/kentik/open-kentik-kmiservice-api/)
+- [AI Advisor AiAdvisorDataService LabelService API](https://apis.io/collections/kentik/open-kentik-labelservice-api/)
+- [AI Advisor AiAdvisorDataService MitigationsService API](https://apis.io/collections/kentik/open-kentik-mitigationsservice-api/)
+- [AI Advisor AiAdvisorDataService NotificationChannelService API](https://apis.io/collections/kentik/open-kentik-notificationchannelservice-api/)
+- [AI Advisor AiAdvisorDataService PackageService API](https://apis.io/collections/kentik/open-kentik-packageservice-api/)
+- [AI Advisor AiAdvisorDataService PolicyService API](https://apis.io/collections/kentik/open-kentik-policyservice-api/)
+- [AI Advisor AiAdvisorDataService SiteService API](https://apis.io/collections/kentik/open-kentik-siteservice-api/)
+- [AI Advisor AiAdvisorDataService SyntheticsAdminService API](https://apis.io/collections/kentik/open-kentik-syntheticsadminservice-api/)
+- [AI Advisor AiAdvisorDataService SyntheticsDataService API](https://apis.io/collections/kentik/open-kentik-syntheticsdataservice-api/)
+- [AI Advisor AiAdvisorDataService TenantService API](https://apis.io/collections/kentik/open-kentik-tenantservice-api/)
+- [AI Advisor AiAdvisorDataService TenantUserService API](https://apis.io/collections/kentik/open-kentik-tenantuserservice-api/)
+- [AI Advisor AiAdvisorDataService UserService API](https://apis.io/collections/kentik/open-kentik-userservice-api/)
+
+#### Overlays (4)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Kentik Alerting Overlay](https://apis.io/overlays/kentik/kentik-alerting-overlay/)
+- [Kentik Cloud Export Overlay](https://apis.io/overlays/kentik/kentik-cloud-export-overlay/)
+- [Kentik Device Overlay](https://apis.io/overlays/kentik/kentik-device-overlay/)
+- [Kentik Synthetics Overlay](https://apis.io/overlays/kentik/kentik-synthetics-overlay/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Kentik Authentication](https://apis.io/security/kentik/kentik-authentication/)
+- [Kentik Domain Security](https://apis.io/security/kentik/kentik-domain-security/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.kentik.com/)
+- [Documentation](https://kb.kentik.com/docs/apis-overview)
+- [Getting started](https://kb.kentik.com/docs/getting-started)
+- [API reference](https://kb.kentik.com/docs/v6-apis)
+- [Pricing](https://www.kentik.com/pricing/)
+- [Sign up](https://www.kentik.com/go/get-started/)
+- [Support](https://kb.kentik.com/docs/how-to-submit-a-support-request)
+- [Blog](https://www.kentik.com/blog/)
+- [Trust centre](https://trust.kentik.com/)
+- [Terms of service](https://www.kentik.com/terms-of-use/)
+- [Privacy policy](https://www.kentik.com/privacy-policy/)
+- [GitHub](https://github.com/kentik)
+- [Status](https://status.kentik.com/)
+
+## API Evangelist rating
+
+**Kin Score 54.0** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 76.7 |
+| Contract quality | 55.4 |
+| Contract governance | 4.5 |
+| Operational transparency | 50.0 |
+| Developer ergonomics | 67.3 |
+| Access clarity | 52.6 |
+
+**Agent readiness 28.2** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | documented (partial credit) |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | yes |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 29.4** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/kentik/](https://apis.io/providers/kentik/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Kentik: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/kentik/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
